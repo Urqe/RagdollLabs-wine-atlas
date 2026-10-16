@@ -1,0 +1,104 @@
+/*
+ * RagLabs Wine Atlas
+ * ------------------
+ * Presentation only. Wine knowledge lives in data/*.json and behavior in app.js.
+ * Keeping these layers separate makes later review and expansion less error-prone.
+ */
+:root {
+  --bg: #0e0a0c;
+  --panel: #171114;
+  --line: #3b2930;
+  --text: #f6efe9;
+  --muted: #b7a8ad;
+  --gold: #c9ab6b;
+  --wine: #6e1d35;
+  --wine2: #a04460;
+  --focus: #f2cf82;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 12% 0%, rgba(110,29,53,.18), transparent 30%), var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+}
+
+.wrap { max-width: 1400px; margin: auto; padding: 22px; }
+.hero { background: linear-gradient(145deg,#1a1115,#120d10); border: 1px solid var(--line); border-radius: 24px; padding: 28px; display: flex; justify-content: space-between; gap: 24px; align-items: center; }
+.kicker { color: var(--gold); text-transform: uppercase; letter-spacing: .15em; font-size: 11px; font-weight: 800; }
+h1, h2 { font-family: Georgia, serif; }
+h1 { font-size: clamp(40px,6vw,72px); line-height: .95; margin: 9px 0 12px; font-weight: 500; }
+.tagline { font: italic 20px Georgia, serif; color: #decfd3; }
+.hero p { max-width: 760px; color: var(--muted); line-height: 1.55; }
+.grapes { font-size: 94px; opacity: .13; letter-spacing: -20px; transform: rotate(-8deg); }
+
+.layout { display: grid; grid-template-columns: 350px 1fr; gap: 18px; margin-top: 18px; }
+.card { background: rgba(23,17,20,.96); border: 1px solid var(--line); border-radius: 18px; padding: 18px; box-shadow: 0 14px 30px rgba(0,0,0,.16); }
+.side { position: sticky; top: 12px; align-self: start; }
+.serve-card { margin-top: 16px; }
+
+.mode { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+.mode button { padding: 10px; border-radius: 10px; border: 1px solid var(--line); background: #110c0f; color: var(--muted); font-weight: 700; cursor: pointer; }
+.mode button.on { background: var(--wine); color: white; }
+
+/* Explicit focus treatment avoids relying on browser defaults against a dark theme. */
+button:focus-visible, select:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+label { display: block; color: var(--muted); font-size: 12px; margin: 12px 0 6px; }
+select { width: 100%; padding: 10px 11px; background: #100c0e; color: var(--text); border: 1px solid var(--line); border-radius: 10px; }
+
+.titleline { display: flex; justify-content: space-between; gap: 12px; align-items: center; flex-wrap: wrap; }
+.titleline h2 { font-size: 26px; margin: 0; }
+.pill { padding: 5px 9px; border: 1px solid var(--line); border-radius: 999px; color: #ddced3; font-size: 11px; background: #22161a; }
+.summary { font-size: 17px; line-height: 1.55; margin: 12px 0; }
+.climate { padding: 11px 13px; background: #120d10; border-left: 3px solid var(--gold); border-radius: 8px; color: #cdbfc3; font-size: 13px; }
+.content2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+h3 { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin: 18px 0 10px; }
+
+.bars { display: grid; gap: 9px; }
+.bar { display: grid; grid-template-columns: 100px 1fr 38px; gap: 9px; align-items: center; font-size: 12px; }
+.track { height: 9px; border-radius: 99px; background: #2b1e23; overflow: hidden; }
+.fill { height: 100%; background: linear-gradient(90deg,var(--wine2),var(--gold)); border-radius: 99px; }
+.score { text-align: right; color: #d7c9ce; }
+
+.note-groups { display: grid; gap: 10px; }
+.note-group { background: #120d10; border: 1px solid #302128; border-radius: 12px; padding: 10px; }
+.note-group-title { margin: 0 0 8px; font-size: 10px; color: var(--gold); text-transform: uppercase; letter-spacing: .08em; }
+.chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.chip { padding: 6px 9px; background: #21161a; border: 1px solid #35252b; border-radius: 999px; font-size: 11px; color: #e6dade; }
+
+.serve { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
+.box { background: #120d10; border: 1px solid #302128; border-radius: 12px; padding: 12px; }
+.box .k { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; }
+.box .v { font-size: 15px; font-weight: 700; margin-top: 4px; }
+
+.compareControls { display: grid; gap: 8px; }
+.compareGrid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 12px; }
+.compareCard { background: #120d10; border: 1px solid #302128; border-radius: 14px; padding: 14px; }
+.compareCard h3 { font: 20px Georgia, serif; text-transform: none; letter-spacing: 0; color: var(--text); margin: 0 0 5px; }
+.compare-message { padding: 14px; margin: 8px 0 14px; border: 1px solid var(--line); border-radius: 12px; background: #120d10; color: #decfd3; }
+.small { font-size: 12px; color: var(--muted); line-height: 1.45; }
+.hidden { display: none !important; }
+.footer { text-align: center; color: #89777d; font-size: 11px; padding: 22px 0 6px; }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; }
+  .content2 { grid-template-columns: 1fr; }
+  .grapes { font-size: 64px; }
+}
+
+@media (max-width: 620px) {
+  .wrap { padding: 11px; }
+  .hero { padding: 19px; }
+  .grapes { display: none; }
+  .serve { grid-template-columns: 1fr 1fr; }
+  .bar { grid-template-columns: 82px 1fr 36px; }
+}
+
+/* Visually hidden text remains available to assistive technologies. */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.compare-bars { margin-top: 10px; }
+.compare-summary { margin-top: 12px; }
