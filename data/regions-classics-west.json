@@ -1,1 +1,1312 @@
-{"burgundy":{"name":"Burgundy","country":"France","climate":"Cool to moderate","summary":"Elegant, savory and high-acid; often more restrained than New World examples.","grapes":{"pinot-noir":{"mods":{"body":-0.5,"acidity":0.5,"fruit":-0.5,"earth":1,"alcohol":-0.5},"notes":{"Fruit":["red cherry","cranberry"],"Floral":["violet"],"Earth / savory":["forest floor","mushroom"]},"serve":"15–17°C","decant":"15–45 min","glass":"Large Burgundy bowl","ageing":"5–15+ years","pairings":["duck","mushrooms","roast chicken","pork"],"expect":"Elegant and high-acid, with red cherry, cranberry and earthy complexity."},"chardonnay":{"mods":{"body":-0.5,"acidity":0.5,"oak":-0.5,"earth":1},"notes":{"Fruit":["lemon","green apple"],"Oak / ageing":["hazelnut"],"Mineral / herbal":["chalk","flint"]},"serve":"10–13°C","decant":"0–20 min","glass":"Medium-large white glass","ageing":"5–15+ years","pairings":["roast chicken","lobster","creamy sauces","soft cheese"],"expect":"Tense, mineral and citrus-led, often with restrained oak and excellent acidity."}}},"napa":{"name":"Napa Valley","country":"USA","climate":"Warm","summary":"Ripe, generous and powerful, with plush fruit and elevated alcohol.","grapes":{"cabernet-sauvignon":{"mods":{"body":0.5,"fruit":0.5,"alcohol":0.5,"oak":0.5,"acidity":-0.5},"notes":{"Fruit":["blackberry","blackcurrant","plum"],"Earth / savory":["cocoa"],"Oak / ageing":["cedar","vanilla"]},"serve":"17–18°C","decant":"60–120 min","glass":"Large Bordeaux glass","ageing":"8–20+ years","pairings":["steak","lamb","short ribs","hard cheese"],"expect":"Full-bodied and ripe, with black fruit, cedar, substantial tannin and polished oak."},"merlot":{"mods":{"body":0.5,"fruit":0.5,"alcohol":0.5,"oak":0.5},"notes":{"Fruit":["black cherry","plum"],"Earth / savory":["mocha"],"Oak / ageing":["vanilla"]},"serve":"16–18°C","decant":"30–60 min","glass":"Bordeaux glass","ageing":"5–12 years","pairings":["beef","pork","burgers","aged cheese"],"expect":"Plush and ripe, with soft black fruit, rounded tannin and sweet oak spice."}}},"bordeaux":{"name":"Bordeaux","country":"France","climate":"Moderate maritime","summary":"Structured, savory and restrained compared with warmer New World styles.","grapes":{"cabernet-sauvignon":{"mods":{"body":-0.5,"fruit":-0.5,"alcohol":-0.5,"earth":0.5,"acidity":0.5},"notes":{"Fruit":["blackcurrant","plum"],"Earth / savory":["tobacco","leather"],"Oak / ageing":["cedar"],"Mineral / herbal":["graphite"]},"serve":"16–18°C","decant":"45–90 min","glass":"Bordeaux glass","ageing":"10–25+ years","pairings":["lamb","beef","duck","hard cheese"],"expect":"Structured and savory, with blackcurrant, cedar, graphite and firm tannin."},"merlot":{"mods":{"body":-0.5,"fruit":-0.5,"acidity":0.5,"earth":0.5},"notes":{"Fruit":["plum","red cherry"],"Earth / savory":["tobacco","truffle"],"Mineral / herbal":["bay leaf"]},"serve":"16–17°C","decant":"30–60 min","glass":"Bordeaux glass","ageing":"6–15 years","pairings":["duck","beef","mushrooms","hard cheese"],"expect":"More savory and structured than plush New World Merlot, with plum, tobacco and earthy detail."}}},"willamette":{"name":"Willamette Valley","country":"USA","climate":"Cool","summary":"Fresh and aromatic, balancing New World fruit with Old World restraint.","grapes":{"pinot-noir":{"mods":{"acidity":0.5,"earth":0.5},"notes":{"Fruit":["cherry","raspberry"],"Spice":["clove"],"Earth / savory":["forest floor"]},"serve":"15–17°C","decant":"20–40 min","glass":"Burgundy bowl","ageing":"4–10 years","pairings":["duck","salmon","mushrooms","pork"],"expect":"Fresh and aromatic, with cherry, raspberry and earthy spice framed by bright acidity."}}},"barolo":{"name":"Barolo / Piedmont","country":"Italy","climate":"Moderate continental","summary":"Pale color, formidable tannin, aromatic complexity and long ageing potential.","grapes":{"nebbiolo":{"mods":{"acidity":0.5,"tannin":0.5,"earth":0.5},"notes":{"Fruit":["sour cherry"],"Floral":["rose"],"Earth / savory":["tar","truffle","leather"]},"serve":"17–18°C","decant":"90–180 min when young","glass":"Large Burgundy-style bowl","ageing":"10–30+ years","pairings":["braised beef","truffle dishes","game","aged cheese"],"expect":"Pale yet powerful, with soaring acidity, formidable tannin, rose, cherry, tar and truffle."}}},"rioja":{"name":"Rioja","country":"Spain","climate":"Moderate","summary":"Savory red fruit and oak-aged complexity, often with vanilla and leather notes.","grapes":{"tempranillo":{"mods":{"acidity":0.5,"oak":0.5,"earth":0.5},"notes":{"Fruit":["cherry","plum"],"Earth / savory":["leather"],"Oak / ageing":["vanilla","cedar","coconut"]},"serve":"16–18°C","decant":"30–60 min","glass":"Universal red / Bordeaux glass","ageing":"5–20+ years","pairings":["lamb","pork","tapas","aged Manchego"],"expect":"Savory and polished, with cherry, plum, vanilla, leather and tobacco."}}},"ribera":{"name":"Ribera del Duero","country":"Spain","climate":"Continental","summary":"Dark, powerful Tempranillo with more density and ripeness than classic Rioja.","grapes":{"tempranillo":{"mods":{"body":0.5,"fruit":0.5,"tannin":0.5,"alcohol":0.5,"oak":0.5},"notes":{"Fruit":["black cherry","plum"],"Earth / savory":["leather"],"Oak / ageing":["cedar","vanilla"]},"serve":"17–18°C","decant":"60–90 min","glass":"Large Bordeaux glass","ageing":"6–18 years","pairings":["steak","lamb","roast pork","hard cheese"],"expect":"Dense, dark-fruited and structured, with more power and ripeness than traditional Rioja."}}},"priorat":{"name":"Priorat","country":"Spain","climate":"Warm, dry","summary":"Concentrated, mineral and powerful, often blending ripe fruit with slate-like character.","grapes":{"grenache":{"mods":{"body":0.5,"fruit":0.5,"alcohol":0.5,"earth":0.5},"notes":{"Fruit":["black cherry","ripe raspberry"],"Spice":["licorice"],"Mineral / herbal":["slate"]},"serve":"17–18°C","decant":"45–90 min","glass":"Large red wine glass","ageing":"5–15 years","pairings":["lamb","grilled beef","game","roasted vegetables"],"expect":"Concentrated and mineral, with ripe red-black fruit, licorice and characteristic slate."}}},"northern-rhone":{"name":"Northern Rhône","country":"France","climate":"Moderate continental","summary":"Peppery, savory and aromatic Syrah with tension and smoked-meat complexity.","grapes":{"syrah":{"mods":{"body":-0.5,"fruit":-0.5,"alcohol":-0.5,"earth":1,"acidity":0.5},"notes":{"Fruit":["blackberry"],"Floral":["violet"],"Spice":["black pepper"],"Earth / savory":["olive","smoked meat"]},"serve":"16–18°C","decant":"45–90 min","glass":"Syrah / Bordeaux glass","ageing":"6–20 years","pairings":["lamb","beef","sausages","mushrooms"],"expect":"Peppery and savory, with blackberry, olive, smoke and violet over firm structure."}}},"barossa":{"name":"Barossa Valley","country":"Australia","climate":"Warm","summary":"Ripe, dense and powerful Shiraz with generous fruit and alcohol.","grapes":{"syrah":{"mods":{"body":0.5,"fruit":0.5,"alcohol":0.5,"oak":0.5,"acidity":-0.5},"notes":{"Fruit":["blackberry","blueberry","plum"],"Spice":["licorice"],"Earth / savory":["chocolate"],"Oak / ageing":["vanilla"]},"serve":"17–18°C","decant":"45–90 min","glass":"Large Syrah glass","ageing":"5–15 years","pairings":["barbecue","steak","lamb","smoked meats"],"expect":"Rich and muscular, with ripe blackberry, plum, licorice and sweet oak spice."}}},"mosel":{"name":"Mosel","country":"Germany","climate":"Cool","summary":"Feather-light, high-acid Riesling with slate, citrus and remarkable ageing ability.","grapes":{"riesling":{"mods":{"body":-0.5,"acidity":0.5,"alcohol":-0.5,"sweetness":0.5,"earth":0.5},"notes":{"Fruit":["lime","green apple","peach"],"Floral":["white flowers"],"Mineral / herbal":["slate"]},"serve":"8–10°C","decant":"No decant","glass":"Aromatic white wine glass","ageing":"5–20+ years","pairings":["spicy food","pork","smoked foods","soft cheese"],"expect":"Light-bodied yet intense, with piercing acidity, lime, peach and slate-like minerality."}}},"marlborough":{"name":"Marlborough","country":"New Zealand","climate":"Cool maritime","summary":"Vivid, aromatic Sauvignon Blanc with citrus, tropical fruit and herbal lift.","grapes":{"sauvignon-blanc":{"mods":{"fruit":0.5,"acidity":0.5},"notes":{"Fruit":["passionfruit","lime","gooseberry"],"Floral":["elderflower"],"Mineral / herbal":["fresh-cut grass"]},"serve":"8–10°C","decant":"No decant","glass":"Aromatic white wine glass","ageing":"1–4 years","pairings":["goat cheese","salads","green herbs","shellfish"],"expect":"Vivid and aromatic, with passionfruit, lime, gooseberry and grassy freshness."}}},"loire":{"name":"Loire Valley","country":"France","climate":"Cool to moderate","summary":"Fresh, mineral and restrained styles with strong acidity and savory detail.","grapes":{"sauvignon-blanc":{"mods":{"fruit":-0.5,"acidity":0.5,"earth":0.5},"notes":{"Fruit":["lemon","green apple"],"Mineral / herbal":["flint","chalk","fresh herbs"]},"serve":"8–10°C","decant":"No decant","glass":"Medium white wine glass","ageing":"2–7 years","pairings":["goat cheese","shellfish","salads","asparagus"],"expect":"Lean and mineral, with citrus, herbs and flinty freshness rather than tropical fruit."},"chenin-blanc":{"mods":{"acidity":0.5,"earth":0.5},"notes":{"Fruit":["quince","apple","pear"],"Oak / ageing":["honey","wax"],"Mineral / herbal":["chalk"]},"serve":"9–12°C","decant":"0–20 min","glass":"Medium white wine glass","ageing":"5–20+ years","pairings":["pork","roast chicken","goat cheese","rich vegetarian dishes"],"expect":"High-acid and versatile, with quince, apple, chalk and, with age, honeyed waxy complexity."}}},"tuscany":{"name":"Tuscany / Chianti Classico","country":"Italy","climate":"Moderate Mediterranean","summary":"High-acid, savory Sangiovese with sour cherry, herbs and earthy detail.","grapes":{"sangiovese":{"mods":{"acidity":0.5,"earth":0.5},"notes":{"Fruit":["sour cherry","red plum"],"Earth / savory":["leather"],"Mineral / herbal":["oregano","tea leaf"]},"serve":"16–18°C","decant":"30–60 min","glass":"Medium-large red wine glass","ageing":"5–15 years","pairings":["tomato pasta","roast pork","steak","pecorino"],"expect":"Bright and savory, with sour cherry, herbs, leather and food-friendly acidity."}}},"sonoma-coast":{"name":"Sonoma Coast","country":"USA","climate":"Cool maritime","summary":"Pacific fog and wind preserve freshness while California sun gives ripe, polished fruit.","grapes":{"pinot-noir":{"mods":{"body":0.5,"fruit":0.5,"alcohol":0.5},"notes":{"Fruit":["cherry","raspberry"],"Spice":["clove"],"Earth / savory":["cola","forest-floor"]},"serve":"15–17°C","decant":"20–45 min","glass":"Burgundy bowl","ageing":"4–10 years","pairings":["duck","salmon","pork","mushrooms"],"expect":"Silky and fruit-forward, with ripe cherry and raspberry balanced by coastal freshness."},"chardonnay":{"mods":{"body":0.5,"fruit":0.5,"alcohol":0.5},"notes":{"Fruit":["ripe-apple","lemon","pear"],"Oak / ageing":["vanilla","hazelnut"]},"serve":"10–13°C","decant":"10–20 min","glass":"Large white wine glass","ageing":"3–8 years","pairings":["roast chicken","lobster","cream sauces","salmon"],"expect":"Ripe but fresh, often combining orchard fruit, citrus and restrained oak."}}},"central-otago":{"name":"Central Otago","country":"New Zealand","climate":"Cool continental","summary":"High sunshine and large day-night swings create vivid fruit while retaining acidity.","grapes":{"pinot-noir":{"mods":{"body":0.5,"fruit":1,"alcohol":0.5,"earth":-0.5},"notes":{"Fruit":["black cherry","raspberry","plum"],"Floral":["violet"],"Spice":["spice"]},"serve":"15–17°C","decant":"20–40 min","glass":"Burgundy bowl","ageing":"4–9 years","pairings":["duck","lamb","pork","mushrooms"],"expect":"Juicy and intense for Pinot Noir, with dark cherry, plum and bright acidity."}}},"ahr":{"name":"Ahr","country":"Germany","climate":"Cool continental","summary":"A northerly red-wine enclave producing delicate, high-acid Pinot with mineral and smoky detail.","grapes":{"pinot-noir":{"mods":{"body":-0.5,"acidity":0.5,"fruit":-0.5,"earth":0.5,"alcohol":-0.5},"notes":{"Fruit":["red cherry","cranberry"],"Earth / savory":["smoke"],"Mineral / herbal":["herbs","mineral"]},"serve":"14–16°C","decant":"10–30 min","glass":"Burgundy bowl","ageing":"3–8 years","pairings":["pork","duck","mushrooms","charcuterie"],"expect":"Light, lifted and savory, with red fruit, smoke and brisk acidity."}}}}
+{
+  "burgundy": {
+    "name": "Burgundy",
+    "country": "France",
+    "climate": "Cool to moderate",
+    "summary": "Elegant, savory and high-acid; often more restrained than New World examples.",
+    "grapes": {
+      "pinot-noir": {
+        "mods": {
+          "body": -0.5,
+          "acidity": 0.5,
+          "fruit": -0.5,
+          "earth": 1,
+          "alcohol": -0.5
+        },
+        "notes": {
+          "Fruit": [
+            "red cherry",
+            "cranberry"
+          ],
+          "Floral": [
+            "violet"
+          ],
+          "Earth / savory": [
+            "forest floor",
+            "mushroom"
+          ]
+        },
+        "serve": "15–17°C",
+        "decant": "15–45 min",
+        "glass": "Large Burgundy bowl",
+        "ageing": "5–15+ years",
+        "pairings": [
+          "duck",
+          "mushrooms",
+          "roast chicken",
+          "pork"
+        ],
+        "expect": "Elegant and high-acid, with red cherry, cranberry and earthy complexity."
+      },
+      "chardonnay": {
+        "mods": {
+          "body": -0.5,
+          "acidity": 0.5,
+          "oak": -0.5,
+          "earth": 1
+        },
+        "notes": {
+          "Fruit": [
+            "lemon",
+            "green apple"
+          ],
+          "Oak / ageing": [
+            "hazelnut"
+          ],
+          "Mineral / herbal": [
+            "chalk",
+            "flint"
+          ]
+        },
+        "serve": "10–13°C",
+        "decant": "0–20 min",
+        "glass": "Medium-large white glass",
+        "ageing": "5–15+ years",
+        "pairings": [
+          "roast chicken",
+          "lobster",
+          "creamy sauces",
+          "soft cheese"
+        ],
+        "expect": "Tense, mineral and citrus-led, often with restrained oak and excellent acidity."
+      }
+    },
+    "identity": {
+      "setting": "Cool to moderate continental",
+      "terrain": "Limestone escarpments (côtes) and valley slopes",
+      "soil": "Limestone, clay, marl",
+      "influences": [
+        "Monks' centuries-old parcel mapping",
+        "East- and south-facing slope sites"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Limestone-rich slopes",
+        "effect": "Give Chardonnay and Pinot Noir minerality and finesse"
+      },
+      {
+        "cause": "Cool continental climate",
+        "effect": "Preserves acidity and keeps fruit restrained rather than jammy"
+      },
+      {
+        "cause": "Centuries of parcel-by-parcel classification",
+        "effect": "Vineyard designation matters as much as grape variety"
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "bivb",
+      "oxford-companion"
+    ]
+  },
+  "napa": {
+    "name": "Napa Valley",
+    "country": "USA",
+    "climate": "Warm",
+    "summary": "Ripe, generous and powerful, with plush fruit and elevated alcohol.",
+    "grapes": {
+      "cabernet-sauvignon": {
+        "mods": {
+          "body": 0.5,
+          "fruit": 0.5,
+          "alcohol": 0.5,
+          "oak": 0.5,
+          "acidity": -0.5
+        },
+        "notes": {
+          "Fruit": [
+            "blackberry",
+            "blackcurrant",
+            "plum"
+          ],
+          "Earth / savory": [
+            "cocoa"
+          ],
+          "Oak / ageing": [
+            "cedar",
+            "vanilla"
+          ]
+        },
+        "serve": "17–18°C",
+        "decant": "60–120 min",
+        "glass": "Large Bordeaux glass",
+        "ageing": "8–20+ years",
+        "pairings": [
+          "steak",
+          "lamb",
+          "short ribs",
+          "hard cheese"
+        ],
+        "expect": "Full-bodied and ripe, with black fruit, cedar, substantial tannin and polished oak."
+      },
+      "merlot": {
+        "mods": {
+          "body": 0.5,
+          "fruit": 0.5,
+          "alcohol": 0.5,
+          "oak": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "black cherry",
+            "plum"
+          ],
+          "Earth / savory": [
+            "mocha"
+          ],
+          "Oak / ageing": [
+            "vanilla"
+          ]
+        },
+        "serve": "16–18°C",
+        "decant": "30–60 min",
+        "glass": "Bordeaux glass",
+        "ageing": "5–12 years",
+        "pairings": [
+          "beef",
+          "pork",
+          "burgers",
+          "aged cheese"
+        ],
+        "expect": "Plush and ripe, with soft black fruit, rounded tannin and sweet oak spice."
+      }
+    },
+    "identity": {
+      "setting": "Warm Mediterranean",
+      "terrain": "Valley floor flanked by the Mayacamas and Vaca mountains",
+      "soil": "Gravelly alluvial fans, volcanic soils on hillsides",
+      "influences": [
+        "San Pablo Bay fog creeping up the valley",
+        "Long, dry, sunny growing season"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Warm sunshine and a long season",
+        "effect": "Promotes ripe blackberry and cassis flavors"
+      },
+      {
+        "cause": "Valley floor warmth",
+        "effect": "Contributes to fuller body and higher alcohol"
+      },
+      {
+        "cause": "New French oak ageing",
+        "effect": "Adds cedar, vanilla and cocoa notes"
+      }
+    ],
+    "badges": [
+      "Classic",
+      "New World"
+    ],
+    "sources": [
+      "napa-vintners",
+      "oxford-companion"
+    ]
+  },
+  "bordeaux": {
+    "name": "Bordeaux",
+    "country": "France",
+    "climate": "Moderate maritime",
+    "summary": "Structured, savory and restrained compared with warmer New World styles.",
+    "grapes": {
+      "cabernet-sauvignon": {
+        "mods": {
+          "body": -0.5,
+          "fruit": -0.5,
+          "alcohol": -0.5,
+          "earth": 0.5,
+          "acidity": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "blackcurrant",
+            "plum"
+          ],
+          "Earth / savory": [
+            "tobacco",
+            "leather"
+          ],
+          "Oak / ageing": [
+            "cedar"
+          ],
+          "Mineral / herbal": [
+            "graphite"
+          ]
+        },
+        "serve": "16–18°C",
+        "decant": "45–90 min",
+        "glass": "Bordeaux glass",
+        "ageing": "10–25+ years",
+        "pairings": [
+          "lamb",
+          "beef",
+          "duck",
+          "hard cheese"
+        ],
+        "expect": "Structured and savory, with blackcurrant, cedar, graphite and firm tannin."
+      },
+      "merlot": {
+        "mods": {
+          "body": -0.5,
+          "fruit": -0.5,
+          "acidity": 0.5,
+          "earth": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "plum",
+            "red cherry"
+          ],
+          "Earth / savory": [
+            "tobacco",
+            "truffle"
+          ],
+          "Mineral / herbal": [
+            "bay leaf"
+          ]
+        },
+        "serve": "16–17°C",
+        "decant": "30–60 min",
+        "glass": "Bordeaux glass",
+        "ageing": "6–15 years",
+        "pairings": [
+          "duck",
+          "beef",
+          "mushrooms",
+          "hard cheese"
+        ],
+        "expect": "More savory and structured than plush New World Merlot, with plum, tobacco and earthy detail."
+      }
+    },
+    "identity": {
+      "setting": "Moderate maritime",
+      "terrain": "Flat gravel banks near the Gironde estuary and limestone plateau",
+      "soil": "Deep gravel (Left Bank), clay-limestone (Right Bank)",
+      "influences": [
+        "Gulf Stream warmth",
+        "Estuary and pine forest moderating temperatures"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Deep Left Bank gravel",
+        "effect": "Drains early and suits late-ripening Cabernet Sauvignon"
+      },
+      {
+        "cause": "Maritime climate",
+        "effect": "Keeps alcohol moderate and retains savoury, leafy character"
+      },
+      {
+        "cause": "Centuries of blending tradition",
+        "effect": "Winemakers balance Cabernet's structure with Merlot's plumpness"
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "civb",
+      "world-atlas-of-wine"
+    ]
+  },
+  "willamette": {
+    "name": "Willamette Valley",
+    "country": "USA",
+    "climate": "Cool",
+    "summary": "Fresh and aromatic, balancing New World fruit with Old World restraint.",
+    "grapes": {
+      "pinot-noir": {
+        "mods": {
+          "acidity": 0.5,
+          "earth": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "cherry",
+            "raspberry"
+          ],
+          "Spice": [
+            "clove"
+          ],
+          "Earth / savory": [
+            "forest floor"
+          ]
+        },
+        "serve": "15–17°C",
+        "decant": "20–40 min",
+        "glass": "Burgundy bowl",
+        "ageing": "4–10 years",
+        "pairings": [
+          "duck",
+          "salmon",
+          "mushrooms",
+          "pork"
+        ],
+        "expect": "Fresh and aromatic, with cherry, raspberry and earthy spice framed by bright acidity."
+      }
+    },
+    "identity": {
+      "setting": "Cool maritime",
+      "terrain": "Chehalem and Dundee hills, gentle slopes",
+      "soil": "Volcanic red Jory soils, marine sedimentary loess",
+      "influences": [
+        "Van Duzer Corridor winds",
+        "Rain shadow of the Coast Range"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Cool maritime climate",
+        "effect": "Preserves bright acidity and red-fruit freshness"
+      },
+      {
+        "cause": "Volcanic Jory soils",
+        "effect": "Contribute silkiness and subtle spice"
+      }
+    ],
+    "badges": [
+      "Classic",
+      "New World"
+    ],
+    "sources": [
+      "willamette",
+      "wine-folly"
+    ]
+  },
+  "barolo": {
+    "name": "Barolo / Piedmont",
+    "country": "Italy",
+    "climate": "Moderate continental",
+    "summary": "Pale color, formidable tannin, aromatic complexity and long ageing potential.",
+    "grapes": {
+      "nebbiolo": {
+        "mods": {
+          "acidity": 0.5,
+          "tannin": 0.5,
+          "earth": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "sour cherry"
+          ],
+          "Floral": [
+            "rose"
+          ],
+          "Earth / savory": [
+            "tar",
+            "truffle",
+            "leather"
+          ]
+        },
+        "serve": "17–18°C",
+        "decant": "90–180 min when young",
+        "glass": "Large Burgundy-style bowl",
+        "ageing": "10–30+ years",
+        "pairings": [
+          "braised beef",
+          "truffle dishes",
+          "game",
+          "aged cheese"
+        ],
+        "expect": "Pale yet powerful, with soaring acidity, formidable tannin, rose, cherry, tar and truffle."
+      }
+    },
+    "identity": {
+      "setting": "Moderate continental",
+      "terrain": "Fog-trapping south-facing amphitheatres",
+      "soil": "Tortonian blue marl and Leventian calcareous sandstone",
+      "influences": [
+        "Autumn nebbia (fog) that names the grape",
+        "Long hang time before harvest"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Calcareous marl soils",
+        "effect": "Feed Nebbiolo's trademark tannin and perfume"
+      },
+      {
+        "cause": "Long, cool ripening",
+        "effect": "Builds high acidity and complex secondary aromas over decades"
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "barolo-barbaresco",
+      "oxford-companion"
+    ]
+  },
+  "rioja": {
+    "name": "Rioja",
+    "country": "Spain",
+    "climate": "Moderate",
+    "summary": "Savory red fruit and oak-aged complexity, often with vanilla and leather notes.",
+    "grapes": {
+      "tempranillo": {
+        "mods": {
+          "acidity": 0.5,
+          "oak": 0.5,
+          "earth": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "cherry",
+            "plum"
+          ],
+          "Earth / savory": [
+            "leather"
+          ],
+          "Oak / ageing": [
+            "vanilla",
+            "cedar",
+            "coconut"
+          ]
+        },
+        "serve": "16–18°C",
+        "decant": "30–60 min",
+        "glass": "Universal red / Bordeaux glass",
+        "ageing": "5–20+ years",
+        "pairings": [
+          "lamb",
+          "pork",
+          "tapas",
+          "aged Manchego"
+        ],
+        "expect": "Savory and polished, with cherry, plum, vanilla, leather and tobacco."
+      }
+    },
+    "identity": {
+      "setting": "Moderate continental with Atlantic influence",
+      "terrain": "Ebro valley terraces at foothill altitude",
+      "soil": "Limestone-clay, alluvial gravels",
+      "influences": [
+        "Sierra de Cantabria sheltering from north winds",
+        "Long oak-ageing tradition established in the 19th century"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Altitude plus Atlantic-cooled nights",
+        "effect": "Keep Tempranillo's acidity firm and savoury"
+      },
+      {
+        "cause": "Classic long barrel ageing in American oak",
+        "effect": "Adds vanilla, coconut and dill notes"
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "rioja",
+      "world-atlas-of-wine"
+    ]
+  },
+  "ribera": {
+    "name": "Ribera del Duero",
+    "country": "Spain",
+    "climate": "Continental",
+    "summary": "Dark, powerful Tempranillo with more density and ripeness than classic Rioja.",
+    "grapes": {
+      "tempranillo": {
+        "mods": {
+          "body": 0.5,
+          "fruit": 0.5,
+          "tannin": 0.5,
+          "alcohol": 0.5,
+          "oak": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "black cherry",
+            "plum"
+          ],
+          "Earth / savory": [
+            "leather"
+          ],
+          "Oak / ageing": [
+            "cedar",
+            "vanilla"
+          ]
+        },
+        "serve": "17–18°C",
+        "decant": "60–90 min",
+        "glass": "Large Bordeaux glass",
+        "ageing": "6–18 years",
+        "pairings": [
+          "steak",
+          "lamb",
+          "roast pork",
+          "hard cheese"
+        ],
+        "expect": "Dense, dark-fruited and structured, with more power and ripeness than traditional Rioja."
+      }
+    },
+    "identity": {
+      "setting": "Harsh continental, high altitude (~800 m)",
+      "terrain": "Plateaux and hills above the Duero river",
+      "soil": "Sandy topsoil over limestone, gravel terraces",
+      "influences": [
+        "Scorching summers, freezing winters",
+        "Big day-night temperature swings"
+      ]
+    },
+    "why": [
+      {
+        "cause": "High altitude and intense sun",
+        "effect": "Thicken skins and deepen colour and tannin"
+      },
+      {
+        "cause": "Cold nights",
+        "effect": "Preserve the acidity that keeps dense wines fresh"
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "ribera-duero",
+      "oxford-companion"
+    ]
+  },
+  "priorat": {
+    "name": "Priorat",
+    "country": "Spain",
+    "climate": "Warm, dry",
+    "summary": "Concentrated, mineral and powerful, often blending ripe fruit with slate-like character.",
+    "grapes": {
+      "grenache": {
+        "mods": {
+          "body": 0.5,
+          "fruit": 0.5,
+          "alcohol": 0.5,
+          "earth": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "black cherry",
+            "ripe raspberry"
+          ],
+          "Spice": [
+            "licorice"
+          ],
+          "Mineral / herbal": [
+            "slate"
+          ]
+        },
+        "serve": "17–18°C",
+        "decant": "45–90 min",
+        "glass": "Large red wine glass",
+        "ageing": "5–15 years",
+        "pairings": [
+          "lamb",
+          "grilled beef",
+          "game",
+          "roasted vegetables"
+        ],
+        "expect": "Concentrated and mineral, with ripe red-black fruit, licorice and characteristic slate."
+      }
+    },
+    "identity": {
+      "setting": "Hot, dry mountainous",
+      "terrain": "Steep terraced slopes (costers)",
+      "soil": "Black slate and quartzite shards called llicorella",
+      "influences": [
+        "Old Garnacha and Carinyena vines on own roots",
+        "Very low rainfall forcing deep vine roots"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Llicorella slate soils",
+        "effect": "Force deep roots and concentrate mineral, dark-fruit power"
+      },
+      {
+        "cause": "Very old, low-yielding vines",
+        "effect": "Produce dense, structured, ageworthy wines"
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "priorat-doc",
+      "world-atlas-of-wine"
+    ]
+  },
+  "northern-rhone": {
+    "name": "Northern Rhône",
+    "country": "France",
+    "climate": "Moderate continental",
+    "summary": "Peppery, savory and aromatic Syrah with tension and smoked-meat complexity.",
+    "grapes": {
+      "syrah": {
+        "mods": {
+          "body": -0.5,
+          "fruit": -0.5,
+          "alcohol": -0.5,
+          "earth": 1,
+          "acidity": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "blackberry"
+          ],
+          "Floral": [
+            "violet"
+          ],
+          "Spice": [
+            "black pepper"
+          ],
+          "Earth / savory": [
+            "olive",
+            "smoked meat"
+          ]
+        },
+        "serve": "16–18°C",
+        "decant": "45–90 min",
+        "glass": "Syrah / Bordeaux glass",
+        "ageing": "6–20 years",
+        "pairings": [
+          "lamb",
+          "beef",
+          "sausages",
+          "mushrooms"
+        ],
+        "expect": "Peppery and savory, with blackberry, olive, smoke and violet over firm structure."
+      }
+    },
+    "identity": {
+      "setting": "Moderate continental",
+      "terrain": "Steep granite terraces above the Rhône",
+      "soil": "Granite, gneiss, schist",
+      "influences": [
+        "Mistral wind drying the vines",
+        "Terraces requiring hand harvest"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Granite slopes and the mistral",
+        "effect": "Concentrate Syrah into savoury, peppery, olive-scented wines"
+      },
+      {
+        "cause": "Marginal northern climate for Syrah",
+        "effect": "Keep alcohol restrained and aromas smoky rather than jammy"
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "inter-rhone",
+      "oxford-companion"
+    ]
+  },
+  "barossa": {
+    "name": "Barossa Valley",
+    "country": "Australia",
+    "climate": "Warm",
+    "summary": "Ripe, dense and powerful Shiraz with generous fruit and alcohol.",
+    "grapes": {
+      "syrah": {
+        "mods": {
+          "body": 0.5,
+          "fruit": 0.5,
+          "alcohol": 0.5,
+          "oak": 0.5,
+          "acidity": -0.5
+        },
+        "notes": {
+          "Fruit": [
+            "blackberry",
+            "blueberry",
+            "plum"
+          ],
+          "Spice": [
+            "licorice"
+          ],
+          "Earth / savory": [
+            "chocolate"
+          ],
+          "Oak / ageing": [
+            "vanilla"
+          ]
+        },
+        "serve": "17–18°C",
+        "decant": "45–90 min",
+        "glass": "Large Syrah glass",
+        "ageing": "5–15 years",
+        "pairings": [
+          "barbecue",
+          "steak",
+          "lamb",
+          "smoked meats"
+        ],
+        "expect": "Rich and muscular, with ripe blackberry, plum, licorice and sweet oak spice."
+      }
+    },
+    "identity": {
+      "setting": "Warm continental",
+      "terrain": "Flat valley floor with ancient soil",
+      "soil": "Deep red clay and sandy loam over 500-million-year-old soils",
+      "influences": [
+        "Some of the oldest producing Shiraz vines in the world",
+        "Warm, dry summers"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Warm, dry growing season",
+        "effect": "Drive ripe blackberry, plum and high alcohol"
+      },
+      {
+        "cause": "Ancient, ungrafted old vines",
+        "effect": "Add density, licorice and earthy concentration"
+      }
+    ],
+    "badges": [
+      "Classic",
+      "New World"
+    ],
+    "sources": [
+      "wine-australia",
+      "oxford-companion"
+    ]
+  },
+  "mosel": {
+    "name": "Mosel",
+    "country": "Germany",
+    "climate": "Cool",
+    "summary": "Feather-light, high-acid Riesling with slate, citrus and remarkable ageing ability.",
+    "grapes": {
+      "riesling": {
+        "mods": {
+          "body": -0.5,
+          "acidity": 0.5,
+          "alcohol": -0.5,
+          "sweetness": 0.5,
+          "earth": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "lime",
+            "green apple",
+            "peach"
+          ],
+          "Floral": [
+            "white flowers"
+          ],
+          "Mineral / herbal": [
+            "slate"
+          ]
+        },
+        "serve": "8–10°C",
+        "decant": "No decant",
+        "glass": "Aromatic white wine glass",
+        "ageing": "5–20+ years",
+        "pairings": [
+          "spicy food",
+          "pork",
+          "smoked foods",
+          "soft cheese"
+        ],
+        "expect": "Light-bodied yet intense, with piercing acidity, lime, peach and slate-like minerality."
+      }
+    },
+    "identity": {
+      "setting": "Very cool continental",
+      "terrain": "Dramatically steep slate slopes above winding river bends",
+      "soil": "Blue Devonian slate",
+      "influences": [
+        "River reflections aiding ripening",
+        "Marginal-climate slopes harvested by hand"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Steep blue-slate slopes and river light",
+        "effect": "Ripen Riesling in a marginal climate at low sugars"
+      },
+      {
+        "cause": "Very cool climate",
+        "effect": "Preserve piercing acidity and delicate, light body"
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "wines-of-germany",
+      "vdp"
+    ]
+  },
+  "marlborough": {
+    "name": "Marlborough",
+    "country": "New Zealand",
+    "climate": "Cool maritime",
+    "summary": "Vivid, aromatic Sauvignon Blanc with citrus, tropical fruit and herbal lift.",
+    "grapes": {
+      "sauvignon-blanc": {
+        "mods": {
+          "fruit": 0.5,
+          "acidity": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "passionfruit",
+            "lime",
+            "gooseberry"
+          ],
+          "Floral": [
+            "elderflower"
+          ],
+          "Mineral / herbal": [
+            "fresh-cut grass"
+          ]
+        },
+        "serve": "8–10°C",
+        "decant": "No decant",
+        "glass": "Aromatic white wine glass",
+        "ageing": "1–4 years",
+        "pairings": [
+          "goat cheese",
+          "salads",
+          "green herbs",
+          "shellfish"
+        ],
+        "expect": "Vivid and aromatic, with passionfruit, lime, gooseberry and grassy freshness."
+      }
+    },
+    "identity": {
+      "setting": "Cool maritime",
+      "terrain": "Broad alluvial Wairau and Awatere valley plains",
+      "soil": "Stony, free-draining alluvium with wind-blown loess",
+      "influences": [
+        "Very long sunshine hours",
+        "Cool Pacific nights and strong UV light"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Cool nights and intense UV",
+        "effect": "Explode aromatics like passionfruit and gooseberry"
+      },
+      {
+        "cause": "Long, dry ripening",
+        "effect": "Retain grassy freshness alongside tropical fruit"
+      }
+    ],
+    "badges": [
+      "Classic",
+      "New World"
+    ],
+    "sources": [
+      "nzw-wine",
+      "wine-folly"
+    ]
+  },
+  "loire": {
+    "name": "Loire Valley",
+    "country": "France",
+    "climate": "Cool to moderate",
+    "summary": "Fresh, mineral and restrained styles with strong acidity and savory detail.",
+    "grapes": {
+      "sauvignon-blanc": {
+        "mods": {
+          "fruit": -0.5,
+          "acidity": 0.5,
+          "earth": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "lemon",
+            "green apple"
+          ],
+          "Mineral / herbal": [
+            "flint",
+            "chalk",
+            "fresh herbs"
+          ]
+        },
+        "serve": "8–10°C",
+        "decant": "No decant",
+        "glass": "Medium white wine glass",
+        "ageing": "2–7 years",
+        "pairings": [
+          "goat cheese",
+          "shellfish",
+          "salads",
+          "asparagus"
+        ],
+        "expect": "Lean and mineral, with citrus, herbs and flinty freshness rather than tropical fruit."
+      },
+      "chenin-blanc": {
+        "mods": {
+          "acidity": 0.5,
+          "earth": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "quince",
+            "apple",
+            "pear"
+          ],
+          "Oak / ageing": [
+            "honey",
+            "wax"
+          ],
+          "Mineral / herbal": [
+            "chalk"
+          ]
+        },
+        "serve": "9–12°C",
+        "decant": "0–20 min",
+        "glass": "Medium white wine glass",
+        "ageing": "5–20+ years",
+        "pairings": [
+          "pork",
+          "roast chicken",
+          "goat cheese",
+          "rich vegetarian dishes"
+        ],
+        "expect": "High-acid and versatile, with quince, apple, chalk and, with age, honeyed waxy complexity."
+      }
+    },
+    "identity": {
+      "setting": "Cool to moderate maritime-continental blend",
+      "terrain": "River valleys across a long corridor of France",
+      "soil": "Tuffeau limestone, flint (silex), chalk and clay",
+      "influences": [
+        "Atlantic coolness in the west",
+        "One river, many chalk and flint terroirs"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Cool Atlantic-influenced climate",
+        "effect": "Keep Sauvignon Blanc lean, green and mineral"
+      },
+      {
+        "cause": "Tuffeau and flint soils",
+        "effect": "Give Chenin Blanc its chalky, smoky definition"
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "oxford-companion",
+      "world-atlas-of-wine"
+    ]
+  },
+  "tuscany": {
+    "name": "Tuscany / Chianti Classico",
+    "country": "Italy",
+    "climate": "Moderate Mediterranean",
+    "summary": "High-acid, savory Sangiovese with sour cherry, herbs and earthy detail.",
+    "grapes": {
+      "sangiovese": {
+        "mods": {
+          "acidity": 0.5,
+          "earth": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "sour cherry",
+            "red plum"
+          ],
+          "Earth / savory": [
+            "leather"
+          ],
+          "Mineral / herbal": [
+            "oregano",
+            "tea leaf"
+          ]
+        },
+        "serve": "16–18°C",
+        "decant": "30–60 min",
+        "glass": "Medium-large red wine glass",
+        "ageing": "5–15 years",
+        "pairings": [
+          "tomato pasta",
+          "roast pork",
+          "steak",
+          "pecorino"
+        ],
+        "expect": "Bright and savory, with sour cherry, herbs, leather and food-friendly acidity."
+      }
+    },
+    "identity": {
+      "setting": "Moderate Mediterranean",
+      "terrain": "Hilly, rolling clay and galestro slopes",
+      "soil": "Galestro schist-clay and alberese limestone",
+      "influences": [
+        "Altitude cooling the hills",
+        "Sangiovese's name, the 'blood of Jove'"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Galestro schist soils and altitude",
+        "effect": "Give Sangiovese savoury structure and mouth-watering acidity"
+      },
+      {
+        "cause": "Warm days, cool hillside nights",
+        "effect": "Keep sour-cherry freshness rather than jamminess"
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "chianti",
+      "oxford-companion"
+    ]
+  },
+  "sonoma-coast": {
+    "name": "Sonoma Coast",
+    "country": "USA",
+    "climate": "Cool maritime",
+    "summary": "Pacific fog and wind preserve freshness while California sun gives ripe, polished fruit.",
+    "grapes": {
+      "pinot-noir": {
+        "mods": {
+          "body": 0.5,
+          "fruit": 0.5,
+          "alcohol": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "cherry",
+            "raspberry"
+          ],
+          "Spice": [
+            "clove"
+          ],
+          "Earth / savory": [
+            "cola",
+            "forest-floor"
+          ]
+        },
+        "serve": "15–17°C",
+        "decant": "20–45 min",
+        "glass": "Burgundy bowl",
+        "ageing": "4–10 years",
+        "pairings": [
+          "duck",
+          "salmon",
+          "pork",
+          "mushrooms"
+        ],
+        "expect": "Silky and fruit-forward, with ripe cherry and raspberry balanced by coastal freshness."
+      },
+      "chardonnay": {
+        "mods": {
+          "body": 0.5,
+          "fruit": 0.5,
+          "alcohol": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "ripe-apple",
+            "lemon",
+            "pear"
+          ],
+          "Oak / ageing": [
+            "vanilla",
+            "hazelnut"
+          ]
+        },
+        "serve": "10–13°C",
+        "decant": "10–20 min",
+        "glass": "Large white wine glass",
+        "ageing": "3–8 years",
+        "pairings": [
+          "roast chicken",
+          "lobster",
+          "cream sauces",
+          "salmon"
+        ],
+        "expect": "Ripe but fresh, often combining orchard fruit, citrus and restrained oak."
+      }
+    },
+    "identity": {
+      "setting": "Cool maritime",
+      "terrain": "Ridge tops and valleys facing the Pacific",
+      "soil": "Gold Ridge sandy loam, volcanic patches",
+      "influences": [
+        "Persistent Pacific fog",
+        "Strong coastal winds"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Pacific fog and wind",
+        "effect": "Slow ripening that locks in acidity"
+      },
+      {
+        "cause": "Warm afternoon sun between fog banks",
+        "effect": "Gives polished, ripe fruit without heaviness"
+      }
+    ],
+    "badges": [
+      "Classic",
+      "New World"
+    ],
+    "sources": [
+      "sonoma-wine",
+      "wine-folly"
+    ]
+  },
+  "central-otago": {
+    "name": "Central Otago",
+    "country": "New Zealand",
+    "climate": "Cool continental",
+    "summary": "High sunshine and large day-night swings create vivid fruit while retaining acidity.",
+    "grapes": {
+      "pinot-noir": {
+        "mods": {
+          "body": 0.5,
+          "fruit": 1,
+          "alcohol": 0.5,
+          "earth": -0.5
+        },
+        "notes": {
+          "Fruit": [
+            "black cherry",
+            "raspberry",
+            "plum"
+          ],
+          "Floral": [
+            "violet"
+          ],
+          "Spice": [
+            "spice"
+          ]
+        },
+        "serve": "15–17°C",
+        "decant": "20–40 min",
+        "glass": "Burgundy bowl",
+        "ageing": "4–9 years",
+        "pairings": [
+          "duck",
+          "lamb",
+          "pork",
+          "mushrooms"
+        ],
+        "expect": "Juicy and intense for Pinot Noir, with dark cherry, plum and bright acidity."
+      }
+    },
+    "identity": {
+      "setting": "Cool continental, semi-arid",
+      "terrain": "Mountain valleys and river terraces at the southern edge of viniculture",
+      "soil": "Schist and loess over glacial deposits",
+      "influences": [
+        "Intense high-country sunlight",
+        "Large day-night temperature swings"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Cool nights and big diurnal shifts",
+        "effect": "Keep vivid fruit aromatics and lively acidity"
+      },
+      {
+        "cause": "Strong mountain sunlight",
+        "effect": "Develop dark-cherry ripeness at low yields"
+      }
+    ],
+    "badges": [
+      "Discovery",
+      "New World"
+    ],
+    "sources": [
+      "nzw-wine",
+      "wine-folly"
+    ]
+  },
+  "ahr": {
+    "name": "Ahr",
+    "country": "Germany",
+    "climate": "Cool continental",
+    "summary": "A northerly red-wine enclave producing delicate, high-acid Pinot with mineral and smoky detail.",
+    "grapes": {
+      "pinot-noir": {
+        "mods": {
+          "body": -0.5,
+          "acidity": 0.5,
+          "fruit": -0.5,
+          "earth": 0.5,
+          "alcohol": -0.5
+        },
+        "notes": {
+          "Fruit": [
+            "red cherry",
+            "cranberry"
+          ],
+          "Earth / savory": [
+            "smoke"
+          ],
+          "Mineral / herbal": [
+            "herbs",
+            "mineral"
+          ]
+        },
+        "serve": "14–16°C",
+        "decant": "10–30 min",
+        "glass": "Burgundy bowl",
+        "ageing": "3–8 years",
+        "pairings": [
+          "pork",
+          "duck",
+          "mushrooms",
+          "charcuterie"
+        ],
+        "expect": "Light, lifted and savory, with red fruit, smoke and brisk acidity."
+      }
+    },
+    "identity": {
+      "setting": "Cool, sheltered valley",
+      "terrain": "Narrow, steep-sided river valley",
+      "soil": "Volcanic slate and greywacke",
+      "influences": [
+        "Protected south-facing slopes",
+        "One of Germany's northernmost red-wine regions"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Steep slate slopes",
+        "effect": "Store heat to ripen Pinot Noir at a northern limit"
+      },
+      {
+        "cause": "Cool overall climate",
+        "effect": "Keeps Spätburgunder light, fresh and savoury"
+      }
+    ],
+    "badges": [
+      "Discovery",
+      "Old World"
+    ],
+    "sources": [
+      "wines-of-germany",
+      "world-atlas-of-wine"
+    ]
+  }
+}

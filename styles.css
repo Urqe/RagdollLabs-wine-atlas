@@ -102,3 +102,69 @@ h3 { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: va
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .compare-bars { margin-top: 10px; }
 .compare-summary { margin-top: 12px; }
+
+/* ---- Release 2 additions --------------------------------------------- */
+
+/* Original SVG hero art replaces the emoji treatment. Subtle, decorative. */
+.hero-art { width: 190px; height: auto; flex-shrink: 0; opacity: .9; }
+
+/* Discovery / Classic badges: subdued outline pills, color-independent text. */
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.badge { padding: 3px 8px; border: 1px solid var(--gold); border-radius: 999px; color: var(--gold); font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; background: rgba(201,171,107,.07); }
+.badge:nth-child(n+2) { border-color: var(--line); color: #d7c9ce; background: transparent; }
+
+/* Regional identity definition grid. */
+.identity { margin-top: 14px; }
+.identity-grid { display: grid; grid-template-columns: 96px 1fr; gap: 6px 14px; margin: 0; font-size: 13px; }
+.identity-grid dt { color: var(--muted); text-transform: uppercase; font-size: 10px; letter-spacing: .07em; padding-top: 2px; }
+.identity-grid dd { margin: 0; color: #d9cccf; }
+
+/* Why does it taste like this: cause -> effect pairs. */
+.why { margin-top: 16px; }
+.why-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.why-list li { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; align-items: center; background: #120d10; border: 1px solid #302128; border-radius: 10px; padding: 8px 12px; font-size: 13px; }
+.why-cause { color: #e8dcdf; font-weight: 600; }
+.why-arrow { color: var(--gold); }
+.why-effect { color: var(--muted); }
+
+/* Sources drawer. */
+.sources { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 10px; }
+.sources summary { cursor: pointer; color: var(--gold); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+.source-list { margin: 10px 0 0; padding-left: 18px; font-size: 13px; }
+.source-list a { color: #d9c9a8; }
+
+/* Surprise me button. */
+.surprise { margin-top: 14px; width: 100%; padding: 11px; border-radius: 10px; border: 1px solid var(--gold); background: rgba(201,171,107,.08); color: var(--gold); font-weight: 700; cursor: pointer; }
+.surprise:hover { background: rgba(201,171,107,.16); }
+.surprise-hint { margin: 8px 0 0; }
+
+/* Mood grid. */
+.moods { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 6px; }
+.mood-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.mood { display: grid; gap: 3px; text-align: left; padding: 9px 10px; border-radius: 10px; border: 1px solid var(--line); background: #110c0f; color: var(--text); cursor: pointer; }
+.mood:hover { border-color: var(--gold); }
+.mood-label { font-size: 12px; font-weight: 700; }
+.mood-hint { font-size: 10px; color: var(--muted); }
+
+/* Compare biggest differences. */
+.differences { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 12px; }
+.diff-row { display: grid; grid-template-columns: 150px 1fr; gap: 10px; padding: 8px 0; border-bottom: 1px dashed #2a1c22; font-size: 13px; }
+.diff-metric { color: var(--gold); font-weight: 700; }
+.diff-text { color: var(--muted); }
+
+/* Flavor category icons. */
+.note-group-title { display: flex; align-items: center; gap: 6px; }
+.note-group-title svg { width: 13px; height: 13px; fill: var(--gold); stroke: var(--gold); }
+
+/* Responsive: hero art shrinks, grids collapse to one column. */
+@media (max-width: 900px) {
+  .hero-art { width: 130px; }
+  .mood-grid { grid-template-columns: 1fr 1fr; }
+  .why-list li { grid-template-columns: 1fr; gap: 2px; }
+  .why-arrow { display: none; }
+}
+@media (max-width: 620px) {
+  .hero-art { width: 92px; }
+  .diff-row { grid-template-columns: 1fr; gap: 3px; }
+  .identity-grid { grid-template-columns: 84px 1fr; }
+}
