@@ -35,21 +35,27 @@ let REGIONS = {};
 const $ = id => document.getElementById(id);
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
-/** Load structured wine data. Relative paths keep GitHub Pages project URLs working. */
+/**
+ * Load structured wine data.
+ * Region data is intentionally split into reviewable files instead of one giant blob.
+ * Relative paths keep GitHub Pages project URLs working.
+ */
 async function loadData() {
-  const [grapesResponse, regionsResponse] = await Promise.all([
-    fetch("./data/grapes.json"),
-    fetch("./data/regions.json")
-  ]);
+  const paths = [
+    "./data/grapes.json",
+    "./data/regions-classics-west.json",
+    "./data/regions-classics-expanded.json",
+    "./data/regions-discovery.json"
+  ];
 
-  if (!grapesResponse.ok || !regionsResponse.ok) {
+  const responses = await Promise.all(paths.map(path => fetch(path)));
+  if (responses.some(response => !response.ok)) {
     throw new Error("Wine data could not be loaded.");
   }
 
-  [GRAPES, REGIONS] = await Promise.all([
-    grapesResponse.json(),
-    regionsResponse.json()
-  ]);
+  const [grapes, ...regionGroups] = await Promise.all(responses.map(response => response.json()));
+  GRAPES = grapes;
+  REGIONS = Object.assign({}, ...regionGroups);
 }
 
 /** Return only regions that explicitly define the selected grape. */
