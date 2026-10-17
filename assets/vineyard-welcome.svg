@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" role="img" aria-labelledby="title desc">
   <title id="title">Stylized vineyard at golden hour</title>
-  <desc id="desc">A warm evening vineyard with receding vine rows and a wine glass and decanter silhouette in the foreground.</desc>
+  <desc id="desc">A warm evening vineyard with receding vine rows, a ragdoll cat seated at the table, and wine glass and decanter silhouettes in the foreground.</desc>
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#8f5f54"/>
@@ -44,6 +44,9 @@
     <path d="M1065 724 Q958 510 1029 385"/>
     <path d="M1344 724 Q1116 518 1090 386"/>
   </g>
+
+  <!-- The mascot sits at the table behind the glassware, so the wine scene remains foreground. -->
+  <image href="ragdoll-cat.svg" x="1252" y="358" width="260" height="292" opacity="0.94"/>
 
   <!-- Foreground table and glassware remain silhouettes so text overlays stay readable. -->
   <ellipse cx="1324" cy="698" rx="360" ry="90" fill="#120d10" opacity="0.82"/>
