@@ -1,7 +1,9 @@
 /* RagDollLabs Wine Atlas — brand split + contextual glossary */
 
-.brand-ragdoll { color: #d17f99; }
-.brand-labs { color: var(--gold); }
+/* Keep the central Labs syllable as the wine-red brand accent. RagDoll and the
+   reference label stay gold-toned so the three adjacent Ls remain legible. */
+.brand-ragdoll { color: var(--gold); }
+.brand-labs { color: #a04460; }
 .brand-reference { color: #bda66f; }
 
 .glossary-open { margin-top: 8px; width: 100%; padding: 9px 10px; border: 1px solid var(--line); border-radius: 10px; background: #110c0f; color: var(--gold); font-weight: 700; cursor: pointer; text-align: left; }
