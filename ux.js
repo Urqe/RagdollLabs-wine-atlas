@@ -117,6 +117,18 @@ function currentProfileReference() {
   };
 }
 
+/* Ageing is still rendered by the core Serve It Tonight model, but the focused
+   profile hierarchy presents it with maturity/vintage education instead. Moving
+   the already-rendered DOM node keeps one source of truth for the content. */
+function moveAgeingToLearning() {
+  const target = document.getElementById("ageingSnapshot");
+  if (!target) return;
+  target.replaceChildren();
+  const ageingBox = [...document.querySelectorAll("#serve .box")]
+    .find(box => box.querySelector(".k")?.textContent.trim() === "Ageing");
+  if (ageingBox) target.appendChild(ageingBox);
+}
+
 function renderSimilarBack() {
   const card = document.querySelector(".similar-card");
   if (!card) return;
@@ -273,6 +285,7 @@ document.addEventListener("wineatlas:ready", event => {
   if (event.detail.sharedProfile) {
     showAppShell();
     showExploreResult();
+    moveAgeingToLearning();
   } else {
     const route = event.detail.initialRoute;
     const attemptedProfile = route?.searchParams?.has("grape") || route?.searchParams?.has("region");
@@ -293,6 +306,7 @@ document.addEventListener("wineatlas:profile-selected", () => {
 
   showAppShell();
   showExploreResult();
+  moveAgeingToLearning();
   renderSimilarBack();
   updateSelectorColor("grape", "grapeColor");
   updateSelectorColor("placeGrape", "placeGrapeColor");
@@ -315,5 +329,5 @@ document.addEventListener("wineatlas:mode-changed", event => {
     return;
   }
   if (event.detail.hasProfile) showExploreResult();
-  else showEmpty("Choose where to begin", "Pick a grape, browse by place, search the atlas or use Surprise me.");
+  else showEmpty("Choose where to begin", "Pick a grape, browse by place, search the atlas or use Discover.");
 });
