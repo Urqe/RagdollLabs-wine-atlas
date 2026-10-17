@@ -2,8 +2,16 @@
  * RagDollLabs Wine Atlas — contextual learning layer
  * -------------------------------------------------
  * Advanced wine terms can be defined in place without turning profile prose into
- * permanent glossary clutter. Inline terms open the same native dialog used by
+ * permanent glossary clutter. Inline terms open the same native <dialog> used by
  * the full glossary browser in the sidebar.
+ *
+ * The dialog is opened with showModal() on supported browsers. That is deliberate:
+ * the platform provides modal focus containment, an inert background and Escape
+ * cancellation, so we do not maintain a second custom focus-trap implementation.
+ * The fallback `open` attribute exists only for environments without showModal().
+ *
+ * Glossary JSON is optional enrichment and fails soft. A failed fetch is logged
+ * and definitions stay unavailable for that page session; reload is the retry.
  */
 
 let glossaryPromise = null;

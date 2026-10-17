@@ -2,51 +2,52 @@
  * RagDollLabs Wine Atlas — practical discovery enhancements
  * --------------------------------------------------------
  * Keeps food-first discovery and profile-specific winemaking context separate
- * from the core profile engine. Both features consume the same validated data
- * and use WineAtlas.selectProfile() for navigation.
+ * from the core profile engine. Both features consume validated data and use
+ * the public WineAtlas profile API; this module never recomputes profile rules.
+ *
+ * Optional enrichment JSON is intentionally fail-soft. If an optional file
+ * cannot be fetched, the affected section stays hidden for that page session
+ * and the error is logged. Core browsing remains usable; reload is the retry.
  */
 
-const FOOD_ALIASES = {
-  steak: ["steak", "beef"],
-  beef: ["beef", "steak", "short ribs", "burgers"],
-  burger: ["burgers", "beef"],
-  burgers: ["burgers", "beef"],
-  lamb: ["lamb", "braised lamb"],
-  pork: ["pork"],
-  duck: ["duck"],
-  chicken: ["chicken", "roast chicken", "lemon chicken"],
-  mushroom: ["mushrooms", "truffle dishes"],
-  mushrooms: ["mushrooms", "truffle dishes"],
-  cheese: ["cheese", "hard cheese", "aged cheese", "soft cheese", "goat cheese", "aged Manchego", "blue cheese", "Azeitão cheese"],
-  barbecue: ["barbecue", "bbq", "grilled meats", "beef"],
-  bbq: ["barbecue", "bbq", "grilled meats", "beef"],
-  fish: ["fish", "salmon", "shellfish"],
-  salmon: ["salmon", "fish"],
-  vegetables: ["vegetables", "grilled vegetables", "salads", "vegetarian dishes"],
-  dessert: ["dessert", "crème brûlée", "chocolate mousse", "cheesecake", "almond tart", "apricot tart", "fruit tart", "walnut cake", "pavlova"],
-  chocolate: ["dark chocolate", "chocolate dessert", "chocolate mousse", "chocolate cake"],
-  cheesecake: ["cheesecake"],
-  caramel: ["crème brûlée", "caramel", "toffee"],
-  almond: ["almond tart", "almond pastries"],
-  nuts: ["walnut cake", "walnut ice cream", "dried fruit", "almond tart"],
-  "blue cheese": ["blue cheese"],
-  "creme brulee": ["crème brûlée"],
-  "crème brûlée": ["crème brûlée"],
-  coffee: ["coffee dessert", "coffee cake"],
-  pavlova: ["pavlova"]
-};
-
+let foodAliasesPromise = null;
+let foodAliases = {};
 let winemakingPromise = null;
 let lastProfile = null;
 
 function normalizeFood(value) {
-  return String(value || "").trim().toLowerCase().replace(/\s+/g, " ");
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, " ");
+}
+
+function loadFoodAliases() {
+  if (!foodAliasesPromise) {
+    foodAliasesPromise = fetch("./data/food-aliases.json")
+      .then(response => {
+        if (!response.ok) throw new Error("Food alias data could not be loaded.");
+        return response.json();
+      })
+      .then(data => {
+        foodAliases = data;
+        return data;
+      })
+      .catch(error => {
+        console.error(error);
+        foodAliases = {};
+        return {};
+      });
+  }
+  return foodAliasesPromise;
 }
 
 function expandedFoodTerms(query) {
   const normalized = normalizeFood(query);
-  const direct = FOOD_ALIASES[normalized] || [];
-  return [...new Set([normalized, ...direct].filter(Boolean))];
+  const direct = foodAliases[normalized] || [];
+  return [...new Set([normalized, ...direct.map(normalizeFood)].filter(Boolean))];
 }
 
 function foodScore(pairings, query) {
@@ -65,15 +66,7 @@ function foodScore(pairings, query) {
 }
 
 function allProfiles() {
-  const { grapes, regions } = WineAtlas.getData();
-  const profiles = [];
-  for (const [regionId, region] of Object.entries(regions)) {
-    for (const [grapeId, regional] of Object.entries(region.grapes || {})) {
-      const grape = grapes[grapeId];
-      if (grape) profiles.push({ grapeId, regionId, grape, region, regional });
-    }
-  }
-  return profiles;
+  return WineAtlas.allPairs();
 }
 
 function rankFoodMatches(query) {
@@ -84,7 +77,7 @@ function rankFoodMatches(query) {
     .slice(0, 8);
 }
 
-function renderFoodMatches() {
+async function renderFoodMatches() {
   const input = document.getElementById("foodInput");
   const container = document.getElementById("foodResults");
   if (!input || !container) return;
@@ -92,6 +85,8 @@ function renderFoodMatches() {
   container.replaceChildren();
   if (query.length < 2) return;
 
+  await loadFoodAliases();
+  if (input.value.trim() !== query) return;
   const matches = rankFoodMatches(query);
   if (!matches.length) {
     const empty = document.createElement("div");
@@ -117,13 +112,18 @@ function renderFoodMatches() {
     const meta = document.createElement("span");
     meta.textContent = `${item.region.country} · pairs with ${item.regional.pairings.join(" · ")}`;
     button.append(title, meta);
-    button.addEventListener("click", () => {
-      WineAtlas.selectProfile(item.grapeId, item.regionId, true);
-      input.value = "";
-      container.replaceChildren();
-    });
     container.appendChild(button);
   }
+}
+
+function handleFoodClick(event) {
+  const button = event.target.closest?.(".food-result");
+  if (!button) return;
+  const input = document.getElementById("foodInput");
+  const container = document.getElementById("foodResults");
+  WineAtlas.selectProfile(button.dataset.grape, button.dataset.region, true);
+  if (input) input.value = "";
+  container?.replaceChildren();
 }
 
 function foodResultButtons() {
@@ -280,13 +280,15 @@ async function renderWinemaking(profile) {
 function wireFunctionalFeatures() {
   const foodInput = document.getElementById("foodInput");
   const foodResults = document.getElementById("foodResults");
-  foodInput?.addEventListener("input", renderFoodMatches);
+  foodInput?.addEventListener("input", () => { void renderFoodMatches(); });
   foodInput?.addEventListener("keydown", handleFoodKeydown);
   foodResults?.addEventListener("keydown", handleFoodKeydown);
+  foodResults?.addEventListener("click", handleFoodClick);
 }
 
 document.addEventListener("wineatlas:ready", () => {
   wireFunctionalFeatures();
+  void loadFoodAliases();
   void loadWinemaking();
 });
 

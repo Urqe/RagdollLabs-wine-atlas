@@ -4,6 +4,10 @@
  * This layer is intentionally sparse: only profiles with a meaningful bottle-age
  * story get an evolution section. It consumes validated data and never infers
  * maturity from the raw ageing-range string.
+ *
+ * The JSON is optional enrichment and deliberately fails soft. A fetch failure
+ * logs an error and leaves the section hidden for that page session; reloading
+ * the page is the retry path. Core profile browsing must not depend on this file.
  */
 
 let maturityPromise = null;

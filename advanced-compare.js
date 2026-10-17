@@ -4,6 +4,11 @@
  * Compares up to three full wine profiles rather than only one grape across
  * regions. Still wines remain color-compatible (red with red, white with white),
  * while sparkling, sweet and fortified wines compare within their style family.
+ *
+ * Important architecture rule: profile computation is owned by app.js. This
+ * module consumes WineAtlas.combinedProfile() / WineAtlas.allPairs() and must
+ * not duplicate baseline + regional-modifier logic. Compatibility rules live
+ * here because they are specific to the comparison product experience.
  */
 
 const ADV_COMPARE_METRICS = [
@@ -18,7 +23,6 @@ const ADV_COMPARE_METRICS = [
 ];
 
 const ADV_COMPARE_MIN_SPREAD = 0.5;
-let advancedCompareProfiles = [];
 let advancedCompareLastProfile = null;
 let advancedCompareInitialized = false;
 
@@ -26,30 +30,8 @@ function advClamp(value, min, max) {
   return Math.max(min, Math.min(max, value));
 }
 
-function advancedCombinedProfile(grapeId, regionId) {
-  const { grapes, regions } = WineAtlas.getData();
-  const grape = grapes[grapeId];
-  const region = regions[regionId];
-  const regional = region?.grapes?.[grapeId];
-  if (!grape || !region || !regional) return null;
-  const profile = { ...grape };
-  for (const [key, modifier] of Object.entries(regional.mods || {})) {
-    profile[key] = advClamp((profile[key] || 0) + modifier, 0, 5);
-  }
-  return { grapeId, regionId, grape, region, regional, profile };
-}
-
 function advancedAllProfiles() {
-  const { grapes, regions } = WineAtlas.getData();
-  const profiles = [];
-  for (const [regionId, region] of Object.entries(regions)) {
-    for (const grapeId of Object.keys(region.grapes || {})) {
-      if (!grapes[grapeId]) continue;
-      const profile = advancedCombinedProfile(grapeId, regionId);
-      if (profile) profiles.push(profile);
-    }
-  }
-  return profiles.sort((a, b) =>
+  return WineAtlas.allPairs().sort((a, b) =>
     a.grape.name.localeCompare(b.grape.name) || a.region.name.localeCompare(b.region.name)
   );
 }
@@ -140,7 +122,7 @@ function advancedOptions(select, candidates, selectedKey, allowNone, excluded = 
 function advancedFindProfile(key) {
   if (!key) return null;
   const [grapeId, regionId] = key.split("::");
-  return advancedCombinedProfile(grapeId, regionId);
+  return WineAtlas.combinedProfile(grapeId, regionId);
 }
 
 function advancedSelections() {
@@ -205,6 +187,36 @@ function advancedProductionContext(selections) {
   }).join("")}</section>`;
 }
 
+function advancedRemoveSlot(slot) {
+  const first = document.getElementById("advancedCompare1");
+  const second = document.getElementById("advancedCompare2");
+  const third = document.getElementById("advancedCompare3");
+  if (!first || !second || !third) return;
+
+  if (slot === 1) {
+    // Compatibility is anchored on slot 1. Preserve the user's work by
+    // promoting the next selected wine instead of wiping the whole comparison.
+    first.value = second.value || third.value || "";
+    second.value = second.value ? third.value : "";
+    third.value = "";
+    advancedRefreshSelectors(1);
+  } else if (slot === 2) {
+    second.value = third.value;
+    third.value = "";
+    advancedRefreshSelectors(2);
+  } else {
+    third.value = "";
+    advancedRefreshSelectors(3);
+  }
+  advancedRender();
+}
+
+function advancedHandleGridClick(event) {
+  const button = event.target.closest?.(".advanced-remove");
+  if (!button) return;
+  advancedRemoveSlot(Number(button.dataset.slot));
+}
+
 function advancedRender() {
   if (!advancedCompareInitialized) return;
   const selections = advancedSelections();
@@ -236,20 +248,6 @@ function advancedRender() {
     return `<article class="compareCard advanced-compare-card"><div class="advanced-card-head"><div><h3>${WineAtlas.escapeHtml(item.grape.name)} · ${WineAtlas.escapeHtml(item.region.name)}</h3><div class="small">${WineAtlas.escapeHtml(item.region.country)} · ${WineAtlas.escapeHtml(style.label)}</div></div><button type="button" class="advanced-remove" data-slot="${index + 1}">Remove</button></div><div class="bars compare-bars">${metrics.map(metric => advancedMetricBar(metric, item)).join("")}</div><p class="small compare-summary">${WineAtlas.escapeHtml(item.regional.expect)}</p><p class="small"><strong>Serve:</strong> ${WineAtlas.escapeHtml(item.regional.serve)} · <strong>Ageing:</strong> ${WineAtlas.escapeHtml(item.regional.ageing)}</p></article>`;
   }).join("");
 
-  grid.querySelectorAll(".advanced-remove").forEach(button => {
-    button.addEventListener("click", () => {
-      const slot = Number(button.dataset.slot);
-      const select = document.getElementById(`advancedCompare${slot}`);
-      if (select) select.value = "";
-      if (slot === 1) {
-        document.getElementById("advancedCompare2").value = "";
-        document.getElementById("advancedCompare3").value = "";
-      }
-      advancedRefreshSelectors(slot);
-      advancedRender();
-    });
-  });
-
   if (rows.length) {
     differences.innerHTML = `<section class="differences" aria-labelledby="advancedDiffHeading"><h3 id="advancedDiffHeading">Biggest differences</h3>${rows.slice(0, 4).map(row => `<div class="diff-row"><span class="diff-metric">${WineAtlas.escapeHtml(row.metric.label)}</span><span class="diff-text">${WineAtlas.escapeHtml(advancedShortName(row.high.item))} is ${WineAtlas.escapeHtml(row.metric.high)}, while ${WineAtlas.escapeHtml(advancedShortName(row.low.item))} is ${WineAtlas.escapeHtml(row.metric.low)}.</span></div>`).join("")}</section>${advancedProductionContext(selections)}`;
   } else if (selections.length >= 2) {
@@ -275,6 +273,12 @@ function advancedInjectUi() {
   const view = document.getElementById("compareView")?.querySelector("article");
   if (!controls || !view || advancedCompareInitialized) return;
 
+  /*
+   * The original same-grape Compare remains in app.js as a no-enhancement
+   * fallback and regression-tested core path. Advanced Compare hides, rather
+   * than deletes, those controls so a failure in this optional layer cannot
+   * corrupt core state.
+   */
   controls.querySelector("#compareHeading").textContent = "Advanced Compare";
   for (const id of ["cg", "compareGrapeColor", "compareRegionControls", "compareHint"]) {
     const node = document.getElementById(id);
@@ -308,6 +312,7 @@ function advancedInjectUi() {
   const grid = document.createElement("div");
   grid.id = "advancedCompareGrid";
   grid.className = "compareGrid";
+  grid.addEventListener("click", advancedHandleGridClick);
   const differences = document.createElement("div");
   differences.id = "advancedCompareDifferences";
   view.append(message, grid, differences);

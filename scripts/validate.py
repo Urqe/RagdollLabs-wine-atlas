@@ -3,9 +3,9 @@
 
 The validator intentionally tests data contracts rather than tasting opinions:
 JSON parsing, duplicate IDs, grape/source references, locator coverage, explicit
-Why metadata, winemaking metadata, maturity metadata, glossary metadata, special
-wine-style metadata and required profile fields. Keeping this dependency-free
-lets reviewers run it locally and keeps CI lightweight.
+Why metadata, food-alias targets, winemaking metadata, maturity metadata,
+glossary metadata, special wine-style metadata and required profile fields.
+Keeping this dependency-free lets reviewers run it locally and keeps CI lightweight.
 """
 
 from __future__ import annotations
@@ -44,6 +44,7 @@ def main() -> None:
     sources = load(DATA / "sources.json")
     locators = load(DATA / "locators.json")
     why_rules = load(DATA / "why-rules.json")
+    food_aliases = load(DATA / "food-aliases.json")
     winemaking = load(DATA / "winemaking.json")
     maturity = load(DATA / "maturity.json")
     glossary = load(DATA / "glossary.json")
@@ -68,6 +69,7 @@ def main() -> None:
             assert isinstance(value, (int, float)) and 0 <= value <= 5, f"{grape_id}: invalid {metric}"
 
     special_style_count = 0
+    pairing_values: set[str] = set()
     for region_id, region in regions.items():
         assert region_id in locators, f"{region_id}: missing locator"
         assert region.get("name") and region.get("country") and region.get("climate"), f"{region_id}: incomplete identity"
@@ -85,6 +87,11 @@ def main() -> None:
             assert grape_id in grapes, f"{region_id}: unknown grape {grape_id}"
             missing = REQUIRED_PROFILE_FIELDS - profile.keys()
             assert not missing, f"{prefix}: missing {sorted(missing)}"
+            pairings = profile.get("pairings")
+            assert isinstance(pairings, list) and pairings, f"{prefix}: pairings must be a non-empty list"
+            for pairing in pairings:
+                assert isinstance(pairing, str) and pairing.strip(), f"{prefix}: invalid pairing"
+                pairing_values.add(pairing.casefold().strip())
             for metric, modifier in profile.get("mods", {}).items():
                 assert metric in METRICS, f"{prefix}: unknown modifier {metric}"
                 assert isinstance(modifier, (int, float)), f"{prefix}: non-numeric modifier {metric}"
@@ -96,6 +103,18 @@ def main() -> None:
                 assert style.get("sweetness") in STYLE_SWEETNESS, f"{prefix}: invalid style sweetness"
                 for field in ("color", "label", "method", "effect"):
                     assert isinstance(style.get(field), str) and style[field].strip(), f"{prefix}: invalid style {field}"
+
+    assert isinstance(food_aliases, dict) and food_aliases, "food aliases must be a non-empty object"
+    normalized_aliases: set[str] = set()
+    for alias, targets in food_aliases.items():
+        assert isinstance(alias, str) and alias.strip(), "food aliases: alias keys must be non-empty strings"
+        normalized_alias = alias.casefold().strip()
+        assert normalized_alias not in normalized_aliases, f"food aliases: duplicate alias {alias!r}"
+        normalized_aliases.add(normalized_alias)
+        assert isinstance(targets, list) and targets, f"food aliases/{alias}: targets must be a non-empty list"
+        for target in targets:
+            assert isinstance(target, str) and target.strip(), f"food aliases/{alias}: invalid target"
+            assert target.casefold().strip() in pairing_values, f"food aliases/{alias}: target {target!r} is not used by any profile pairing"
 
     for region_id, rules in why_rules.items():
         assert region_id in regions, f"why-rules: unknown region {region_id}"
@@ -185,8 +204,9 @@ def main() -> None:
     maturity_count = sum(len(grapes_) for grapes_ in maturity.values())
     print(
         f"OK: {len(grapes)} grapes/bases, {len(regions)} regions, {profile_count} profiles, "
-        f"{special_style_count} beyond-still styles, {winemaking_count} winemaking choices, "
-        f"{maturity_count} maturity profiles, {len(glossary)} glossary terms"
+        f"{special_style_count} beyond-still styles, {len(food_aliases)} food aliases, "
+        f"{winemaking_count} winemaking choices, {maturity_count} maturity profiles, "
+        f"{len(glossary)} glossary terms"
     )
 
 
