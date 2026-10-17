@@ -97,7 +97,8 @@ function renderEnhancedAtlasSearch() {
     button.dataset.region = item.regionId;
     const title = document.createElement("strong");
     const dot = document.createElement("span");
-    dot.className = `wine-color-dot ${item.grape.color}`;
+    const displayColor = item.regional.style?.color || item.grape.color;
+    dot.className = `wine-color-dot ${displayColor}`;
     dot.setAttribute("aria-hidden", "true");
     title.append(dot, document.createTextNode(`${item.grape.name} · ${item.region.name}`));
     const meta = document.createElement("span");
