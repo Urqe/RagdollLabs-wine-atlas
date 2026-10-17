@@ -24,7 +24,7 @@
         "decant": "No decant",
         "glass": "Medium white wine glass",
         "ageing": "Drink young; best for freshness",
-        "pairings": ["ratatouille", "grilled vegetables", "goat cheese", "roast chicken", "Döner kebab", "Tacos de cochinita pibil", "Falafel"],
+        "pairings": ["ratatouille", "grilled vegetables", "goat cheese", "roast chicken", "döner kebab", "tacos de cochinita pibil", "falafel"],
         "expect": "Pale, dry and delicate, with fresh strawberry, peach and citrus carried by crisp acidity."
       }
     },
@@ -108,7 +108,7 @@
         "decant": "No decant",
         "glass": "Medium white wine glass",
         "ageing": "1–3 years for classic young styles",
-        "pairings": ["tapas", "rice dishes", "grilled vegetables", "roast chicken"],
+        "pairings": ["tapas", "rice dishes", "grilled vegetables", "roast chicken", "margherita pizza"],
         "expect": "Bright and juicy, with strawberry and cherry, refreshing acidity and a vivid pink color."
       }
     },
@@ -208,5 +208,303 @@
     ],
     "badges": ["Discovery", "Orange wine", "Old World"],
     "sources": ["georgia-nwa", "oxford-companion"]
+  },
+  "cremant-bourgogne": {
+    "name": "Crémant de Bourgogne",
+    "country": "France",
+    "climate": "Cool continental",
+    "summary": "Bourgogne sparkling wine in Chardonnay-led blanc de blancs and Pinot Noir-led blanc de noirs expressions.",
+    "grapes": {
+      "chardonnay": {
+        "mods": {
+          "body": -0.5,
+          "acidity": 1,
+          "sweetness": -1,
+          "oak": -2,
+          "alcohol": -1
+        },
+        "style": {
+          "family": "sparkling",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Sparkling · Blanc de blancs · Brut",
+          "method": "Traditional method: second fermentation in bottle, lees ageing and disgorgement",
+          "effect": "This profile models a Chardonnay-led blanc de blancs; other permitted white varieties may occur. Lees contact can add bread and nut notes; dosage, producer and ageing change the final style."
+        },
+        "notes": {
+          "Fruit": [
+            "lemon",
+            "green apple"
+          ],
+          "Oak / ageing": [
+            "brioche",
+            "almond"
+          ]
+        },
+        "serve": "6–10°C",
+        "decant": "No decant; pour gently to preserve bubbles",
+        "glass": "Tulip-shaped sparkling wine glass",
+        "ageing": "Usually ready on release; drink within 1–3 years for freshness",
+        "pairings": [
+          "shellfish",
+          "river fish",
+          "fried chicken",
+          "pork dumplings"
+        ],
+        "expect": "Fresh and citrus-led, with orchard fruit, fine bubbles and a light bread-like note."
+      },
+      "pinot-noir": {
+        "mods": {
+          "body": 1,
+          "acidity": 0,
+          "tannin": -2,
+          "sweetness": -1,
+          "oak": -1,
+          "alcohol": -0.5
+        },
+        "style": {
+          "family": "sparkling",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Sparkling · Blanc de noirs · Brut",
+          "method": "Traditional method: second fermentation in bottle, lees ageing and disgorgement",
+          "effect": "This profile models a Pinot Noir-led white sparkling wine; Gamay may also be included. It is not a still red wine. Lees contact can add bread and nut notes; dosage, producer and ageing change the final style."
+        },
+        "notes": {
+          "Fruit": [
+            "apple",
+            "red berry"
+          ],
+          "Oak / ageing": [
+            "toast"
+          ]
+        },
+        "serve": "6–10°C",
+        "decant": "No decant; pour gently to preserve bubbles",
+        "glass": "Tulip-shaped sparkling wine glass",
+        "ageing": "Usually ready on release; drink within 1–3 years for freshness",
+        "pairings": [
+          "roast chicken",
+          "charcuterie",
+          "mushroom pizza"
+        ],
+        "expect": "A fuller white sparkling expression of Pinot Noir, with orchard fruit, subtle berry notes and savory breadth."
+      }
+    },
+    "identity": {
+      "setting": "Cool continental",
+      "terrain": "Slopes across the Bourgogne appellation area",
+      "soil": "Varied soils with a substantial clay-limestone component",
+      "influences": [
+        "Early picking for freshness",
+        "Traditional bottle fermentation",
+        "Lees ageing and final dosage"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Grapes harvested to preserve acidity",
+        "effect": "Retains freshness for a sparkling base wine."
+      },
+      {
+        "cause": "Second fermentation in bottle and time on lees",
+        "effect": "Creates bubbles and can contribute bread-like texture and aromas."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World",
+      "Sparkling"
+    ],
+    "sources": [
+      "cremant-bourgogne"
+    ]
+  },
+  "cremant-alsace": {
+    "name": "Crémant d’Alsace",
+    "country": "France",
+    "climate": "Cool semi-continental with sheltered slopes",
+    "summary": "Alsace sparkling styles include a Pinot Blanc-led white expression and a Pinot Noir rosé.",
+    "grapes": {
+      "pinot-blanc": {
+        "mods": {
+          "acidity": 0.5,
+          "sweetness": -1,
+          "oak": -1,
+          "alcohol": -0.5
+        },
+        "style": {
+          "family": "sparkling",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Sparkling · Pinot Blanc-led · Brut",
+          "method": "Traditional method: second fermentation in bottle, lees ageing and disgorgement",
+          "effect": "Pinot Blanc is a major white base; Auxerrois, Chardonnay, Riesling, Pinot Gris and Pinot Noir can also contribute to white cuvées. Lees contact can add bread and nut notes; dosage, producer and ageing change the final style."
+        },
+        "notes": {
+          "Fruit": [
+            "apple",
+            "pear"
+          ],
+          "Floral": [
+            "white flowers"
+          ],
+          "Oak / ageing": [
+            "bread dough"
+          ]
+        },
+        "serve": "6–10°C",
+        "decant": "No decant; pour gently to preserve bubbles",
+        "glass": "Tulip-shaped sparkling wine glass",
+        "ageing": "Usually ready on release; drink within 1–3 years for freshness",
+        "pairings": [
+          "fried chicken",
+          "pork dumplings",
+          "fried vegetable spring rolls"
+        ],
+        "expect": "Supple orchard fruit, fresh bubbles and gentle floral notes in a dry white sparkling style."
+      },
+      "pinot-noir": {
+        "mods": {
+          "body": 0.5,
+          "tannin": -1.5,
+          "sweetness": -1,
+          "oak": -2,
+          "alcohol": -0.5
+        },
+        "style": {
+          "family": "sparkling",
+          "color": "rose",
+          "sweetness": "dry",
+          "label": "Sparkling · Rosé · Brut",
+          "method": "Traditional method: second fermentation in bottle, lees ageing and disgorgement",
+          "effect": "Crémant d’Alsace rosé is made from Pinot Noir. White cuvées have a different range of permitted grapes. Lees contact can add bread and nut notes; dosage, producer and ageing change the final style."
+        },
+        "notes": {
+          "Fruit": [
+            "strawberry",
+            "raspberry"
+          ],
+          "Oak / ageing": [
+            "biscuit"
+          ]
+        },
+        "serve": "6–10°C",
+        "decant": "No decant; pour gently to preserve bubbles",
+        "glass": "Tulip-shaped sparkling wine glass",
+        "ageing": "Usually ready on release; drink within 1–3 years for freshness",
+        "pairings": [
+          "charcuterie",
+          "roast chicken",
+          "margherita pizza"
+        ],
+        "expect": "Dry and lively rosé bubbles with red-berry fruit, light structure and a fresh finish."
+      }
+    },
+    "identity": {
+      "setting": "Cool semi-continental with sheltered slopes",
+      "terrain": "Vosges foothills and sheltered vineyard slopes",
+      "soil": "Diverse limestone, marl, granite and sandstone soils",
+      "influences": [
+        "Early picking for freshness",
+        "Traditional bottle fermentation",
+        "Lees ageing and final dosage"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Grapes harvested to preserve acidity",
+        "effect": "Retains freshness for a sparkling base wine."
+      },
+      {
+        "cause": "Second fermentation in bottle and time on lees",
+        "effect": "Creates bubbles and can contribute bread-like texture and aromas."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World",
+      "Sparkling"
+    ],
+    "sources": [
+      "cremant-alsace"
+    ]
+  },
+  "cremant-loire": {
+    "name": "Crémant de Loire",
+    "country": "France",
+    "climate": "Cool maritime to semi-continental",
+    "summary": "Chenin-led white sparkling wine from the Loire, with a range of permitted blending varieties.",
+    "grapes": {
+      "chenin-blanc": {
+        "mods": {
+          "body": -0.5,
+          "acidity": 0.5,
+          "sweetness": -1.5,
+          "oak": -1,
+          "alcohol": -0.5
+        },
+        "style": {
+          "family": "sparkling",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Sparkling · Chenin-led white · Brut",
+          "method": "Traditional method: second fermentation in bottle, lees ageing and disgorgement",
+          "effect": "This is a Chenin-led white expression, sometimes blended with Chardonnay or other permitted grapes. It does not represent every permitted blend or the rosé style. Lees contact can add bread and nut notes; dosage, producer and ageing change the final style."
+        },
+        "notes": {
+          "Fruit": [
+            "apple",
+            "quince",
+            "lemon"
+          ],
+          "Floral": [
+            "white flowers"
+          ],
+          "Oak / ageing": [
+            "hazelnut"
+          ]
+        },
+        "serve": "6–10°C",
+        "decant": "No decant; pour gently to preserve bubbles",
+        "glass": "Tulip-shaped sparkling wine glass",
+        "ageing": "Usually ready on release; drink within 1–3 years for freshness",
+        "pairings": [
+          "fried chicken",
+          "pork dumplings",
+          "fried vegetable spring rolls",
+          "goat cheese"
+        ],
+        "expect": "Brisk apple and citrus, a touch of quince and a fine savory finish, with pronounced freshness."
+      }
+    },
+    "identity": {
+      "setting": "Cool maritime to semi-continental",
+      "terrain": "Anjou, Saumur and Touraine vineyard landscapes",
+      "soil": "Varied limestone, tuffeau, schist, gravel and clay soils",
+      "influences": [
+        "Early picking for freshness",
+        "Traditional bottle fermentation",
+        "Lees ageing and final dosage"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Grapes harvested to preserve acidity",
+        "effect": "Retains freshness for a sparkling base wine."
+      },
+      {
+        "cause": "Second fermentation in bottle and time on lees",
+        "effect": "Creates bubbles and can contribute bread-like texture and aromas."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World",
+      "Sparkling"
+    ],
+    "sources": [
+      "cremant-loire"
+    ]
   }
 }

@@ -34,7 +34,7 @@ const ready = new Promise((resolve, reject) => {
 });
 
 for (const file of [
-  "app.js", "compare-country.js", "ux.js", "food-discovery.js", "functional.js", "search-enhance.js",
+  "app.js", "compare-country.js", "ux.js", "food-discovery.js", "wine-search.js", "functional.js", "search-enhance.js",
   "advanced-compare.js", "compare-discovery.js", "maturity.js", "learning.js",
   "smart-discovery.js", "home-brand.js"
 ]) {
@@ -73,6 +73,47 @@ assert.ok(!document.getElementById("searchResults").textContent.includes("pairs 
 exploreInput.value = "cochinita pibil";
 await window.renderEnhancedAtlasSearch();
 assert.ok(document.querySelector("#searchResults .food-guidance a[href^='https://']"), "curated guidance must carry its reference");
+exploreInput.value = "";
+await window.renderEnhancedAtlasSearch();
+
+// Appellation intent is a hard filter in the one shared search engine.
+const cremant = await window.WineSearch.rank("cremant", 50);
+assert.equal(cremant.length, 5);
+assert.deepEqual(identity(cremant), identity(await window.WineSearch.rank("CRÉMANT", 50)));
+assert.ok(cremant.every(({item}) => item.regional.style.family === "sparkling" && item.regionId.startsWith("cremant-")));
+assert.ok(!cremant.some(({item}) => item.regionId.includes("champagne")), "Champagne must not be passed off as crémant");
+for (const [query, grapeId, count] of [["cremant pinot noir", "pinot-noir", 2], ["cremant chardonnay", "chardonnay", 1], ["cremant chenin", "chenin-blanc", 1], ["cremant pinot blanc", "pinot-blanc", 1]]) {
+  const result = await window.WineSearch.rank(query, 50);
+  assert.equal(result.length, count, query);
+  assert.ok(result.every(({item}) => item.grapeId === grapeId && item.regional.style.family === "sparkling"));
+  assert.deepEqual(identity(await window.rankCompareMatches(query)), identity(result), "Compare and Explore must share query interpretation");
+}
+assert.equal((await window.WineSearch.rank("cremant cabernet sauvignon")).length, 0, "permitted blending varieties mentioned in prose are not actual profile identities");
+assert.equal((await window.WineSearch.rank("cremant champagne")).length, 0, "contradictory appellations must not silently broaden");
+assert.equal((await window.WineSearch.rank("cremant d'alsace")).length, 2);
+assert.equal((await window.WineSearch.rank("crémant de bourgogne")).length, 2);
+const sparklingChicken = await window.WineSearch.rank("sparkling fried chicken", 50);
+assert.ok(sparklingChicken.length >= 5);
+assert.ok(sparklingChicken.every(({item, pairingScore}) => item.regional.style.family === "sparkling" && pairingScore > 0));
+assert.deepEqual(identity(await window.WineSearch.rank("kuohuviini chardonnay", 50)), identity(await window.WineSearch.rank("sparkling chardonnay", 50)));
+for (const [query, region] of [["champagne", "champagne-blanc-de-blancs"], ["cava", "cava"], ["prosecco", "prosecco-doc"]]) {
+  const result = await window.WineSearch.rank(query);
+  assert.ok(result.length && result.every(({item}) => item.regionId === region && item.regional.style.family === "sparkling"));
+}
+for (const query of ["pizza", "pizza margherita", "pepperoni", "funghi pizza", "pizza bianca", "fried chicken", "hot wings", "gochujang wings", "gyoza", "kevätkääryleet", "sweet-and-sour pork", "kung po chicken", "pad thai", "voikana", "samosas"]) {
+  assert.ok((await window.WineSearch.rank(query)).some(row => row.pairingScore > 0), `${query} needs a pairing`);
+}
+for (const item of window.WineAtlas.allPairs()) {
+  assert.ok(item.regional.pairings.every(label => label === label.toLowerCase()), "all food display labels must be lowercase");
+}
+exploreInput.value = "cremant pinot noir";
+exploreInput.dispatchEvent(new window.Event("input", { bubbles: true }));
+await tick();
+assert.equal(document.querySelectorAll("#searchResults button").length, 2, "real input handler must delegate to structured search");
+exploreInput.value = "hamburger";
+exploreInput.dispatchEvent(new window.Event("input", { bubbles: true }));
+await tick();
+assert.ok([...document.querySelectorAll("#searchResults button span")].filter(span => !span.classList.contains("wine-color-dot")).every(span => !span.textContent.includes(" · lamb")), "food result copy should show matched foods rather than every profile pairing");
 exploreInput.value = "";
 await window.renderEnhancedAtlasSearch();
 

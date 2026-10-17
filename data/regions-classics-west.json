@@ -35,7 +35,7 @@
           "mushrooms",
           "roast chicken",
           "pork"
-        , "Phở bò", "Shoyu ramen", "Miso ramen"],
+        , "phở bò", "shoyu ramen", "miso ramen", "mushroom pizza", "white pizza"],
         "expect": "Elegant and high-acid, with red cherry, cranberry and earthy complexity."
       },
       "chardonnay": {
@@ -66,7 +66,7 @@
           "roast chicken",
           "lobster",
           "creamy sauces",
-          "soft cheese"
+          "soft cheese", "white pizza"
         ],
         "expect": "Tense, mineral and citrus-led, often with restrained oak and excellent acidity."
       }
@@ -411,7 +411,7 @@
           "braised beef",
           "truffle dishes",
           "game",
-          "aged cheese"
+          "aged cheese", "mushroom pizza"
         ],
         "expect": "Pale yet powerful, with soaring acidity, formidable tannin, rose, cherry, tar and truffle."
       }
@@ -478,8 +478,8 @@
           "lamb",
           "pork",
           "tapas",
-          "aged Manchego"
-        , "Carne asada", "Tacos al pastor", "Tonkotsu ramen"],
+          "aged manchego"
+        , "carne asada", "tacos al pastor", "tonkotsu ramen"],
         "expect": "Savory and polished, with cherry, plum, vanilla, leather and tobacco."
       }
     },
@@ -683,7 +683,7 @@
           "beef",
           "sausages",
           "mushrooms"
-        , "Tonkotsu ramen"],
+        , "tonkotsu ramen", "korean-style chicken wings"],
         "expect": "Peppery and savory, with blackberry, olive, smoke and violet over firm structure."
       }
     },
@@ -822,7 +822,7 @@
           "pork",
           "smoked foods",
           "soft cheese"
-        , "Spicy sushi rolls"],
+        , "spicy sushi rolls", "buffalo wings", "korean-style chicken wings", "sweet and sour pork", "kung pao chicken", "pad thai", "butter chicken"],
         "expect": "Light-bodied yet intense, with piercing acidity, lime, peach and slate-like minerality."
       }
     },
@@ -982,7 +982,7 @@
           "roast chicken",
           "goat cheese",
           "rich vegetarian dishes"
-        , "Tacos de cochinita pibil"],
+        , "tacos de cochinita pibil", "butter chicken"],
         "expect": "High-acid and versatile, with quince, apple, chalk and, with age, honeyed waxy complexity."
       }
     },
@@ -1046,7 +1046,7 @@
           "tomato pasta",
           "roast pork",
           "steak",
-          "pecorino"
+          "pecorino", "margherita pizza", "pepperoni pizza"
         ],
         "expect": "Bright and savory, with sour cherry, herbs, leather and food-friendly acidity."
       }
