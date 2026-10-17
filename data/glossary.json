@@ -1,0 +1,122 @@
+{
+  "amphora": {
+    "term": "Amphora",
+    "aliases": ["amphora", "amphorae"],
+    "definition": "A clay vessel used for fermenting or ageing wine. Modern wine amphorae vary in shape and porosity and are usually distinguished from Georgia's traditional qvevri.",
+    "why": "Clay can provide a neutral maturation vessel with gentle oxygen exchange, allowing texture and savory character to develop without adding oak-derived vanilla or toast.",
+    "sources": ["oxford-companion"],
+    "inline": true
+  },
+  "botrytis": {
+    "term": "Botrytis",
+    "aliases": ["botrytis", "noble rot"],
+    "definition": "Botrytis cinerea is a fungus that, under favorable conditions, can dehydrate ripe grapes in a beneficial form known as noble rot.",
+    "why": "It concentrates sugar, acidity and flavor while contributing characteristic honeyed, apricot, saffron and marmalade-like complexity in classic sweet wines.",
+    "sources": ["oxford-companion"],
+    "inline": true
+  },
+  "diurnal-range": {
+    "term": "Diurnal range",
+    "aliases": ["diurnal range", "diurnal shift", "diurnal temperature range"],
+    "definition": "The difference between daytime and nighttime temperatures during the growing season.",
+    "why": "Warm days can support ripening while cooler nights slow respiration and can help grapes retain acidity and aromatic freshness.",
+    "sources": ["oxford-companion"],
+    "inline": true
+  },
+  "galets-roules": {
+    "term": "Galets roulés",
+    "aliases": ["galets roulés", "galets roules", "galets"],
+    "definition": "Large rounded stones found on some Rhône vineyard surfaces, especially around Châteauneuf-du-Pape.",
+    "why": "The stony surface affects drainage and vineyard heat balance; it is a site characteristic rather than a flavor ingredient that passes directly into the wine.",
+    "sources": ["inter-rhone"],
+    "inline": true
+  },
+  "lees": {
+    "term": "Lees",
+    "aliases": ["lees", "lees ageing", "lees aging"],
+    "definition": "Lees are the spent yeast cells and other fine solids left after fermentation. Wines can be kept in contact with fine lees during maturation.",
+    "why": "Lees contact can add texture, creaminess and savory or bread-like complexity while helping a wine feel broader without necessarily adding oak flavor.",
+    "sources": ["oxford-companion"],
+    "inline": true
+  },
+  "malolactic-fermentation": {
+    "term": "Malolactic fermentation",
+    "aliases": ["malolactic fermentation", "malolactic conversion", "malolactic"],
+    "definition": "A microbial conversion in which sharper malic acid is transformed into softer lactic acid after alcoholic fermentation.",
+    "why": "It can reduce the impression of acidity and create a rounder texture; in some wines it also contributes buttery or creamy aromas.",
+    "sources": ["oxford-companion"],
+    "inline": true
+  },
+  "marl": {
+    "term": "Marl",
+    "aliases": ["marl", "marly"],
+    "definition": "A sedimentary soil or rock containing a mixture of clay and calcium carbonate, common in several classic European wine regions.",
+    "why": "Its water-holding capacity, drainage and physical structure can influence vine vigor and ripening conditions, but the minerals themselves are not literally tasted in the wine.",
+    "sources": ["oxford-companion"],
+    "inline": true
+  },
+  "neutral-oak": {
+    "term": "Neutral oak",
+    "aliases": ["neutral oak", "neutral barrels", "older neutral barrels"],
+    "definition": "Older oak vessels that have already given up most of their strong wood-derived flavor compounds.",
+    "why": "They can still allow slow oxygen exchange and maturation while contributing much less vanilla, coconut, toast or spice than new oak.",
+    "sources": ["oxford-companion"],
+    "inline": true
+  },
+  "nykteri": {
+    "term": "Nykteri",
+    "aliases": ["Nykteri", "nykteri"],
+    "definition": "A traditional Santorini wine style, historically associated with grapes harvested and processed at night and with a richer, more structured expression of Assyrtiko-led wine.",
+    "why": "Compared with the island's leanest stainless-steel styles, Nykteri is typically fuller and may involve extended maturation, including oak depending on the producer.",
+    "sources": ["wines-of-greece"],
+    "inline": true
+  },
+  "qvevri": {
+    "term": "Qvevri",
+    "aliases": ["qvevri", "qvevris"],
+    "definition": "A large traditional Georgian earthenware vessel, usually buried in the ground, used for fermentation and maturation.",
+    "why": "Traditional skin contact in qvevri can give white grapes amber color, tannin and a broader savory texture while preserving a distinctly non-oak maturation character.",
+    "sources": ["georgia-nwa"],
+    "inline": true
+  },
+  "schist": {
+    "term": "Schist",
+    "aliases": ["schist", "schistous"],
+    "definition": "A layered metamorphic rock that fractures into thin plates and is common in steep vineyards such as parts of the Douro and Priorat.",
+    "why": "Its fractured structure can affect rooting depth, drainage, water availability and heat around the vine; it should not be read as a mineral flavor transferred directly into wine.",
+    "sources": ["oxford-companion"],
+    "inline": true
+  },
+  "skin-contact": {
+    "term": "Skin contact",
+    "aliases": ["skin contact", "skin-contact"],
+    "definition": "Time during which grape juice remains in contact with grape skins during or around fermentation.",
+    "why": "Longer skin contact extracts more color, tannin, aroma compounds and texture. With white grapes it can create amber or orange-wine styles.",
+    "sources": ["oxford-companion"],
+    "inline": true
+  },
+  "terra-rossa": {
+    "term": "Terra rossa",
+    "aliases": ["terra rossa"],
+    "definition": "A distinctive iron-rich red soil, often occurring over limestone; Coonawarra is one of its best-known wine-region examples.",
+    "why": "Its drainage, depth and water relationship help shape vineyard conditions. The term describes the growing environment, not a red-earth flavor that transfers into the wine.",
+    "sources": ["wine-australia"],
+    "inline": true
+  },
+  "tertiary-aromas": {
+    "term": "Tertiary aromas",
+    "aliases": ["tertiary aromas", "tertiary notes", "tertiary complexity"],
+    "definition": "Aromas and flavors that emerge as wine matures, rather than coming mainly from fresh grapes or primary fermentation.",
+    "why": "Depending on the wine, bottle age can shift fresh fruit toward dried fruit, leather, tobacco, mushroom, forest floor, nuts, honey and other mature characteristics.",
+    "sources": ["oxford-companion"],
+    "inline": true
+  },
+  "tannin": {
+    "term": "Tannin",
+    "aliases": ["tannin", "tannins"],
+    "definition": "Phenolic compounds extracted mainly from grape skins, seeds and stems, and sometimes from oak, that create drying or grippy sensations in the mouth.",
+    "why": "Tannin contributes structure and ageing potential, especially in red wines, but it is common enough in Wine Atlas that it is kept in the full glossary rather than linked every time it appears.",
+    "sources": ["oxford-companion"],
+    "inline": false
+  }
+}

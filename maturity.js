@@ -24,6 +24,10 @@ function loadMaturity() {
   return maturityPromise;
 }
 
+function signalMaturityRendered(profile, visible) {
+  document.dispatchEvent(new CustomEvent("wineatlas:maturity-rendered", { detail: { profile, visible } }));
+}
+
 async function renderMaturity(profile) {
   const section = document.getElementById("maturity");
   const stagesTarget = document.getElementById("maturityStages");
@@ -39,6 +43,7 @@ async function renderMaturity(profile) {
     stagesTarget.replaceChildren();
     summaryTarget.textContent = "";
     vintageTarget.textContent = "";
+    signalMaturityRendered(profile, false);
     return;
   }
 
@@ -56,6 +61,7 @@ async function renderMaturity(profile) {
   }
   vintageTarget.textContent = entry.vintage;
   section.classList.remove("hidden");
+  signalMaturityRendered(profile, true);
 }
 
 document.addEventListener("wineatlas:ready", () => {

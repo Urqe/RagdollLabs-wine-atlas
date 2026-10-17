@@ -34,14 +34,19 @@ const ready = new Promise((resolve, reject) => {
   }, { once: true });
 });
 
-for (const file of ["app.js", "compare-country.js", "ux.js", "functional.js", "maturity.js"]) {
+for (const file of ["app.js", "compare-country.js", "ux.js", "functional.js", "maturity.js", "learning.js"]) {
   window.eval(await readFile(path.join(ROOT, file), "utf8"));
 }
 
 if (document.readyState !== "loading") document.dispatchEvent(new window.Event("DOMContentLoaded", { bubbles: true }));
 await ready;
 assert.equal(window.WineAtlas.ready, true, "core app should initialize");
-const tick = (ms = 25) => new Promise(resolve => setTimeout(resolve, ms));
+const tick = (ms = 35) => new Promise(resolve => setTimeout(resolve, ms));
+
+// Brand kicker remains one word semantically while visually separating RagDoll and Labs.
+assert.equal(document.querySelectorAll(".brand-ragdoll").length, 2);
+assert.equal(document.querySelectorAll(".brand-labs").length, 2);
+assert.equal(document.querySelector(".kicker").textContent.toLowerCase(), "ragdolllabs reference tools");
 
 // Guarded lookup/navigation remains authoritative.
 assert.equal(window.WineAtlas.selectProfile("not-a-grape", "not-a-region"), false);
@@ -71,6 +76,25 @@ assert.ok(document.getElementById("vintageEffect").textContent.length > 20, "vin
 window.WineAtlas.selectProfile("assyrtiko", "santorini");
 await tick();
 assert.equal(maturity.classList.contains("hidden"), true, "profiles without maturity metadata should not show generic ageing copy");
+
+// Learning layer annotates advanced terms after async feature rendering without linking common words everywhere.
+window.WineAtlas.selectProfile("rkatsiteli", "kakheti");
+await tick(60);
+const qvevriTerm = document.querySelector('.glossary-term[data-glossary-id="qvevri"]');
+assert.ok(qvevriTerm, "qvevri should become a contextual glossary term");
+assert.equal(document.querySelector('.glossary-term[data-glossary-id="tannin"]'), null, "common tannin mentions should not become inline glossary clutter");
+qvevriTerm.click();
+await tick();
+assert.equal(document.getElementById("glossaryDialogTitle").textContent, "Qvevri");
+assert.match(document.getElementById("glossaryContent").textContent, /earthenware vessel/i);
+assert.ok(document.getElementById("glossaryDialog").hasAttribute("open"), "contextual definition should open the glossary dialog");
+
+// Full glossary remains directly discoverable from the sidebar.
+document.getElementById("glossaryClose").click();
+document.getElementById("glossaryOpen").click();
+await tick();
+assert.equal(document.getElementById("glossaryDialogTitle").textContent, "Wine glossary");
+assert.ok(document.querySelectorAll("#glossaryContent .glossary-entry").length >= 10, "full glossary should contain the curated learning terms");
 
 // Food-first discovery ranks real pairing data and opens a valid profile.
 const foodInput = document.getElementById("foodInput");

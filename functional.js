@@ -176,6 +176,10 @@ function loadWinemaking() {
   return winemakingPromise;
 }
 
+function signalWinemakingRendered(profile, visible) {
+  document.dispatchEvent(new CustomEvent("wineatlas:winemaking-rendered", { detail: { profile, visible } }));
+}
+
 async function renderWinemaking(profile) {
   const section = document.getElementById("winemaking");
   const choicesTarget = document.getElementById("winemakingChoices");
@@ -188,6 +192,7 @@ async function renderWinemaking(profile) {
   choicesTarget.replaceChildren();
   if (!choices.length) {
     section.classList.add("hidden");
+    signalWinemakingRendered(profile, false);
     return;
   }
 
@@ -217,6 +222,7 @@ async function renderWinemaking(profile) {
     choicesTarget.appendChild(card);
   }
   section.classList.remove("hidden");
+  signalWinemakingRendered(profile, true);
 }
 
 function wireFunctionalFeatures() {

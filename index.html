@@ -6,16 +6,17 @@
   <meta name="description" content="RagDollLabs Wine Atlas — explore how grape, climate and region shape a wine's typical style.">
   <title>RagDollLabs Wine Atlas</title>
   <!-- One release token keeps visible assets in sync after a GitHub Pages deploy. -->
-  <link rel="stylesheet" href="./styles.css?v=20261017-maturity1">
-  <link rel="stylesheet" href="./ux.css?v=20261017-maturity1">
-  <link rel="stylesheet" href="./maturity.css?v=20261017-maturity1">
+  <link rel="stylesheet" href="./styles.css?v=20261017-learning1">
+  <link rel="stylesheet" href="./ux.css?v=20261017-learning1">
+  <link rel="stylesheet" href="./maturity.css?v=20261017-learning1">
+  <link rel="stylesheet" href="./learning.css?v=20261017-learning1">
 </head>
 <body>
   <div class="wrap">
     <section id="welcomeView" class="welcome hidden" aria-labelledby="welcomeTitle">
       <div class="welcome-hero">
         <div class="welcome-copy">
-          <div class="kicker">RagDollLabs reference tools</div>
+          <div class="kicker"><span class="brand-ragdoll">RagDoll</span><span class="brand-labs">Labs</span> <span class="brand-reference">reference tools</span></div>
           <h1 id="welcomeTitle">RagDollLabs Wine Atlas</h1>
           <div class="tagline">Explore how grape, place and climate shape the glass.</div>
           <p>Discover classic and emerging wine regions through style profiles, serving guidance and side-by-side comparison. Start wherever your curiosity does.</p>
@@ -37,7 +38,7 @@
     <div id="appShell" class="hidden">
       <header class="hero">
         <div>
-          <div class="kicker">RagDollLabs reference tools</div>
+          <div class="kicker"><span class="brand-ragdoll">RagDoll</span><span class="brand-labs">Labs</span> <span class="brand-reference">reference tools</span></div>
           <h1>RagDollLabs Wine Atlas</h1>
           <div class="tagline">Explore how grape, climate and region shape the glass.</div>
           <p>Search, browse by grape or place, compare regional expressions, and discover styles from classic and emerging wine regions.</p>
@@ -59,7 +60,7 @@
             <div class="section-head"><h2 id="exploreHeading">Wine Explorer</h2><div class="browse-toggle" role="group" aria-label="Browse method"><button id="browseByGrape" class="on" type="button" aria-pressed="true">By grape</button><button id="browseByPlace" type="button" aria-pressed="false">By place</button></div></div>
             <div id="grapeBrowseControls"><label for="grape">Grape</label><select id="grape"></select><div id="grapeColor" aria-live="polite"></div><label for="region">Region</label><select id="region"></select></div>
             <div id="placeBrowseControls" class="hidden"><label for="country">Country</label><select id="country"></select><label for="placeRegion">Region</label><select id="placeRegion"></select><label for="placeGrape">Grape</label><select id="placeGrape"></select><div id="placeGrapeColor" aria-live="polite"></div></div>
-            <button id="surprise" class="surprise" type="button">Surprise me</button><p class="small surprise-hint">Feeling adventurous? Discovery regions are intentionally weighted higher.</p><h3>Reference note</h3><p class="small">Profiles describe typical regional and varietal character. Producer, vintage, vineyard and winemaking can materially change a bottle.</p>
+            <button id="surprise" class="surprise" type="button">Surprise me</button><p class="small surprise-hint">Feeling adventurous? Discovery regions are intentionally weighted higher.</p><h3>Reference note</h3><p class="small">Profiles describe typical regional and varietal character. Producer, vintage, vineyard and winemaking can materially change a bottle.</p><button id="glossaryOpen" class="glossary-open" type="button">Open wine glossary</button>
           </section>
           <section id="compareControls" class="hidden" aria-labelledby="compareHeading"><h2 id="compareHeading">Compare Regions</h2><label for="cg">Grape</label><select id="cg"></select><div id="compareGrapeColor" aria-live="polite"></div><div id="compareRegionControls" class="compareControls"></div><p id="compareHint" class="small" role="status" aria-live="polite"></p></section>
           <section id="moodSection" class="moods" aria-labelledby="moodHeading"><h3 id="moodHeading">What are you in the mood for?</h3><div id="moodButtons" class="mood-grid"></div></section>
@@ -84,12 +85,22 @@
         </main>
       </div>
     </div>
+
+    <dialog id="glossaryDialog" class="glossary-dialog" aria-labelledby="glossaryDialogTitle">
+      <div class="glossary-dialog-inner">
+        <div class="glossary-dialog-head"><div><div class="kicker">Learning layer</div><h2 id="glossaryDialogTitle">Wine glossary</h2></div><button id="glossaryClose" class="glossary-close" type="button">Close</button></div>
+        <p id="glossaryIntro" class="small">Short explanations for technical terms that appear across Wine Atlas.</p>
+        <div id="glossaryContent" class="glossary-content"></div>
+      </div>
+    </dialog>
+
     <footer class="footer">RagDollLabs Wine Atlas · Typical-style reference, not a guarantee about a specific bottle.</footer>
   </div>
-  <script src="./app.js?v=20261017-maturity1" defer></script>
-  <script src="./compare-country.js?v=20261017-maturity1" defer></script>
-  <script src="./ux.js?v=20261017-maturity1" defer></script>
-  <script src="./functional.js?v=20261017-maturity1" defer></script>
-  <script src="./maturity.js?v=20261017-maturity1" defer></script>
+  <script src="./app.js?v=20261017-learning1" defer></script>
+  <script src="./compare-country.js?v=20261017-learning1" defer></script>
+  <script src="./ux.js?v=20261017-learning1" defer></script>
+  <script src="./functional.js?v=20261017-learning1" defer></script>
+  <script src="./maturity.js?v=20261017-learning1" defer></script>
+  <script src="./learning.js?v=20261017-learning1" defer></script>
 </body>
 </html>

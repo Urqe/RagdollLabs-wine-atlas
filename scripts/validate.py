@@ -3,8 +3,9 @@
 
 The validator intentionally tests data contracts rather than tasting opinions:
 JSON parsing, duplicate IDs, grape/source references, locator coverage, explicit
-Why metadata, winemaking metadata, maturity metadata and required profile fields.
-Keeping this dependency-free lets reviewers run it locally and keeps CI lightweight.
+Why metadata, winemaking metadata, maturity metadata, glossary metadata and
+required profile fields. Keeping this dependency-free lets reviewers run it
+locally and keeps CI lightweight.
 """
 
 from __future__ import annotations
@@ -43,6 +44,7 @@ def main() -> None:
     why_rules = load(DATA / "why-rules.json")
     winemaking = load(DATA / "winemaking.json")
     maturity = load(DATA / "maturity.json")
+    glossary = load(DATA / "glossary.json")
 
     regions: dict[str, dict] = {}
     for path in REGION_FILES:
@@ -139,13 +141,38 @@ def main() -> None:
             for source_id in sources_for_entry:
                 assert source_id in sources, f"{prefix}: unknown source {source_id}"
 
+    assert isinstance(glossary, dict) and glossary, "glossary data must be a non-empty object"
+    aliases_seen: dict[str, str] = {}
+    for glossary_id, entry in glossary.items():
+        prefix = f"glossary/{glossary_id}"
+        assert isinstance(entry, dict), f"{prefix}: entry must be an object"
+        for field in ("term", "definition", "why"):
+            assert isinstance(entry.get(field), str) and entry[field].strip(), f"{prefix}: invalid {field}"
+        aliases = entry.get("aliases")
+        assert isinstance(aliases, list) and aliases, f"{prefix}: aliases must be non-empty"
+        if "inline" in entry:
+            assert isinstance(entry["inline"], bool), f"{prefix}: inline must be boolean"
+        source_ids = entry.get("sources")
+        assert isinstance(source_ids, list) and source_ids, f"{prefix}: sources must be non-empty"
+        for source_id in source_ids:
+            assert source_id in sources, f"{prefix}: unknown source {source_id}"
+        for alias in [entry["term"], *aliases]:
+            assert isinstance(alias, str) and alias.strip(), f"{prefix}: invalid alias"
+            normalized = alias.casefold().strip()
+            previous = aliases_seen.get(normalized)
+            assert previous in {None, glossary_id}, f"{prefix}: alias {alias!r} already belongs to {previous}"
+            aliases_seen[normalized] = glossary_id
+
     extra_locators = set(locators) - set(regions)
     assert not extra_locators, f"locator entries without regions: {sorted(extra_locators)}"
 
     profile_count = sum(len(region["grapes"]) for region in regions.values())
     winemaking_count = sum(len(entry["choices"]) for grapes_ in winemaking.values() for entry in grapes_.values())
     maturity_count = sum(len(grapes_) for grapes_ in maturity.values())
-    print(f"OK: {len(grapes)} grapes, {len(regions)} regions, {profile_count} grape-region profiles, {winemaking_count} winemaking choices, {maturity_count} maturity profiles")
+    print(
+        f"OK: {len(grapes)} grapes, {len(regions)} regions, {profile_count} grape-region profiles, "
+        f"{winemaking_count} winemaking choices, {maturity_count} maturity profiles, {len(glossary)} glossary terms"
+    )
 
 
 if __name__ == "__main__":

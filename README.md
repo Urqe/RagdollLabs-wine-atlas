@@ -8,6 +8,8 @@ Live site: https://urqe.github.io/RagdollLabs-wine-atlas/
 
 The project originally used **RagLabs** as its working product name, while the repository already used the longer `RagdollLabs` naming. The visible product brand is now **RagDollLabs** for consistency across the project family. The repository and GitHub Pages path remain `RagdollLabs-wine-atlas` so existing links do not change.
 
+The small **RagDollLabs reference tools** kicker keeps one typeface and one word, but visually separates **RagDoll** in a light wine tone from **Labs** in gold so the three adjacent `L` letterforms do not visually collapse together.
+
 ## Features
 
 - **Welcome experience** — first-time visitors start from a minimal landing page instead of an arbitrary default wine profile
@@ -22,6 +24,9 @@ The project originally used **RagLabs** as its working product name, while the r
 - **Regional identity** — concise climate, terrain, soil and influence context
 - **Why does it taste like this?** — explicit data-driven cause → effect explanations connecting growing conditions and winemaking to style
 - **Winemaking choices** — only profiles where vessel choice is genuinely educational show curated oak, steel, qvevri or related alternatives with prevalence and taste impact
+- **Maturity & vintage evolution** — selected age-worthy profiles explain how a young wine can develop through mature stages and how vintage conditions may change the pace or expression
+- **Learning layer** — technical wine terms such as qvevri, marl, schist, terra rossa, lees and malolactic fermentation can be tapped for concise definitions and “why it matters” context
+- **Full glossary** — the same curated learning data is available as a compact browseable glossary from the Wine Explorer controls
 - **Similar Wines** — three nearest profiles calculated from the same sensory metrics shown in the charts
 - **Categorized flavor notes** — Fruit, Floral, Spice, Earth / savory, Oak / ageing and Mineral / herbal
 - **Serve It Tonight** — serving temperature, decanting, glassware, ageing potential and food pairing guidance
@@ -71,10 +76,14 @@ The runtime is HTML, CSS and vanilla JavaScript only. No backend, framework, ana
 ├── index.html
 ├── styles.css                       # core visual system
 ├── ux.css                           # welcome / wine-color / compare / functional UX styling
+├── maturity.css                     # maturity-stage presentation
+├── learning.css                     # brand split + contextual glossary UI
 ├── app.js                           # data, state, rendering and app events
 ├── ux.js                            # welcome and instructional-state subscriber
 ├── compare-country.js               # progressive compare-listbox enhancement
 ├── functional.js                    # food-first discovery + winemaking-choice enhancement
+├── maturity.js                      # optional maturity / vintage evolution renderer
+├── learning.js                      # glossary loader, contextual term annotation and dialog
 ├── assets/
 │   ├── world-map.svg                # simplified physical world landmass
 │   └── vineyard-welcome.svg         # local decorative welcome artwork
@@ -86,6 +95,8 @@ The runtime is HTML, CSS and vanilla JavaScript only. No backend, framework, ana
 │   ├── regions-discovery-expanded.json
 │   ├── why-rules.json               # explicit scope / wording metadata for region Why entries
 │   ├── winemaking.json              # sparse profile-specific vessel choices and taste effects
+│   ├── maturity.json                # sparse Young → Developing → Mature editorial guidance
+│   ├── glossary.json                # definitions, aliases, contextual notes and source refs
 │   ├── locators.json
 │   └── sources.json
 ├── scripts/
@@ -111,10 +122,12 @@ Important events include:
 - `wineatlas:selection-needed` — the UI needs another user choice and should show an instructional empty state
 - `wineatlas:mode-changed` — Explore / Compare changed
 - `wineatlas:compare-controls` — native comparison controls were rebuilt and may be progressively enhanced
+- `wineatlas:winemaking-rendered` — optional asynchronous winemaking content finished rendering
+- `wineatlas:maturity-rendered` — optional asynchronous maturity content finished rendering
 
-This replaces the earlier polling, `setTimeout(0)` choreography and `resetCompare()` monkey-patching. `compare-country.js` subscribes to the compare-control event and enhances the already-functional native selects; if that script fails to load, comparison still works with native controls.
+The last two events let `learning.js` annotate newly rendered educational text without polling, MutationObservers or timing-based `setTimeout()` coordination.
 
-`ux.js` subscribes to application events rather than observing DOM mutations or sniffing `app.js` globals. `functional.js` uses the same event/API boundary for food discovery and optional winemaking context. A valid shared profile URL remains authoritative and bypasses the welcome screen.
+`ux.js`, `functional.js`, `maturity.js` and `learning.js` remain presentation/feature layers around the same core selection API. A valid shared profile URL remains authoritative and bypasses the welcome screen.
 
 ### Selection behavior
 
@@ -128,11 +141,11 @@ Wine Atlas does not ask the user to make a choice when there is only one valid c
 
 ### Rendering and safety
 
-Repository-controlled wine data is still treated as data, not markup. Dynamic text inserted through HTML templates is escaped with the shared `escapeHtml()` / `escapeAttr()` helpers; UX components that are convenient to build directly use DOM nodes and `textContent`.
+Repository-controlled wine data is treated as data, not markup. Dynamic text inserted through HTML templates is escaped with the shared `escapeHtml()` / `escapeAttr()` helpers; feature layers generally use DOM nodes and `textContent`.
 
 Search results are ordinary keyboard-focusable buttons rather than a partial ARIA listbox. The country-aware Compare selector intentionally uses the full listbox pattern, including Arrow keys, Home/End, Enter/Space and Escape, with the hidden native select retained as the comparison state source.
 
-The eight sensory metrics keep their display label and Compare phrasing in one definition so adding or changing a metric cannot leave a second phrasing table out of sync. `allPairs()` is memoized because the loaded wine dataset is immutable during a page session.
+The learning layer only replaces matching text nodes with accessible glossary buttons. It skips links, buttons, form controls, hidden decorative content and the glossary dialog itself, so glossary enhancement cannot recursively annotate its own definitions.
 
 ### “Why does it taste like this?” data
 
@@ -149,15 +162,19 @@ Soil and landscape language is intentionally cautious: the atlas can describe dr
 
 ### Winemaking-choice data
 
-`data/winemaking.json` is intentionally sparse rather than generating generic barrel/tank commentary for every wine. A profile appears there only when the vessel or maturation choice is a meaningful part of understanding the style. Each choice records:
-
-- `vessel` — the meaningful vessel or approach, such as stainless steel, oak or qvevri
-- `prevalence` — one of `very common`, `common`, `sometimes` or `rare`
-- optional `context` — when the choice is tied to a specific tradition or classification
-- `effect` — a cautious explanation of the likely sensory or structural impact
-- `sources` — references already present in `data/sources.json`
+`data/winemaking.json` is intentionally sparse rather than generating generic barrel/tank commentary for every wine. A profile appears there only when the vessel or maturation choice is a meaningful part of understanding the style. Each choice records a vessel/approach, prevalence, optional context, a cautious sensory effect and source references.
 
 The initial curated set covers Santorini Assyrtiko, Kakheti Rkatsiteli, Napa Cabernet Sauvignon and Rioja Tempranillo. Profiles without relevant vessel choices show no section at all.
+
+### Maturity data
+
+`data/maturity.json` is similarly sparse. Each curated profile contains a short overview, exactly three editorial stages (**Young → Developing → Mature**), a vintage note and source references. It does not infer maturity from the existing free-text ageing-range field.
+
+### Learning-layer data
+
+`data/glossary.json` stores a canonical term, aliases, a concise definition, a **Why it matters** explanation, source references and an `inline` flag. Common terms such as tannin can remain available in the full glossary while opting out of automatic inline annotation, preventing the profile from becoming visually noisy.
+
+The initial glossary covers advanced terms including amphora, botrytis, diurnal range, galets roulés, lees, malolactic fermentation, marl, neutral oak, Nykteri, qvevri, schist, skin contact, terra rossa and tertiary aromas.
 
 ### Data conventions
 
@@ -175,7 +192,7 @@ The initial curated set covers Santorini Assyrtiko, Kakheti Rkatsiteli, Napa Cab
 
 ### Cache behavior
 
-Visible release assets use one release token in `index.html`, and the two image references in `ux.css` use the same token. Keeping a single token avoids the previous collection of unrelated manual suffixes while still preventing a freshly deployed HTML page from being paired with stale CSS/JS/image assets.
+Visible release assets use a shared release token in `index.html` so a freshly deployed HTML page is not paired with stale CSS or JavaScript.
 
 ## Validation
 
@@ -187,11 +204,13 @@ node --check app.js
 node --check compare-country.js
 node --check ux.js
 node --check functional.js
+node --check maturity.js
+node --check learning.js
 npm install
 npm test
 ```
 
-The structured validator checks JSON parsing, duplicate region IDs, grape/source references, required profile fields, metric/modifier contracts, locator coverage, explicit Why-rule references and winemaking metadata. The jsdom suite exercises guarded profile selection, conditional winemaking rendering, food-first discovery, only-choice auto-selection and rapid Compare rebuilding. `.github/workflows/validate.yml` runs both layers in GitHub Actions.
+The structured validator checks JSON parsing, duplicate region IDs, grape/source references, required profile fields, metric/modifier contracts, locator coverage, explicit Why-rule references, winemaking metadata, maturity metadata and glossary aliases/source references. The jsdom suite exercises guarded profile selection, conditional feature rendering, food-first discovery, contextual glossary annotation/dialog behavior, only-choice auto-selection and rapid Compare rebuilding. `.github/workflows/validate.yml` runs both layers in GitHub Actions.
 
 ## Running locally
 
