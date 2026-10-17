@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Static integrity checks for RagLabs Wine Atlas.
+"""Static integrity checks for RagDollLabs Wine Atlas.
 
 The validator intentionally tests data contracts rather than tasting opinions:
 JSON parsing, duplicate IDs, grape/source references, locator coverage and
@@ -22,6 +22,14 @@ REGION_FILES = [
 ]
 REQUIRED_PROFILE_FIELDS = {"notes", "serve", "decant", "glass", "ageing", "pairings", "expect"}
 METRICS = {"body", "acidity", "tannin", "sweetness", "alcohol", "fruit", "oak", "earth"}
+
+# Politically sensitive labels follow the official position of the Finnish Government.
+# These guards make the documented policy executable so a future data addition cannot
+# accidentally label Crimea or Sevastopol as Russian territory.
+SENSITIVE_LABEL_RULES = {
+    "crimea": "Ukraine",
+    "sevastopol": "Ukraine",
+}
 
 
 def load(path: Path):
@@ -55,6 +63,15 @@ def main() -> None:
         assert region_id in locators, f"{region_id}: missing locator"
         assert region.get("name") and region.get("country") and region.get("climate"), f"{region_id}: incomplete identity"
         assert region.get("grapes"), f"{region_id}: no grape profiles"
+
+        searchable_name = f"{region_id} {region.get('name', '')}".lower()
+        for keyword, expected_country in SENSITIVE_LABEL_RULES.items():
+            if keyword in searchable_name:
+                assert region["country"] == expected_country, (
+                    f"{region_id}: {keyword} must be labeled {expected_country} "
+                    "under the Wine Atlas geopolitical labeling policy"
+                )
+
         for source_id in region.get("sources", []):
             assert source_id in sources, f"{region_id}: unknown source {source_id}"
         for grape_id, profile in region["grapes"].items():
