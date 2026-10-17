@@ -6,10 +6,13 @@ Live site: https://urqe.github.io/RagdollLabs-wine-atlas/
 
 ## Brand naming
 
-The project originally used **RagLabs** as its working product name, while the repository already used the longer `RagdollLabs` naming. This release standardizes the visible product brand as **RagDollLabs** for consistency across the project family. The repository and GitHub Pages path remain `RagdollLabs-wine-atlas` so existing links do not change.
+The project originally used **RagLabs** as its working product name, while the repository already used the longer `RagdollLabs` naming. The visible product brand is now **RagDollLabs** for consistency across the project family. The repository and GitHub Pages path remain `RagdollLabs-wine-atlas` so existing links do not change.
 
 ## Features
 
+- **Welcome experience** — first-time visitors start from a minimal landing page instead of an arbitrary default wine profile
+- **Five entry paths** — start by grape, explore by place, search, surprise me, or compare regions
+- **Wine-color cues** — red / white grape indicators appear in selectors, profile headers, search results, featured discoveries and recommendations
 - **Wine Explorer** — browse either **by grape** or through a **Country → Region → Grape** hierarchy
 - **Atlas search** — search grapes, regions, countries, climate/style descriptions, flavor notes and discovery labels
 - **Sensory profile** — body, acidity, tannin, sweetness, alcohol, fruit, oak and earthiness on a 0–5 scale
@@ -23,12 +26,12 @@ The project originally used **RagLabs** as its working product name, while the r
 - **Discovery labels** — Classic, Discovery, Emerging region and grape-specific Indigenous grape badges
 - **Surprise me** — discovery/emerging regions are weighted 3× over classics
 - **Mood discovery** — Light & elegant, Big & ripe, Earthy & savoury, Fresh & mineral, Aromatic, Something unusual
-- **Shareable URLs** — `?grape=...&region=...`, with invalid query state normalized safely
+- **Shareable URLs** — `?grape=...&region=...` opens a profile directly and bypasses the landing screen
 - **Sources & methodology** — per-profile reference drawer resolved through `data/sources.json`
 
 ## Discovery expansion
 
-The atlas now includes additional discovery profiles beyond the original Mexico / Bulgaria / Ukraine / Russia set, including:
+The atlas includes additional discovery profiles beyond the original Mexico / Bulgaria / Ukraine / Russia set, including:
 
 - **Georgia / Kakheti** — Saperavi, Rkatsiteli
 - **Greece / Santorini** — Assyrtiko
@@ -49,10 +52,13 @@ HTML, CSS and vanilla JavaScript only. No backend, build step, framework, analyt
 ```text
 /
 ├── index.html
-├── styles.css
-├── app.js
+├── styles.css                       # core visual system
+├── ux.css                           # welcome / wine-color UX layer
+├── app.js                           # core Wine Atlas behavior
+├── ux.js                            # landing-state and UX orchestration
 ├── assets/
-│   └── world-map.svg               # simplified physical world landmass
+│   ├── world-map.svg                # simplified physical world landmass
+│   └── vineyard-welcome.svg         # local decorative welcome artwork
 ├── data/
 │   ├── grapes.json
 │   ├── regions-classics-west.json
@@ -70,10 +76,21 @@ A rendered profile is calculated as:
 
 **grape baseline + regional modifiers / overrides**
 
+### UX architecture
+
+`app.js` remains the source of profile-selection, comparison, search and recommendation behavior. `ux.js` deliberately sits on top of it and does not duplicate wine knowledge. This separation keeps the new welcome flow reviewable and easy to revise.
+
+On a clean visit with no valid `?grape=...&region=...` pair, the app shows the welcome screen and removes the internal default profile from the visible URL. A valid shared profile URL bypasses the welcome screen and opens the requested profile directly.
+
+The welcome artwork is a local SVG with a dark overlay so it remains lightweight and consistent with the existing wine-cellar palette. Decorative imagery is not required to understand or operate the app.
+
+The HTML references `styles.css`, `ux.css`, `app.js` and `ux.js` with release-version query strings. `ux.css` also version-tags `world-map.svg`. These cache-busting tokens are intentionally changed for visible releases so GitHub Pages visitors do not receive a stale CSS/image combination after deployment.
+
 ### Data conventions
 
 - Sensory metrics use a 0–5 scale. Regional `mods` are offsets and are clamped to 0–5.
-- `grapes.json` also stores explicit `color` and `indigenous` metadata. UI logic must not infer these from sensory numbers.
+- `grapes.json` stores explicit `color` and `indigenous` metadata. UI logic must not infer these from sensory numbers.
+- Wine-color cues use that explicit metadata: burgundy for red grapes and warm straw/gold for white grapes. Text labels remain present so color is never the only signal.
 - Region entries contain only grape combinations intended to be plausible for that region.
 - `identity`, `why`, `badges` and `sources` are optional region metadata.
 - `Indigenous grape` is rendered from grape metadata, not inherited blindly from a multi-grape region.
@@ -91,8 +108,6 @@ Reference: https://valtioneuvosto.fi/en/ukraine
 
 ### Behavior notes for reviewers
 
-The code is intentionally commented around state transitions and data-derived features. In particular:
-
 - Every feature that selects a wine profile resolves through `combinedProfile()` so invalid grape-region pairs cannot leak into the UI.
 - Region-file merging uses a single `Set` across all region files; duplicate IDs fail before `Object.assign()` can overwrite them.
 - Browse-by-place is only an alternate navigation path over the same profile state; it does not maintain a separate wine dataset.
@@ -101,6 +116,7 @@ The code is intentionally commented around state transitions and data-derived fe
 - Locator markers use the same equirectangular coordinate system as the local world-map asset, so marker placement remains deterministic and dependency-free.
 - Compare selectors are rebuilt whenever the grape changes; stale IDs cannot survive from the previous grape.
 - Single-region grapes remain available in Explore mode and show **“More regional expressions coming soon.”** in Compare.
+- `ux.js` waits for `app.js` data initialization before deciding whether to show the welcome view or honor a shared profile URL.
 
 ## Validation
 
@@ -109,9 +125,10 @@ Run the dependency-free integrity checks locally with:
 ```bash
 python3 scripts/validate.py
 node --check app.js
+node --check ux.js
 ```
 
-The validator checks JSON parsing, duplicate region IDs, grape/source references, required profile fields, metric/modifier contracts, locator coverage and the documented geopolitical-labeling guard. `.github/workflows/validate.yml` runs the same checks in GitHub Actions when Actions are enabled for the repository.
+The validator checks JSON parsing, duplicate region IDs, grape/source references, required profile fields, metric/modifier contracts, locator coverage and the documented geopolitical-labeling guard. `.github/workflows/validate.yml` runs the same checks in GitHub Actions.
 
 ## Running locally
 
@@ -121,11 +138,7 @@ Because JSON is loaded with `fetch()`, run a local server instead of opening `in
 python3 -m http.server 8000
 ```
 
-Then open:
-
-```text
-http://localhost:8000
-```
+Then open `http://localhost:8000`.
 
 ## GitHub Pages
 

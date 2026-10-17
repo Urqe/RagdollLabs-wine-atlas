@@ -1,0 +1,51 @@
+/*
+ * RagDollLabs Wine Atlas — welcome / navigation UX layer
+ * ------------------------------------------------------
+ * Kept separate from styles.css so the landing-state experiment and grape-color
+ * affordances stay easy to review or roll back without touching the core layout.
+ */
+
+.welcome { min-height: calc(100vh - 44px); display: grid; align-content: center; gap: 18px; }
+.welcome-hero { position: relative; overflow: hidden; min-height: 520px; border: 1px solid var(--line); border-radius: 28px; background:
+  linear-gradient(90deg, rgba(14,10,12,.94) 0%, rgba(14,10,12,.78) 44%, rgba(14,10,12,.44) 100%),
+  url("./assets/vineyard-welcome.svg?v=20261017-1") center / cover no-repeat; box-shadow: 0 24px 60px rgba(0,0,0,.28); }
+.welcome-copy { position: relative; z-index: 1; max-width: 760px; padding: clamp(32px,6vw,78px); }
+.welcome-copy h1 { max-width: 760px; }
+.welcome-copy .tagline { font-size: clamp(20px,3vw,30px); max-width: 700px; }
+.welcome-copy > p { max-width: 650px; color: #d1c1c5; line-height: 1.6; font-size: 15px; }
+.welcome-actions { margin-top: 28px; display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 10px; }
+.welcome-action { min-height: 96px; padding: 14px; text-align: left; border: 1px solid rgba(201,171,107,.28); border-radius: 14px; background: rgba(16,12,14,.72); color: var(--text); cursor: pointer; backdrop-filter: blur(8px); }
+.welcome-action:hover { border-color: var(--gold); background: rgba(27,18,21,.88); transform: translateY(-1px); }
+.welcome-action strong { display: block; color: var(--gold); font-size: 13px; }
+.welcome-action span { display: block; color: var(--muted); font-size: 11px; line-height: 1.4; margin-top: 5px; }
+.welcome-discoveries { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; }
+.welcome-discoveries button { text-align: left; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: rgba(23,17,20,.92); color: var(--text); cursor: pointer; }
+.welcome-discoveries button:hover { border-color: var(--gold); }
+.welcome-discoveries .meta { display: block; color: var(--muted); font-size: 10px; margin-top: 4px; }
+
+.empty-state { min-height: 280px; display: grid; place-items: center; text-align: center; }
+.empty-state-inner { max-width: 500px; }
+.empty-state h2 { margin-bottom: 8px; }
+.empty-state p { color: var(--muted); line-height: 1.55; }
+
+.wine-color-indicator { display: inline-flex; align-items: center; gap: 7px; margin-top: 7px; font-size: 11px; color: var(--muted); }
+.wine-color-dot { width: 10px; height: 10px; border-radius: 50%; flex: 0 0 auto; box-shadow: 0 0 0 1px rgba(255,255,255,.14); }
+.wine-color-dot.red { background: #7f2945; }
+.wine-color-dot.white { background: #d9bd72; }
+.wine-color-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; border: 1px solid var(--line); border-radius: 999px; color: #d8cbd0; font-size: 10px; white-space: nowrap; }
+.search-result .wine-color-dot, .similar-item .wine-color-dot, .welcome-discoveries .wine-color-dot { display: inline-block; vertical-align: -1px; margin-right: 5px; width: 8px; height: 8px; }
+
+/* Cache-busted map asset avoids stale "potato map" CSS/image combinations after deploys. */
+.locator svg { background-image: url("./assets/world-map.svg?v=20261017-2"); }
+
+@media (max-width: 980px) {
+  .welcome-actions { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .welcome-discoveries { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) {
+  .welcome { min-height: auto; }
+  .welcome-hero { min-height: 560px; background-position: 58% center; }
+  .welcome-copy { padding: 28px 22px; }
+  .welcome-actions { grid-template-columns: 1fr; }
+  .welcome-action { min-height: 78px; }
+}
