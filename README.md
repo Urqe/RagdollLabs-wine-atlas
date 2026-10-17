@@ -292,3 +292,28 @@ or guidance failures preserve direct pairing search. Validation checks reference
 canonical targets and self-contained artwork; DOM tests cover alias equivalence,
 dish coverage and preparation boundaries. Browser visual checks are still needed
 when changing the background composition or responsive CSS.
+
+
+### Food vocabulary and constrained wine search
+
+All canonical food pairing labels are lowercase in data and accessible UI text.
+The curated dish vocabulary now covers 28 dishes/preparation variants. Search-only
+aliases include spelling variants, accents, singular/plural forms and selected
+Finnish/Spanish names. Result summaries show the food labels that matched rather
+than every pairing attached to a wine.
+
+`wine-search.js` owns ranking for both Explore and Compare. `data/wine-search.json`
+is validated core data: aliases for sparkling wine, crémant, Champagne, Cava and
+Prosecco impose hard family/appellation constraints before ranking. Complete grape
+names in constrained searches must match the actual displayed grape expression;
+permitted blend varieties mentioned in explanatory prose cannot create a match.
+Examples: `cremant pinot noir`, `crémant d’Alsace`, `sparkling fried chicken` and
+`kuohuviini chardonnay`. Contradictory appellations yield no results, and Champagne
+is never substituted for crémant. Core input handling delegates to the enhanced
+renderer once, preserving a basic fallback if the enhancement script is absent.
+
+Five crémant expressions cover Bourgogne (Chardonnay-led blanc de blancs and
+Pinot Noir-led blanc de noirs), Alsace (Pinot Blanc-led white and Pinot Noir rosé)
+and Loire (Chenin-led white). These are curated style expressions, not an exhaustive
+list of permitted grapes or all regional blends. Numeric style bars remain
+editorial estimates, not appellation rules or laboratory measurements.

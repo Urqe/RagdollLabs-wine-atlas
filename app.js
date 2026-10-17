@@ -46,6 +46,7 @@ const DEFAULT_NOTE_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle c
 
 let GRAPES = {};
 let REGIONS = {};
+let SEARCH_RULES = [];
 let SOURCES = {};
 let LOCATORS = {};
 let WHY_RULES = {};
@@ -86,11 +87,12 @@ async function loadData() {
     "./data/regions-styles.json",
     "./data/sources.json",
     "./data/locators.json",
-    "./data/why-rules.json"
+    "./data/why-rules.json",
+    "./data/wine-search.json"
   ];
   const responses = await Promise.all(paths.map(path => fetch(path)));
   if (responses.some(response => !response.ok)) throw new Error("Wine data could not be loaded.");
-  const [grapes, classicWest, classicExpanded, discovery, discoveryExpanded, styleRegions, sources, locators, whyRules] = await Promise.all(responses.map(response => response.json()));
+  const [grapes, classicWest, classicExpanded, discovery, discoveryExpanded, styleRegions, sources, locators, whyRules, wineSearch] = await Promise.all(responses.map(response => response.json()));
   const regionGroups = [classicWest, classicExpanded, discovery, discoveryExpanded, styleRegions];
   const seen = new Set();
   for (const group of regionGroups) {
@@ -104,6 +106,7 @@ async function loadData() {
   SOURCES = sources;
   LOCATORS = locators;
   WHY_RULES = whyRules;
+  SEARCH_RULES = wineSearch.rules;
   PAIR_CACHE = null;
 }
 
@@ -475,6 +478,10 @@ function searchHaystack(item) {
 }
 
 function runSearch() {
+  if (typeof window.renderEnhancedAtlasSearch === "function") {
+    void window.renderEnhancedAtlasSearch();
+    return;
+  }
   const query = $("searchInput").value.trim().toLowerCase();
   if (query.length < 2) { $("searchResults").innerHTML = ""; return; }
   const terms = query.split(/\s+/).filter(Boolean);
@@ -677,6 +684,7 @@ window.WineAtlas = {
   combinedProfile,
   allPairs: () => allPairs().slice(),
   hasActiveProfile: () => Boolean(currentProfile),
+  getSearchRules: () => SEARCH_RULES,
   getData: () => ({ grapes: GRAPES, regions: REGIONS }),
   escapeHtml,
   escapeAttr

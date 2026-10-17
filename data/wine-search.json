@@ -1,0 +1,69 @@
+{
+  "rules": [
+    {
+      "id": "sparkling",
+      "label": "sparkling wines",
+      "aliases": [
+        "sparkling wine",
+        "sparkling wines",
+        "sparkling",
+        "bubbly",
+        "bubbles",
+        "kuohuviini",
+        "kuohuviinit",
+        "espumoso",
+        "espumosos",
+        "vin mousseux"
+      ],
+      "family": "sparkling"
+    },
+    {
+      "id": "cremant",
+      "label": "crémant",
+      "aliases": [
+        "crémant",
+        "crémants"
+      ],
+      "family": "sparkling",
+      "regions": [
+        "cremant-bourgogne",
+        "cremant-alsace",
+        "cremant-loire"
+      ]
+    },
+    {
+      "id": "champagne",
+      "label": "Champagne",
+      "aliases": [
+        "champagne",
+        "samppanja"
+      ],
+      "family": "sparkling",
+      "regions": [
+        "champagne-blanc-de-blancs"
+      ]
+    },
+    {
+      "id": "cava",
+      "label": "Cava",
+      "aliases": [
+        "cava"
+      ],
+      "family": "sparkling",
+      "regions": [
+        "cava"
+      ]
+    },
+    {
+      "id": "prosecco",
+      "label": "Prosecco",
+      "aliases": [
+        "prosecco"
+      ],
+      "family": "sparkling",
+      "regions": [
+        "prosecco-doc"
+      ]
+    }
+  ]
+}

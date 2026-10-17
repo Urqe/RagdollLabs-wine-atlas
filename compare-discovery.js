@@ -14,10 +14,6 @@ let compareDiscoveryMatches = [];
 
 function compareNormalize(value) { return FoodDiscovery.normalize(value); }
 
-function compareFlattenNotes(notes) {
-  return Object.values(notes || {}).flat().join(" ");
-}
-
 function compareProfileKey(item) {
   return `${item.grapeId}::${item.regionId}`;
 }
@@ -61,62 +57,13 @@ function compareSetProfiles(profiles) {
   }
 }
 
-function compareHaystack(item) {
-  const style = item.regional.style || {};
-  return compareNormalize([
-    item.grape.name,
-    item.region.name,
-    item.region.country,
-    item.region.climate,
-    item.region.summary,
-    item.regional.expect,
-    compareFlattenNotes(item.regional.notes),
-    ...(item.regional.pairings || []),
-    ...(item.region.badges || []),
-    style.family,
-    style.color,
-    style.sweetness,
-    style.label,
-    style.method,
-    style.effect
-  ].filter(Boolean).join(" "));
-}
-
 function compareProfileLabel(item) {
   const style = item.regional.style?.label;
   return `${item.grape.name} · ${item.region.name}${style ? ` · ${style}` : ""}`;
 }
 
 async function rankCompareMatches(rawQuery) {
-  const query = compareNormalize(rawQuery);
-  if (query.length < 2) return [];
-  await FoodDiscovery.load();
-  const terms = query.split(/\s+/).filter(Boolean);
-
-  return WineAtlas.allPairs().map(item => {
-    const haystack = compareHaystack(item);
-    const grape = compareNormalize(item.grape.name);
-    const region = compareNormalize(item.region.name);
-    const country = compareNormalize(item.region.country);
-    const style = compareNormalize([
-      item.regional.style?.family,
-      item.regional.style?.color,
-      item.regional.style?.label,
-      item.regional.style?.method
-    ].filter(Boolean).join(" "));
-    const pairingScore = FoodDiscovery.score(item.regional.pairings, query);
-    const termMatch = terms.every(term => haystack.includes(term));
-    const matched = pairingScore > 0 || termMatch;
-    let score = pairingScore;
-    if (grape.includes(query)) score += 10;
-    if (region.includes(query)) score += 9;
-    if (style.includes(query)) score += 8;
-    if (country.includes(query)) score += 6;
-    if (!FoodDiscovery.known(query)) score += terms.filter(term => haystack.includes(term)).length;
-    return { item, matched, score, pairingMatch: pairingScore > 0 };
-  }).filter(result => result.matched)
-    .sort((a, b) => b.score - a.score || a.item.region.name.localeCompare(b.item.region.name))
-    .slice(0, 12);
+  return WineSearch.rank(rawQuery, 12);
 }
 
 function compareCanAdd(item) {
@@ -140,10 +87,10 @@ function compareRenderResults() {
     return;
   }
 
-  FoodDiscovery.appendGuidance(container, document.getElementById("compareDiscoveryInput")?.value);
+  FoodDiscovery.appendGuidance(container, WineSearch.parse(document.getElementById("compareDiscoveryInput")?.value).remainder);
 
   for (const result of compareDiscoveryMatches) {
-    const { item, pairingMatch } = result;
+    const { item, pairingMatch, foodQuery } = result;
     const state = compareCanAdd(item);
     const row = document.createElement("div");
     row.className = "compare-discovery-result";
@@ -151,7 +98,7 @@ function compareRenderResults() {
     const strong = document.createElement("strong");
     strong.textContent = compareProfileLabel(item);
     const meta = document.createElement("span");
-    meta.textContent = `${item.region.country}${pairingMatch ? " · pairing match" : ""}`;
+    meta.textContent = `${item.region.country}${pairingMatch ? ` · pairs with ${WineSearch.matchedPairings(item.regional.pairings, foodQuery).join(" · ")}` : ""}`;
     copy.append(strong, meta);
     const button = document.createElement("button");
     button.type = "button";

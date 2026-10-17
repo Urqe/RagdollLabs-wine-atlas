@@ -70,6 +70,22 @@ def main() -> None:
             value = grape.get(metric)
             assert isinstance(value, (int, float)) and 0 <= value <= 5, f"{grape_id}: invalid {metric}"
 
+    search_rules = load(DATA / "wine-search.json")["rules"]
+    search_aliases = set()
+    rule_ids = set()
+    for rule in search_rules:
+        assert rule["id"] not in rule_ids, "duplicate wine rule"
+        rule_ids.add(rule["id"])
+        assert rule["family"] in STYLE_FAMILIES and rule["label"] and rule["aliases"]
+        for rid in rule.get("regions", []):
+            assert rid in regions, f"wine search: unknown region {rid}"
+            assert all(p.get("style", {}).get("family") == rule["family"] for p in regions[rid]["grapes"].values()), f"wine search: family mismatch {rid}"
+        for alias in rule["aliases"]:
+            import unicodedata
+            normalized = "".join(c for c in unicodedata.normalize("NFD", alias.lower()) if not unicodedata.combining(c))
+            assert normalized not in search_aliases, f"duplicate wine alias: {alias}"
+            search_aliases.add(normalized)
+
     special_style_count = 0
     pairing_values: set[str] = set()
     for region_id, region in regions.items():
@@ -93,6 +109,7 @@ def main() -> None:
             assert isinstance(pairings, list) and pairings, f"{prefix}: pairings must be a non-empty list"
             for pairing in pairings:
                 assert isinstance(pairing, str) and pairing.strip(), f"{prefix}: invalid pairing"
+                assert pairing == pairing.lower(), f"{prefix}: pairing label must be lowercase: {pairing}"
                 pairing_values.add(pairing.casefold().strip())
             for metric, modifier in profile.get("mods", {}).items():
                 assert metric in METRICS, f"{prefix}: unknown modifier {metric}"
@@ -113,6 +130,7 @@ def main() -> None:
     for alias, targets in food_aliases.items():
         assert {food_key(v) for v in targets} == normalized_targets[food_key(alias)], f"conflicting normalized alias: {alias}"
     for label, dish in food_dishes["dishes"].items():
+        assert label == label.lower(), f"curated dish must be lowercase: {label}"
         assert label.casefold() in pairing_values, f"unused curated dish: {label}"
         assert dish["guidance"] and dish["basis"] and dish["aliases"], f"incomplete dish: {label}"
         assert dish["source"] in food_dishes["sources"], f"unknown dish source: {label}"

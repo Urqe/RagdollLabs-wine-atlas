@@ -23,10 +23,38 @@
     "sushi-guide": {
       "name": "Wine Folly: sushi pairings",
       "url": "https://plus.winefolly.com/wine-pairing/best-wine-sushi-try-one/"
+    },
+    "pizza-guide": {
+      "name": "Wine Folly — pizza and wine",
+      "url": "https://winefolly.com/tips/pizza-wine/"
+    },
+    "pizza-classics": {
+      "name": "Wine Folly — classic Italian pizza",
+      "url": "https://winefolly.com/wine-pairing/authentic-italian-pizza-and-the-wines-to-go-with/"
+    },
+    "chinese-guide": {
+      "name": "Wine Folly — Chinese food pairings",
+      "url": "https://plus.winefolly.com/wine-pairing/wine-and-chinese-food-7-delicious-pairings/"
+    },
+    "chicken-wings": {
+      "name": "Wine Enthusiast — chicken wings",
+      "url": "https://www.wineenthusiast.com/basics/how-to-pair/chicken-wings-wine/"
+    },
+    "fried-chicken": {
+      "name": "Wine Enthusiast — fried chicken and Champagne",
+      "url": "https://www.wineenthusiast.com/culture/wine/fried-chicken-and-champagne-pairing/"
+    },
+    "indian-guide": {
+      "name": "Wine Enthusiast — Indian food",
+      "url": "https://www.wineenthusiast.com/basics/wine-pairing-indian-food/"
+    },
+    "thai-riesling": {
+      "name": "MICHELIN Guide — Thai food and Riesling",
+      "url": "https://guide.michelin.com/th/en/article/features/wine-101-how-to-pair-thai-food-with-riesling"
     }
   },
   "dishes": {
-    "Döner kebab": {
+    "döner kebab": {
       "aliases": [
         "doner",
         "doner kebab",
@@ -41,7 +69,7 @@
       "source": "middle-eastern",
       "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
     },
-    "Carne asada": {
+    "carne asada": {
       "aliases": [
         "carne asada",
         "tacos de carne asada",
@@ -51,7 +79,7 @@
       "source": "taco-pros",
       "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
     },
-    "Tacos al pastor": {
+    "tacos al pastor": {
       "aliases": [
         "al pastor",
         "taco al pastor",
@@ -62,7 +90,7 @@
       "source": "taco-guide",
       "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
     },
-    "Tacos de cochinita pibil": {
+    "tacos de cochinita pibil": {
       "aliases": [
         "cochinita",
         "cochinita pibil",
@@ -74,7 +102,7 @@
       "source": "taco-pros",
       "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
     },
-    "Sushi and nigiri": {
+    "sushi and nigiri": {
       "aliases": [
         "sushi",
         "nigiri",
@@ -85,7 +113,7 @@
       "source": "sushi-guide",
       "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
     },
-    "Spicy sushi rolls": {
+    "spicy sushi rolls": {
       "aliases": [
         "spicy sushi",
         "spicy tuna roll",
@@ -97,7 +125,7 @@
       "source": "sushi-guide",
       "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
     },
-    "Phở bò": {
+    "phở bò": {
       "aliases": [
         "pho",
         "phở",
@@ -109,7 +137,7 @@
       "source": "vietnamese",
       "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
     },
-    "Shoyu ramen": {
+    "shoyu ramen": {
       "aliases": [
         "ramen",
         "shoyu ramen",
@@ -119,7 +147,7 @@
       "source": "japanese-noodles",
       "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
     },
-    "Tonkotsu ramen": {
+    "tonkotsu ramen": {
       "aliases": [
         "tonkotsu",
         "tonkotsu ramen",
@@ -129,7 +157,7 @@
       "source": "japanese-noodles",
       "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
     },
-    "Miso ramen": {
+    "miso ramen": {
       "aliases": [
         "miso ramen",
         "miso noodle soup"
@@ -138,7 +166,7 @@
       "source": "japanese-noodles",
       "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
     },
-    "Falafel": {
+    "falafel": {
       "aliases": [
         "falafel",
         "falafels"
@@ -147,7 +175,7 @@
       "source": "middle-eastern",
       "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
     },
-    "Hummus": {
+    "hummus": {
       "aliases": [
         "hummus",
         "houmous",
@@ -157,7 +185,7 @@
       "source": "middle-eastern",
       "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
     },
-    "Vietnamese summer rolls": {
+    "vietnamese summer rolls": {
       "aliases": [
         "summer rolls",
         "summer roll",
@@ -171,7 +199,7 @@
       "source": "vietnamese",
       "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
     },
-    "Bánh xèo": {
+    "bánh xèo": {
       "aliases": [
         "banh xeo",
         "bánh xèo",
@@ -181,6 +209,153 @@
       "guidance": "A crisp savory pancake suits fresh dry sparkling wine. Choose a dry bottling and account for the sweetness or chile in the dipping sauce.",
       "source": "vietnamese",
       "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
+    },
+    "margherita pizza": {
+      "aliases": [
+        "pizza margherita",
+        "margherita",
+        "margarita pizza"
+      ],
+      "guidance": "Tomato acidity favors fresh Sangiovese or dry rosé; mozzarella softens the pairing. These are style alternatives to the high-acid Italian reds in the reference.",
+      "source": "pizza-guide",
+      "basis": "Editorial style matches informed by the reference; preparation and the individual bottle remain decisive."
+    },
+    "pepperoni pizza": {
+      "aliases": [
+        "pizza pepperoni",
+        "pepperoni",
+        "salami pizza"
+      ],
+      "guidance": "Tomato, cured meat and melted cheese suit a fresh savory red. For very hot pepperoni, keep alcohol moderate.",
+      "source": "pizza-guide",
+      "basis": "Editorial style matches informed by the reference; preparation and the individual bottle remain decisive."
+    },
+    "mushroom pizza": {
+      "aliases": [
+        "pizza funghi",
+        "funghi pizza",
+        "sienipizza",
+        "mushroom pizzas"
+      ],
+      "guidance": "Mushroom umami and cheese suit earthy reds. Favor mature Nebbiolo with softened tannins or a gentler Pinot Noir.",
+      "source": "pizza-classics",
+      "basis": "Editorial style matches informed by the reference; preparation and the individual bottle remain decisive."
+    },
+    "white pizza": {
+      "aliases": [
+        "pizza bianca",
+        "bianca pizza",
+        "white pizzas"
+      ],
+      "guidance": "Without tomato, cheese and creamy toppings favor Chardonnay or a delicate Pinot Noir. Garlic and herbs influence the final match.",
+      "source": "pizza-guide",
+      "basis": "Editorial style matches informed by the reference; preparation and the individual bottle remain decisive."
+    },
+    "fried chicken": {
+      "aliases": [
+        "crispy chicken",
+        "southern fried chicken"
+      ],
+      "guidance": "For a salty crisp crust, dry sparkling wine brings acidity and bubbles. Sweet glazes or substantial chile call for a different balance.",
+      "source": "fried-chicken",
+      "basis": "Editorial style matches informed by the reference; preparation and the individual bottle remain decisive."
+    },
+    "buffalo wings": {
+      "aliases": [
+        "buffalo chicken wings",
+        "hot wings",
+        "buffalo wing"
+      ],
+      "guidance": "Hot sauce and butter favor moderate alcohol, bright acidity and a little sweetness. Choose an off-dry bottling, especially with a hot sauce.",
+      "source": "chicken-wings",
+      "basis": "Editorial style matches informed by the reference; preparation and the individual bottle remain decisive."
+    },
+    "korean-style chicken wings": {
+      "aliases": [
+        "korean wings",
+        "gochujang wings",
+        "korean chicken wings"
+      ],
+      "guidance": "For savory, moderately spicy gochujang wings, Syrah can echo the fermented flavors. With more chile or sweetness, favor an off-dry Riesling instead.",
+      "source": "chicken-wings",
+      "basis": "Editorial style matches informed by the reference; preparation and the individual bottle remain decisive."
+    },
+    "pork dumplings": {
+      "aliases": [
+        "pork dumpling",
+        "gyoza",
+        "potstickers",
+        "pork gyoza",
+        "jiaozi"
+      ],
+      "guidance": "These matches assume pan-fried pork dumplings: dry bubbles refresh after the crisp base and savory filling. Sweet or fiery dipping sauces change the pairing.",
+      "source": "chinese-guide",
+      "basis": "Editorial style matches informed by the reference; preparation and the individual bottle remain decisive."
+    },
+    "fried vegetable spring rolls": {
+      "aliases": [
+        "spring rolls",
+        "spring roll",
+        "fried spring rolls",
+        "vegetable spring rolls",
+        "kevätkääryleet",
+        "kevatkaaryleet"
+      ],
+      "guidance": "A fried crust and vegetable filling suit fresh dry sparkling wine. For rice-paper rolls that are not fried, search summer rolls instead.",
+      "source": "chinese-guide",
+      "basis": "Editorial style matches informed by the reference; preparation and the individual bottle remain decisive."
+    },
+    "sweet and sour pork": {
+      "aliases": [
+        "sweet sour pork",
+        "sweet-and-sour pork",
+        "hapanimelä porsas",
+        "hapanimela porsas"
+      ],
+      "guidance": "Tangy, sweet sauce needs fruit, acidity and some sweetness in the glass. Choose an off-dry bottle rather than assuming every Riesling or Chenin is sweet.",
+      "source": "chinese-guide",
+      "basis": "Editorial style matches informed by the reference; preparation and the individual bottle remain decisive."
+    },
+    "kung pao chicken": {
+      "aliases": [
+        "gong bao chicken",
+        "gongbao chicken",
+        "kung po chicken"
+      ],
+      "guidance": "Chile, peanuts and savory sauce favor an aromatic off-dry white with modest alcohol. The hottest preparations may overwhelm delicate wines.",
+      "source": "chinese-guide",
+      "basis": "Editorial style matches informed by the reference; preparation and the individual bottle remain decisive."
+    },
+    "pad thai": {
+      "aliases": [
+        "phad thai",
+        "pat thai",
+        "thaimaalaiset paistetut nuudelit"
+      ],
+      "guidance": "Tamarind, sweet-sour sauce and herbs suit fresh Riesling. Select dry to off-dry according to the sauce sweetness and amount of chile.",
+      "source": "thai-riesling",
+      "basis": "Editorial style matches informed by the reference; preparation and the individual bottle remain decisive."
+    },
+    "butter chicken": {
+      "aliases": [
+        "murgh makhani",
+        "chicken makhani",
+        "voikana"
+      ],
+      "guidance": "Creamy tomato sauce and warm spices suit fresh fruit and enough acidity. Dry sparkling wine can work with mild versions; extra chile favors some sweetness.",
+      "source": "indian-guide",
+      "basis": "Editorial style matches informed by the reference; preparation and the individual bottle remain decisive."
+    },
+    "vegetable samosas": {
+      "aliases": [
+        "samosa",
+        "samosas",
+        "vegetable samosa",
+        "kasvissamosat"
+      ],
+      "guidance": "The crisp pastry and spiced vegetable filling suit fresh sparkling wine. Account for a sweet chutney or hot chile dip.",
+      "source": "indian-guide",
+      "basis": "Editorial style matches informed by the reference; preparation and the individual bottle remain decisive."
     }
   }
 }

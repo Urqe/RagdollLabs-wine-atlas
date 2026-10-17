@@ -41,9 +41,9 @@
     "aged cheese",
     "soft cheese",
     "goat cheese",
-    "aged Manchego",
+    "aged manchego",
     "blue cheese",
-    "Azeitão cheese"
+    "azeitão cheese"
   ],
   "barbecue": [
     "barbecue",
@@ -138,189 +138,411 @@
     "grilled meats"
   ],
   "doner": [
-    "Döner kebab"
+    "döner kebab"
   ],
   "doner kebab": [
-    "Döner kebab"
+    "döner kebab"
   ],
   "doner kebabs": [
-    "Döner kebab"
+    "döner kebab"
   ],
   "döner": [
-    "Döner kebab"
+    "döner kebab"
   ],
   "kebab": [
-    "Döner kebab"
+    "döner kebab"
   ],
   "kebabs": [
-    "Döner kebab"
+    "döner kebab"
   ],
   "kebap": [
-    "Döner kebab"
+    "döner kebab"
   ],
   "kebab rulla": [
-    "Döner kebab"
+    "döner kebab"
   ],
   "carne asada": [
-    "Carne asada"
+    "carne asada"
   ],
   "tacos de carne asada": [
-    "Carne asada"
+    "carne asada"
   ],
   "asada tacos": [
-    "Carne asada"
+    "carne asada"
   ],
   "al pastor": [
-    "Tacos al pastor"
+    "tacos al pastor"
   ],
   "taco al pastor": [
-    "Tacos al pastor"
+    "tacos al pastor"
   ],
   "tacos al pastor": [
-    "Tacos al pastor"
+    "tacos al pastor"
   ],
   "pastor tacos": [
-    "Tacos al pastor"
+    "tacos al pastor"
   ],
   "cochinita": [
-    "Tacos de cochinita pibil"
+    "tacos de cochinita pibil"
   ],
   "cochinita pibil": [
-    "Tacos de cochinita pibil"
+    "tacos de cochinita pibil"
   ],
   "tacos de cochinita pibil": [
-    "Tacos de cochinita pibil"
+    "tacos de cochinita pibil"
   ],
   "tacos cochinita pibil": [
-    "Tacos de cochinita pibil"
+    "tacos de cochinita pibil"
   ],
   "taco de cochinita pibil": [
-    "Tacos de cochinita pibil"
+    "tacos de cochinita pibil"
   ],
   "sushi": [
-    "Sushi and nigiri"
+    "sushi and nigiri"
   ],
   "nigiri": [
-    "Sushi and nigiri"
+    "sushi and nigiri"
   ],
   "sashimi": [
-    "Sushi and nigiri"
+    "sushi and nigiri"
   ],
   "sushit": [
-    "Sushi and nigiri"
+    "sushi and nigiri"
   ],
   "spicy sushi": [
-    "Spicy sushi rolls"
+    "spicy sushi rolls"
   ],
   "spicy tuna roll": [
-    "Spicy sushi rolls"
+    "spicy sushi rolls"
   ],
   "spicy tuna rolls": [
-    "Spicy sushi rolls"
+    "spicy sushi rolls"
   ],
   "spicy salmon roll": [
-    "Spicy sushi rolls"
+    "spicy sushi rolls"
   ],
   "spicy salmon rolls": [
-    "Spicy sushi rolls"
+    "spicy sushi rolls"
   ],
   "pho": [
-    "Phở bò"
+    "phở bò"
   ],
   "phở": [
-    "Phở bò"
+    "phở bò"
   ],
   "pho bo": [
-    "Phở bò"
+    "phở bò"
   ],
   "beef pho": [
-    "Phở bò"
+    "phở bò"
   ],
   "vietnamese noodle soup": [
-    "Phở bò"
+    "phở bò"
   ],
   "ramen": [
-    "Shoyu ramen",
-    "Tonkotsu ramen",
-    "Miso ramen"
+    "shoyu ramen",
+    "tonkotsu ramen",
+    "miso ramen"
   ],
   "shoyu ramen": [
-    "Shoyu ramen"
+    "shoyu ramen"
   ],
   "soy sauce ramen": [
-    "Shoyu ramen"
+    "shoyu ramen"
   ],
   "tonkotsu": [
-    "Tonkotsu ramen"
+    "tonkotsu ramen"
   ],
   "tonkotsu ramen": [
-    "Tonkotsu ramen"
+    "tonkotsu ramen"
   ],
   "pork bone ramen": [
-    "Tonkotsu ramen"
+    "tonkotsu ramen"
   ],
   "miso ramen": [
-    "Miso ramen"
+    "miso ramen"
   ],
   "miso noodle soup": [
-    "Miso ramen"
+    "miso ramen"
   ],
   "falafel": [
-    "Falafel"
+    "falafel"
   ],
   "falafels": [
-    "Falafel"
+    "falafel"
   ],
   "hummus": [
-    "Hummus"
+    "hummus"
   ],
   "houmous": [
-    "Hummus"
+    "hummus"
   ],
   "humus": [
-    "Hummus"
+    "hummus"
   ],
   "summer rolls": [
-    "Vietnamese summer rolls"
+    "vietnamese summer rolls"
   ],
   "summer roll": [
-    "Vietnamese summer rolls"
+    "vietnamese summer rolls"
   ],
   "fresh spring rolls": [
-    "Vietnamese summer rolls"
+    "vietnamese summer rolls"
   ],
   "goi cuon": [
-    "Vietnamese summer rolls"
+    "vietnamese summer rolls"
   ],
   "gỏi cuốn": [
-    "Vietnamese summer rolls"
+    "vietnamese summer rolls"
   ],
   "kesärullat": [
-    "Vietnamese summer rolls"
+    "vietnamese summer rolls"
   ],
   "kesarullat": [
-    "Vietnamese summer rolls"
+    "vietnamese summer rolls"
   ],
   "banh xeo": [
-    "Bánh xèo"
+    "bánh xèo"
   ],
   "bánh xèo": [
-    "Bánh xèo"
+    "bánh xèo"
   ],
   "vietnamese pancake": [
-    "Bánh xèo"
+    "bánh xèo"
   ],
   "vietnamese pancakes": [
-    "Bánh xèo"
+    "bánh xèo"
   ],
   "tacos": [
-    "Carne asada",
-    "Tacos al pastor",
-    "Tacos de cochinita pibil"
+    "carne asada",
+    "tacos al pastor",
+    "tacos de cochinita pibil"
   ],
   "taco": [
-    "Carne asada",
-    "Tacos al pastor",
-    "Tacos de cochinita pibil"
+    "carne asada",
+    "tacos al pastor",
+    "tacos de cochinita pibil"
+  ],
+  "margherita pizza": [
+    "margherita pizza"
+  ],
+  "pizza margherita": [
+    "margherita pizza"
+  ],
+  "margherita": [
+    "margherita pizza"
+  ],
+  "margarita pizza": [
+    "margherita pizza"
+  ],
+  "pepperoni pizza": [
+    "pepperoni pizza"
+  ],
+  "pizza pepperoni": [
+    "pepperoni pizza"
+  ],
+  "pepperoni": [
+    "pepperoni pizza"
+  ],
+  "salami pizza": [
+    "pepperoni pizza"
+  ],
+  "mushroom pizza": [
+    "mushroom pizza"
+  ],
+  "pizza funghi": [
+    "mushroom pizza"
+  ],
+  "funghi pizza": [
+    "mushroom pizza"
+  ],
+  "sienipizza": [
+    "mushroom pizza"
+  ],
+  "mushroom pizzas": [
+    "mushroom pizza"
+  ],
+  "white pizza": [
+    "white pizza"
+  ],
+  "pizza bianca": [
+    "white pizza"
+  ],
+  "bianca pizza": [
+    "white pizza"
+  ],
+  "white pizzas": [
+    "white pizza"
+  ],
+  "fried chicken": [
+    "fried chicken"
+  ],
+  "crispy chicken": [
+    "fried chicken"
+  ],
+  "southern fried chicken": [
+    "fried chicken"
+  ],
+  "buffalo wings": [
+    "buffalo wings"
+  ],
+  "buffalo chicken wings": [
+    "buffalo wings"
+  ],
+  "hot wings": [
+    "buffalo wings"
+  ],
+  "buffalo wing": [
+    "buffalo wings"
+  ],
+  "korean-style chicken wings": [
+    "korean-style chicken wings"
+  ],
+  "korean wings": [
+    "korean-style chicken wings"
+  ],
+  "gochujang wings": [
+    "korean-style chicken wings"
+  ],
+  "korean chicken wings": [
+    "korean-style chicken wings"
+  ],
+  "pork dumplings": [
+    "pork dumplings"
+  ],
+  "pork dumpling": [
+    "pork dumplings"
+  ],
+  "gyoza": [
+    "pork dumplings"
+  ],
+  "potstickers": [
+    "pork dumplings"
+  ],
+  "pork gyoza": [
+    "pork dumplings"
+  ],
+  "jiaozi": [
+    "pork dumplings"
+  ],
+  "fried vegetable spring rolls": [
+    "fried vegetable spring rolls"
+  ],
+  "spring rolls": [
+    "fried vegetable spring rolls"
+  ],
+  "spring roll": [
+    "fried vegetable spring rolls"
+  ],
+  "fried spring rolls": [
+    "fried vegetable spring rolls"
+  ],
+  "vegetable spring rolls": [
+    "fried vegetable spring rolls"
+  ],
+  "kevätkääryleet": [
+    "fried vegetable spring rolls"
+  ],
+  "kevatkaaryleet": [
+    "fried vegetable spring rolls"
+  ],
+  "sweet and sour pork": [
+    "sweet and sour pork"
+  ],
+  "sweet sour pork": [
+    "sweet and sour pork"
+  ],
+  "sweet-and-sour pork": [
+    "sweet and sour pork"
+  ],
+  "hapanimelä porsas": [
+    "sweet and sour pork"
+  ],
+  "hapanimela porsas": [
+    "sweet and sour pork"
+  ],
+  "kung pao chicken": [
+    "kung pao chicken"
+  ],
+  "gong bao chicken": [
+    "kung pao chicken"
+  ],
+  "gongbao chicken": [
+    "kung pao chicken"
+  ],
+  "kung po chicken": [
+    "kung pao chicken"
+  ],
+  "pad thai": [
+    "pad thai"
+  ],
+  "phad thai": [
+    "pad thai"
+  ],
+  "pat thai": [
+    "pad thai"
+  ],
+  "thaimaalaiset paistetut nuudelit": [
+    "pad thai"
+  ],
+  "butter chicken": [
+    "butter chicken"
+  ],
+  "murgh makhani": [
+    "butter chicken"
+  ],
+  "chicken makhani": [
+    "butter chicken"
+  ],
+  "voikana": [
+    "butter chicken"
+  ],
+  "vegetable samosas": [
+    "vegetable samosas"
+  ],
+  "samosa": [
+    "vegetable samosas"
+  ],
+  "samosas": [
+    "vegetable samosas"
+  ],
+  "vegetable samosa": [
+    "vegetable samosas"
+  ],
+  "kasvissamosat": [
+    "vegetable samosas"
+  ],
+  "pizza": [
+    "margherita pizza",
+    "pepperoni pizza",
+    "mushroom pizza",
+    "white pizza"
+  ],
+  "pizzas": [
+    "margherita pizza",
+    "pepperoni pizza",
+    "mushroom pizza",
+    "white pizza"
+  ],
+  "dumplings": [
+    "pork dumplings"
+  ],
+  "dumpling": [
+    "pork dumplings"
+  ],
+  "döner kebab": [
+    "döner kebab"
+  ],
+  "sushi and nigiri": [
+    "sushi and nigiri"
+  ],
+  "spicy sushi rolls": [
+    "spicy sushi rolls"
+  ],
+  "phở bò": [
+    "phở bò"
+  ],
+  "vietnamese summer rolls": [
+    "vietnamese summer rolls"
   ]
 }

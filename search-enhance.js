@@ -12,29 +12,6 @@ function atlasLoadFoodAliases() { return FoodDiscovery.load(); }
 function atlasExpandedFoodTerms(query) { return FoodDiscovery.terms(query); }
 function atlasPairingScore(pairings, query) { return FoodDiscovery.score(pairings, query); }
 
-function atlasSearchProfiles() {
-  const { grapes, regions } = WineAtlas.getData();
-  const profiles = [];
-  for (const [regionId, region] of Object.entries(regions)) {
-    for (const [grapeId, regional] of Object.entries(region.grapes || {})) {
-      const grape = grapes[grapeId];
-      if (!grape) continue;
-      profiles.push({ grapeId, regionId, grape, region, regional });
-    }
-  }
-  return profiles;
-}
-
-function atlasEnhancedHaystack(item) {
-  const style = item.regional.style || {};
-  return atlasNormalize([
-    item.grape.name, item.region.name, item.region.country, item.region.climate,
-    item.region.summary, item.regional.expect, atlasFlattenNotes(item.regional.notes),
-    ...(item.regional.pairings || []), ...(item.region.badges || []),
-    style.family, style.color, style.sweetness, style.label, style.method, style.effect
-  ].filter(Boolean).join(" "));
-}
-
 async function renderEnhancedAtlasSearch() {
   const input = document.getElementById("searchInput");
   const container = document.getElementById("searchResults");
@@ -47,24 +24,10 @@ async function renderEnhancedAtlasSearch() {
   await atlasLoadFoodAliases();
   if (input.value.trim() !== rawQuery) return;
 
-  const terms = query.split(/\s+/).filter(Boolean);
-  const aliasKnown = FoodDiscovery.known(query);
-  const matches = atlasSearchProfiles().map(item => {
-    const haystack = atlasEnhancedHaystack(item);
-    const pairingScore = atlasPairingScore(item.regional.pairings, rawQuery);
-    const matched = terms.every(term => haystack.includes(term)) || pairingScore > 0;
-    let score = pairingScore;
-    const grape = atlasNormalize(item.grape.name);
-    const region = atlasNormalize(item.region.name);
-    const country = atlasNormalize(item.region.country);
-    if (grape.includes(query)) score += 60;
-    if (region.includes(query)) score += 60;
-    if (country.includes(query)) score += 50;
-    if (!FoodDiscovery.known(query)) score += terms.filter(term => haystack.includes(term)).length * 5;
-    return { item, matched, score, pairingScore };
-  }).filter(result => result.matched)
-    .sort((a, b) => b.score - a.score || a.item.region.name.localeCompare(b.item.region.name))
-    .slice(0, 10);
+  const matches = await WineSearch.rank(rawQuery, 10);
+  if (input.value.trim() !== rawQuery) return;
+  const foodQuery = WineSearch.parse(rawQuery).remainder;
+  const aliasKnown = FoodDiscovery.known(foodQuery);
 
   if (!matches.length) {
     const empty = document.createElement("div");
@@ -81,7 +44,14 @@ async function renderEnhancedAtlasSearch() {
     container.appendChild(label);
   }
 
-  FoodDiscovery.appendGuidance(container, rawQuery);
+  const wineContext = WineSearch.describe(rawQuery);
+  if (wineContext) {
+    const context = document.createElement("div");
+    context.className = "search-empty";
+    context.textContent = `Showing ${wineContext}`;
+    container.append(context);
+  }
+  FoodDiscovery.appendGuidance(container, foodQuery);
 
   for (const { item, pairingScore } of matches) {
     const button = document.createElement("button");
@@ -98,7 +68,7 @@ async function renderEnhancedAtlasSearch() {
     const meta = document.createElement("span");
     const styleLabel = item.regional.style?.label ? ` · ${item.regional.style.label}` : "";
     meta.textContent = pairingScore > 0
-      ? `${item.region.country} · pairs with ${item.regional.pairings.join(" · ")}`
+      ? `${item.region.country} · pairs with ${WineSearch.matchedPairings(item.regional.pairings, foodQuery).join(" · ")}`
       : `${item.region.country} · ${item.region.climate}${styleLabel}`;
     button.append(title, meta);
     button.addEventListener("click", () => {
@@ -112,5 +82,5 @@ async function renderEnhancedAtlasSearch() {
 
 document.addEventListener("wineatlas:ready", () => {
   void atlasLoadFoodAliases();
-  document.getElementById("searchInput")?.addEventListener("input", () => { void renderEnhancedAtlasSearch(); });
+  // app.js owns the input handler and delegates here; avoid two renderers racing.
 });
