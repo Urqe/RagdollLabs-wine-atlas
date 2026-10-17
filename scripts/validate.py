@@ -3,8 +3,8 @@
 
 The validator intentionally tests data contracts rather than tasting opinions:
 JSON parsing, duplicate IDs, grape/source references, locator coverage, explicit
-Why metadata and required profile fields. Keeping this dependency-free lets
-reviewers run it locally and keeps CI lightweight.
+Why metadata, winemaking metadata and required profile fields. Keeping this
+dependency-free lets reviewers run it locally and keeps CI lightweight.
 """
 
 from __future__ import annotations
@@ -22,6 +22,7 @@ REGION_FILES = [
 ]
 REQUIRED_PROFILE_FIELDS = {"notes", "serve", "decant", "glass", "ageing", "pairings", "expect"}
 METRICS = {"body", "acidity", "tannin", "sweetness", "alcohol", "fruit", "oak", "earth"}
+WINEMAKING_PREVALENCE = {"very common", "common", "sometimes", "rare"}
 
 # Politically sensitive labels follow the official position of the Finnish Government.
 # These guards make the documented policy executable so a future data addition cannot
@@ -42,6 +43,7 @@ def main() -> None:
     sources = load(DATA / "sources.json")
     locators = load(DATA / "locators.json")
     why_rules = load(DATA / "why-rules.json")
+    winemaking = load(DATA / "winemaking.json")
 
     regions: dict[str, dict] = {}
     for path in REGION_FILES:
@@ -106,11 +108,37 @@ def main() -> None:
             if "effect" in rule:
                 assert isinstance(rule["effect"], str) and rule["effect"].strip(), f"why-rules/{region_id}/{index}: invalid effect"
 
+    # Winemaking choices are intentionally sparse. Only profiles where vessel choice
+    # materially changes the educational story should appear in this dataset.
+    assert isinstance(winemaking, dict), "winemaking data must be an object"
+    for region_id, grape_entries in winemaking.items():
+        assert region_id in regions, f"winemaking: unknown region {region_id}"
+        assert isinstance(grape_entries, dict) and grape_entries, f"winemaking/{region_id}: entries must be an object"
+        for grape_id, entry in grape_entries.items():
+            assert grape_id in regions[region_id]["grapes"], f"winemaking/{region_id}: unknown profile grape {grape_id}"
+            assert isinstance(entry, dict), f"winemaking/{region_id}/{grape_id}: entry must be an object"
+            choices = entry.get("choices")
+            assert isinstance(choices, list) and choices, f"winemaking/{region_id}/{grape_id}: choices must be non-empty"
+            for source_id in entry.get("sources", []):
+                assert source_id in sources, f"winemaking/{region_id}/{grape_id}: unknown source {source_id}"
+            for index, choice in enumerate(choices):
+                prefix = f"winemaking/{region_id}/{grape_id}/{index}"
+                assert isinstance(choice, dict), f"{prefix}: choice must be an object"
+                assert isinstance(choice.get("vessel"), str) and choice["vessel"].strip(), f"{prefix}: invalid vessel"
+                assert choice.get("prevalence") in WINEMAKING_PREVALENCE, f"{prefix}: invalid prevalence"
+                assert isinstance(choice.get("effect"), str) and choice["effect"].strip(), f"{prefix}: invalid effect"
+                if "context" in choice:
+                    assert isinstance(choice["context"], str) and choice["context"].strip(), f"{prefix}: invalid context"
+
     extra_locators = set(locators) - set(regions)
     assert not extra_locators, f"locator entries without regions: {sorted(extra_locators)}"
 
     profile_count = sum(len(region["grapes"]) for region in regions.values())
-    print(f"OK: {len(grapes)} grapes, {len(regions)} regions, {profile_count} grape-region profiles")
+    winemaking_count = sum(len(entry["choices"]) for grapes_ in winemaking.values() for entry in grapes_.values())
+    print(
+        f"OK: {len(grapes)} grapes, {len(regions)} regions, {profile_count} grape-region profiles, "
+        f"{winemaking_count} winemaking choices"
+    )
 
 
 if __name__ == "__main__":

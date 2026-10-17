@@ -14,11 +14,24 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
       - name: Validate JavaScript syntax
         run: |
           node --check app.js
           node --check compare-country.js
           node --check ux.js
+          node --check functional.js
+          node --check tests/dom-smoke.mjs
 
       - name: Validate structured wine data
         run: python3 scripts/validate.py
+
+      - name: Install test dependency
+        run: npm install --no-audit --no-fund
+
+      - name: Run DOM smoke tests
+        run: npm test
