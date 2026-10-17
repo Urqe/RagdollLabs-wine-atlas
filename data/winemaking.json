@@ -1,0 +1,69 @@
+{
+  "santorini": {
+    "assyrtiko": {
+      "sources": ["wines-of-greece"],
+      "choices": [
+        {
+          "vessel": "Stainless steel",
+          "prevalence": "very common",
+          "effect": "Keeps the style taut and citrus-led, emphasizing acidity, saline freshness and the grape's natural texture without adding wood-derived toast or spice."
+        },
+        {
+          "vessel": "Oak",
+          "prevalence": "sometimes",
+          "effect": "Can broaden the texture and add creaminess, toast and spice. Oak maturation is also part of the traditional Nykteri style."
+        }
+      ]
+    }
+  },
+  "kakheti": {
+    "rkatsiteli": {
+      "sources": ["georgia-nwa"],
+      "choices": [
+        {
+          "vessel": "Qvevri",
+          "prevalence": "common",
+          "context": "Traditional Kakhetian style",
+          "effect": "Skin contact and ageing in qvevri can give amber color, more tannin and a broader, savory profile with dried orange peel, spice, tea and stone-fruit notes."
+        },
+        {
+          "vessel": "Stainless steel / neutral tank",
+          "prevalence": "common",
+          "context": "Modern European-style vinification",
+          "effect": "Produces a fresher, lighter expression that keeps citrus, quince, apple and floral notes more prominent and carries much less tannin."
+        }
+      ]
+    }
+  },
+  "napa": {
+    "cabernet-sauvignon": {
+      "sources": ["napa-vintners"],
+      "choices": [
+        {
+          "vessel": "French oak",
+          "prevalence": "very common",
+          "effect": "Barrel ageing helps integrate Cabernet's tannin and can add cedar, vanilla, baking spice, mocha and toast. New oak leaves a stronger flavor imprint than older neutral barrels."
+        }
+      ]
+    }
+  },
+  "rioja": {
+    "tempranillo": {
+      "sources": ["rioja"],
+      "choices": [
+        {
+          "vessel": "Oak barrel",
+          "prevalence": "very common",
+          "context": "Required for Crianza, Reserva and Gran Reserva ageing classifications",
+          "effect": "Softens tannin and adds vanilla, coconut, toast and spice; longer maturation can contribute leather, tobacco and other tertiary complexity."
+        },
+        {
+          "vessel": "Stainless steel / neutral tank",
+          "prevalence": "common",
+          "context": "Especially relevant to younger, fruit-first Rioja styles",
+          "effect": "Keeps red fruit, floral character and freshness more prominent, with less wood-derived vanilla, coconut and toast."
+        }
+      ]
+    }
+  }
+}
