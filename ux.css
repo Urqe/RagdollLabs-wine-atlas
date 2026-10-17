@@ -43,6 +43,9 @@
 .wine-color-dot.white { background: #d9bd72; }
 .wine-color-dot.rose { background: #d98a9f; }
 .wine-color-dot.orange { background: #c8783c; }
+.wine-color-dot.amber { background: #bf7b35; }
+.wine-color-dot.tawny { background: #a86643; }
+.wine-color-dot.white-gold { background: #d6b763; }
 .wine-color-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; border: 1px solid var(--line); border-radius: 999px; color: #d8cbd0; font-size: 10px; white-space: nowrap; }
 .search-result .wine-color-dot, .similar-item .wine-color-dot, .welcome-discoveries .wine-color-dot { display: inline-block; vertical-align: -1px; margin-right: 5px; width: 8px; height: 8px; }
 
