@@ -89,19 +89,38 @@ assert.equal(document.getElementById("glossaryDialogTitle").textContent, "Qvevri
 assert.match(document.getElementById("glossaryContent").textContent, /earthenware vessel/i);
 assert.ok(document.getElementById("glossaryDialog").hasAttribute("open"), "contextual definition should open the glossary dialog");
 
-// Full glossary remains directly discoverable from the sidebar.
 document.getElementById("glossaryClose").click();
 document.getElementById("glossaryOpen").click();
 await tick();
 assert.equal(document.getElementById("glossaryDialogTitle").textContent, "Wine glossary");
 assert.ok(document.querySelectorAll("#glossaryContent .glossary-entry").length >= 10, "full glossary should contain the curated learning terms");
 
-// Food-first discovery ranks real pairing data and opens a valid profile.
+// Beyond-still profiles are real first-class profiles with production metadata.
+window.WineAtlas.selectProfile("chardonnay", "champagne-blanc-de-blancs");
+await tick();
+assert.equal(document.getElementById("title").textContent, "Chardonnay · Champagne — Blanc de Blancs");
+assert.match(document.getElementById("specialStyle").textContent, /Traditional method/);
+assert.match(document.getElementById("specialStyle").textContent, /sparkling/i);
+window.WineAtlas.selectProfile("port-blend", "douro-port-tawny");
+await tick();
+assert.match(document.getElementById("specialStyle").textContent, /Fortified/);
+assert.match(document.getElementById("pair").textContent, /crème brûlée/i);
+window.WineAtlas.selectProfile("moscatel-alexandria", "setubal-moscatel");
+await tick();
+assert.match(document.getElementById("specialStyle").textContent, /Moscatel de Setúbal/);
+assert.match(document.getElementById("pair").textContent, /pavlova/i);
+
+// Food-first discovery now supports dessert-oriented queries as well as savoury food.
 const foodInput = document.getElementById("foodInput");
+foodInput.value = "chocolate";
+foodInput.dispatchEvent(new window.Event("input", { bubbles: true }));
+let foodButtons = [...document.querySelectorAll("#foodResults .food-result")];
+assert.ok(foodButtons.length > 0, "chocolate should return dessert-wine matches");
+assert.ok(foodButtons.some(button => /port|moscatel/i.test(button.textContent)), "chocolate should surface fortified dessert options");
 foodInput.value = "lamb";
 foodInput.dispatchEvent(new window.Event("input", { bubbles: true }));
-const foodButtons = [...document.querySelectorAll("#foodResults .food-result")];
-assert.ok(foodButtons.length > 0, "lamb should return pairing matches");
+foodButtons = [...document.querySelectorAll("#foodResults .food-result")];
+assert.ok(foodButtons.length > 0, "lamb should still return pairing matches");
 assert.match(foodButtons[0].textContent.toLowerCase(), /lamb/);
 foodInput.dispatchEvent(new window.KeyboardEvent("keydown", { key: "Enter", bubbles: true }));
 await tick();
@@ -120,11 +139,11 @@ assert.equal(new URL(window.location.href).searchParams.get("region"), "vayots-d
 // Rapid Compare grape changes must rebuild controls without throwing or leaving stale values.
 window.WineAtlas.setMode("compare");
 const compareGrape = document.getElementById("cg");
-for (const grapeId of ["pinot-noir", "cabernet-sauvignon", "syrah", "zinfandel", "assyrtiko"]) {
+for (const grapeId of ["pinot-noir", "cabernet-sauvignon", "syrah", "zinfandel", "assyrtiko", "port-blend"]) {
   compareGrape.value = grapeId;
   compareGrape.dispatchEvent(new window.Event("change", { bubbles: true }));
 }
-assert.equal(compareGrape.value, "assyrtiko");
-assert.ok(document.querySelectorAll("#compareRegionControls .cr").length >= 2, "multi-region grape should rebuild compare controls");
+assert.equal(compareGrape.value, "port-blend");
+assert.ok(document.querySelectorAll("#compareRegionControls .cr").length >= 2, "Port blend should expose Ruby/LBV and Tawny profiles to current compare mode");
 
 console.log("OK: Wine Atlas DOM smoke tests passed");

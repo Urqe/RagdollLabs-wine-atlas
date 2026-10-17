@@ -13,12 +13,13 @@ The small **RagDollLabs reference tools** kicker keeps one typeface and one word
 ## Features
 
 - **Welcome experience** — first-time visitors start from a minimal landing page instead of an arbitrary default wine profile
-- **Five entry paths** — start by grape, explore by place, search, surprise me, or compare regions
+- **Five entry paths** — start by grape / represented blend, explore by place, search, surprise me, or compare regions
 - **Only-choice auto-selection** — when a grape has exactly one regional expression, it opens automatically; place browsing also auto-advances when a region or grape is the only valid choice
 - **Wine-color cues** — red / white grape indicators appear in selectors, profile headers, search results, featured discoveries and recommendations
-- **Wine Explorer** — browse either **by grape** or through a **Country → Region → Grape** hierarchy
+- **Wine Explorer** — browse either **by grape / represented blend** or through a **Country → Region → Grape / blend** hierarchy
 - **Atlas search** — search grapes, regions, countries, climate/style descriptions, flavor notes and discovery labels
-- **Food-first discovery** — search what you are eating and rank profiles from the pairing data already attached to each grape-region profile
+- **Food-first discovery** — search what you are eating and rank profiles from the pairing data already attached to each grape-region profile, including desserts and cheese
+- **Beyond Still Wine** — sparkling, sweet and fortified profiles carry structured production-method and style metadata rather than being forced into the dry-still model
 - **Sensory profile** — body, acidity, tannin, sweetness, alcohol, fruit, oak and earthiness on a 0–5 scale
 - **Locator maps** — recognizable world landmass maps with approximate regional markers, rendered locally with no tile service or tracking dependency
 - **Regional identity** — concise climate, terrain, soil and influence context
@@ -30,12 +31,29 @@ The small **RagDollLabs reference tools** kicker keeps one typeface and one word
 - **Similar Wines** — three nearest profiles calculated from the same sensory metrics shown in the charts
 - **Categorized flavor notes** — Fruit, Floral, Spice, Earth / savory, Oak / ageing and Mineral / herbal
 - **Serve It Tonight** — serving temperature, decanting, glassware, ageing potential and food pairing guidance
-- **Compare mode** — compare one grape across 2–3 regions, with country-aware selectors, ranked **Biggest differences**, and feedback for duplicate selections
+- **Compare mode** — compare one grape / represented blend across 2–3 regions, with country-aware selectors, ranked **Biggest differences**, and feedback for duplicate selections
 - **Discovery labels** — Classic, Discovery, Emerging region and grape-specific Indigenous grape badges
 - **Surprise me** — discovery/emerging regions are weighted 3× over classics
 - **Mood discovery** — Light & elegant, Big & ripe, Earthy & savoury, Fresh & mineral, Aromatic, Something unusual
 - **Shareable URLs** — `?grape=...&region=...` opens a profile directly and bypasses the landing screen
 - **Sources & methodology** — per-profile reference drawer resolved through `data/sources.json`
+
+## Beyond still wine
+
+The atlas now represents production families that do not fit the default dry-still model. These profiles expose an additional **Wine style & production** section with family, sweetness, method and likely sensory impact.
+
+- **Champagne — Blanc de Blancs / Chardonnay** — traditional-method sparkling
+- **Prosecco DOC / Glera** — Martinotti tank-method sparkling
+- **Cava / Macabeo** — traditional-method sparkling
+- **Sauternes / Sémillon** — botrytised sweet wine
+- **Tokaj — Aszú / Furmint** — botrytised sweet wine
+- **Douro — Ruby / LBV Port** — sweet fortified, fruit-preserving style
+- **Douro — Tawny Port** — sweet fortified, oxidatively cask-aged style
+- **Setúbal — Moscatel / Moscatel de Alexandria** — aromatic sweet fortified wine
+
+Dessert discovery is expanded alongside those profiles. Examples include dark chocolate and chocolate mousse for Ruby/LBV Port; crème brûlée, almond tart and walnut desserts for Tawny Port; and crème brûlée, almond, chocolate, coffee and Pavlova-style desserts for Moscatel de Setúbal.
+
+This metadata is intentionally being added **before** the planned Advanced Compare redesign, so future comparison rules can use meaningful style compatibility rather than relying only on red/white color.
 
 ## Regional expansion
 
@@ -81,14 +99,14 @@ The runtime is HTML, CSS and vanilla JavaScript only. No backend, framework, ana
 ├── app.js                           # data, state, rendering and app events
 ├── ux.js                            # welcome and instructional-state subscriber
 ├── compare-country.js               # progressive compare-listbox enhancement
-├── functional.js                    # food-first discovery + winemaking-choice enhancement
+├── functional.js                    # food discovery, style metadata + winemaking-choice enhancement
 ├── maturity.js                      # optional maturity / vintage evolution renderer
 ├── learning.js                      # glossary loader, contextual term annotation and dialog
 ├── assets/
 │   ├── world-map.svg                # simplified physical world landmass
 │   └── vineyard-welcome.svg         # local decorative welcome artwork
 ├── data/
-│   ├── grapes.json
+│   ├── grapes.json                  # varietal / represented-blend sensory baselines
 │   ├── regions-classics-west.json
 │   ├── regions-classics-expanded.json
 │   ├── regions-discovery.json
@@ -109,7 +127,7 @@ The runtime is HTML, CSS and vanilla JavaScript only. No backend, framework, ana
 
 A rendered profile is calculated as:
 
-**grape baseline + regional modifiers / overrides**
+**grape / represented-blend baseline + regional modifiers / overrides**
 
 ### Runtime coordination
 
@@ -124,8 +142,9 @@ Important events include:
 - `wineatlas:compare-controls` — native comparison controls were rebuilt and may be progressively enhanced
 - `wineatlas:winemaking-rendered` — optional asynchronous winemaking content finished rendering
 - `wineatlas:maturity-rendered` — optional asynchronous maturity content finished rendering
+- `wineatlas:special-style-rendered` — a sparkling / sweet / fortified production section was rendered
 
-The last two events let `learning.js` annotate newly rendered educational text without polling, MutationObservers or timing-based `setTimeout()` coordination.
+These events let feature layers cooperate without polling, MutationObservers or timing-based `setTimeout()` coordination.
 
 `ux.js`, `functional.js`, `maturity.js` and `learning.js` remain presentation/feature layers around the same core selection API. A valid shared profile URL remains authoritative and bypasses the welcome screen.
 
@@ -133,9 +152,9 @@ The last two events let `learning.js` annotate newly rendered educational text w
 
 Wine Atlas does not ask the user to make a choice when there is only one valid choice:
 
-- grape → **one region**: select and open that region automatically
+- grape / represented blend → **one region**: select and open that region automatically
 - country → **one region**: advance to that region automatically
-- region → **one grape**: select and open that grape automatically
+- region → **one grape / represented blend**: select and open it automatically
 - multiple valid choices: show a placeholder and wait for the user
 - Compare still requires at least two regional expressions; a single-region grape shows **“More regional expressions coming soon.”**
 
@@ -176,13 +195,28 @@ The initial curated set covers Santorini Assyrtiko, Kakheti Rkatsiteli, Napa Cab
 
 The initial glossary covers advanced terms including amphora, botrytis, diurnal range, galets roulés, lees, malolactic fermentation, marl, neutral oak, Nykteri, qvevri, schist, skin contact, terra rossa and tertiary aromas.
 
+### Beyond-still style data
+
+Profiles can optionally define a structured `style` object. Its current contract contains:
+
+- `family` — `sparkling`, `sweet`, or `fortified`
+- `color` — presentation/context such as white, red, tawny or amber
+- `sweetness` — a constrained style descriptor
+- `label` — compact human-readable style label
+- `method` — defining production method
+- `effect` — cautious explanation of how that method typically changes the wine
+
+If `style` is absent, the profile keeps the existing still-wine behavior. The separate metadata lets a future Advanced Compare release make compatibility decisions using style family and production context instead of assuming that color alone is enough.
+
+`grapes.json` can also mark an entry as `kind: "blend"` when the atlas needs an explicit represented blend rather than pretending a multi-variety wine is monovarietal. The initial example is **Port blend**.
+
 ### Data conventions
 
 - Sensory metrics use a 0–5 scale. Regional `mods` are offsets and are clamped to 0–5.
 - `grapes.json` stores explicit `color` and `indigenous` metadata. UI logic must not infer these from sensory numbers.
-- Wine-color cues use burgundy for red grapes and warm straw/gold for white grapes. Text labels remain present so color is never the only signal.
-- Region entries contain only grape combinations intended to be plausible for that region.
-- `identity`, `why`, `badges` and `sources` are optional region metadata.
+- Wine-color cues use burgundy for red bases and warm straw/gold for white bases. Text labels remain present so color is never the only signal.
+- Region entries contain only combinations intended to be plausible for that region and style.
+- `identity`, `why`, `badges`, `sources` and profile `style` are optional metadata.
 - `Indigenous grape` is rendered from grape metadata, not inherited blindly from a multi-grape region.
 - `locators.json` contains approximate latitude/longitude points for educational locator diagrams, not GIS-grade boundaries.
 
@@ -210,7 +244,7 @@ npm install
 npm test
 ```
 
-The structured validator checks JSON parsing, duplicate region IDs, grape/source references, required profile fields, metric/modifier contracts, locator coverage, explicit Why-rule references, winemaking metadata, maturity metadata and glossary aliases/source references. The jsdom suite exercises guarded profile selection, conditional feature rendering, food-first discovery, contextual glossary annotation/dialog behavior, only-choice auto-selection and rapid Compare rebuilding. `.github/workflows/validate.yml` runs both layers in GitHub Actions.
+The structured validator checks JSON parsing, duplicate region IDs, grape/source references, required profile fields, metric/modifier contracts, locator coverage, explicit Why-rule references, winemaking metadata, maturity metadata, glossary aliases/source references and the beyond-still `style` contract. The jsdom suite exercises guarded profile selection, conditional feature rendering, food-first discovery including dessert matches, sparkling/Port/Moscatel profiles, contextual glossary annotation/dialog behavior, only-choice auto-selection and rapid Compare rebuilding. `.github/workflows/validate.yml` runs both layers in GitHub Actions.
 
 ## Running locally
 

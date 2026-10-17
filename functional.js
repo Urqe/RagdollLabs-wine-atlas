@@ -17,12 +17,23 @@ const FOOD_ALIASES = {
   chicken: ["chicken", "roast chicken", "lemon chicken"],
   mushroom: ["mushrooms", "truffle dishes"],
   mushrooms: ["mushrooms", "truffle dishes"],
-  cheese: ["cheese", "hard cheese", "aged cheese", "soft cheese", "goat cheese", "aged Manchego"],
+  cheese: ["cheese", "hard cheese", "aged cheese", "soft cheese", "goat cheese", "aged Manchego", "blue cheese", "Azeitão cheese"],
   barbecue: ["barbecue", "bbq", "grilled meats", "beef"],
   bbq: ["barbecue", "bbq", "grilled meats", "beef"],
   fish: ["fish", "salmon", "shellfish"],
   salmon: ["salmon", "fish"],
-  vegetables: ["vegetables", "grilled vegetables", "salads", "vegetarian dishes"]
+  vegetables: ["vegetables", "grilled vegetables", "salads", "vegetarian dishes"],
+  dessert: ["dessert", "crème brûlée", "chocolate mousse", "cheesecake", "almond tart", "apricot tart", "fruit tart", "walnut cake", "pavlova"],
+  chocolate: ["dark chocolate", "chocolate dessert", "chocolate mousse", "chocolate cake"],
+  cheesecake: ["cheesecake"],
+  caramel: ["crème brûlée", "caramel", "toffee"],
+  almond: ["almond tart", "almond pastries"],
+  nuts: ["walnut cake", "walnut ice cream", "dried fruit", "almond tart"],
+  "blue cheese": ["blue cheese"],
+  "creme brulee": ["crème brûlée"],
+  "crème brûlée": ["crème brûlée"],
+  coffee: ["coffee dessert", "coffee cake"],
+  pavlova: ["pavlova"]
 };
 
 let winemakingPromise = null;
@@ -85,7 +96,7 @@ function renderFoodMatches() {
   if (!matches.length) {
     const empty = document.createElement("div");
     empty.className = "search-empty";
-    empty.textContent = "No pairing matches yet. Try a broader food, such as lamb, beef, mushrooms or cheese.";
+    empty.textContent = "No pairing matches yet. Try a broader food, such as lamb, beef, mushrooms, cheese or dessert.";
     container.appendChild(empty);
     return;
   }
@@ -159,6 +170,47 @@ function handleFoodKeydown(event) {
     event.preventDefault();
     buttons[buttons.length - 1]?.focus();
   }
+}
+
+function renderSpecialStyle(profile) {
+  document.getElementById("specialStyle")?.remove();
+  const style = profile?.regional?.style;
+  if (!style) return;
+  const anchor = document.getElementById("winemaking") || document.querySelector("#exploreView .content2");
+  if (!anchor) return;
+
+  const section = document.createElement("section");
+  section.id = "specialStyle";
+  section.className = "identity";
+  section.setAttribute("aria-labelledby", "specialStyleHeading");
+  const heading = document.createElement("h3");
+  heading.id = "specialStyleHeading";
+  heading.textContent = "Wine style & production";
+
+  const grid = document.createElement("dl");
+  grid.className = "identity-grid";
+  const rows = [
+    ["Style", style.label],
+    ["Family", style.family],
+    ["Sweetness", style.sweetness],
+    ["Method", style.method]
+  ];
+  for (const [term, value] of rows) {
+    if (!value) continue;
+    const row = document.createElement("div");
+    const dt = document.createElement("dt");
+    const dd = document.createElement("dd");
+    dt.textContent = term;
+    dd.textContent = value;
+    row.append(dt, dd);
+    grid.appendChild(row);
+  }
+  const effect = document.createElement("p");
+  effect.className = "small";
+  effect.textContent = style.effect;
+  section.append(heading, grid, effect);
+  anchor.insertAdjacentElement("beforebegin", section);
+  document.dispatchEvent(new CustomEvent("wineatlas:special-style-rendered", { detail: { profile } }));
 }
 
 function loadWinemaking() {
@@ -240,10 +292,12 @@ document.addEventListener("wineatlas:ready", () => {
 
 document.addEventListener("wineatlas:profile-selected", event => {
   lastProfile = event.detail.profile;
+  renderSpecialStyle(lastProfile);
   void renderWinemaking(lastProfile);
 });
 
 document.addEventListener("wineatlas:selection-needed", () => {
   lastProfile = null;
+  document.getElementById("specialStyle")?.remove();
   document.getElementById("winemaking")?.classList.add("hidden");
 });
