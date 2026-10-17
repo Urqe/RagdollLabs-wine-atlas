@@ -1,4 +1,5 @@
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -9,6 +10,8 @@ with open(ROOT / "data" / "grapes.json", encoding="utf-8") as f:
 aliases = {}
 for grape_id, grape in grapes.items():
     aliases[grape_id] = [part.strip().lower() for part in grape["name"].split("/") if part.strip()]
+
+CAUTION = re.compile(r"garrigue|surrounding herbs|scrub|soil|slate|limestone|granite|marl|galestro|tuffeau|llicorella|chernozem|volcanic")
 
 for path in REGION_FILES:
     with open(path, encoding="utf-8") as f:
@@ -22,4 +25,6 @@ for path in REGION_FILES:
                 if any(name in text for name in names):
                     mentioned.append(grape_id)
             if mentioned:
-                print(f"{path.name}\t{region_id}\t{index}\t{','.join(mentioned)}\t{item.get('cause','')} -> {item.get('effect','')}")
+                print(f"SCOPE\t{path.name}\t{region_id}\t{index}\t{','.join(mentioned)}\t{item.get('cause','')} -> {item.get('effect','')}")
+            if CAUTION.search(item.get("cause", "").lower()):
+                print(f"CAUTION\t{path.name}\t{region_id}\t{index}\t{item.get('cause','')} -> {item.get('effect','')}")
