@@ -6,8 +6,8 @@
   <meta name="description" content="RagDollLabs Wine Atlas — explore how grape, climate and region shape a wine's typical style.">
   <title>RagDollLabs Wine Atlas</title>
   <!-- One release token keeps visible assets in sync after a GitHub Pages deploy. -->
-  <link rel="stylesheet" href="./styles.css?v=20261017-nav1">
-  <link rel="stylesheet" href="./ux.css?v=20261017-nav1">
+  <link rel="stylesheet" href="./styles.css?v=20261017-functional1">
+  <link rel="stylesheet" href="./ux.css?v=20261017-functional1">
 </head>
 <body>
   <div class="wrap">
@@ -53,6 +53,7 @@
         <aside class="card side" aria-label="Wine Atlas controls">
           <div class="mode" role="group" aria-label="View mode"><button id="bExplore" class="on" type="button" aria-pressed="true">Explore</button><button id="bCompare" type="button" aria-pressed="false">Compare</button></div>
           <section id="searchSection" aria-labelledby="searchHeading"><h2 id="searchHeading">Search Atlas</h2><label for="searchInput">Search grapes, regions, countries or styles</label><input id="searchInput" type="search" autocomplete="off" placeholder="Try ‘Georgia’, ‘high acidity’ or ‘Pinot’" aria-controls="searchResults"><div id="searchResults" class="search-results" aria-label="Search results"></div></section>
+          <section id="foodSection" class="food-search" aria-labelledby="foodHeading"><h2 id="foodHeading">What are you eating?</h2><label for="foodInput">Find wines by food pairing</label><input id="foodInput" type="search" autocomplete="off" placeholder="Try ‘lamb’, ‘mushrooms’ or ‘steak’" aria-controls="foodResults"><div id="foodResults" class="search-results" aria-label="Food pairing results"></div></section>
           <section id="exploreControls" aria-labelledby="exploreHeading">
             <div class="section-head"><h2 id="exploreHeading">Wine Explorer</h2><div class="browse-toggle" role="group" aria-label="Browse method"><button id="browseByGrape" class="on" type="button" aria-pressed="true">By grape</button><button id="browseByPlace" type="button" aria-pressed="false">By place</button></div></div>
             <div id="grapeBrowseControls"><label for="grape">Grape</label><select id="grape"></select><div id="grapeColor" aria-live="polite"></div><label for="region">Region</label><select id="region"></select></div>
@@ -70,6 +71,7 @@
             <article class="card">
               <div class="titleline"><h2 id="profileHeading"><span id="title"></span></h2><div class="title-meta"><span id="profileWineColor"></span><div class="pill" id="pill"></div></div></div>
               <p class="summary" id="expect"></p><div class="profile-topline"><div id="climate" class="climate"></div><div id="locatorMap" class="locator-wrap"></div></div><div id="identity"></div><div id="why"></div>
+              <section id="winemaking" class="winemaking hidden" aria-labelledby="winemakingHeading"><h3 id="winemakingHeading">Winemaking choices</h3><p class="small">Common vessel choices that can materially change this regional expression.</p><div id="winemakingChoices" class="winemaking-grid"></div></section>
               <div class="content2"><section aria-labelledby="styleHeading"><h3 id="styleHeading">Style profile</h3><div class="bars" id="bars"></div></section><section aria-labelledby="notesHeading"><h3 id="notesHeading">Typical notes</h3><div id="notes"></div></section></div><div id="sourcesDrawer"></div>
             </article>
             <article class="card serve-card"><h2>Serve It Tonight</h2><div class="serve" id="serve"></div><h3>Food pairings</h3><div class="chips" id="pair"></div></article>
@@ -81,8 +83,9 @@
     </div>
     <footer class="footer">RagDollLabs Wine Atlas · Typical-style reference, not a guarantee about a specific bottle.</footer>
   </div>
-  <script src="./app.js?v=20261017-nav1" defer></script>
-  <script src="./compare-country.js?v=20261017-nav1" defer></script>
-  <script src="./ux.js?v=20261017-nav1" defer></script>
+  <script src="./app.js?v=20261017-functional1" defer></script>
+  <script src="./compare-country.js?v=20261017-functional1" defer></script>
+  <script src="./ux.js?v=20261017-functional1" defer></script>
+  <script src="./functional.js?v=20261017-functional1" defer></script>
 </body>
 </html>
