@@ -131,6 +131,13 @@ function advancedRefreshSelectors() {
     const excluded = new Set(selected.filter((key, i) => i !== index - 1 && key));
     advancedOptions(select, compatible, selected[index - 1], true, excluded);
   }
+  for (let index = 1; index <= 3; index += 1) {
+    const button = document.querySelector(`.advanced-slot-remove[data-slot="${index}"]`);
+    if (!button) continue;
+    const occupied = Boolean(selected[index - 1]);
+    button.hidden = !occupied;
+    button.disabled = !occupied;
+  }
   const checkbox = document.getElementById("advancedBiggestOnly");
   if (checkbox) checkbox.checked = WineComparison.snapshot().biggestOnly;
 }
@@ -241,9 +248,9 @@ function advancedInjectUi() {
   panel.id = "advancedCompareControls";
   panel.innerHTML = `
     <p class="small">Start with any wine. Slots 2 and 3 are limited to meaningful comparisons: same-color still wines, or the same sparkling, sweet or fortified family.</p>
-    <label for="advancedCompare1">Wine 1</label><select id="advancedCompare1"></select>
-    <label for="advancedCompare2">Wine 2</label><select id="advancedCompare2" disabled></select>
-    <label for="advancedCompare3">Wine 3</label><select id="advancedCompare3" disabled></select>
+    <label for="advancedCompare1">Wine 1</label><div class="advanced-slot"><select id="advancedCompare1"></select><button type="button" class="advanced-slot-remove" data-slot="1" aria-label="Remove Wine 1" hidden>Remove</button></div>
+    <label for="advancedCompare2">Wine 2</label><div class="advanced-slot"><select id="advancedCompare2" disabled></select><button type="button" class="advanced-slot-remove" data-slot="2" aria-label="Remove Wine 2" hidden>Remove</button></div>
+    <label for="advancedCompare3">Wine 3</label><div class="advanced-slot"><select id="advancedCompare3" disabled></select><button type="button" class="advanced-slot-remove" data-slot="3" aria-label="Remove Wine 3" hidden>Remove</button></div>
     <label class="advanced-check"><input id="advancedBiggestOnly" type="checkbox"> Show only the biggest differences</label>
     <p id="advancedCompareHint" class="small" role="status" aria-live="polite"></p>`;
   controls.insertBefore(panel, document.getElementById("compareHint"));
@@ -285,6 +292,10 @@ function advancedInjectUi() {
     document.getElementById(`advancedCompare${index}`)?.addEventListener("change", event => {
       WineComparison.setSlot(index, event.target.value);
     });
+  });
+  panel.addEventListener("click", event => {
+    const button = event.target.closest?.(".advanced-slot-remove");
+    if (button) advancedRemoveSlot(Number(button.dataset.slot));
   });
   document.getElementById("advancedBiggestOnly")?.addEventListener("change", event => {
     WineComparison.setBiggestOnly(event.target.checked);
