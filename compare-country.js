@@ -2,26 +2,15 @@
  * RagDollLabs Wine Atlas — compare-region country context
  * -------------------------------------------------------
  * Native <select> menus cannot reliably render a region name plus a separately
- * styled country line, especially on iOS/Safari. This progressive enhancement
- * keeps a hidden native select as the comparison state source used by app.js,
- * while presenting an accessible custom listbox with richer two-line labels.
+ * styled country line, especially on iOS/Safari. app.js therefore builds a
+ * fully functional native control first and emits `wineatlas:compare-controls`.
+ * This file subscribes to that hook and progressively enhances the controls.
  *
- * The hidden `.cr` selects deliberately remain the single values consumed by
- * renderCompare(); this file changes presentation, not comparison logic.
+ * The hidden native `.cr` select remains the single comparison value consumed
+ * by renderCompare(). If this enhancement fails to load, Compare still works.
  */
 
 (function enhanceCompareRegionSelectors() {
-  const originalResetCompare = window.resetCompare;
-  if (typeof originalResetCompare !== "function") return;
-
-  function selectedRegionMarkup(regionId) {
-    if (!regionId || !REGIONS[regionId]) {
-      return '<span class="compare-select-name">— None —</span>';
-    }
-    const region = REGIONS[regionId];
-    return `<span class="compare-select-name">${region.name}</span><span class="compare-select-country">${region.country}</span>`;
-  }
-
   function closeMenu(control, returnFocus = false) {
     const trigger = control.querySelector(".compare-select-trigger");
     const menu = control.querySelector(".compare-select-menu");
@@ -35,6 +24,23 @@
     document.querySelectorAll(".compare-select").forEach(control => {
       if (control !== except) closeMenu(control, false);
     });
+  }
+
+  function renderSelectedValue(target, regionId) {
+    target.replaceChildren();
+    const name = document.createElement("span");
+    name.className = "compare-select-name";
+    if (!regionId || !REGIONS[regionId]) {
+      name.textContent = "— None —";
+      target.appendChild(name);
+      return;
+    }
+    const region = REGIONS[regionId];
+    name.textContent = region.name;
+    const country = document.createElement("span");
+    country.className = "compare-select-country";
+    country.textContent = region.country;
+    target.append(name, country);
   }
 
   function openMenu(control) {
@@ -51,11 +57,10 @@
 
   function updateControl(control, regionId) {
     const select = control.querySelector("select.cr");
-    const trigger = control.querySelector(".compare-select-trigger");
-    if (!select || !trigger) return;
-
+    const value = control.querySelector(".compare-select-value");
+    if (!select || !value) return;
     select.value = regionId;
-    trigger.querySelector(".compare-select-value").innerHTML = selectedRegionMarkup(regionId);
+    renderSelectedValue(value, regionId);
     control.querySelectorAll(".compare-select-option").forEach(option => {
       option.setAttribute("aria-selected", String(option.dataset.value === regionId));
     });
@@ -73,47 +78,92 @@
     const options = [...option.closest(".compare-select-menu").querySelectorAll(".compare-select-option")];
     const index = options.indexOf(option);
     if (index < 0) return;
-    const next = (index + direction + options.length) % options.length;
-    options[next].focus();
+    options[(index + direction + options.length) % options.length].focus();
   }
 
-  function buildCompareControl(index, regions) {
-    const id = `compareRegion${index + 1}`;
-    const listId = `${id}List`;
-    const defaultRegionId = regions[index]?.[0] || "";
-    const wrapper = document.createElement("div");
-    wrapper.className = "compare-region-field";
+  function makeOption(regionId, selected) {
+    const option = document.createElement("button");
+    option.type = "button";
+    option.className = "compare-select-option";
+    option.setAttribute("role", "option");
+    option.dataset.value = regionId;
+    option.setAttribute("aria-selected", String(selected));
 
-    const nativeOptions = [
-      '<option value="">— None —</option>',
-      ...regions.map(([regionId, region]) => `<option value="${regionId}">${region.name} · ${region.country}</option>`)
-    ].join("");
+    const name = document.createElement("span");
+    name.className = "compare-select-name";
+    if (!regionId || !REGIONS[regionId]) {
+      name.textContent = "— None —";
+      option.appendChild(name);
+      return option;
+    }
 
-    const richOptions = [
-      `<button type="button" class="compare-select-option" role="option" data-value="" aria-selected="${String(!defaultRegionId)}"><span class="compare-select-name">— None —</span></button>`,
-      ...regions.map(([regionId, region]) => `<button type="button" class="compare-select-option" role="option" data-value="${regionId}" aria-selected="${String(regionId === defaultRegionId)}"><span class="compare-select-name">${region.name}</span><span class="compare-select-country">${region.country}</span></button>`)
-    ].join("");
+    const region = REGIONS[regionId];
+    name.textContent = region.name;
+    const country = document.createElement("span");
+    country.className = "compare-select-country";
+    country.textContent = region.country;
+    option.append(name, country);
+    return option;
+  }
 
-    wrapper.innerHTML = `
-      <label id="${id}Label" for="${id}Button">Region ${index + 1}</label>
-      <div class="compare-select">
-        <select id="${id}" class="cr" hidden aria-hidden="true" tabindex="-1">${nativeOptions}</select>
-        <button id="${id}Button" type="button" class="compare-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="${id}Label ${id}Button" aria-controls="${listId}">
-          <span class="compare-select-value">${selectedRegionMarkup(defaultRegionId)}</span>
-          <span class="compare-select-chevron" aria-hidden="true">⌄</span>
-        </button>
-        <div id="${listId}" class="compare-select-menu hidden" role="listbox" aria-labelledby="${id}Label">${richOptions}</div>
-      </div>`;
+  function enhanceWrapper(wrapper) {
+    if (wrapper.dataset.countryEnhanced === "true") return;
+    const select = wrapper.querySelector("select.cr");
+    const label = wrapper.querySelector("label");
+    if (!select || !label) return;
 
-    const control = wrapper.querySelector(".compare-select");
-    const select = control.querySelector("select.cr");
-    const trigger = control.querySelector(".compare-select-trigger");
-    select.value = defaultRegionId;
-    select.addEventListener("change", renderCompare);
+    const control = document.createElement("div");
+    control.className = "compare-select";
+    const listId = `${select.id}List`;
+    const buttonId = `${select.id}Button`;
+    label.id = `${select.id}Label`;
+    label.htmlFor = buttonId;
+
+    select.hidden = true;
+    select.setAttribute("aria-hidden", "true");
+    select.tabIndex = -1;
+
+    const trigger = document.createElement("button");
+    trigger.id = buttonId;
+    trigger.type = "button";
+    trigger.className = "compare-select-trigger";
+    trigger.setAttribute("aria-haspopup", "listbox");
+    trigger.setAttribute("aria-expanded", "false");
+    trigger.setAttribute("aria-labelledby", `${label.id} ${buttonId}`);
+    trigger.setAttribute("aria-controls", listId);
+
+    const value = document.createElement("span");
+    value.className = "compare-select-value";
+    renderSelectedValue(value, select.value);
+    const chevron = document.createElement("span");
+    chevron.className = "compare-select-chevron";
+    chevron.setAttribute("aria-hidden", "true");
+    chevron.textContent = "⌄";
+    trigger.append(value, chevron);
+
+    const menu = document.createElement("div");
+    menu.id = listId;
+    menu.className = "compare-select-menu hidden";
+    menu.setAttribute("role", "listbox");
+    menu.setAttribute("aria-labelledby", label.id);
+
+    [...select.options].forEach(nativeOption => {
+      const option = makeOption(nativeOption.value, nativeOption.value === select.value);
+      option.addEventListener("click", () => chooseOption(control, option));
+      option.addEventListener("keydown", event => {
+        if (event.key === "ArrowDown") { event.preventDefault(); moveOptionFocus(option, 1); }
+        if (event.key === "ArrowUp") { event.preventDefault(); moveOptionFocus(option, -1); }
+        if (event.key === "Home") { event.preventDefault(); menu.querySelector(".compare-select-option")?.focus(); }
+        if (event.key === "End") { event.preventDefault(); [...menu.querySelectorAll(".compare-select-option")].at(-1)?.focus(); }
+        if (["Enter", " "].includes(event.key)) { event.preventDefault(); chooseOption(control, option); }
+        if (event.key === "Escape") { event.preventDefault(); closeMenu(control, true); }
+      });
+      menu.appendChild(option);
+    });
 
     trigger.addEventListener("click", () => {
-      const isOpen = trigger.getAttribute("aria-expanded") === "true";
-      if (isOpen) closeMenu(control, false); else openMenu(control);
+      if (trigger.getAttribute("aria-expanded") === "true") closeMenu(control, false);
+      else openMenu(control);
     });
     trigger.addEventListener("keydown", event => {
       if (["ArrowDown", "ArrowUp", "Enter", " "].includes(event.key)) {
@@ -122,43 +172,14 @@
       }
     });
 
-    control.querySelectorAll(".compare-select-option").forEach(option => {
-      option.addEventListener("click", () => chooseOption(control, option));
-      option.addEventListener("keydown", event => {
-        if (event.key === "ArrowDown") { event.preventDefault(); moveOptionFocus(option, 1); }
-        if (event.key === "ArrowUp") { event.preventDefault(); moveOptionFocus(option, -1); }
-        if (event.key === "Home") { event.preventDefault(); option.closest(".compare-select-menu").querySelector(".compare-select-option")?.focus(); }
-        if (event.key === "End") { event.preventDefault(); [...option.closest(".compare-select-menu").querySelectorAll(".compare-select-option")].at(-1)?.focus(); }
-        if (["Enter", " "].includes(event.key)) { event.preventDefault(); chooseOption(control, option); }
-        if (event.key === "Escape") { event.preventDefault(); closeMenu(control, true); }
-      });
-    });
-
-    return wrapper;
+    wrapper.appendChild(control);
+    control.append(select, trigger, menu);
+    wrapper.dataset.countryEnhanced = "true";
   }
 
-  /*
-   * app.js rebuilds comparison controls whenever the grape changes. Replacing
-   * only resetCompare() preserves that lifecycle and lets renderCompare() keep
-   * reading the same `.cr` values it always has.
-   */
-  window.resetCompare = function resetCompareWithCountryContext() {
-    const grapeId = $("cg").value;
-    const regions = relevantRegions(grapeId);
-    $("compareRegionControls").innerHTML = "";
-
-    if (regions.length < 2) {
-      $("compareHint").textContent = "More regional expressions coming soon.";
-      renderCompare();
-      return;
-    }
-
-    $("compareHint").textContent = "Choose two or three regional expressions to compare.";
-    for (let index = 0; index < 3; index += 1) {
-      $("compareRegionControls").appendChild(buildCompareControl(index, regions));
-    }
-    renderCompare();
-  };
+  document.addEventListener("wineatlas:compare-controls", () => {
+    document.querySelectorAll("#compareRegionControls .compare-region-field").forEach(enhanceWrapper);
+  });
 
   document.addEventListener("click", event => {
     if (!event.target.closest(".compare-select")) closeOtherMenus();
