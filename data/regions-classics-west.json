@@ -35,7 +35,7 @@
           "mushrooms",
           "roast chicken",
           "pork"
-        ],
+        , "Phở bò", "Shoyu ramen", "Miso ramen"],
         "expect": "Elegant and high-acid, with red cherry, cranberry and earthy complexity."
       },
       "chardonnay": {
@@ -479,7 +479,7 @@
           "pork",
           "tapas",
           "aged Manchego"
-        ],
+        , "Carne asada", "Tacos al pastor", "Tonkotsu ramen"],
         "expect": "Savory and polished, with cherry, plum, vanilla, leather and tobacco."
       }
     },
@@ -683,7 +683,7 @@
           "beef",
           "sausages",
           "mushrooms"
-        ],
+        , "Tonkotsu ramen"],
         "expect": "Peppery and savory, with blackberry, olive, smoke and violet over firm structure."
       }
     },
@@ -822,7 +822,7 @@
           "pork",
           "smoked foods",
           "soft cheese"
-        ],
+        , "Spicy sushi rolls"],
         "expect": "Light-bodied yet intense, with piercing acidity, lime, peach and slate-like minerality."
       }
     },
@@ -982,7 +982,7 @@
           "roast chicken",
           "goat cheese",
           "rich vegetarian dishes"
-        ],
+        , "Tacos de cochinita pibil"],
         "expect": "High-acid and versatile, with quince, apple, chalk and, with age, honeyed waxy complexity."
       }
     },

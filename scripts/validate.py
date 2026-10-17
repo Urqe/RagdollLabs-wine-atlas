@@ -46,6 +46,7 @@ def main() -> None:
     locators = load(DATA / "locators.json")
     why_rules = load(DATA / "why-rules.json")
     food_aliases = load(DATA / "food-aliases.json")
+    food_dishes = load(DATA / "food-dishes.json")
     winemaking = load(DATA / "winemaking.json")
     maturity = load(DATA / "maturity.json")
     glossary = load(DATA / "glossary.json")
@@ -104,6 +105,26 @@ def main() -> None:
                 assert style.get("sweetness") in STYLE_SWEETNESS, f"{prefix}: invalid style sweetness"
                 for field in ("color", "label", "method", "effect"):
                     assert isinstance(style.get(field), str) and style[field].strip(), f"{prefix}: invalid style {field}"
+
+    import unicodedata
+    def food_key(value):
+        return " ".join("".join(c for c in unicodedata.normalize("NFD", value) if not unicodedata.combining(c)).casefold().split())
+    normalized_targets = {food_key(k): {food_key(v) for v in targets} for k, targets in food_aliases.items()}
+    for alias, targets in food_aliases.items():
+        assert {food_key(v) for v in targets} == normalized_targets[food_key(alias)], f"conflicting normalized alias: {alias}"
+    for label, dish in food_dishes["dishes"].items():
+        assert label.casefold() in pairing_values, f"unused curated dish: {label}"
+        assert dish["guidance"] and dish["basis"] and dish["aliases"], f"incomplete dish: {label}"
+        assert dish["source"] in food_dishes["sources"], f"unknown dish source: {label}"
+        for alias in dish["aliases"]:
+            assert food_key(label) in normalized_targets[food_key(alias)], f"unresolved dish alias: {alias}"
+    for source in food_dishes["sources"].values():
+        assert source["url"].startswith("https://") and source["name"]
+    import xml.etree.ElementTree as ET
+    artwork = ET.parse(ROOT / "assets/vineyard-welcome.svg").getroot()
+    ns = {"s": "http://www.w3.org/2000/svg"}
+    assert artwork.find(".//s:g[@id='landing-ragdoll']", ns) is not None, "landing cat geometry missing"
+    assert not artwork.findall(".//s:image", ns), "CSS background SVG must not depend on external images"
 
     assert isinstance(food_aliases, dict) and food_aliases, "food aliases must be a non-empty object"
     normalized_aliases: set[str] = set()

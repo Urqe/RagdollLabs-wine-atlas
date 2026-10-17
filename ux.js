@@ -249,7 +249,10 @@ function renderFeaturedDiscoveries() {
     const meta = document.createElement("span");
     meta.className = "meta";
     meta.textContent = `${region.name} · ${region.country}`;
-    button.append(strong, meta);
+    const cue = document.createElement("span");
+    cue.className = "tasting-cue";
+    cue.textContent = ({ assyrtiko: "Citrus · saline · crisp", mavrud: "Dark fruit · spice · structure", tannat: "Black fruit · firm · bold" })[grapeId];
+    button.append(strong, meta, cue);
     button.addEventListener("click", () => {
       showAppShell();
       WineAtlas.selectProfile(grapeId, regionId, true);

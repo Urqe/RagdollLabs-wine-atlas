@@ -6,54 +6,11 @@
  * an explicit ranking boost instead of requiring a second food-only input.
  */
 
-let atlasFoodAliasesPromise = null;
-let atlasFoodAliases = {};
-
-function atlasNormalize(value) {
-  return String(value || "")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .trim()
-    .replace(/\s+/g, " ");
-}
-
-function atlasFlattenNotes(notes) {
-  return Object.values(notes || {}).flat().join(" ");
-}
-
-function atlasLoadFoodAliases() {
-  if (!atlasFoodAliasesPromise) {
-    atlasFoodAliasesPromise = fetch("./data/food-aliases.json")
-      .then(response => response.ok ? response.json() : {})
-      .then(data => (atlasFoodAliases = data))
-      .catch(error => {
-        console.warn("Food aliases unavailable; Atlas search will still match direct pairing text.", error);
-        atlasFoodAliases = {};
-        return {};
-      });
-  }
-  return atlasFoodAliasesPromise;
-}
-
-function atlasExpandedFoodTerms(query) {
-  const normalized = atlasNormalize(query);
-  return [...new Set([normalized, ...(atlasFoodAliases[normalized] || []).map(atlasNormalize)].filter(Boolean))];
-}
-
-function atlasPairingScore(pairings, query) {
-  const terms = atlasExpandedFoodTerms(query);
-  if (!terms.length) return 0;
-  let best = 0;
-  for (const pairing of pairings || []) {
-    const normalized = atlasNormalize(pairing);
-    for (const term of terms) {
-      if (normalized === term) best = Math.max(best, 100);
-      else if (normalized.includes(term) || term.includes(normalized)) best = Math.max(best, 75);
-    }
-  }
-  return best;
-}
+function atlasNormalize(value) { return FoodDiscovery.normalize(value); }
+function atlasFlattenNotes(notes) { return Object.values(notes || {}).flat().join(" "); }
+function atlasLoadFoodAliases() { return FoodDiscovery.load(); }
+function atlasExpandedFoodTerms(query) { return FoodDiscovery.terms(query); }
+function atlasPairingScore(pairings, query) { return FoodDiscovery.score(pairings, query); }
 
 function atlasSearchProfiles() {
   const { grapes, regions } = WineAtlas.getData();
@@ -91,7 +48,7 @@ async function renderEnhancedAtlasSearch() {
   if (input.value.trim() !== rawQuery) return;
 
   const terms = query.split(/\s+/).filter(Boolean);
-  const aliasKnown = Boolean(atlasFoodAliases[query]);
+  const aliasKnown = FoodDiscovery.known(query);
   const matches = atlasSearchProfiles().map(item => {
     const haystack = atlasEnhancedHaystack(item);
     const pairingScore = atlasPairingScore(item.regional.pairings, rawQuery);
@@ -103,7 +60,7 @@ async function renderEnhancedAtlasSearch() {
     if (grape.includes(query)) score += 60;
     if (region.includes(query)) score += 60;
     if (country.includes(query)) score += 50;
-    score += terms.filter(term => haystack.includes(term)).length * 5;
+    if (!FoodDiscovery.known(query)) score += terms.filter(term => haystack.includes(term)).length * 5;
     return { item, matched, score, pairingScore };
   }).filter(result => result.matched)
     .sort((a, b) => b.score - a.score || a.item.region.name.localeCompare(b.item.region.name))
@@ -123,6 +80,8 @@ async function renderEnhancedAtlasSearch() {
     label.textContent = `Best pairing matches for “${rawQuery}”`;
     container.appendChild(label);
   }
+
+  FoodDiscovery.appendGuidance(container, rawQuery);
 
   for (const { item, pairingScore } of matches) {
     const button = document.createElement("button");

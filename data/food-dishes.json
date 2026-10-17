@@ -1,0 +1,186 @@
+{
+  "sources": {
+    "taco-pros": {
+      "name": "Wine professionals on taco pairings",
+      "url": "https://vinepair.com/articles/wa-wine-pros-taco-wine-pairing/"
+    },
+    "taco-guide": {
+      "name": "Wine Enthusiast: tacos and toppings",
+      "url": "https://www.wineenthusiast.com/culture/wine/how-to-pair-wine-and-tacos/"
+    },
+    "japanese-noodles": {
+      "name": "Decanter: Japanese curry and noodles",
+      "url": "https://www.decanter.com/wine/japanese-curry-noodles-with-wine-pairing-advice-497920/"
+    },
+    "vietnamese": {
+      "name": "MICHELIN Guide: Vietnamese food pairings",
+      "url": "https://guide.michelin.com/en/article/dining-in/101-guide-vietnamese-food-wine-pairing"
+    },
+    "middle-eastern": {
+      "name": "Wine Folly: Middle Eastern pairings",
+      "url": "https://winefolly.com/wine-pairing/wine-and-hummus-9-delicious-wine-and-middle-eastern-pairings/"
+    },
+    "sushi-guide": {
+      "name": "Wine Folly: sushi pairings",
+      "url": "https://plus.winefolly.com/wine-pairing/best-wine-sushi-try-one/"
+    }
+  },
+  "dishes": {
+    "Döner kebab": {
+      "aliases": [
+        "doner",
+        "doner kebab",
+        "doner kebabs",
+        "döner",
+        "kebab",
+        "kebabs",
+        "kebap",
+        "kebab rulla"
+      ],
+      "guidance": "Spiced meat, salad and garlic sauce suit fresh rosé, juicy Grenache or dry bubbles. With hot chile sauce, favor a lighter, lower-alcohol bottle.",
+      "source": "middle-eastern",
+      "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
+    },
+    "Carne asada": {
+      "aliases": [
+        "carne asada",
+        "tacos de carne asada",
+        "asada tacos"
+      ],
+      "guidance": "Charred beef suits fruit-led reds with enough structure for the meat. Choose a fresher, less alcoholic bottle when salsa brings substantial heat.",
+      "source": "taco-pros",
+      "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
+    },
+    "Tacos al pastor": {
+      "aliases": [
+        "al pastor",
+        "taco al pastor",
+        "tacos al pastor",
+        "pastor tacos"
+      ],
+      "guidance": "Chile-marinated pork and pineapple suit fresh, savory reds or a bright dry Riesling. Very hot salsa calls for a gentler, off-dry option.",
+      "source": "taco-guide",
+      "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
+    },
+    "Tacos de cochinita pibil": {
+      "aliases": [
+        "cochinita",
+        "cochinita pibil",
+        "tacos de cochinita pibil",
+        "tacos cochinita pibil",
+        "taco de cochinita pibil"
+      ],
+      "guidance": "Citrus-marinated pork and achiote favor fresh acidity and some texture. Fresh Chenin Blanc or rosé can balance the citrus and pork richness; habanero salsa changes the match.",
+      "source": "taco-pros",
+      "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
+    },
+    "Sushi and nigiri": {
+      "aliases": [
+        "sushi",
+        "nigiri",
+        "sashimi",
+        "sushit"
+      ],
+      "guidance": "For delicate fish and vinegared rice, choose fresh acidity and restrained tannin. Rich sauces and generous wasabi can shift the pairing.",
+      "source": "sushi-guide",
+      "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
+    },
+    "Spicy sushi rolls": {
+      "aliases": [
+        "spicy sushi",
+        "spicy tuna roll",
+        "spicy tuna rolls",
+        "spicy salmon roll",
+        "spicy salmon rolls"
+      ],
+      "guidance": "For chile or spicy mayonnaise, look for an off-dry bottle with moderate alcohol. Check the producer: these regional profiles also include dry examples.",
+      "source": "sushi-guide",
+      "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
+    },
+    "Phở bò": {
+      "aliases": [
+        "pho",
+        "phở",
+        "pho bo",
+        "beef pho",
+        "vietnamese noodle soup"
+      ],
+      "guidance": "Aromatic beef broth suits dry bubbles or a delicate Pinot Noir. Keep tannin restrained, and adjust for added hoisin or chile.",
+      "source": "vietnamese",
+      "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
+    },
+    "Shoyu ramen": {
+      "aliases": [
+        "ramen",
+        "shoyu ramen",
+        "soy sauce ramen"
+      ],
+      "guidance": "Soy and dashi favor a delicate, savory Pinot Noir; dry sparkling wine is a refreshing alternative. Broth style matters more than the noodles.",
+      "source": "japanese-noodles",
+      "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
+    },
+    "Tonkotsu ramen": {
+      "aliases": [
+        "tonkotsu",
+        "tonkotsu ramen",
+        "pork bone ramen"
+      ],
+      "guidance": "Rich pork-bone broth can take a structured savory red; dry bubbles offer a fresher contrast. Heavy chile additions favor gentler alcohol and tannin.",
+      "source": "japanese-noodles",
+      "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
+    },
+    "Miso ramen": {
+      "aliases": [
+        "miso ramen",
+        "miso noodle soup"
+      ],
+      "guidance": "Fermented miso and savory broth suit earthy Pinot Noir or dry sparkling wine. For spicy miso, consider a little sweetness instead.",
+      "source": "japanese-noodles",
+      "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
+    },
+    "Falafel": {
+      "aliases": [
+        "falafel",
+        "falafels"
+      ],
+      "guidance": "Herbs, chickpeas and a crisp fried crust favor bright whites, dry bubbles or fresh rosé. Tahini adds richness; hot sauce changes the balance.",
+      "source": "middle-eastern",
+      "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
+    },
+    "Hummus": {
+      "aliases": [
+        "hummus",
+        "houmous",
+        "humus"
+      ],
+      "guidance": "Lemon, tahini and creamy chickpeas suit fresh acidity. These crisp styles provide contrast without covering the sesame and garlic.",
+      "source": "middle-eastern",
+      "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
+    },
+    "Vietnamese summer rolls": {
+      "aliases": [
+        "summer rolls",
+        "summer roll",
+        "fresh spring rolls",
+        "goi cuon",
+        "gỏi cuốn",
+        "kesärullat",
+        "kesarullat"
+      ],
+      "guidance": "Fresh herbs and rice-paper rolls suit crisp Riesling or Sauvignon Blanc. A sweet peanut dip may call for a slightly off-dry bottle.",
+      "source": "vietnamese",
+      "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
+    },
+    "Bánh xèo": {
+      "aliases": [
+        "banh xeo",
+        "bánh xèo",
+        "vietnamese pancake",
+        "vietnamese pancakes"
+      ],
+      "guidance": "A crisp savory pancake suits fresh dry sparkling wine. Choose a dry bottling and account for the sweetness or chile in the dipping sauce.",
+      "source": "vietnamese",
+      "basis": "Editorial style match informed by the reference; regional profiles are not individual bottle recommendations."
+    }
+  }
+}
