@@ -25,6 +25,7 @@ jobs:
           node --check compare-country.js
           node --check ux.js
           node --check functional.js
+          node --check maturity.js
           node --check tests/dom-smoke.mjs
 
       - name: Validate structured wine data
