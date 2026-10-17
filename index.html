@@ -14,10 +14,8 @@
         <div class="kicker">RagLabs reference tools</div>
         <h1>RagLabs Wine Atlas</h1>
         <div class="tagline">Explore how grape, climate and region shape the glass.</div>
-        <p>Pick a grape and region to see the typical style, flavors, serving guidance and food pairings — from the classics to emerging regions — then compare how the same grape changes across regions.</p>
+        <p>Search, browse by grape or place, compare regional expressions, and discover styles from classic and emerging wine regions.</p>
       </div>
-      <!-- Original decorative illustration: glass, grape cluster, vine leaf and
-           topographic contours. Decorative only; the app is fully usable without it. -->
       <svg class="hero-art" viewBox="0 0 220 260" aria-hidden="true" focusable="false">
         <g fill="none" stroke="#c9ab6b" stroke-width="1" opacity="0.35">
           <path d="M20 40c60 8 100 40 118 92M14 70c50 6 84 34 99 78M26 16c72 10 120 48 141 112"/>
@@ -34,28 +32,54 @@
         </g>
         <path d="M119 168c0-14 6-24 16-30" fill="none" stroke="#7a8b5a" stroke-width="2"/>
         <path d="M132 136c10-6 20-4 26 2-8 4-18 4-26-2z" fill="#7a8b5a" opacity="0.8"/>
-        <g fill="none" stroke="#c9ab6b" stroke-width="0.8" opacity="0.5">
-          <path d="M30 210c40-10 90-6 130 14M40 232c36-8 80-4 112 12"/>
-        </g>
       </svg>
     </header>
+
     <div class="layout">
       <aside class="card side" aria-label="Wine Atlas controls">
         <div class="mode" role="group" aria-label="View mode">
           <button id="bExplore" class="on" type="button" aria-pressed="true">Explore</button>
           <button id="bCompare" type="button" aria-pressed="false">Compare</button>
         </div>
+
+        <section id="searchSection" aria-labelledby="searchHeading">
+          <h2 id="searchHeading">Search Atlas</h2>
+          <label for="searchInput">Search grapes, regions, countries or styles</label>
+          <input id="searchInput" type="search" autocomplete="off" placeholder="Try ‘Georgia’, ‘high acidity’ or ‘Pinot’" aria-controls="searchResults">
+          <div id="searchResults" class="search-results" role="listbox" aria-label="Search results"></div>
+        </section>
+
         <section id="exploreControls" aria-labelledby="exploreHeading">
-          <h2 id="exploreHeading">Wine Explorer</h2>
-          <label for="grape">Grape</label>
-          <select id="grape"></select>
-          <label for="region">Region</label>
-          <select id="region"></select>
+          <div class="section-head">
+            <h2 id="exploreHeading">Wine Explorer</h2>
+            <div class="browse-toggle" role="group" aria-label="Browse method">
+              <button id="browseByGrape" class="on" type="button" aria-pressed="true">By grape</button>
+              <button id="browseByPlace" type="button" aria-pressed="false">By place</button>
+            </div>
+          </div>
+
+          <div id="grapeBrowseControls">
+            <label for="grape">Grape</label>
+            <select id="grape"></select>
+            <label for="region">Region</label>
+            <select id="region"></select>
+          </div>
+
+          <div id="placeBrowseControls" class="hidden">
+            <label for="country">Country</label>
+            <select id="country"></select>
+            <label for="placeRegion">Region</label>
+            <select id="placeRegion"></select>
+            <label for="placeGrape">Grape</label>
+            <select id="placeGrape"></select>
+          </div>
+
           <button id="surprise" class="surprise" type="button">Surprise me</button>
-          <p class="small surprise-hint">Feeling adventurous? Discover something beyond the usual classics.</p>
+          <p class="small surprise-hint">Feeling adventurous? Discovery regions are intentionally weighted higher.</p>
           <h3>Reference note</h3>
           <p class="small">Profiles describe typical regional and varietal character. Producer, vintage, vineyard and winemaking can materially change a bottle.</p>
         </section>
+
         <section id="compareControls" class="hidden" aria-labelledby="compareHeading">
           <h2 id="compareHeading">Compare Regions</h2>
           <label for="cg">Grape</label>
@@ -63,11 +87,13 @@
           <div id="compareRegionControls" class="compareControls"></div>
           <p id="compareHint" class="small" role="status" aria-live="polite"></p>
         </section>
-        <section class="moods" aria-labelledby="moodHeading">
+
+        <section id="moodSection" class="moods" aria-labelledby="moodHeading">
           <h3 id="moodHeading">What are you in the mood for?</h3>
           <div id="moodButtons" class="mood-grid"></div>
         </section>
       </aside>
+
       <main>
         <p id="liveStatus" class="sr-only" role="status" aria-live="polite"></p>
         <section id="exploreView" aria-labelledby="profileHeading">
@@ -77,7 +103,10 @@
               <div class="pill" id="pill"></div>
             </div>
             <p class="summary" id="expect"></p>
-            <div class="climate" id="climate"></div>
+            <div class="profile-topline">
+              <div id="climate" class="climate"></div>
+              <div id="locatorMap" class="locator-wrap"></div>
+            </div>
             <div id="identity"></div>
             <div id="why"></div>
             <div class="content2">
@@ -92,13 +121,21 @@
             </div>
             <div id="sourcesDrawer"></div>
           </article>
+
           <article class="card serve-card">
             <h2>Serve It Tonight</h2>
             <div class="serve" id="serve"></div>
             <h3>Food pairings</h3>
             <div class="chips" id="pair"></div>
           </article>
+
+          <article class="card similar-card">
+            <h2>Similar Wines</h2>
+            <p class="small">Closest matches are calculated from the same sensory profile used by the charts, with a small preference for showing something genuinely different.</p>
+            <div id="similarWines" class="similar-grid"></div>
+          </article>
         </section>
+
         <section id="compareView" class="hidden" aria-labelledby="regionalComparisonHeading">
           <article class="card">
             <h2 id="regionalComparisonHeading">Regional Comparison</h2>
