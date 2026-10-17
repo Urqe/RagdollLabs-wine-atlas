@@ -29,5 +29,7 @@
   "macabeo": {"name":"Macabeo / Viura","color":"white","indigenous":true,"body":2,"acidity":3.5,"tannin":0,"sweetness":1,"alcohol":2.5,"fruit":3.5,"oak":0.5,"earth":1.5},
   "semillon": {"name":"Sémillon","color":"white","indigenous":false,"body":3,"acidity":2.5,"tannin":0,"sweetness":2,"alcohol":3,"fruit":4,"oak":1.5,"earth":1},
   "moscatel-alexandria": {"name":"Moscatel de Alexandria","color":"white","indigenous":false,"body":2.5,"acidity":3,"tannin":0,"sweetness":4,"alcohol":3,"fruit":5,"oak":1,"earth":0.5},
-  "port-blend": {"name":"Port blend","kind":"blend","color":"red","indigenous":false,"body":5,"acidity":3.5,"tannin":4,"sweetness":5,"alcohol":5,"fruit":5,"oak":3,"earth":2}
+  "port-blend": {"name":"Port blend","kind":"blend","color":"red","indigenous":false,"body":5,"acidity":3.5,"tannin":4,"sweetness":5,"alcohol":5,"fruit":5,"oak":3,"earth":2},
+  "provence-rose-blend": {"name":"Provence rosé blend","kind":"blend","color":"red","indigenous":false,"body":2,"acidity":4,"tannin":0.5,"sweetness":1,"alcohol":3,"fruit":3.5,"oak":0,"earth":1.5},
+  "ribolla-gialla": {"name":"Ribolla Gialla","color":"white","indigenous":true,"body":2,"acidity":4.5,"tannin":0,"sweetness":1,"alcohol":3,"fruit":3,"oak":0.5,"earth":2}
 }
