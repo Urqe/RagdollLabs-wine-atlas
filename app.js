@@ -7,8 +7,11 @@
  * 3. Rebuild compare selections whenever the grape changes so stale IDs
  *    cannot survive from the previous grape (the original compare bug).
  * 4. Keep rendering functions small and side-effect boundaries obvious.
- * 5. All new discovery features (Surprise me, moods) resolve exclusively
- *    through combinedProfile(), so they can never surface an invalid pair.
+ * 5. All discovery features (Surprise me, moods) resolve exclusively through
+ *    combinedProfile(), so they can never surface an invalid pair.
+ * 6. Keep region-level metadata separate from grape-specific meaning. Some
+ *    Release 2 data carries region badges/why text that only applies to one
+ *    grape; the render layer narrows that to the selected profile.
  */
 
 const METRICS = [
@@ -31,9 +34,6 @@ const COMPARE_METRICS = [
   ["earth", "Earth"]
 ];
 
-// Human phrasing for the compare "biggest differences" panel.
-// Wording stays qualitative because the underlying numbers are typical-style
-// approximations, not lab measurements.
 const DIFFERENCE_PHRASING = {
   body: { high: "Fuller-bodied", low: "Leaner body" },
   acidity: { high: "Higher acidity", low: "Softer acidity" },
@@ -43,28 +43,42 @@ const DIFFERENCE_PHRASING = {
   earth: { high: "More earthy and savoury", low: "Cleaner and less earthy" }
 };
 
-// Minimum spread (on the 0–5 scale) for a difference to be worth showing.
 const MIN_MEANINGFUL_SPREAD = 0.5;
 
-// Mood definitions drive mood-based discovery. Each mood is a predicate over
-// the combined grape+region profile plus optional tag preferences, so moods
-// can never invent a profile that does not exist in the data.
+// These sets are product metadata, not tasting data. They prevent the UI from
+// inferring wine colour or indigenous status from sensory numbers alone.
+const WHITE_GRAPE_IDS = new Set([
+  "chardonnay",
+  "riesling",
+  "sauvignon-blanc",
+  "chenin-blanc"
+]);
+const INDIGENOUS_GRAPE_IDS = new Set([
+  "mavrud",
+  "melnik",
+  "odesa-black",
+  "saperavi"
+]);
+
 const MOODS = [
   { id: "light-elegant", label: "Light & elegant", hint: "Delicate reds and whites", test: p => p.body <= 2.5 && p.tannin <= 2.5 },
   { id: "big-ripe", label: "Big & ripe", hint: "Full, powerful and fruit-driven", test: p => p.body >= 4 && p.fruit >= 4 && p.alcohol >= 4 },
   { id: "earthy-savory", label: "Earthy & savoury", hint: "Forest floor, truffle and game", test: p => p.earth >= 4 },
   { id: "fresh-mineral", label: "Fresh & mineral", hint: "High-acid, crisp and clean", test: p => p.acidity >= 4 && p.body <= 3 },
-  { id: "aromatic", label: "Aromatic", hint: "Perfumed and floral whites", test: p => p.acidity >= 4 && p.fruit >= 3 && p.body <= 2.5 },
-  { id: "something-unusual", label: "Something unusual", hint: "Indigenous grapes and emerging regions", test: null, preferTags: ["Discovery", "Emerging region", "Indigenous grape"] }
+  {
+    id: "aromatic",
+    label: "Aromatic",
+    hint: "Perfumed and floral whites",
+    // Colour is checked explicitly so light Pinot Noir cannot accidentally
+    // satisfy a white-wine mood merely because its numbers look similar.
+    test: (p, context) => WHITE_GRAPE_IDS.has(context.grapeId) && p.acidity >= 4 && p.fruit >= 3 && p.body <= 2.5
+  },
+  { id: "something-unusual", label: "Something unusual", hint: "Indigenous grapes and emerging regions", test: null, preferTags: ["Discovery", "Emerging region"] }
 ];
 
-// Discovery profiles are weighted 3:1 over classics in Surprise me to
-// encourage exploration of the less familiar parts of the atlas.
 const DISCOVERY_WEIGHT = 3;
 const CLASSIC_WEIGHT = 1;
 
-// Decorative inline SVG icons for flavor note categories. Icons complement,
-// never replace, the visible text label.
 const NOTE_ICONS = {
   "Fruit": '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="14" r="5"/><circle cx="15.5" cy="10.5" r="4"/><path d="M12 5c1.5-2 4-2 5-1.5-.5 2-2.5 3-5 1.5z"/></svg>',
   "Floral": '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 4c1 2 1 4 0 5-1-1-1-3 0-5zM12 15c1 2 1 4 0 5-1-1-1-3 0-5zM4 12c2-1 4-1 5 0-1 1-3 1-5 0zM15 12c2-1 4-1 5 0-1 1-3 1-5 0z"/></svg>',
@@ -78,21 +92,15 @@ const DEFAULT_NOTE_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle c
 let GRAPES = {};
 let REGIONS = {};
 let SOURCES = {};
-
-// The last profile surfaced by Surprise me, so the feature can avoid
-// repeating itself on consecutive clicks where the pool allows it.
 let lastSurprise = null;
 
 const $ = id => document.getElementById(id);
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
 /**
- * Load structured wine data.
- * Region data is intentionally split into reviewable files instead of one
- * giant blob; Object.assign merges them into one REGIONS lookup. A duplicate
- * id across files would silently overwrite, so an explicit check keeps that
- * failure loud instead of quiet.
- * Relative paths keep GitHub Pages project URLs working.
+ * Load structured wine data. Every region id is checked against every other
+ * loaded region id before Object.assign() merges the groups, preventing silent
+ * collisions between any pair of data files.
  */
 async function loadData() {
   const paths = [
@@ -109,11 +117,13 @@ async function loadData() {
   const [grapes, ...regionGroupsAndSources] = await Promise.all(responses.map(response => response.json()));
   const sources = regionGroupsAndSources.pop();
   const regionGroups = regionGroupsAndSources;
-  for (let i = 1; i < regionGroups.length; i += 1) {
-    for (const id of Object.keys(regionGroups[i])) {
-      if (regionGroups[0][id] !== undefined) {
+  const seenRegionIds = new Set();
+  for (const group of regionGroups) {
+    for (const id of Object.keys(group)) {
+      if (seenRegionIds.has(id)) {
         throw new Error(`Duplicate region id across data files: ${id}`);
       }
+      seenRegionIds.add(id);
     }
   }
   GRAPES = grapes;
@@ -121,15 +131,10 @@ async function loadData() {
   SOURCES = sources;
 }
 
-/** Return only regions that explicitly define the selected grape. */
 function relevantRegions(grapeId) {
   return Object.entries(REGIONS).filter(([, region]) => region.grapes?.[grapeId]);
 }
 
-/**
- * Safely combine a grape baseline with regional modifiers.
- * Returns null instead of throwing if a stale/invalid pair reaches this layer.
- */
 function combinedProfile(grapeId, regionId) {
   const grape = GRAPES[grapeId];
   const region = REGIONS[regionId];
@@ -142,7 +147,6 @@ function combinedProfile(grapeId, regionId) {
   return { grape, region, regional, profile };
 }
 
-/** All valid grape-region pairs, flattened for discovery features. */
 function allPairs() {
   const pairs = [];
   for (const [regionId, region] of Object.entries(REGIONS)) {
@@ -153,7 +157,6 @@ function allPairs() {
   return pairs;
 }
 
-/** True when a region is presented as a discovery/emerging expression. */
 function isDiscoveryRegion(region) {
   const badges = region.badges || [];
   return badges.includes("Discovery") || badges.includes("Emerging region");
@@ -167,7 +170,6 @@ function formatScore(value) {
   return value.toFixed(value % 1 ? 1 : 0);
 }
 
-/** The visual bar is decorative; the adjacent text score is the accessible value. */
 function metricBar(key, label, profile, compact = false) {
   const columns = compact ? ' style="grid-template-columns:70px 1fr 30px"' : "";
   return `<div class="bar"${columns}>
@@ -200,14 +202,19 @@ function renderFlavorGroups(noteGroups) {
     </section>`).join("")}</div>`;
 }
 
-/** Discovery/Classic badges: subdued pills near the region identity. */
-function renderBadges(region) {
-  const badges = region.badges || [];
+/**
+ * Region badges are region-wide except Indigenous grape, which is inherently
+ * grape-specific. We strip a region-level Indigenous tag and re-add it only
+ * when the selected grape is actually one of the indigenous varieties tracked
+ * by the atlas.
+ */
+function renderBadges(region, grapeId) {
+  const badges = (region.badges || []).filter(badge => badge !== "Indigenous grape");
+  if (INDIGENOUS_GRAPE_IDS.has(grapeId)) badges.push("Indigenous grape");
   if (!badges.length) return "";
   return `<div class="badges">${badges.map(b => `<span class="badge">${b}</span>`).join("")}</div>`;
 }
 
-/** Regional Identity: concise terroir summary rendered as a definition list. */
 function renderIdentity(region) {
   const identity = region.identity;
   if (!identity) return "";
@@ -226,19 +233,57 @@ function renderIdentity(region) {
   </section>`;
 }
 
-/** "Why does it taste like this?" — cause → effect pairs from structured data. */
-function renderWhy(region) {
-  const why = region.why;
-  if (!Array.isArray(why) || !why.length) return "";
+function grapeAliases(grape) {
+  return grape.name.toLowerCase().split("/").map(part => part.trim()).filter(Boolean);
+}
+
+/**
+ * Region-level explanation data can contain a line about one particular grape.
+ * Keep such a line only when it also names the selected grape; otherwise a
+ * Thracian Valley Merlot could incorrectly inherit a Mavrud explanation.
+ */
+function whyAppliesToGrape(item, grapeId) {
+  const text = `${item.cause} ${item.effect}`.toLowerCase();
+  const selectedAliases = grapeAliases(GRAPES[grapeId]);
+  if (selectedAliases.some(alias => text.includes(alias))) return true;
+  for (const [otherId, grape] of Object.entries(GRAPES)) {
+    if (otherId === grapeId) continue;
+    if (grapeAliases(grape).some(alias => text.includes(alias))) return false;
+  }
+  return true;
+}
+
+/**
+ * Avoid presenting soil or nearby vegetation as if it literally transfers a
+ * flavor into wine. For those cases we keep the educational context but state
+ * the defensible physical role of soils and the associative nature of aromas.
+ */
+function cautiousWhyEffect(item) {
+  const cause = item.cause.toLowerCase();
+  if (/garrigue|surrounding herbs|scrub/.test(cause)) {
+    return "The wines are often described with similar herbal notes; this is a regional association, not literal flavor transfer.";
+  }
+  if (/soil|slate|limestone|granite|marl|galestro|tuffeau|llicorella|chernozem|volcanic/.test(cause)) {
+    return "Shapes drainage, water availability and vine growth; any mineral or savory tasting notes are descriptive associations rather than flavors transferred from the soil.";
+  }
+  return item.effect;
+}
+
+/** Prefer profile-specific explanations when they are added in future. */
+function renderWhy(region, regional, grapeId) {
+  const source = Array.isArray(regional.why) && regional.why.length ? regional.why : region.why;
+  if (!Array.isArray(source) || !source.length) return "";
+  const why = source.filter(item => whyAppliesToGrape(item, grapeId));
+  if (!why.length) return "";
   return `<section class="why" aria-labelledby="whyHeading">
     <h3 id="whyHeading">Why does it taste like this?</h3>
+    <p class="small">These are typical growing and winemaking associations. Soil and landscape affect vine conditions; they do not literally add mineral or herbal flavors to the wine.</p>
     <ul class="why-list">
-      ${why.map(item => `<li><span class="why-cause">${item.cause}</span><span class="why-arrow" aria-hidden="true">\u2192</span><span class="why-effect">${item.effect}</span></li>`).join("")}
+      ${why.map(item => `<li><span class="why-cause">${item.cause}</span><span class="why-arrow" aria-hidden="true">\u2192</span><span class="why-effect">${cautiousWhyEffect(item)}</span></li>`).join("")}
     </ul>
   </section>`;
 }
 
-/** Sources & methodology: expandable drawer resolved through sources.json. */
 function renderSources(region) {
   const ids = region.sources || [];
   const resolved = ids.map(id => SOURCES[id]).filter(Boolean);
@@ -247,16 +292,15 @@ function renderSources(region) {
     : "";
   return `<details class="sources">
     <summary>Sources &amp; methodology</summary>
-    <p class="small">Regional style profiles summarize typical characteristics; original summaries based on the references below. Individual producers and vintages vary.</p>
+    <p class="small">Regional style profiles summarize typical characteristics from the references below. Where a source is a book, organization or general reference landing page, it supports the regional context rather than every individual tasting descriptor.</p>
     ${list}
   </details>`;
 }
 
 function renderExplore() {
-  const result = combinedProfile($("grape").value, $("region").value);
+  const grapeId = $("grape").value;
+  const result = combinedProfile(grapeId, $("region").value);
   if (!result) {
-    // Graceful empty state: an invalid pair can only arrive here via a stale
-    // selector value or a hand-edited URL, neither of which should crash.
     $("title").textContent = "No profile available";
     $("pill").textContent = "";
     $("expect").textContent = "This grape and region combination is not in the atlas yet.";
@@ -275,8 +319,8 @@ function renderExplore() {
   $("pill").textContent = `${region.country} \u00b7 ${region.climate}`;
   $("expect").textContent = regional.expect;
   $("climate").innerHTML = `<strong>Climate effect:</strong> ${region.summary}`;
-  $("identity").innerHTML = renderBadges(region) + renderIdentity(region);
-  $("why").innerHTML = renderWhy(region);
+  $("identity").innerHTML = renderBadges(region, grapeId) + renderIdentity(region);
+  $("why").innerHTML = renderWhy(region, regional, grapeId);
   $("sourcesDrawer").innerHTML = renderSources(region);
   $("bars").innerHTML = METRICS.map(([key, label]) => metricBar(key, label, profile)).join("");
   $("notes").innerHTML = renderFlavorGroups(regional.notes);
@@ -289,13 +333,6 @@ function renderExplore() {
   $("pair").innerHTML = regional.pairings.map(item => `<span class="chip">${item}</span>`).join("");
 }
 
-/**
- * Compare "Biggest differences" panel.
- * For each metric: find the highest and lowest region among the selection,
- * rank by spread, and show only differences at or above MIN_MEANINGFUL_SPREAD
- * so trivial variation stays off screen. Values are the same 0–5 numbers the
- * profile bars use, so the panel can never contradict the cards.
- */
 function renderBiggestDifferences(selections) {
   if (selections.length < 2) return "";
   const rows = [];
@@ -326,10 +363,6 @@ function renderBiggestDifferences(selections) {
   </section>`;
 }
 
-/**
- * Rebuild compare controls from scratch on every grape change.
- * This deliberately clears old region IDs, fixing the stale-selection crash.
- */
 function resetCompare() {
   const grapeId = $("cg").value;
   const regions = relevantRegions(grapeId);
@@ -349,7 +382,6 @@ function resetCompare() {
       <select id="${id}" class="cr"><option value="">\u2014 None \u2014</option>${optionMarkup(regions)}</select>`;
     controls.appendChild(wrapper);
   }
-  // Start with sensible, valid defaults. No stale values can survive this rebuild.
   const selects = [...document.querySelectorAll(".cr")];
   selects.forEach((select, index) => {
     if (regions[index]) select.value = regions[index][0];
@@ -372,8 +404,6 @@ function renderCompare() {
     return;
   }
   message.classList.add("hidden");
-  // Secondary guard: invalid pairs can never crash the grid because
-  // combinedProfile() returns null and the filter drops it here.
   const selections = [...document.querySelectorAll(".cr")]
     .map(select => select.value)
     .filter(Boolean)
@@ -383,7 +413,7 @@ function renderCompare() {
       <article class="compareCard">
         <h3>${region.name}</h3>
         <div class="small">${region.country} \u00b7 ${region.climate}</div>
-        ${renderBadges(region)}
+        ${renderBadges(region, grapeId)}
         <div class="bars compare-bars">${COMPARE_METRICS.map(([key, label]) => metricBar(key, label, profile, true)).join("")}</div>
         <p class="small compare-summary">${regional.expect}</p>
         <p class="small"><strong>Serve:</strong> ${regional.serve} \u00b7 <strong>Decant:</strong> ${regional.decant}</p>
@@ -392,7 +422,6 @@ function renderCompare() {
   differences.innerHTML = renderBiggestDifferences(selections);
 }
 
-/** Weighted pick: discovery profiles get 3x the chance of classics. */
 function pickWeightedPair(pairs) {
   const weights = pairs.map(({ regionId }) =>
     isDiscoveryRegion(REGIONS[regionId]) ? DISCOVERY_WEIGHT : CLASSIC_WEIGHT);
@@ -406,10 +435,6 @@ function pickWeightedPair(pairs) {
   return pairs[pairs.length - 1];
 }
 
-/**
- * Surprise me: jump to a random valid profile, preferring discovery regions.
- * Avoids repeating the previous pick where the pool is large enough.
- */
 function surpriseMe() {
   const pairs = allPairs();
   if (!pairs.length) return;
@@ -431,20 +456,18 @@ function surpriseMe() {
   announce(`Showing ${GRAPES[pick.grapeId].name} from ${REGIONS[pick.regionId].name}.`);
 }
 
-/**
- * Mood-based discovery: each mood filters allPairs() through its predicate
- * (or tag preference), then surfaces one random match. Always resolves to a
- * valid profile because the candidate pool is built from combinedProfile().
- */
 function moodPick(mood) {
-  let matches = [];
+  const matches = [];
   for (const { grapeId, regionId } of allPairs()) {
-    const { profile, region } = combinedProfile(grapeId, regionId);
+    const result = combinedProfile(grapeId, regionId);
+    if (!result) continue;
+    const { profile, region } = result;
     if (mood.test) {
-      if (mood.test(profile)) matches.push({ grapeId, regionId });
+      if (mood.test(profile, { grapeId, regionId, region })) matches.push({ grapeId, regionId });
     } else if (mood.preferTags) {
       const badges = region.badges || [];
-      if (mood.preferTags.some(tag => badges.includes(tag))) matches.push({ grapeId, regionId });
+      const regionalMatch = mood.preferTags.some(tag => badges.includes(tag));
+      if (regionalMatch || INDIGENOUS_GRAPE_IDS.has(grapeId)) matches.push({ grapeId, regionId });
     }
   }
   if (!matches.length) {
@@ -462,7 +485,6 @@ function moodPick(mood) {
   announce(`Showing ${GRAPES[pick.grapeId].name} from ${REGIONS[pick.regionId].name}.`);
 }
 
-/** Render the mood buttons once, wired to moodPick(). */
 function renderMoods() {
   const container = $("moodButtons");
   container.innerHTML = MOODS.map(mood => `
@@ -478,7 +500,6 @@ function renderMoods() {
   });
 }
 
-/** Announce dynamic status changes to assistive technology. */
 function announce(text) {
   const live = $("liveStatus");
   live.textContent = "";
@@ -486,28 +507,26 @@ function announce(text) {
 }
 
 /**
- * Shareable URLs: ?grape=<id>&region=<id>.
- * Invalid ids or pairs are ignored and fall back to the default view, so a
- * mistyped or hand-edited link can never crash the page.
+ * Apply validated URL state. If either id is invalid, normalize the address bar
+ * to the valid fallback profile so copied links always describe what is shown.
  */
 function applyUrlParams() {
   const params = new URLSearchParams(window.location.search);
   const grapeId = params.get("grape");
   const regionId = params.get("region");
+  let validRequestedPair = false;
   if (grapeId && GRAPES[grapeId]) {
     $("grape").value = grapeId;
     populateExploreRegions();
     if (regionId && combinedProfile(grapeId, regionId)) {
       $("region").value = regionId;
       renderExplore();
-      return;
+      validRequestedPair = true;
     }
-    // Valid grape, invalid region: keep the grape, let the region default.
-    renderExplore();
   }
+  if ((grapeId || regionId) && !validRequestedPair) updateUrl();
 }
 
-/** Keep the address bar shareable without reloading (no pushState history spam). */
 function updateUrl() {
   const grapeId = $("grape").value;
   const regionId = $("region").value;
@@ -528,6 +547,9 @@ function setMode(mode) {
   $("compareControls").classList.toggle("hidden", explore);
   $("exploreView").classList.toggle("hidden", !explore);
   $("compareView").classList.toggle("hidden", explore);
+  // Mood discovery is an Explore action. Hiding it in Compare avoids a button
+  // unexpectedly switching modes from a section that visually belongs to Compare.
+  document.querySelector(".moods")?.classList.toggle("hidden", !explore);
   if (!explore) renderCompare();
 }
 
