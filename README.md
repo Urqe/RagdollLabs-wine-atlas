@@ -1,8 +1,12 @@
-# RagdollLabs Wine Atlas
+# RagDollLabs Wine Atlas
 
 A static, data-driven wine reference app for exploring how grape variety, region and climate shape a wine's typical style.
 
 Live site: https://urqe.github.io/RagdollLabs-wine-atlas/
+
+## Brand naming
+
+The project originally used **RagLabs** as its working product name, while the repository already used the longer `RagdollLabs` naming. This release standardizes the visible product brand as **RagDollLabs** for consistency across the project family. The repository and GitHub Pages path remain `RagdollLabs-wine-atlas` so existing links do not change.
 
 ## Features
 
