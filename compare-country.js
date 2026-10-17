@@ -11,6 +11,8 @@
  */
 
 (function enhanceCompareRegionSelectors() {
+  function regions() { return WineAtlas.getData().regions; }
+
   function closeMenu(control, returnFocus = false) {
     const trigger = control.querySelector(".compare-select-trigger");
     const menu = control.querySelector(".compare-select-menu");
@@ -27,15 +29,16 @@
   }
 
   function renderSelectedValue(target, regionId) {
+    const data = regions();
     target.replaceChildren();
     const name = document.createElement("span");
     name.className = "compare-select-name";
-    if (!regionId || !REGIONS[regionId]) {
+    if (!regionId || !data[regionId]) {
       name.textContent = "— None —";
       target.appendChild(name);
       return;
     }
-    const region = REGIONS[regionId];
+    const region = data[regionId];
     name.textContent = region.name;
     const country = document.createElement("span");
     country.className = "compare-select-country";
@@ -82,6 +85,7 @@
   }
 
   function makeOption(regionId, selected) {
+    const data = regions();
     const option = document.createElement("button");
     option.type = "button";
     option.className = "compare-select-option";
@@ -91,13 +95,13 @@
 
     const name = document.createElement("span");
     name.className = "compare-select-name";
-    if (!regionId || !REGIONS[regionId]) {
+    if (!regionId || !data[regionId]) {
       name.textContent = "— None —";
       option.appendChild(name);
       return option;
     }
 
-    const region = REGIONS[regionId];
+    const region = data[regionId];
     name.textContent = region.name;
     const country = document.createElement("span");
     country.className = "compare-select-country";
