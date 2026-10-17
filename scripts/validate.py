@@ -20,12 +20,13 @@ REGION_FILES = [
     DATA / "regions-classics-expanded.json",
     DATA / "regions-discovery.json",
     DATA / "regions-discovery-expanded.json",
+    DATA / "regions-styles.json",
 ]
 REQUIRED_PROFILE_FIELDS = {"notes", "serve", "decant", "glass", "ageing", "pairings", "expect"}
 METRICS = {"body", "acidity", "tannin", "sweetness", "alcohol", "fruit", "oak", "earth"}
 WINEMAKING_PREVALENCE = {"very common", "common", "sometimes", "rare"}
 MATURITY_STAGES = ["Young", "Developing", "Mature"]
-STYLE_FAMILIES = {"sparkling", "sweet", "fortified"}
+STYLE_FAMILIES = {"sparkling", "sweet", "fortified", "rose", "orange"}
 STYLE_SWEETNESS = {"dry", "dry-to-off-dry", "off-dry", "sweet"}
 
 SENSITIVE_LABEL_RULES = {
