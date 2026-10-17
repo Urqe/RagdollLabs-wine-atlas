@@ -17,6 +17,7 @@ jobs:
       - name: Validate JavaScript syntax
         run: |
           node --check app.js
+          node --check compare-country.js
           node --check ux.js
           node --check ux-events.js
 
