@@ -4,7 +4,10 @@
  * Compare is its own workspace. Explore-only search/navigation is hidden while
  * Compare is active, and this module turns search terms (including foods) into
  * candidates that fill the Advanced Compare slots instead of navigating away.
- * Compatibility remains owned by advanced-compare.js through WineAtlasCompare.
+ *
+ * Compatibility itself remains owned by advanced-compare.js. This companion is
+ * deliberately loaded after it and reuses its comparison functions rather than
+ * copying the family/color compatibility rules into a second module.
  */
 
 let compareFoodAliasesPromise = null;
@@ -21,6 +24,49 @@ function compareNormalize(value) {
 
 function compareFlattenNotes(notes) {
   return Object.values(notes || {}).flat().join(" ");
+}
+
+function compareProfileKey(item) {
+  return `${item.grapeId}::${item.regionId}`;
+}
+
+function compareAdvancedReady() {
+  return typeof window.advancedCompatible === "function" &&
+    document.getElementById("advancedCompare1");
+}
+
+function compareCurrentProfiles() {
+  if (!compareAdvancedReady()) return [];
+  return [1, 2, 3].map(index => {
+    const key = document.getElementById(`advancedCompare${index}`)?.value;
+    if (!key) return null;
+    const [grapeId, regionId] = key.split("::");
+    return WineAtlas.combinedProfile(grapeId, regionId);
+  }).filter(Boolean);
+}
+
+function compareSetProfiles(profiles) {
+  if (!compareAdvancedReady()) return;
+  const selected = profiles.filter(Boolean).slice(0, 3);
+  const first = document.getElementById("advancedCompare1");
+  const second = document.getElementById("advancedCompare2");
+  const third = document.getElementById("advancedCompare3");
+  if (!first || !second || !third) return;
+
+  first.value = selected[0] ? compareProfileKey(selected[0]) : "";
+  first.dispatchEvent(new Event("change", { bubbles: true }));
+
+  const secondKey = selected[1] ? compareProfileKey(selected[1]) : "";
+  if (secondKey && [...second.options].some(option => option.value === secondKey)) {
+    second.value = secondKey;
+    second.dispatchEvent(new Event("change", { bubbles: true }));
+  }
+
+  const thirdKey = selected[2] ? compareProfileKey(selected[2]) : "";
+  if (thirdKey && [...third.options].some(option => option.value === thirdKey)) {
+    third.value = thirdKey;
+    third.dispatchEvent(new Event("change", { bubbles: true }));
+  }
 }
 
 async function compareFoodAliases() {
@@ -98,18 +144,13 @@ async function rankCompareMatches(rawQuery) {
     .slice(0, 12);
 }
 
-function compareCurrentProfiles() {
-  return window.WineAtlasCompare?.currentProfiles?.() || [];
-}
-
 function compareCanAdd(item) {
-  const api = window.WineAtlasCompare;
-  if (!api) return { allowed: false, reason: "Compare is still loading" };
+  if (!compareAdvancedReady()) return { allowed: false, reason: "Compare is still loading" };
   const current = compareCurrentProfiles();
-  const key = api.profileKey(item);
-  if (current.some(profile => api.profileKey(profile) === key)) return { allowed: false, reason: "Added" };
+  const key = compareProfileKey(item);
+  if (current.some(profile => compareProfileKey(profile) === key)) return { allowed: false, reason: "Added" };
   if (current.length >= 3) return { allowed: false, reason: "Comparison full" };
-  if (current[0] && !api.compatible(current[0], item)) return { allowed: false, reason: "Different comparison style" };
+  if (current[0] && !window.advancedCompatible(current[0], item)) return { allowed: false, reason: "Different comparison style" };
   return { allowed: true, reason: "Add" };
 }
 
@@ -139,15 +180,14 @@ function compareRenderResults() {
     button.type = "button";
     button.textContent = state.reason;
     button.disabled = !state.allowed;
-    button.dataset.profileKey = window.WineAtlasCompare?.profileKey(item) || "";
+    button.dataset.profileKey = compareProfileKey(item);
     row.append(copy, button);
     container.appendChild(row);
   }
 
-  const api = window.WineAtlasCompare;
   const best = compareDiscoveryMatches[0]?.item;
-  const compatibleCount = best && api
-    ? compareDiscoveryMatches.filter(result => api.compatible(best, result.item)).length
+  const compatibleCount = best && compareAdvancedReady()
+    ? compareDiscoveryMatches.filter(result => window.advancedCompatible(best, result.item)).length
     : 0;
   topButton.classList.toggle("hidden", compatibleCount < 2);
   topButton.disabled = compatibleCount < 2;
@@ -175,29 +215,27 @@ async function compareRunDiscovery() {
 }
 
 function compareAddProfile(item) {
-  const api = window.WineAtlasCompare;
-  if (!api || !compareCanAdd(item).allowed) return;
-  api.setProfiles([...compareCurrentProfiles(), item]);
+  if (!compareCanAdd(item).allowed) return;
+  compareSetProfiles([...compareCurrentProfiles(), item]);
   compareRenderResults();
 }
 
 function compareFillTopMatches() {
-  const api = window.WineAtlasCompare;
-  if (!api || !compareDiscoveryMatches.length) return;
+  if (!compareAdvancedReady() || !compareDiscoveryMatches.length) return;
   const first = compareDiscoveryMatches[0].item;
   const compatible = compareDiscoveryMatches
     .map(result => result.item)
-    .filter(item => api.compatible(first, item))
+    .filter(item => window.advancedCompatible(first, item))
     .slice(0, 3);
   if (compatible.length < 2) return;
-  api.setProfiles(compatible);
+  compareSetProfiles(compatible);
   compareRenderResults();
 }
 
 function compareDiscoveryClick(event) {
   const add = event.target.closest?.("button[data-profile-key]");
   if (add) {
-    const result = compareDiscoveryMatches.find(entry => window.WineAtlasCompare?.profileKey(entry.item) === add.dataset.profileKey);
+    const result = compareDiscoveryMatches.find(entry => compareProfileKey(entry.item) === add.dataset.profileKey);
     if (result) compareAddProfile(result.item);
     return;
   }
