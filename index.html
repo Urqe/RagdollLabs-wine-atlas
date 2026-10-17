@@ -6,8 +6,9 @@
   <meta name="description" content="RagDollLabs Wine Atlas — explore how grape, climate and region shape a wine's typical style.">
   <title>RagDollLabs Wine Atlas</title>
   <!-- One release token keeps visible assets in sync after a GitHub Pages deploy. -->
-  <link rel="stylesheet" href="./styles.css?v=20261017-functional1">
-  <link rel="stylesheet" href="./ux.css?v=20261017-functional1">
+  <link rel="stylesheet" href="./styles.css?v=20261017-maturity1">
+  <link rel="stylesheet" href="./ux.css?v=20261017-maturity1">
+  <link rel="stylesheet" href="./maturity.css?v=20261017-maturity1">
 </head>
 <body>
   <div class="wrap">
@@ -72,7 +73,9 @@
               <div class="titleline"><h2 id="profileHeading"><span id="title"></span></h2><div class="title-meta"><span id="profileWineColor"></span><div class="pill" id="pill"></div></div></div>
               <p class="summary" id="expect"></p><div class="profile-topline"><div id="climate" class="climate"></div><div id="locatorMap" class="locator-wrap"></div></div><div id="identity"></div><div id="why"></div>
               <section id="winemaking" class="winemaking hidden" aria-labelledby="winemakingHeading"><h3 id="winemakingHeading">Winemaking choices</h3><p class="small">Common vessel choices that can materially change this regional expression.</p><div id="winemakingChoices" class="winemaking-grid"></div></section>
-              <div class="content2"><section aria-labelledby="styleHeading"><h3 id="styleHeading">Style profile</h3><div class="bars" id="bars"></div></section><section aria-labelledby="notesHeading"><h3 id="notesHeading">Typical notes</h3><div id="notes"></div></section></div><div id="sourcesDrawer"></div>
+              <div class="content2"><section aria-labelledby="styleHeading"><h3 id="styleHeading">Style profile</h3><div class="bars" id="bars"></div></section><section aria-labelledby="notesHeading"><h3 id="notesHeading">Typical notes</h3><div id="notes"></div></section></div>
+              <section id="maturity" class="maturity hidden" aria-labelledby="maturityHeading"><h3 id="maturityHeading">Maturity &amp; vintage evolution</h3><p id="maturitySummary" class="small"></p><div id="maturityStages" class="maturity-stages"></div><div class="vintage-note"><strong>Vintage effect:</strong> <span id="vintageEffect"></span></div></section>
+              <div id="sourcesDrawer"></div>
             </article>
             <article class="card serve-card"><h2>Serve It Tonight</h2><div class="serve" id="serve"></div><h3>Food pairings</h3><div class="chips" id="pair"></div></article>
             <article class="card similar-card"><h2>Similar Wines</h2><p class="small">Closest matches are calculated from the same sensory profile used by the charts, with a small preference for showing something genuinely different.</p><div id="similarWines" class="similar-grid"></div></article>
@@ -83,9 +86,10 @@
     </div>
     <footer class="footer">RagDollLabs Wine Atlas · Typical-style reference, not a guarantee about a specific bottle.</footer>
   </div>
-  <script src="./app.js?v=20261017-functional1" defer></script>
-  <script src="./compare-country.js?v=20261017-functional1" defer></script>
-  <script src="./ux.js?v=20261017-functional1" defer></script>
-  <script src="./functional.js?v=20261017-functional1" defer></script>
+  <script src="./app.js?v=20261017-maturity1" defer></script>
+  <script src="./compare-country.js?v=20261017-maturity1" defer></script>
+  <script src="./ux.js?v=20261017-maturity1" defer></script>
+  <script src="./functional.js?v=20261017-maturity1" defer></script>
+  <script src="./maturity.js?v=20261017-maturity1" defer></script>
 </body>
 </html>

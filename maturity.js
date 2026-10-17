@@ -1,0 +1,73 @@
+/*
+ * RagDollLabs Wine Atlas — maturity & vintage evolution
+ * ----------------------------------------------------
+ * This layer is intentionally sparse: only profiles with a meaningful bottle-age
+ * story get an evolution section. It consumes validated data and never infers
+ * maturity from the raw ageing-range string.
+ */
+
+let maturityPromise = null;
+let maturityProfile = null;
+
+function loadMaturity() {
+  if (!maturityPromise) {
+    maturityPromise = fetch("./data/maturity.json")
+      .then(response => {
+        if (!response.ok) throw new Error("Maturity data could not be loaded.");
+        return response.json();
+      })
+      .catch(error => {
+        console.error(error);
+        return {};
+      });
+  }
+  return maturityPromise;
+}
+
+async function renderMaturity(profile) {
+  const section = document.getElementById("maturity");
+  const stagesTarget = document.getElementById("maturityStages");
+  const summaryTarget = document.getElementById("maturitySummary");
+  const vintageTarget = document.getElementById("vintageEffect");
+  if (!section || !stagesTarget || !summaryTarget || !vintageTarget || !profile) return;
+
+  const data = await loadMaturity();
+  if (maturityProfile !== profile) return;
+  const entry = data?.[profile.regionId]?.[profile.grapeId];
+  if (!entry) {
+    section.classList.add("hidden");
+    stagesTarget.replaceChildren();
+    summaryTarget.textContent = "";
+    vintageTarget.textContent = "";
+    return;
+  }
+
+  summaryTarget.textContent = entry.summary;
+  stagesTarget.replaceChildren();
+  for (const stage of entry.stages || []) {
+    const article = document.createElement("article");
+    article.className = "maturity-stage";
+    const heading = document.createElement("h4");
+    heading.textContent = stage.label;
+    const text = document.createElement("p");
+    text.textContent = stage.effect;
+    article.append(heading, text);
+    stagesTarget.appendChild(article);
+  }
+  vintageTarget.textContent = entry.vintage;
+  section.classList.remove("hidden");
+}
+
+document.addEventListener("wineatlas:ready", () => {
+  void loadMaturity();
+});
+
+document.addEventListener("wineatlas:profile-selected", event => {
+  maturityProfile = event.detail.profile;
+  void renderMaturity(maturityProfile);
+});
+
+document.addEventListener("wineatlas:selection-needed", () => {
+  maturityProfile = null;
+  document.getElementById("maturity")?.classList.add("hidden");
+});

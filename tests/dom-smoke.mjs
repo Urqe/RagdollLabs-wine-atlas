@@ -20,12 +20,7 @@ window.fetch = async resource => {
   const file = path.join(ROOT, relative);
   try {
     const text = await readFile(file, "utf8");
-    return {
-      ok: true,
-      status: 200,
-      json: async () => JSON.parse(text),
-      text: async () => text
-    };
+    return { ok: true, status: 200, json: async () => JSON.parse(text), text: async () => text };
   } catch {
     return { ok: false, status: 404, json: async () => ({}), text: async () => "" };
   }
@@ -39,16 +34,13 @@ const ready = new Promise((resolve, reject) => {
   }, { once: true });
 });
 
-for (const file of ["app.js", "compare-country.js", "ux.js", "functional.js"]) {
+for (const file of ["app.js", "compare-country.js", "ux.js", "functional.js", "maturity.js"]) {
   window.eval(await readFile(path.join(ROOT, file), "utf8"));
 }
 
-if (document.readyState !== "loading") {
-  document.dispatchEvent(new window.Event("DOMContentLoaded", { bubbles: true }));
-}
+if (document.readyState !== "loading") document.dispatchEvent(new window.Event("DOMContentLoaded", { bubbles: true }));
 await ready;
 assert.equal(window.WineAtlas.ready, true, "core app should initialize");
-
 const tick = (ms = 25) => new Promise(resolve => setTimeout(resolve, ms));
 
 // Guarded lookup/navigation remains authoritative.
@@ -65,6 +57,20 @@ assert.match(document.getElementById("winemakingChoices").textContent, /Oak/);
 window.WineAtlas.selectProfile("areni-noir", "vayots-dzor");
 await tick();
 assert.equal(winemaking.classList.contains("hidden"), true, "uncurated profiles should not show generic vessel boilerplate");
+
+// Maturity evolution is also intentionally sparse and must render all three stages.
+window.WineAtlas.selectProfile("nebbiolo", "barolo");
+await tick();
+const maturity = document.getElementById("maturity");
+assert.equal(maturity.classList.contains("hidden"), false, "Barolo Nebbiolo should show maturity evolution");
+assert.equal(document.querySelectorAll("#maturityStages .maturity-stage").length, 3);
+assert.match(document.getElementById("maturityStages").textContent, /Young/);
+assert.match(document.getElementById("maturityStages").textContent, /Developing/);
+assert.match(document.getElementById("maturityStages").textContent, /Mature/);
+assert.ok(document.getElementById("vintageEffect").textContent.length > 20, "vintage note should be populated");
+window.WineAtlas.selectProfile("assyrtiko", "santorini");
+await tick();
+assert.equal(maturity.classList.contains("hidden"), true, "profiles without maturity metadata should not show generic ageing copy");
 
 // Food-first discovery ranks real pairing data and opens a valid profile.
 const foodInput = document.getElementById("foodInput");
