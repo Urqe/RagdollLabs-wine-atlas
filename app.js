@@ -1,6 +1,6 @@
 /*
- * RagLabs Wine Atlas application logic
- * ------------------------------------
+ * RagDollLabs Wine Atlas application logic
+ * ----------------------------------------
  * Reviewer guide:
  * 1. JSON is the source of truth for wine knowledge; UI logic must not invent
  *    grape/region combinations.
