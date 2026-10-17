@@ -53,10 +53,24 @@ assert.equal(document.querySelectorAll(".brand-ragdoll").length, 2);
 assert.equal(document.querySelectorAll(".brand-labs").length, 2);
 assert.equal(document.querySelector(".kicker").textContent.toLowerCase(), "ragdolllabs reference tools");
 
+// The welcome and sidebar expose fewer first-glance choices without removing tools.
+assert.equal(document.querySelectorAll("[data-welcome-action]").length, 3, "welcome should present three primary paths");
+assert.ok(document.getElementById("foodSection") instanceof window.HTMLDetailsElement);
+assert.equal(document.getElementById("foodSection").open, false, "food-first ranking is opt-in depth");
+assert.ok(document.getElementById("discoverTools") instanceof window.HTMLDetailsElement);
+assert.equal(document.getElementById("discoverTools").open, false, "secondary discovery tools should start collapsed");
+assert.ok(document.getElementById("learnMore") instanceof window.HTMLDetailsElement);
+assert.equal(document.getElementById("learnMore").open, false, "educational profile depth should start collapsed");
+
 assert.equal(window.WineAtlas.selectProfile("not-a-grape", "not-a-region"), false);
 assert.equal(window.WineAtlas.selectProfile("assyrtiko", "santorini"), true);
 await tick();
 assert.equal(document.getElementById("title").textContent, "Assyrtiko · Santorini");
+assert.ok(document.querySelectorAll("#bars .bar").length > 0, "style profile remains first-tier content");
+assert.ok(document.getElementById("notes").textContent.trim().length > 0, "tasting notes remain first-tier content");
+assert.match(document.getElementById("climate").textContent, /Climate effect/i, "place content remains available inside Learn more");
+assert.equal(document.querySelectorAll("#serve .box").length, 3, "Serve It Tonight should focus on immediate serving guidance");
+assert.match(document.getElementById("ageingSnapshot").textContent, /Ageing/i, "ageing guidance moves beside maturity education");
 
 const winemaking = document.getElementById("winemaking");
 assert.equal(winemaking.classList.contains("hidden"), false);
@@ -70,6 +84,7 @@ await tick();
 const maturity = document.getElementById("maturity");
 assert.equal(maturity.classList.contains("hidden"), false);
 assert.equal(document.querySelectorAll("#maturityStages .maturity-stage").length, 3);
+assert.ok(document.getElementById("ageingLearningHeading").contains(maturity) === false, "maturity remains a nested section rather than replacing its parent heading");
 
 window.WineAtlas.selectProfile("rkatsiteli", "kakheti");
 await tick(60);
@@ -87,7 +102,7 @@ window.WineAtlas.selectProfile("port-blend", "douro-port-tawny");
 await tick();
 assert.match(document.getElementById("pair").textContent, /crème brûlée/i);
 
-// Food aliases are external validated data and remain keyboard-friendly.
+// Food aliases remain a distinct ranking tool, now disclosed beneath universal search.
 const foodInput = document.getElementById("foodInput");
 foodInput.value = "chocolate";
 foodInput.dispatchEvent(new window.Event("input", { bubbles: true }));
@@ -115,6 +130,7 @@ await tick();
 const adv1 = document.getElementById("advancedCompare1");
 const adv2 = document.getElementById("advancedCompare2");
 const adv3 = document.getElementById("advancedCompare3");
+const biggestOnly = document.getElementById("advancedBiggestOnly");
 assert.ok(adv1 && adv2 && adv3, "advanced compare controls should exist");
 assert.match(adv1.value, /^cabernet-sauvignon::napa$/);
 const redOptionValues = [...adv2.options].map(option => option.value).filter(Boolean);
@@ -123,6 +139,7 @@ assert.equal(redOptionValues.some(value => value.startsWith("chardonnay::burgund
 adv2.value = redOptionValues.find(value => value.startsWith("syrah::"));
 adv2.dispatchEvent(new window.Event("change", { bubbles: true }));
 await tick();
+assert.equal(biggestOnly.checked, false, "two-way compare should start with the full metric view");
 assert.ok(document.querySelectorAll("#advancedCompareGrid .advanced-compare-card").length >= 2);
 assert.match(document.getElementById("advancedCompareDifferences").textContent, /Biggest differences/);
 
@@ -134,17 +151,35 @@ const expectedScores = ["body", "acidity", "tannin", "sweetness", "alcohol", "fr
   .map(key => napa.profile[key]);
 assert.deepEqual(compareScores, expectedScores, "Advanced Compare must display canonical core profile metrics");
 
-// Removing the anchor wine keeps the comparison alive by promoting slot 2.
+// A third wine defaults to the concise view; users can still uncheck it manually.
 const thirdRed = [...adv3.options].map(option => option.value).find(value => value && value !== adv1.value && value !== adv2.value);
 assert.ok(thirdRed, "a third compatible red profile should be available");
 adv3.value = thirdRed;
 adv3.dispatchEvent(new window.Event("change", { bubbles: true }));
 await tick();
+assert.equal(biggestOnly.checked, true, "three-way compare should default to biggest differences only");
+assert.ok(document.querySelectorAll("#advancedCompareGrid .advanced-compare-card:first-child .score").length <= 4);
+
+// Removing the anchor wine keeps the comparison alive by promoting slot 2.
 const oldSecond = adv2.value;
 document.querySelector('#advancedCompareGrid .advanced-remove[data-slot="1"]').click();
 await tick();
 assert.equal(adv1.value, oldSecond, "slot 2 should be promoted when slot 1 is removed");
 assert.ok(document.querySelectorAll("#advancedCompareGrid .advanced-compare-card").length >= 1, "removing the anchor must not wipe the comparison");
+assert.equal(biggestOnly.checked, false, "returning to two wines restores the full metric view");
+
+// Slot identity survives a gap: a card rendered from slot 3 must remove slot 3.
+adv2.value = "";
+const slot3Candidate = [...adv3.options].map(option => option.value).find(Boolean);
+assert.ok(slot3Candidate);
+adv3.value = slot3Candidate;
+adv3.dispatchEvent(new window.Event("change", { bubbles: true }));
+await tick();
+const slot3Remove = document.querySelector('#advancedCompareGrid .advanced-remove[data-slot="3"]');
+assert.ok(slot3Remove, "rendered cards must retain their physical selector slot");
+slot3Remove.click();
+await tick();
+assert.equal(adv3.value, "");
 
 // Sparkling uses family compatibility rather than enforcing grape color.
 adv1.value = "chardonnay::champagne-blanc-de-blancs";

@@ -8,12 +8,12 @@
 .welcome { min-height: calc(100vh - 44px); display: grid; align-content: center; gap: 18px; }
 .welcome-hero { position: relative; overflow: hidden; min-height: 520px; border: 1px solid var(--line); border-radius: 28px; background:
   linear-gradient(90deg, rgba(14,10,12,.94) 0%, rgba(14,10,12,.78) 44%, rgba(14,10,12,.44) 100%),
-  url("./assets/vineyard-welcome.svg?v=20261017-functional1") center / cover no-repeat; box-shadow: 0 24px 60px rgba(0,0,0,.28); }
+  url("./assets/vineyard-welcome.svg?v=20261017-focus1") center / cover no-repeat; box-shadow: 0 24px 60px rgba(0,0,0,.28); }
 .welcome-copy { position: relative; z-index: 1; max-width: 760px; padding: clamp(32px,6vw,78px); }
 .welcome-copy h1 { max-width: 760px; }
 .welcome-copy .tagline { font-size: clamp(20px,3vw,30px); max-width: 700px; }
 .welcome-copy > p { max-width: 650px; color: #d1c1c5; line-height: 1.6; font-size: 15px; }
-.welcome-actions { margin-top: 28px; display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 10px; }
+.welcome-actions { margin-top: 28px; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; max-width: 650px; }
 .welcome-action { min-height: 96px; padding: 14px; text-align: left; border: 1px solid rgba(201,171,107,.28); border-radius: 14px; background: rgba(16,12,14,.72); color: var(--text); cursor: pointer; backdrop-filter: blur(8px); }
 .welcome-action:hover { border-color: var(--gold); background: rgba(27,18,21,.88); transform: translateY(-1px); }
 .welcome-action strong { display: block; color: var(--gold); font-size: 13px; }
@@ -22,6 +22,14 @@
 .welcome-discoveries button { text-align: left; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: rgba(23,17,20,.92); color: var(--text); cursor: pointer; }
 .welcome-discoveries button:hover { border-color: var(--gold); }
 .welcome-discoveries .meta { display: block; color: var(--muted); font-size: 10px; margin-top: 4px; }
+
+/* The landing page can be cinematic; once inside the app the masthead gets out
+   of the way so the wine itself becomes the first visual priority. */
+#appShell .app-masthead { padding: 16px 22px; border-radius: 18px; min-height: 0; }
+#appShell .app-masthead h1 { font-size: clamp(28px,3vw,42px); margin: 4px 0 3px; line-height: 1; }
+#appShell .app-masthead .tagline { font-size: 14px; }
+#appShell .app-masthead p { display: none; }
+#appShell .app-masthead .hero-art { width: 82px; }
 
 .empty-state { min-height: 280px; display: grid; place-items: center; text-align: center; }
 .empty-state-inner { max-width: 500px; }
@@ -36,9 +44,20 @@
 .wine-color-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; border: 1px solid var(--line); border-radius: 999px; color: #d8cbd0; font-size: 10px; white-space: nowrap; }
 .search-result .wine-color-dot, .similar-item .wine-color-dot, .welcome-discoveries .wine-color-dot { display: inline-block; vertical-align: -1px; margin-right: 5px; width: 8px; height: 8px; }
 
-.food-search { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--line); }
-.food-search h2 { margin-bottom: 0; }
+.sidebar-primary + .sidebar-primary { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }
+.sidebar-primary > h2 { margin-top: 0; }
+
+/* Food-first ranking remains available, but is summoned from the universal
+   search area instead of consuming a second permanent sidebar block. */
+.food-search { margin-top: 10px; border-top: 1px solid #2f2026; padding-top: 8px; }
+.food-search > summary, .discover-tools > summary { cursor: pointer; color: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: .04em; }
+.food-search-inner { padding-top: 3px; }
 .food-result span { line-height: 1.35; }
+
+.discover-tools { margin-top: 14px; border-top: 1px solid var(--line); padding-top: 10px; }
+.discover-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+.discover-actions .surprise, .discover-actions .glossary-open { margin: 0; width: 100%; min-height: 40px; }
+.discover-tools .moods { margin-top: 12px; padding-top: 10px; }
 
 .winemaking { margin-top: 16px; }
 .winemaking > .small { margin-top: -4px; }
@@ -50,13 +69,29 @@
 .winemaking-context { margin-top: 6px; color: #c6b6bb; font-size: 10px; font-style: italic; }
 .winemaking-choice p { margin: 8px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
 
+/* The default profile answers "what is this like?" first. Deeper educational
+   material is kept intact in one disclosure instead of competing as flat blocks. */
+.profile-core { margin-top: 8px; }
+.profile-learning { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 10px; }
+.profile-learning > summary { cursor: pointer; display: flex; align-items: baseline; justify-content: space-between; gap: 12px; color: var(--gold); font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.profile-learning > summary small { color: var(--muted); font-size: 10px; font-weight: 500; letter-spacing: 0; text-transform: none; }
+.profile-learning-content { display: grid; gap: 18px; padding-top: 12px; }
+.learning-section + .learning-section { border-top: 1px solid #2d1e24; padding-top: 4px; }
+.learning-section > h3:first-child { margin-top: 8px; }
+.ageing-snapshot { max-width: 440px; }
+.ageing-snapshot .box { margin-top: 2px; }
+.profile-learning .sources { margin-top: 0; }
+
+/* Ageing moves into Learn more, leaving serving guidance as three concise cards. */
+.serve { grid-template-columns: repeat(3,1fr); }
+
 .similar-back-slot { min-height: 0; margin: 2px 0 12px; }
 .similar-back { border: 0; padding: 0; background: transparent; color: var(--gold); font: inherit; font-size: 11px; cursor: pointer; text-align: left; }
 .similar-back:hover { text-decoration: underline; }
 .similar-back:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; border-radius: 3px; }
 
 /* The same release token is used for visual assets to avoid mixed old/new deploys. */
-.locator svg { background-image: url("./assets/world-map.svg?v=20261017-functional1"); }
+.locator svg { background-image: url("./assets/world-map.svg?v=20261017-focus1"); }
 
 /*
  * Compare-region selector: native option styling is too limited for reliable
@@ -88,8 +123,14 @@
   .welcome-copy { padding: 28px 22px; }
   .welcome-actions { grid-template-columns: 1fr; }
   .welcome-action { min-height: 78px; }
+  #appShell .app-masthead { padding: 14px 16px; }
+  #appShell .app-masthead .hero-art { width: 58px; }
+  #appShell .app-masthead .tagline { display: none; }
   .title-meta { justify-content: flex-start; }
   .winemaking-grid { grid-template-columns: 1fr; }
   .compare-select-trigger { min-height: 62px; }
   .compare-select-menu { max-height: 240px; }
+  .profile-learning > summary { display: grid; gap: 3px; }
+  .discover-actions { grid-template-columns: 1fr; }
+  .serve { grid-template-columns: 1fr 1fr; }
 }
