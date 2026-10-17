@@ -23,3 +23,6 @@ jobs:
 
       - name: Validate structured wine data
         run: python3 scripts/validate.py
+
+      - name: Audit Why scopes
+        run: python3 scripts/audit_why.py
