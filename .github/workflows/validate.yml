@@ -32,6 +32,7 @@ jobs:
           node --check smart-discovery.js
           node --check home-brand.js
           node --check tests/dom-smoke.mjs
+          node --check tests/discovery-home-smoke.mjs
 
       - name: Validate structured wine data
         run: python3 scripts/validate.py
