@@ -49,7 +49,7 @@ A rendered profile is calculated as:
 - Sensory metrics use a 0–5 scale. Region `mods` are offsets applied to the grape baseline and clamped to 0–5.
 - Region entries contain only grape combinations intended to be plausible for that region.
 - `identity` (terroir), `why` (cause → effect pairs), `badges` and `sources` are optional per region; the UI renders each section only where useful.
-- `Indigenous grape` is treated as grape-specific at render time so a multi-grape region cannot incorrectly label Cabernet, Merlot or Chardonnay as indigenous.
+- `Indigenous grape` is treated as grape-specific at render time so a multi-grape region cannot incorrectly label Cabernet, Merlot or Chardonnay as indigenous. In this app the label means an indigenous/local traditional variety rather than an international variety; it does not claim the grape originated in the currently selected region.
 - "Why" text prefers future profile-level `regional.why` entries when present. Region-level explanations that explicitly name another grape are filtered out for the selected profile.
 - Soil and landscape explanations are presented cautiously: they describe effects on drainage, water availability, vine growth and regional associations rather than claiming that rocks or nearby vegetation literally transfer flavor into wine.
 - Grapes with fewer than two regional expressions remain available in Explore mode; Compare mode displays "More regional expressions coming soon." instead of a meaningless comparison.
