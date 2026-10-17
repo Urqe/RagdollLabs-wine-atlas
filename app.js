@@ -66,6 +66,11 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
 }
+/*
+ * All current template attributes are quoted. escapeHtml already escapes both
+ * quote characters plus &, < and >, so escapeAttr intentionally documents the
+ * context rather than maintaining a second escaping algorithm.
+ */
 function escapeAttr(value) { return escapeHtml(value); }
 function emit(name, detail = {}) {
   document.dispatchEvent(new CustomEvent(`wineatlas:${name}`, { detail }));
@@ -654,6 +659,11 @@ async function init() {
   }
 }
 
+/*
+ * Public API contract for optional feature modules. Profile computation belongs
+ * here and nowhere else. allPairs() returns a shallow copy so consumers may sort
+ * or filter without mutating the memoized core cache.
+ */
 window.WineAtlas = {
   ready: false,
   begin,
@@ -662,6 +672,8 @@ window.WineAtlas = {
   setBrowseMethod,
   resetCompare,
   clearProfileUrl,
+  combinedProfile,
+  allPairs: () => allPairs().slice(),
   hasActiveProfile: () => Boolean(currentProfile),
   getData: () => ({ grapes: GRAPES, regions: REGIONS }),
   escapeHtml,
