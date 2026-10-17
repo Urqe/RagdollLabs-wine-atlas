@@ -1,82 +1,48 @@
 /*
- * RagDollLabs Wine Atlas — welcome-state UX
- * -----------------------------------------
- * This file intentionally layers UX behavior over app.js instead of duplicating
- * wine data or profile logic. All actual profile selection still resolves through
- * the guarded functions in app.js. Keeping this layer separate makes the new
- * landing flow straightforward for later reviewers to inspect or revise.
+ * RagDollLabs Wine Atlas — welcome and navigation UX
+ * -------------------------------------------------
+ * app.js owns state and selection. This layer reacts to explicit Wine Atlas
+ * events, so first-entry UX never depends on polling globals, MutationObservers
+ * or setTimeout(0) ordering between files.
  */
 
-const UX_INITIAL_URL = new URL(window.WINE_ATLAS_INITIAL_URL || window.location.href);
+let uxWired = false;
 
-function waitForAtlasData(timeoutMs = 5000) {
-  const started = Date.now();
-  return new Promise((resolve, reject) => {
-    const timer = window.setInterval(() => {
-      if (typeof GRAPES !== "undefined" && Object.keys(GRAPES).length && typeof REGIONS !== "undefined" && Object.keys(REGIONS).length) {
-        window.clearInterval(timer);
-        resolve();
-      } else if (Date.now() - started > timeoutMs) {
-        window.clearInterval(timer);
-        reject(new Error("Wine Atlas UX layer timed out waiting for app data."));
-      }
-    }, 40);
-  });
-}
+function setWineColorIndicator(target, grape) {
+  if (!target) return;
+  target.replaceChildren();
+  if (!grape?.color) return;
 
-function wineColorLabel(grapeId) {
-  const grape = GRAPES[grapeId];
-  if (!grape?.color) return "";
-  const label = grape.color === "red" ? "Red wine grape" : "White wine grape";
-  return `<span class="wine-color-indicator"><span class="wine-color-dot ${grape.color}" aria-hidden="true"></span>${label}</span>`;
+  const wrapper = document.createElement("span");
+  wrapper.className = "wine-color-indicator";
+  const dot = document.createElement("span");
+  dot.className = `wine-color-dot ${grape.color}`;
+  dot.setAttribute("aria-hidden", "true");
+  wrapper.append(dot, document.createTextNode(grape.color === "red" ? "Red wine grape" : "White wine grape"));
+  target.appendChild(wrapper);
 }
 
 function updateSelectorColor(selectId, indicatorId) {
   const select = document.getElementById(selectId);
   const indicator = document.getElementById(indicatorId);
-  if (!select || !indicator) return;
-  indicator.innerHTML = select.value ? wineColorLabel(select.value) : "";
+  const grape = WineAtlas.getData().grapes[select?.value];
+  setWineColorIndicator(indicator, grape);
 }
 
 function updateProfileColor() {
   const badge = document.getElementById("profileWineColor");
-  const grapeId = document.getElementById("grape")?.value;
-  const grape = GRAPES[grapeId];
-  if (!badge || !grape?.color) {
-    if (badge) badge.innerHTML = "";
-    return;
-  }
-  const label = grape.color === "red" ? "Red" : "White";
-  badge.innerHTML = `<span class="wine-color-badge"><span class="wine-color-dot ${grape.color}" aria-hidden="true"></span>${label}</span>`;
-}
+  const grape = WineAtlas.getData().grapes[document.getElementById("grape")?.value];
+  if (!badge) return;
+  badge.replaceChildren();
+  if (!grape?.color) return;
 
-function decorateProfileButtons(container) {
-  if (!container) return;
-  container.querySelectorAll("[data-grape]").forEach(button => {
-    if (button.dataset.colorDecorated === "true") return;
-    const grape = GRAPES[button.dataset.grape];
-    if (!grape?.color) return;
-    const dot = document.createElement("span");
-    dot.className = `wine-color-dot ${grape.color}`;
-    dot.setAttribute("aria-hidden", "true");
-    const first = button.querySelector("strong") || button.firstElementChild;
-    if (first) first.prepend(dot);
-    button.dataset.colorDecorated = "true";
-  });
-}
-
-function addPlaceholder(select, label) {
-  if (!select) return;
-  let option = [...select.options].find(item => item.dataset.uxPlaceholder === "true");
-  if (!option) {
-    option = document.createElement("option");
-    option.value = "";
-    option.textContent = label;
-    option.disabled = true;
-    option.dataset.uxPlaceholder = "true";
-    select.prepend(option);
-  }
-  select.value = "";
+  const wrapper = document.createElement("span");
+  wrapper.className = "wine-color-badge";
+  const dot = document.createElement("span");
+  dot.className = `wine-color-dot ${grape.color}`;
+  dot.setAttribute("aria-hidden", "true");
+  wrapper.append(dot, document.createTextNode(grape.color === "red" ? "Red" : "White"));
+  badge.appendChild(wrapper);
 }
 
 function showEmpty(title, text) {
@@ -85,6 +51,7 @@ function showEmpty(title, text) {
   document.getElementById("emptyView").classList.remove("hidden");
   document.getElementById("exploreView").classList.add("hidden");
   document.getElementById("compareView").classList.add("hidden");
+  document.getElementById("liveStatus").textContent = `${title}. ${text}`;
   updateProfileColor();
 }
 
@@ -94,151 +61,108 @@ function showExploreResult() {
   updateProfileColor();
 }
 
-function enterApp(action) {
+function showAppShell() {
   document.getElementById("welcomeView").classList.add("hidden");
   document.getElementById("appShell").classList.remove("hidden");
-
-  if (action === "surprise") {
-    surpriseMe();
-    showExploreResult();
-    return;
-  }
-  if (action === "compare") {
-    setMode("compare");
-    addPlaceholder(document.getElementById("cg"), "Choose a grape…");
-    document.getElementById("compareGrid").innerHTML = "";
-    document.getElementById("compareDifferences").innerHTML = "";
-    document.getElementById("compareMessage").textContent = "Choose a grape to compare regional expressions.";
-    document.getElementById("compareMessage").classList.remove("hidden");
-    updateSelectorColor("cg", "compareGrapeColor");
-    return;
-  }
-
-  setMode("explore");
-  if (action === "place") {
-    setBrowseMethod("place");
-    addPlaceholder(document.getElementById("country"), "Choose a country…");
-    document.getElementById("placeRegion").innerHTML = '<option value="" disabled selected>Choose a region…</option>';
-    document.getElementById("placeGrape").innerHTML = '<option value="" disabled selected>Choose a grape…</option>';
-    showEmpty("Explore by place", "Choose a country, then a region and grape to open a profile.");
-    document.getElementById("country").focus();
-    return;
-  }
-  if (action === "search") {
-    showEmpty("Search the atlas", "Search for a grape, region, country or style, then choose a result.");
-    document.getElementById("searchInput").focus();
-    return;
-  }
-
-  setBrowseMethod("grape");
-  addPlaceholder(document.getElementById("grape"), "Choose a grape…");
-  document.getElementById("region").innerHTML = '<option value="" disabled selected>Choose a grape first…</option>';
-  showEmpty("Start with a grape", "Choose a grape first, then select one of its regional expressions.");
-  document.getElementById("grape").focus();
-  updateSelectorColor("grape", "grapeColor");
 }
 
-function normalizeWelcomeUrl() {
-  const clean = new URL(window.location.href);
-  clean.searchParams.delete("grape");
-  clean.searchParams.delete("region");
-  window.history.replaceState(null, "", clean);
+function showWelcome() {
+  document.getElementById("appShell").classList.add("hidden");
+  document.getElementById("welcomeView").classList.remove("hidden");
+  WineAtlas.clearProfileUrl();
 }
 
 function renderFeaturedDiscoveries() {
+  const { grapes, regions } = WineAtlas.getData();
   const picks = [
     ["assyrtiko", "santorini"],
     ["mavrud", "thracian-valley"],
     ["tannat", "canelones"]
-  ].map(([grapeId, regionId]) => combinedProfile(grapeId, regionId)).filter(Boolean);
+  ];
   const container = document.getElementById("featuredDiscoveries");
-  container.innerHTML = picks.map(item => `<button type="button" data-grape="${item.grapeId}" data-region="${item.regionId}"><strong>${item.grape.name}</strong><span class="meta">${item.region.name} · ${item.region.country}</span></button>`).join("");
-  decorateProfileButtons(container);
-  container.querySelectorAll("button").forEach(button => button.addEventListener("click", () => {
-    document.getElementById("welcomeView").classList.add("hidden");
-    document.getElementById("appShell").classList.remove("hidden");
-    selectProfile(button.dataset.grape, button.dataset.region, true);
-    showExploreResult();
-  }));
-}
+  container.replaceChildren();
 
-async function initUx() {
-  try {
-    await waitForAtlasData();
+  for (const [grapeId, regionId] of picks) {
+    const grape = grapes[grapeId];
+    const region = regions[regionId];
+    if (!grape || !region?.grapes?.[grapeId]) continue;
 
-    const initialGrape = UX_INITIAL_URL.searchParams.get("grape");
-    const initialRegion = UX_INITIAL_URL.searchParams.get("region");
-    const hasSharedProfile = Boolean(initialGrape && initialRegion && combinedProfile(initialGrape, initialRegion));
-
-    renderFeaturedDiscoveries();
-
-    document.querySelectorAll("[data-welcome-action]").forEach(button => {
-      button.addEventListener("click", () => enterApp(button.dataset.welcomeAction));
+    const button = document.createElement("button");
+    button.type = "button";
+    const strong = document.createElement("strong");
+    const dot = document.createElement("span");
+    dot.className = `wine-color-dot ${grape.color}`;
+    dot.setAttribute("aria-hidden", "true");
+    strong.append(dot, document.createTextNode(grape.name));
+    const meta = document.createElement("span");
+    meta.className = "meta";
+    meta.textContent = `${region.name} · ${region.country}`;
+    button.append(strong, meta);
+    button.addEventListener("click", () => {
+      showAppShell();
+      WineAtlas.selectProfile(grapeId, regionId, true);
     });
-
-    [
-      ["grape", "grapeColor"],
-      ["placeGrape", "placeGrapeColor"],
-      ["cg", "compareGrapeColor"]
-    ].forEach(([selectId, indicatorId]) => {
-      document.getElementById(selectId)?.addEventListener("change", () => updateSelectorColor(selectId, indicatorId));
-      updateSelectorColor(selectId, indicatorId);
-    });
-
-    /* app.js handles the actual state first; these listeners only control when a
-       partially chosen hierarchy should reveal a finished profile. */
-    document.getElementById("grape").addEventListener("change", () => {
-      const region = document.getElementById("region");
-      addPlaceholder(region, "Choose a region…");
-      showEmpty("Choose a region", "Now choose the regional expression you want to explore.");
-      normalizeWelcomeUrl();
-    });
-    document.getElementById("region").addEventListener("change", showExploreResult);
-    document.getElementById("country").addEventListener("change", () => {
-      setBrowseMethod("place");
-      addPlaceholder(document.getElementById("placeRegion"), "Choose a region…");
-      document.getElementById("placeGrape").innerHTML = '<option value="" disabled selected>Choose a region first…</option>';
-      showEmpty("Choose a region", "Choose a wine region within that country.");
-      normalizeWelcomeUrl();
-    });
-    document.getElementById("placeRegion").addEventListener("change", () => {
-      setBrowseMethod("place");
-      addPlaceholder(document.getElementById("placeGrape"), "Choose a grape…");
-      showEmpty("Choose a grape", "Choose one of the grapes represented in this region.");
-      normalizeWelcomeUrl();
-    });
-    document.getElementById("placeGrape").addEventListener("change", showExploreResult);
-    document.getElementById("cg").addEventListener("change", () => updateSelectorColor("cg", "compareGrapeColor"));
-
-    const observer = new MutationObserver(() => {
-      decorateProfileButtons(document.getElementById("searchResults"));
-      decorateProfileButtons(document.getElementById("similarWines"));
-    });
-    observer.observe(document.getElementById("searchResults"), { childList: true, subtree: true });
-    observer.observe(document.getElementById("similarWines"), { childList: true, subtree: true });
-
-    document.getElementById("searchResults").addEventListener("click", event => {
-      if (event.target.closest("[data-grape]")) window.setTimeout(showExploreResult, 0);
-    });
-    document.getElementById("similarWines").addEventListener("click", event => {
-      if (event.target.closest("[data-grape]")) window.setTimeout(showExploreResult, 0);
-    });
-
-    if (hasSharedProfile) {
-      document.getElementById("welcomeView").classList.add("hidden");
-      document.getElementById("appShell").classList.remove("hidden");
-      showExploreResult();
-      updateProfileColor();
-    } else {
-      document.getElementById("appShell").classList.add("hidden");
-      document.getElementById("welcomeView").classList.remove("hidden");
-      normalizeWelcomeUrl();
-    }
-  } catch (error) {
-    console.error(error);
-    document.getElementById("welcomeView")?.classList.add("hidden");
-    document.getElementById("appShell")?.classList.remove("hidden");
+    container.appendChild(button);
   }
 }
 
-document.addEventListener("DOMContentLoaded", initUx);
+function enterApp(action) {
+  showAppShell();
+  WineAtlas.begin(action);
+}
+
+function wireUxOnce() {
+  if (uxWired) return;
+  uxWired = true;
+
+  document.querySelectorAll("[data-welcome-action]").forEach(button => {
+    button.addEventListener("click", () => enterApp(button.dataset.welcomeAction));
+  });
+
+  [
+    ["grape", "grapeColor"],
+    ["placeGrape", "placeGrapeColor"],
+    ["cg", "compareGrapeColor"]
+  ].forEach(([selectId, indicatorId]) => {
+    document.getElementById(selectId)?.addEventListener("change", () => updateSelectorColor(selectId, indicatorId));
+  });
+}
+
+document.addEventListener("wineatlas:ready", event => {
+  wireUxOnce();
+  renderFeaturedDiscoveries();
+  updateSelectorColor("grape", "grapeColor");
+  updateSelectorColor("placeGrape", "placeGrapeColor");
+  updateSelectorColor("cg", "compareGrapeColor");
+
+  if (event.detail.sharedProfile) {
+    showAppShell();
+    showExploreResult();
+  } else {
+    showWelcome();
+  }
+});
+
+document.addEventListener("wineatlas:profile-selected", () => {
+  showAppShell();
+  showExploreResult();
+  updateSelectorColor("grape", "grapeColor");
+  updateSelectorColor("placeGrape", "placeGrapeColor");
+});
+
+document.addEventListener("wineatlas:selection-needed", event => {
+  showAppShell();
+  showEmpty(event.detail.title, event.detail.text);
+  if (event.detail.focus) document.getElementById(event.detail.focus)?.focus();
+  updateSelectorColor("grape", "grapeColor");
+  updateSelectorColor("placeGrape", "placeGrapeColor");
+});
+
+document.addEventListener("wineatlas:mode-changed", event => {
+  if (event.detail.mode === "compare") {
+    document.getElementById("emptyView").classList.add("hidden");
+    return;
+  }
+  if (event.detail.hasProfile) showExploreResult();
+  else showEmpty("Choose where to begin", "Pick a grape, browse by place, search the atlas or use Surprise me.");
+});

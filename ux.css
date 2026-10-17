@@ -1,14 +1,14 @@
 /*
  * RagDollLabs Wine Atlas — welcome / navigation UX layer
  * ------------------------------------------------------
- * Kept separate from styles.css so the landing-state experiment and grape-color
- * affordances stay easy to review or roll back without touching the core layout.
+ * Kept separate from styles.css so landing-state and navigation affordances stay
+ * easy to review without mixing them into the core visual system.
  */
 
 .welcome { min-height: calc(100vh - 44px); display: grid; align-content: center; gap: 18px; }
 .welcome-hero { position: relative; overflow: hidden; min-height: 520px; border: 1px solid var(--line); border-radius: 28px; background:
   linear-gradient(90deg, rgba(14,10,12,.94) 0%, rgba(14,10,12,.78) 44%, rgba(14,10,12,.44) 100%),
-  url("./assets/vineyard-welcome.svg?v=20261017-1") center / cover no-repeat; box-shadow: 0 24px 60px rgba(0,0,0,.28); }
+  url("./assets/vineyard-welcome.svg?v=20261017-maint1") center / cover no-repeat; box-shadow: 0 24px 60px rgba(0,0,0,.28); }
 .welcome-copy { position: relative; z-index: 1; max-width: 760px; padding: clamp(32px,6vw,78px); }
 .welcome-copy h1 { max-width: 760px; }
 .welcome-copy .tagline { font-size: clamp(20px,3vw,30px); max-width: 700px; }
@@ -27,6 +27,7 @@
 .empty-state-inner { max-width: 500px; }
 .empty-state h2 { margin-bottom: 8px; }
 .empty-state p { color: var(--muted); line-height: 1.55; }
+.title-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
 
 .wine-color-indicator { display: inline-flex; align-items: center; gap: 7px; margin-top: 7px; font-size: 11px; color: var(--muted); }
 .wine-color-dot { width: 10px; height: 10px; border-radius: 50%; flex: 0 0 auto; box-shadow: 0 0 0 1px rgba(255,255,255,.14); }
@@ -35,13 +36,13 @@
 .wine-color-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; border: 1px solid var(--line); border-radius: 999px; color: #d8cbd0; font-size: 10px; white-space: nowrap; }
 .search-result .wine-color-dot, .similar-item .wine-color-dot, .welcome-discoveries .wine-color-dot { display: inline-block; vertical-align: -1px; margin-right: 5px; width: 8px; height: 8px; }
 
-/* Cache-busted map asset avoids stale "potato map" CSS/image combinations after deploys. */
-.locator svg { background-image: url("./assets/world-map.svg?v=20261017-2"); }
+/* The same release token is used for visual assets to avoid mixed old/new deploys. */
+.locator svg { background-image: url("./assets/world-map.svg?v=20261017-maint1"); }
 
 /*
  * Compare-region selector: native option styling is too limited for reliable
  * two-line region + country labels on iOS/Safari, so a compact custom listbox
- * mirrors the hidden native value used by app.js.
+ * progressively enhances the native value used by app.js.
  */
 .compare-region-field { position: relative; }
 .compare-select { position: relative; }
@@ -68,6 +69,7 @@
   .welcome-copy { padding: 28px 22px; }
   .welcome-actions { grid-template-columns: 1fr; }
   .welcome-action { min-height: 78px; }
+  .title-meta { justify-content: flex-start; }
   .compare-select-trigger { min-height: 62px; }
   .compare-select-menu { max-height: 240px; }
 }

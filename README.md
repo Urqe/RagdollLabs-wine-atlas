@@ -12,17 +12,18 @@ The project originally used **RagLabs** as its working product name, while the r
 
 - **Welcome experience** — first-time visitors start from a minimal landing page instead of an arbitrary default wine profile
 - **Five entry paths** — start by grape, explore by place, search, surprise me, or compare regions
+- **Only-choice auto-selection** — when a grape has exactly one regional expression, it opens automatically; place browsing also auto-advances when a region or grape is the only valid choice
 - **Wine-color cues** — red / white grape indicators appear in selectors, profile headers, search results, featured discoveries and recommendations
 - **Wine Explorer** — browse either **by grape** or through a **Country → Region → Grape** hierarchy
 - **Atlas search** — search grapes, regions, countries, climate/style descriptions, flavor notes and discovery labels
 - **Sensory profile** — body, acidity, tannin, sweetness, alcohol, fruit, oak and earthiness on a 0–5 scale
 - **Locator maps** — recognizable world landmass maps with approximate regional markers, rendered locally with no tile service or tracking dependency
 - **Regional identity** — concise climate, terrain, soil and influence context
-- **Why does it taste like this?** — cautious cause → effect explanations connecting growing conditions and winemaking to style
+- **Why does it taste like this?** — explicit data-driven cause → effect explanations connecting growing conditions and winemaking to style
 - **Similar Wines** — three nearest profiles calculated from the same sensory metrics shown in the charts
 - **Categorized flavor notes** — Fruit, Floral, Spice, Earth / savory, Oak / ageing and Mineral / herbal
 - **Serve It Tonight** — serving temperature, decanting, glassware, ageing potential and food pairing guidance
-- **Compare mode** — compare one grape across 2–3 regions, with ranked **Biggest differences**
+- **Compare mode** — compare one grape across 2–3 regions, with country-aware selectors, ranked **Biggest differences**, and feedback for duplicate selections
 - **Discovery labels** — Classic, Discovery, Emerging region and grape-specific Indigenous grape badges
 - **Surprise me** — discovery/emerging regions are weighted 3× over classics
 - **Mood discovery** — Light & elegant, Big & ripe, Earthy & savoury, Fresh & mineral, Aromatic, Something unusual
@@ -53,9 +54,10 @@ HTML, CSS and vanilla JavaScript only. No backend, build step, framework, analyt
 /
 ├── index.html
 ├── styles.css                       # core visual system
-├── ux.css                           # welcome / wine-color UX layer
-├── app.js                           # core Wine Atlas behavior
-├── ux.js                            # landing-state and UX orchestration
+├── ux.css                           # welcome / wine-color / compare UX styling
+├── app.js                           # data, state, rendering and app events
+├── ux.js                            # welcome and instructional-state subscriber
+├── compare-country.js               # progressive compare-listbox enhancement
 ├── assets/
 │   ├── world-map.svg                # simplified physical world landmass
 │   └── vineyard-welcome.svg         # local decorative welcome artwork
@@ -65,6 +67,7 @@ HTML, CSS and vanilla JavaScript only. No backend, build step, framework, analyt
 │   ├── regions-classics-expanded.json
 │   ├── regions-discovery.json
 │   ├── regions-discovery-expanded.json
+│   ├── why-rules.json               # explicit scope / wording metadata for region Why entries
 │   ├── locators.json
 │   └── sources.json
 ├── scripts/
@@ -76,26 +79,61 @@ A rendered profile is calculated as:
 
 **grape baseline + regional modifiers / overrides**
 
-### UX architecture
+### Runtime coordination
 
-`app.js` remains the source of profile-selection, comparison, search and recommendation behavior. `ux.js` deliberately sits on top of it and does not duplicate wine knowledge. This separation keeps the new welcome flow reviewable and easy to revise.
+`app.js` is the owner of application state. Selection paths resolve through the same guarded `selectProfile()` / `combinedProfile()` flow, and presentation layers subscribe to explicit `wineatlas:*` `CustomEvent`s.
 
-On a clean visit with no valid `?grape=...&region=...` pair, the app shows the welcome screen and removes the internal default profile from the visible URL. A valid shared profile URL bypasses the welcome screen and opens the requested profile directly.
+Important events include:
 
-The welcome artwork is a local SVG with a dark overlay so it remains lightweight and consistent with the existing wine-cellar palette. Decorative imagery is not required to understand or operate the app.
+- `wineatlas:ready` — structured data and core controls are initialized
+- `wineatlas:profile-selected` — a valid grape-region profile is now active
+- `wineatlas:selection-needed` — the UI needs another user choice and should show an instructional empty state
+- `wineatlas:mode-changed` — Explore / Compare changed
+- `wineatlas:compare-controls` — native comparison controls were rebuilt and may be progressively enhanced
 
-The HTML references `styles.css`, `ux.css`, `app.js` and `ux.js` with release-version query strings. `ux.css` also version-tags `world-map.svg`. These cache-busting tokens are intentionally changed for visible releases so GitHub Pages visitors do not receive a stale CSS/image combination after deployment.
+This replaces the earlier polling, `setTimeout(0)` choreography and `resetCompare()` monkey-patching. `compare-country.js` subscribes to the compare-control event and enhances the already-functional native selects; if that script fails to load, comparison still works with native controls.
+
+`ux.js` subscribes to application events rather than observing DOM mutations or sniffing `app.js` globals. A valid shared profile URL remains authoritative and bypasses the welcome screen.
+
+### Selection behavior
+
+Wine Atlas does not ask the user to make a choice when there is only one valid choice:
+
+- grape → **one region**: select and open that region automatically
+- country → **one region**: advance to that region automatically
+- region → **one grape**: select and open that grape automatically
+- multiple valid choices: show a placeholder and wait for the user
+- Compare still requires at least two regional expressions; a single-region grape shows **“More regional expressions coming soon.”**
+
+### Rendering and safety
+
+Repository-controlled wine data is still treated as data, not markup. Dynamic text inserted through HTML templates is escaped with the shared `escapeHtml()` / `escapeAttr()` helpers; UX components that are convenient to build directly use DOM nodes and `textContent`.
+
+Search results are ordinary keyboard-focusable buttons rather than a partial ARIA listbox. The country-aware Compare selector intentionally uses the full listbox pattern, including Arrow keys, Home/End, Enter/Space and Escape, with the hidden native select retained as the comparison state source.
+
+The eight sensory metrics keep their display label and Compare phrasing in one definition so adding or changing a metric cannot leave a second phrasing table out of sync. `allPairs()` is memoized because the loaded wine dataset is immutable during a page session.
+
+### “Why does it taste like this?” data
+
+The renderer does **not** parse English prose to guess which grape a sentence belongs to, and it does not use soil/garrigue regexes to replace hand-written explanations.
+
+Regional `why` entries remain the base editorial content. `data/why-rules.json` adds explicit metadata where required:
+
+- `grapes` scopes a regional explanation to one or more valid grape profiles
+- `cause` / `effect` can replace wording that needs a more careful scientific formulation
+
+Profile-level `regional.why` remains available when an explanation belongs entirely to one grape-region profile. The validator checks every `why-rules.json` region, index and grape reference so a typo cannot silently hide or misapply an explanation.
+
+Soil and landscape language is intentionally cautious: the atlas can describe drainage, water availability, heat storage, vine vigor and regional sensory associations without claiming that minerals or nearby plants literally transfer flavors into wine.
 
 ### Data conventions
 
 - Sensory metrics use a 0–5 scale. Regional `mods` are offsets and are clamped to 0–5.
 - `grapes.json` stores explicit `color` and `indigenous` metadata. UI logic must not infer these from sensory numbers.
-- Wine-color cues use that explicit metadata: burgundy for red grapes and warm straw/gold for white grapes. Text labels remain present so color is never the only signal.
+- Wine-color cues use burgundy for red grapes and warm straw/gold for white grapes. Text labels remain present so color is never the only signal.
 - Region entries contain only grape combinations intended to be plausible for that region.
 - `identity`, `why`, `badges` and `sources` are optional region metadata.
 - `Indigenous grape` is rendered from grape metadata, not inherited blindly from a multi-grape region.
-- Profile-level `regional.why` can override region-wide explanations when a future profile needs grape-specific reasoning.
-- Soil and landscape language is intentionally cautious: it describes drainage, water availability, vine growth and regional associations rather than claiming that minerals or nearby plants literally transfer flavor into wine.
 - `locators.json` contains approximate latitude/longitude points for educational locator diagrams, not GIS-grade boundaries.
 
 ### Locator map source and political labeling
@@ -106,17 +144,9 @@ For politically sensitive territories, Wine Atlas follows the official position 
 
 Reference: https://valtioneuvosto.fi/en/ukraine
 
-### Behavior notes for reviewers
+### Cache behavior
 
-- Every feature that selects a wine profile resolves through `combinedProfile()` so invalid grape-region pairs cannot leak into the UI.
-- Region-file merging uses a single `Set` across all region files; duplicate IDs fail before `Object.assign()` can overwrite them.
-- Browse-by-place is only an alternate navigation path over the same profile state; it does not maintain a separate wine dataset.
-- Search indexes structured content already shipped in the app and never makes network calls.
-- Similar Wines uses Euclidean distance across the eight 0–5 profile metrics, with a tiny penalty for returning the identical grape in another region so the list can surface genuinely adjacent styles when appropriate.
-- Locator markers use the same equirectangular coordinate system as the local world-map asset, so marker placement remains deterministic and dependency-free.
-- Compare selectors are rebuilt whenever the grape changes; stale IDs cannot survive from the previous grape.
-- Single-region grapes remain available in Explore mode and show **“More regional expressions coming soon.”** in Compare.
-- `ux.js` waits for `app.js` data initialization before deciding whether to show the welcome view or honor a shared profile URL.
+Visible release assets use one release token in `index.html`, and the two image references in `ux.css` use the same token. Keeping a single token avoids the previous collection of unrelated manual suffixes while still preventing a freshly deployed HTML page from being paired with stale CSS/JS/image assets.
 
 ## Validation
 
@@ -125,10 +155,11 @@ Run the dependency-free integrity checks locally with:
 ```bash
 python3 scripts/validate.py
 node --check app.js
+node --check compare-country.js
 node --check ux.js
 ```
 
-The validator checks JSON parsing, duplicate region IDs, grape/source references, required profile fields, metric/modifier contracts, locator coverage and the documented geopolitical-labeling guard. `.github/workflows/validate.yml` runs the same checks in GitHub Actions.
+The validator checks JSON parsing, duplicate region IDs, grape/source references, required profile fields, metric/modifier contracts, locator coverage, explicit Why-rule references and the documented geopolitical-labeling guard. `.github/workflows/validate.yml` runs the same checks in GitHub Actions.
 
 ## Running locally
 

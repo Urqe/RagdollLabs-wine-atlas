@@ -19,7 +19,6 @@ jobs:
           node --check app.js
           node --check compare-country.js
           node --check ux.js
-          node --check ux-events.js
 
       - name: Validate structured wine data
         run: python3 scripts/validate.py

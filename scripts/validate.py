@@ -2,9 +2,9 @@
 """Static integrity checks for RagDollLabs Wine Atlas.
 
 The validator intentionally tests data contracts rather than tasting opinions:
-JSON parsing, duplicate IDs, grape/source references, locator coverage and
-required profile fields. Keeping this dependency-free lets reviewers run it
-locally and keeps CI lightweight.
+JSON parsing, duplicate IDs, grape/source references, locator coverage, explicit
+Why metadata and required profile fields. Keeping this dependency-free lets
+reviewers run it locally and keeps CI lightweight.
 """
 
 from __future__ import annotations
@@ -41,6 +41,7 @@ def main() -> None:
     grapes = load(DATA / "grapes.json")
     sources = load(DATA / "sources.json")
     locators = load(DATA / "locators.json")
+    why_rules = load(DATA / "why-rules.json")
 
     regions: dict[str, dict] = {}
     for path in REGION_FILES:
@@ -81,6 +82,29 @@ def main() -> None:
             for metric, modifier in profile.get("mods", {}).items():
                 assert metric in METRICS, f"{region_id}/{grape_id}: unknown modifier {metric}"
                 assert isinstance(modifier, (int, float)), f"{region_id}/{grape_id}: non-numeric modifier {metric}"
+
+    # Why rules are explicit editorial metadata: optional grape scopes and carefully
+    # rewritten effects. Validate references so a typo cannot silently hide content.
+    for region_id, rules in why_rules.items():
+        assert region_id in regions, f"why-rules: unknown region {region_id}"
+        why_items = regions[region_id].get("why") or []
+        assert isinstance(rules, dict), f"why-rules/{region_id}: rules must be an object"
+        for raw_index, rule in rules.items():
+            assert str(raw_index).isdigit(), f"why-rules/{region_id}: invalid index {raw_index}"
+            index = int(raw_index)
+            assert 0 <= index < len(why_items), f"why-rules/{region_id}: index {index} out of range"
+            assert isinstance(rule, dict), f"why-rules/{region_id}/{index}: rule must be an object"
+            if "grapes" in rule:
+                scoped = rule["grapes"]
+                assert isinstance(scoped, list) and scoped, f"why-rules/{region_id}/{index}: grapes must be a non-empty list"
+                for grape_id in scoped:
+                    assert grape_id in regions[region_id]["grapes"], (
+                        f"why-rules/{region_id}/{index}: grape {grape_id} is not a profile in this region"
+                    )
+            if "cause" in rule:
+                assert isinstance(rule["cause"], str) and rule["cause"].strip(), f"why-rules/{region_id}/{index}: invalid cause"
+            if "effect" in rule:
+                assert isinstance(rule["effect"], str) and rule["effect"].strip(), f"why-rules/{region_id}/{index}: invalid effect"
 
     extra_locators = set(locators) - set(regions)
     assert not extra_locators, f"locator entries without regions: {sorted(extra_locators)}"
