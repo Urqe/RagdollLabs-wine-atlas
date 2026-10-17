@@ -1,0 +1,282 @@
+{
+  "kakheti": {
+    "name": "Kakheti",
+    "country": "Georgia",
+    "climate": "Continental, warm and dry",
+    "summary": "Georgia's main wine region combines warm valley floors, Caucasus influence and a deep qvevri tradition.",
+    "grapes": {
+      "saperavi": {
+        "mods": { "body": 0, "acidity": 0.5, "tannin": 0.5, "earth": 0.5 },
+        "notes": { "Fruit": ["blackberry", "black cherry", "plum"], "Floral": ["violet"], "Spice": ["pepper"], "Earth / savory": ["leather", "earth"] },
+        "serve": "16–18°C",
+        "decant": "45–90 min",
+        "glass": "Large red wine glass",
+        "ageing": "5–15+ years",
+        "pairings": ["lamb", "beef", "stews", "aged cheese"],
+        "expect": "Deeply colored and structured, with dark fruit, high acidity and firm tannin."
+      },
+      "rkatsiteli": {
+        "mods": { "body": 0.5, "acidity": 0.5, "earth": 0.5 },
+        "notes": { "Fruit": ["green apple", "quince", "pear"], "Floral": ["white flowers"], "Earth / savory": ["tea", "dried herbs"], "Mineral / herbal": ["stone"] },
+        "serve": "9–12°C",
+        "decant": "0–20 min; longer for qvevri styles",
+        "glass": "Medium white wine glass",
+        "ageing": "3–10 years",
+        "pairings": ["roast chicken", "pork", "herb dishes", "cheese"],
+        "expect": "High-acid and savory, ranging from crisp white styles to structured amber qvevri wines."
+      }
+    },
+    "identity": {
+      "setting": "Warm continental valley with mountain influence",
+      "terrain": "Alazani valley and Caucasus foothills",
+      "soil": "Alluvial, clay and limestone-derived soils",
+      "influences": ["Caucasus mountain shelter", "Ancient qvevri fermentation tradition"]
+    },
+    "why": [
+      { "cause": "Warm days and cooler mountain-influenced nights", "effect": "Support full ripening while retaining useful acidity." },
+      { "cause": "Traditional qvevri fermentation for some wines", "effect": "Can add texture, tannin and savory complexity, especially in skin-contact whites." }
+    ],
+    "badges": ["Discovery", "Old World", "Emerging region"],
+    "sources": ["georgia-nwa", "oxford-companion"]
+  },
+  "santorini": {
+    "name": "Santorini",
+    "country": "Greece",
+    "climate": "Hot, dry and strongly maritime",
+    "summary": "Wind, drought and volcanic soils shape intensely fresh Assyrtiko despite the island's heat.",
+    "grapes": {
+      "assyrtiko": {
+        "mods": { "body": 0.5, "acidity": 0, "fruit": -0.5, "earth": 0.5, "alcohol": 0.5 },
+        "notes": { "Fruit": ["lemon", "green apple"], "Earth / savory": ["saline"], "Mineral / herbal": ["stone", "smoke"] },
+        "serve": "9–11°C",
+        "decant": "0–15 min",
+        "glass": "Medium white wine glass",
+        "ageing": "4–10 years",
+        "pairings": ["grilled vegetables", "goat cheese", "lemon chicken", "shellfish"],
+        "expect": "Bone-dry, powerful and piercingly fresh, with citrus, saline and stony character."
+      }
+    },
+    "identity": {
+      "setting": "Hot, arid Aegean island",
+      "terrain": "Volcanic slopes and terraces",
+      "soil": "Volcanic ash, pumice and sand",
+      "influences": ["Strong Meltemi winds", "Basket-trained kouloura vines", "Very low rainfall"]
+    },
+    "why": [
+      { "cause": "Assyrtiko's naturally high acidity", "effect": "Keeps wines vivid even in a hot, dry climate." },
+      { "cause": "Wind and drought", "effect": "Favor low yields and concentrated fruit while traditional vine training protects grapes." }
+    ],
+    "badges": ["Discovery", "Old World"],
+    "sources": ["wines-of-greece", "oxford-companion"]
+  },
+  "naoussa": {
+    "name": "Naoussa",
+    "country": "Greece",
+    "climate": "Continental with mountain influence",
+    "summary": "Naoussa is the classic home of Xinomavro: pale, high-acid, tannic and famously savory.",
+    "grapes": {
+      "xinomavro": {
+        "mods": { "body": 0, "acidity": 0.5, "tannin": 0.5, "fruit": -0.5, "earth": 0.5 },
+        "notes": { "Fruit": ["sour cherry", "red plum"], "Floral": ["rose"], "Earth / savory": ["tomato leaf", "olive", "leather"], "Spice": ["anise"] },
+        "serve": "16–18°C",
+        "decant": "60–120 min when young",
+        "glass": "Large Burgundy-style bowl",
+        "ageing": "8–20+ years",
+        "pairings": ["lamb", "braised beef", "mushrooms", "aged cheese"],
+        "expect": "High-acid and tannic with sour cherry, tomato-leaf and savory complexity."
+      }
+    },
+    "identity": {
+      "setting": "Cooler continental northern Greece",
+      "terrain": "Slopes below Mount Vermio",
+      "soil": "Clay-limestone and loam",
+      "influences": ["Elevation", "Cooler nights than southern Greek regions"]
+    },
+    "why": [
+      { "cause": "Xinomavro's naturally high tannin and acidity", "effect": "Creates a firm structure that can reward long ageing." },
+      { "cause": "Elevated, cooler sites", "effect": "Help preserve perfume and red-fruit freshness." }
+    ],
+    "badges": ["Discovery", "Old World"],
+    "sources": ["wines-of-greece", "oxford-companion"]
+  },
+  "tokaj": {
+    "name": "Tokaj",
+    "country": "Hungary",
+    "climate": "Cool continental",
+    "summary": "Furmint combines fierce acidity with orchard fruit and can range from dry mineral wines to legendary sweet styles.",
+    "grapes": {
+      "furmint": {
+        "mods": { "acidity": 0, "fruit": 0.5, "earth": 0.5 },
+        "notes": { "Fruit": ["green apple", "pear", "quince"], "Floral": ["white flowers"], "Oak / ageing": ["honey with age"], "Mineral / herbal": ["stone"] },
+        "serve": "8–11°C",
+        "decant": "No decant for young dry styles",
+        "glass": "Aromatic white wine glass",
+        "ageing": "5–20+ years",
+        "pairings": ["pork", "duck", "soft cheese", "spiced dishes"],
+        "expect": "Taut and high-acid with apple, quince and mineral detail; sweetness varies widely by style."
+      }
+    },
+    "identity": {
+      "setting": "Cool continental",
+      "terrain": "Volcanic hills above river confluences",
+      "soil": "Volcanic tuff, clay and loess",
+      "influences": ["Autumn humidity near the Bodrog and Tisza rivers", "Long ripening season"]
+    },
+    "why": [
+      { "cause": "Furmint's naturally high acidity", "effect": "Supports both dry wines and intensely sweet wines without losing freshness." },
+      { "cause": "Long autumns with river humidity", "effect": "Can favor noble rot in suitable years for sweet styles." }
+    ],
+    "badges": ["Discovery", "Old World"],
+    "sources": ["wines-of-hungary", "oxford-companion"]
+  },
+  "douro": {
+    "name": "Douro",
+    "country": "Portugal",
+    "climate": "Hot, dry continental",
+    "summary": "Steep schist terraces and intense heat create concentrated reds from native Portuguese varieties.",
+    "grapes": {
+      "touriga-nacional": {
+        "mods": { "body": 0.5, "tannin": 0.5, "fruit": 0.5, "alcohol": 0.5, "earth": 0.5 },
+        "notes": { "Fruit": ["blackberry", "blueberry", "plum"], "Floral": ["violet"], "Spice": ["licorice"], "Mineral / herbal": ["dried herbs"] },
+        "serve": "16–18°C",
+        "decant": "45–90 min",
+        "glass": "Large red wine glass",
+        "ageing": "6–15 years",
+        "pairings": ["beef", "lamb", "game", "aged cheese"],
+        "expect": "Dense, floral and structured, with dark fruit, violet and firm tannin."
+      }
+    },
+    "identity": {
+      "setting": "Hot, dry interior valley",
+      "terrain": "Very steep river terraces",
+      "soil": "Fractured schist",
+      "influences": ["Mountain shelter from Atlantic rain", "Extremely steep vineyards"]
+    },
+    "why": [
+      { "cause": "Hot, dry summers", "effect": "Promote deep ripeness and concentration in thick-skinned red grapes." },
+      { "cause": "Steep, low-yielding sites", "effect": "Often produce small crops with substantial flavor concentration." }
+    ],
+    "badges": ["Discovery", "Old World"],
+    "sources": ["wines-of-portugal", "oxford-companion"]
+  },
+  "canelones": {
+    "name": "Canelones",
+    "country": "Uruguay",
+    "climate": "Temperate maritime",
+    "summary": "Uruguay's signature Tannat combines Atlantic freshness with dark fruit and substantial structure.",
+    "grapes": {
+      "tannat": {
+        "mods": { "body": 0, "acidity": 0.5, "tannin": 0, "fruit": 0.5, "earth": 0.5 },
+        "notes": { "Fruit": ["blackberry", "black plum"], "Floral": ["violet"], "Earth / savory": ["cocoa", "leather"], "Mineral / herbal": ["dried herbs"] },
+        "serve": "16–18°C",
+        "decant": "60–120 min when young",
+        "glass": "Large Bordeaux glass",
+        "ageing": "5–15 years",
+        "pairings": ["beef", "barbecue", "lamb", "hard cheese"],
+        "expect": "Dark, structured and fresh, with firm tannin, black fruit and savory detail."
+      }
+    },
+    "identity": {
+      "setting": "Humid temperate maritime",
+      "terrain": "Low rolling hills near Montevideo",
+      "soil": "Clay and limestone-derived soils",
+      "influences": ["Atlantic and Río de la Plata influence", "Moderate growing-season temperatures"]
+    },
+    "why": [
+      { "cause": "Maritime moderation", "effect": "Helps Tannat retain acidity alongside ripe dark fruit." },
+      { "cause": "Modern vineyard and cellar work", "effect": "Often makes the traditionally tannic grape more polished and approachable." }
+    ],
+    "badges": ["Discovery", "New World"],
+    "sources": ["uruguay-wine", "oxford-companion"]
+  },
+  "vayots-dzor": {
+    "name": "Vayots Dzor",
+    "country": "Armenia",
+    "climate": "Dry continental, high altitude",
+    "summary": "High-elevation vineyards produce fragrant, fresh Areni Noir with red fruit and savory spice.",
+    "grapes": {
+      "areni-noir": {
+        "mods": { "body": 0, "acidity": 0.5, "fruit": 0.5, "earth": 0.5 },
+        "notes": { "Fruit": ["sour cherry", "raspberry", "pomegranate"], "Floral": ["violet"], "Spice": ["pepper"], "Earth / savory": ["dried herbs"] },
+        "serve": "15–17°C",
+        "decant": "20–45 min",
+        "glass": "Burgundy bowl",
+        "ageing": "3–8 years",
+        "pairings": ["lamb", "pork", "mushrooms", "herb dishes"],
+        "expect": "Medium-bodied and aromatic, with bright red fruit, fresh acidity and herbal spice."
+      }
+    },
+    "identity": {
+      "setting": "High-altitude dry continental",
+      "terrain": "Mountain valleys and volcanic uplands",
+      "soil": "Volcanic and rocky soils",
+      "influences": ["High elevation", "Large day-night temperature swings"]
+    },
+    "why": [
+      { "cause": "High elevation and cool nights", "effect": "Help preserve acidity and aromatic lift despite strong sunlight." },
+      { "cause": "Dry growing conditions", "effect": "Reduce disease pressure and support concentrated small berries." }
+    ],
+    "badges": ["Discovery", "Old World", "Emerging region"],
+    "sources": ["armenia-wine", "oxford-companion"]
+  },
+  "dealu-mare": {
+    "name": "Dealu Mare",
+    "country": "Romania",
+    "climate": "Moderate continental",
+    "summary": "Sunny southern slopes are one of Romania's leading red-wine zones and an important home for Fetească Neagră.",
+    "grapes": {
+      "feteasca-neagra": {
+        "mods": { "body": 0.5, "fruit": 0.5, "earth": 0.5 },
+        "notes": { "Fruit": ["black cherry", "plum", "blackberry"], "Spice": ["pepper", "clove"], "Earth / savory": ["cocoa"], "Mineral / herbal": ["dried herbs"] },
+        "serve": "16–18°C",
+        "decant": "30–60 min",
+        "glass": "Large red wine glass",
+        "ageing": "4–10 years",
+        "pairings": ["beef", "pork", "lamb", "aged cheese"],
+        "expect": "Ripe and spicy with dark fruit, moderate-firm tannin and savory depth."
+      }
+    },
+    "identity": {
+      "setting": "Moderate continental",
+      "terrain": "Long band of south-facing sub-Carpathian hills",
+      "soil": "Clay, marl and limestone-rich soils",
+      "influences": ["Good southern exposure", "Carpathian shelter"]
+    },
+    "why": [
+      { "cause": "Sunny south-facing slopes", "effect": "Support reliable ripening for structured red varieties." },
+      { "cause": "Cooler nights near the Carpathian foothills", "effect": "Help retain freshness and aromatic detail." }
+    ],
+    "badges": ["Discovery", "Old World", "Emerging region"],
+    "sources": ["wines-of-romania", "oxford-companion"]
+  },
+  "tenerife": {
+    "name": "Tenerife / Canary Islands",
+    "country": "Spain",
+    "climate": "Subtropical maritime, altitude-moderated",
+    "summary": "Volcanic island vineyards and altitude give Listán Negro a light, smoky and peppery personality.",
+    "grapes": {
+      "listan-negro": {
+        "mods": { "body": -0.5, "acidity": 0.5, "fruit": 0, "oak": -0.5, "earth": 0.5 },
+        "notes": { "Fruit": ["red cherry", "strawberry"], "Spice": ["black pepper"], "Earth / savory": ["smoke"], "Mineral / herbal": ["dried herbs"] },
+        "serve": "14–16°C",
+        "decant": "10–30 min",
+        "glass": "Medium red wine glass",
+        "ageing": "2–6 years",
+        "pairings": ["pork", "grilled vegetables", "charcuterie", "mushrooms"],
+        "expect": "Light to medium-bodied, peppery and smoky, with fresh red fruit and bright acidity."
+      }
+    },
+    "identity": {
+      "setting": "Subtropical maritime with dramatic altitude",
+      "terrain": "Volcanic slopes rising from the Atlantic",
+      "soil": "Young volcanic ash and basaltic material",
+      "influences": ["Trade winds", "Very high-elevation vineyards", "Phylloxera-free old vines in many sites"]
+    },
+    "why": [
+      { "cause": "Altitude and Atlantic winds", "effect": "Temper subtropical warmth and help retain freshness." },
+      { "cause": "Low-input old-vine sites on volcanic terrain", "effect": "Often yield distinctive, savory wines with relatively modest body." }
+    ],
+    "badges": ["Discovery", "Old World"],
+    "sources": ["canary-wine", "oxford-companion"]
+  }
+}
