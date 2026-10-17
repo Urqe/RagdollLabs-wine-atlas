@@ -6,11 +6,12 @@
   <meta name="description" content="RagDollLabs Wine Atlas — explore how grape, climate and region shape a wine's typical style.">
   <title>RagDollLabs Wine Atlas</title>
   <!-- One release token keeps visible assets in sync after a GitHub Pages deploy. -->
-  <link rel="stylesheet" href="./styles.css?v=20261017-styles1">
-  <link rel="stylesheet" href="./ux.css?v=20261017-styles1">
-  <link rel="stylesheet" href="./maturity.css?v=20261017-styles1">
-  <link rel="stylesheet" href="./learning.css?v=20261017-styles1">
-  <link rel="stylesheet" href="./advanced-compare.css?v=20261017-styles1">
+  <link rel="stylesheet" href="./styles.css?v=20261017-smart1">
+  <link rel="stylesheet" href="./ux.css?v=20261017-smart1">
+  <link rel="stylesheet" href="./maturity.css?v=20261017-smart1">
+  <link rel="stylesheet" href="./learning.css?v=20261017-smart1">
+  <link rel="stylesheet" href="./advanced-compare.css?v=20261017-smart1">
+  <link rel="stylesheet" href="./home-brand.css?v=20261017-smart1">
 </head>
 <body>
   <div class="wrap">
@@ -27,6 +28,9 @@
             <button class="welcome-action" type="button" data-welcome-action="surprise"><strong>Surprise me</strong><span>Jump straight into a discovery profile.</span></button>
           </div>
         </div>
+        <a class="welcome-ragdoll-link" href="./" data-home-return aria-label="RagDollLabs home">
+          <img class="welcome-ragdoll" src="./assets/ragdoll-cat.svg?v=20261017-smart1" alt="Ragdoll cat mascot">
+        </a>
       </div>
       <section aria-labelledby="featuredHeading">
         <h2 id="featuredHeading">A few places to start</h2>
@@ -37,17 +41,16 @@
     <div id="appShell" class="hidden">
       <header class="hero app-masthead">
         <div>
-          <div class="kicker"><span class="brand-ragdoll">RagDoll</span><span class="brand-labs">Labs</span> <span class="brand-reference">reference tools</span></div>
-          <h1>RagDollLabs Wine Atlas</h1>
+          <a class="brand-home-link" href="./" data-home-return aria-label="Return to Wine Atlas home">
+            <div class="kicker"><span class="brand-ragdoll">RagDoll</span><span class="brand-labs">Labs</span> <span class="brand-reference">reference tools</span></div>
+          </a>
+          <h1><a class="brand-home-link" href="./" data-home-return>RagDollLabs Wine Atlas</a></h1>
           <div class="tagline">Explore how grape, climate and region shape the glass.</div>
           <p>Search, browse by grape or place, compare regional expressions, and discover styles from classic and emerging wine regions.</p>
         </div>
-        <svg class="hero-art" viewBox="0 0 220 260" aria-hidden="true" focusable="false">
-          <g fill="none" stroke="#c9ab6b" stroke-width="1" opacity="0.35"><path d="M20 40c60 8 100 40 118 92M14 70c50 6 84 34 99 78M26 16c72 10 120 48 141 112"/><ellipse cx="150" cy="120" rx="52" ry="30" transform="rotate(-18 150 120)"/><ellipse cx="150" cy="120" rx="36" ry="20" transform="rotate(-18 150 120)"/></g>
-          <g stroke="#a04460" stroke-width="1.5" fill="none" opacity="0.9"><path d="M118 60c14 0 22 12 22 26l-6 44c-2 12-6 16-16 16s-14-4-16-16l-6-44c0-14 8-26 22-26z"/><path d="M140 88h12c8 0 12 6 12 14s-4 14-12 14h-8"/></g>
-          <g fill="#6e1d35" opacity="0.85"><circle cx="112" cy="178" r="7"/><circle cx="126" cy="178" r="7"/><circle cx="119" cy="190" r="7"/><circle cx="104" cy="190" r="7"/><circle cx="133" cy="190" r="7"/><circle cx="119" cy="202" r="7"/></g>
-          <path d="M119 168c0-14 6-24 16-30" fill="none" stroke="#7a8b5a" stroke-width="2"/><path d="M132 136c10-6 20-4 26 2-8 4-18 4-26-2z" fill="#7a8b5a" opacity="0.8"/>
-        </svg>
+        <a class="app-home-cat" href="./" data-home-return aria-label="Return to Wine Atlas home">
+          <img src="./assets/ragdoll-cat.svg?v=20261017-smart1" alt="">
+        </a>
       </header>
 
       <div class="layout">
@@ -121,7 +124,7 @@
               </details>
             </article>
             <article class="card serve-card"><h2>Serve It Tonight</h2><div class="serve" id="serve"></div><h3>Food pairings</h3><div class="chips" id="pair"></div></article>
-            <article class="card similar-card"><h2>Similar Wines</h2><p class="small">Closest matches are calculated from the same sensory profile used by the charts, with a small preference for showing something genuinely different.</p><div id="similarWines" class="similar-grid"></div></article>
+            <article class="card similar-card"><h2>Where to go next</h2><p class="small">Three ways onward: follow the same grape, stay close in style, or try something more adventurous.</p><div id="similarWines" class="similar-grid"></div></article>
           </section>
           <section id="compareView" class="hidden" aria-labelledby="regionalComparisonHeading"><article class="card"><h2 id="regionalComparisonHeading">Regional Comparison</h2><div id="compareMessage" class="compare-message hidden" role="status" aria-live="polite"></div><div class="compareGrid" id="compareGrid"></div><div id="compareDifferences"></div></article></section>
         </main>
@@ -138,13 +141,15 @@
 
     <footer class="footer">RagDollLabs Wine Atlas · Typical-style reference, not a guarantee about a specific bottle.</footer>
   </div>
-  <script src="./app.js?v=20261017-styles1" defer></script>
-  <script src="./compare-country.js?v=20261017-styles1" defer></script>
-  <script src="./ux.js?v=20261017-styles1" defer></script>
-  <script src="./functional.js?v=20261017-styles1" defer></script>
-  <script src="./search-enhance.js?v=20261017-styles1" defer></script>
-  <script src="./advanced-compare.js?v=20261017-styles1" defer></script>
-  <script src="./maturity.js?v=20261017-styles1" defer></script>
-  <script src="./learning.js?v=20261017-styles1" defer></script>
+  <script src="./app.js?v=20261017-smart1" defer></script>
+  <script src="./compare-country.js?v=20261017-smart1" defer></script>
+  <script src="./ux.js?v=20261017-smart1" defer></script>
+  <script src="./functional.js?v=20261017-smart1" defer></script>
+  <script src="./search-enhance.js?v=20261017-smart1" defer></script>
+  <script src="./advanced-compare.js?v=20261017-smart1" defer></script>
+  <script src="./maturity.js?v=20261017-smart1" defer></script>
+  <script src="./learning.js?v=20261017-smart1" defer></script>
+  <script src="./smart-discovery.js?v=20261017-smart1" defer></script>
+  <script src="./home-brand.js?v=20261017-smart1" defer></script>
 </body>
 </html>

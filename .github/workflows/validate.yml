@@ -29,10 +29,16 @@ jobs:
           node --check advanced-compare.js
           node --check maturity.js
           node --check learning.js
+          node --check smart-discovery.js
+          node --check home-brand.js
           node --check tests/dom-smoke.mjs
+          node --check tests/discovery-home-smoke.mjs
 
       - name: Validate structured wine data
         run: python3 scripts/validate.py
+
+      - name: Audit editorial content
+        run: python3 scripts/content_audit.py
 
       - name: Install test dependency
         run: npm install --no-audit --no-fund

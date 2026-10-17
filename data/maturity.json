@@ -94,5 +94,53 @@
       "vintage": "Hot, dry years can emphasize concentration and ripe fruit; fresher years may retain more lift and take longer to lose their youthful structure.",
       "sources": ["wines-of-portugal", "world-atlas-of-wine"]
     }
+  },
+  "brunello": {
+    "sangiovese": {
+      "summary": "Brunello can move from black cherry, red plum, herbs and firm structure toward dried cherry, tobacco, leather and earthy spice as Sangiovese's acidity and tannin integrate.",
+      "stages": [
+        {"label": "Young", "effect": "Cherry, plum and dried herbs lead over bright acidity and firm tannin; oak spice may still sit apart from the fruit."},
+        {"label": "Developing", "effect": "Fruit becomes more dried and savory as tobacco, leather, tea and spice emerge and the texture becomes less angular."},
+        {"label": "Mature", "effect": "Dried cherry, leather, tobacco, earth and balsamic-herbal notes can dominate, with a more harmonious but still fresh structure."}
+      ],
+      "vintage": "Warmer years often show broader fruit and earlier accessibility, while cooler years can keep more acidity and herbal detail and may unfold more slowly.",
+      "sources": ["brunello-consorzio", "oxford-companion"]
+    }
+  },
+  "mosel": {
+    "riesling": {
+      "summary": "Mosel Riesling can retain striking freshness while youthful citrus and peach develop toward honey, dried citrus, herbs, wax and the kerosene-like note that appears in some mature Rieslings.",
+      "stages": [
+        {"label": "Young", "effect": "Lime, green apple, peach and floral notes dominate, carried by very high acidity and often a light frame."},
+        {"label": "Developing", "effect": "Fruit becomes less primary as honey, wax, dried citrus and herbal-mineral notes become more noticeable."},
+        {"label": "Mature", "effect": "Dried citrus, honey, wax, herbs and sometimes a pronounced petrol-like aroma can sit over acidity that remains unusually persistent."}
+      ],
+      "vintage": "Warmer years can give riper stone fruit and more immediate generosity; cooler years often emphasize acidity and citrus and can evolve at a slower pace. Sweetness level strongly affects the trajectory.",
+      "sources": ["wines-of-germany", "oxford-companion"]
+    }
+  },
+  "champagne-blanc-de-blancs": {
+    "chardonnay": {
+      "summary": "Bottle ageing can take Blanc de Blancs Champagne from citrus, apple and chalk toward brioche, toast, honey, nuts and dried citrus while the mousse becomes softer and more integrated.",
+      "stages": [
+        {"label": "Young", "effect": "Lemon, green apple, white flowers and chalky freshness lead, with a firm acid line and energetic mousse."},
+        {"label": "Developing", "effect": "Lees- and bottle-age notes such as brioche, toast and hazelnut build as the fruit becomes broader and the bubbles feel finer."},
+        {"label": "Mature", "effect": "Dried citrus, honey, pastry, nuts and savory complexity can dominate, with softer mousse and a more vinous texture."}
+      ],
+      "vintage": "Cooler years often preserve a sharper acid spine and slower evolution, while warmer years can show broader fruit and earlier richness. Producer style and time on lees are major variables.",
+      "sources": ["civc", "oxford-companion"]
+    }
+  },
+  "sauternes": {
+    "semillon": {
+      "summary": "Sauternes can evolve from apricot, citrus, honey and botrytis spice toward marmalade, dried fruit, beeswax, saffron and nutty complexity while sweetness remains balanced by acidity.",
+      "stages": [
+        {"label": "Young", "effect": "Apricot, peach, citrus peel, honey and floral-botrytis notes are vivid, with sweetness feeling rich but lifted by acidity."},
+        {"label": "Developing", "effect": "Marmalade, dried apricot, beeswax, saffron and spice increase as fresh fruit becomes less primary."},
+        {"label": "Mature", "effect": "Dried fruit, candied citrus, honey, wax, nuts and savory spice can dominate, with a more seamless texture and deeply integrated sweetness."}
+      ],
+      "vintage": "Years with well-timed humidity and dry harvest windows can support more complete noble-rot concentration; warmer or less even years may show different balances of richness, acidity and botrytis character.",
+      "sources": ["civb", "oxford-companion"]
+    }
   }
 }

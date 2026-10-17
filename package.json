@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node tests/dom-smoke.mjs"
+    "test": "node tests/dom-smoke.mjs && node tests/discovery-home-smoke.mjs"
   },
   "devDependencies": {
     "jsdom": "^26.1.0"
