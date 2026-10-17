@@ -14,17 +14,7 @@ let maturityPromise = null;
 let maturityProfile = null;
 
 function loadMaturity() {
-  if (!maturityPromise) {
-    maturityPromise = fetch("./data/maturity.json")
-      .then(response => {
-        if (!response.ok) throw new Error("Maturity data could not be loaded.");
-        return response.json();
-      })
-      .catch(error => {
-        console.error(error);
-        return {};
-      });
-  }
+  if (!maturityPromise) maturityPromise = WineData.json("./data/maturity.json", { optional: true });
   return maturityPromise;
 }
 

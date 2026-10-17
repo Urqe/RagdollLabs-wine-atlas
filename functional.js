@@ -1,8 +1,8 @@
 /*
  * RagDollLabs Wine Atlas — practical discovery enhancements
  * --------------------------------------------------------
- * Keeps food-first discovery and profile-specific winemaking context separate
- * from the core profile engine. Both features consume validated data and use
+ * Keeps style metadata and profile-specific winemaking context separate
+ * from the core profile engine. Both renderers consume validated data and use
  * the public WineAtlas profile API; this module never recomputes profile rules.
  *
  * Optional enrichment JSON is intentionally fail-soft. If an optional file
@@ -12,117 +12,6 @@
 
 let winemakingPromise = null;
 let lastProfile = null;
-function normalizeFood(value) { return FoodDiscovery.normalize(value); }
-function loadFoodAliases() { return FoodDiscovery.load(); }
-function expandedFoodTerms(query) { return FoodDiscovery.terms(query); }
-function foodScore(pairings, query) { return FoodDiscovery.score(pairings, query); }
-
-function allProfiles() {
-  return WineAtlas.allPairs();
-}
-
-function rankFoodMatches(query) {
-  return allProfiles()
-    .map(item => ({ ...item, score: foodScore(item.regional.pairings, query) }))
-    .filter(item => item.score > 0)
-    .sort((a, b) => b.score - a.score || a.grape.name.localeCompare(b.grape.name) || a.region.name.localeCompare(b.region.name))
-    .slice(0, 8);
-}
-
-async function renderFoodMatches() {
-  const input = document.getElementById("foodInput");
-  const container = document.getElementById("foodResults");
-  if (!input || !container) return;
-  const query = input.value.trim();
-  container.replaceChildren();
-  if (query.length < 2) return;
-
-  await loadFoodAliases();
-  if (input.value.trim() !== query) return;
-  const matches = rankFoodMatches(query);
-  if (!matches.length) {
-    const empty = document.createElement("div");
-    empty.className = "search-empty";
-    empty.textContent = "No pairing matches yet. Try a broader food, such as lamb, beef, mushrooms, cheese or dessert.";
-    container.appendChild(empty);
-    return;
-  }
-
-  for (const item of matches) {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "search-result food-result";
-    button.dataset.grape = item.grapeId;
-    button.dataset.region = item.regionId;
-
-    const title = document.createElement("strong");
-    const dot = document.createElement("span");
-    dot.className = `wine-color-dot ${item.grape.color}`;
-    dot.setAttribute("aria-hidden", "true");
-    title.append(dot, document.createTextNode(`${item.grape.name} · ${item.region.name}`));
-
-    const meta = document.createElement("span");
-    meta.textContent = `${item.region.country} · pairs with ${item.regional.pairings.join(" · ")}`;
-    button.append(title, meta);
-    container.appendChild(button);
-  }
-}
-
-function handleFoodClick(event) {
-  const button = event.target.closest?.(".food-result");
-  if (!button) return;
-  const input = document.getElementById("foodInput");
-  const container = document.getElementById("foodResults");
-  WineAtlas.selectProfile(button.dataset.grape, button.dataset.region, true);
-  if (input) input.value = "";
-  container?.replaceChildren();
-}
-
-function foodResultButtons() {
-  return [...document.querySelectorAll("#foodResults .food-result")];
-}
-
-function handleFoodKeydown(event) {
-  const input = document.getElementById("foodInput");
-  const results = document.getElementById("foodResults");
-  const buttons = foodResultButtons();
-  if (event.target === input) {
-    if (event.key === "Escape") {
-      if (input.value || buttons.length) {
-        event.preventDefault();
-        input.value = "";
-        results.replaceChildren();
-      }
-    } else if (buttons.length && event.key === "ArrowDown") {
-      event.preventDefault();
-      buttons[0].focus();
-    } else if (buttons.length && event.key === "Enter") {
-      event.preventDefault();
-      buttons[0].click();
-    }
-    return;
-  }
-
-  const button = event.target.closest?.(".food-result");
-  if (!button) return;
-  const index = buttons.indexOf(button);
-  if (event.key === "Escape") {
-    event.preventDefault();
-    input.focus();
-  } else if (event.key === "ArrowDown") {
-    event.preventDefault();
-    buttons[(index + 1) % buttons.length]?.focus();
-  } else if (event.key === "ArrowUp") {
-    event.preventDefault();
-    buttons[(index - 1 + buttons.length) % buttons.length]?.focus();
-  } else if (event.key === "Home") {
-    event.preventDefault();
-    buttons[0]?.focus();
-  } else if (event.key === "End") {
-    event.preventDefault();
-    buttons[buttons.length - 1]?.focus();
-  }
-}
 
 function renderSpecialStyle(profile) {
   document.getElementById("specialStyle")?.remove();
@@ -166,17 +55,7 @@ function renderSpecialStyle(profile) {
 }
 
 function loadWinemaking() {
-  if (!winemakingPromise) {
-    winemakingPromise = fetch("./data/winemaking.json")
-      .then(response => {
-        if (!response.ok) throw new Error("Winemaking data could not be loaded.");
-        return response.json();
-      })
-      .catch(error => {
-        console.error(error);
-        return {};
-      });
-  }
+  if (!winemakingPromise) winemakingPromise = WineData.json("./data/winemaking.json", { optional: true });
   return winemakingPromise;
 }
 
@@ -229,18 +108,7 @@ async function renderWinemaking(profile) {
   signalWinemakingRendered(profile, true);
 }
 
-function wireFunctionalFeatures() {
-  const foodInput = document.getElementById("foodInput");
-  const foodResults = document.getElementById("foodResults");
-  foodInput?.addEventListener("input", () => { void renderFoodMatches(); });
-  foodInput?.addEventListener("keydown", handleFoodKeydown);
-  foodResults?.addEventListener("keydown", handleFoodKeydown);
-  foodResults?.addEventListener("click", handleFoodClick);
-}
-
 document.addEventListener("wineatlas:ready", () => {
-  wireFunctionalFeatures();
-  void loadFoodAliases();
   void loadWinemaking();
 });
 

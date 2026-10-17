@@ -6,20 +6,14 @@
  * this layer only chooses and explains recommendations.
  */
 
-const SMART_METRICS = ["body", "acidity", "tannin", "sweetness", "alcohol", "fruit", "oak", "earth"];
+const SMART_METRICS = WineModel.metrics.map(metric => metric.key);
 
 function smartDistance(a, b) {
   return Math.sqrt(SMART_METRICS.reduce((sum, key) => sum + Math.pow((a.profile[key] || 0) - (b.profile[key] || 0), 2), 0));
 }
 
-function smartCompatibilityKey(item) {
-  const family = item.regional.style?.family || "still";
-  return family === "still" ? `still:${item.grape.color}` : family;
-}
-
-function smartAppearance(item) {
-  return item.regional.style?.color || item.grape.color || "white";
-}
+function smartCompatibilityKey(item) { return WineModel.compatibilityKey(item); }
+function smartAppearance(item) { return WineModel.color(item); }
 
 function smartIsDiscovery(item) {
   return Boolean(item.grape.indigenous) || (item.region.badges || []).some(tag => ["Discovery", "Emerging region"].includes(tag));
@@ -120,11 +114,6 @@ function smartRender(current) {
   }
 }
 
-function smartCurrentFromEvent(event) {
-  return event.detail?.profile || null;
-}
-
-document.addEventListener("wineatlas:profile-selected", event => smartRender(smartCurrentFromEvent(event)));
 document.addEventListener("wineatlas:ready", () => {
   const intro = document.querySelector(".similar-card > p.small");
   if (intro) intro.textContent = "Three ways onward: follow the same grape, stay close in style, or try something more adventurous.";

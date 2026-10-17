@@ -7,9 +7,7 @@
  */
 
 function atlasNormalize(value) { return FoodDiscovery.normalize(value); }
-function atlasFlattenNotes(notes) { return Object.values(notes || {}).flat().join(" "); }
 function atlasLoadFoodAliases() { return FoodDiscovery.load(); }
-function atlasExpandedFoodTerms(query) { return FoodDiscovery.terms(query); }
 function atlasPairingScore(pairings, query) { return FoodDiscovery.score(pairings, query); }
 
 async function renderEnhancedAtlasSearch() {
@@ -20,9 +18,6 @@ async function renderEnhancedAtlasSearch() {
   const query = atlasNormalize(rawQuery);
   container.replaceChildren();
   if (query.length < 2) return;
-
-  await atlasLoadFoodAliases();
-  if (input.value.trim() !== rawQuery) return;
 
   const matches = await WineSearch.rank(rawQuery, 10);
   if (input.value.trim() !== rawQuery) return;
@@ -82,5 +77,6 @@ async function renderEnhancedAtlasSearch() {
 
 document.addEventListener("wineatlas:ready", () => {
   void atlasLoadFoodAliases();
+  void FoodDiscovery.loadGuidance();
   // app.js owns the input handler and delegates here; avoid two renderers racing.
 });

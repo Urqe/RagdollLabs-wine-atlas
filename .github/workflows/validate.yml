@@ -19,32 +19,8 @@ jobs:
         with:
           node-version: 22
 
-      - name: Validate JavaScript syntax
-        run: |
-          node --check app.js
-          node --check compare-country.js
-          node --check ux.js
-          node --check wine-search.js
-          node --check food-discovery.js
-          node --check functional.js
-          node --check search-enhance.js
-          node --check advanced-compare.js
-          node --check compare-discovery.js
-          node --check maturity.js
-          node --check learning.js
-          node --check smart-discovery.js
-          node --check home-brand.js
-          node --check tests/dom-smoke.mjs
-          node --check tests/discovery-home-smoke.mjs
+      - name: Install locked test dependencies
+        run: npm ci --no-audit --no-fund
 
-      - name: Validate structured wine data
-        run: python3 scripts/validate.py
-
-      - name: Audit editorial content
-        run: python3 scripts/content_audit.py
-
-      - name: Install test dependency
-        run: npm install --no-audit --no-fund
-
-      - name: Run DOM smoke tests
-        run: npm test
+      - name: Validate code, data and regressions
+        run: npm run validate

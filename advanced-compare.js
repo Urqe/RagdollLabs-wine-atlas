@@ -7,20 +7,13 @@
  *
  * Important architecture rule: profile computation is owned by app.js. This
  * module consumes WineAtlas.combinedProfile() / WineAtlas.allPairs() and must
- * not duplicate baseline + regional-modifier logic. Compatibility rules live
- * here because they are specific to the comparison product experience.
+ * not duplicate baseline + regional-modifier logic. Shared compatibility rules
+ * live in wine-model.js; state lives in compare-state.js. This file owns controls
+ * and rendering.
  */
 
-const ADV_COMPARE_METRICS = [
-  { key: "body", label: "Body", high: "fuller-bodied", low: "leaner" },
-  { key: "acidity", label: "Acidity", high: "higher in acidity", low: "softer in acidity" },
-  { key: "tannin", label: "Tannin", high: "more tannic", low: "smoother in tannin" },
-  { key: "sweetness", label: "Sweetness", high: "sweeter", low: "drier" },
-  { key: "alcohol", label: "Alcohol", high: "higher in alcohol", low: "lighter in alcohol" },
-  { key: "fruit", label: "Fruit", high: "more fruit-forward", low: "more restrained in fruit" },
-  { key: "oak", label: "Oak", high: "more oak-influenced", low: "less oak-influenced" },
-  { key: "earth", label: "Earth", high: "more earthy and savoury", low: "cleaner and less earthy" }
-];
+const ADV_COMPARE_METRICS = WineModel.metrics.map(metric => ({ ...metric,
+  high: metric.advancedHigh, low: metric.advancedLow }));
 
 const ADV_COMPARE_MIN_SPREAD = 0.5;
 let advancedCompareLastProfile = null;
@@ -43,18 +36,12 @@ function advancedStyle(profile) {
   const family = style?.family || "still";
   return {
     family,
-    color: style?.color || profile.grape.color,
+    color: WineModel.color(profile),
     label: style?.label || `${profile.grape.color === "red" ? "Red" : "White"} · Still`,
     method: style?.method || null,
     effect: style?.effect || null,
     sweetness: style?.sweetness || null
   };
-}
-
-function advancedCompatibilityKey(profile) {
-  const style = advancedStyle(profile);
-  if (style.family === "still") return `still:${profile.grape.color}`;
-  return style.family;
 }
 
 function advancedCompatibilityLabel(profile) {
@@ -63,9 +50,7 @@ function advancedCompatibilityLabel(profile) {
   return `${style.family} wines`;
 }
 
-function advancedCompatible(reference, candidate) {
-  return Boolean(reference && candidate && advancedCompatibilityKey(reference) === advancedCompatibilityKey(candidate));
-}
+function advancedCompatible(reference, candidate) { return WineModel.compatible(reference, candidate); }
 
 function advancedProfileKey(profile) {
   return `${profile.grapeId}::${profile.regionId}`;
@@ -130,39 +115,24 @@ function advancedFindProfile(key) {
 /* Keep the physical selector slot with each rendered card. Slot 3 can be filled
    while slot 2 is empty, so using filtered-array indexes would make Remove act
    on the wrong selector in that valid edge case. */
-function advancedSelections() {
-  return [1, 2, 3]
-    .map(index => {
-      const profile = advancedFindProfile(document.getElementById(`advancedCompare${index}`)?.value);
-      return profile ? { ...profile, compareSlot: index } : null;
-    })
-    .filter(Boolean);
-}
+function advancedSelections() { return WineComparison.profiles(); }
 
-function advancedRefreshSelectors(changedIndex = null) {
+function advancedRefreshSelectors() {
   const all = advancedAllProfiles();
-  const first = advancedFindProfile(document.getElementById("advancedCompare1")?.value);
-  const selected = [1, 2, 3].map(index => document.getElementById(`advancedCompare${index}`)?.value || "");
-
-  if (changedIndex === 1 && first) {
-    for (let index = 2; index <= 3; index += 1) {
-      const current = advancedFindProfile(selected[index - 1]);
-      if (current && !advancedCompatible(first, current)) selected[index - 1] = "";
-    }
-  }
-
+  const selected = WineComparison.snapshot().keys;
+  const first = advancedFindProfile(selected[0]);
   const firstSelect = document.getElementById("advancedCompare1");
   if (firstSelect) advancedOptions(firstSelect, all, selected[0], false);
-
-  const reference = advancedFindProfile(selected[0]);
-  const compatible = reference ? all.filter(candidate => advancedCompatible(reference, candidate)) : [];
+  const compatible = first ? all.filter(item => WineModel.compatible(first, item)) : [];
   for (let index = 2; index <= 3; index += 1) {
     const select = document.getElementById(`advancedCompare${index}`);
     if (!select) continue;
-    select.disabled = !reference;
+    select.disabled = !first;
     const excluded = new Set(selected.filter((key, i) => i !== index - 1 && key));
     advancedOptions(select, compatible, selected[index - 1], true, excluded);
   }
+  const checkbox = document.getElementById("advancedBiggestOnly");
+  if (checkbox) checkbox.checked = WineComparison.snapshot().biggestOnly;
 }
 
 function advancedMetricBar(metric, profile) {
@@ -195,45 +165,8 @@ function advancedProductionContext(selections) {
   }).join("")}</section>`;
 }
 
-function advancedSetBiggestOnly(value) {
-  const checkbox = document.getElementById("advancedBiggestOnly");
-  if (checkbox) checkbox.checked = Boolean(value);
-}
-
-function advancedRemoveSlot(slot) {
-  const first = document.getElementById("advancedCompare1");
-  const second = document.getElementById("advancedCompare2");
-  const third = document.getElementById("advancedCompare3");
-  if (!first || !second || !third) return;
-
-  if (slot === 1) {
-    /* Compatibility is anchored on slot 1. Promote the next actual selection
-       rather than erasing the comparison. The explicit branches are deliberate:
-       they make the "slot 2 empty, slot 3 filled" case easy to audit. */
-    if (second.value) {
-      first.value = second.value;
-      second.value = third.value;
-    } else if (third.value) {
-      first.value = third.value;
-      second.value = "";
-    } else {
-      first.value = "";
-      second.value = "";
-    }
-    third.value = "";
-    advancedRefreshSelectors(1);
-  } else if (slot === 2) {
-    second.value = third.value;
-    third.value = "";
-    advancedRefreshSelectors(2);
-  } else {
-    third.value = "";
-    advancedRefreshSelectors(3);
-  }
-
-  advancedSetBiggestOnly(Boolean(third.value));
-  advancedRender();
-}
+function advancedSetBiggestOnly(value) { WineComparison.setBiggestOnly(value); }
+function advancedRemoveSlot(slot) { WineComparison.remove(slot); }
 
 function advancedHandleGridClick(event) {
   const button = event.target.closest?.(".advanced-remove");
@@ -263,7 +196,7 @@ function advancedRender() {
   const reference = selections[0];
   hint.textContent = `Comparing ${advancedCompatibilityLabel(reference)}. Choose up to three wines.`;
   const rows = advancedDifferenceRows(selections);
-  const biggestOnly = document.getElementById("advancedBiggestOnly")?.checked;
+  const biggestOnly = WineComparison.snapshot().biggestOnly;
   const metricKeys = biggestOnly && rows.length ? new Set(rows.slice(0, 4).map(row => row.metric.key)) : null;
 
   grid.innerHTML = selections.map(item => {
@@ -282,15 +215,7 @@ function advancedRender() {
 }
 
 function advancedSeedProfile(profile) {
-  if (!profile) return;
-  const first = document.getElementById("advancedCompare1");
-  if (!first) return;
-  first.value = advancedProfileKey(profile);
-  document.getElementById("advancedCompare2").value = "";
-  document.getElementById("advancedCompare3").value = "";
-  advancedSetBiggestOnly(false);
-  advancedRefreshSelectors(1);
-  advancedRender();
+  if (profile) WineComparison.replace([profile], { biggestOnly: false });
 }
 
 function advancedInjectUi() {
@@ -357,21 +282,17 @@ function advancedInjectUi() {
   }
 
   [1, 2, 3].forEach(index => {
-    document.getElementById(`advancedCompare${index}`)?.addEventListener("change", () => {
-      advancedRefreshSelectors(index);
-      const third = document.getElementById("advancedCompare3");
-      if (index === 3) {
-        // Three comparison cards are the visual-noise ceiling, so start in the
-        // concise view. The checkbox remains user-controllable afterwards.
-        advancedSetBiggestOnly(Boolean(third?.value));
-      } else if (index === 1 && !third?.value) {
-        advancedSetBiggestOnly(false);
-      }
-      advancedRender();
+    document.getElementById(`advancedCompare${index}`)?.addEventListener("change", event => {
+      WineComparison.setSlot(index, event.target.value);
     });
   });
-  document.getElementById("advancedBiggestOnly")?.addEventListener("change", advancedRender);
+  document.getElementById("advancedBiggestOnly")?.addEventListener("change", event => {
+    WineComparison.setBiggestOnly(event.target.checked);
+  });
 
+  // The legacy controls remain available only if this enhancement is absent.
+  document.getElementById("compareRegionControls")?.replaceChildren();
+  for (const id of ["compareGrid", "compareDifferences"]) document.getElementById(id)?.replaceChildren();
   advancedCompareInitialized = true;
   advancedRefreshSelectors();
   advancedRender();
@@ -387,7 +308,16 @@ document.addEventListener("wineatlas:profile-selected", event => {
 
 document.addEventListener("wineatlas:mode-changed", event => {
   if (event.detail.mode !== "compare" || !advancedCompareInitialized) return;
-  const first = document.getElementById("advancedCompare1");
-  if (first && !first.value && advancedCompareLastProfile) advancedSeedProfile(advancedCompareLastProfile);
+  if (!WineComparison.snapshot().keys[0] && advancedCompareLastProfile) {
+    advancedSeedProfile(advancedCompareLastProfile);
+    return;
+  }
+  advancedRender();
+});
+
+// Only the model emits changes; selectors, cards and discovery consume the same snapshot.
+document.addEventListener("wineatlas:comparison-changed", () => {
+  if (!advancedCompareInitialized) return;
+  advancedRefreshSelectors();
   advancedRender();
 });
