@@ -13,7 +13,7 @@ The project originally used **RagLabs** as its working product name, while the r
 - **Wine Explorer** — browse either **by grape** or through a **Country → Region → Grape** hierarchy
 - **Atlas search** — search grapes, regions, countries, climate/style descriptions, flavor notes and discovery labels
 - **Sensory profile** — body, acidity, tannin, sweetness, alcohol, fruit, oak and earthiness on a 0–5 scale
-- **Locator maps** — lightweight schematic world maps generated locally from approximate region coordinates; no tile service or tracking dependency
+- **Locator maps** — recognizable world landmass maps with approximate regional markers, rendered locally with no tile service or tracking dependency
 - **Regional identity** — concise climate, terrain, soil and influence context
 - **Why does it taste like this?** — cautious cause → effect explanations connecting growing conditions and winemaking to style
 - **Similar Wines** — three nearest profiles calculated from the same sensory metrics shown in the charts
@@ -51,6 +51,8 @@ HTML, CSS and vanilla JavaScript only. No backend, build step, framework, analyt
 ├── index.html
 ├── styles.css
 ├── app.js
+├── assets/
+│   └── world-map.svg               # simplified physical world landmass
 ├── data/
 │   ├── grapes.json
 │   ├── regions-classics-west.json
@@ -79,6 +81,14 @@ A rendered profile is calculated as:
 - Soil and landscape language is intentionally cautious: it describes drainage, water availability, vine growth and regional associations rather than claiming that minerals or nearby plants literally transfer flavor into wine.
 - `locators.json` contains approximate latitude/longitude points for educational locator diagrams, not GIS-grade boundaries.
 
+### Locator map source and political labeling
+
+`assets/world-map.svg` is a simplified physical landmass derived from the public-domain **Natural Earth** low-resolution dataset. The base artwork deliberately shows landmasses without political borders; this keeps the locator focused on geography while region/country naming remains controlled by Wine Atlas metadata.
+
+For politically sensitive territories, Wine Atlas follows the official position of the **Finnish Government** rather than de facto control. In particular, **Crimea and Sevastopol are treated as part of Ukraine**, so any future wine profile located there must use `"country": "Ukraine"`, not Russia. The validator contains an explicit guard for these labels so the rule cannot be changed accidentally by a future data addition.
+
+Reference: https://valtioneuvosto.fi/en/ukraine
+
 ### Behavior notes for reviewers
 
 The code is intentionally commented around state transitions and data-derived features. In particular:
@@ -88,7 +98,7 @@ The code is intentionally commented around state transitions and data-derived fe
 - Browse-by-place is only an alternate navigation path over the same profile state; it does not maintain a separate wine dataset.
 - Search indexes structured content already shipped in the app and never makes network calls.
 - Similar Wines uses Euclidean distance across the eight 0–5 profile metrics, with a tiny penalty for returning the identical grape in another region so the list can surface genuinely adjacent styles when appropriate.
-- Locator maps project the stored longitude/latitude onto a simple local SVG world diagram.
+- Locator markers use the same equirectangular coordinate system as the local world-map asset, so marker placement remains deterministic and dependency-free.
 - Compare selectors are rebuilt whenever the grape changes; stale IDs cannot survive from the previous grape.
 - Single-region grapes remain available in Explore mode and show **“More regional expressions coming soon.”** in Compare.
 
@@ -101,7 +111,7 @@ python3 scripts/validate.py
 node --check app.js
 ```
 
-The validator checks JSON parsing, duplicate region IDs, grape/source references, required profile fields, metric/modifier contracts and locator coverage. `.github/workflows/validate.yml` runs the same checks in GitHub Actions when Actions are enabled for the repository.
+The validator checks JSON parsing, duplicate region IDs, grape/source references, required profile fields, metric/modifier contracts, locator coverage and the documented geopolitical-labeling guard. `.github/workflows/validate.yml` runs the same checks in GitHub Actions when Actions are enabled for the repository.
 
 ## Running locally
 
@@ -111,7 +121,11 @@ Because JSON is loaded with `fetch()`, run a local server instead of opening `in
 python3 -m http.server 8000
 ```
 
-Then open `http://localhost:8000`.
+Then open:
+
+```text
+http://localhost:8000
+```
 
 ## GitHub Pages
 
