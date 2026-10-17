@@ -122,6 +122,24 @@ const cremeResults = [...document.querySelectorAll("#searchResults .search-resul
 assert.ok(cremeResults.length > 0, "ASCII creme brulee should match accented pairings");
 assert.ok(cremeResults.some(button => /Sauternes|Tawny|Moscatel/i.test(button.textContent)), "dessert search should surface relevant sweet or fortified wines");
 
+// Rosé and orange/amber profiles use profile-level appearance and production context.
+assert.equal(window.WineAtlas.selectProfile("provence-rose-blend", "cotes-de-provence-rose"), true);
+await tick();
+assert.match(document.getElementById("specialStyle").textContent, /Rosé|Pale Mediterranean/i);
+assert.match(document.getElementById("profileWineColor").textContent, /Rosé/);
+assert.ok(document.querySelector("#profileWineColor .wine-color-dot.rose"));
+
+assert.equal(window.WineAtlas.selectProfile("ribolla-gialla", "collio-oslavia-orange"), true);
+await tick();
+assert.match(document.getElementById("specialStyle").textContent, /Orange|amber|skin contact/i);
+assert.match(document.getElementById("profileWineColor").textContent, /Orange|amber/i);
+assert.ok(document.querySelector("#profileWineColor .wine-color-dot.orange"));
+
+searchInput.value = "rose";
+searchInput.dispatchEvent(new window.Event("input", { bubbles: true }));
+await tick();
+assert.ok([...document.querySelectorAll("#searchResults .search-result")].some(button => /Provence|Tavel|Navarra/i.test(button.textContent)), "ASCII rose should find rosé style profiles");
+
 // Advanced Compare injects profile selectors and keeps still-wine comparisons color-compatible.
 window.WineAtlas.selectProfile("cabernet-sauvignon", "napa");
 await tick();
@@ -197,6 +215,23 @@ await tick();
 const fortifiedValues = [...adv2.options].map(option => option.value).filter(Boolean);
 assert.ok(fortifiedValues.includes("port-blend::douro-port-ruby"));
 assert.ok(fortifiedValues.includes("moscatel-alexandria::setubal-moscatel"));
+
+// Rosé profiles compare with rosé, regardless of the represented base grape.
+adv1.value = "provence-rose-blend::cotes-de-provence-rose";
+adv1.dispatchEvent(new window.Event("change", { bubbles: true }));
+await tick();
+const roseValues = [...adv2.options].map(option => option.value).filter(Boolean);
+assert.ok(roseValues.includes("grenache::tavel-rose"));
+assert.ok(roseValues.includes("grenache::navarra-rosado"));
+assert.equal(roseValues.some(value => value.startsWith("cabernet-sauvignon::napa")), false);
+
+// Orange/amber profiles form their own meaningful comparison family.
+adv1.value = "ribolla-gialla::collio-oslavia-orange";
+adv1.dispatchEvent(new window.Event("change", { bubbles: true }));
+await tick();
+const orangeValues = [...adv2.options].map(option => option.value).filter(Boolean);
+assert.ok(orangeValues.includes("rkatsiteli::kakheti-qvevri-amber"));
+assert.equal(orangeValues.some(value => value.startsWith("chardonnay::burgundy")), false);
 
 // Single-choice navigation still works.
 window.WineAtlas.begin("grape");

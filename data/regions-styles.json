@@ -1,0 +1,212 @@
+{
+  "cotes-de-provence-rose": {
+    "name": "Côtes de Provence Rosé",
+    "country": "France",
+    "climate": "Warm Mediterranean, maritime-influenced",
+    "summary": "The modern Provence benchmark is pale, dry and refreshing, built around delicate fruit rather than red-wine weight.",
+    "grapes": {
+      "provence-rose-blend": {
+        "mods": {"acidity": 0.5, "fruit": 0.5},
+        "style": {
+          "family": "rose",
+          "color": "rose",
+          "sweetness": "dry",
+          "label": "Rosé · Pale Mediterranean style",
+          "method": "Direct pressing or brief skin maceration, followed by cool white-wine-style fermentation",
+          "effect": "Short skin contact limits tannin and color while preserving fresh red-fruit, citrus and floral aromas."
+        },
+        "notes": {
+          "Fruit": ["strawberry", "white peach", "melon", "citrus zest"],
+          "Floral": ["rose"],
+          "Mineral / herbal": ["fresh herbs"]
+        },
+        "serve": "8–10°C",
+        "decant": "No decant",
+        "glass": "Medium white wine glass",
+        "ageing": "Drink young; best for freshness",
+        "pairings": ["ratatouille", "grilled vegetables", "goat cheese", "roast chicken"],
+        "expect": "Pale, dry and delicate, with fresh strawberry, peach and citrus carried by crisp acidity."
+      }
+    },
+    "identity": {
+      "setting": "Warm Mediterranean coast and inland hills",
+      "terrain": "Varied limestone and crystalline Provençal landscapes",
+      "soil": "Limestone, schist and crystalline soils depending on subzone",
+      "influences": ["Mediterranean sun", "Mistral and maritime airflow", "Long regional specialization in rosé"]
+    },
+    "why": [
+      {"cause": "Gentle pressing or very short skin contact", "effect": "Keeps color pale and tannin low while capturing delicate red-fruit aromas."},
+      {"cause": "Warm sun balanced by wind and coastal influence", "effect": "Supports ripe fruit while retaining the refreshing profile expected of Provence rosé."}
+    ],
+    "badges": ["Classic", "Rosé", "Old World"],
+    "sources": ["vins-provence"]
+  },
+  "tavel-rose": {
+    "name": "Tavel",
+    "country": "France",
+    "climate": "Warm Mediterranean",
+    "summary": "Tavel is a deliberately deeper and more structured Rhône rosé, built for the table rather than maximum delicacy.",
+    "grapes": {
+      "grenache": {
+        "mods": {"body": -0.5, "acidity": 0.5, "tannin": -1.0, "alcohol": -0.5, "oak": -2.0, "earth": -0.5},
+        "style": {
+          "family": "rose",
+          "color": "rose",
+          "sweetness": "dry",
+          "label": "Rosé · Fuller Rhône style",
+          "method": "Rosé vinification with more extraction and color than the palest Mediterranean styles",
+          "effect": "Greater skin-derived structure gives a fuller, more savory rosé that can handle substantial food."
+        },
+        "notes": {
+          "Fruit": ["ripe strawberry", "red cherry", "watermelon"],
+          "Spice": ["white pepper"],
+          "Mineral / herbal": ["dried herbs"]
+        },
+        "serve": "10–12°C",
+        "decant": "No decant; 10 min air for richer examples",
+        "glass": "Medium-large white wine glass",
+        "ageing": "2–5 years",
+        "pairings": ["charcuterie", "roast chicken", "grilled pork", "tomato dishes"],
+        "expect": "Deeper and fuller than pale Provence rosé, with ripe red fruit, herbs and enough structure for a meal."
+      }
+    },
+    "identity": {
+      "setting": "Warm southern Rhône",
+      "terrain": "Terraces and slopes west of the Rhône near Avignon",
+      "soil": "Limestone, sand, clay and rounded stones",
+      "influences": ["Mediterranean warmth", "Mistral wind", "Grenache-led southern Rhône blending tradition"]
+    },
+    "why": [
+      {"cause": "More extraction than very pale rosé styles", "effect": "Builds body, color and savory structure rather than aiming only for delicacy."},
+      {"cause": "Warm southern Rhône conditions", "effect": "Push ripe red-fruit character while the Mistral helps retain freshness."}
+    ],
+    "badges": ["Classic", "Rosé", "Old World"],
+    "sources": ["inter-rhone", "oxford-companion"]
+  },
+  "navarra-rosado": {
+    "name": "Navarra Rosado",
+    "country": "Spain",
+    "climate": "Continental-Mediterranean with Atlantic influence",
+    "summary": "Navarra's long rosado tradition gives Garnacha a vivid, fruit-driven expression with freshness and more color than the palest Provence model.",
+    "grapes": {
+      "grenache": {
+        "mods": {"body": -1.5, "acidity": 1.0, "tannin": -2.0, "alcohol": -1.0, "oak": -2.5, "earth": -1.0},
+        "style": {
+          "family": "rose",
+          "color": "rose",
+          "sweetness": "dry",
+          "label": "Rosado · Garnacha sangrado style",
+          "method": "Traditionally made from free-run or bled must after short contact with red-grape skins",
+          "effect": "The method preserves vivid Garnacha fruit and color while keeping tannin modest and acidity refreshing."
+        },
+        "notes": {
+          "Fruit": ["strawberry", "raspberry", "cherry"],
+          "Floral": ["rose petal"],
+          "Mineral / herbal": ["citrus peel"]
+        },
+        "serve": "8–10°C",
+        "decant": "No decant",
+        "glass": "Medium white wine glass",
+        "ageing": "1–3 years for classic young styles",
+        "pairings": ["tapas", "rice dishes", "grilled vegetables", "roast chicken"],
+        "expect": "Bright and juicy, with strawberry and cherry, refreshing acidity and a vivid pink color."
+      }
+    },
+    "identity": {
+      "setting": "Northern Spain where Atlantic, continental and Mediterranean influences meet",
+      "terrain": "Foothills, valleys and Ebro-basin vineyards",
+      "soil": "Diverse limestone, clay and alluvial soils across subzones",
+      "influences": ["Garnacha tradition", "Cooler northern sites", "Historic rosado production"]
+    },
+    "why": [
+      {"cause": "Garnacha plus traditional sangrado/free-run rosado methods", "effect": "Emphasizes juicy red fruit and vivid color without red-wine tannin."},
+      {"cause": "Navarra's mix of cooler and warmer subzones", "effect": "Helps balance generous fruit with the freshness that defines the region's rosados."}
+    ],
+    "badges": ["Classic", "Rosé", "Old World"],
+    "sources": ["navarra-do"]
+  },
+  "collio-oslavia-orange": {
+    "name": "Collio / Oslavia — Skin-contact Ribolla",
+    "country": "Italy",
+    "climate": "Moderate, Alpine-Adriatic",
+    "summary": "Long skin contact can turn Ribolla Gialla from a crisp white into an amber, textural wine with tea-like tannin and savory depth.",
+    "grapes": {
+      "ribolla-gialla": {
+        "mods": {"body": 1.0, "tannin": 2.0, "fruit": 0.5, "earth": 1.0},
+        "style": {
+          "family": "orange",
+          "color": "orange",
+          "sweetness": "dry",
+          "label": "Orange / amber · Long skin contact",
+          "method": "Extended maceration of white Ribolla Gialla on its skins, a style strongly associated with Oslavia",
+          "effect": "Skin contact adds amber color, phenolic grip and tea-like savory complexity while Ribolla's acidity keeps the wine fresh."
+        },
+        "notes": {
+          "Fruit": ["dried apricot", "quince", "orange peel"],
+          "Earth / savory": ["black tea", "dried herbs"],
+          "Mineral / herbal": ["stone"]
+        },
+        "serve": "11–14°C",
+        "decant": "20–45 min",
+        "glass": "Large white wine glass",
+        "ageing": "4–10+ years",
+        "pairings": ["aged cheese", "roast chicken", "mushrooms", "pork"],
+        "expect": "Dry and grippy, with dried citrus, apricot, tea and savory notes over firm acidity."
+      }
+    },
+    "identity": {
+      "setting": "Alpine-Adriatic hills on Italy's Slovenian border",
+      "terrain": "Steep Collio hills around Oslavia",
+      "soil": "Ponca / flysch of marl and sandstone",
+      "influences": ["Adriatic airflow", "Alpine cooling", "Local tradition of long Ribolla maceration"]
+    },
+    "why": [
+      {"cause": "Extended white-grape skin contact", "effect": "Extracts color and tannin that ordinary white-wine pressing leaves behind."},
+      {"cause": "Ribolla Gialla's naturally high acidity", "effect": "Keeps a structured, phenolic orange wine energetic rather than heavy."}
+    ],
+    "badges": ["Discovery", "Orange wine", "Old World"],
+    "sources": ["collio-consorzio"]
+  },
+  "kakheti-qvevri-amber": {
+    "name": "Kakheti — Qvevri Amber",
+    "country": "Georgia",
+    "climate": "Continental, warm and dry",
+    "summary": "Traditional Kakhetian qvevri winemaking gives Rkatsiteli an amber color, firm tannic texture and savory dried-fruit complexity.",
+    "grapes": {
+      "rkatsiteli": {
+        "mods": {"body": 1.0, "tannin": 2.0, "fruit": 0.5, "oak": -1.0, "earth": 1.0},
+        "style": {
+          "family": "orange",
+          "color": "orange",
+          "sweetness": "dry",
+          "label": "Amber / orange · Qvevri skin contact",
+          "method": "White grapes ferment and mature in buried qvevri with extended contact with skins and other grape solids",
+          "effect": "Long contact extracts amber color and tannin, creating a structured white-grape wine with tea, dried-fruit and herbal character."
+        },
+        "notes": {
+          "Fruit": ["dried apricot", "quince", "orange peel"],
+          "Earth / savory": ["black tea", "walnut", "dried herbs"],
+          "Mineral / herbal": ["stone"]
+        },
+        "serve": "12–14°C",
+        "decant": "30–60 min",
+        "glass": "Large white wine glass",
+        "ageing": "4–12 years",
+        "pairings": ["lamb", "roast chicken", "mushrooms", "aged cheese"],
+        "expect": "Amber, dry and structured, with dried fruit, tea, herbs and noticeable tannic grip from extended qvevri skin contact."
+      }
+    },
+    "identity": {
+      "setting": "Warm continental valley with Caucasus mountain influence",
+      "terrain": "Alazani valley and Caucasus foothills",
+      "soil": "Alluvial, clay and limestone-derived soils",
+      "influences": ["Caucasus mountain shelter", "Ancient qvevri fermentation tradition", "Extended skin contact for traditional amber wines"]
+    },
+    "why": [
+      {"cause": "Fermentation and ageing with skins in qvevri", "effect": "Adds tannin, amber color and savory complexity to a white grape."},
+      {"cause": "Rkatsiteli's naturally high acidity", "effect": "Provides the freshness needed to balance the wine's unusually firm texture."}
+    ],
+    "badges": ["Discovery", "Orange wine", "Old World"],
+    "sources": ["georgia-nwa", "oxford-companion"]
+  }
+}

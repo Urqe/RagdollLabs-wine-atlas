@@ -34,17 +34,31 @@ function updateSelectorColor(selectId, indicatorId) {
 
 function updateProfileColor() {
   const badge = document.getElementById("profileWineColor");
-  const grape = WineAtlas.getData().grapes[document.getElementById("grape")?.value];
   if (!badge) return;
   badge.replaceChildren();
-  if (!grape?.color) return;
 
+  const { grapes, regions } = WineAtlas.getData();
+  const grapeId = document.getElementById("grape")?.value;
+  const regionId = document.getElementById("region")?.value;
+  const grape = grapes[grapeId];
+  const regional = regions[regionId]?.grapes?.[grapeId];
+  const color = regional?.style?.color || grape?.color;
+  if (!color) return;
+
+  const labels = {
+    red: "Red",
+    white: "White",
+    rose: "Rosé",
+    orange: "Orange / amber",
+    tawny: "Tawny",
+    amber: "Amber"
+  };
   const wrapper = document.createElement("span");
   wrapper.className = "wine-color-badge";
   const dot = document.createElement("span");
-  dot.className = `wine-color-dot ${grape.color}`;
+  dot.className = `wine-color-dot ${color}`;
   dot.setAttribute("aria-hidden", "true");
-  wrapper.append(dot, document.createTextNode(grape.color === "red" ? "Red" : "White"));
+  wrapper.append(dot, document.createTextNode(labels[color] || color));
   badge.appendChild(wrapper);
 }
 
@@ -228,7 +242,8 @@ function renderFeaturedDiscoveries() {
     button.type = "button";
     const strong = document.createElement("strong");
     const dot = document.createElement("span");
-    dot.className = `wine-color-dot ${grape.color}`;
+    const regional = region.grapes[grapeId];
+    dot.className = `wine-color-dot ${regional.style?.color || grape.color}`;
     dot.setAttribute("aria-hidden", "true");
     strong.append(dot, document.createTextNode(grape.name));
     const meta = document.createElement("span");
