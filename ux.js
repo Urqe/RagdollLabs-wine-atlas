@@ -7,6 +7,9 @@
  */
 
 let uxWired = false;
+let pendingSimilarOrigin = null;
+let similarBackOrigin = null;
+let returningFromSimilar = false;
 
 function setWineColorIndicator(target, grape) {
   if (!target) return;
@@ -72,6 +75,128 @@ function showWelcome() {
   WineAtlas.clearProfileUrl();
 }
 
+function setSelectPlaceholder(selectId, text) {
+  const select = document.getElementById(selectId);
+  if (!select) return;
+  let option = [...select.options].find(item => item.dataset.uxPlaceholder === "true");
+  if (!option) {
+    option = document.createElement("option");
+    option.value = "";
+    option.disabled = true;
+    option.dataset.uxPlaceholder = "true";
+    select.prepend(option);
+  }
+  option.textContent = text;
+  select.value = "";
+}
+
+function showInvalidInitialRoute() {
+  showAppShell();
+  WineAtlas.clearProfileUrl();
+  WineAtlas.setBrowseMethod("grape");
+  setSelectPlaceholder("grape", "Choose a grape…");
+  document.getElementById("region").replaceChildren();
+  setSelectPlaceholder("region", "Choose a grape first…");
+  showEmpty(
+    "Profile not found",
+    "That grape and region combination isn't in the atlas yet. Choose another grape or region."
+  );
+  document.getElementById("grape")?.focus();
+}
+
+function currentProfileReference() {
+  const url = new URL(window.location.href);
+  const grapeId = url.searchParams.get("grape");
+  const regionId = url.searchParams.get("region");
+  const { grapes, regions } = WineAtlas.getData();
+  if (!grapes[grapeId] || !regions[regionId]?.grapes?.[grapeId]) return null;
+  return {
+    grapeId,
+    regionId,
+    label: `${grapes[grapeId].name} · ${regions[regionId].name}`
+  };
+}
+
+function renderSimilarBack() {
+  const card = document.querySelector(".similar-card");
+  if (!card) return;
+  let slot = document.getElementById("similarBack");
+  if (!slot) {
+    slot = document.createElement("div");
+    slot.id = "similarBack";
+    slot.className = "similar-back-slot";
+    const intro = card.querySelector("p.small");
+    intro?.insertAdjacentElement("afterend", slot);
+  }
+  slot.replaceChildren();
+  if (!similarBackOrigin) return;
+
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "similar-back";
+  button.textContent = `← Back to ${similarBackOrigin.label}`;
+  button.addEventListener("click", () => {
+    const origin = similarBackOrigin;
+    similarBackOrigin = null;
+    returningFromSimilar = true;
+    WineAtlas.selectProfile(origin.grapeId, origin.regionId, true);
+  });
+  slot.appendChild(button);
+}
+
+function searchResultButtons() {
+  return [...document.querySelectorAll("#searchResults .search-result")];
+}
+
+function clearSearchResults(focusInput = false) {
+  const input = document.getElementById("searchInput");
+  input.value = "";
+  document.getElementById("searchResults").replaceChildren();
+  if (focusInput) input.focus();
+}
+
+function handleSearchInputKeydown(event) {
+  const buttons = searchResultButtons();
+  if (event.key === "Escape") {
+    if (document.getElementById("searchInput").value || buttons.length) {
+      event.preventDefault();
+      clearSearchResults(false);
+    }
+    return;
+  }
+  if (!buttons.length) return;
+  if (event.key === "ArrowDown") {
+    event.preventDefault();
+    buttons[0].focus();
+  } else if (event.key === "Enter") {
+    event.preventDefault();
+    buttons[0].click();
+  }
+}
+
+function handleSearchResultsKeydown(event) {
+  const button = event.target.closest(".search-result");
+  if (!button) return;
+  const buttons = searchResultButtons();
+  const index = buttons.indexOf(button);
+  if (event.key === "Escape") {
+    event.preventDefault();
+    clearSearchResults(true);
+  } else if (event.key === "ArrowDown") {
+    event.preventDefault();
+    buttons[(index + 1) % buttons.length]?.focus();
+  } else if (event.key === "ArrowUp") {
+    event.preventDefault();
+    buttons[(index - 1 + buttons.length) % buttons.length]?.focus();
+  } else if (event.key === "Home") {
+    event.preventDefault();
+    buttons[0]?.focus();
+  } else if (event.key === "End") {
+    event.preventDefault();
+    buttons[buttons.length - 1]?.focus();
+  }
+}
+
 function renderFeaturedDiscoveries() {
   const { grapes, regions } = WineAtlas.getData();
   const picks = [
@@ -126,6 +251,16 @@ function wireUxOnce() {
   ].forEach(([selectId, indicatorId]) => {
     document.getElementById(selectId)?.addEventListener("change", () => updateSelectorColor(selectId, indicatorId));
   });
+
+  document.getElementById("searchInput")?.addEventListener("keydown", handleSearchInputKeydown);
+  document.getElementById("searchResults")?.addEventListener("keydown", handleSearchResultsKeydown);
+
+  /* Capture before app.js handles the Similar Wines button click, so we can
+     remember the profile the user came from without introducing router state. */
+  document.getElementById("similarWines")?.addEventListener("click", event => {
+    if (!event.target.closest(".similar-item")) return;
+    pendingSimilarOrigin = currentProfileReference();
+  }, true);
 }
 
 document.addEventListener("wineatlas:ready", event => {
@@ -139,18 +274,34 @@ document.addEventListener("wineatlas:ready", event => {
     showAppShell();
     showExploreResult();
   } else {
-    showWelcome();
+    const route = event.detail.initialRoute;
+    const attemptedProfile = route?.searchParams?.has("grape") || route?.searchParams?.has("region");
+    if (attemptedProfile) showInvalidInitialRoute();
+    else showWelcome();
   }
 });
 
 document.addEventListener("wineatlas:profile-selected", () => {
+  if (pendingSimilarOrigin) {
+    similarBackOrigin = pendingSimilarOrigin;
+    pendingSimilarOrigin = null;
+  } else if (returningFromSimilar) {
+    returningFromSimilar = false;
+  } else {
+    similarBackOrigin = null;
+  }
+
   showAppShell();
   showExploreResult();
+  renderSimilarBack();
   updateSelectorColor("grape", "grapeColor");
   updateSelectorColor("placeGrape", "placeGrapeColor");
 });
 
 document.addEventListener("wineatlas:selection-needed", event => {
+  similarBackOrigin = null;
+  pendingSimilarOrigin = null;
+  renderSimilarBack();
   showAppShell();
   showEmpty(event.detail.title, event.detail.text);
   if (event.detail.focus) document.getElementById(event.detail.focus)?.focus();
