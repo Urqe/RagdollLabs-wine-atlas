@@ -55,6 +55,8 @@ HTML, CSS and vanilla JavaScript only. No backend, build step, framework, analyt
 │   ├── regions-discovery-expanded.json
 │   ├── locators.json
 │   └── sources.json
+├── scripts/
+│   └── validate.py
 └── README.md
 ```
 
@@ -85,6 +87,17 @@ The code is intentionally commented around state transitions and data-derived fe
 - Locator maps project the stored longitude/latitude onto a simple local SVG world diagram.
 - Compare selectors are rebuilt whenever the grape changes; stale IDs cannot survive from the previous grape.
 - Single-region grapes remain available in Explore mode and show **“More regional expressions coming soon.”** in Compare.
+
+## Validation
+
+Run the dependency-free integrity checks locally with:
+
+```bash
+python3 scripts/validate.py
+node --check app.js
+```
+
+The validator checks JSON parsing, duplicate region IDs, grape/source references, required profile fields, metric/modifier contracts and locator coverage. `.github/workflows/validate.yml` runs the same checks in GitHub Actions when Actions are enabled for the repository.
 
 ## Running locally
 
