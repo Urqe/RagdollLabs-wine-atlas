@@ -30,9 +30,23 @@ The project originally used **RagLabs** as its working product name, while the r
 - **Shareable URLs** — `?grape=...&region=...` opens a profile directly and bypasses the landing screen
 - **Sources & methodology** — per-profile reference drawer resolved through `data/sources.json`
 
-## Discovery expansion
+## Regional expansion
 
-The atlas includes additional discovery profiles beyond the original Mexico / Bulgaria / Ukraine / Russia set, including:
+The atlas includes classic, discovery and emerging profiles across established and less-covered wine regions. Recent additions deliberately add second regional expressions for grapes that previously had only one profile, so Compare mode becomes more useful.
+
+- **Mexico / Cananea, Sonora** — Syrah, Cabernet Sauvignon
+- **United States / Lodi** — old-vine Zinfandel
+- **United States / Amador County / Sierra Foothills** — heritage Zinfandel
+- **Greece / Amyndeon** — Xinomavro
+- **Greece / Drama** — Assyrtiko
+- **France / Madiran** — Tannat
+- **Portugal / Dão** — Touriga Nacional
+- **Romania / Drăgășani** — Fetească Neagră
+- **Spain / La Palma, Canary Islands** — Listán Negro
+- **Hungary / Somló** — Furmint
+- **Georgia / Kartli** — Rkatsiteli
+
+Earlier discovery additions include:
 
 - **Georgia / Kakheti** — Saperavi, Rkatsiteli
 - **Greece / Santorini** — Assyrtiko
@@ -42,7 +56,7 @@ The atlas includes additional discovery profiles beyond the original Mexico / Bu
 - **Uruguay / Canelones** — Tannat
 - **Armenia / Vayots Dzor** — Areni Noir
 - **Romania / Dealu Mare** — Fetească Neagră
-- **Spain / Canary Islands (Tenerife)** — Listán Negro
+- **Spain / Tenerife, Canary Islands** — Listán Negro
 
 ## Tech
 
@@ -136,13 +150,9 @@ Soil and landscape language is intentionally cautious: the atlas can describe dr
 - `Indigenous grape` is rendered from grape metadata, not inherited blindly from a multi-grape region.
 - `locators.json` contains approximate latitude/longitude points for educational locator diagrams, not GIS-grade boundaries.
 
-### Locator map source and political labeling
+### Locator map source
 
-`assets/world-map.svg` is a simplified physical landmass derived from the public-domain **Natural Earth** low-resolution dataset. The base artwork deliberately shows landmasses without political borders; this keeps the locator focused on geography while region/country naming remains controlled by Wine Atlas metadata.
-
-For politically sensitive territories, Wine Atlas follows the official position of the **Finnish Government** rather than de facto control. In particular, **Crimea and Sevastopol are treated as part of Ukraine**, so any future wine profile located there must use `"country": "Ukraine"`, not Russia. The validator contains an explicit guard for these labels so the rule cannot be changed accidentally by a future data addition.
-
-Reference: https://valtioneuvosto.fi/en/ukraine
+`assets/world-map.svg` is a simplified physical landmass derived from the public-domain **Natural Earth** low-resolution dataset. The base artwork deliberately shows landmasses without political borders; region and country naming comes from the Wine Atlas data.
 
 ### Cache behavior
 
@@ -159,7 +169,7 @@ node --check compare-country.js
 node --check ux.js
 ```
 
-The validator checks JSON parsing, duplicate region IDs, grape/source references, required profile fields, metric/modifier contracts, locator coverage, explicit Why-rule references and the documented geopolitical-labeling guard. `.github/workflows/validate.yml` runs the same checks in GitHub Actions.
+The validator checks JSON parsing, duplicate region IDs, grape/source references, required profile fields, metric/modifier contracts, locator coverage and explicit Why-rule references. `.github/workflows/validate.yml` runs the same checks in GitHub Actions.
 
 ## Running locally
 
