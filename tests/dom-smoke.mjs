@@ -44,6 +44,11 @@ assert.equal(window.WineAtlas.ready, true, "core app should initialize");
 const tick = (ms = 35) => new Promise(resolve => setTimeout(resolve, ms));
 await tick();
 
+// Optional modules must consume the canonical profile engine through this public API.
+assert.equal(typeof window.WineAtlas.combinedProfile, "function");
+assert.equal(typeof window.WineAtlas.allPairs, "function");
+assert.ok(window.WineAtlas.allPairs().length > 0);
+
 assert.equal(document.querySelectorAll(".brand-ragdoll").length, 2);
 assert.equal(document.querySelectorAll(".brand-labs").length, 2);
 assert.equal(document.querySelector(".kicker").textContent.toLowerCase(), "ragdolllabs reference tools");
@@ -82,12 +87,18 @@ window.WineAtlas.selectProfile("port-blend", "douro-port-tawny");
 await tick();
 assert.match(document.getElementById("pair").textContent, /crème brûlée/i);
 
+// Food aliases are external validated data and remain keyboard-friendly.
 const foodInput = document.getElementById("foodInput");
 foodInput.value = "chocolate";
 foodInput.dispatchEvent(new window.Event("input", { bubbles: true }));
+await tick();
 assert.ok(document.querySelectorAll("#foodResults .food-result").length > 0);
+foodInput.value = "bbq";
+foodInput.dispatchEvent(new window.Event("input", { bubbles: true }));
+await tick();
+assert.ok(document.querySelectorAll("#foodResults .food-result").length > 0, "data-driven bbq alias should resolve to pairing results");
 
-// Main Atlas search is accent-insensitive and now includes pairings/style metadata.
+// Main Atlas search is accent-insensitive and includes pairings/style metadata.
 const searchInput = document.getElementById("searchInput");
 searchInput.value = "creme brulee";
 searchInput.dispatchEvent(new window.Event("input", { bubbles: true }));
@@ -103,7 +114,8 @@ window.WineAtlas.setMode("compare");
 await tick();
 const adv1 = document.getElementById("advancedCompare1");
 const adv2 = document.getElementById("advancedCompare2");
-assert.ok(adv1 && adv2, "advanced compare controls should exist");
+const adv3 = document.getElementById("advancedCompare3");
+assert.ok(adv1 && adv2 && adv3, "advanced compare controls should exist");
 assert.match(adv1.value, /^cabernet-sauvignon::napa$/);
 const redOptionValues = [...adv2.options].map(option => option.value).filter(Boolean);
 assert.ok(redOptionValues.some(value => value.startsWith("syrah::")), "red still comparison should allow another red grape");
@@ -113,6 +125,27 @@ adv2.dispatchEvent(new window.Event("change", { bubbles: true }));
 await tick();
 assert.ok(document.querySelectorAll("#advancedCompareGrid .advanced-compare-card").length >= 2);
 assert.match(document.getElementById("advancedCompareDifferences").textContent, /Biggest differences/);
+
+// Compare bars must use the exact same computed numbers as the Explore profile engine.
+const napa = window.WineAtlas.combinedProfile("cabernet-sauvignon", "napa");
+const compareScores = [...document.querySelectorAll("#advancedCompareGrid .advanced-compare-card:first-child .score")]
+  .map(node => Number(node.textContent.trim().split(/\s+/).at(-1)));
+const expectedScores = ["body", "acidity", "tannin", "sweetness", "alcohol", "fruit", "oak", "earth"]
+  .map(key => napa.profile[key]);
+assert.deepEqual(compareScores, expectedScores, "Advanced Compare must display canonical core profile metrics");
+
+// Removing the anchor wine promotes the next selection instead of erasing the comparison.
+const thirdRed = [...adv3.options].map(option => option.value).find(value => value && value !== adv1.value && value !== adv2.value);
+assert.ok(thirdRed, "a third compatible red profile should be available");
+adv3.value = thirdRed;
+adv3.dispatchEvent(new window.Event("change", { bubbles: true }));
+await tick();
+const oldSecond = adv2.value;
+const oldThird = adv3.value;
+document.querySelector('#advancedCompareGrid .advanced-remove[data-slot="1"]').click();
+await tick();
+assert.equal(adv1.value, oldSecond, "slot 2 should be promoted when slot 1 is removed");
+assert.equal(adv2.value, oldThird, "slot 3 should move into slot 2 when the anchor is removed");
 
 // Sparkling uses family compatibility rather than enforcing grape color.
 adv1.value = "chardonnay::champagne-blanc-de-blancs";
