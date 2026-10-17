@@ -3,9 +3,9 @@
 
 The validator intentionally tests data contracts rather than tasting opinions:
 JSON parsing, duplicate IDs, grape/source references, locator coverage, explicit
-Why metadata, winemaking metadata, maturity metadata, glossary metadata and
-required profile fields. Keeping this dependency-free lets reviewers run it
-locally and keeps CI lightweight.
+Why metadata, winemaking metadata, maturity metadata, glossary metadata, special
+wine-style metadata and required profile fields. Keeping this dependency-free
+lets reviewers run it locally and keeps CI lightweight.
 """
 
 from __future__ import annotations
@@ -25,6 +25,8 @@ REQUIRED_PROFILE_FIELDS = {"notes", "serve", "decant", "glass", "ageing", "pairi
 METRICS = {"body", "acidity", "tannin", "sweetness", "alcohol", "fruit", "oak", "earth"}
 WINEMAKING_PREVALENCE = {"very common", "common", "sometimes", "rare"}
 MATURITY_STAGES = ["Young", "Developing", "Mature"]
+STYLE_FAMILIES = {"sparkling", "sweet", "fortified"}
+STYLE_SWEETNESS = {"dry", "dry-to-off-dry", "off-dry", "sweet"}
 
 SENSITIVE_LABEL_RULES = {
     "crimea": "Ukraine",
@@ -59,10 +61,13 @@ def main() -> None:
     for grape_id, grape in grapes.items():
         assert grape.get("color") in {"red", "white"}, f"{grape_id}: missing/invalid color"
         assert isinstance(grape.get("indigenous"), bool), f"{grape_id}: indigenous must be boolean"
+        if "kind" in grape:
+            assert grape["kind"] in {"grape", "blend"}, f"{grape_id}: invalid kind"
         for metric in METRICS:
             value = grape.get(metric)
             assert isinstance(value, (int, float)) and 0 <= value <= 5, f"{grape_id}: invalid {metric}"
 
+    special_style_count = 0
     for region_id, region in regions.items():
         assert region_id in locators, f"{region_id}: missing locator"
         assert region.get("name") and region.get("country") and region.get("climate"), f"{region_id}: incomplete identity"
@@ -76,12 +81,21 @@ def main() -> None:
         for source_id in region.get("sources", []):
             assert source_id in sources, f"{region_id}: unknown source {source_id}"
         for grape_id, profile in region["grapes"].items():
+            prefix = f"{region_id}/{grape_id}"
             assert grape_id in grapes, f"{region_id}: unknown grape {grape_id}"
             missing = REQUIRED_PROFILE_FIELDS - profile.keys()
-            assert not missing, f"{region_id}/{grape_id}: missing {sorted(missing)}"
+            assert not missing, f"{prefix}: missing {sorted(missing)}"
             for metric, modifier in profile.get("mods", {}).items():
-                assert metric in METRICS, f"{region_id}/{grape_id}: unknown modifier {metric}"
-                assert isinstance(modifier, (int, float)), f"{region_id}/{grape_id}: non-numeric modifier {metric}"
+                assert metric in METRICS, f"{prefix}: unknown modifier {metric}"
+                assert isinstance(modifier, (int, float)), f"{prefix}: non-numeric modifier {metric}"
+            if "style" in profile:
+                special_style_count += 1
+                style = profile["style"]
+                assert isinstance(style, dict), f"{prefix}: style must be an object"
+                assert style.get("family") in STYLE_FAMILIES, f"{prefix}: invalid style family"
+                assert style.get("sweetness") in STYLE_SWEETNESS, f"{prefix}: invalid style sweetness"
+                for field in ("color", "label", "method", "effect"):
+                    assert isinstance(style.get(field), str) and style[field].strip(), f"{prefix}: invalid style {field}"
 
     for region_id, rules in why_rules.items():
         assert region_id in regions, f"why-rules: unknown region {region_id}"
@@ -170,8 +184,9 @@ def main() -> None:
     winemaking_count = sum(len(entry["choices"]) for grapes_ in winemaking.values() for entry in grapes_.values())
     maturity_count = sum(len(grapes_) for grapes_ in maturity.values())
     print(
-        f"OK: {len(grapes)} grapes, {len(regions)} regions, {profile_count} grape-region profiles, "
-        f"{winemaking_count} winemaking choices, {maturity_count} maturity profiles, {len(glossary)} glossary terms"
+        f"OK: {len(grapes)} grapes/bases, {len(regions)} regions, {profile_count} profiles, "
+        f"{special_style_count} beyond-still styles, {winemaking_count} winemaking choices, "
+        f"{maturity_count} maturity profiles, {len(glossary)} glossary terms"
     )
 
 
