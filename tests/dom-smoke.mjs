@@ -34,7 +34,7 @@ const ready = new Promise((resolve, reject) => {
 });
 
 for (const file of [
-  "app.js", "compare-country.js", "ux.js", "functional.js", "search-enhance.js",
+  "app.js", "compare-country.js", "ux.js", "food-discovery.js", "functional.js", "search-enhance.js",
   "advanced-compare.js", "compare-discovery.js", "maturity.js", "learning.js",
   "smart-discovery.js", "home-brand.js"
 ]) {

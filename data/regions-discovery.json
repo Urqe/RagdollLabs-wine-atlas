@@ -128,7 +128,7 @@
           "pork",
           "creamy dishes",
           "soft cheese"
-        ],
+        , "Tacos de cochinita pibil"],
         "expect": "Richer and broader than Loire Chenin, with ripe orchard fruit and softer acidity."
       }
     },

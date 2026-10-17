@@ -267,3 +267,28 @@ Settings → Pages → Deploy from branch → main → / (root)
 ## Disclaimer
 
 > Wine profiles describe typical regional and varietal characteristics. Individual wines may differ substantially by vintage, producer, vineyard and winemaking. Terroir descriptions summarize growing conditions and common regional associations; they should not be read as claims that soil minerals or nearby plants directly transfer specific flavors into wine.
+
+
+### Landing scene and modern food discovery (October 2026)
+
+The vineyard background contains the ragdoll as inline vector geometry before the
+foreground glassware. Do not replace it with an external SVG `<image>` dependency:
+CSS background SVGs cannot load that dependency. Mobile reserves an illustration
+strip below the copy, keeping the mascot visible without sacrificing legibility.
+
+`food-discovery.js` owns normalization, one cached vocabulary load, canonical alias
+resolution and pairing scores for Explore, Compare and the legacy food helper.
+Aliases are search-only; canonical labels live in regional `pairings` arrays.
+Known dish aliases resolve only to their explicit targets, never to arbitrary
+protein substrings. Generic `ramen` and `tacos` searches span preparation variants;
+specific queries remain distinct. Regional profiles cover different bottles:
+off-dry recommendations require checking the actual bottle's sweetness.
+
+`data/food-dishes.json` records preparation guidance, references and editorial basis
+for 14 dishes/variants. Profile selections are editorial style matches informed by
+those references, not claims that a reference recommends every regional profile.
+Guidance appears with a reference in both search workspaces. Optional vocabulary
+or guidance failures preserve direct pairing search. Validation checks references,
+canonical targets and self-contained artwork; DOM tests cover alias equivalence,
+dish coverage and preparation boundaries. Browser visual checks are still needed
+when changing the background composition or responsive CSS.

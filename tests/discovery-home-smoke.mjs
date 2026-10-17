@@ -34,7 +34,7 @@ const ready = new Promise((resolve, reject) => {
 });
 
 for (const file of [
-  "app.js", "compare-country.js", "ux.js", "functional.js", "search-enhance.js",
+  "app.js", "compare-country.js", "ux.js", "food-discovery.js", "functional.js", "search-enhance.js",
   "advanced-compare.js", "compare-discovery.js", "maturity.js", "learning.js",
   "smart-discovery.js", "home-brand.js"
 ]) {
@@ -49,6 +49,32 @@ await tick();
 assert.ok(document.querySelector(".welcome-ragdoll-link"), "landing page should keep the ragdoll as a clickable home affordance");
 assert.equal(document.querySelector(".welcome-ragdoll-link img"), null, "landing cat should be layered into the vineyard artwork rather than covering the glassware");
 assert.ok(document.querySelectorAll("[data-home-return]").length >= 4, "cat, title and brand should be home affordances");
+
+// Shared food vocabulary: equivalent aliases produce the same candidates in both workspaces.
+await window.FoodDiscovery.load();
+const identity = rows => rows.map(({item}) => `${item.grapeId}::${item.regionId}`);
+for (const [alias, canonical] of [["hamburger", "burger"], ["BBQ", "barbecue"], ["Döner", "doner"], ["phở", "pho"], ["taco al pastor", "tacos al pastor"]]) {
+  assert.deepEqual(identity(await window.rankCompareMatches(alias)), identity(await window.rankCompareMatches(canonical)), `${alias} and ${canonical} should resolve equally`);
+  const profiles = window.WineAtlas.allPairs();
+  assert.deepEqual(profiles.map(p => window.atlasPairingScore(p.regional.pairings, alias)), profiles.map(p => window.atlasPairingScore(p.regional.pairings, canonical)));
+}
+for (const query of ["doner kebab", "carne asada", "tacos al pastor", "cochinita pibil", "sushi", "spicy sushi", "pho", "ramen", "shoyu ramen", "tonkotsu", "miso ramen", "falafel", "hummus", "summer rolls", "banh xeo"]) {
+  const matches = await window.rankCompareMatches(query);
+  assert.ok(matches.some(row => row.pairingMatch), `${query} must find curated pairings`);
+}
+assert.equal(window.atlasPairingScore(["pork"], "tacos al pastor"), 0, "a specific dish must not resolve to every pork pairing");
+assert.equal(window.atlasPairingScore(["Sushi and nigiri"], "spicy sushi"), 0, "spicy sushi must not collapse into delicate nigiri");
+assert.equal(window.atlasPairingScore(["Shoyu ramen"], "tonkotsu"), 0, "ramen broth variants must remain distinct");
+const exploreInput = document.getElementById("searchInput");
+exploreInput.value = "hamburger";
+await window.renderEnhancedAtlasSearch();
+assert.ok(document.querySelectorAll("#searchResults button").length > 0);
+assert.ok(!document.getElementById("searchResults").textContent.includes("pairs with hamburger"), "aliases must not duplicate display labels");
+exploreInput.value = "cochinita pibil";
+await window.renderEnhancedAtlasSearch();
+assert.ok(document.querySelector("#searchResults .food-guidance a[href^='https://']"), "curated guidance must carry its reference");
+exploreInput.value = "";
+await window.renderEnhancedAtlasSearch();
 
 // Smart Discovery should expose distinct reasons rather than three anonymous nearest neighbours.
 assert.equal(window.WineAtlas.selectProfile("cabernet-sauvignon", "napa"), true);

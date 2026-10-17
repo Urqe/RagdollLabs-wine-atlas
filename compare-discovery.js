@@ -10,17 +10,9 @@
  * copying the family/color compatibility rules into a second module.
  */
 
-let compareFoodAliasesPromise = null;
 let compareDiscoveryMatches = [];
 
-function compareNormalize(value) {
-  return String(value || "")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .trim()
-    .replace(/\s+/g, " ");
-}
+function compareNormalize(value) { return FoodDiscovery.normalize(value); }
 
 function compareFlattenNotes(notes) {
   return Object.values(notes || {}).flat().join(" ");
@@ -69,18 +61,6 @@ function compareSetProfiles(profiles) {
   }
 }
 
-async function compareFoodAliases() {
-  if (!compareFoodAliasesPromise) {
-    compareFoodAliasesPromise = fetch("./data/food-aliases.json")
-      .then(response => response.ok ? response.json() : {})
-      .catch(error => {
-        console.warn("Compare food aliases unavailable; direct pairing search still works.", error);
-        return {};
-      });
-  }
-  return compareFoodAliasesPromise;
-}
-
 function compareHaystack(item) {
   const style = item.regional.style || {};
   return compareNormalize([
@@ -110,8 +90,7 @@ function compareProfileLabel(item) {
 async function rankCompareMatches(rawQuery) {
   const query = compareNormalize(rawQuery);
   if (query.length < 2) return [];
-  const aliases = await compareFoodAliases();
-  const aliasTargets = (aliases[query] || []).map(compareNormalize);
+  await FoodDiscovery.load();
   const terms = query.split(/\s+/).filter(Boolean);
 
   return WineAtlas.allPairs().map(item => {
@@ -125,20 +104,16 @@ async function rankCompareMatches(rawQuery) {
       item.regional.style?.label,
       item.regional.style?.method
     ].filter(Boolean).join(" "));
-    const pairings = (item.regional.pairings || []).map(compareNormalize);
-    const directPairing = pairings.some(pairing => pairing.includes(query));
-    const aliasPairing = aliasTargets.some(target => pairings.some(pairing => pairing.includes(target)));
+    const pairingScore = FoodDiscovery.score(item.regional.pairings, query);
     const termMatch = terms.every(term => haystack.includes(term));
-    const matched = directPairing || aliasPairing || termMatch;
-    let score = 0;
-    if (directPairing) score += 14;
-    if (aliasPairing) score += 12;
+    const matched = pairingScore > 0 || termMatch;
+    let score = pairingScore;
     if (grape.includes(query)) score += 10;
     if (region.includes(query)) score += 9;
     if (style.includes(query)) score += 8;
     if (country.includes(query)) score += 6;
-    score += terms.filter(term => haystack.includes(term)).length;
-    return { item, matched, score, pairingMatch: directPairing || aliasPairing };
+    if (!FoodDiscovery.known(query)) score += terms.filter(term => haystack.includes(term)).length;
+    return { item, matched, score, pairingMatch: pairingScore > 0 };
   }).filter(result => result.matched)
     .sort((a, b) => b.score - a.score || a.item.region.name.localeCompare(b.item.region.name))
     .slice(0, 12);
@@ -164,6 +139,8 @@ function compareRenderResults() {
     topButton.classList.add("hidden");
     return;
   }
+
+  FoodDiscovery.appendGuidance(container, document.getElementById("compareDiscoveryInput")?.value);
 
   for (const result of compareDiscoveryMatches) {
     const { item, pairingMatch } = result;
@@ -204,7 +181,9 @@ async function compareRunDiscovery() {
     document.getElementById("compareTopMatches")?.classList.add("hidden");
     return;
   }
-  compareDiscoveryMatches = await rankCompareMatches(query);
+  const matches = await rankCompareMatches(query);
+  if (input.value.trim() !== query) return;
+  compareDiscoveryMatches = matches;
   compareRenderResults();
   if (!compareDiscoveryMatches.length) {
     const empty = document.createElement("div");

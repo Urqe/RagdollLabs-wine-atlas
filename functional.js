@@ -10,60 +10,12 @@
  * and the error is logged. Core browsing remains usable; reload is the retry.
  */
 
-let foodAliasesPromise = null;
-let foodAliases = {};
 let winemakingPromise = null;
 let lastProfile = null;
-
-function normalizeFood(value) {
-  return String(value || "")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .trim()
-    .toLowerCase()
-    .replace(/\s+/g, " ");
-}
-
-function loadFoodAliases() {
-  if (!foodAliasesPromise) {
-    foodAliasesPromise = fetch("./data/food-aliases.json")
-      .then(response => {
-        if (!response.ok) throw new Error("Food alias data could not be loaded.");
-        return response.json();
-      })
-      .then(data => {
-        foodAliases = data;
-        return data;
-      })
-      .catch(error => {
-        console.error(error);
-        foodAliases = {};
-        return {};
-      });
-  }
-  return foodAliasesPromise;
-}
-
-function expandedFoodTerms(query) {
-  const normalized = normalizeFood(query);
-  const direct = foodAliases[normalized] || [];
-  return [...new Set([normalized, ...direct.map(normalizeFood)].filter(Boolean))];
-}
-
-function foodScore(pairings, query) {
-  const terms = expandedFoodTerms(query);
-  if (!terms.length) return 0;
-  const normalizedPairings = (pairings || []).map(item => ({ raw: item, normalized: normalizeFood(item) }));
-  let best = 0;
-  for (const pairing of normalizedPairings) {
-    for (const term of terms) {
-      if (pairing.normalized === term) best = Math.max(best, 100);
-      else if (pairing.normalized.includes(term) || term.includes(pairing.normalized)) best = Math.max(best, 75);
-      else if (pairing.normalized.split(/\W+/).some(word => word === term)) best = Math.max(best, 60);
-    }
-  }
-  return best;
-}
+function normalizeFood(value) { return FoodDiscovery.normalize(value); }
+function loadFoodAliases() { return FoodDiscovery.load(); }
+function expandedFoodTerms(query) { return FoodDiscovery.terms(query); }
+function foodScore(pairings, query) { return FoodDiscovery.score(pairings, query); }
 
 function allProfiles() {
   return WineAtlas.allPairs();

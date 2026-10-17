@@ -1,29 +1,326 @@
 {
-  "steak": ["steak", "beef"],
-  "beef": ["beef", "steak", "short ribs", "burgers"],
-  "burger": ["burgers", "beef"],
-  "burgers": ["burgers", "beef"],
-  "lamb": ["lamb"],
-  "pork": ["pork"],
-  "duck": ["duck"],
-  "chicken": ["roast chicken", "lemon chicken"],
-  "mushroom": ["mushrooms", "truffle dishes"],
-  "mushrooms": ["mushrooms", "truffle dishes"],
-  "cheese": ["hard cheese", "aged cheese", "soft cheese", "goat cheese", "aged Manchego", "blue cheese", "Azeitão cheese"],
-  "barbecue": ["barbecue", "grilled meats", "beef"],
-  "bbq": ["barbecue", "grilled meats", "beef"],
-  "fish": ["salmon", "shellfish", "rich fish"],
-  "salmon": ["salmon"],
-  "vegetables": ["grilled vegetables", "salads"],
-  "dessert": ["crème brûlée", "chocolate mousse", "cheesecake", "almond tart", "apricot tart", "fruit tart", "walnut cake", "pavlova", "lemon tart", "almond pastries"],
-  "chocolate": ["dark chocolate", "chocolate dessert", "chocolate mousse"],
-  "cheesecake": ["cheesecake"],
-  "caramel": ["crème brûlée"],
-  "almond": ["almond tart", "almond pastries"],
-  "nuts": ["walnut cake", "walnut ice cream", "dried fruit", "almond tart"],
-  "blue cheese": ["blue cheese"],
-  "creme brulee": ["crème brûlée"],
-  "crème brûlée": ["crème brûlée"],
-  "coffee": ["coffee dessert"],
-  "pavlova": ["pavlova"]
+  "steak": [
+    "steak",
+    "beef"
+  ],
+  "beef": [
+    "beef",
+    "steak",
+    "short ribs",
+    "burgers"
+  ],
+  "burger": [
+    "burgers"
+  ],
+  "burgers": [
+    "burgers"
+  ],
+  "lamb": [
+    "lamb"
+  ],
+  "pork": [
+    "pork"
+  ],
+  "duck": [
+    "duck"
+  ],
+  "chicken": [
+    "roast chicken",
+    "lemon chicken"
+  ],
+  "mushroom": [
+    "mushrooms",
+    "truffle dishes"
+  ],
+  "mushrooms": [
+    "mushrooms",
+    "truffle dishes"
+  ],
+  "cheese": [
+    "hard cheese",
+    "aged cheese",
+    "soft cheese",
+    "goat cheese",
+    "aged Manchego",
+    "blue cheese",
+    "Azeitão cheese"
+  ],
+  "barbecue": [
+    "barbecue",
+    "grilled meats"
+  ],
+  "bbq": [
+    "barbecue",
+    "grilled meats"
+  ],
+  "fish": [
+    "salmon",
+    "shellfish",
+    "rich fish"
+  ],
+  "salmon": [
+    "salmon"
+  ],
+  "vegetables": [
+    "grilled vegetables",
+    "salads"
+  ],
+  "dessert": [
+    "crème brûlée",
+    "chocolate mousse",
+    "cheesecake",
+    "almond tart",
+    "apricot tart",
+    "fruit tart",
+    "walnut cake",
+    "pavlova",
+    "lemon tart",
+    "almond pastries"
+  ],
+  "chocolate": [
+    "dark chocolate",
+    "chocolate dessert",
+    "chocolate mousse"
+  ],
+  "cheesecake": [
+    "cheesecake"
+  ],
+  "caramel": [
+    "crème brûlée"
+  ],
+  "almond": [
+    "almond tart",
+    "almond pastries"
+  ],
+  "nuts": [
+    "walnut cake",
+    "walnut ice cream",
+    "dried fruit",
+    "almond tart"
+  ],
+  "blue cheese": [
+    "blue cheese"
+  ],
+  "creme brulee": [
+    "crème brûlée"
+  ],
+  "crème brûlée": [
+    "crème brûlée"
+  ],
+  "coffee": [
+    "coffee dessert"
+  ],
+  "pavlova": [
+    "pavlova"
+  ],
+  "hamburger": [
+    "burgers"
+  ],
+  "hamburgers": [
+    "burgers"
+  ],
+  "hampurilainen": [
+    "burgers"
+  ],
+  "hampurilaiset": [
+    "burgers"
+  ],
+  "barbeque": [
+    "barbecue",
+    "grilled meats"
+  ],
+  "barbeque food": [
+    "barbecue",
+    "grilled meats"
+  ],
+  "grilliruoka": [
+    "barbecue",
+    "grilled meats"
+  ],
+  "doner": [
+    "Döner kebab"
+  ],
+  "doner kebab": [
+    "Döner kebab"
+  ],
+  "doner kebabs": [
+    "Döner kebab"
+  ],
+  "döner": [
+    "Döner kebab"
+  ],
+  "kebab": [
+    "Döner kebab"
+  ],
+  "kebabs": [
+    "Döner kebab"
+  ],
+  "kebap": [
+    "Döner kebab"
+  ],
+  "kebab rulla": [
+    "Döner kebab"
+  ],
+  "carne asada": [
+    "Carne asada"
+  ],
+  "tacos de carne asada": [
+    "Carne asada"
+  ],
+  "asada tacos": [
+    "Carne asada"
+  ],
+  "al pastor": [
+    "Tacos al pastor"
+  ],
+  "taco al pastor": [
+    "Tacos al pastor"
+  ],
+  "tacos al pastor": [
+    "Tacos al pastor"
+  ],
+  "pastor tacos": [
+    "Tacos al pastor"
+  ],
+  "cochinita": [
+    "Tacos de cochinita pibil"
+  ],
+  "cochinita pibil": [
+    "Tacos de cochinita pibil"
+  ],
+  "tacos de cochinita pibil": [
+    "Tacos de cochinita pibil"
+  ],
+  "tacos cochinita pibil": [
+    "Tacos de cochinita pibil"
+  ],
+  "taco de cochinita pibil": [
+    "Tacos de cochinita pibil"
+  ],
+  "sushi": [
+    "Sushi and nigiri"
+  ],
+  "nigiri": [
+    "Sushi and nigiri"
+  ],
+  "sashimi": [
+    "Sushi and nigiri"
+  ],
+  "sushit": [
+    "Sushi and nigiri"
+  ],
+  "spicy sushi": [
+    "Spicy sushi rolls"
+  ],
+  "spicy tuna roll": [
+    "Spicy sushi rolls"
+  ],
+  "spicy tuna rolls": [
+    "Spicy sushi rolls"
+  ],
+  "spicy salmon roll": [
+    "Spicy sushi rolls"
+  ],
+  "spicy salmon rolls": [
+    "Spicy sushi rolls"
+  ],
+  "pho": [
+    "Phở bò"
+  ],
+  "phở": [
+    "Phở bò"
+  ],
+  "pho bo": [
+    "Phở bò"
+  ],
+  "beef pho": [
+    "Phở bò"
+  ],
+  "vietnamese noodle soup": [
+    "Phở bò"
+  ],
+  "ramen": [
+    "Shoyu ramen",
+    "Tonkotsu ramen",
+    "Miso ramen"
+  ],
+  "shoyu ramen": [
+    "Shoyu ramen"
+  ],
+  "soy sauce ramen": [
+    "Shoyu ramen"
+  ],
+  "tonkotsu": [
+    "Tonkotsu ramen"
+  ],
+  "tonkotsu ramen": [
+    "Tonkotsu ramen"
+  ],
+  "pork bone ramen": [
+    "Tonkotsu ramen"
+  ],
+  "miso ramen": [
+    "Miso ramen"
+  ],
+  "miso noodle soup": [
+    "Miso ramen"
+  ],
+  "falafel": [
+    "Falafel"
+  ],
+  "falafels": [
+    "Falafel"
+  ],
+  "hummus": [
+    "Hummus"
+  ],
+  "houmous": [
+    "Hummus"
+  ],
+  "humus": [
+    "Hummus"
+  ],
+  "summer rolls": [
+    "Vietnamese summer rolls"
+  ],
+  "summer roll": [
+    "Vietnamese summer rolls"
+  ],
+  "fresh spring rolls": [
+    "Vietnamese summer rolls"
+  ],
+  "goi cuon": [
+    "Vietnamese summer rolls"
+  ],
+  "gỏi cuốn": [
+    "Vietnamese summer rolls"
+  ],
+  "kesärullat": [
+    "Vietnamese summer rolls"
+  ],
+  "kesarullat": [
+    "Vietnamese summer rolls"
+  ],
+  "banh xeo": [
+    "Bánh xèo"
+  ],
+  "bánh xèo": [
+    "Bánh xèo"
+  ],
+  "vietnamese pancake": [
+    "Bánh xèo"
+  ],
+  "vietnamese pancakes": [
+    "Bánh xèo"
+  ],
+  "tacos": [
+    "Carne asada",
+    "Tacos al pastor",
+    "Tacos de cochinita pibil"
+  ],
+  "taco": [
+    "Carne asada",
+    "Tacos al pastor",
+    "Tacos de cochinita pibil"
+  ]
 }

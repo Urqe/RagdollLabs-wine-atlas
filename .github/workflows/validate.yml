@@ -24,6 +24,7 @@ jobs:
           node --check app.js
           node --check compare-country.js
           node --check ux.js
+          node --check food-discovery.js
           node --check functional.js
           node --check search-enhance.js
           node --check advanced-compare.js
