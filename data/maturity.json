@@ -1,0 +1,98 @@
+{
+  "barolo": {
+    "nebbiolo": {
+      "summary": "Nebbiolo often changes dramatically with bottle age: primary cherry and rose recede while savory, earthy and dried-fruit notes emerge and the tannin feels less angular.",
+      "stages": [
+        {"label": "Young", "effect": "Rose, sour cherry and high-toned red fruit sit over formidable tannin and bright acidity; tar and herbal notes can already be present."},
+        {"label": "Developing", "effect": "Tannin begins to knit together as dried cherry, leather, tobacco and truffle become more prominent."},
+        {"label": "Mature", "effect": "Fruit shifts toward dried and preserved tones, with tar, forest-floor, leather and spice taking a larger role; structure is usually more integrated."}
+      ],
+      "vintage": "Warmer vintages can show riper fruit and earlier approachability, while cooler vintages often emphasize acidity, perfume and a slower evolution. Producer and vineyard remain major variables.",
+      "sources": ["barolo-barbaresco", "oxford-companion"]
+    }
+  },
+  "bordeaux": {
+    "cabernet-sauvignon": {
+      "summary": "Cabernet-led Bordeaux commonly moves from cassis, cedar and firm structure toward tobacco, leather, dried fruit and more integrated tannin with age.",
+      "stages": [
+        {"label": "Young", "effect": "Blackcurrant, plum, cedar and graphite dominate; tannin and acidity can feel strict."},
+        {"label": "Developing", "effect": "Fruit becomes less primary as tobacco, cedar, dried herbs and leather build complexity and the structure starts to soften."},
+        {"label": "Mature", "effect": "Dried black fruit, cigar box, earth, leather and savory notes can dominate, with tannin more resolved and texture more supple."}
+      ],
+      "vintage": "Riper years can emphasize plush fruit and earlier accessibility; cooler or more classic years may feel firmer and develop more gradually.",
+      "sources": ["civb", "world-atlas-of-wine"]
+    }
+  },
+  "rioja": {
+    "tempranillo": {
+      "summary": "Bottle age pushes Rioja from red fruit and visible oak toward dried cherry, leather, tobacco, coconut and savory complexity, especially in Reserva and Gran Reserva styles.",
+      "stages": [
+        {"label": "Young", "effect": "Cherry and plum are prominent, with vanilla, cedar or coconut from oak and relatively fresh tannin."},
+        {"label": "Developing", "effect": "Dried red fruit, leather, tobacco and sweet spice become more obvious as oak and fruit integrate."},
+        {"label": "Mature", "effect": "Dried cherry, leather, tobacco, balsamic and earthy notes can dominate, with a softer, more harmonious texture."}
+      ],
+      "vintage": "Warm years tend to show fuller, riper fruit, while cooler years can preserve more freshness and savory detail. Ageing category and producer style matter as much as vintage.",
+      "sources": ["rioja", "oxford-companion"]
+    }
+  },
+  "napa": {
+    "cabernet-sauvignon": {
+      "summary": "Napa Cabernet usually begins with saturated black fruit and oak, then develops dried fruit, cedar, tobacco and cocoa as tannin softens and the wine becomes more savory.",
+      "stages": [
+        {"label": "Young", "effect": "Blackberry, cassis, plum, vanilla and cedar dominate over substantial tannin and body."},
+        {"label": "Developing", "effect": "Black fruit starts to feel less primary while cedar, cocoa, tobacco and dried-herb notes gain ground."},
+        {"label": "Mature", "effect": "Dried black fruit, cedar, tobacco, leather and savory spice can replace much of the youthful fruit intensity; tannin is typically more rounded."}
+      ],
+      "vintage": "Hotter years often show greater ripeness and softer early structure; cooler years can retain more acidity and herbal detail and may need more time to integrate.",
+      "sources": ["napa-vintners", "oxford-companion"]
+    }
+  },
+  "burgundy": {
+    "pinot-noir": {
+      "summary": "Ageing Burgundy Pinot Noir can move from red berries and floral lift toward dried cherry, mushroom, forest floor, spice and game while remaining relatively light in body.",
+      "stages": [
+        {"label": "Young", "effect": "Red cherry, cranberry and violet lead, with bright acidity and relatively fine but noticeable tannin."},
+        {"label": "Developing", "effect": "Fruit turns more savory and less fresh as mushroom, spice and forest-floor notes emerge."},
+        {"label": "Mature", "effect": "Dried red fruit, earth, mushroom, tea and game can dominate, with a softer, silkier structure."}
+      ],
+      "vintage": "Warmer years often show more generous fruit and earlier openness; cooler years can be more delicate, acidic and slow to reveal secondary complexity.",
+      "sources": ["bivb", "world-atlas-of-wine"]
+    }
+  },
+  "naoussa": {
+    "xinomavro": {
+      "summary": "Xinomavro can evolve strikingly from tart red fruit, tomato and fierce tannin toward dried fruit, olive, leather, spice and earthy complexity.",
+      "stages": [
+        {"label": "Young", "effect": "Sour cherry, red plum, tomato and herbal notes sit over high acidity and assertive tannin."},
+        {"label": "Developing", "effect": "Dried tomato, olive, leather and spice begin to build while the tannin becomes less severe."},
+        {"label": "Mature", "effect": "Dried red fruit, olive, leather, earth and savory spice can dominate, with a more integrated, Nebbiolo-like structure."}
+      ],
+      "vintage": "Warmer seasons generally give riper fruit and softer tannin; cooler seasons can accentuate acidity, herbal character and a slower path to maturity.",
+      "sources": ["wines-of-greece", "oxford-companion"]
+    }
+  },
+  "madiran": {
+    "tannat": {
+      "summary": "Tannat's dense fruit and formidable tannin can mellow substantially with age, allowing leather, cocoa, tobacco and dried black fruit to come forward.",
+      "stages": [
+        {"label": "Young", "effect": "Blackberry and plum are intense, with very firm tannin and a compact, powerful feel."},
+        {"label": "Developing", "effect": "Tannin begins to soften as cocoa, tobacco, cedar and dried-fruit notes become more visible."},
+        {"label": "Mature", "effect": "Dried black fruit, leather, tobacco and earthy notes can dominate, with a rounder, less austere texture."}
+      ],
+      "vintage": "Riper years may soften Tannat's structure sooner, while cooler years can preserve more acidity and prolong the wine's firm phase.",
+      "sources": ["madiran-wine", "oxford-companion"]
+    }
+  },
+  "douro": {
+    "touriga-nacional": {
+      "summary": "Ageing dry Touriga Nacional can move from intense black fruit, violet and firm structure toward dried fruit, cedar, cocoa, tobacco and floral-spice complexity.",
+      "stages": [
+        {"label": "Young", "effect": "Blackberry, plum and violet dominate, with concentrated body and substantial tannin."},
+        {"label": "Developing", "effect": "Fruit becomes less primary as cedar, cocoa, dried herbs and spice increase and the tannin integrates."},
+        {"label": "Mature", "effect": "Dried dark fruit, tobacco, leather, cocoa and floral-spice notes can dominate with a smoother texture."}
+      ],
+      "vintage": "Hot, dry years can emphasize concentration and ripe fruit; fresher years may retain more lift and take longer to lose their youthful structure.",
+      "sources": ["wines-of-portugal", "world-atlas-of-wine"]
+    }
+  }
+}
