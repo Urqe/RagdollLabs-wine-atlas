@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" role="img" aria-labelledby="title desc">
+  <title id="title">Stylized vineyard at golden hour</title>
+  <desc id="desc">A warm evening vineyard with receding vine rows and a wine glass and decanter silhouette in the foreground.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8f5f54"/>
+      <stop offset="0.48" stop-color="#b7835f"/>
+      <stop offset="1" stop-color="#473329"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b4b35"/>
+      <stop offset="1" stop-color="#1e1816"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffe8a6" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#eab86b" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="760" fill="url(#sky)"/>
+  <circle cx="1120" cy="168" r="150" fill="url(#sun)" filter="url(#soft)"/>
+  <circle cx="1120" cy="168" r="44" fill="#f6d58e" opacity="0.82"/>
+
+  <path d="M0 374 C220 312 442 344 640 322 C860 297 1052 325 1250 296 C1380 277 1492 284 1600 300 L1600 760 L0 760 Z" fill="#3a3325" opacity="0.85"/>
+  <path d="M0 446 C246 390 430 420 658 390 C900 358 1140 385 1600 335 L1600 760 L0 760 Z" fill="url(#ground)"/>
+
+  <!-- Vineyard rows deliberately converge toward the horizon to create depth without photorealistic detail. -->
+  <g fill="none" stroke="#6f7650" stroke-width="15" stroke-linecap="round" opacity="0.78">
+    <path d="M80 760 Q380 540 760 390"/>
+    <path d="M280 760 Q520 535 825 388"/>
+    <path d="M520 760 Q650 520 895 384"/>
+    <path d="M790 760 Q800 515 965 382"/>
+    <path d="M1080 760 Q958 520 1030 382"/>
+    <path d="M1370 760 Q1110 530 1092 384"/>
+  </g>
+  <g fill="none" stroke="#94845d" stroke-width="3" opacity="0.55">
+    <path d="M90 724 Q382 526 758 392"/>
+    <path d="M292 724 Q526 520 824 390"/>
+    <path d="M533 724 Q658 510 894 387"/>
+    <path d="M803 724 Q808 505 963 385"/>
+    <path d="M1065 724 Q958 510 1029 385"/>
+    <path d="M1344 724 Q1116 518 1090 386"/>
+  </g>
+
+  <!-- Foreground table and glassware remain silhouettes so text overlays stay readable. -->
+  <ellipse cx="1324" cy="698" rx="360" ry="90" fill="#120d10" opacity="0.82"/>
+  <g fill="#120d10" stroke="#c9ab6b" stroke-width="3" opacity="0.92">
+    <path d="M1190 378 C1190 340 1224 320 1260 320 C1296 320 1330 340 1330 378 L1314 474 C1310 500 1293 520 1260 520 C1227 520 1210 500 1206 474 Z"/>
+    <path d="M1260 520 L1260 632 M1218 650 H1302" fill="none"/>
+    <path d="M1390 306 C1450 306 1482 350 1482 404 C1482 458 1447 488 1412 506 C1383 521 1360 547 1354 590 H1516 C1508 545 1486 520 1458 505 C1426 487 1398 459 1398 404 C1398 354 1410 324 1390 306 Z"/>
+    <path d="M1384 304 C1413 284 1461 286 1490 309" fill="none"/>
+  </g>
+  <path d="M1218 448 C1234 462 1286 462 1302 448" fill="none" stroke="#7b213f" stroke-width="16" opacity="0.9"/>
+
+  <rect width="1600" height="760" fill="#0e0a0c" opacity="0.16"/>
+</svg>
