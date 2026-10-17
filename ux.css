@@ -8,7 +8,7 @@
 .welcome { min-height: calc(100vh - 44px); display: grid; align-content: center; gap: 18px; }
 .welcome-hero { position: relative; overflow: hidden; min-height: 520px; border: 1px solid var(--line); border-radius: 28px; background:
   linear-gradient(90deg, rgba(14,10,12,.94) 0%, rgba(14,10,12,.78) 44%, rgba(14,10,12,.44) 100%),
-  url("./assets/vineyard-welcome.svg?v=20261017-nav1") center / cover no-repeat; box-shadow: 0 24px 60px rgba(0,0,0,.28); }
+  url("./assets/vineyard-welcome.svg?v=20261017-functional1") center / cover no-repeat; box-shadow: 0 24px 60px rgba(0,0,0,.28); }
 .welcome-copy { position: relative; z-index: 1; max-width: 760px; padding: clamp(32px,6vw,78px); }
 .welcome-copy h1 { max-width: 760px; }
 .welcome-copy .tagline { font-size: clamp(20px,3vw,30px); max-width: 700px; }
@@ -36,13 +36,27 @@
 .wine-color-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; border: 1px solid var(--line); border-radius: 999px; color: #d8cbd0; font-size: 10px; white-space: nowrap; }
 .search-result .wine-color-dot, .similar-item .wine-color-dot, .welcome-discoveries .wine-color-dot { display: inline-block; vertical-align: -1px; margin-right: 5px; width: 8px; height: 8px; }
 
+.food-search { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--line); }
+.food-search h2 { margin-bottom: 0; }
+.food-result span { line-height: 1.35; }
+
+.winemaking { margin-top: 16px; }
+.winemaking > .small { margin-top: -4px; }
+.winemaking-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 10px; }
+.winemaking-choice { background: #120d10; border: 1px solid #302128; border-radius: 12px; padding: 12px; }
+.winemaking-choice-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.winemaking-choice-head strong { font-size: 13px; color: #eadfe2; }
+.winemaking-prevalence { flex: 0 0 auto; padding: 3px 7px; border: 1px solid var(--line); border-radius: 999px; color: var(--gold); font-size: 9px; text-transform: uppercase; letter-spacing: .06em; }
+.winemaking-context { margin-top: 6px; color: #c6b6bb; font-size: 10px; font-style: italic; }
+.winemaking-choice p { margin: 8px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+
 .similar-back-slot { min-height: 0; margin: 2px 0 12px; }
 .similar-back { border: 0; padding: 0; background: transparent; color: var(--gold); font: inherit; font-size: 11px; cursor: pointer; text-align: left; }
 .similar-back:hover { text-decoration: underline; }
 .similar-back:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; border-radius: 3px; }
 
 /* The same release token is used for visual assets to avoid mixed old/new deploys. */
-.locator svg { background-image: url("./assets/world-map.svg?v=20261017-nav1"); }
+.locator svg { background-image: url("./assets/world-map.svg?v=20261017-functional1"); }
 
 /*
  * Compare-region selector: native option styling is too limited for reliable
@@ -75,6 +89,7 @@
   .welcome-actions { grid-template-columns: 1fr; }
   .welcome-action { min-height: 78px; }
   .title-meta { justify-content: flex-start; }
+  .winemaking-grid { grid-template-columns: 1fr; }
   .compare-select-trigger { min-height: 62px; }
   .compare-select-menu { max-height: 240px; }
 }
