@@ -62,12 +62,16 @@ input[type="search"]::placeholder { color: #816f75; }
 .content2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
 h3 { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin: 18px 0 10px; }
 
-/* Locator is deliberately schematic: geographic context without a mapping library or tile service. */
+/*
+ * Locator markers remain in the app's existing equirectangular coordinate system,
+ * but the visual landmass is now a local Natural Earth-derived SVG. Keeping the
+ * physical map borderless avoids making territorial claims in the base artwork;
+ * country labels come from curated Wine Atlas region metadata instead.
+ */
 .locator-wrap { min-height: 126px; }
 .locator { height: 100%; background: #120d10; border: 1px solid #302128; border-radius: 12px; padding: 8px; display: grid; grid-template-rows: 1fr auto; gap: 4px; }
-.locator svg { width: 100%; min-height: 86px; display: block; }
-.locator .land { fill: #2a1d22; stroke: #49323a; stroke-width: .6; }
-.locator .gridline { stroke: #3a2930; stroke-width: .4; stroke-dasharray: 2 3; }
+.locator svg { width: 100%; min-height: 86px; display: block; background: url("./assets/world-map.svg") center / 100% 100% no-repeat; }
+.locator .land, .locator .gridline { display: none; }
 .locator .marker-ring { fill: rgba(160,68,96,.18); stroke: var(--wine2); stroke-width: 1.4; }
 .locator .marker-core { fill: var(--gold); }
 .locator-caption { color: var(--muted); font-size: 10px; text-align: center; }
