@@ -3,9 +3,12 @@
  * ------------------------------------------------
  * Branding is a real navigation affordance. Links retain an href fallback, while
  * this enhancement returns to the already-loaded landing page without a reload.
+ * Keyboard activation moves focus to the landing heading for orientation; pointer
+ * clicks intentionally do not, avoiding a large focus outline around the title.
  */
 
 function returnToWineAtlasHome(event) {
+  const keyboardActivation = event?.detail === 0;
   event?.preventDefault?.();
   WineAtlas.clearProfileUrl();
   document.getElementById("appShell")?.classList.add("hidden");
@@ -15,10 +18,12 @@ function returnToWineAtlasHome(event) {
   const dialog = document.getElementById("glossaryDialog");
   if (dialog?.open) dialog.close();
 
-  const heading = document.getElementById("welcomeTitle");
-  if (heading) {
-    heading.setAttribute("tabindex", "-1");
-    heading.focus({ preventScroll: true });
+  if (keyboardActivation) {
+    const heading = document.getElementById("welcomeTitle");
+    if (heading) {
+      heading.setAttribute("tabindex", "-1");
+      heading.focus({ preventScroll: true });
+    }
   }
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;

@@ -27,6 +27,7 @@ jobs:
           node --check functional.js
           node --check search-enhance.js
           node --check advanced-compare.js
+          node --check compare-discovery.js
           node --check maturity.js
           node --check learning.js
           node --check smart-discovery.js
