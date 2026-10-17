@@ -83,14 +83,15 @@ async function loadData() {
     "./data/regions-classics-expanded.json",
     "./data/regions-discovery.json",
     "./data/regions-discovery-expanded.json",
+    "./data/regions-styles.json",
     "./data/sources.json",
     "./data/locators.json",
     "./data/why-rules.json"
   ];
   const responses = await Promise.all(paths.map(path => fetch(path)));
   if (responses.some(response => !response.ok)) throw new Error("Wine data could not be loaded.");
-  const [grapes, classicWest, classicExpanded, discovery, discoveryExpanded, sources, locators, whyRules] = await Promise.all(responses.map(response => response.json()));
-  const regionGroups = [classicWest, classicExpanded, discovery, discoveryExpanded];
+  const [grapes, classicWest, classicExpanded, discovery, discoveryExpanded, styleRegions, sources, locators, whyRules] = await Promise.all(responses.map(response => response.json()));
+  const regionGroups = [classicWest, classicExpanded, discovery, discoveryExpanded, styleRegions];
   const seen = new Set();
   for (const group of regionGroups) {
     for (const id of Object.keys(group)) {
@@ -296,9 +297,10 @@ function renderLocator(regionId, region) {
   return `<div class="locator" aria-label="Approximate location of ${escapeAttr(region.name)}"><svg viewBox="0 0 ${width} ${height}" role="img" aria-label="World locator map showing ${escapeAttr(region.name)} in ${escapeAttr(region.country)}"><path class="land" d="M18 36l30-20 42 3 20 20-15 22-35 7-16 28-20-7-8-27zM94 93l20 8 17 24-7 31-18-5-12-25zM151 30l42-19 52 7 34 22-7 20-29 4-12 18-24-6-14 23-30-8-4-25-23-15zM221 91l21 2 19 22-7 30-23 10-14-22zM279 119l25 4 8 16-12 13-25-8z"/><path class="gridline" d="M0 80h320M80 0v160M160 0v160M240 0v160"/><circle class="marker-ring" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="7"/><circle class="marker-core" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.5"/></svg><div class="locator-caption">${country} · approximate regional location</div></div>`;
 }
 
-function wineColorDot(grape) {
-  if (!grape?.color) return "";
-  return `<span class="wine-color-dot ${escapeAttr(grape.color)}" aria-hidden="true"></span>`;
+function wineColorDot(grape, regional = null) {
+  const color = regional?.style?.color || grape?.color;
+  if (!color) return "";
+  return `<span class="wine-color-dot ${escapeAttr(color)}" aria-hidden="true"></span>`;
 }
 
 function profileDistance(a, b) {
@@ -319,7 +321,7 @@ function renderSimilar(current) {
     .map(item => ({ ...item, score: profileDistance(current.profile, item.profile) + (item.grapeId === current.grapeId ? 0.12 : 0) }))
     .sort((a, b) => a.score - b.score)
     .slice(0, 3);
-  $("similarWines").innerHTML = candidates.map(item => `<button type="button" class="similar-item" data-grape="${escapeAttr(item.grapeId)}" data-region="${escapeAttr(item.regionId)}"><strong>${wineColorDot(item.grape)}${escapeHtml(item.grape.name)}</strong><span class="similar-region">${escapeHtml(item.region.name)} · ${escapeHtml(item.region.country)}</span><span class="similar-reason">${escapeHtml(similarReason(current.profile, item.profile))}</span></button>`).join("");
+  $("similarWines").innerHTML = candidates.map(item => `<button type="button" class="similar-item" data-grape="${escapeAttr(item.grapeId)}" data-region="${escapeAttr(item.regionId)}"><strong>${wineColorDot(item.grape, item.regional)}${escapeHtml(item.grape.name)}</strong><span class="similar-region">${escapeHtml(item.region.name)} · ${escapeHtml(item.region.country)}</span><span class="similar-reason">${escapeHtml(similarReason(current.profile, item.profile))}</span></button>`).join("");
   $("similarWines").querySelectorAll(".similar-item").forEach(button => button.addEventListener("click", () => selectProfile(button.dataset.grape, button.dataset.region, true)));
 }
 
@@ -486,7 +488,7 @@ function runSearch() {
     score += terms.filter(term => haystack.includes(term)).length;
     return { item, matched, score };
   }).filter(result => result.matched).sort((a, b) => b.score - a.score || a.item.region.name.localeCompare(b.item.region.name)).slice(0, 10);
-  $("searchResults").innerHTML = matches.length ? matches.map(({ item }) => `<button type="button" class="search-result" data-grape="${escapeAttr(item.grapeId)}" data-region="${escapeAttr(item.regionId)}"><strong>${wineColorDot(item.grape)}${escapeHtml(item.grape.name)} · ${escapeHtml(item.region.name)}</strong><span>${escapeHtml(item.region.country)} · ${escapeHtml(item.region.climate)}</span></button>`).join("") : '<div class="search-empty">No matching profiles yet.</div>';
+  $("searchResults").innerHTML = matches.length ? matches.map(({ item }) => `<button type="button" class="search-result" data-grape="${escapeAttr(item.grapeId)}" data-region="${escapeAttr(item.regionId)}"><strong>${wineColorDot(item.grape, item.regional)}${escapeHtml(item.grape.name)} · ${escapeHtml(item.region.name)}</strong><span>${escapeHtml(item.region.country)} · ${escapeHtml(item.region.climate)}</span></button>`).join("") : '<div class="search-empty">No matching profiles yet.</div>';
   $("searchResults").querySelectorAll(".search-result").forEach(button => button.addEventListener("click", () => {
     selectProfile(button.dataset.grape, button.dataset.region, true);
     $("searchInput").value = "";
