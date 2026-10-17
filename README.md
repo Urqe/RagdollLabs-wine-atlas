@@ -16,10 +16,12 @@ The project originally used **RagLabs** as its working product name, while the r
 - **Wine-color cues** — red / white grape indicators appear in selectors, profile headers, search results, featured discoveries and recommendations
 - **Wine Explorer** — browse either **by grape** or through a **Country → Region → Grape** hierarchy
 - **Atlas search** — search grapes, regions, countries, climate/style descriptions, flavor notes and discovery labels
+- **Food-first discovery** — search what you are eating and rank profiles from the pairing data already attached to each grape-region profile
 - **Sensory profile** — body, acidity, tannin, sweetness, alcohol, fruit, oak and earthiness on a 0–5 scale
 - **Locator maps** — recognizable world landmass maps with approximate regional markers, rendered locally with no tile service or tracking dependency
 - **Regional identity** — concise climate, terrain, soil and influence context
 - **Why does it taste like this?** — explicit data-driven cause → effect explanations connecting growing conditions and winemaking to style
+- **Winemaking choices** — only profiles where vessel choice is genuinely educational show curated oak, steel, qvevri or related alternatives with prevalence and taste impact
 - **Similar Wines** — three nearest profiles calculated from the same sensory metrics shown in the charts
 - **Categorized flavor notes** — Fruit, Floral, Spice, Earth / savory, Oak / ageing and Mineral / herbal
 - **Serve It Tonight** — serving temperature, decanting, glassware, ageing potential and food pairing guidance
@@ -60,7 +62,7 @@ Earlier discovery additions include:
 
 ## Tech
 
-HTML, CSS and vanilla JavaScript only. No backend, build step, framework, analytics or external API is required at runtime. Wine knowledge lives in structured JSON.
+The runtime is HTML, CSS and vanilla JavaScript only. No backend, framework, analytics or external API is required at runtime. Wine knowledge lives in structured JSON. CI additionally installs **jsdom** as a development-only dependency for DOM-level regression tests.
 
 ## Architecture
 
@@ -68,10 +70,11 @@ HTML, CSS and vanilla JavaScript only. No backend, build step, framework, analyt
 /
 ├── index.html
 ├── styles.css                       # core visual system
-├── ux.css                           # welcome / wine-color / compare UX styling
+├── ux.css                           # welcome / wine-color / compare / functional UX styling
 ├── app.js                           # data, state, rendering and app events
 ├── ux.js                            # welcome and instructional-state subscriber
 ├── compare-country.js               # progressive compare-listbox enhancement
+├── functional.js                    # food-first discovery + winemaking-choice enhancement
 ├── assets/
 │   ├── world-map.svg                # simplified physical world landmass
 │   └── vineyard-welcome.svg         # local decorative welcome artwork
@@ -82,10 +85,14 @@ HTML, CSS and vanilla JavaScript only. No backend, build step, framework, analyt
 │   ├── regions-discovery.json
 │   ├── regions-discovery-expanded.json
 │   ├── why-rules.json               # explicit scope / wording metadata for region Why entries
+│   ├── winemaking.json              # sparse profile-specific vessel choices and taste effects
 │   ├── locators.json
 │   └── sources.json
 ├── scripts/
 │   └── validate.py
+├── tests/
+│   └── dom-smoke.mjs                # jsdom user-flow regression checks
+├── package.json                     # development-only test dependency
 └── README.md
 ```
 
@@ -107,7 +114,7 @@ Important events include:
 
 This replaces the earlier polling, `setTimeout(0)` choreography and `resetCompare()` monkey-patching. `compare-country.js` subscribes to the compare-control event and enhances the already-functional native selects; if that script fails to load, comparison still works with native controls.
 
-`ux.js` subscribes to application events rather than observing DOM mutations or sniffing `app.js` globals. A valid shared profile URL remains authoritative and bypasses the welcome screen.
+`ux.js` subscribes to application events rather than observing DOM mutations or sniffing `app.js` globals. `functional.js` uses the same event/API boundary for food discovery and optional winemaking context. A valid shared profile URL remains authoritative and bypasses the welcome screen.
 
 ### Selection behavior
 
@@ -140,6 +147,18 @@ Profile-level `regional.why` remains available when an explanation belongs entir
 
 Soil and landscape language is intentionally cautious: the atlas can describe drainage, water availability, heat storage, vine vigor and regional sensory associations without claiming that minerals or nearby plants literally transfer flavors into wine.
 
+### Winemaking-choice data
+
+`data/winemaking.json` is intentionally sparse rather than generating generic barrel/tank commentary for every wine. A profile appears there only when the vessel or maturation choice is a meaningful part of understanding the style. Each choice records:
+
+- `vessel` — the meaningful vessel or approach, such as stainless steel, oak or qvevri
+- `prevalence` — one of `very common`, `common`, `sometimes` or `rare`
+- optional `context` — when the choice is tied to a specific tradition or classification
+- `effect` — a cautious explanation of the likely sensory or structural impact
+- `sources` — references already present in `data/sources.json`
+
+The initial curated set covers Santorini Assyrtiko, Kakheti Rkatsiteli, Napa Cabernet Sauvignon and Rioja Tempranillo. Profiles without relevant vessel choices show no section at all.
+
 ### Data conventions
 
 - Sensory metrics use a 0–5 scale. Regional `mods` are offsets and are clamped to 0–5.
@@ -160,16 +179,19 @@ Visible release assets use one release token in `index.html`, and the two image 
 
 ## Validation
 
-Run the dependency-free integrity checks locally with:
+Run the integrity checks and DOM smoke suite locally with:
 
 ```bash
 python3 scripts/validate.py
 node --check app.js
 node --check compare-country.js
 node --check ux.js
+node --check functional.js
+npm install
+npm test
 ```
 
-The validator checks JSON parsing, duplicate region IDs, grape/source references, required profile fields, metric/modifier contracts, locator coverage and explicit Why-rule references. `.github/workflows/validate.yml` runs the same checks in GitHub Actions.
+The structured validator checks JSON parsing, duplicate region IDs, grape/source references, required profile fields, metric/modifier contracts, locator coverage, explicit Why-rule references and winemaking metadata. The jsdom suite exercises guarded profile selection, conditional winemaking rendering, food-first discovery, only-choice auto-selection and rapid Compare rebuilding. `.github/workflows/validate.yml` runs both layers in GitHub Actions.
 
 ## Running locally
 
