@@ -20,22 +20,11 @@ let glossaryAliases = [];
 
 function loadGlossary() {
   if (!glossaryPromise) {
-    glossaryPromise = fetch("./data/glossary.json")
-      .then(response => {
-        if (!response.ok) throw new Error("Glossary data could not be loaded.");
-        return response.json();
-      })
-      .then(data => {
-        glossaryData = data;
-        glossaryAliases = buildAliasIndex(data);
-        return data;
-      })
-      .catch(error => {
-        console.error(error);
-        glossaryData = {};
-        glossaryAliases = [];
-        return {};
-      });
+    glossaryPromise = WineData.json("./data/glossary.json", { optional: true }).then(data => {
+      glossaryData = data;
+      glossaryAliases = buildAliasIndex(data);
+      return data;
+    });
   }
   return glossaryPromise;
 }

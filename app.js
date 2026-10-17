@@ -9,16 +9,7 @@
  * enhancements optional without making their failure silent or mysterious.
  */
 
-const METRICS = [
-  { key: "body", label: "Body", compare: true, high: "Fuller-bodied", low: "Leaner body" },
-  { key: "acidity", label: "Acidity", compare: true, high: "Higher acidity", low: "Softer acidity" },
-  { key: "tannin", label: "Tannin", compare: true, high: "More tannic", low: "Smoother tannin" },
-  { key: "sweetness", label: "Sweetness", compare: false },
-  { key: "alcohol", label: "Alcohol", compare: false },
-  { key: "fruit", label: "Fruit", compare: true, high: "More fruit-forward", low: "More restrained fruit" },
-  { key: "oak", label: "Oak", compare: true, high: "More oak-driven", low: "Less oak influence" },
-  { key: "earth", label: "Earth", compare: true, high: "More earthy and savoury", low: "Cleaner and less earthy" }
-];
+const METRICS = WineModel.metrics;
 const COMPARE_METRICS = METRICS.filter(metric => metric.compare);
 const MIN_MEANINGFUL_SPREAD = 0.5;
 const DISCOVERY_WEIGHT = 3;
@@ -59,6 +50,8 @@ const $ = id => document.getElementById(id);
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 const byName = ([, a], [, b]) => a.name.localeCompare(b.name);
 
+/* Entity encoder for HTML text and quoted ordinary attributes ONLY.
+ * Not a sanitizer or a URL/CSS/JavaScript encoder. Prefer WineDOM for new UI. */
 function escapeHtml(value) {
   return String(value ?? "")
     .replaceAll("&", "&amp;")
@@ -90,9 +83,7 @@ async function loadData() {
     "./data/why-rules.json",
     "./data/wine-search.json"
   ];
-  const responses = await Promise.all(paths.map(path => fetch(path)));
-  if (responses.some(response => !response.ok)) throw new Error("Wine data could not be loaded.");
-  const [grapes, classicWest, classicExpanded, discovery, discoveryExpanded, styleRegions, sources, locators, whyRules, wineSearch] = await Promise.all(responses.map(response => response.json()));
+  const [grapes, classicWest, classicExpanded, discovery, discoveryExpanded, styleRegions, sources, locators, whyRules, wineSearch] = await Promise.all(paths.map(path => WineData.json(path)));
   const regionGroups = [classicWest, classicExpanded, discovery, discoveryExpanded, styleRegions];
   const seen = new Set();
   for (const group of regionGroups) {
@@ -108,6 +99,7 @@ async function loadData() {
   WHY_RULES = whyRules;
   SEARCH_RULES = wineSearch.rules;
   PAIR_CACHE = null;
+  emit("data-loaded");
 }
 
 function relevantRegions(grapeId) {
@@ -147,6 +139,15 @@ function optionMarkup(entries, includeCountry = false) {
   }).join("");
 }
 
+function setSelectOptions(select, entries, includeCountry = false) {
+  select.replaceChildren(...entries.map(([id, item]) => {
+    const label = includeCountry && item.country ? `${item.name} · ${item.country}` : item.name;
+    const option = WineDOM.element("option", label);
+    option.value = id;
+    return option;
+  }));
+}
+
 function prependPlaceholder(select, text) {
   let option = [...select.options].find(item => item.dataset.placeholder === "true");
   if (!option) {
@@ -162,8 +163,8 @@ function prependPlaceholder(select, text) {
 
 function populateGrapes() {
   const entries = Object.entries(GRAPES).sort(byName);
-  $("grape").innerHTML = optionMarkup(entries);
-  $("cg").innerHTML = optionMarkup(entries);
+  setSelectOptions($("grape"), entries);
+  setSelectOptions($("cg"), entries);
   const initial = GRAPES["pinot-noir"] ? "pinot-noir" : entries[0]?.[0] || "";
   $("grape").value = initial;
   $("cg").value = initial;
@@ -171,7 +172,7 @@ function populateGrapes() {
 
 function fillExploreRegions(grapeId, preferredRegion = null, withPlaceholder = false) {
   const entries = relevantRegions(grapeId);
-  $("region").innerHTML = optionMarkup(entries, true);
+  setSelectOptions($("region"), entries, true);
   if (preferredRegion && entries.some(([id]) => id === preferredRegion)) {
     $("region").value = preferredRegion;
   } else if (withPlaceholder && entries.length > 1) {
@@ -184,7 +185,7 @@ function fillExploreRegions(grapeId, preferredRegion = null, withPlaceholder = f
 
 function populateCountries(preferredCountry = null, withPlaceholder = false) {
   const countries = [...new Set(Object.values(REGIONS).map(region => region.country))].sort((a, b) => a.localeCompare(b));
-  $("country").innerHTML = countries.map(country => `<option value="${escapeAttr(country)}">${escapeHtml(country)}</option>`).join("");
+  setSelectOptions($("country"), countries.map(country => [country, { name: country }]));
   if (preferredCountry && countries.includes(preferredCountry)) $("country").value = preferredCountry;
   else if (withPlaceholder) prependPlaceholder($("country"), "Choose a country…");
   else if (countries[0]) $("country").value = countries[0];
@@ -194,7 +195,7 @@ function populateCountries(preferredCountry = null, withPlaceholder = false) {
 function populatePlaceRegions(preferredRegion = null, withPlaceholder = false) {
   const country = $("country").value;
   const entries = Object.entries(REGIONS).filter(([, region]) => region.country === country).sort(byName);
-  $("placeRegion").innerHTML = optionMarkup(entries);
+  setSelectOptions($("placeRegion"), entries);
   if (preferredRegion && entries.some(([id]) => id === preferredRegion)) $("placeRegion").value = preferredRegion;
   else if (withPlaceholder && entries.length > 1) prependPlaceholder($("placeRegion"), "Choose a region…");
   else if (entries[0]) $("placeRegion").value = entries[0][0];
@@ -204,7 +205,7 @@ function populatePlaceRegions(preferredRegion = null, withPlaceholder = false) {
 function populatePlaceGrapes(preferredGrape = null, withPlaceholder = false) {
   const region = REGIONS[$("placeRegion").value];
   const entries = Object.keys(region?.grapes || {}).map(id => [id, GRAPES[id]]).filter(([, grape]) => grape).sort(byName);
-  $("placeGrape").innerHTML = optionMarkup(entries);
+  setSelectOptions($("placeGrape"), entries);
   if (preferredGrape && entries.some(([id]) => id === preferredGrape)) $("placeGrape").value = preferredGrape;
   else if (withPlaceholder && entries.length > 1) prependPlaceholder($("placeGrape"), "Choose a grape…");
   else if (entries[0]) $("placeGrape").value = entries[0][0];
@@ -239,8 +240,21 @@ function metricBar(metric, profile, compact = false) {
 }
 
 function renderFlavorGroups(noteGroups) {
-  if (!noteGroups || typeof noteGroups !== "object") return "";
-  return `<div class="note-groups">${Object.entries(noteGroups).map(([category, notes]) => `<section class="note-group" aria-label="${escapeAttr(category)}"><h4 class="note-group-title">${NOTE_ICONS[category] || DEFAULT_NOTE_ICON}<span>${escapeHtml(category)}</span></h4><div class="chips">${notes.map(note => `<span class="chip">${escapeHtml(note)}</span>`).join("")}</div></section>`).join("")}</div>`;
+  const groups = WineDOM.element("div", null, "note-groups");
+  for (const [category, notes] of Object.entries(noteGroups || {})) {
+    const section = WineDOM.element("section", null, "note-group");
+    section.setAttribute("aria-label", category);
+    const title = WineDOM.element("h4", null, "note-group-title");
+    // Only fixed, code-owned SVG strings enter this HTML sink. Data uses textContent.
+    const icon = document.createElement("template");
+    icon.innerHTML = Object.hasOwn(NOTE_ICONS, category) ? NOTE_ICONS[category] : DEFAULT_NOTE_ICON;
+    title.append(icon.content.cloneNode(true), WineDOM.element("span", category));
+    const chips = WineDOM.element("div", null, "chips");
+    chips.append(...notes.map(note => WineDOM.element("span", note, "chip")));
+    section.append(title, chips);
+    groups.append(section);
+  }
+  return groups;
 }
 
 function renderBadges(region, grape) {
@@ -285,8 +299,20 @@ function renderWhy(regionId, region, regional, grapeId) {
 }
 
 function renderSources(region) {
+  const details = WineDOM.element("details", null, "sources");
+  details.append(WineDOM.element("summary", "Sources & methodology"),
+    WineDOM.element("p", "Regional profiles summarize typical characteristics. Producers and vintages vary.", "small"));
   const resolved = (region.sources || []).map(id => SOURCES[id]).filter(Boolean);
-  return `<details class="sources"><summary>Sources &amp; methodology</summary><p class="small">Regional profiles summarize typical characteristics. Producers and vintages vary.</p>${resolved.length ? `<ul class="source-list">${resolved.map(source => `<li><a href="${escapeAttr(source.url)}" rel="noopener" target="_blank">${escapeHtml(source.name)}</a></li>`).join("")}</ul>` : ""}</details>`;
+  if (resolved.length) {
+    const list = WineDOM.element("ul", null, "source-list");
+    for (const source of resolved) {
+      const row = WineDOM.element("li");
+      row.append(WineDOM.referenceLink(source));
+      list.append(row);
+    }
+    details.append(list);
+  }
+  return details;
 }
 
 function renderLocator(regionId, region) {
@@ -319,6 +345,7 @@ function similarReason(source, candidate) {
 }
 
 function renderSimilar(current) {
+  if (typeof window.smartRender === "function") { smartRender(current); return; }
   const candidates = allPairs()
     .filter(item => !(item.grapeId === current.grapeId && item.regionId === current.regionId))
     .map(item => ({ ...item, score: profileDistance(current.profile, item.profile) + (item.grapeId === current.grapeId ? 0.12 : 0) }))
@@ -335,15 +362,19 @@ function renderExplore() {
   $("title").textContent = `${grape.name} · ${region.name}`;
   $("pill").textContent = `${region.country} · ${region.climate}`;
   $("expect").textContent = regional.expect;
-  $("climate").innerHTML = `<strong>Climate effect:</strong> ${escapeHtml(region.summary)}`;
+  $("climate").replaceChildren(WineDOM.element("strong", "Climate effect:"), document.createTextNode(` ${region.summary}`));
   $("locatorMap").innerHTML = renderLocator(regionId, region);
   $("identity").innerHTML = renderBadges(region, grape) + renderIdentity(region);
   $("why").innerHTML = renderWhy(regionId, region, regional, grapeId);
-  $("sourcesDrawer").innerHTML = renderSources(region);
+  $("sourcesDrawer").replaceChildren(renderSources(region));
   $("bars").innerHTML = METRICS.map(metric => metricBar(metric, profile)).join("");
-  $("notes").innerHTML = renderFlavorGroups(regional.notes);
-  $("serve").innerHTML = [["Serving temp", regional.serve], ["Decant", regional.decant], ["Glass", regional.glass], ["Ageing", regional.ageing]].map(([key, value]) => `<div class="box"><div class="k">${escapeHtml(key)}</div><div class="v">${escapeHtml(value)}</div></div>`).join("");
-  $("pair").innerHTML = regional.pairings.map(item => `<span class="chip">${escapeHtml(item)}</span>`).join("");
+  $("notes").replaceChildren(renderFlavorGroups(regional.notes));
+  $("serve").replaceChildren(...[["Serving temp", regional.serve], ["Decant", regional.decant], ["Glass", regional.glass], ["Ageing", regional.ageing]].map(([key, value]) => {
+    const box = WineDOM.element("div", null, "box");
+    box.append(WineDOM.element("div", key, "k"), WineDOM.element("div", value, "v"));
+    return box;
+  }));
+  $("pair").replaceChildren(...regional.pairings.map(item => WineDOM.element("span", item, "chip")));
   renderSimilar(current);
   return true;
 }
@@ -363,6 +394,7 @@ function renderBiggestDifferences(selections) {
 }
 
 function resetCompare() {
+  if (document.getElementById("advancedCompareControls")) return;
   const grapeId = $("cg").value;
   const regions = relevantRegions(grapeId);
   $("compareRegionControls").innerHTML = "";
@@ -412,6 +444,7 @@ function collectCompareSelections(grapeId) {
 }
 
 function renderCompare() {
+  if (document.getElementById("advancedCompareControls")) return;
   const grapeId = $("cg").value;
   const regions = relevantRegions(grapeId);
   if (!grapeId) {
@@ -663,6 +696,10 @@ async function init() {
     emit("ready", { sharedProfile, initialRoute: new URL(INITIAL_ROUTE.href) });
   } catch (error) {
     console.error(error);
+    $("welcomeView").classList.add("hidden");
+    $("appShell").classList.remove("hidden");
+    document.querySelector(".layout > aside")?.classList.add("hidden");
+    document.querySelector("main").setAttribute("role", "alert");
     document.querySelector("main").innerHTML = `<article class="card"><h2>Wine Atlas could not load</h2><p class="small">Please refresh the page. If running locally, serve the folder through a local web server rather than opening index.html directly.</p></article>`;
     emit("error", { error });
   }

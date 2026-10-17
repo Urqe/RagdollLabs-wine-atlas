@@ -5,9 +5,8 @@
  * Compare is active, and this module turns search terms (including foods) into
  * candidates that fill the Advanced Compare slots instead of navigating away.
  *
- * Compatibility itself remains owned by advanced-compare.js. This companion is
- * deliberately loaded after it and reuses its comparison functions rather than
- * copying the family/color compatibility rules into a second module.
+ * WineModel supplies compatibility; WineComparison owns selections. This layer
+ * finds candidates and sends atomic selection commands, then reacts to changes.
  */
 
 let compareDiscoveryMatches = [];
@@ -23,39 +22,8 @@ function compareAdvancedReady() {
     document.getElementById("advancedCompare1");
 }
 
-function compareCurrentProfiles() {
-  if (!compareAdvancedReady()) return [];
-  return [1, 2, 3].map(index => {
-    const key = document.getElementById(`advancedCompare${index}`)?.value;
-    if (!key) return null;
-    const [grapeId, regionId] = key.split("::");
-    return WineAtlas.combinedProfile(grapeId, regionId);
-  }).filter(Boolean);
-}
-
-function compareSetProfiles(profiles) {
-  if (!compareAdvancedReady()) return;
-  const selected = profiles.filter(Boolean).slice(0, 3);
-  const first = document.getElementById("advancedCompare1");
-  const second = document.getElementById("advancedCompare2");
-  const third = document.getElementById("advancedCompare3");
-  if (!first || !second || !third) return;
-
-  first.value = selected[0] ? compareProfileKey(selected[0]) : "";
-  first.dispatchEvent(new Event("change", { bubbles: true }));
-
-  const secondKey = selected[1] ? compareProfileKey(selected[1]) : "";
-  if (secondKey && [...second.options].some(option => option.value === secondKey)) {
-    second.value = secondKey;
-    second.dispatchEvent(new Event("change", { bubbles: true }));
-  }
-
-  const thirdKey = selected[2] ? compareProfileKey(selected[2]) : "";
-  if (thirdKey && [...third.options].some(option => option.value === thirdKey)) {
-    third.value = thirdKey;
-    third.dispatchEvent(new Event("change", { bubbles: true }));
-  }
-}
+function compareCurrentProfiles() { return WineComparison.profiles(); }
+function compareSetProfiles(profiles) { WineComparison.replace(profiles); }
 
 function compareProfileLabel(item) {
   const style = item.regional.style?.label;
@@ -72,7 +40,7 @@ function compareCanAdd(item) {
   const key = compareProfileKey(item);
   if (current.some(profile => compareProfileKey(profile) === key)) return { allowed: false, reason: "Added" };
   if (current.length >= 3) return { allowed: false, reason: "Comparison full" };
-  if (current[0] && !window.advancedCompatible(current[0], item)) return { allowed: false, reason: "Different comparison style" };
+  if (current[0] && !WineModel.compatible(current[0], item)) return { allowed: false, reason: "Different comparison style" };
   return { allowed: true, reason: "Add" };
 }
 
@@ -111,7 +79,7 @@ function compareRenderResults() {
 
   const best = compareDiscoveryMatches[0]?.item;
   const compatibleCount = best && compareAdvancedReady()
-    ? compareDiscoveryMatches.filter(result => window.advancedCompatible(best, result.item)).length
+    ? compareDiscoveryMatches.filter(result => WineModel.compatible(best, result.item)).length
     : 0;
   topButton.classList.toggle("hidden", compatibleCount < 2);
   topButton.disabled = compatibleCount < 2;
@@ -143,7 +111,6 @@ async function compareRunDiscovery() {
 function compareAddProfile(item) {
   if (!compareCanAdd(item).allowed) return;
   compareSetProfiles([...compareCurrentProfiles(), item]);
-  compareRenderResults();
 }
 
 function compareFillTopMatches() {
@@ -151,11 +118,10 @@ function compareFillTopMatches() {
   const first = compareDiscoveryMatches[0].item;
   const compatible = compareDiscoveryMatches
     .map(result => result.item)
-    .filter(item => window.advancedCompatible(first, item))
+    .filter(item => WineModel.compatible(first, item))
     .slice(0, 3);
   if (compatible.length < 2) return;
   compareSetProfiles(compatible);
-  compareRenderResults();
 }
 
 function compareDiscoveryClick(event) {
@@ -194,6 +160,7 @@ function setCompareWorkspaceMode(mode) {
     if (input) input.value = "";
     compareDiscoveryMatches = [];
     document.getElementById("compareDiscoveryResults")?.replaceChildren();
+    document.getElementById("compareTopMatches")?.classList.add("hidden");
   }
 }
 
@@ -207,4 +174,8 @@ document.addEventListener("wineatlas:mode-changed", event => {
     injectCompareDiscovery();
     document.getElementById("compareDiscoveryInput")?.focus();
   }
+});
+
+document.addEventListener("wineatlas:comparison-changed", () => {
+  if (document.getElementById("compareDiscoveryResults")) compareRenderResults();
 });

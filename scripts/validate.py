@@ -11,6 +11,7 @@ Keeping this dependency-free lets reviewers run it locally and keeps CI lightwei
 from __future__ import annotations
 
 import json
+from urllib.parse import urlsplit
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -40,9 +41,22 @@ def load(path: Path):
         return json.load(handle)
 
 
+def valid_reference_url(value) -> bool:
+    if not isinstance(value, str) or any(ord(c) < 32 or ord(c) == 127 for c in value):
+        return False
+    try:
+        url = urlsplit(value)
+        _ = url.port  # Reject malformed ports as the browser URL parser would.
+        return url.scheme == "https" and bool(url.hostname) and not url.username and not url.password
+    except ValueError:
+        return False
+
+
 def main() -> None:
     grapes = load(DATA / "grapes.json")
     sources = load(DATA / "sources.json")
+    for source_id, source in sources.items():
+        assert source.get("name") and valid_reference_url(source.get("url")), f"invalid HTTPS reference: {source_id}"
     locators = load(DATA / "locators.json")
     why_rules = load(DATA / "why-rules.json")
     food_aliases = load(DATA / "food-aliases.json")
@@ -120,6 +134,7 @@ def main() -> None:
                 assert isinstance(style, dict), f"{prefix}: style must be an object"
                 assert style.get("family") in STYLE_FAMILIES, f"{prefix}: invalid style family"
                 assert style.get("sweetness") in STYLE_SWEETNESS, f"{prefix}: invalid style sweetness"
+                assert style.get("color") in {"red", "white", "rose", "orange", "amber", "tawny", "white-gold"}, f"{prefix}: invalid style color"
                 for field in ("color", "label", "method", "effect"):
                     assert isinstance(style.get(field), str) and style[field].strip(), f"{prefix}: invalid style {field}"
 
@@ -137,7 +152,7 @@ def main() -> None:
         for alias in dish["aliases"]:
             assert food_key(label) in normalized_targets[food_key(alias)], f"unresolved dish alias: {alias}"
     for source in food_dishes["sources"].values():
-        assert source["url"].startswith("https://") and source["name"]
+        assert valid_reference_url(source.get("url")) and source["name"]
     import xml.etree.ElementTree as ET
     artwork = ET.parse(ROOT / "assets/vineyard-welcome.svg").getroot()
     ns = {"s": "http://www.w3.org/2000/svg"}

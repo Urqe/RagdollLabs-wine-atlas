@@ -53,7 +53,7 @@ The atlas now represents production families that do not fit the default dry-sti
 
 Dessert discovery is expanded alongside those profiles. Examples include dark chocolate and chocolate mousse for Ruby/LBV Port; crème brûlée, almond tart and walnut desserts for Tawny Port; and crème brûlée, almond, chocolate, coffee and Pavlova-style desserts for Moscatel de Setúbal.
 
-This metadata is intentionally being added **before** the planned Advanced Compare redesign, so future comparison rules can use meaningful style compatibility rather than relying only on red/white color.
+Compare uses this metadata to group sparkling, sweet and fortified wines by family, and still wines by grape color.
 
 ## Regional expansion
 
@@ -96,10 +96,20 @@ The runtime is HTML, CSS and vanilla JavaScript only. No backend, framework, ana
 ├── ux.css                           # welcome / wine-color / compare / functional UX styling
 ├── maturity.css                     # maturity-stage presentation
 ├── learning.css                     # brand split + contextual glossary UI
-├── app.js                           # data, state, rendering and app events
+├── wine-model.js                    # shared metrics, normalization and compatibility
+├── dom-utils.js                     # plain-text DOM construction and HTTPS references
+├── data-loader.js                   # cached, bounded JSON requests
+├── app.js                           # core data, profile selection, rendering and events
+├── compare-state.js                 # atomic comparison state and notifications
+├── advanced-compare.js              # comparison controls and cards
+├── compare-discovery.js             # ranked comparison search
+├── food-discovery.js                # pairing vocabulary, scoring and dish guidance
+├── wine-search.js                   # cached search index and constrained ranking
+├── search-enhance.js                # Explore search presentation
+├── smart-discovery.js               # recommendations and mood discovery
 ├── ux.js                            # welcome and instructional-state subscriber
 ├── compare-country.js               # progressive compare-listbox enhancement
-├── functional.js                    # food discovery, style metadata + winemaking-choice enhancement
+├── functional.js                    # style metadata and winemaking-choice enhancement
 ├── maturity.js                      # optional maturity / vintage evolution renderer
 ├── learning.js                      # glossary loader, contextual term annotation and dialog
 ├── assets/
@@ -116,12 +126,21 @@ The runtime is HTML, CSS and vanilla JavaScript only. No backend, framework, ana
 │   ├── maturity.json                # sparse Young → Developing → Mature editorial guidance
 │   ├── glossary.json                # definitions, aliases, contextual notes and source refs
 │   ├── locators.json
+│   ├── food-aliases.json            # canonical food targets and search-only aliases
+│   ├── food-dishes.json             # preparation guidance and references
+│   ├── wine-search.json             # constrained appellation/style aliases
 │   └── sources.json
 ├── scripts/
-│   └── validate.py
+│   ├── validate.py                  # data contracts and reference URL checks
+│   ├── content_audit.py             # editorial consistency checks
+│   └── check-syntax.mjs             # discover and syntax-check JavaScript
 ├── tests/
-│   └── dom-smoke.mjs                # jsdom user-flow regression checks
+│   ├── harness.mjs                  # shared initialization from index.html script order
+│   ├── dom-smoke.mjs                # profile and feature regression checks
+│   ├── discovery-home-smoke.mjs     # landing, food and constrained search checks
+│   └── hardening.mjs                # state, hostile input, failures and fallbacks
 ├── package.json                     # development-only test dependency
+├── package-lock.json                # reproducible development dependencies
 └── README.md
 ```
 
@@ -131,10 +150,12 @@ A rendered profile is calculated as:
 
 ### Runtime coordination
 
-`app.js` is the owner of application state. Selection paths resolve through the same guarded `selectProfile()` / `combinedProfile()` flow, and presentation layers subscribe to explicit `wineatlas:*` `CustomEvent`s.
+`app.js` owns core data, active profile selection and application mode. `compare-state.js` owns comparison selections and the differences display preference. Selection paths resolve through the same guarded `selectProfile()` / `combinedProfile()` flow, and presentation layers subscribe to explicit `wineatlas:*` `CustomEvent`s.
 
 Important events include:
 
+- `wineatlas:data-loaded` — core data is available; cached search indexes are invalidated
+- `wineatlas:comparison-changed` — a validated comparison transaction committed; selectors, cards and discovery buttons refresh together
 - `wineatlas:ready` — structured data and core controls are initialized
 - `wineatlas:profile-selected` — a valid grape-region profile is now active
 - `wineatlas:selection-needed` — the UI needs another user choice and should show an instructional empty state
@@ -148,6 +169,14 @@ These events let feature layers cooperate without polling, MutationObservers or 
 
 `ux.js`, `functional.js`, `maturity.js` and `learning.js` remain presentation/feature layers around the same core selection API. A valid shared profile URL remains authoritative and bypasses the welcome screen.
 
+### Loading and state boundaries
+
+`WineData.json()` caches one bounded request per local JSON path. Required wine and search data has a 10-second timeout; independent optional aliases, dish guidance, winemaking, maturity and glossary requests have 3-second timeouts and empty fallbacks. Failed enrichment is retried on page reload. Wine-only searches do not wait for optional food requests; food aliases do not wait for dish prose. Late guidance updates its own container without replacing result buttons or keyboard focus.
+
+`WineComparison.replace()` replaces all three slots atomically, clears stale slots and rejects duplicate or incompatible profiles. Manual controls and discovery actions use the same state API. Each transaction emits one change event; DOM selectors are views rather than a second state store. The enhanced comparison and recommendation renderers take precedence, with basic renderers retained as explicit fallbacks.
+
+`WineModel` centralizes metrics and compatibility. `WineSearch` caches normalized profile text and parsed aliases until core data reloads; runtime wine data is treated as immutable after loading. The obsolete standalone food helper has been removed.
+
 ### Selection behavior
 
 Wine Atlas does not ask the user to make a choice when there is only one valid choice:
@@ -160,9 +189,9 @@ Wine Atlas does not ask the user to make a choice when there is only one valid c
 
 ### Rendering and safety
 
-Repository-controlled wine data is treated as data, not markup. Dynamic text inserted through HTML templates is escaped with the shared `escapeHtml()` / `escapeAttr()` helpers; feature layers generally use DOM nodes and `textContent`.
+Repository-controlled wine data is treated as data, not markup. New plain-text rendering uses DOM nodes and `textContent`. Retained templates use `escapeHtml()` / `escapeAttr()` only for HTML text and ordinary quoted attributes; these helpers are not general sanitizers or URL, JavaScript or CSS encoders. Reference links independently require absolute HTTPS URLs without credentials or control characters, enforced at runtime and by data validation. Unsafe references render as plain text. Trusted inline note icons remain fixed application markup.
 
-Search results are ordinary keyboard-focusable buttons rather than a partial ARIA listbox. The country-aware Compare selector intentionally uses the full listbox pattern, including Arrow keys, Home/End, Enter/Space and Escape, with the hidden native select retained as the comparison state source.
+Search results are ordinary keyboard-focusable buttons rather than a partial ARIA listbox. The country-aware Compare selector intentionally uses the full listbox pattern, including Arrow keys, Home/End, Enter/Space and Escape, with the hidden native select retained as an accessible control adapter to the comparison model.
 
 The learning layer only replaces matching text nodes with accessible glossary buttons. It skips links, buttons, form controls, hidden decorative content and the glossary dialog itself, so glossary enhancement cannot recursively annotate its own definitions.
 
@@ -206,7 +235,7 @@ Profiles can optionally define a structured `style` object. Its current contract
 - `method` — defining production method
 - `effect` — cautious explanation of how that method typically changes the wine
 
-If `style` is absent, the profile keeps the existing still-wine behavior. The separate metadata lets a future Advanced Compare release make compatibility decisions using style family and production context instead of assuming that color alone is enough.
+If `style` is absent, the profile keeps the existing still-wine behavior. The comparison model uses the style family for compatibility and uses grape color for still wines.
 
 `grapes.json` can also mark an entry as `kind: "blend"` when the atlas needs an explicit represented blend rather than pretending a multi-variety wine is monovarietal. The initial example is **Port blend**.
 
@@ -230,21 +259,16 @@ Visible release assets use a shared release token in `index.html` so a freshly d
 
 ## Validation
 
-Run the integrity checks and DOM smoke suite locally with:
+Install the locked development dependencies and run the complete checks locally:
 
 ```bash
-python3 scripts/validate.py
-node --check app.js
-node --check compare-country.js
-node --check ux.js
-node --check functional.js
-node --check maturity.js
-node --check learning.js
-npm install
-npm test
+npm ci --no-audit --no-fund
+npm run validate
 ```
 
-The structured validator checks JSON parsing, duplicate region IDs, grape/source references, required profile fields, metric/modifier contracts, locator coverage, explicit Why-rule references, winemaking metadata, maturity metadata, glossary aliases/source references and the beyond-still `style` contract. The jsdom suite exercises guarded profile selection, conditional feature rendering, food-first discovery including dessert matches, sparkling/Port/Moscatel profiles, contextual glossary annotation/dialog behavior, only-choice auto-selection and rapid Compare rebuilding. `.github/workflows/validate.yml` runs both layers in GitHub Actions.
+Validation covers JavaScript syntax, structured data contracts, editorial consistency and three DOM regression suites. The structured validator checks references, metrics, locators, Why rules, optional editorial data, style metadata and HTTPS source URLs. The DOM suites cover profile selection, search constraints, food aliases, glossary behavior, comparison transactions, hostile text/URLs, visible startup errors, optional-data delays/timeouts and explicit basic-renderer fallbacks.
+
+The shared harness reads script order from `index.html`, waits for readiness and settles outstanding requests rather than relying on fixed sleeps. `.github/workflows/validate.yml` uses the same locked install and validation command. Browser visual checks remain necessary for artwork or responsive CSS changes.
 
 ## Running locally
 
@@ -276,8 +300,8 @@ foreground glassware. Do not replace it with an external SVG `<image>` dependenc
 CSS background SVGs cannot load that dependency. Mobile reserves an illustration
 strip below the copy, keeping the mascot visible without sacrificing legibility.
 
-`food-discovery.js` owns normalization, one cached vocabulary load, canonical alias
-resolution and pairing scores for Explore, Compare and the legacy food helper.
+`food-discovery.js` owns cached vocabulary loading, canonical alias resolution
+and pairing scores for Explore and Compare. Normalization lives in `wine-model.js`.
 Aliases are search-only; canonical labels live in regional `pairings` arrays.
 Known dish aliases resolve only to their explicit targets, never to arbitrary
 protein substrings. Generic `ramen` and `tacos` searches span preparation variants;
@@ -285,7 +309,7 @@ specific queries remain distinct. Regional profiles cover different bottles:
 off-dry recommendations require checking the actual bottle's sweetness.
 
 `data/food-dishes.json` records preparation guidance, references and editorial basis
-for 14 dishes/variants. Profile selections are editorial style matches informed by
+for 28 dishes/variants. Profile selections are editorial style matches informed by
 those references, not claims that a reference recommends every regional profile.
 Guidance appears with a reference in both search workspaces. Optional vocabulary
 or guidance failures preserve direct pairing search. Validation checks references,

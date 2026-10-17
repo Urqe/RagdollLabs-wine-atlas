@@ -1,34 +1,37 @@
-/* Shared food vocabulary for Explore, Compare and the legacy food helper.
+/* Shared food vocabulary for Explore and Compare.
  * Aliases are search-only. Canonical dish names stay in profile pairings.
  * Optional data fails soft; direct pairing search always remains available.
  */
 window.FoodDiscovery = (() => {
-  let pending;
+  let aliasesPromise;
+  let guidancePromise;
   let aliases = {};
   let dishes = {};
   let sources = {};
-  const normalize = value => String(value || "").normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "").toLowerCase().trim().replace(/\s+/g, " ");
+  const normalize = WineModel.normalize;
 
+  // Search vocabulary is independent of optional prose/reference enrichment.
   function load() {
-    if (!pending) {
-      const json = path => fetch(path, { cache: "no-cache" }).then(response => {
-        if (!response.ok) throw new Error(`Food discovery data unavailable: ${path}`);
-        return response.json();
-      }).catch(error => { console.warn(error); return {}; });
-      pending = Promise.all([json("./data/food-aliases.json"), json("./data/food-dishes.json")])
-        .then(([vocabulary, curated]) => {
-          aliases = {};
-          for (const [alias, targets] of Object.entries(vocabulary)) {
-            const key = normalize(alias);
-            aliases[key] = [...new Set([...(aliases[key] || []), ...targets])];
-          }
-          dishes = curated.dishes || {};
-          sources = curated.sources || {};
-          return aliases;
-        });
+    if (!aliasesPromise) {
+      aliasesPromise = WineData.json("./data/food-aliases.json", { optional: true }).then(vocabulary => {
+        aliases = {};
+        for (const [alias, targets] of Object.entries(vocabulary)) {
+          const key = normalize(alias);
+          aliases[key] = [...new Set([...(aliases[key] || []), ...targets])];
+        }
+        return aliases;
+      });
     }
-    return pending;
+    return aliasesPromise;
+  }
+  function loadGuidance() {
+    if (!guidancePromise) {
+      guidancePromise = WineData.json("./data/food-dishes.json", { optional: true }).then(curated => {
+        dishes = curated.dishes || {};
+        sources = curated.sources || {};
+      });
+    }
+    return guidancePromise;
   }
   function terms(query) {
     const key = normalize(query);
@@ -57,25 +60,26 @@ window.FoodDiscovery = (() => {
     return multiple ? { label: "Choose a preparation", guidance: "These dishes vary by broth, filling and sauce. Search a specific preparation for a closer pairing.", source: null }
       : { label, guidance: dish.guidance, source: sources[dish.source] };
   }
-  function appendGuidance(container, query) {
+  function fillGuidance(slot, query) {
+    slot.replaceChildren();
     const info = guidance(query);
     if (!info) return;
-    const p = document.createElement("p");
-    p.className = "food-guidance";
-    const title = document.createElement("strong");
-    title.textContent = `${info.label}: `;
-    p.append(title, document.createTextNode(info.guidance));
+    const p = WineDOM.element("p", null, "food-guidance");
+    p.append(WineDOM.element("strong", `${info.label}: `), document.createTextNode(info.guidance));
     if (info.source) {
-      const link = document.createElement("a");
-      link.href = info.source.url;
-      link.textContent = " Pairing reference";
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
+      const link = WineDOM.referenceLink(info.source, " Pairing reference");
       link.setAttribute("aria-label", info.source.name);
       p.append(link);
     }
-    container.append(p);
+    slot.append(p);
   }
-  return { load, normalize, terms, score, guidance, appendGuidance,
+  function appendGuidance(container, query) {
+    const slot = WineDOM.element("div", null, "food-guidance-slot");
+    container.append(slot);
+    fillGuidance(slot, query);
+    // Update only the explanatory slot: preserve result buttons and keyboard focus.
+    void loadGuidance().then(() => { if (slot.isConnected) fillGuidance(slot, query); });
+  }
+  return { load, loadGuidance, normalize, terms, score, guidance, appendGuidance,
     known: query => Boolean(aliases[normalize(query)]) };
 })();
