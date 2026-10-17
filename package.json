@@ -1,0 +1,11 @@
+{
+  "name": "ragdolllabs-wine-atlas",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/dom-smoke.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "^26.1.0"
+  }
+}
