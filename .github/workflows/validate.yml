@@ -25,6 +25,8 @@ jobs:
           node --check compare-country.js
           node --check ux.js
           node --check functional.js
+          node --check search-enhance.js
+          node --check advanced-compare.js
           node --check maturity.js
           node --check learning.js
           node --check tests/dom-smoke.mjs

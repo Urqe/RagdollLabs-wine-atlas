@@ -1,0 +1,361 @@
+/*
+ * RagDollLabs Wine Atlas — Advanced Compare
+ * -----------------------------------------
+ * Compares up to three full wine profiles rather than only one grape across
+ * regions. Still wines remain color-compatible (red with red, white with white),
+ * while sparkling, sweet and fortified wines compare within their style family.
+ */
+
+const ADV_COMPARE_METRICS = [
+  { key: "body", label: "Body", high: "fuller-bodied", low: "leaner" },
+  { key: "acidity", label: "Acidity", high: "higher in acidity", low: "softer in acidity" },
+  { key: "tannin", label: "Tannin", high: "more tannic", low: "smoother in tannin" },
+  { key: "sweetness", label: "Sweetness", high: "sweeter", low: "drier" },
+  { key: "alcohol", label: "Alcohol", high: "higher in alcohol", low: "lighter in alcohol" },
+  { key: "fruit", label: "Fruit", high: "more fruit-forward", low: "more restrained in fruit" },
+  { key: "oak", label: "Oak", high: "more oak-influenced", low: "less oak-influenced" },
+  { key: "earth", label: "Earth", high: "more earthy and savoury", low: "cleaner and less earthy" }
+];
+
+const ADV_COMPARE_MIN_SPREAD = 0.5;
+let advancedCompareProfiles = [];
+let advancedCompareLastProfile = null;
+let advancedCompareInitialized = false;
+
+function advClamp(value, min, max) {
+  return Math.max(min, Math.min(max, value));
+}
+
+function advancedCombinedProfile(grapeId, regionId) {
+  const { grapes, regions } = WineAtlas.getData();
+  const grape = grapes[grapeId];
+  const region = regions[regionId];
+  const regional = region?.grapes?.[grapeId];
+  if (!grape || !region || !regional) return null;
+  const profile = { ...grape };
+  for (const [key, modifier] of Object.entries(regional.mods || {})) {
+    profile[key] = advClamp((profile[key] || 0) + modifier, 0, 5);
+  }
+  return { grapeId, regionId, grape, region, regional, profile };
+}
+
+function advancedAllProfiles() {
+  const { grapes, regions } = WineAtlas.getData();
+  const profiles = [];
+  for (const [regionId, region] of Object.entries(regions)) {
+    for (const grapeId of Object.keys(region.grapes || {})) {
+      if (!grapes[grapeId]) continue;
+      const profile = advancedCombinedProfile(grapeId, regionId);
+      if (profile) profiles.push(profile);
+    }
+  }
+  return profiles.sort((a, b) =>
+    a.grape.name.localeCompare(b.grape.name) || a.region.name.localeCompare(b.region.name)
+  );
+}
+
+function advancedStyle(profile) {
+  const style = profile.regional.style;
+  const family = style?.family || "still";
+  return {
+    family,
+    color: style?.color || profile.grape.color,
+    label: style?.label || `${profile.grape.color === "red" ? "Red" : "White"} · Still`,
+    method: style?.method || null,
+    effect: style?.effect || null,
+    sweetness: style?.sweetness || null
+  };
+}
+
+function advancedCompatibilityKey(profile) {
+  const style = advancedStyle(profile);
+  if (style.family === "still") return `still:${profile.grape.color}`;
+  return style.family;
+}
+
+function advancedCompatibilityLabel(profile) {
+  const style = advancedStyle(profile);
+  if (style.family === "still") return `${profile.grape.color === "red" ? "red" : "white"} still wines`;
+  return `${style.family} wines`;
+}
+
+function advancedCompatible(reference, candidate) {
+  return Boolean(reference && candidate && advancedCompatibilityKey(reference) === advancedCompatibilityKey(candidate));
+}
+
+function advancedProfileKey(profile) {
+  return `${profile.grapeId}::${profile.regionId}`;
+}
+
+function advancedProfileLabel(profile) {
+  const style = advancedStyle(profile);
+  const extra = style.family === "still" ? "" : ` · ${style.label}`;
+  return `${profile.grape.name} · ${profile.region.name} — ${profile.region.country}${extra}`;
+}
+
+function advancedGroupLabel(profile) {
+  const style = advancedStyle(profile);
+  if (style.family === "still") return `Still · ${profile.grape.color === "red" ? "Red" : "White"}`;
+  return style.family.charAt(0).toUpperCase() + style.family.slice(1);
+}
+
+function advancedOptions(select, candidates, selectedKey, allowNone, excluded = new Set()) {
+  select.replaceChildren();
+  if (allowNone) {
+    const empty = document.createElement("option");
+    empty.value = "";
+    empty.textContent = "— None —";
+    select.appendChild(empty);
+  } else {
+    const prompt = document.createElement("option");
+    prompt.value = "";
+    prompt.textContent = "Choose a wine…";
+    prompt.disabled = true;
+    select.appendChild(prompt);
+  }
+
+  const grouped = new Map();
+  for (const profile of candidates) {
+    const key = advancedProfileKey(profile);
+    if (excluded.has(key) && key !== selectedKey) continue;
+    const group = advancedGroupLabel(profile);
+    if (!grouped.has(group)) grouped.set(group, []);
+    grouped.get(group).push(profile);
+  }
+
+  for (const [label, profiles] of grouped) {
+    const optgroup = document.createElement("optgroup");
+    optgroup.label = label;
+    for (const profile of profiles) {
+      const option = document.createElement("option");
+      option.value = advancedProfileKey(profile);
+      option.textContent = advancedProfileLabel(profile);
+      optgroup.appendChild(option);
+    }
+    select.appendChild(optgroup);
+  }
+  select.value = selectedKey || "";
+}
+
+function advancedFindProfile(key) {
+  if (!key) return null;
+  const [grapeId, regionId] = key.split("::");
+  return advancedCombinedProfile(grapeId, regionId);
+}
+
+function advancedSelections() {
+  return [1, 2, 3]
+    .map(index => advancedFindProfile(document.getElementById(`advancedCompare${index}`)?.value))
+    .filter(Boolean);
+}
+
+function advancedRefreshSelectors(changedIndex = null) {
+  const all = advancedAllProfiles();
+  const first = advancedFindProfile(document.getElementById("advancedCompare1")?.value);
+  const selected = [1, 2, 3].map(index => document.getElementById(`advancedCompare${index}`)?.value || "");
+
+  if (changedIndex === 1 && first) {
+    for (let index = 2; index <= 3; index += 1) {
+      const current = advancedFindProfile(selected[index - 1]);
+      if (current && !advancedCompatible(first, current)) selected[index - 1] = "";
+    }
+  }
+
+  const firstSelect = document.getElementById("advancedCompare1");
+  if (firstSelect) advancedOptions(firstSelect, all, selected[0], false);
+
+  const reference = advancedFindProfile(selected[0]);
+  const compatible = reference ? all.filter(candidate => advancedCompatible(reference, candidate)) : [];
+  for (let index = 2; index <= 3; index += 1) {
+    const select = document.getElementById(`advancedCompare${index}`);
+    if (!select) continue;
+    select.disabled = !reference;
+    const excluded = new Set(selected.filter((key, i) => i !== index - 1 && key));
+    advancedOptions(select, compatible, selected[index - 1], true, excluded);
+  }
+}
+
+function advancedMetricBar(metric, profile) {
+  const value = profile.profile[metric.key] || 0;
+  const width = advClamp(value / 5 * 100, 0, 100);
+  const formatted = Number.isInteger(value) ? String(value) : value.toFixed(1);
+  return `<div class="bar" style="grid-template-columns:70px 1fr 30px"><div>${WineAtlas.escapeHtml(metric.label)}</div><div class="track" aria-hidden="true"><div class="fill" style="width:${width}%"></div></div><div class="score"><span class="sr-only">${WineAtlas.escapeHtml(metric.label)}: </span>${formatted}</div></div>`;
+}
+
+function advancedDifferenceRows(selections) {
+  if (selections.length < 2) return [];
+  return ADV_COMPARE_METRICS.map(metric => {
+    const values = selections.map(item => ({ item, value: item.profile[metric.key] || 0 })).sort((a, b) => a.value - b.value);
+    const low = values[0];
+    const high = values[values.length - 1];
+    return { metric, low, high, spread: high.value - low.value };
+  }).filter(row => row.spread >= ADV_COMPARE_MIN_SPREAD).sort((a, b) => b.spread - a.spread);
+}
+
+function advancedShortName(profile) {
+  return `${profile.grape.name} · ${profile.region.name}`;
+}
+
+function advancedProductionContext(selections) {
+  const rows = selections.filter(item => advancedStyle(item).method || advancedStyle(item).effect);
+  if (!rows.length) return "";
+  return `<section class="advanced-production"><h3>Production context</h3><p class="small">These notes explain relevant production differences without claiming that one technique alone causes every sensory difference above.</p>${rows.map(item => {
+    const style = advancedStyle(item);
+    return `<div class="advanced-production-row"><strong>${WineAtlas.escapeHtml(advancedShortName(item))}</strong><span>${WineAtlas.escapeHtml(style.method || style.label)}</span>${style.effect ? `<p>${WineAtlas.escapeHtml(style.effect)}</p>` : ""}</div>`;
+  }).join("")}</section>`;
+}
+
+function advancedRender() {
+  if (!advancedCompareInitialized) return;
+  const selections = advancedSelections();
+  const message = document.getElementById("advancedCompareMessage");
+  const grid = document.getElementById("advancedCompareGrid");
+  const differences = document.getElementById("advancedCompareDifferences");
+  const hint = document.getElementById("advancedCompareHint");
+  if (!message || !grid || !differences || !hint) return;
+
+  if (!selections.length) {
+    message.textContent = "Choose a wine in slot 1. The next slots will automatically offer compatible comparisons.";
+    message.classList.remove("hidden");
+    grid.replaceChildren();
+    differences.replaceChildren();
+    hint.textContent = "Still wines compare within the same color. Sparkling, sweet and fortified wines compare within their style family.";
+    return;
+  }
+
+  message.classList.add("hidden");
+  const reference = selections[0];
+  hint.textContent = `Comparing ${advancedCompatibilityLabel(reference)}. Choose up to three wines.`;
+  const rows = advancedDifferenceRows(selections);
+  const biggestOnly = document.getElementById("advancedBiggestOnly")?.checked;
+  const metricKeys = biggestOnly && rows.length ? new Set(rows.slice(0, 4).map(row => row.metric.key)) : null;
+
+  grid.innerHTML = selections.map((item, index) => {
+    const style = advancedStyle(item);
+    const metrics = metricKeys ? ADV_COMPARE_METRICS.filter(metric => metricKeys.has(metric.key)) : ADV_COMPARE_METRICS;
+    return `<article class="compareCard advanced-compare-card"><div class="advanced-card-head"><div><h3>${WineAtlas.escapeHtml(item.grape.name)} · ${WineAtlas.escapeHtml(item.region.name)}</h3><div class="small">${WineAtlas.escapeHtml(item.region.country)} · ${WineAtlas.escapeHtml(style.label)}</div></div><button type="button" class="advanced-remove" data-slot="${index + 1}">Remove</button></div><div class="bars compare-bars">${metrics.map(metric => advancedMetricBar(metric, item)).join("")}</div><p class="small compare-summary">${WineAtlas.escapeHtml(item.regional.expect)}</p><p class="small"><strong>Serve:</strong> ${WineAtlas.escapeHtml(item.regional.serve)} · <strong>Ageing:</strong> ${WineAtlas.escapeHtml(item.regional.ageing)}</p></article>`;
+  }).join("");
+
+  grid.querySelectorAll(".advanced-remove").forEach(button => {
+    button.addEventListener("click", () => {
+      const slot = Number(button.dataset.slot);
+      const select = document.getElementById(`advancedCompare${slot}`);
+      if (select) select.value = "";
+      if (slot === 1) {
+        document.getElementById("advancedCompare2").value = "";
+        document.getElementById("advancedCompare3").value = "";
+      }
+      advancedRefreshSelectors(slot);
+      advancedRender();
+    });
+  });
+
+  if (rows.length) {
+    differences.innerHTML = `<section class="differences" aria-labelledby="advancedDiffHeading"><h3 id="advancedDiffHeading">Biggest differences</h3>${rows.slice(0, 4).map(row => `<div class="diff-row"><span class="diff-metric">${WineAtlas.escapeHtml(row.metric.label)}</span><span class="diff-text">${WineAtlas.escapeHtml(advancedShortName(row.high.item))} is ${WineAtlas.escapeHtml(row.metric.high)}, while ${WineAtlas.escapeHtml(advancedShortName(row.low.item))} is ${WineAtlas.escapeHtml(row.metric.low)}.</span></div>`).join("")}</section>${advancedProductionContext(selections)}`;
+  } else if (selections.length >= 2) {
+    differences.innerHTML = `<p class="small">These selections are unusually close on the atlas metrics.</p>${advancedProductionContext(selections)}`;
+  } else {
+    differences.replaceChildren();
+  }
+}
+
+function advancedSeedProfile(profile) {
+  if (!profile) return;
+  const first = document.getElementById("advancedCompare1");
+  if (!first) return;
+  first.value = advancedProfileKey(profile);
+  document.getElementById("advancedCompare2").value = "";
+  document.getElementById("advancedCompare3").value = "";
+  advancedRefreshSelectors(1);
+  advancedRender();
+}
+
+function advancedInjectUi() {
+  const controls = document.getElementById("compareControls");
+  const view = document.getElementById("compareView")?.querySelector("article");
+  if (!controls || !view || advancedCompareInitialized) return;
+
+  controls.querySelector("#compareHeading").textContent = "Advanced Compare";
+  for (const id of ["cg", "compareGrapeColor", "compareRegionControls", "compareHint"]) {
+    const node = document.getElementById(id);
+    if (node) node.classList.add("advanced-legacy-hidden");
+  }
+  const cgLabel = controls.querySelector('label[for="cg"]');
+  if (cgLabel) cgLabel.classList.add("advanced-legacy-hidden");
+
+  const panel = document.createElement("div");
+  panel.id = "advancedCompareControls";
+  panel.innerHTML = `
+    <p class="small">Start with any wine. Slots 2 and 3 are limited to meaningful comparisons: same-color still wines, or the same sparkling, sweet or fortified family.</p>
+    <label for="advancedCompare1">Wine 1</label><select id="advancedCompare1"></select>
+    <label for="advancedCompare2">Wine 2</label><select id="advancedCompare2" disabled></select>
+    <label for="advancedCompare3">Wine 3</label><select id="advancedCompare3" disabled></select>
+    <label class="advanced-check"><input id="advancedBiggestOnly" type="checkbox"> Show only the biggest differences</label>
+    <p id="advancedCompareHint" class="small" role="status" aria-live="polite"></p>`;
+  controls.insertBefore(panel, document.getElementById("compareHint"));
+
+  for (const id of ["compareMessage", "compareGrid", "compareDifferences"]) {
+    const node = document.getElementById(id);
+    if (node) node.classList.add("advanced-legacy-hidden");
+  }
+  const heading = document.getElementById("regionalComparisonHeading");
+  if (heading) heading.textContent = "Wine Comparison";
+  const message = document.createElement("div");
+  message.id = "advancedCompareMessage";
+  message.className = "compare-message hidden";
+  message.setAttribute("role", "status");
+  message.setAttribute("aria-live", "polite");
+  const grid = document.createElement("div");
+  grid.id = "advancedCompareGrid";
+  grid.className = "compareGrid";
+  const differences = document.createElement("div");
+  differences.id = "advancedCompareDifferences";
+  view.append(message, grid, differences);
+
+  const profileHeader = document.querySelector("#exploreView .titleline");
+  if (profileHeader && !document.getElementById("compareCurrentWine")) {
+    const button = document.createElement("button");
+    button.id = "compareCurrentWine";
+    button.type = "button";
+    button.className = "compare-current-wine";
+    button.textContent = "Compare this wine";
+    button.addEventListener("click", () => {
+      if (advancedCompareLastProfile) advancedSeedProfile(advancedCompareLastProfile);
+      WineAtlas.setMode("compare");
+    });
+    profileHeader.appendChild(button);
+  }
+
+  const welcome = document.querySelector('[data-welcome-action="compare"]');
+  if (welcome) {
+    welcome.querySelector("strong").textContent = "Compare wines";
+    welcome.querySelector("span").textContent = "Compare compatible wines across grapes, regions and production styles.";
+  }
+
+  [1, 2, 3].forEach(index => {
+    document.getElementById(`advancedCompare${index}`)?.addEventListener("change", () => {
+      advancedRefreshSelectors(index);
+      advancedRender();
+    });
+  });
+  document.getElementById("advancedBiggestOnly")?.addEventListener("change", advancedRender);
+
+  advancedCompareInitialized = true;
+  advancedRefreshSelectors();
+  advancedRender();
+}
+
+document.addEventListener("wineatlas:ready", () => {
+  advancedInjectUi();
+});
+
+document.addEventListener("wineatlas:profile-selected", event => {
+  advancedCompareLastProfile = event.detail.profile;
+});
+
+document.addEventListener("wineatlas:mode-changed", event => {
+  if (event.detail.mode !== "compare" || !advancedCompareInitialized) return;
+  const first = document.getElementById("advancedCompare1");
+  if (first && !first.value && advancedCompareLastProfile) advancedSeedProfile(advancedCompareLastProfile);
+  advancedRender();
+});
