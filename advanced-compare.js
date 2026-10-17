@@ -26,6 +26,8 @@ const ADV_COMPARE_MIN_SPREAD = 0.5;
 let advancedCompareLastProfile = null;
 let advancedCompareInitialized = false;
 
+/* This clamp is presentation-only: the canonical profile engine already clamps
+   metrics to 0–5; here we simply keep a CSS percentage within 0–100. */
 function advClamp(value, min, max) {
   return Math.max(min, Math.min(max, value));
 }
@@ -125,9 +127,15 @@ function advancedFindProfile(key) {
   return WineAtlas.combinedProfile(grapeId, regionId);
 }
 
+/* Keep the physical selector slot with each rendered card. Slot 3 can be filled
+   while slot 2 is empty, so using filtered-array indexes would make Remove act
+   on the wrong selector in that valid edge case. */
 function advancedSelections() {
   return [1, 2, 3]
-    .map(index => advancedFindProfile(document.getElementById(`advancedCompare${index}`)?.value))
+    .map(index => {
+      const profile = advancedFindProfile(document.getElementById(`advancedCompare${index}`)?.value);
+      return profile ? { ...profile, compareSlot: index } : null;
+    })
     .filter(Boolean);
 }
 
@@ -187,6 +195,11 @@ function advancedProductionContext(selections) {
   }).join("")}</section>`;
 }
 
+function advancedSetBiggestOnly(value) {
+  const checkbox = document.getElementById("advancedBiggestOnly");
+  if (checkbox) checkbox.checked = Boolean(value);
+}
+
 function advancedRemoveSlot(slot) {
   const first = document.getElementById("advancedCompare1");
   const second = document.getElementById("advancedCompare2");
@@ -194,10 +207,19 @@ function advancedRemoveSlot(slot) {
   if (!first || !second || !third) return;
 
   if (slot === 1) {
-    // Compatibility is anchored on slot 1. Preserve the user's work by
-    // promoting the next selected wine instead of wiping the whole comparison.
-    first.value = second.value || third.value || "";
-    second.value = second.value ? third.value : "";
+    /* Compatibility is anchored on slot 1. Promote the next actual selection
+       rather than erasing the comparison. The explicit branches are deliberate:
+       they make the "slot 2 empty, slot 3 filled" case easy to audit. */
+    if (second.value) {
+      first.value = second.value;
+      second.value = third.value;
+    } else if (third.value) {
+      first.value = third.value;
+      second.value = "";
+    } else {
+      first.value = "";
+      second.value = "";
+    }
     third.value = "";
     advancedRefreshSelectors(1);
   } else if (slot === 2) {
@@ -208,6 +230,8 @@ function advancedRemoveSlot(slot) {
     third.value = "";
     advancedRefreshSelectors(3);
   }
+
+  advancedSetBiggestOnly(Boolean(third.value));
   advancedRender();
 }
 
@@ -242,10 +266,10 @@ function advancedRender() {
   const biggestOnly = document.getElementById("advancedBiggestOnly")?.checked;
   const metricKeys = biggestOnly && rows.length ? new Set(rows.slice(0, 4).map(row => row.metric.key)) : null;
 
-  grid.innerHTML = selections.map((item, index) => {
+  grid.innerHTML = selections.map(item => {
     const style = advancedStyle(item);
     const metrics = metricKeys ? ADV_COMPARE_METRICS.filter(metric => metricKeys.has(metric.key)) : ADV_COMPARE_METRICS;
-    return `<article class="compareCard advanced-compare-card"><div class="advanced-card-head"><div><h3>${WineAtlas.escapeHtml(item.grape.name)} · ${WineAtlas.escapeHtml(item.region.name)}</h3><div class="small">${WineAtlas.escapeHtml(item.region.country)} · ${WineAtlas.escapeHtml(style.label)}</div></div><button type="button" class="advanced-remove" data-slot="${index + 1}">Remove</button></div><div class="bars compare-bars">${metrics.map(metric => advancedMetricBar(metric, item)).join("")}</div><p class="small compare-summary">${WineAtlas.escapeHtml(item.regional.expect)}</p><p class="small"><strong>Serve:</strong> ${WineAtlas.escapeHtml(item.regional.serve)} · <strong>Ageing:</strong> ${WineAtlas.escapeHtml(item.regional.ageing)}</p></article>`;
+    return `<article class="compareCard advanced-compare-card"><div class="advanced-card-head"><div><h3>${WineAtlas.escapeHtml(item.grape.name)} · ${WineAtlas.escapeHtml(item.region.name)}</h3><div class="small">${WineAtlas.escapeHtml(item.region.country)} · ${WineAtlas.escapeHtml(style.label)}</div></div><button type="button" class="advanced-remove" data-slot="${item.compareSlot}">Remove</button></div><div class="bars compare-bars">${metrics.map(metric => advancedMetricBar(metric, item)).join("")}</div><p class="small compare-summary">${WineAtlas.escapeHtml(item.regional.expect)}</p><p class="small"><strong>Serve:</strong> ${WineAtlas.escapeHtml(item.regional.serve)} · <strong>Ageing:</strong> ${WineAtlas.escapeHtml(item.regional.ageing)}</p></article>`;
   }).join("");
 
   if (rows.length) {
@@ -264,6 +288,7 @@ function advancedSeedProfile(profile) {
   first.value = advancedProfileKey(profile);
   document.getElementById("advancedCompare2").value = "";
   document.getElementById("advancedCompare3").value = "";
+  advancedSetBiggestOnly(false);
   advancedRefreshSelectors(1);
   advancedRender();
 }
@@ -331,15 +356,17 @@ function advancedInjectUi() {
     profileHeader.appendChild(button);
   }
 
-  const welcome = document.querySelector('[data-welcome-action="compare"]');
-  if (welcome) {
-    welcome.querySelector("strong").textContent = "Compare wines";
-    welcome.querySelector("span").textContent = "Compare compatible wines across grapes, regions and production styles.";
-  }
-
   [1, 2, 3].forEach(index => {
     document.getElementById(`advancedCompare${index}`)?.addEventListener("change", () => {
       advancedRefreshSelectors(index);
+      const third = document.getElementById("advancedCompare3");
+      if (index === 3) {
+        // Three comparison cards are the visual-noise ceiling, so start in the
+        // concise view. The checkbox remains user-controllable afterwards.
+        advancedSetBiggestOnly(Boolean(third?.value));
+      } else if (index === 1 && !third?.value) {
+        advancedSetBiggestOnly(false);
+      }
       advancedRender();
     });
   });
