@@ -230,20 +230,6 @@ function advancedInjectUi() {
   const view = document.getElementById("compareView")?.querySelector("article");
   if (!controls || !view || advancedCompareInitialized) return;
 
-  /*
-   * The original same-grape Compare remains in app.js as a no-enhancement
-   * fallback and regression-tested core path. Advanced Compare hides, rather
-   * than deletes, those controls so a failure in this optional layer cannot
-   * corrupt core state.
-   */
-  controls.querySelector("#compareHeading").textContent = "Advanced Compare";
-  for (const id of ["cg", "compareGrapeColor", "compareRegionControls", "compareHint"]) {
-    const node = document.getElementById(id);
-    if (node) node.classList.add("advanced-legacy-hidden");
-  }
-  const cgLabel = controls.querySelector('label[for="cg"]');
-  if (cgLabel) cgLabel.classList.add("advanced-legacy-hidden");
-
   const panel = document.createElement("div");
   panel.id = "advancedCompareControls";
   panel.innerHTML = `
@@ -253,14 +239,8 @@ function advancedInjectUi() {
     <label for="advancedCompare3">Wine 3</label><div class="advanced-slot"><select id="advancedCompare3" disabled></select><button type="button" class="advanced-slot-remove" data-slot="3" aria-label="Remove Wine 3" hidden>Remove</button></div>
     <label class="advanced-check"><input id="advancedBiggestOnly" type="checkbox"> Show only the biggest differences</label>
     <p id="advancedCompareHint" class="small" role="status" aria-live="polite"></p>`;
-  controls.insertBefore(panel, document.getElementById("compareHint"));
+  controls.append(panel);
 
-  for (const id of ["compareMessage", "compareGrid", "compareDifferences"]) {
-    const node = document.getElementById(id);
-    if (node) node.classList.add("advanced-legacy-hidden");
-  }
-  const heading = document.getElementById("regionalComparisonHeading");
-  if (heading) heading.textContent = "Wine Comparison";
   const message = document.createElement("div");
   message.id = "advancedCompareMessage";
   message.className = "compare-message hidden";
@@ -301,9 +281,6 @@ function advancedInjectUi() {
     WineComparison.setBiggestOnly(event.target.checked);
   });
 
-  // The legacy controls remain available only if this enhancement is absent.
-  document.getElementById("compareRegionControls")?.replaceChildren();
-  for (const id of ["compareGrid", "compareDifferences"]) document.getElementById(id)?.replaceChildren();
   advancedCompareInitialized = true;
   advancedRefreshSelectors();
   advancedRender();

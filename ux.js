@@ -276,8 +276,7 @@ function wireUxOnce() {
 
   [
     ["grape", "grapeColor"],
-    ["placeGrape", "placeGrapeColor"],
-    ["cg", "compareGrapeColor"]
+    ["placeGrape", "placeGrapeColor"]
   ].forEach(([selectId, indicatorId]) => {
     document.getElementById(selectId)?.addEventListener("change", () => updateSelectorColor(selectId, indicatorId));
   });
@@ -298,7 +297,6 @@ document.addEventListener("wineatlas:ready", event => {
   renderFeaturedDiscoveries();
   updateSelectorColor("grape", "grapeColor");
   updateSelectorColor("placeGrape", "placeGrapeColor");
-  updateSelectorColor("cg", "compareGrapeColor");
 
   if (event.detail.sharedProfile) {
     showAppShell();

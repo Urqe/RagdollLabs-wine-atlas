@@ -37,3 +37,8 @@
   .glossary-dialog > .glossary-dialog-inner > .small { padding: 10px 16px 0; }
   .glossary-content { padding: 12px 16px 18px; }
 }
+
+.taste-examples { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.taste-example { border: 1px solid var(--line, rgba(0,0,0,.15)); background: transparent; color: inherit; border-radius: 999px; padding: 6px 12px; font: inherit; font-size: .88rem; cursor: pointer; text-align: left; }
+.taste-example:hover, .taste-example:focus-visible { border-color: currentColor; }
+.taste-section p + p { margin-top: 8px; }

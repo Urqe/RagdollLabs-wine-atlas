@@ -63,7 +63,7 @@ assert.equal(w.WineComparison.snapshot().biggestOnly, false, "invalid third sele
 w.WineComparison.setBiggestOnly(true);
 assert.equal(d.getElementById("advancedBiggestOnly").checked, true);
 d.removeEventListener("wineatlas:comparison-changed", changed);
-assert.equal(d.querySelectorAll("#compareGrid .compareCard").length, 0, "hidden legacy comparison must not be rendered");
+assert.equal(d.getElementById("compareGrid"), null, "the legacy same-grape comparison has been removed");
 assert.ok(Object.isFrozen(w.WineModel.metrics));
 
 // Entity encoding is tested only in its documented HTML contexts.
@@ -150,16 +150,12 @@ await assert.rejects(hanging.window.WineData.json("./never-required.json", { tim
 assert.equal(requiredSignal.aborted, true);
 await hanging.close();
 
-// Keep the explicit basic fallbacks functional without duplicate enhanced work.
-const fallback = await createApp({ omitScripts: ["advanced-compare.js", "compare-discovery.js", "compare-state.js", "smart-discovery.js", "search-enhance.js"] });
+// Search keeps a plain fallback when its presentation layer is absent.
+const fallback = await createApp({ omitScripts: ["search-enhance.js"] });
 await fallback.settle();
-fallback.window.WineAtlas.setMode("compare");
-assert.ok(fallback.document.querySelectorAll("#compareGrid .compareCard").length >= 2);
-fallback.window.WineAtlas.selectProfile("pinot-noir", "burgundy");
-assert.ok(fallback.document.querySelectorAll("#similarWines button").length > 0);
 const basicSearch = fallback.document.getElementById("searchInput");
 basicSearch.value = "pinot";
 basicSearch.dispatchEvent(new fallback.window.Event("input", { bubbles: true }));
 assert.ok(fallback.document.querySelectorAll("#searchResults button").length > 0);
 await fallback.close();
-console.log("OK: state transitions, loading failures, safe rendering and explicit fallbacks passed");
+console.log("OK: state transitions, loading failures, safe rendering and search fallback passed");

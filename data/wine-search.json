@@ -40,7 +40,8 @@
       ],
       "family": "sparkling",
       "regions": [
-        "champagne-blanc-de-blancs"
+        "champagne-blanc-de-blancs",
+        "champagne-brut-nv"
       ]
     },
     {
@@ -63,6 +64,19 @@
       "family": "sparkling",
       "regions": [
         "prosecco-doc"
+      ]
+    },
+    {
+      "id": "moscato",
+      "label": "Moscato d'Asti",
+      "aliases": [
+        "moscato",
+        "moscato d'asti",
+        "moscato dasti"
+      ],
+      "family": "sparkling",
+      "regions": [
+        "moscato-dasti"
       ]
     }
   ]

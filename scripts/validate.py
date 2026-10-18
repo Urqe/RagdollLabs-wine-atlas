@@ -16,18 +16,13 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
-REGION_FILES = [
-    DATA / "regions-classics-west.json",
-    DATA / "regions-classics-expanded.json",
-    DATA / "regions-discovery.json",
-    DATA / "regions-discovery-expanded.json",
-    DATA / "regions-styles.json",
-]
+REGION_FILE = DATA / "regions.json"
 REQUIRED_PROFILE_FIELDS = {"notes", "serve", "decant", "glass", "ageing", "pairings", "expect"}
 METRICS = {"body", "acidity", "tannin", "sweetness", "alcohol", "fruit", "oak", "earth"}
 WINEMAKING_PREVALENCE = {"very common", "common", "sometimes", "rare"}
 MATURITY_STAGES = ["Young", "Developing", "Mature"]
 STYLE_FAMILIES = {"sparkling", "sweet", "fortified", "rose", "orange"}
+PLACEHOLDER_NOTES = {"spice", "flowers", "herbs", "fruit", "earth"}
 STYLE_SWEETNESS = {"dry", "dry-to-off-dry", "off-dry", "sweet"}
 
 SENSITIVE_LABEL_RULES = {
@@ -58,19 +53,13 @@ def main() -> None:
     for source_id, source in sources.items():
         assert source.get("name") and valid_reference_url(source.get("url")), f"invalid HTTPS reference: {source_id}"
     locators = load(DATA / "locators.json")
-    why_rules = load(DATA / "why-rules.json")
     food_aliases = load(DATA / "food-aliases.json")
     food_dishes = load(DATA / "food-dishes.json")
     winemaking = load(DATA / "winemaking.json")
     maturity = load(DATA / "maturity.json")
     glossary = load(DATA / "glossary.json")
 
-    regions: dict[str, dict] = {}
-    for path in REGION_FILES:
-        group = load(path)
-        for region_id, region in group.items():
-            assert region_id not in regions, f"duplicate region id: {region_id}"
-            regions[region_id] = region
+    regions: dict[str, dict] = load(REGION_FILE)
 
     assert regions, "no regions loaded"
     assert grapes, "no grapes loaded"
@@ -78,6 +67,11 @@ def main() -> None:
     for grape_id, grape in grapes.items():
         assert grape.get("color") in {"red", "white"}, f"{grape_id}: missing/invalid color"
         assert isinstance(grape.get("indigenous"), bool), f"{grape_id}: indigenous must be boolean"
+        if grape["indigenous"]:
+            origin = grape.get("origin")
+            assert isinstance(origin, list) and origin and all(isinstance(c, str) and c for c in origin), f"{grape_id}: indigenous grapes need an origin country list"
+        if "aromatic" in grape:
+            assert isinstance(grape["aromatic"], bool), f"{grape_id}: aromatic must be boolean"
         if "kind" in grape:
             assert grape["kind"] in {"grape", "blend"}, f"{grape_id}: invalid kind"
         for metric in METRICS:
@@ -138,6 +132,23 @@ def main() -> None:
                 for field in ("color", "label", "method", "effect"):
                     assert isinstance(style.get(field), str) and style[field].strip(), f"{prefix}: invalid style {field}"
 
+    # Each profile must say something its siblings do not: identical scores for
+    # the same grape make Compare show "no differences", and placeholder notes
+    # that merely repeat the category name carry no tasting information.
+    by_grape: dict[tuple, list[str]] = {}
+    for region_id, region in regions.items():
+        for grape_id, profile in region["grapes"].items():
+            base = grapes[grape_id]
+            scores = tuple(
+                max(0, min(5, base[m] + profile.get("mods", {}).get(m, 0))) for m in sorted(METRICS)
+            )
+            by_grape.setdefault((grape_id, scores), []).append(region_id)
+            for category, notes in profile["notes"].items():
+                for note in notes:
+                    assert note.casefold() not in PLACEHOLDER_NOTES, f"{region_id}/{grape_id}: placeholder note {note!r} in {category}"
+    duplicates = [f"{grape}: {', '.join(ids)}" for (grape, _), ids in by_grape.items() if len(ids) > 1]
+    assert not duplicates, f"identical scores for the same grape: {duplicates}"
+
     import unicodedata
     def food_key(value):
         return " ".join("".join(c for c in unicodedata.normalize("NFD", value) if not unicodedata.combining(c)).casefold().split())
@@ -171,24 +182,18 @@ def main() -> None:
             assert isinstance(target, str) and target.strip(), f"food aliases/{alias}: invalid target"
             assert target.casefold().strip() in pairing_values, f"food aliases/{alias}: target {target!r} is not used by any profile pairing"
 
-    for region_id, rules in why_rules.items():
-        assert region_id in regions, f"why-rules: unknown region {region_id}"
-        why_items = regions[region_id].get("why") or []
-        assert isinstance(rules, dict), f"why-rules/{region_id}: rules must be an object"
-        for raw_index, rule in rules.items():
-            assert str(raw_index).isdigit(), f"why-rules/{region_id}: invalid index {raw_index}"
-            index = int(raw_index)
-            assert 0 <= index < len(why_items), f"why-rules/{region_id}: index {index} out of range"
-            assert isinstance(rule, dict), f"why-rules/{region_id}/{index}: rule must be an object"
-            if "grapes" in rule:
-                scoped = rule["grapes"]
-                assert isinstance(scoped, list) and scoped, f"why-rules/{region_id}/{index}: grapes must be a non-empty list"
+    for region_id, region in regions.items():
+        why_items = region.get("why") or []
+        assert isinstance(why_items, list), f"{region_id}: why must be a list"
+        for index, item in enumerate(why_items):
+            prefix = f"{region_id}/why/{index}"
+            for field in ("cause", "effect"):
+                assert isinstance(item.get(field), str) and item[field].strip(), f"{prefix}: invalid {field}"
+            if "grapes" in item:
+                scoped = item["grapes"]
+                assert isinstance(scoped, list) and scoped, f"{prefix}: grapes must be a non-empty list"
                 for grape_id in scoped:
-                    assert grape_id in regions[region_id]["grapes"], f"why-rules/{region_id}/{index}: grape {grape_id} is not a profile in this region"
-            if "cause" in rule:
-                assert isinstance(rule["cause"], str) and rule["cause"].strip(), f"why-rules/{region_id}/{index}: invalid cause"
-            if "effect" in rule:
-                assert isinstance(rule["effect"], str) and rule["effect"].strip(), f"why-rules/{region_id}/{index}: invalid effect"
+                    assert grape_id in region["grapes"], f"{prefix}: grape {grape_id} is not a profile in this region"
 
     assert isinstance(winemaking, dict), "winemaking data must be an object"
     for region_id, grape_entries in winemaking.items():
@@ -250,6 +255,20 @@ def main() -> None:
             previous = aliases_seen.get(normalized)
             assert previous in {None, glossary_id}, f"{prefix}: alias {alias!r} already belongs to {previous}"
             aliases_seen[normalized] = glossary_id
+
+    taste = load(DATA / "taste-basics.json")
+    assert taste.get("title") and taste.get("intro") and taste.get("sections"), "taste basics: missing title, intro or sections"
+    section_ids = set()
+    for section in taste["sections"]:
+        prefix = f"taste-basics/{section.get('id')}"
+        assert section.get("id") and section["id"] not in section_ids, f"{prefix}: missing or duplicate id"
+        section_ids.add(section["id"])
+        assert section.get("heading") and section.get("body"), f"{prefix}: missing heading or body"
+        for example in section.get("examples", []):
+            assert example.get("label"), f"{prefix}: example needs a label"
+            assert example.get("grape") in regions.get(example.get("region"), {}).get("grapes", {}), f"{prefix}: unknown profile {example.get('region')}/{example.get('grape')}"
+    for source_id in taste.get("sources", []):
+        assert source_id in sources, f"taste basics: unknown source {source_id}"
 
     extra_locators = set(locators) - set(regions)
     assert not extra_locators, f"locator entries without regions: {sorted(extra_locators)}"

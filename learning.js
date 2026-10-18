@@ -188,8 +188,70 @@ async function showFullGlossary() {
   openDialog();
 }
 
+/*
+ * "How wine gets its taste" reuses the glossary dialog. Its example buttons open
+ * the referenced profile through the same guarded WineAtlas.selectProfile() path
+ * as every other selection, so an outdated reference simply does nothing.
+ */
+let tasteBasicsPromise = null;
+
+function loadTasteBasics() {
+  if (!tasteBasicsPromise) tasteBasicsPromise = WineData.json("./data/taste-basics.json", { optional: true });
+  return tasteBasicsPromise;
+}
+
+function tasteSectionCard(section) {
+  const article = document.createElement("article");
+  article.className = "glossary-entry taste-section";
+  const heading = document.createElement("h3");
+  heading.textContent = section.heading;
+  article.append(heading, ...(section.body || []).map(text => {
+    const paragraph = document.createElement("p");
+    paragraph.textContent = text;
+    return paragraph;
+  }));
+  const examples = (section.examples || []).filter(example => WineAtlas.combinedProfile(example.grape, example.region));
+  if (examples.length) {
+    const list = document.createElement("div");
+    list.className = "taste-examples";
+    for (const example of examples) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "taste-example";
+      button.textContent = example.label;
+      button.addEventListener("click", () => {
+        closeDialog();
+        WineAtlas.selectProfile(example.grape, example.region, true);
+      });
+      list.append(button);
+    }
+    article.append(list);
+  }
+  return article;
+}
+
+async function showTasteBasics() {
+  const data = await loadTasteBasics();
+  const title = document.getElementById("glossaryDialogTitle");
+  const intro = document.getElementById("glossaryIntro");
+  const content = document.getElementById("glossaryContent");
+  if (!title || !intro || !content || !data?.sections) return;
+  title.textContent = data.title;
+  intro.textContent = data.intro;
+  content.replaceChildren(...data.sections.map(tasteSectionCard));
+  const glossary = document.createElement("button");
+  glossary.type = "button";
+  glossary.className = "glossary-browse-all";
+  glossary.textContent = "Browse the wine glossary";
+  glossary.addEventListener("click", showFullGlossary, { once: true });
+  content.append(glossary);
+  openDialog();
+  content.scrollTop = 0;
+}
+
 function wireLearningLayer() {
   document.getElementById("glossaryOpen")?.addEventListener("click", showFullGlossary);
+  document.querySelectorAll("[data-taste-basics]").forEach(button => button.addEventListener("click", showTasteBasics));
   document.getElementById("glossaryClose")?.addEventListener("click", closeDialog);
   dialogElement()?.addEventListener("click", event => {
     if (event.target === dialogElement()) closeDialog();
