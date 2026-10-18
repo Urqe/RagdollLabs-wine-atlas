@@ -214,5 +214,13 @@
   "wine-folly-wachau": {
     "name": "Wine Folly — in-depth guide to the Wachau",
     "url": "https://winefolly.com/deep-dive/in-depth-guide-to-the-wachau-valley-wine-region/"
+  },
+  "wines-of-argentina": {
+    "name": "Wines of Argentina",
+    "url": "https://www.winesofargentina.org/"
+  },
+  "austrian-wine": {
+    "name": "Austrian Wine Marketing Board",
+    "url": "https://www.austrianwine.com/"
   }
 }
