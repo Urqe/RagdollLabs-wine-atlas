@@ -42,3 +42,5 @@
 .taste-example { border: 1px solid var(--line, rgba(0,0,0,.15)); background: transparent; color: inherit; border-radius: 999px; padding: 6px 12px; font: inherit; font-size: .88rem; cursor: pointer; text-align: left; }
 .taste-example:hover, .taste-example:focus-visible { border-color: currentColor; }
 .taste-section p + p { margin-top: 8px; }
+.score-help { margin-top: 10px; padding: 0; border: 0; background: none; color: var(--gold); font: inherit; font-size: 12px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.score-help:hover, .score-help:focus-visible { color: var(--text); }

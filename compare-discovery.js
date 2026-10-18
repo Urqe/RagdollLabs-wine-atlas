@@ -18,8 +18,7 @@ function compareProfileKey(item) {
 }
 
 function compareAdvancedReady() {
-  return typeof window.advancedCompatible === "function" &&
-    document.getElementById("advancedCompare1");
+  return Boolean(document.getElementById("advancedCompare1"));
 }
 
 function compareCurrentProfiles() { return WineComparison.profiles(); }

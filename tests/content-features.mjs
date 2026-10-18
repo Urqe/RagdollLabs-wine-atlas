@@ -93,5 +93,53 @@ document.getElementById("glossaryClose").click();
 assert.equal((await window.WineSearch.rank("champagne")).length, 2);
 assert.ok((await window.WineSearch.rank("moscato")).length >= 1);
 
+// Glossary terms are tappable inside the "Wine style & production" section too.
+open("chardonnay", "champagne-blanc-de-blancs");
+await settle();
+await new Promise(resolve => setImmediate(resolve));
+assert.ok(document.querySelector('#specialStyle .glossary-term[data-glossary-id="lees"]'), "lees is annotated in the style section");
+
+// Loire is split into honest sub-regions; Mosel notes its range of styles.
+assert.equal(atlas.getData().regions.loire.name, "Touraine");
+assert.ok(atlas.combinedProfile("chenin-blanc", "anjou"));
+assert.equal(atlas.combinedProfile("chenin-blanc", "loire"), null);
+assert.match(atlas.combinedProfile("riesling", "mosel").regional.expect, /dry \(trocken\) to sweet/);
+
+// The score link opens the explainer at "Reading the scores".
+const scoreHelp = document.getElementById("scoreHelp");
+assert.ok(scoreHelp);
+scoreHelp.click();
+await settle();
+await new Promise(resolve => setImmediate(resolve));
+assert.equal(document.getElementById("glossaryDialogTitle").textContent, "How wine gets its taste");
+assert.ok(document.querySelector('.taste-section[data-section-id="scores"]').classList.contains("glossary-entry-focused"));
+document.getElementById("glossaryClose").click();
+
+// Profile changes create history entries; Back restores the previous wine, then the landing page.
+const start = window.history.length;
+open("malbec", "mendoza");
+open("malbec", "cahors");
+assert.ok(window.history.length >= start + 1, "selecting a profile adds a history entry");
+assert.equal(new URL(window.location.href).searchParams.get("region"), "cahors");
+window.history.back();
+await new Promise(resolve => window.addEventListener("popstate", resolve, { once: true }));
+await settle();
+assert.equal(document.getElementById("title").textContent, "Malbec · Mendoza");
+
+// Compare seeds the current wine only on the first visit, so a cleared Compare stays empty.
+atlas.setMode("compare");
+await settle();
+assert.ok(window.WineComparison.snapshot().keys[0], "first visit seeds the current wine");
+window.WineComparison.replace([]);
+atlas.setMode("explore");
+atlas.setMode("compare");
+await settle();
+assert.equal(window.WineComparison.snapshot().keys[0], "", "a cleared Compare is not re-seeded");
+atlas.setMode("explore");
+
+// Link previews and favicon are declared.
+assert.ok(document.querySelector('link[rel="icon"]'));
+assert.match(document.querySelector('meta[property="og:image"]').content, /^https:\/\/.+og-image\.jpg$/);
+
 await close();
-console.log("OK: new wines, calibration, scoped Why entries, origin badges, taste explainer and glossary passed");
+console.log("OK: new wines, calibration, scoped Why entries, origin badges, taste explainer, glossary, history and Compare seeding passed");

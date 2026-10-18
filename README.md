@@ -22,11 +22,11 @@ The visible brand is **RagDollLabs**; the repository and GitHub Pages path keep 
 - **Mood discovery** — Light & elegant, Big & ripe, Earthy & savoury, Fresh & mineral, Aromatic, Something unusual
 - **Food-first discovery** — search what you are eating, including desserts, cheese and modern dishes
 - **Regional identity**, **locator maps**, **Serve It Tonight** guidance and **sources** for every region
-- **Shareable URLs** — `?grape=...&region=...` opens a profile directly
+- **Shareable URLs and history** — `?grape=...&region=...` opens a profile directly; Back and Forward move between viewed wines
 
 ## Coverage
 
-83 regions and 110 grape-region profiles across 22 countries, built on 46 grape or represented-blend baselines. Coverage deliberately combines the classics a newcomer is most likely to buy (Bordeaux, Burgundy, Rioja, Napa, Marlborough, Mendoza Malbec, Pinot Grigio, Prosecco, Champagne, Beaujolais, Rías Baixas Albariño) with discovery regions and indigenous grapes (Georgia, Greece, Armenia, Romania, Bulgaria, Ukraine, the Canary Islands, Uruguay and Mexico).
+84 regions and 110 grape-region profiles across 22 countries, built on 46 grape or represented-blend baselines. Coverage deliberately combines the classics a newcomer is most likely to buy (Bordeaux, Burgundy, Rioja, Napa, Marlborough, Mendoza Malbec, Pinot Grigio, Prosecco, Champagne, Beaujolais, Rías Baixas Albariño) with discovery regions and indigenous grapes (Georgia, Greece, Armenia, Romania, Bulgaria, Ukraine, the Canary Islands, Uruguay and Mexico).
 
 Many grapes appear in two or more regions so Compare can show how place changes a grape: for example Malbec in Mendoza and Cahors, Pinot Gris in Alto Adige and Alsace, Riesling in the Mosel, Rheingau, Wachau, Alsace and Clare Valley.
 

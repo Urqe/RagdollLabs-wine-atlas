@@ -5,13 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="RagDollLabs Wine Atlas — explore how grape, climate and region shape a wine's typical style.">
   <title>RagDollLabs Wine Atlas</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/ragdoll-cat.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="RagDollLabs Wine Atlas">
+  <meta property="og:title" content="RagDollLabs Wine Atlas">
+  <meta property="og:description" content="Explore how grape, place and climate shape the glass: style profiles, food pairings, side-by-side comparison and why wines taste the way they do.">
+  <meta property="og:url" content="https://urqe.github.io/RagdollLabs-wine-atlas/">
+  <meta property="og:image" content="https://urqe.github.io/RagdollLabs-wine-atlas/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="RagDollLabs Wine Atlas: a ragdoll cat beside a glass of red wine in a vineyard at dusk">
+  <meta name="twitter:card" content="summary_large_image">
   <!-- One release token keeps visible assets in sync after a GitHub Pages deploy. -->
-  <link rel="stylesheet" href="./styles.css?v=20261018-content1">
-  <link rel="stylesheet" href="./ux.css?v=20261018-content1">
-  <link rel="stylesheet" href="./maturity.css?v=20261018-content1">
-  <link rel="stylesheet" href="./learning.css?v=20261018-content1">
-  <link rel="stylesheet" href="./advanced-compare.css?v=20261018-content1">
-  <link rel="stylesheet" href="./home-brand.css?v=20261018-content1">
+  <link rel="stylesheet" href="./styles.css?v=20261018-review1">
+  <link rel="stylesheet" href="./ux.css?v=20261018-review1">
+  <link rel="stylesheet" href="./maturity.css?v=20261018-review1">
+  <link rel="stylesheet" href="./learning.css?v=20261018-review1">
+  <link rel="stylesheet" href="./advanced-compare.css?v=20261018-review1">
+  <link rel="stylesheet" href="./home-brand.css?v=20261018-review1">
 </head>
 <body>
   <div class="wrap">
@@ -49,7 +60,7 @@
           <p>Search, browse by grape or place, compare regional expressions, and discover styles from classic and emerging wine regions.</p>
         </div>
         <a class="app-home-cat" href="./" data-home-return aria-label="Return to Wine Atlas home">
-          <img src="./assets/ragdoll-cat.svg?v=20261018-content1" alt="">
+          <img src="./assets/ragdoll-cat.svg?v=20261018-review1" alt="">
         </a>
       </header>
 
@@ -91,7 +102,7 @@
               <div class="titleline"><h2 id="profileHeading"><span id="title"></span></h2><div class="title-meta"><span id="profileWineColor"></span><div class="pill" id="pill"></div></div></div>
               <p class="summary" id="expect"></p>
 
-              <div class="content2 profile-core"><section aria-labelledby="styleHeading"><h3 id="styleHeading">Style profile</h3><div class="bars" id="bars"></div></section><section aria-labelledby="notesHeading"><h3 id="notesHeading">Typical notes</h3><div id="notes"></div></section></div>
+              <div class="content2 profile-core"><section aria-labelledby="styleHeading"><h3 id="styleHeading">Style profile</h3><div class="bars" id="bars"></div><button id="scoreHelp" class="score-help" type="button" data-taste-basics data-taste-section="scores">What do the scores mean?</button></section><section aria-labelledby="notesHeading"><h3 id="notesHeading">Typical notes</h3><div id="notes"></div></section></div>
 
               <details id="learnMore" class="profile-learning">
                 <summary><span>Learn more</span><small>Place, winemaking, ageing &amp; sources</small></summary>
@@ -134,21 +145,21 @@
 
     <footer class="footer">RagDollLabs Wine Atlas · Typical-style reference, not a guarantee about a specific bottle.</footer>
   </div>
-  <script src="./wine-model.js?v=20261018-content1" defer></script>
-  <script src="./dom-utils.js?v=20261018-content1" defer></script>
-  <script src="./data-loader.js?v=20261018-content1" defer></script>
-  <script src="./app.js?v=20261018-content1" defer></script>
-  <script src="./ux.js?v=20261018-content1" defer></script>
-  <script src="./food-discovery.js?v=20261018-content1" defer></script>
-  <script src="./wine-search.js?v=20261018-content1" defer></script>
-  <script src="./functional.js?v=20261018-content1" defer></script>
-  <script src="./search-enhance.js?v=20261018-content1" defer></script>
-  <script src="./compare-state.js?v=20261018-content1" defer></script>
-  <script src="./advanced-compare.js?v=20261018-content1" defer></script>
-  <script src="./compare-discovery.js?v=20261018-content1" defer></script>
-  <script src="./maturity.js?v=20261018-content1" defer></script>
-  <script src="./learning.js?v=20261018-content1" defer></script>
-  <script src="./smart-discovery.js?v=20261018-content1" defer></script>
-  <script src="./home-brand.js?v=20261018-content1" defer></script>
+  <script src="./wine-model.js?v=20261018-review1" defer></script>
+  <script src="./dom-utils.js?v=20261018-review1" defer></script>
+  <script src="./data-loader.js?v=20261018-review1" defer></script>
+  <script src="./app.js?v=20261018-review1" defer></script>
+  <script src="./ux.js?v=20261018-review1" defer></script>
+  <script src="./food-discovery.js?v=20261018-review1" defer></script>
+  <script src="./wine-search.js?v=20261018-review1" defer></script>
+  <script src="./functional.js?v=20261018-review1" defer></script>
+  <script src="./search-enhance.js?v=20261018-review1" defer></script>
+  <script src="./compare-state.js?v=20261018-review1" defer></script>
+  <script src="./advanced-compare.js?v=20261018-review1" defer></script>
+  <script src="./compare-discovery.js?v=20261018-review1" defer></script>
+  <script src="./maturity.js?v=20261018-review1" defer></script>
+  <script src="./learning.js?v=20261018-review1" defer></script>
+  <script src="./smart-discovery.js?v=20261018-review1" defer></script>
+  <script src="./home-brand.js?v=20261018-review1" defer></script>
 </body>
 </html>

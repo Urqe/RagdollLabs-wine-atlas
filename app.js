@@ -115,13 +115,6 @@ function allPairs() {
   return PAIR_CACHE;
 }
 
-function optionMarkup(entries, includeCountry = false) {
-  return entries.map(([id, item]) => {
-    const label = includeCountry && item.country ? `${item.name} · ${item.country}` : item.name;
-    return `<option value="${escapeAttr(id)}">${escapeHtml(label)}</option>`;
-  }).join("");
-}
-
 function setSelectOptions(select, entries, includeCountry = false) {
   select.replaceChildren(...entries.map(([id, item]) => {
     const label = includeCountry && item.country ? `${item.name} · ${item.country}` : item.name;
@@ -405,21 +398,40 @@ function runSearch() {
   }));
 }
 
-function updateUrl(grapeId, regionId) {
+/*
+ * Profile changes create history entries so Back returns to the previous wine
+ * (or to the landing page). `history: "replace"` corrects a URL in place, and
+ * `history: "none"` is used while restoring an entry from popstate.
+ */
+function writeUrl(url, history) {
+  if (history === "none" || url.href === window.location.href) return;
+  if (history === "replace") window.history.replaceState(null, "", url);
+  else window.history.pushState(null, "", url);
+}
+function updateUrl(grapeId, regionId, history = "push") {
   if (!grapeId || !regionId) return;
   const url = new URL(window.location.href);
   url.searchParams.set("grape", grapeId);
   url.searchParams.set("region", regionId);
-  window.history.replaceState(null, "", url);
+  writeUrl(url, history);
 }
-function clearProfileUrl() {
+function clearProfileUrl({ replace = false } = {}) {
   const url = new URL(window.location.href);
   url.searchParams.delete("grape");
   url.searchParams.delete("region");
-  window.history.replaceState(null, "", url);
+  writeUrl(url, replace ? "replace" : "push");
 }
 
-function selectProfile(grapeId, regionId, shouldAnnounce = false) {
+function restoreFromHistory() {
+  const params = new URL(window.location.href).searchParams;
+  const grapeId = params.get("grape");
+  const regionId = params.get("region");
+  if (grapeId && regionId && selectProfile(grapeId, regionId, true, { history: "none" })) return;
+  currentProfile = null;
+  emit("history-home");
+}
+
+function selectProfile(grapeId, regionId, shouldAnnounce = false, { history = "push" } = {}) {
   const profile = combinedProfile(grapeId, regionId);
   if (!profile) return false;
   setMode("explore");
@@ -428,7 +440,7 @@ function selectProfile(grapeId, regionId, shouldAnnounce = false) {
   syncPlaceControls(grapeId, regionId);
   renderExplore();
   currentProfile = profile;
-  updateUrl(grapeId, regionId);
+  updateUrl(grapeId, regionId, history);
   emit("profile-selected", { profile });
   if (shouldAnnounce) announce(`Showing ${profile.grape.name} from ${profile.region.name}.`);
   return true;
@@ -542,6 +554,7 @@ function wireEvents() {
   $("browseByPlace").addEventListener("click", () => setBrowseMethod("place"));
   $("bExplore").addEventListener("click", () => setMode("explore"));
   $("bCompare").addEventListener("click", () => setMode("compare"));
+  window.addEventListener("popstate", restoreFromHistory);
 }
 
 async function init() {
