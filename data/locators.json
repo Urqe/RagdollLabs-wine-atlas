@@ -334,5 +334,37 @@
   "anjou": {
     "lat": 47.38,
     "lon": -0.65
+  },
+  "salta-cafayate": {
+    "lat": -26.07,
+    "lon": -65.98
+  },
+  "patagonia": {
+    "lat": -38.9,
+    "lon": -68.0
+  },
+  "steiermark": {
+    "lat": 46.72,
+    "lon": 15.55
+  },
+  "burgenland": {
+    "lat": 47.55,
+    "lon": 16.6
+  },
+  "swartland": {
+    "lat": -33.46,
+    "lon": 18.73
+  },
+  "constantia": {
+    "lat": -34.03,
+    "lon": 18.43
+  },
+  "maldonado": {
+    "lat": -34.6,
+    "lon": -54.6
+  },
+  "crimea-muscat": {
+    "lat": 44.5,
+    "lon": 34.15
   }
 }

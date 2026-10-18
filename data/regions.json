@@ -6851,5 +6851,667 @@
       "oxford-companion",
       "world-atlas-of-wine"
     ]
+  },
+  "salta-cafayate": {
+    "name": "Salta / Cafayate",
+    "country": "Argentina",
+    "climate": "High-altitude desert",
+    "summary": "Some of the world's highest vineyards, where extreme sunlight and cold nights give Malbec deeper colour, firmer tannin and a fresh, peppery edge.",
+    "grapes": {
+      "malbec": {
+        "mods": {
+          "body": 0.5,
+          "acidity": 0.5,
+          "tannin": 1,
+          "alcohol": 0.5,
+          "fruit": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "blackberry",
+            "blueberry",
+            "black plum"
+          ],
+          "Floral": [
+            "violet"
+          ],
+          "Spice": [
+            "black pepper"
+          ],
+          "Mineral / herbal": [
+            "dried mountain herbs"
+          ]
+        },
+        "serve": "16–18°C",
+        "decant": "45–90 min",
+        "glass": "Bordeaux glass",
+        "ageing": "4–12 years",
+        "pairings": [
+          "steak",
+          "empanadas",
+          "lamb",
+          "grilled meats",
+          "hard cheese"
+        ],
+        "expect": "Inky and concentrated, with blackberry, blueberry and violet, firmer tannin than Mendoza and a fresh, peppery lift from extreme altitude."
+      }
+    },
+    "identity": {
+      "setting": "High-altitude desert at roughly 1,700–3,000 m",
+      "terrain": "The Calchaquí Valleys in Argentina's far north-west, with Cafayate as the main centre",
+      "soil": "Sandy, stony alluvium low in organic matter",
+      "influences": [
+        "Extreme altitude and strong UV light",
+        "Very large day-night temperature swings",
+        "Very low rainfall, with irrigation from mountain rivers"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Extreme altitude and intense UV light",
+        "effect": "Thicken grape skins, giving deep colour, firm tannin and concentrated dark fruit"
+      },
+      {
+        "cause": "Cold mountain nights",
+        "effect": "Keep acidity fresh even when grapes reach high sugar ripeness"
+      }
+    ],
+    "badges": [
+      "Discovery",
+      "New World"
+    ],
+    "sources": [
+      "wines-of-argentina",
+      "world-atlas-of-wine"
+    ]
+  },
+  "patagonia": {
+    "name": "Patagonia (Neuquén / Río Negro)",
+    "country": "Argentina",
+    "climate": "Cool, dry continental with strong winds",
+    "summary": "Argentina's southern frontier, where wind, long sunny days and cold nights give ripe but fresh Pinot Noir.",
+    "grapes": {
+      "pinot-noir": {
+        "mods": {
+          "body": 0.5,
+          "alcohol": 1,
+          "fruit": 1,
+          "earth": -0.5
+        },
+        "notes": {
+          "Fruit": [
+            "red cherry",
+            "raspberry",
+            "red plum"
+          ],
+          "Spice": [
+            "sweet spice"
+          ],
+          "Mineral / herbal": [
+            "dried herbs"
+          ]
+        },
+        "serve": "14–16°C",
+        "decant": "0–20 min",
+        "glass": "Burgundy bowl",
+        "ageing": "3–8 years",
+        "pairings": [
+          "salmon",
+          "duck",
+          "mushrooms",
+          "roast chicken",
+          "lamb"
+        ],
+        "expect": "Ripe and supple, with bright red cherry, raspberry and plum, less earthiness than Burgundy and a fresh, wind-swept finish."
+      }
+    },
+    "identity": {
+      "setting": "Cool, dry, windy steppe at the southern edge of Argentine viticulture",
+      "terrain": "Irrigated river valleys of Neuquén and Río Negro",
+      "soil": "Alluvial sand, gravel and clay",
+      "influences": [
+        "Strong, persistent Patagonian winds",
+        "Long sunny days with cold nights",
+        "Irrigation from Andean rivers"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Constant wind",
+        "effect": "Thickens skins and keeps grapes healthy, giving Pinot Noir more colour and ripe fruit than most cool regions"
+      },
+      {
+        "cause": "Cold nights after long, bright days",
+        "effect": "Preserve Pinot Noir's natural acidity alongside riper fruit"
+      }
+    ],
+    "badges": [
+      "Discovery",
+      "New World"
+    ],
+    "sources": [
+      "wines-of-argentina",
+      "world-atlas-of-wine"
+    ]
+  },
+  "steiermark": {
+    "name": "Steiermark (Styria)",
+    "country": "Austria",
+    "climate": "Cool continental with warm southern influence",
+    "summary": "Steep hills on the Slovenian border produce a riper, stonier, often lightly oak-framed Sauvignon Blanc that sits between the Loire and Marlborough.",
+    "grapes": {
+      "sauvignon-blanc": {
+        "mods": {
+          "body": 1,
+          "alcohol": 0.5,
+          "oak": 1,
+          "earth": 1
+        },
+        "notes": {
+          "Fruit": [
+            "gooseberry",
+            "yellow peach",
+            "grapefruit"
+          ],
+          "Floral": [
+            "elderflower"
+          ],
+          "Mineral / herbal": [
+            "flint",
+            "fresh herbs"
+          ],
+          "Oak / ageing": [
+            "subtle toast"
+          ]
+        },
+        "serve": "9–11°C",
+        "decant": "No decant",
+        "glass": "Medium white wine glass",
+        "ageing": "2–8 years; single-vineyard wines age longest",
+        "pairings": [
+          "fried chicken",
+          "goat cheese",
+          "asparagus",
+          "trout",
+          "salad with pumpkin seed oil"
+        ],
+        "expect": "Riper and broader than Loire or Marlborough, with gooseberry, yellow peach and elderflower over a stony, sometimes lightly oak-framed core."
+      }
+    },
+    "identity": {
+      "setting": "Cool continental, with warm Mediterranean air from the south",
+      "terrain": "Very steep hillsides in Südsteiermark along the Slovenian border, plus Vulkanland and Weststeiermark",
+      "soil": "Opok (calcareous marl), sand and gravel, with volcanic soils in Vulkanland",
+      "influences": [
+        "Steep, sun-facing slopes",
+        "Warm days and cool nights",
+        "Higher rainfall than eastern Austria"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Long, slow ripening on steep, sun-facing slopes",
+        "effect": "Builds riper yellow fruit and more body than cooler Sauvignon Blanc regions"
+      },
+      {
+        "cause": "Calcareous opok soils and large old casks for top wines",
+        "effect": "Give a stony, textured core rather than overt oak flavour"
+      }
+    ],
+    "badges": [
+      "Discovery",
+      "Old World"
+    ],
+    "sources": [
+      "austrian-wine",
+      "world-atlas-of-wine"
+    ]
+  },
+  "burgenland": {
+    "name": "Burgenland",
+    "country": "Austria",
+    "climate": "Warm Pannonian continental",
+    "summary": "Austria's warmest wine region and the home of Blaufränkisch: dark-fruited, peppery reds with lively acidity.",
+    "grapes": {
+      "blaufrankisch": {
+        "mods": {
+          "oak": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "black cherry",
+            "blackberry",
+            "sour cherry"
+          ],
+          "Spice": [
+            "black pepper"
+          ],
+          "Mineral / herbal": [
+            "graphite"
+          ],
+          "Oak / ageing": [
+            "cedar"
+          ]
+        },
+        "serve": "15–17°C",
+        "decant": "30–60 min",
+        "glass": "Bordeaux glass",
+        "ageing": "4–12 years",
+        "pairings": [
+          "venison",
+          "duck",
+          "goulash",
+          "roast pork",
+          "hard cheese"
+        ],
+        "expect": "Dark cherry and blackberry with peppery spice, bright acidity and fine-grained tannin — fresher and more savoury than its colour suggests."
+      }
+    },
+    "identity": {
+      "setting": "Warm Pannonian continental on the edge of the Hungarian plain",
+      "terrain": "Gentle slopes from Lake Neusiedl south through Mittelburgenland to Eisenberg",
+      "soil": "Deep loam and clay in Mittelburgenland; limestone and schist on the Leithaberg and Eisenberg",
+      "influences": [
+        "Hot, dry Pannonian summers",
+        "Lake Neusiedl moderating temperatures",
+        "Cool air from the Leitha and Rosalia hills"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Hot Pannonian summers",
+        "effect": "Fully ripen late-ripening Blaufränkisch, giving deep colour and dark cherry fruit"
+      },
+      {
+        "cause": "Blaufränkisch's naturally high acidity and limestone or schist soils",
+        "effect": "Keep the wine fresh and peppery rather than heavy"
+      }
+    ],
+    "badges": [
+      "Discovery",
+      "Old World"
+    ],
+    "sources": [
+      "austrian-wine",
+      "world-atlas-of-wine"
+    ]
+  },
+  "swartland": {
+    "name": "Swartland",
+    "country": "South Africa",
+    "climate": "Warm, dry Mediterranean",
+    "summary": "Dry-farmed old bush vines and a low-intervention approach have made Swartland South Africa's best-known source of textured Chenin Blanc and fresher, savoury Syrah.",
+    "grapes": {
+      "chenin-blanc": {
+        "mods": {
+          "body": 1,
+          "sweetness": -1,
+          "alcohol": 0.5,
+          "oak": 0.5,
+          "earth": 1
+        },
+        "notes": {
+          "Fruit": [
+            "quince",
+            "yellow apple",
+            "lemon peel"
+          ],
+          "Floral": [
+            "chamomile"
+          ],
+          "Oak / ageing": [
+            "beeswax",
+            "toasted almond"
+          ],
+          "Mineral / herbal": [
+            "wet stone"
+          ]
+        },
+        "serve": "10–12°C",
+        "decant": "No decant",
+        "glass": "Large white wine glass",
+        "ageing": "3–10 years",
+        "pairings": [
+          "roast chicken",
+          "pork",
+          "mild curry",
+          "hard cheese"
+        ],
+        "expect": "Textured and dry, with quince, yellow apple and chamomile, waxy depth from lees and old oak, and a stony finish from old dryland vines."
+      },
+      "syrah": {
+        "mods": {
+          "body": -0.5,
+          "acidity": 0.5,
+          "alcohol": -0.5,
+          "oak": -1,
+          "earth": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "black cherry",
+            "red plum"
+          ],
+          "Spice": [
+            "white pepper"
+          ],
+          "Earth / savory": [
+            "smoked meat"
+          ],
+          "Mineral / herbal": [
+            "fynbos"
+          ]
+        },
+        "serve": "15–17°C",
+        "decant": "30–60 min",
+        "glass": "Syrah glass",
+        "ageing": "4–10 years",
+        "pairings": [
+          "lamb",
+          "grilled meats",
+          "sausages",
+          "mushrooms"
+        ],
+        "expect": "Medium-bodied for Syrah, with black cherry, white pepper and fynbos, gentle oak and a fresh, savoury finish."
+      }
+    },
+    "identity": {
+      "setting": "Warm, dry Mediterranean north of Cape Town",
+      "terrain": "Rolling wheatlands and granite and shale hills around Malmesbury, Riebeek-Kasteel and the Paardeberg",
+      "soil": "Granite, shale and iron-rich soils",
+      "influences": [
+        "Dry-farmed, often old bush vines",
+        "Hot, dry summers with Atlantic breezes",
+        "Low yields from poor soils"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Dry-farmed old bush vines on poor soils",
+        "effect": "Give low yields and concentrated, textured wines",
+        "grapes": [
+          "chenin-blanc"
+        ]
+      },
+      {
+        "cause": "Whole-bunch fermentation and older, larger oak",
+        "effect": "Keep Syrah savoury and peppery rather than oaky and heavy",
+        "grapes": [
+          "syrah"
+        ]
+      }
+    ],
+    "badges": [
+      "Discovery",
+      "New World"
+    ],
+    "sources": [
+      "wosa",
+      "world-atlas-of-wine"
+    ]
+  },
+  "constantia": {
+    "name": "Constantia",
+    "country": "South Africa",
+    "climate": "Cool maritime Mediterranean",
+    "summary": "Constantia's unfortified sweet Muscat was famous across 18th- and 19th-century Europe; revived in the 1980s, it is made from grapes left to shrivel on the vine.",
+    "grapes": {
+      "muscat-blanc": {
+        "mods": {
+          "body": 3,
+          "acidity": 0.5,
+          "sweetness": 1,
+          "alcohol": 3,
+          "oak": 2,
+          "earth": 1
+        },
+        "style": {
+          "family": "sweet",
+          "color": "white-gold",
+          "sweetness": "sweet",
+          "label": "Sweet · Vin de Constance style",
+          "method": "Late harvest from grapes shrivelled on the vine, followed by long barrel maturation",
+          "effect": "Shrivelled grapes concentrate sugar, acidity and aroma without fortification; barrel ageing adds honey, marmalade and spice."
+        },
+        "notes": {
+          "Fruit": [
+            "dried apricot",
+            "orange marmalade",
+            "sultana"
+          ],
+          "Floral": [
+            "orange blossom"
+          ],
+          "Spice": [
+            "ginger"
+          ],
+          "Oak / ageing": [
+            "honey"
+          ]
+        },
+        "serve": "10–12°C",
+        "decant": "No decant",
+        "glass": "Small dessert wine glass",
+        "ageing": "Drinks well young; top examples develop for decades",
+        "pairings": [
+          "crème brûlée",
+          "blue cheese",
+          "apricot tart",
+          "foie gras"
+        ],
+        "expect": "Lusciously sweet but fresh, with dried apricot, orange marmalade, ginger and honey — made from shrivelled grapes, not fortified."
+      }
+    },
+    "identity": {
+      "setting": "Cool maritime Mediterranean on the Cape Peninsula",
+      "terrain": "Slopes of the Constantiaberg just south of Cape Town",
+      "soil": "Decomposed granite and sandstone",
+      "influences": [
+        "Cool breezes from False Bay",
+        "Morning cloud and mountain shade",
+        "Late, slow ripening"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Cool sea breezes and slow ripening",
+        "effect": "Keep acidity high enough to balance very high sugar"
+      },
+      {
+        "cause": "Grapes left to shrivel on the vine",
+        "effect": "Concentrate sugar and Muscat aroma without adding grape spirit"
+      }
+    ],
+    "badges": [
+      "Classic",
+      "New World",
+      "Sweet"
+    ],
+    "sources": [
+      "wosa",
+      "oxford-companion"
+    ]
+  },
+  "maldonado": {
+    "name": "Maldonado",
+    "country": "Uruguay",
+    "climate": "Cool, humid maritime",
+    "summary": "Uruguay's Atlantic frontier, where granite hills near the coast give saline Albariño and a fresher, finer style of Tannat.",
+    "grapes": {
+      "albarino": {
+        "mods": {
+          "body": 0.5,
+          "alcohol": 0.5,
+          "fruit": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "white peach",
+            "lime",
+            "apricot"
+          ],
+          "Floral": [
+            "white flowers"
+          ],
+          "Mineral / herbal": [
+            "sea salt"
+          ]
+        },
+        "serve": "8–10°C",
+        "decant": "No decant",
+        "glass": "Aromatic white wine glass",
+        "ageing": "1–4 years",
+        "pairings": [
+          "ceviche",
+          "shellfish",
+          "grilled fish",
+          "sushi"
+        ],
+        "expect": "Juicy and saline, with white peach, lime and a sea-breeze finish; slightly riper and rounder than Rías Baixas."
+      },
+      "tannat": {
+        "mods": {
+          "body": -0.5,
+          "acidity": 0.5,
+          "tannin": -0.5,
+          "alcohol": -0.5,
+          "fruit": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "blackberry",
+            "black plum",
+            "raspberry"
+          ],
+          "Earth / savory": [
+            "cocoa"
+          ],
+          "Spice": [
+            "black pepper"
+          ]
+        },
+        "serve": "16–18°C",
+        "decant": "45–90 min",
+        "glass": "Bordeaux glass",
+        "ageing": "4–12 years",
+        "pairings": [
+          "steak",
+          "barbecue",
+          "lamb",
+          "hard cheese"
+        ],
+        "expect": "Bold but fresher than Canelones Tannat, with blackberry, plum and cocoa, and firm tannin polished by cool Atlantic nights."
+      }
+    },
+    "identity": {
+      "setting": "Cool maritime near the Atlantic coast",
+      "terrain": "Rolling granite hills around Garzón and inland from Punta del Este",
+      "soil": "Decomposed granite with rocky outcrops",
+      "influences": [
+        "Cool Atlantic breezes",
+        "Humid, rain-prone growing season",
+        "Well-drained granite slopes"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Cool Atlantic breezes",
+        "effect": "Slow ripening and keep acidity fresh, giving saline whites and finer-grained reds"
+      },
+      {
+        "cause": "Free-draining granite slopes",
+        "effect": "Limit vigour in a humid climate, concentrating flavour"
+      }
+    ],
+    "badges": [
+      "Discovery",
+      "Emerging region",
+      "New World"
+    ],
+    "sources": [
+      "uruguay-wine",
+      "world-atlas-of-wine"
+    ]
+  },
+  "crimea-muscat": {
+    "name": "Crimea — Muscat",
+    "country": "Ukraine",
+    "climate": "Warm, dry sub-Mediterranean",
+    "summary": "Crimea's southern coast has a long tradition of cask-aged fortified dessert wines, with sweet white Muscat the best known.",
+    "grapes": {
+      "muscat-blanc": {
+        "mods": {
+          "body": 2.5,
+          "acidity": -0.5,
+          "sweetness": 1,
+          "alcohol": 4.5,
+          "oak": 1.5,
+          "earth": 1
+        },
+        "style": {
+          "family": "fortified",
+          "color": "amber",
+          "sweetness": "sweet",
+          "label": "Fortified sweet · Cask-aged Muscat",
+          "method": "Fortification of partly fermented must, followed by long cask ageing",
+          "effect": "Grape spirit stops fermentation and keeps natural sweetness; long cask ageing adds honey, dried fruit and tea-like depth."
+        },
+        "notes": {
+          "Fruit": [
+            "dried apricot",
+            "quince jam",
+            "raisin"
+          ],
+          "Floral": [
+            "linden blossom"
+          ],
+          "Oak / ageing": [
+            "honey",
+            "black tea"
+          ]
+        },
+        "serve": "12–14°C",
+        "decant": "No decant",
+        "glass": "Small dessert / fortified wine glass",
+        "ageing": "Long-lived; old cask-aged examples develop for decades",
+        "pairings": [
+          "almond tart",
+          "blue cheese",
+          "chocolate dessert",
+          "dried fruit"
+        ],
+        "expect": "Rich and sweet, with dried apricot, quince jam and honey, lifted by Muscat's floral perfume and deepened by long cask ageing."
+      }
+    },
+    "identity": {
+      "setting": "Warm, dry sub-Mediterranean on the southern coast",
+      "terrain": "A narrow coastal strip and slopes between the Crimean Mountains and the Black Sea",
+      "soil": "Shale, limestone and clay",
+      "influences": [
+        "Shelter from northern winds by the Crimean Mountains",
+        "Warmth from the Black Sea",
+        "A long tradition of cask-aged dessert wines"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Sheltered, sunny southern coast",
+        "effect": "Ripens Muscat fully, giving high sugar and intense floral and apricot aromas"
+      },
+      {
+        "cause": "Fortification and long cask ageing",
+        "effect": "Preserve sweetness and build honey, dried fruit and tea-like complexity"
+      }
+    ],
+    "badges": [
+      "Discovery",
+      "Old World",
+      "Fortified",
+      "Sweet"
+    ],
+    "sources": [
+      "wines-of-ukraine",
+      "oxford-companion"
+    ]
   }
 }

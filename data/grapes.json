@@ -651,5 +651,22 @@
     "oak": 1,
     "earth": 2,
     "kind": "blend"
+  },
+  "blaufrankisch": {
+    "name": "Blaufränkisch",
+    "color": "red",
+    "indigenous": true,
+    "origin": [
+      "Austria",
+      "Hungary"
+    ],
+    "body": 3.5,
+    "acidity": 4,
+    "tannin": 3.5,
+    "sweetness": 1,
+    "alcohol": 3.5,
+    "fruit": 4,
+    "oak": 2.5,
+    "earth": 3
   }
 }
