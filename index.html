@@ -6,12 +6,12 @@
   <meta name="description" content="RagDollLabs Wine Atlas — explore how grape, climate and region shape a wine's typical style.">
   <title>RagDollLabs Wine Atlas</title>
   <!-- One release token keeps visible assets in sync after a GitHub Pages deploy. -->
-  <link rel="stylesheet" href="./styles.css?v=20261017-compareclear4">
-  <link rel="stylesheet" href="./ux.css?v=20261017-compareclear4">
-  <link rel="stylesheet" href="./maturity.css?v=20261017-compareclear4">
-  <link rel="stylesheet" href="./learning.css?v=20261017-compareclear4">
-  <link rel="stylesheet" href="./advanced-compare.css?v=20261017-compareclear4">
-  <link rel="stylesheet" href="./home-brand.css?v=20261017-compareclear4">
+  <link rel="stylesheet" href="./styles.css?v=20261018-content1">
+  <link rel="stylesheet" href="./ux.css?v=20261018-content1">
+  <link rel="stylesheet" href="./maturity.css?v=20261018-content1">
+  <link rel="stylesheet" href="./learning.css?v=20261018-content1">
+  <link rel="stylesheet" href="./advanced-compare.css?v=20261018-content1">
+  <link rel="stylesheet" href="./home-brand.css?v=20261018-content1">
 </head>
 <body>
   <div class="wrap">
@@ -26,6 +26,7 @@
             <button class="welcome-action" type="button" data-welcome-action="grape"><strong>Explore wines</strong><span>Browse by grape or place, then open a regional style.</span></button>
             <button class="welcome-action" type="button" data-welcome-action="search"><strong>Search the atlas</strong><span>Find grapes, regions, styles and food pairings.</span></button>
             <button class="welcome-action" type="button" data-welcome-action="surprise"><strong>Surprise me</strong><span>Jump straight into a discovery profile.</span></button>
+            <button class="welcome-action" type="button" data-taste-basics><strong>New to wine?</strong><span>Learn why wines taste the way they do.</span></button>
           </div>
         </div>
         <!-- The cat artwork lives inside the vineyard SVG so the foreground glassware can sit in front of it. This link is only its interactive hit target. -->
@@ -48,7 +49,7 @@
           <p>Search, browse by grape or place, compare regional expressions, and discover styles from classic and emerging wine regions.</p>
         </div>
         <a class="app-home-cat" href="./" data-home-return aria-label="Return to Wine Atlas home">
-          <img src="./assets/ragdoll-cat.svg?v=20261017-compareclear4" alt="">
+          <img src="./assets/ragdoll-cat.svg?v=20261018-content1" alt="">
         </a>
       </header>
 
@@ -72,13 +73,14 @@
               <summary>Discover</summary>
               <div class="discover-actions">
                 <button id="surprise" class="surprise" type="button">Surprise me</button>
+                <button id="tasteBasicsOpen" class="glossary-open" type="button" data-taste-basics>How wine gets its taste</button>
                 <button id="glossaryOpen" class="glossary-open" type="button">Wine glossary</button>
               </div>
               <section id="moodSection" class="moods" aria-labelledby="moodHeading"><h3 id="moodHeading">What are you in the mood for?</h3><div id="moodButtons" class="mood-grid"></div></section>
             </details>
           </section>
 
-          <section id="compareControls" class="hidden" aria-labelledby="compareHeading"><h2 id="compareHeading">Compare Regions</h2><label for="cg">Grape / blend</label><select id="cg"></select><div id="compareGrapeColor" aria-live="polite"></div><div id="compareRegionControls" class="compareControls"></div><p id="compareHint" class="small" role="status" aria-live="polite"></p></section>
+          <section id="compareControls" class="hidden" aria-labelledby="compareHeading"><h2 id="compareHeading">Compare wines</h2></section>
         </aside>
 
         <main>
@@ -117,7 +119,7 @@
             <article class="card serve-card"><h2>Serve It Tonight</h2><div class="serve" id="serve"></div><h3>Food pairings</h3><div class="chips" id="pair"></div></article>
             <article class="card similar-card"><h2>Where to go next</h2><p class="small">Three ways onward: follow the same grape, stay close in style, or try something more adventurous.</p><div id="similarWines" class="similar-grid"></div></article>
           </section>
-          <section id="compareView" class="hidden" aria-labelledby="regionalComparisonHeading"><article class="card"><h2 id="regionalComparisonHeading">Regional Comparison</h2><div id="compareMessage" class="compare-message hidden" role="status" aria-live="polite"></div><div class="compareGrid" id="compareGrid"></div><div id="compareDifferences"></div></article></section>
+          <section id="compareView" class="hidden" aria-labelledby="regionalComparisonHeading"><article class="card"><h2 id="regionalComparisonHeading">Wine Comparison</h2></article></section>
         </main>
       </div>
     </div>
@@ -132,22 +134,21 @@
 
     <footer class="footer">RagDollLabs Wine Atlas · Typical-style reference, not a guarantee about a specific bottle.</footer>
   </div>
-  <script src="./wine-model.js?v=20261017-compareclear4" defer></script>
-  <script src="./dom-utils.js?v=20261017-compareclear4" defer></script>
-  <script src="./data-loader.js?v=20261017-compareclear4" defer></script>
-  <script src="./app.js?v=20261017-compareclear4" defer></script>
-  <script src="./compare-country.js?v=20261017-compareclear4" defer></script>
-  <script src="./ux.js?v=20261017-compareclear4" defer></script>
-  <script src="./food-discovery.js?v=20261017-compareclear4" defer></script>
-  <script src="./wine-search.js?v=20261017-compareclear4" defer></script>
-  <script src="./functional.js?v=20261017-compareclear4" defer></script>
-  <script src="./search-enhance.js?v=20261017-compareclear4" defer></script>
-  <script src="./compare-state.js?v=20261017-compareclear4" defer></script>
-  <script src="./advanced-compare.js?v=20261017-compareclear4" defer></script>
-  <script src="./compare-discovery.js?v=20261017-compareclear4" defer></script>
-  <script src="./maturity.js?v=20261017-compareclear4" defer></script>
-  <script src="./learning.js?v=20261017-compareclear4" defer></script>
-  <script src="./smart-discovery.js?v=20261017-compareclear4" defer></script>
-  <script src="./home-brand.js?v=20261017-compareclear4" defer></script>
+  <script src="./wine-model.js?v=20261018-content1" defer></script>
+  <script src="./dom-utils.js?v=20261018-content1" defer></script>
+  <script src="./data-loader.js?v=20261018-content1" defer></script>
+  <script src="./app.js?v=20261018-content1" defer></script>
+  <script src="./ux.js?v=20261018-content1" defer></script>
+  <script src="./food-discovery.js?v=20261018-content1" defer></script>
+  <script src="./wine-search.js?v=20261018-content1" defer></script>
+  <script src="./functional.js?v=20261018-content1" defer></script>
+  <script src="./search-enhance.js?v=20261018-content1" defer></script>
+  <script src="./compare-state.js?v=20261018-content1" defer></script>
+  <script src="./advanced-compare.js?v=20261018-content1" defer></script>
+  <script src="./compare-discovery.js?v=20261018-content1" defer></script>
+  <script src="./maturity.js?v=20261018-content1" defer></script>
+  <script src="./learning.js?v=20261018-content1" defer></script>
+  <script src="./smart-discovery.js?v=20261018-content1" defer></script>
+  <script src="./home-brand.js?v=20261018-content1" defer></script>
 </body>
 </html>

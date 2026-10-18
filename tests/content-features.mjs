@@ -1,0 +1,97 @@
+import assert from "node:assert/strict";
+import { createApp } from "./harness.mjs";
+
+const { window, document, settle, close } = await createApp();
+await settle();
+const atlas = window.WineAtlas;
+
+function open(grape, region) {
+  assert.equal(atlas.selectProfile(grape, region), true, `${grape}/${region} should open`);
+}
+
+// Newly covered wines render as full profiles.
+for (const [grape, region] of [["malbec", "mendoza"], ["malbec", "cahors"], ["gamay", "beaujolais"],
+  ["gruner-veltliner", "wachau"], ["albarino", "rias-baixas"], ["champagne-blend", "champagne-brut-nv"],
+  ["pinot-gris", "alto-adige"], ["pinot-gris", "alsace"], ["muscat-blanc", "moscato-dasti"]]) {
+  open(grape, region);
+  await settle();
+  assert.equal(document.querySelectorAll("#bars .bar").length, 8, `${grape}/${region} shows eight metrics`);
+  assert.ok(document.querySelectorAll("#why li").length >= 1, `${grape}/${region} explains its style`);
+}
+
+// Regional Why items scoped to grapes live in regions.json.
+open("merlot", "bordeaux");
+await settle();
+assert.ok(!document.getElementById("why").textContent.includes("Left Bank gravel"), "Cabernet-only explanation is hidden for Merlot");
+open("cabernet-sauvignon", "bordeaux");
+await settle();
+assert.ok(document.getElementById("why").textContent.includes("Left Bank gravel"));
+
+// The indigenous badge follows the grape's origin, not every place it grows.
+open("saperavi", "kakheti");
+await settle();
+assert.ok(document.getElementById("identity").textContent.includes("Indigenous grape"));
+open("saperavi", "krasnodar");
+await settle();
+assert.ok(!document.getElementById("identity").textContent.includes("Indigenous grape"));
+
+// Same-grape profiles never share identical scores, so Compare always has something to show.
+const seen = new Map();
+for (const item of atlas.allPairs()) {
+  const key = `${item.grapeId}|${["body", "acidity", "tannin", "sweetness", "alcohol", "fruit", "oak", "earth"].map(m => item.profile[m]).join(",")}`;
+  assert.ok(!seen.has(key), `${item.regionId} duplicates ${seen.get(key)} for ${item.grapeId}`);
+  seen.set(key, item.regionId);
+}
+
+// Alcohol follows the documented ABV anchors.
+const score = (grape, region) => atlas.combinedProfile(grape, region).profile;
+assert.ok(score("riesling", "mosel").alcohol <= 1.5, "Mosel Kabinett is low in alcohol");
+assert.ok(score("pinot-noir", "burgundy").alcohol >= 3, "red Burgundy is mid-range, not light");
+assert.equal(score("port-blend", "douro-port-ruby").alcohol, 5);
+assert.equal(score("chardonnay", "cremant-bourgogne").sweetness, 1, "Brut sparkling scores as dry (1)");
+
+// The Aromatic mood only offers aromatic white grapes.
+const aromaticButton = [...document.querySelectorAll("#moodButtons button")].find(button => button.textContent.includes("Aromatic"));
+assert.ok(aromaticButton);
+for (let i = 0; i < 10; i += 1) {
+  aromaticButton.click();
+  await settle();
+  const grape = Object.values(atlas.getData().grapes).find(entry => document.getElementById("title").textContent.startsWith(`${entry.name} · `));
+  assert.equal(grape?.aromatic, true, `Aromatic mood picked ${document.getElementById("title").textContent}`);
+}
+
+// Legacy same-grape comparison markup is gone; Compare has one implementation.
+assert.equal(document.getElementById("cg"), null);
+assert.equal(document.getElementById("compareGrid"), null);
+assert.ok(document.getElementById("advancedCompareControls"));
+
+// "How wine gets its taste" opens in the learning dialog and its examples open profiles.
+const tasteButton = document.getElementById("tasteBasicsOpen");
+assert.ok(tasteButton);
+tasteButton.click();
+await settle();
+await new Promise(resolve => setImmediate(resolve));
+assert.equal(document.getElementById("glossaryDialogTitle").textContent, "How wine gets its taste");
+assert.ok(document.querySelectorAll(".taste-section").length >= 10);
+const example = [...document.querySelectorAll(".taste-example")].find(button => button.textContent.includes("Moscato"));
+assert.ok(example);
+example.click();
+await settle();
+assert.ok(document.getElementById("title").textContent.includes("Moscato d'Asti"));
+
+// Beginner glossary terms are available.
+document.getElementById("glossaryOpen").click();
+await settle();
+await new Promise(resolve => setImmediate(resolve));
+const glossaryText = document.getElementById("glossaryContent").textContent;
+for (const term of ["Acidity", "Body", "Dry, off-dry and sweet", "Oak", "Carbonic maceration", "Dosage"]) {
+  assert.ok(glossaryText.includes(term), `glossary includes ${term}`);
+}
+document.getElementById("glossaryClose").click();
+
+// Constrained search covers the new Champagne and Moscato profiles.
+assert.equal((await window.WineSearch.rank("champagne")).length, 2);
+assert.ok((await window.WineSearch.rank("moscato")).length >= 1);
+
+await close();
+console.log("OK: new wines, calibration, scoped Why entries, origin badges, taste explainer and glossary passed");

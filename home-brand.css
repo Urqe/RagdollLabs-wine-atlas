@@ -47,7 +47,7 @@
 }
 @media (max-width: 620px) {
   /* Reserve a separate strip for the scene rather than cropping the cat off-screen. */
-  .welcome-hero { padding-bottom: 200px; background-size: 100% 100%, auto 260px; background-position: center, right bottom; background-color: #21151b; }
+  .welcome-hero { padding-bottom: 260px; background-size: 100% 100%, auto 260px; background-position: center, right bottom; background-color: #21151b; }
   .welcome-copy { padding: 28px 22px 20px; }
   .welcome-copy .tagline { font-size: 23px; }
   .welcome-copy > p { font-size: 14px; }

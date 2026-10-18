@@ -15,13 +15,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
-REGION_FILES = [
-    DATA / "regions-classics-west.json",
-    DATA / "regions-classics-expanded.json",
-    DATA / "regions-discovery.json",
-    DATA / "regions-discovery-expanded.json",
-    DATA / "regions-styles.json",
-]
+REGION_FILE = DATA / "regions.json"
 GENERIC_PAIRINGS = {"cheese", "vegetables", "salads", "meat", "dessert", "spicy food", "spiced dishes"}
 
 
@@ -30,9 +24,7 @@ def load(path: Path):
 
 
 def main() -> None:
-    regions = {}
-    for path in REGION_FILES:
-        regions.update(load(path))
+    regions = load(REGION_FILE)
 
     maturity = load(DATA / "maturity.json")
     winemaking = load(DATA / "winemaking.json")

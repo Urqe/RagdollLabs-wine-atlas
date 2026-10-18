@@ -1,122 +1,422 @@
 {
   "amphora": {
     "term": "Amphora",
-    "aliases": ["amphora", "amphorae"],
+    "aliases": [
+      "amphora",
+      "amphorae"
+    ],
     "definition": "A clay vessel used for fermenting or ageing wine. Modern wine amphorae vary in shape and porosity and are usually distinguished from Georgia's traditional qvevri.",
     "why": "Clay can provide a neutral maturation vessel with gentle oxygen exchange, allowing texture and savory character to develop without adding oak-derived vanilla or toast.",
-    "sources": ["oxford-companion"],
+    "sources": [
+      "oxford-companion"
+    ],
     "inline": true
   },
   "botrytis": {
     "term": "Botrytis",
-    "aliases": ["botrytis", "noble rot"],
+    "aliases": [
+      "botrytis",
+      "noble rot"
+    ],
     "definition": "Botrytis cinerea is a fungus that, under favorable conditions, can dehydrate ripe grapes in a beneficial form known as noble rot.",
     "why": "It concentrates sugar, acidity and flavor while contributing characteristic honeyed, apricot, saffron and marmalade-like complexity in classic sweet wines.",
-    "sources": ["oxford-companion"],
+    "sources": [
+      "oxford-companion"
+    ],
     "inline": true
   },
   "diurnal-range": {
     "term": "Diurnal range",
-    "aliases": ["diurnal range", "diurnal shift", "diurnal temperature range"],
+    "aliases": [
+      "diurnal range",
+      "diurnal shift",
+      "diurnal temperature range"
+    ],
     "definition": "The difference between daytime and nighttime temperatures during the growing season.",
     "why": "Warm days can support ripening while cooler nights slow respiration and can help grapes retain acidity and aromatic freshness.",
-    "sources": ["oxford-companion"],
+    "sources": [
+      "oxford-companion"
+    ],
     "inline": true
   },
   "galets-roules": {
     "term": "Galets roulés",
-    "aliases": ["galets roulés", "galets roules", "galets"],
+    "aliases": [
+      "galets roulés",
+      "galets roules",
+      "galets"
+    ],
     "definition": "Large rounded stones found on some Rhône vineyard surfaces, especially around Châteauneuf-du-Pape.",
     "why": "The stony surface affects drainage and vineyard heat balance; it is a site characteristic rather than a flavor ingredient that passes directly into the wine.",
-    "sources": ["inter-rhone"],
+    "sources": [
+      "inter-rhone"
+    ],
     "inline": true
   },
   "lees": {
     "term": "Lees",
-    "aliases": ["lees", "lees ageing", "lees aging"],
+    "aliases": [
+      "lees",
+      "lees ageing",
+      "lees aging"
+    ],
     "definition": "Lees are the spent yeast cells and other fine solids left after fermentation. Wines can be kept in contact with fine lees during maturation.",
     "why": "Lees contact can add texture, creaminess and savory or bread-like complexity while helping a wine feel broader without necessarily adding oak flavor.",
-    "sources": ["oxford-companion"],
+    "sources": [
+      "oxford-companion"
+    ],
     "inline": true
   },
   "malolactic-fermentation": {
     "term": "Malolactic fermentation",
-    "aliases": ["malolactic fermentation", "malolactic conversion", "malolactic"],
+    "aliases": [
+      "malolactic fermentation",
+      "malolactic conversion",
+      "malolactic"
+    ],
     "definition": "A microbial conversion in which sharper malic acid is transformed into softer lactic acid after alcoholic fermentation.",
     "why": "It can reduce the impression of acidity and create a rounder texture; in some wines it also contributes buttery or creamy aromas.",
-    "sources": ["oxford-companion"],
+    "sources": [
+      "oxford-companion"
+    ],
     "inline": true
   },
   "marl": {
     "term": "Marl",
-    "aliases": ["marl", "marly"],
+    "aliases": [
+      "marl",
+      "marly"
+    ],
     "definition": "A sedimentary soil or rock containing a mixture of clay and calcium carbonate, common in several classic European wine regions.",
     "why": "Its water-holding capacity, drainage and physical structure can influence vine vigor and ripening conditions, but the minerals themselves are not literally tasted in the wine.",
-    "sources": ["oxford-companion"],
+    "sources": [
+      "oxford-companion"
+    ],
     "inline": true
   },
   "neutral-oak": {
     "term": "Neutral oak",
-    "aliases": ["neutral oak", "neutral barrels", "older neutral barrels"],
+    "aliases": [
+      "neutral oak",
+      "neutral barrels",
+      "older neutral barrels"
+    ],
     "definition": "Older oak vessels that have already given up most of their strong wood-derived flavor compounds.",
     "why": "They can still allow slow oxygen exchange and maturation while contributing much less vanilla, coconut, toast or spice than new oak.",
-    "sources": ["oxford-companion"],
+    "sources": [
+      "oxford-companion"
+    ],
     "inline": true
   },
   "nykteri": {
     "term": "Nykteri",
-    "aliases": ["Nykteri", "nykteri"],
+    "aliases": [
+      "Nykteri",
+      "nykteri"
+    ],
     "definition": "A traditional Santorini wine style, historically associated with grapes harvested and processed at night and with a richer, more structured expression of Assyrtiko-led wine.",
     "why": "Compared with the island's leanest stainless-steel styles, Nykteri is typically fuller and may involve extended maturation, including oak depending on the producer.",
-    "sources": ["wines-of-greece"],
+    "sources": [
+      "wines-of-greece"
+    ],
     "inline": true
   },
   "qvevri": {
     "term": "Qvevri",
-    "aliases": ["qvevri", "qvevris"],
+    "aliases": [
+      "qvevri",
+      "qvevris"
+    ],
     "definition": "A large traditional Georgian earthenware vessel, usually buried in the ground, used for fermentation and maturation.",
     "why": "Traditional skin contact in qvevri can give white grapes amber color, tannin and a broader savory texture while preserving a distinctly non-oak maturation character.",
-    "sources": ["georgia-nwa"],
+    "sources": [
+      "georgia-nwa"
+    ],
     "inline": true
   },
   "schist": {
     "term": "Schist",
-    "aliases": ["schist", "schistous"],
+    "aliases": [
+      "schist",
+      "schistous"
+    ],
     "definition": "A layered metamorphic rock that fractures into thin plates and is common in steep vineyards such as parts of the Douro and Priorat.",
     "why": "Its fractured structure can affect rooting depth, drainage, water availability and heat around the vine; it should not be read as a mineral flavor transferred directly into wine.",
-    "sources": ["oxford-companion"],
+    "sources": [
+      "oxford-companion"
+    ],
     "inline": true
   },
   "skin-contact": {
     "term": "Skin contact",
-    "aliases": ["skin contact", "skin-contact"],
+    "aliases": [
+      "skin contact",
+      "skin-contact"
+    ],
     "definition": "Time during which grape juice remains in contact with grape skins during or around fermentation.",
     "why": "Longer skin contact extracts more color, tannin, aroma compounds and texture. With white grapes it can create amber or orange-wine styles.",
-    "sources": ["oxford-companion"],
+    "sources": [
+      "oxford-companion"
+    ],
     "inline": true
   },
   "terra-rossa": {
     "term": "Terra rossa",
-    "aliases": ["terra rossa"],
+    "aliases": [
+      "terra rossa"
+    ],
     "definition": "A distinctive iron-rich red soil, often occurring over limestone; Coonawarra is one of its best-known wine-region examples.",
     "why": "Its drainage, depth and water relationship help shape vineyard conditions. The term describes the growing environment, not a red-earth flavor that transfers into the wine.",
-    "sources": ["wine-australia"],
+    "sources": [
+      "wine-australia"
+    ],
     "inline": true
   },
   "tertiary-aromas": {
     "term": "Tertiary aromas",
-    "aliases": ["tertiary aromas", "tertiary notes", "tertiary complexity"],
+    "aliases": [
+      "tertiary aromas",
+      "tertiary notes",
+      "tertiary complexity"
+    ],
     "definition": "Aromas and flavors that emerge as wine matures, rather than coming mainly from fresh grapes or primary fermentation.",
     "why": "Depending on the wine, bottle age can shift fresh fruit toward dried fruit, leather, tobacco, mushroom, forest floor, nuts, honey and other mature characteristics.",
-    "sources": ["oxford-companion"],
+    "sources": [
+      "oxford-companion"
+    ],
     "inline": true
   },
   "tannin": {
     "term": "Tannin",
-    "aliases": ["tannin", "tannins"],
+    "aliases": [
+      "tannin",
+      "tannins"
+    ],
     "definition": "Phenolic compounds extracted mainly from grape skins, seeds and stems, and sometimes from oak, that create drying or grippy sensations in the mouth.",
     "why": "Tannin contributes structure and ageing potential, especially in red wines, but it is common enough in Wine Atlas that it is kept in the full glossary rather than linked every time it appears.",
-    "sources": ["oxford-companion"],
+    "sources": [
+      "oxford-companion"
+    ],
     "inline": false
+  },
+  "acidity": {
+    "term": "Acidity",
+    "aliases": [
+      "acidity",
+      "acid"
+    ],
+    "definition": "The tartness in wine that makes your mouth water. It comes mostly from tartaric and malic acid in the grapes and is highest in grapes from cool climates.",
+    "why": "Acidity makes wine taste fresh and helps it go with food and age well. Too little and a wine feels flat; too much and it tastes sharp.",
+    "sources": [
+      "oxford-companion"
+    ],
+    "inline": false
+  },
+  "body": {
+    "term": "Body",
+    "aliases": [
+      "body",
+      "full-bodied",
+      "light-bodied",
+      "medium-bodied"
+    ],
+    "definition": "How heavy or rich a wine feels in your mouth, from light like skimmed milk to full like cream. Alcohol is the main driver, helped by sugar, extract and tannin.",
+    "why": "Body is the quickest way to match wine and food: light dishes with light wines, rich dishes with fuller ones.",
+    "sources": [
+      "oxford-companion"
+    ],
+    "inline": false
+  },
+  "sweetness": {
+    "term": "Dry, off-dry and sweet",
+    "aliases": [
+      "dry",
+      "off-dry",
+      "residual sugar",
+      "sweetness"
+    ],
+    "definition": "Dry means nearly all the grape sugar was fermented into alcohol. Off-dry wines have a little sugar left; sweet wines have a lot. The leftover sugar is called residual sugar.",
+    "why": "Fruity is not the same as sweet: a dry wine can smell of ripe fruit. High acidity also makes the same amount of sugar taste less sweet.",
+    "sources": [
+      "oxford-companion"
+    ],
+    "inline": false
+  },
+  "alcohol": {
+    "term": "Alcohol (ABV)",
+    "aliases": [
+      "abv",
+      "alcohol by volume"
+    ],
+    "definition": "The percentage of alcohol by volume on the label. Most table wines are between about 11% and 15%; fortified wines such as Port are around 20%.",
+    "why": "Higher alcohol adds body and a warming feel. It usually signals riper grapes from a warmer climate or vintage.",
+    "sources": [
+      "oxford-companion"
+    ],
+    "inline": false
+  },
+  "oak": {
+    "term": "Oak",
+    "aliases": [
+      "oak",
+      "oaked",
+      "unoaked",
+      "barrel"
+    ],
+    "definition": "Wooden barrels used to ferment or age wine. New, small barrels give the most flavour, such as vanilla, toast, cedar or coconut; old or large barrels give little.",
+    "why": "Oak also lets a little oxygen reach the wine, which softens tannin. An unoaked wine shows the grape's fruit more directly.",
+    "sources": [
+      "oxford-companion"
+    ],
+    "inline": false
+  },
+  "terroir": {
+    "term": "Terroir",
+    "aliases": [
+      "terroir"
+    ],
+    "definition": "The combined effect of a vineyard's climate, soil, slope, exposure and local tradition on the wine.",
+    "why": "It explains why the same grape tastes different from one place to another, which is what the atlas's comparisons show.",
+    "sources": [
+      "oxford-companion"
+    ],
+    "inline": true
+  },
+  "vintage": {
+    "term": "Vintage",
+    "aliases": [
+      "vintage",
+      "non-vintage",
+      "nv"
+    ],
+    "definition": "The year the grapes were harvested. Non-vintage (NV) wines blend several years to keep a consistent style.",
+    "why": "Weather varies each year, so vintages of the same wine can differ in ripeness, acidity and ageing potential.",
+    "sources": [
+      "oxford-companion"
+    ],
+    "inline": false
+  },
+  "blend": {
+    "term": "Blend",
+    "aliases": [
+      "blend",
+      "blending",
+      "cuvée"
+    ],
+    "definition": "A wine made from more than one grape variety, vineyard or year.",
+    "why": "Blending lets winemakers balance traits, for example Cabernet's structure with Merlot's softness in Bordeaux.",
+    "sources": [
+      "oxford-companion"
+    ],
+    "inline": false
+  },
+  "old-new-world": {
+    "term": "Old World / New World",
+    "aliases": [
+      "old world",
+      "new world"
+    ],
+    "definition": "Old World means Europe and nearby regions with long winemaking histories; New World means regions such as the Americas, Australia, New Zealand and South Africa.",
+    "why": "As a broad generalisation, New World examples are often riper and more fruit-forward, Old World ones more restrained. Many producers break the rule.",
+    "sources": [
+      "oxford-companion"
+    ],
+    "inline": false
+  },
+  "carbonic-maceration": {
+    "term": "Carbonic maceration",
+    "aliases": [
+      "carbonic maceration",
+      "semi-carbonic",
+      "whole-bunch"
+    ],
+    "definition": "Fermenting whole, uncrushed bunches so fermentation starts inside each berry, in a carbon dioxide-rich tank.",
+    "why": "It gives soft tannin and bright, juicy fruit aromas, sometimes banana or bubblegum. It is typical of Beaujolais.",
+    "sources": [
+      "oxford-companion"
+    ],
+    "inline": true
+  },
+  "dosage": {
+    "term": "Dosage",
+    "aliases": [
+      "dosage",
+      "brut"
+    ],
+    "definition": "A small addition of sugar (usually in wine) to sparkling wine after the lees are removed. Brut means only a little has been added.",
+    "why": "Dosage balances the high acidity of sparkling wine and sets how dry or sweet it tastes.",
+    "sources": [
+      "oxford-companion"
+    ],
+    "inline": true
+  },
+  "petrol": {
+    "term": "Petrol note",
+    "aliases": [
+      "petrol",
+      "petrol with age",
+      "tdn"
+    ],
+    "definition": "A kerosene-like aroma in mature Riesling, caused by a compound called TDN that forms as the wine ages, especially from sunny sites.",
+    "why": "In aged Riesling it is a classic, often prized, sign of development rather than a fault.",
+    "sources": [
+      "oxford-companion"
+    ],
+    "inline": true
+  },
+  "pyrazines": {
+    "term": "Pyrazines (green pepper)",
+    "aliases": [
+      "green bell pepper",
+      "green-pepper",
+      "pyrazines"
+    ],
+    "definition": "Aroma compounds that smell of green bell pepper or cut grass, found in Cabernet Franc, Cabernet Sauvignon, Carménère and Sauvignon Blanc.",
+    "why": "They are strongest in less ripe grapes, so they hint at a cool climate or early picking.",
+    "sources": [
+      "oxford-companion"
+    ],
+    "inline": true
+  },
+  "fortified": {
+    "term": "Fortified wine",
+    "aliases": [
+      "fortified",
+      "fortification"
+    ],
+    "definition": "Wine with grape spirit added, raising alcohol to about 15–22%. Adding it during fermentation stops the yeast and leaves the wine sweet, as in Port.",
+    "why": "The spirit preserves sweetness and fruit and makes the wine very stable and long-lived.",
+    "sources": [
+      "oxford-companion"
+    ],
+    "inline": false
+  },
+  "traditional-method": {
+    "term": "Traditional method",
+    "aliases": [
+      "traditional method",
+      "méthode traditionnelle",
+      "bottle fermentation"
+    ],
+    "definition": "Making sparkling wine by a second fermentation in each bottle, followed by ageing on the lees. Used for Champagne, Cava and Crémant.",
+    "why": "It gives fine, persistent bubbles and bread, toast and biscuit aromas from the lees.",
+    "sources": [
+      "oxford-companion"
+    ],
+    "inline": true
+  },
+  "smaragd": {
+    "term": "Smaragd and Federspiel",
+    "aliases": [
+      "smaragd",
+      "federspiel",
+      "steinfeder"
+    ],
+    "definition": "The Wachau's ripeness categories for dry wines: Steinfeder (lightest), Federspiel (medium) and Smaragd (ripest and fullest).",
+    "why": "They tell you how powerful a Wachau Grüner Veltliner or Riesling will be before you open it.",
+    "sources": [
+      "oxford-companion"
+    ],
+    "inline": true
   }
 }

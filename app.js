@@ -10,8 +10,6 @@
  */
 
 const METRICS = WineModel.metrics;
-const COMPARE_METRICS = METRICS.filter(metric => metric.compare);
-const MIN_MEANINGFUL_SPREAD = 0.5;
 const DISCOVERY_WEIGHT = 3;
 const CLASSIC_WEIGHT = 1;
 const INITIAL_ROUTE = new URL(window.location.href);
@@ -21,7 +19,7 @@ const MOODS = [
   { id: "big-ripe", label: "Big & ripe", hint: "Full, powerful and fruit-driven", test: ({ profile }) => profile.body >= 4 && profile.fruit >= 4 && profile.alcohol >= 4 },
   { id: "earthy-savory", label: "Earthy & savoury", hint: "Forest floor, truffle and game", test: ({ profile }) => profile.earth >= 4 },
   { id: "fresh-mineral", label: "Fresh & mineral", hint: "High-acid, crisp and clean", test: ({ profile }) => profile.acidity >= 4 && profile.body <= 3 },
-  { id: "aromatic", label: "Aromatic", hint: "Perfumed and floral whites", test: ({ profile, grape }) => grape.color === "white" && profile.acidity >= 4 && profile.fruit >= 3 && profile.body <= 3 },
+  { id: "aromatic", label: "Aromatic", hint: "Perfumed and floral whites", test: ({ grape }) => grape.color === "white" && grape.aromatic === true },
   { id: "something-unusual", label: "Something unusual", hint: "Indigenous grapes and emerging regions", test: ({ grape, region }) => Boolean(grape.indigenous) || (region.badges || []).some(tag => ["Discovery", "Emerging region"].includes(tag)) }
 ];
 
@@ -40,7 +38,6 @@ let REGIONS = {};
 let SEARCH_RULES = [];
 let SOURCES = {};
 let LOCATORS = {};
-let WHY_RULES = {};
 let PAIR_CACHE = null;
 let lastSurprise = null;
 let browseMethod = "grape";
@@ -73,30 +70,16 @@ function emit(name, detail = {}) {
 async function loadData() {
   const paths = [
     "./data/grapes.json",
-    "./data/regions-classics-west.json",
-    "./data/regions-classics-expanded.json",
-    "./data/regions-discovery.json",
-    "./data/regions-discovery-expanded.json",
-    "./data/regions-styles.json",
+    "./data/regions.json",
     "./data/sources.json",
     "./data/locators.json",
-    "./data/why-rules.json",
     "./data/wine-search.json"
   ];
-  const [grapes, classicWest, classicExpanded, discovery, discoveryExpanded, styleRegions, sources, locators, whyRules, wineSearch] = await Promise.all(paths.map(path => WineData.json(path)));
-  const regionGroups = [classicWest, classicExpanded, discovery, discoveryExpanded, styleRegions];
-  const seen = new Set();
-  for (const group of regionGroups) {
-    for (const id of Object.keys(group)) {
-      if (seen.has(id)) throw new Error(`Duplicate region id across data files: ${id}`);
-      seen.add(id);
-    }
-  }
+  const [grapes, regions, sources, locators, wineSearch] = await Promise.all(paths.map(path => WineData.json(path)));
   GRAPES = grapes;
-  REGIONS = Object.assign({}, ...regionGroups);
+  REGIONS = regions;
   SOURCES = sources;
   LOCATORS = locators;
-  WHY_RULES = whyRules;
   SEARCH_RULES = wineSearch.rules;
   PAIR_CACHE = null;
   emit("data-loaded");
@@ -164,10 +147,8 @@ function prependPlaceholder(select, text) {
 function populateGrapes() {
   const entries = Object.entries(GRAPES).sort(byName);
   setSelectOptions($("grape"), entries);
-  setSelectOptions($("cg"), entries);
   const initial = GRAPES["pinot-noir"] ? "pinot-noir" : entries[0]?.[0] || "";
   $("grape").value = initial;
-  $("cg").value = initial;
 }
 
 function fillExploreRegions(grapeId, preferredRegion = null, withPlaceholder = false) {
@@ -257,9 +238,14 @@ function renderFlavorGroups(noteGroups) {
   return groups;
 }
 
+/* A grape is only "indigenous" where it originates: Saperavi in Georgia, not in Kuban. */
+function isIndigenousHere(grape, region) {
+  return Boolean(grape.indigenous) && (grape.origin || []).includes(region.country);
+}
+
 function renderBadges(region, grape) {
   const badges = (region.badges || []).filter(badge => badge !== "Indigenous grape");
-  if (grape.indigenous) badges.push("Indigenous grape");
+  if (isIndigenousHere(grape, region)) badges.push("Indigenous grape");
   if (!badges.length) return "";
   return `<div class="badges">${[...new Set(badges)].map(badge => `<span class="badge">${escapeHtml(badge)}</span>`).join("")}</div>`;
 }
@@ -278,22 +264,14 @@ function renderIdentity(region) {
 
 /*
  * Why metadata is explicit. Region text is never parsed for grape names and is
- * never rewritten by regex. Optional rules can scope an item to grapes or
- * replace wording that needs a more careful scientific explanation.
+ * never rewritten by regex. A regional item may carry `grapes` to scope it to
+ * specific profiles; a profile-level `why` replaces the regional list entirely.
  */
-function renderWhy(regionId, region, regional, grapeId) {
+function renderWhy(region, regional, grapeId) {
   const hasProfileWhy = Array.isArray(regional.why) && regional.why.length;
   const source = hasProfileWhy ? regional.why : region.why;
   if (!Array.isArray(source)) return "";
-  const rules = hasProfileWhy ? {} : (WHY_RULES[regionId] || {});
-  const why = source.map((item, index) => {
-    const rule = rules[String(index)] || {};
-    if (Array.isArray(rule.grapes) && !rule.grapes.includes(grapeId)) return null;
-    return {
-      cause: rule.cause || item.cause,
-      effect: rule.effect || item.effect
-    };
-  }).filter(Boolean);
+  const why = source.filter(item => !Array.isArray(item.grapes) || item.grapes.includes(grapeId));
   if (!why.length) return "";
   return `<section class="why" aria-labelledby="whyHeading"><h3 id="whyHeading">Why does it taste like this?</h3><p class="small">Typical growing and winemaking associations; sensory descriptors do not imply literal flavor transfer from soil or nearby plants.</p><ul class="why-list">${why.map(item => `<li><span class="why-cause">${escapeHtml(item.cause)}</span><span class="why-arrow" aria-hidden="true">→</span><span class="why-effect">${escapeHtml(item.effect)}</span></li>`).join("")}</ul></section>`;
 }
@@ -332,27 +310,9 @@ function wineColorDot(grape, regional = null) {
   return `<span class="wine-color-dot ${escapeAttr(color)}" aria-hidden="true"></span>`;
 }
 
-function profileDistance(a, b) {
-  return Math.sqrt(METRICS.reduce((sum, metric) => sum + Math.pow((a[metric.key] || 0) - (b[metric.key] || 0), 2), 0));
-}
-
-function similarReason(source, candidate) {
-  const close = METRICS.map(metric => ({ label: metric.label, diff: Math.abs(source[metric.key] - candidate[metric.key]) }))
-    .sort((a, b) => a.diff - b.diff)
-    .slice(0, 3)
-    .map(item => item.label.toLowerCase());
-  return `Closest on ${close.join(", ")}.`;
-}
-
+/* Similar Wines is rendered by smart-discovery.js, which subscribes to profile selection. */
 function renderSimilar(current) {
-  if (typeof window.smartRender === "function") { smartRender(current); return; }
-  const candidates = allPairs()
-    .filter(item => !(item.grapeId === current.grapeId && item.regionId === current.regionId))
-    .map(item => ({ ...item, score: profileDistance(current.profile, item.profile) + (item.grapeId === current.grapeId ? 0.12 : 0) }))
-    .sort((a, b) => a.score - b.score)
-    .slice(0, 3);
-  $("similarWines").innerHTML = candidates.map(item => `<button type="button" class="similar-item" data-grape="${escapeAttr(item.grapeId)}" data-region="${escapeAttr(item.regionId)}"><strong>${wineColorDot(item.grape, item.regional)}${escapeHtml(item.grape.name)}</strong><span class="similar-region">${escapeHtml(item.region.name)} · ${escapeHtml(item.region.country)}</span><span class="similar-reason">${escapeHtml(similarReason(current.profile, item.profile))}</span></button>`).join("");
-  $("similarWines").querySelectorAll(".similar-item").forEach(button => button.addEventListener("click", () => selectProfile(button.dataset.grape, button.dataset.region, true)));
+  window.smartRender?.(current);
 }
 
 function renderExplore() {
@@ -365,7 +325,7 @@ function renderExplore() {
   $("climate").replaceChildren(WineDOM.element("strong", "Climate effect:"), document.createTextNode(` ${region.summary}`));
   $("locatorMap").innerHTML = renderLocator(regionId, region);
   $("identity").innerHTML = renderBadges(region, grape) + renderIdentity(region);
-  $("why").innerHTML = renderWhy(regionId, region, regional, grapeId);
+  $("why").innerHTML = renderWhy(region, regional, grapeId);
   $("sourcesDrawer").replaceChildren(renderSources(region));
   $("bars").innerHTML = METRICS.map(metric => metricBar(metric, profile)).join("");
   $("notes").replaceChildren(renderFlavorGroups(regional.notes));
@@ -377,97 +337,6 @@ function renderExplore() {
   $("pair").replaceChildren(...regional.pairings.map(item => WineDOM.element("span", item, "chip")));
   renderSimilar(current);
   return true;
-}
-
-function renderBiggestDifferences(selections) {
-  if (selections.length < 2) return "";
-  const rows = [];
-  for (const metric of COMPARE_METRICS) {
-    const sorted = selections.map(item => ({ item, value: item.profile[metric.key] })).sort((a, b) => a.value - b.value);
-    const low = sorted[0], high = sorted[sorted.length - 1];
-    const spread = high.value - low.value;
-    if (spread >= MIN_MEANINGFUL_SPREAD && high.item.regionId !== low.item.regionId) rows.push({ metric, spread, high, low });
-  }
-  rows.sort((a, b) => b.spread - a.spread);
-  if (!rows.length) return "";
-  return `<section class="differences" aria-labelledby="diffHeading"><h3 id="diffHeading">Biggest differences</h3>${rows.slice(0, 4).map(row => `<div class="diff-row"><span class="diff-metric">${escapeHtml(row.metric.high)}</span><span class="diff-text">${escapeHtml(row.high.item.region.name)} vs ${escapeHtml(row.low.item.region.name)} — ${escapeHtml(row.high.item.region.name)} trends ${escapeHtml(row.metric.high.toLowerCase())}, while ${escapeHtml(row.low.item.region.name)} trends ${escapeHtml(row.metric.low.toLowerCase())}.</span></div>`).join("")}</section>`;
-}
-
-function resetCompare() {
-  if (document.getElementById("advancedCompareControls")) return;
-  const grapeId = $("cg").value;
-  const regions = relevantRegions(grapeId);
-  $("compareRegionControls").innerHTML = "";
-  if (!grapeId) {
-    $("compareHint").textContent = "Choose a grape to compare regional expressions.";
-    renderCompare();
-    emit("compare-controls", { grapeId, regions });
-    return;
-  }
-  if (regions.length < 2) {
-    $("compareHint").textContent = "More regional expressions coming soon.";
-    renderCompare();
-    emit("compare-controls", { grapeId, regions });
-    return;
-  }
-  $("compareHint").textContent = "Choose two or three regional expressions to compare.";
-  for (let index = 0; index < 3; index += 1) {
-    const id = `compareRegion${index + 1}`;
-    const wrapper = document.createElement("div");
-    wrapper.className = "compare-region-field";
-    wrapper.innerHTML = `<label for="${id}">Region ${index + 1}</label><select id="${id}" class="cr"><option value="">— None —</option>${optionMarkup(regions, true)}</select>`;
-    $("compareRegionControls").appendChild(wrapper);
-    const select = wrapper.querySelector("select");
-    if (regions[index]) select.value = regions[index][0];
-    select.addEventListener("change", renderCompare);
-  }
-  renderCompare();
-  emit("compare-controls", { grapeId, regions });
-}
-
-function collectCompareSelections(grapeId) {
-  const seen = new Set();
-  const selections = [];
-  let duplicateCount = 0;
-  for (const select of document.querySelectorAll(".cr")) {
-    const regionId = select.value;
-    if (!regionId) continue;
-    if (seen.has(regionId)) {
-      duplicateCount += 1;
-      continue;
-    }
-    seen.add(regionId);
-    const profile = combinedProfile(grapeId, regionId);
-    if (profile) selections.push(profile);
-  }
-  return { selections, duplicateCount };
-}
-
-function renderCompare() {
-  if (document.getElementById("advancedCompareControls")) return;
-  const grapeId = $("cg").value;
-  const regions = relevantRegions(grapeId);
-  if (!grapeId) {
-    $("compareGrid").innerHTML = "";
-    $("compareDifferences").innerHTML = "";
-    $("compareMessage").textContent = "Choose a grape to compare regional expressions.";
-    $("compareMessage").classList.remove("hidden");
-    return;
-  }
-  if (regions.length < 2) {
-    $("compareGrid").innerHTML = "";
-    $("compareDifferences").innerHTML = "";
-    $("compareMessage").textContent = "More regional expressions coming soon.";
-    $("compareMessage").classList.remove("hidden");
-    return;
-  }
-  $("compareMessage").classList.add("hidden");
-  const { selections, duplicateCount } = collectCompareSelections(grapeId);
-  $("compareHint").textContent = duplicateCount
-    ? "Each region can only be compared once; duplicate selections are ignored."
-    : "Choose two or three regional expressions to compare.";
-  $("compareGrid").innerHTML = selections.map(({ grape, region, regional, profile }) => `<article class="compareCard"><h3>${escapeHtml(region.name)}</h3><div class="small">${escapeHtml(region.country)} · ${escapeHtml(region.climate)}</div>${renderBadges(region, grape)}<div class="bars compare-bars">${COMPARE_METRICS.map(metric => metricBar(metric, profile, true)).join("")}</div><p class="small compare-summary">${escapeHtml(regional.expect)}</p><p class="small"><strong>Serve:</strong> ${escapeHtml(regional.serve)} · <strong>Decant:</strong> ${escapeHtml(regional.decant)}</p></article>`).join("") || '<p class="small">Select regions to compare.</p>';
-  $("compareDifferences").innerHTML = renderBiggestDifferences(selections);
 }
 
 function isDiscoveryRegion(region) { return (region.badges || []).some(tag => ["Discovery", "Emerging region"].includes(tag)); }
@@ -587,7 +456,6 @@ function setMode(mode) {
   $("exploreView").classList.toggle("hidden", !explore);
   $("compareView").classList.toggle("hidden", explore);
   $("moodSection").classList.toggle("hidden", !explore);
-  if (!explore) renderCompare();
   emit("mode-changed", { mode, hasProfile: Boolean(currentProfile) });
 }
 
@@ -602,8 +470,6 @@ function begin(action) {
 
   if (action === "compare") {
     setMode("compare");
-    prependPlaceholder($("cg"), "Choose a grape…");
-    resetCompare();
     return;
   }
 
@@ -670,7 +536,6 @@ function wireEvents() {
   $("country").addEventListener("change", handleCountryChange);
   $("placeRegion").addEventListener("change", handlePlaceRegionChange);
   $("placeGrape").addEventListener("change", () => selectProfile($("placeGrape").value, $("placeRegion").value, false));
-  $("cg").addEventListener("change", resetCompare);
   $("surprise").addEventListener("click", surpriseMe);
   $("searchInput").addEventListener("input", runSearch);
   $("browseByGrape").addEventListener("click", () => setBrowseMethod("grape"));
@@ -691,7 +556,6 @@ async function init() {
     wireEvents();
     const sharedProfile = applyInitialRoute();
     if (!sharedProfile) renderExplore();
-    resetCompare();
     window.WineAtlas.ready = true;
     emit("ready", { sharedProfile, initialRoute: new URL(INITIAL_ROUTE.href) });
   } catch (error) {
@@ -716,7 +580,6 @@ window.WineAtlas = {
   selectProfile,
   setMode,
   setBrowseMethod,
-  resetCompare,
   clearProfileUrl,
   combinedProfile,
   allPairs: () => allPairs().slice(),

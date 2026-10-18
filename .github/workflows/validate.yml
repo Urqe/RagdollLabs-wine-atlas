@@ -23,4 +23,11 @@ jobs:
         run: npm ci --no-audit --no-fund
 
       - name: Validate code, data and regressions
-        run: npm run validate
+        run: |
+          set -o pipefail
+          if ! npm run validate 2>&1 | tee validate.log; then
+            # Surface the failure in the PR checks view, not only in the raw log.
+            summary=$(tail -n 40 validate.log | sed ':a;N;$!ba;s/%/%25/g;s/\r/%0D/g;s/\n/%0A/g')
+            echo "::error title=Validation failed::${summary}"
+            exit 1
+          fi

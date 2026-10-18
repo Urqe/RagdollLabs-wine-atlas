@@ -94,7 +94,6 @@ h3 { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: va
 .box .k { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; }
 .box .v { font-size: 15px; font-weight: 700; margin-top: 4px; }
 
-.compareControls { display: grid; gap: 8px; }
 .compareGrid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 12px; }
 .compareCard { background: #120d10; border: 1px solid #302128; border-radius: 14px; padding: 14px; }
 .compareCard h3 { font: 20px Georgia, serif; text-transform: none; letter-spacing: 0; color: var(--text); margin: 0 0 5px; }
