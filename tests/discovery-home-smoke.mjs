@@ -54,9 +54,10 @@ const sparklingChicken = await window.WineSearch.rank("sparkling fried chicken",
 assert.ok(sparklingChicken.length >= 5);
 assert.ok(sparklingChicken.every(({item, pairingScore}) => item.regional.style.family === "sparkling" && pairingScore > 0));
 assert.deepEqual(identity(await window.WineSearch.rank("kuohuviini chardonnay", 50)), identity(await window.WineSearch.rank("sparkling chardonnay", 50)));
-for (const [query, region] of [["champagne", "champagne-blanc-de-blancs"], ["cava", "cava"], ["prosecco", "prosecco-doc"]]) {
+for (const [query, regions] of [["champagne", ["champagne-blanc-de-blancs", "champagne-brut-nv"]], ["cava", ["cava"]], ["prosecco", ["prosecco-doc"]]]) {
   const result = await window.WineSearch.rank(query);
-  assert.ok(result.length && result.every(({item}) => item.regionId === region && item.regional.style.family === "sparkling"));
+  assert.ok(result.length && result.every(({item}) => regions.includes(item.regionId) && item.regional.style.family === "sparkling"), `${query} must stay within its appellation`);
+  assert.deepEqual(new Set(result.map(({item}) => item.regionId)), new Set(regions), `${query} should return every profile of its appellation`);
 }
 for (const query of ["pizza", "pizza margherita", "pepperoni", "funghi pizza", "pizza bianca", "fried chicken", "hot wings", "gochujang wings", "gyoza", "kevätkääryleet", "sweet-and-sour pork", "kung po chicken", "pad thai", "voikana", "samosas"]) {
   assert.ok((await window.WineSearch.rank(query)).some(row => row.pairingScore > 0), `${query} needs a pairing`);
