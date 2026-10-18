@@ -815,7 +815,7 @@
           "body": -0.5,
           "acidity": 0.5,
           "alcohol": -1.0,
-          "sweetness": 0.5,
+          "sweetness": 0.0,
           "earth": 0.5
         },
         "notes": {
@@ -848,7 +848,7 @@
           "pad thai",
           "butter chicken"
         ],
-        "expect": "Light-bodied yet intense, with piercing acidity, lime, peach and slate-like minerality."
+        "expect": "Light-bodied yet intense, with piercing acidity, lime, peach and slate-like minerality. Styles run from dry (trocken) to sweet; this profile reflects a classic off-dry Kabinett."
       }
     },
     "identity": {
@@ -857,7 +857,8 @@
       "soil": "Blue Devonian slate",
       "influences": [
         "River reflections aiding ripening",
-        "Marginal-climate slopes harvested by hand"
+        "Marginal-climate slopes harvested by hand",
+        "Styles from dry (trocken) through off-dry Kabinett to sweet Spätlese and Auslese"
       ]
     },
     "why": [
@@ -946,94 +947,54 @@
     ]
   },
   "loire": {
-    "name": "Loire Valley",
+    "name": "Touraine",
     "country": "France",
     "climate": "Cool to moderate",
-    "summary": "Fresh, mineral and restrained styles with strong acidity and savory detail.",
+    "summary": "The central Loire's everyday Sauvignon Blanc: fresh, herbal and fruit-forward, usually lighter than Sancerre.",
     "grapes": {
       "sauvignon-blanc": {
         "mods": {},
         "notes": {
           "Fruit": [
             "lemon",
+            "gooseberry",
             "green apple"
           ],
           "Mineral / herbal": [
-            "flint",
-            "chalk",
+            "fresh-cut grass",
             "fresh herbs"
           ]
         },
         "serve": "8–10°C",
         "decant": "No decant",
         "glass": "Medium white wine glass",
-        "ageing": "2–7 years",
+        "ageing": "1–4 years",
         "pairings": [
           "goat cheese",
           "shellfish",
           "salads",
           "asparagus"
         ],
-        "expect": "Lean and mineral, with citrus, herbs and flinty freshness rather than tropical fruit."
-      },
-      "chenin-blanc": {
-        "mods": {
-          "acidity": 0.5,
-          "earth": 0.5,
-          "sweetness": -0.5
-        },
-        "notes": {
-          "Fruit": [
-            "quince",
-            "apple",
-            "pear"
-          ],
-          "Oak / ageing": [
-            "honey",
-            "wax"
-          ],
-          "Mineral / herbal": [
-            "chalk"
-          ]
-        },
-        "serve": "9–12°C",
-        "decant": "0–20 min",
-        "glass": "Medium white wine glass",
-        "ageing": "5–20+ years",
-        "pairings": [
-          "pork",
-          "roast chicken",
-          "goat cheese",
-          "rich vegetarian dishes",
-          "tacos de cochinita pibil",
-          "butter chicken"
-        ],
-        "expect": "High-acid and versatile, with quince, apple, chalk and, with age, honeyed waxy complexity."
+        "expect": "Brisk and fruit-forward for the Loire, with citrus, gooseberry and fresh herbs; rounder and less flinty than Sancerre."
       }
     },
     "identity": {
-      "setting": "Cool to moderate maritime-continental blend",
-      "terrain": "River valleys across a long corridor of France",
-      "soil": "Tuffeau limestone, flint (silex), chalk and clay",
+      "setting": "Cool to moderate, Atlantic-influenced central Loire",
+      "terrain": "Plateaux and slopes along the Cher and Loire rivers",
+      "soil": "Clay with flint (perruches), sand and clay over tuffeau limestone",
       "influences": [
-        "Atlantic coolness in the west",
-        "One river, many chalk and flint terroirs"
+        "Atlantic coolness",
+        "Large Sauvignon Blanc plantings in the Cher valley"
       ]
     },
     "why": [
       {
-        "cause": "Cool Atlantic-influenced climate",
-        "effect": "Keep Sauvignon Blanc lean, green and mineral",
-        "grapes": [
-          "sauvignon-blanc"
-        ]
+        "cause": "Cool, Atlantic-influenced climate",
+        "effect": "Keeps acidity fresh and Sauvignon Blanc's herbal, citrus character to the fore"
       },
       {
-        "cause": "Tuffeau and flint soils",
-        "effect": "Tuffeau and flint influence drainage and vine water status; chalky and smoky notes are sensory descriptions rather than direct soil flavors.",
-        "grapes": [
-          "chenin-blanc"
-        ]
+        "cause": "Sandy and clay-flint soils and larger crops than Sancerre",
+        "effect": "Typically give lighter, fruit-forward wines made for drinking young"
       }
     ],
     "badges": [
@@ -6814,6 +6775,81 @@
     "sources": [
       "civc",
       "oxford-companion"
+    ]
+  },
+  "anjou": {
+    "name": "Anjou & Savennières",
+    "country": "France",
+    "climate": "Cool maritime",
+    "summary": "Dry, firm Chenin Blanc from schist slopes in the western Loire.",
+    "grapes": {
+      "chenin-blanc": {
+        "mods": {
+          "body": 0.5,
+          "sweetness": -1,
+          "alcohol": 1.0,
+          "fruit": -0.5,
+          "oak": -0.5,
+          "earth": 1.5
+        },
+        "notes": {
+          "Fruit": [
+            "quince",
+            "yellow apple",
+            "lemon"
+          ],
+          "Floral": [
+            "chamomile"
+          ],
+          "Oak / ageing": [
+            "beeswax",
+            "honey with age"
+          ],
+          "Mineral / herbal": [
+            "wet stone"
+          ]
+        },
+        "serve": "10–12°C",
+        "decant": "20–45 min for young Savennières",
+        "glass": "Medium-large white wine glass",
+        "ageing": "5–25 years",
+        "pairings": [
+          "pork",
+          "roast chicken",
+          "goat cheese",
+          "rich vegetarian dishes",
+          "tacos de cochinita pibil",
+          "butter chicken"
+        ],
+        "expect": "Dry, taut and textured, with quince, lemon and beeswax; austere when young but long-lived."
+      }
+    },
+    "identity": {
+      "setting": "Cool, Atlantic-influenced western Loire",
+      "terrain": "Steep south-facing slopes above the Loire and Layon rivers",
+      "soil": "Dark schist and other hard rock of the Armorican Massif ('Anjou noir'), with tuffeau further east",
+      "influences": [
+        "Atlantic airflow",
+        "Dry styles in Savennières; sweet Coteaux du Layon nearby"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Cool Atlantic climate and a long ripening season",
+        "effect": "Give Chenin high acidity and a dry, taut, sometimes austere style that opens up with age"
+      },
+      {
+        "cause": "Free-draining schist slopes",
+        "effect": "Help Chenin ripen fully without losing freshness; wet stone and beeswax are tasting descriptors, not soil flavours"
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "oxford-companion",
+      "world-atlas-of-wine"
     ]
   }
 }

@@ -114,7 +114,7 @@ async function annotateContext() {
   await loadGlossary();
   const regex = glossaryRegex();
   if (!regex) return;
-  ["expect", "climate", "identity", "why", "winemaking", "notes", "maturity"]
+  ["expect", "climate", "identity", "why", "specialStyle", "winemaking", "notes", "maturity"]
     .map(id => document.getElementById(id))
     .forEach(root => annotateRoot(root, regex));
 }
@@ -203,6 +203,7 @@ function loadTasteBasics() {
 function tasteSectionCard(section) {
   const article = document.createElement("article");
   article.className = "glossary-entry taste-section";
+  article.dataset.sectionId = section.id;
   const heading = document.createElement("h3");
   heading.textContent = section.heading;
   article.append(heading, ...(section.body || []).map(text => {
@@ -230,7 +231,8 @@ function tasteSectionCard(section) {
   return article;
 }
 
-async function showTasteBasics() {
+async function showTasteBasics(event) {
+  const sectionId = event?.currentTarget?.dataset?.tasteSection;
   const data = await loadTasteBasics();
   const title = document.getElementById("glossaryDialogTitle");
   const intro = document.getElementById("glossaryIntro");
@@ -247,6 +249,11 @@ async function showTasteBasics() {
   content.append(glossary);
   openDialog();
   content.scrollTop = 0;
+  const target = sectionId && [...content.querySelectorAll(".taste-section")].find(node => node.dataset.sectionId === sectionId);
+  if (target) {
+    target.classList.add("glossary-entry-focused");
+    target.scrollIntoView?.({ block: "start" });
+  }
 }
 
 function wireLearningLayer() {
@@ -273,6 +280,10 @@ document.addEventListener("wineatlas:profile-selected", () => {
 });
 
 document.addEventListener("wineatlas:winemaking-rendered", () => {
+  void annotateContext();
+});
+
+document.addEventListener("wineatlas:special-style-rendered", () => {
   void annotateContext();
 });
 

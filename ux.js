@@ -106,7 +106,7 @@ function setSelectPlaceholder(selectId, text) {
 
 function showInvalidInitialRoute() {
   showAppShell();
-  WineAtlas.clearProfileUrl();
+  WineAtlas.clearProfileUrl({ replace: true });
   WineAtlas.setBrowseMethod("grape");
   setSelectPlaceholder("grape", "Choose a grape…");
   document.getElementById("region").replaceChildren();
@@ -326,6 +326,12 @@ document.addEventListener("wineatlas:profile-selected", () => {
   renderSimilarBack();
   updateSelectorColor("grape", "grapeColor");
   updateSelectorColor("placeGrape", "placeGrapeColor");
+});
+
+// Back/Forward to a URL without a profile returns to the landing page.
+document.addEventListener("wineatlas:history-home", () => {
+  document.getElementById("glossaryDialog")?.open && document.getElementById("glossaryDialog").close();
+  showWelcome();
 });
 
 document.addEventListener("wineatlas:selection-needed", event => {

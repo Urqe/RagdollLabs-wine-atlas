@@ -18,6 +18,7 @@ const ADV_COMPARE_METRICS = WineModel.metrics.map(metric => ({ ...metric,
 const ADV_COMPARE_MIN_SPREAD = 0.5;
 let advancedCompareLastProfile = null;
 let advancedCompareInitialized = false;
+let advancedCompareSeededOnce = false;
 
 /* This clamp is presentation-only: the canonical profile engine already clamps
    metrics to 0–5; here we simply keep a CSS percentage within 0–100. */
@@ -296,10 +297,13 @@ document.addEventListener("wineatlas:profile-selected", event => {
 
 document.addEventListener("wineatlas:mode-changed", event => {
   if (event.detail.mode !== "compare" || !advancedCompareInitialized) return;
-  if (!WineComparison.snapshot().keys[0] && advancedCompareLastProfile) {
+  // Seed only on the first visit; once the user has cleared Compare, keep it empty.
+  if (!advancedCompareSeededOnce && !WineComparison.snapshot().keys[0] && advancedCompareLastProfile) {
+    advancedCompareSeededOnce = true;
     advancedSeedProfile(advancedCompareLastProfile);
     return;
   }
+  advancedCompareSeededOnce = true;
   advancedRender();
 });
 
