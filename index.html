@@ -17,12 +17,12 @@
   <meta property="og:image:alt" content="RagDollLabs Wine Atlas: a ragdoll cat beside a glass of red wine in a vineyard at dusk">
   <meta name="twitter:card" content="summary_large_image">
   <!-- One release token keeps visible assets in sync after a GitHub Pages deploy. -->
-  <link rel="stylesheet" href="./styles.css?v=20261018-review1">
-  <link rel="stylesheet" href="./ux.css?v=20261018-review1">
-  <link rel="stylesheet" href="./maturity.css?v=20261018-review1">
-  <link rel="stylesheet" href="./learning.css?v=20261018-review1">
-  <link rel="stylesheet" href="./advanced-compare.css?v=20261018-review1">
-  <link rel="stylesheet" href="./home-brand.css?v=20261018-review1">
+  <link rel="stylesheet" href="./styles.css?v=20261018-gallery1">
+  <link rel="stylesheet" href="./ux.css?v=20261018-gallery1">
+  <link rel="stylesheet" href="./maturity.css?v=20261018-gallery1">
+  <link rel="stylesheet" href="./learning.css?v=20261018-gallery1">
+  <link rel="stylesheet" href="./advanced-compare.css?v=20261018-gallery1">
+  <link rel="stylesheet" href="./home-brand.css?v=20261018-gallery1">
 </head>
 <body>
   <div class="wrap">
@@ -46,6 +46,7 @@
       <section aria-labelledby="featuredHeading">
         <h2 id="featuredHeading">A few places to start</h2>
         <div id="featuredDiscoveries" class="welcome-discoveries"></div>
+        <p class="gallery-entry"><button type="button" class="gallery-open-link" data-gallery-open>Browse the whole map <span aria-hidden="true">→</span></button></p>
       </section>
     </section>
 
@@ -60,7 +61,7 @@
           <p>Search, browse by grape or place, compare regional expressions, and discover styles from classic and emerging wine regions.</p>
         </div>
         <a class="app-home-cat" href="./" data-home-return aria-label="Return to Wine Atlas home">
-          <img src="./assets/ragdoll-cat.svg?v=20261018-review1" alt="">
+          <img src="./assets/ragdoll-cat.svg?v=20261018-gallery1" alt="">
         </a>
       </header>
 
@@ -79,6 +80,7 @@
             <div class="section-head"><h2 id="exploreHeading">Wine Explorer</h2><div class="browse-toggle" role="group" aria-label="Browse method"><button id="browseByGrape" class="on" type="button" aria-pressed="true">By grape</button><button id="browseByPlace" type="button" aria-pressed="false">By place</button></div></div>
             <div id="grapeBrowseControls"><label for="grape">Grape / blend</label><select id="grape"></select><div id="grapeColor" aria-live="polite"></div><label for="region">Region</label><select id="region"></select></div>
             <div id="placeBrowseControls" class="hidden"><label for="country">Country</label><select id="country"></select><label for="placeRegion">Region</label><select id="placeRegion"></select><label for="placeGrape">Grape / blend</label><select id="placeGrape"></select><div id="placeGrapeColor" aria-live="polite"></div></div>
+            <button type="button" class="gallery-sidebar-open" data-gallery-open>Browse the whole map</button>
 
             <details id="discoverTools" class="discover-tools">
               <summary>Discover</summary>
@@ -131,6 +133,14 @@
             <article class="card similar-card"><h2>Where to go next</h2><p class="small">Three ways onward: follow the same grape, stay close in style, or try something more adventurous.</p><div id="similarWines" class="similar-grid"></div></article>
           </section>
           <section id="compareView" class="hidden" aria-labelledby="regionalComparisonHeading"><article class="card"><h2 id="regionalComparisonHeading">Wine Comparison</h2></article></section>
+          <section id="galleryView" class="hidden" aria-labelledby="galleryHeading">
+            <article class="card">
+              <h2 id="galleryHeading">The whole map</h2>
+              <p class="small">Every profile in the atlas, grouped by country. Pick any wine to open its full profile.</p>
+              <nav class="gallery-jump" aria-label="Jump to a country"><div id="galleryJump" class="gallery-jump-list"></div></nav>
+              <div id="galleryGrid" class="gallery-grid"></div>
+            </article>
+          </section>
         </main>
       </div>
     </div>
@@ -145,21 +155,22 @@
 
     <footer class="footer">RagDollLabs Wine Atlas · Typical-style reference, not a guarantee about a specific bottle.</footer>
   </div>
-  <script src="./wine-model.js?v=20261018-review1" defer></script>
-  <script src="./dom-utils.js?v=20261018-review1" defer></script>
-  <script src="./data-loader.js?v=20261018-review1" defer></script>
-  <script src="./app.js?v=20261018-review1" defer></script>
-  <script src="./ux.js?v=20261018-review1" defer></script>
-  <script src="./food-discovery.js?v=20261018-review1" defer></script>
-  <script src="./wine-search.js?v=20261018-review1" defer></script>
-  <script src="./functional.js?v=20261018-review1" defer></script>
-  <script src="./search-enhance.js?v=20261018-review1" defer></script>
-  <script src="./compare-state.js?v=20261018-review1" defer></script>
-  <script src="./advanced-compare.js?v=20261018-review1" defer></script>
-  <script src="./compare-discovery.js?v=20261018-review1" defer></script>
-  <script src="./maturity.js?v=20261018-review1" defer></script>
-  <script src="./learning.js?v=20261018-review1" defer></script>
-  <script src="./smart-discovery.js?v=20261018-review1" defer></script>
-  <script src="./home-brand.js?v=20261018-review1" defer></script>
+  <script src="./wine-model.js?v=20261018-gallery1" defer></script>
+  <script src="./dom-utils.js?v=20261018-gallery1" defer></script>
+  <script src="./data-loader.js?v=20261018-gallery1" defer></script>
+  <script src="./app.js?v=20261018-gallery1" defer></script>
+  <script src="./ux.js?v=20261018-gallery1" defer></script>
+  <script src="./food-discovery.js?v=20261018-gallery1" defer></script>
+  <script src="./wine-search.js?v=20261018-gallery1" defer></script>
+  <script src="./functional.js?v=20261018-gallery1" defer></script>
+  <script src="./search-enhance.js?v=20261018-gallery1" defer></script>
+  <script src="./compare-state.js?v=20261018-gallery1" defer></script>
+  <script src="./advanced-compare.js?v=20261018-gallery1" defer></script>
+  <script src="./compare-discovery.js?v=20261018-gallery1" defer></script>
+  <script src="./maturity.js?v=20261018-gallery1" defer></script>
+  <script src="./learning.js?v=20261018-gallery1" defer></script>
+  <script src="./smart-discovery.js?v=20261018-gallery1" defer></script>
+  <script src="./home-brand.js?v=20261018-gallery1" defer></script>
+  <script src="./gallery.js?v=20261018-gallery1" defer></script>
 </body>
 </html>
