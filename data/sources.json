@@ -346,8 +346,12 @@
   "ucdavis-zinfandel": {
     "name": "UC Davis Foundation Plant Services — Zinfandel / Primitivo",
     "url": "https://fps.ucdavis.edu/grapebook/winebook.cfm?chap=Zinfandel",
-    "reviewStatus": "background-only",
-    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
+    "reviewStatus": "reviewed",
+    "reviewNote": "Grape identity only; this reference does not establish the style of a specific Puglian wine.",
+    "publisher": "UC Davis Foundation Plant Services",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "locator": "Zinfandel chapter: genetic identity and Primitivo history"
   },
   "ucdavis-albarino": {
     "name": "UC Davis Foundation Plant Services — Albariño / Alvarinho synonyms",
@@ -503,5 +507,141 @@
     "accessedOn": "2026-10-20",
     "reviewedOn": "2026-10-20",
     "locator": "Skin maceration and direct pressing"
+  },
+  "chablis-appellation": {
+    "name": "Chablis: appellations and Chardonnay",
+    "url": "https://www.chablis-wines.com/discover/a-unique-territory-and-terroir/four-appellations-and-one-varietal/four-appellations-and-one-varietal,1807,7644.html",
+    "publisher": "Bureau Interprofessionnel des Vins de Bourgogne",
+    "locator": "Four appellations; dry Chardonnay; semi-continental setting and Serein valley",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20"
+  },
+  "chablis-producer": {
+    "name": "Chablis: a steel-led producer example",
+    "url": "https://www.ropiteau.com/en/our-wines.r-81/chablis.v-376.html",
+    "publisher": "Ropiteau Frères",
+    "locator": "Production area; vinification and maturing; serving and ageing",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "reviewNote": "Mostly steel with a small barrel-aged fraction in this example. This is not evidence that all Chablis is unoaked."
+  },
+  "chablis-cellaring": {
+    "name": "Storing Chablis: appellation-specific windows",
+    "url": "https://www.chablis-wines.com/tasting/the-art-of-tasting/10-storage-tips/tips-for-storing-chablis,1837,7684.html",
+    "publisher": "Bureau Interprofessionnel des Vins de Bourgogne",
+    "locator": "Storage conditions and distinction between Chablis, Premier Cru and Grand Cru",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20"
+  },
+  "manduria-lirica": {
+    "name": "Lirica Primitivo di Manduria DOC: technical sheet",
+    "url": "https://www.produttoridimanduria.it/wp-content/uploads/2022/10/LIRICA-it-enb.pdf",
+    "publisher": "Produttori di Manduria",
+    "locator": "Page 1: Primitivo, dry palate, 14.5% alcohol, discreet oak and 16–18°C service",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "reviewNote": "One dry DOC example; this does not make every Primitivo dry or cover Dolce Naturale DOCG."
+  },
+  "valpolicella-fresh": {
+    "name": "Valpolicella Classico: fresh-grape producer example",
+    "url": "https://www.speri.com/en/wines/valpolicella-classico/",
+    "publisher": "Speri Viticoltori",
+    "locator": "Vineyards; Corvina/Rondinella/Molinara blend; immediate crushing, steel/cement maturation; young drinking",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "reviewNote": "Producer proportions and vessel choices are examples, not a recipe for every Valpolicella."
+  },
+  "valpolicella-analysis": {
+    "name": "Valpolicella Classico DOC 2023: technical sheet",
+    "url": "https://allegrini.it/wp-content/uploads/2024/11/2023_Valpolicella_classico_trade_eng.pdf",
+    "publisher": "Allegrini",
+    "locator": "Page 1: blend, 12.9% alcohol, 0.6 g/L residual sugar, steel maturation and food pairings",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20"
+  },
+  "amarone-production": {
+    "name": "Amarone Classico: appassimento and maturation",
+    "url": "https://www.zenato.it/wp-content/uploads/2026/03/AMARONE-CLASSICO.pdf",
+    "publisher": "Zenato",
+    "locator": "Page 1: Corvina-led blend, 3–4 months of grape drying, fermentation and large-cask maturation",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "reviewNote": "A producer example; blend percentages and maturation duration are not universal appellation requirements."
+  },
+  "amarone-example": {
+    "name": "Amarone Classico DOCG 2020: dry producer analysis",
+    "url": "https://allegrini.it/wp-content/uploads/2024/11/2020_Amarone_trade_eng_compressed.pdf",
+    "publisher": "Allegrini",
+    "locator": "Page 1: 15.95% alcohol, 3.4 g/L residual sugar, blend, grape drying and maturation",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "reviewNote": "A dry high-alcohol producer/vintage example; blend and maturation differ from the separately cited Zenato example."
+  },
+  "amarone-style": {
+    "name": "Amarone della Valpolicella DOCG: style and drying",
+    "url": "https://www.consorziovalpolicella.it/en/types-of-wines/amarone-della-valpolicella-docg/",
+    "publisher": "Consorzio Tutela Vini Valpolicella",
+    "locator": "Publisher-indexed description: drying in fruttaio; dry Amarone style",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "reviewNote": "Publisher text was available in search indexing; direct page retrieval timed out. Producer technical material independently supports drying and blending."
+  },
+  "rueda-verdejo": {
+    "name": "Verdejo de Rueda: selected white style",
+    "url": "https://dorueda.com/vinos/blancos/verdejo/",
+    "publisher": "Consejo Regulador D.O. Rueda",
+    "locator": "Verdejo content, aromatic character, 12.5–13.5% range and 8–10°C serving",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "reviewNote": "The atlas selects a dry Verdejo reference; it does not represent every white, sparkling or fortified Rueda style."
+  },
+  "rueda-grape": {
+    "name": "Verdejo: origin and varietal identity",
+    "url": "https://dorueda.com/verdejo/",
+    "publisher": "Consejo Regulador D.O. Rueda",
+    "locator": "Verdejo as the native variety of D.O. Rueda",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20"
+  },
+  "rueda-producer": {
+    "name": "José Pariente Verdejo 2024: technical sheet",
+    "url": "https://josepariente.com/wp-content/uploads/2025/02/JP_FICHA_VERDEJO-2024-ENG-low.pdf",
+    "publisher": "Bodegas José Pariente",
+    "locator": "Page 1: 100% Verdejo, continental setting, mixed fermentation vessels, lees contact, 13% alcohol",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "reviewNote": "A producer example of lees texture; the atlas does not claim all Rueda Verdejo uses steel alone."
+  },
+  "stellenbosch-pinotage": {
+    "name": "Kanonkop Pinotage 2023: technical sheet",
+    "url": "https://kanonkop.co.za/wp-content/uploads/2025/12/Kanonkop-Pinotage-2023-Factsheet.pdf",
+    "publisher": "Kanonkop Wine Estate",
+    "locator": "Page 1: Stellenbosch origin, 100% Pinotage, concrete fermentation, French oak, 14.51% alcohol and 2.45 g/L sugar",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "reviewNote": "A structured estate-style example. Its 10–15-year window is explicitly producer/vintage-specific."
+  },
+  "valpolicella-varieties": {
+    "name": "Valpolicella: varieties and distinct wine types",
+    "url": "https://www.consorziovalpolicella.it/en/types-of-wines/",
+    "publisher": "Consorzio Tutela Vini Valpolicella",
+    "locator": "Indigenous regional varieties and the separate Valpolicella, Ripasso, Amarone and Recioto styles",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "reviewNote": "Publisher-indexed text reviewed; direct consortium pages timed out. Independent producer material supports the selected blends and production distinctions."
   }
 }

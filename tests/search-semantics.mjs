@@ -74,8 +74,8 @@ for (const [alias, canonical] of [["Spätburgunder", "Pinot Noir"], ["Spaetburgu
 assert.deepEqual(keys(await results("Spaetburgunder Germany")), ["pinot-noir::ahr"]);
 assert.deepEqual(keys(await results("Primitivo Lodi")), ["zinfandel::lodi"]);
 assert.deepEqual(keys(await results("Alvarinho Uruguay")), ["albarino::maldonado"]);
-assert.equal((await results("Primitivo Italy")).length, 0);
-assert.match(w.WineSearch.notices("Primitivo")[0], /regions in USA/);
+assert.deepEqual(keys(await results("Primitivo Italy")), ["zinfandel::primitivo-manduria"]);
+assert.match(w.WineSearch.notices("Primitivo")[0], /regions in Italy, USA/);
 assert.match(w.WineSearch.notices("Alvarinho")[0], /Spain, Uruguay/);
 
 // The generic Muscat family and a named appellation are different searches.
@@ -119,8 +119,8 @@ for (const query of ["rosé", "sparkling dry", "sparkling sweet", "orange wine",
 }
 d.getElementById("searchInput").value = "Primitivo Italy";
 await w.renderEnhancedAtlasSearch();
-assert.match(d.getElementById("searchResults").textContent, /regions in USA/);
-assert.match(d.getElementById("searchResults").textContent, /No matching profiles/);
+assert.match(d.getElementById("searchResults").textContent, /regions in Italy, USA/);
+assert.match(d.getElementById("searchResults").textContent, /Primitivo.*Manduria/);
 d.getElementById("searchInput").value = 'aroma: <img src=x onerror="alert(1)">';
 await w.renderEnhancedAtlasSearch();
 assert.equal(d.querySelectorAll("#searchResults img, #searchResults [onerror]").length, 0);

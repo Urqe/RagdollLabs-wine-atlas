@@ -119,7 +119,7 @@ function currentProfileReference() {
   return {
     grapeId,
     regionId,
-    label: `${grapes[grapeId].name} · ${regions[regionId].name}`
+    label: `${WineModel.profileName({ grape: grapes[grapeId], regional: regions[regionId].grapes[grapeId] })} · ${regions[regionId].name}`
   };
 }
 
@@ -237,7 +237,7 @@ function renderFeaturedDiscoveries() {
     const regional = region.grapes[grapeId];
     dot.className = `wine-color-dot ${regional.style?.color || grape.color}`;
     dot.setAttribute("aria-hidden", "true");
-    strong.append(dot, document.createTextNode(grape.name));
+    strong.append(dot, document.createTextNode(WineModel.profileName({ grape, regional })));
     const meta = document.createElement("span");
     meta.className = "meta";
     meta.textContent = `${region.name} · ${region.country}`;

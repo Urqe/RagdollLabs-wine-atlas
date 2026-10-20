@@ -201,6 +201,145 @@
         "still wines"
       ],
       "family": "still"
+    },
+    {
+      "id": "chablis",
+      "label": "Chablis AOC",
+      "aliases": [
+        "chablis"
+      ],
+      "family": "still",
+      "regions": [
+        "chablis"
+      ],
+      "grapeIds": [
+        "chardonnay"
+      ]
+    },
+    {
+      "id": "primitivo-manduria",
+      "label": "Primitivo di Manduria DOC",
+      "aliases": [
+        "primitivo di manduria",
+        "manduria"
+      ],
+      "family": "still",
+      "regions": [
+        "primitivo-manduria"
+      ],
+      "grapeIds": [
+        "zinfandel"
+      ]
+    },
+    {
+      "id": "valpolicella",
+      "label": "Valpolicella Classico DOC",
+      "aliases": [
+        "valpolicella classico",
+        "valpolicella"
+      ],
+      "family": "still",
+      "regions": [
+        "valpolicella"
+      ],
+      "grapeIds": [
+        "corvina"
+      ]
+    },
+    {
+      "id": "amarone",
+      "label": "Amarone della Valpolicella DOCG",
+      "aliases": [
+        "amarone della valpolicella classico",
+        "amarone della valpolicella",
+        "amarone valpolicella",
+        "amarone"
+      ],
+      "family": "still",
+      "regions": [
+        "amarone"
+      ],
+      "grapeIds": [
+        "corvina"
+      ]
+    },
+    {
+      "id": "rueda",
+      "label": "Rueda Verdejo reference",
+      "aliases": [
+        "rueda verdejo",
+        "rueda"
+      ],
+      "family": "still",
+      "regions": [
+        "rueda"
+      ],
+      "grapeIds": [
+        "verdejo"
+      ]
+    },
+    {
+      "id": "ripasso-unavailable",
+      "label": "Ripasso (not represented)",
+      "aliases": [
+        "valpolicella ripasso",
+        "ripasso"
+      ],
+      "unavailable": true,
+      "coverageNote": "Ripasso is not represented yet. The fresh-grape Valpolicella and dried-grape Amarone profiles are different expressions."
+    },
+    {
+      "id": "recioto-unavailable",
+      "label": "Recioto (not represented)",
+      "aliases": [
+        "recioto della valpolicella",
+        "recioto"
+      ],
+      "unavailable": true,
+      "coverageNote": "Sweet Recioto is not represented yet. The Amarone profile models a dry wine, not Recioto."
+    },
+    {
+      "id": "manduria-sweet-unavailable",
+      "label": "Primitivo Dolce Naturale (not represented)",
+      "aliases": [
+        "primitivo di manduria dolce naturale",
+        "primitivo dolce naturale",
+        "dolce naturale"
+      ],
+      "unavailable": true,
+      "coverageNote": "Primitivo di Manduria Dolce Naturale is not represented. The Manduria profile selects a dry DOC expression."
+    },
+    {
+      "id": "chablis-cru-unavailable",
+      "label": "Chablis cru levels (not represented)",
+      "aliases": [
+        "chablis premier cru",
+        "chablis grand cru"
+      ],
+      "unavailable": true,
+      "coverageNote": "Chablis Premier Cru and Grand Cru are not separately represented. The current profile models Chablis AOC."
+    },
+    {
+      "id": "petit-chablis-unavailable",
+      "label": "Petit Chablis (not represented)",
+      "aliases": [
+        "petit chablis"
+      ],
+      "unavailable": true,
+      "coverageNote": "Petit Chablis is not represented separately. The current Chardonnay profile selects Chablis AOC."
+    },
+    {
+      "id": "appassimento",
+      "label": "represented dried-grape red expression",
+      "aliases": [
+        "appassimento",
+        "dried grape red wine",
+        "dried grape red"
+      ],
+      "family": "still",
+      "productionClasses": [
+        "dried-grape-red"
+      ]
     }
   ]
 }

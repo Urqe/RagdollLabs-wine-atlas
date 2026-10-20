@@ -1,6 +1,6 @@
 # Modeled expressions, evidence and drinking advice (R3)
 
-A profile is an editorial reference expression, not an average of everything a region makes and not a guarantee about a bottle. All 120 profiles now declare their family, colour, selected sweetness, production scope and composition status in `regions.json`. The visible expression line and the expandable style section expose those choices. Existing grape and region IDs are unchanged.
+A profile is an editorial reference expression, not an average of everything a region makes and not a guarantee about a bottle. All represented profiles declare their family, colour, selected sweetness, production scope and composition status in `regions.json`. The visible expression line and the expandable style section expose those choices. Existing grape and region IDs are unchanged.
 
 ## Initial corrections
 
@@ -31,7 +31,7 @@ Reviewed `sources.json` records contain a publisher/authority, a specific URL, t
 
 `evidence` groups connect selected factual claims to reviewed source IDs at profile or region level. `evidenceGaps` records outstanding limitations. The Sources & methodology drawer shows claim groups first, then gaps, with legacy regional references collapsed separately. The method does not imply that every sentence on a cited website is endorsed or that each profile is fully verified.
 
-59 legacy reference records remain background leads pending a fresh claim-level audit, including three grape-alias references researched in R1. R3 does not revoke that earlier work; their richer bibliographic metadata still needs completing. The original book records do not identify the edition, chapter or pages actually used. Those details are explicitly missing; no current edition or page number is invented to make the reference look complete. See [evidence audit](evidence-audit.md) for the priority queue and exact remaining records.
+At R3, 59 legacy reference records remained background leads pending a fresh claim-level audit, including three grape-alias references researched in R1. R5 batch A rechecks the UC Davis Zinfandel identity record; 58 background records remain. R3 does not revoke that earlier work; their richer bibliographic metadata still needs completing. The original book records do not identify the edition, chapter or pages actually used. Those details are explicitly missing; no current edition or page number is invented to make the reference look complete. See [evidence audit](evidence-audit.md) for the priority queue and exact remaining records.
 
 ## Beginner guide
 

@@ -46,4 +46,7 @@ rejected(lambda d: d['sources.json']['tokaj-dry-example'].update(reviewedOn='not
 rejected(lambda d: d['taste-basics.json']['sections'][5]['sources'].append('missing-guide-source'), 'Broken section evidence accepted')
 rejected(lambda d: d['regions.json']['moscato-dasti']['grapes']['muscat-blanc']['style'].update(productionClass='traditional-bottle', effervescence='gentle'), 'Inconsistent production/bubble metadata accepted')
 rejected(lambda d: d['regions.json']['cava']['grapes']['macabeo']['style'].update(productionClass='botrytised'), 'Wrong-family production class accepted')
+rejected(lambda d: d['regions.json']['rueda']['grapes']['verdejo']['style'].update(productionClass='dried-grape-red'), 'White wine accepted with dried-grape-red production')
+rejected(lambda d: d['regions.json']['primitivo-manduria']['grapes']['zinfandel'].update(displayName=7), 'Invalid display name accepted')
+rejected(lambda d: d['wine-search.json']['rules'].append({'id':'bad-coverage','label':'Bad coverage','aliases':['missing-example'],'unavailable':True}), 'Unavailable query without coverage explanation accepted')
 print('OK: duplicate scores advisory; invalid metrics, metadata, evidence and links still block validation')

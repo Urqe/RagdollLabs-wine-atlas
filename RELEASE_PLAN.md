@@ -1,6 +1,6 @@
 # Wine Atlas release plan
 
-Status: R1–R4 implemented on 2026-10-20; R5–R7 remain planned.
+Status: R1–R4 complete; R5 batch A implemented on 2026-10-20. R5 batches B–D and R6–R7 remain planned.
 Created: 2026-10-19.  
 Review baseline: main at `d819d99505b188f2319c37f0f4aa01153278438b` (120 profiles, 92 region entries, 47 grape/blend baselines).  
 Release IDs below are planning identifiers, not published semantic versions.
@@ -177,15 +177,27 @@ Validation: full automated regression suite, including threshold boundaries, spa
 | C — Broader everyday coverage | Montepulciano/Abruzzo; Nero d'Avola/Sicily; Monastrell/Jumilla; Mencía/Bierzo; white Rioja | High-value gaps in commonly encountered grapes and regions |
 | D — Further regional identity | Châteauneuf-du-Pape; Bandol/Mourvèdre; Muscadet/Melon; Torrontés/Argentina; dry Sémillon/Hunter Valley | Regional blends, savoury reds, fresh/aromatic whites and bottle evolution |
 
+### Batch progress
+
+- [x] A — Familiar regional contrasts: six profiles implemented. See [batch notes, sources and validation](docs/familiar-names-batch-a.md).
+- [ ] B — Missing classic families.
+- [ ] C — Broader everyday coverage.
+- [ ] D — Further regional identity.
+
+Current coverage: 126 profiles, 97 region/style records, 50 grape/blend baselines, 22 countries. Five new records support six profiles; Pinotage uses existing Stellenbosch. R5 is a multi-batch program, so completing batch A does not close batches B–D. The next R5 implementation step is batch B; R6/R7 stay later in the queue.
+
 ### Requirements and acceptance criteria
 
-- [ ] Confirm the intended appellation/style and evidence before finalizing every candidate. These are a queue, not claims that all regional wines share one style.
-- [ ] Use proper blend and production modeling; do not present Amarone as generic Corvina or Sherry/Madeira as uniformly sweet.
+The completed checks below apply to batch A and must be repeated for each later batch. Dry-fortified compatibility remains unchecked until batch B introduces that style.
+
+- [x] Confirm the intended appellation/style and evidence before finalizing every candidate. These are a queue, not claims that all regional wines share one style.
+- [x] Use proper blend and production modeling; do not present Amarone as generic Corvina or Sherry/Madeira as uniformly sweet.
 - [ ] Review colour and sweetness compatibility when dry fortified expressions are introduced.
-- [ ] Resolve consumer-facing names in search; distinguish an exact represented profile from a broader related regional reference.
-- [ ] Each profile has sources, a locator, useful pairings, practical serving guidance and a specific reason to exist.
-- [ ] Expand maturity/winemaking sections only when genuinely useful.
-- [ ] Recheck search, comparison and discovery after every batch. Update coverage counts in the same content release.
+- [x] Resolve consumer-facing names in search; distinguish an exact represented profile from a broader related regional reference.
+- [x] Each profile has sources, a locator, useful pairings, practical serving guidance and a specific reason to exist.
+- [x] Expand maturity/winemaking sections only when genuinely useful.
+- [x] Recheck search, comparison and discovery after every batch. Update coverage counts in the same content release.
+
 
 ## R6 — America Beyond California
 

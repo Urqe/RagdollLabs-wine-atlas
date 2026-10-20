@@ -28,7 +28,7 @@ function advClamp(value, min, max) {
 
 function advancedAllProfiles() {
   return WineAtlas.allPairs().sort((a, b) =>
-    a.grape.name.localeCompare(b.grape.name) || a.region.name.localeCompare(b.region.name)
+    WineModel.profileName(a).localeCompare(WineModel.profileName(b)) || a.region.name.localeCompare(b.region.name)
   );
 }
 
@@ -61,7 +61,7 @@ function advancedProfileKey(profile) {
 function advancedProfileLabel(profile) {
   const style = advancedStyle(profile);
   const extra = style.family === "still" ? "" : ` · ${style.label}`;
-  return `${profile.grape.name} · ${profile.region.name} — ${profile.region.country}${extra}`;
+  return `${WineModel.profileName(profile)} · ${profile.region.name} — ${profile.region.country}${extra}`;
 }
 
 function advancedGroupLabel(profile) {
@@ -162,7 +162,7 @@ function advancedDifferenceRows(selections) {
 }
 
 function advancedShortName(profile) {
-  return `${profile.grape.name} · ${profile.region.name}`;
+  return `${WineModel.profileName(profile)} · ${profile.region.name}`;
 }
 
 function advancedProductionContext(selections) {
@@ -220,7 +220,7 @@ function advancedRender() {
   grid.innerHTML = selections.map(item => {
     const style = advancedStyle(item);
     const metrics = metricKeys ? ADV_COMPARE_METRICS.filter(metric => metricKeys.has(metric.key)) : ADV_COMPARE_METRICS;
-    return `<article class="compareCard advanced-compare-card"><div class="advanced-card-head"><div><h3>${WineAtlas.escapeHtml(item.grape.name)} · ${WineAtlas.escapeHtml(item.region.name)}</h3><div class="small">${WineAtlas.escapeHtml(item.region.country)} · ${WineAtlas.escapeHtml(WineModel.expressionSummary(item))}</div></div><button type="button" class="advanced-remove" data-slot="${item.compareSlot}">Remove</button></div><div class="bars compare-bars">${metrics.map(metric => advancedMetricBar(metric, item)).join("")}</div><p class="small compare-summary">${WineAtlas.escapeHtml(item.regional.expect)}</p><p class="small"><strong>Serve:</strong> ${WineAtlas.escapeHtml(item.regional.serve)} · <strong>Ageing:</strong> ${WineAtlas.escapeHtml(WineModel.ageingAdvice(item))}</p></article>`;
+    return `<article class="compareCard advanced-compare-card"><div class="advanced-card-head"><div><h3>${WineAtlas.escapeHtml(WineModel.profileName(item))} · ${WineAtlas.escapeHtml(item.region.name)}</h3><div class="small">${WineAtlas.escapeHtml(item.region.country)} · ${WineAtlas.escapeHtml(WineModel.expressionSummary(item))}</div></div><button type="button" class="advanced-remove" data-slot="${item.compareSlot}">Remove</button></div><div class="bars compare-bars">${metrics.map(metric => advancedMetricBar(metric, item)).join("")}</div><p class="small compare-summary">${WineAtlas.escapeHtml(item.regional.expect)}</p><p class="small"><strong>Serve:</strong> ${WineAtlas.escapeHtml(item.regional.serve)} · <strong>Ageing:</strong> ${WineAtlas.escapeHtml(WineModel.ageingAdvice(item))}</p></article>`;
   }).join("");
 
   if (rows.length) {

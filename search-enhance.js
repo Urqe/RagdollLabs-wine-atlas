@@ -58,7 +58,7 @@ async function renderEnhancedAtlasSearch() {
     const displayColor = item.regional.style?.color || item.grape.color;
     dot.className = `wine-color-dot ${displayColor}`;
     dot.setAttribute("aria-hidden", "true");
-    title.append(dot, document.createTextNode(`${item.grape.name} · ${item.region.name}`));
+    title.append(dot, document.createTextNode(`${WineModel.profileName(item)} · ${item.region.name}`));
     const meta = document.createElement("span");
     const styleLabel = item.regional.style?.label ? ` · ${item.regional.style.label}` : "";
     meta.textContent = pairingScore > 0

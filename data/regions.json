@@ -2040,6 +2040,57 @@
         "evidenceGaps": [
           "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
         ]
+      },
+      "pinotage": {
+        "mods": {},
+        "notes": {
+          "Fruit": [
+            "plum",
+            "blackberry",
+            "mulberry"
+          ],
+          "Earth / savory": [
+            "smoke"
+          ],
+          "Oak / ageing": [
+            "vanilla",
+            "roasted nuts"
+          ]
+        },
+        "serve": "16–18°C",
+        "decant": "Taste first; 30–60 min can help a closed young estate-style wine",
+        "glass": "Large red wine glass",
+        "ageing": "The cited Kanonkop 2023 example gives 10–15 years from vintage; do not apply that window to every Stellenbosch Pinotage.",
+        "ageingBasis": "vintage",
+        "pairings": [
+          "duck",
+          "game",
+          "beef stew",
+          "aromatic curries"
+        ],
+        "expect": "Structured, dry, oak-aged Stellenbosch Pinotage: plum and blackberry, a smoky accent and firm but rounded tannin. This estate-style model does not represent every Pinotage or coffee-styled bottling.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry Stellenbosch Pinotage · Oak-aged estate style",
+          "method": "Red fermentation with skin extraction followed by oak maturation; the cited estate example uses concrete fermenters and French oak",
+          "composition": {
+            "kind": "varietal-reference",
+            "text": "Pinotage varietal reference; the cited estate example is 100% Pinotage"
+          }
+        },
+        "evidence": [
+          {
+            "claim": "Selected estate style, origin, dry analysis, oak maturation and producer-specific ageing",
+            "sources": [
+              "stellenbosch-pinotage"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Exact serving and decanting suggestions are editorial. A single estate/vintage supports this selected expression, not a universal Pinotage production or cellaring rule."
+        ]
       }
     },
     "identity": {
@@ -9379,6 +9430,497 @@
     "sources": [
       "wines-of-ukraine",
       "oxford-companion"
+    ]
+  },
+  "chablis": {
+    "name": "Chablis AOC",
+    "country": "France",
+    "climate": "Cool semi-continental",
+    "summary": "A northern Bourgogne Chardonnay reference centered on fresh acidity and restrained oak rather than a broad average of all Burgundy whites.",
+    "grapes": {
+      "chardonnay": {
+        "mods": {
+          "body": -1,
+          "acidity": 1,
+          "tannin": -0.5,
+          "alcohol": -0.5,
+          "fruit": -0.5,
+          "oak": -3.5,
+          "earth": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "lemon",
+            "green apple",
+            "pear"
+          ],
+          "Mineral / herbal": [
+            "chalk",
+            "flint"
+          ]
+        },
+        "serve": "10–12°C",
+        "decant": "Usually none; taste a closed young bottle before giving it brief air",
+        "glass": "Medium white wine glass",
+        "ageing": "Enjoy young for freshness; about 2–5 years from vintage is a useful reference, with producer and storage dependence.",
+        "ageingBasis": "vintage",
+        "pairings": [
+          "oysters",
+          "grilled fish",
+          "roast chicken",
+          "goat cheese",
+          "white pizza"
+        ],
+        "expect": "Dry, steel-led Chablis Chardonnay: lemon, green apple and a firm, chalky impression, with little overt oak. This is the Chablis AOC reference, not a Premier or Grand Cru model.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry Chablis Chardonnay · Steel-led",
+          "method": "White vinification, chiefly in steel in the selected reference; some producers include a small oak-aged fraction",
+          "composition": {
+            "kind": "varietal-reference",
+            "text": "Chardonnay varietal reference"
+          }
+        },
+        "evidence": [
+          {
+            "claim": "Appellation, grape and regional setting",
+            "sources": [
+              "chablis-appellation"
+            ]
+          },
+          {
+            "claim": "Selected steel-led example, serving and drinking scope",
+            "sources": [
+              "chablis-producer",
+              "chablis-cellaring"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Scores and decanting are editorial. The selected low-oak reference does not describe every producer or the separate Premier/Grand Cru levels."
+        ]
+      }
+    },
+    "identity": {
+      "setting": "Cool semi-continental northern Bourgogne",
+      "terrain": "Vineyards around Chablis along the Serein valley",
+      "soil": "Limestone and marl; specific parcels vary",
+      "influences": [
+        "Northern location and vintage-sensitive ripening",
+        "Appellation levels represent different sites"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Selected steel-led white vinification",
+        "effect": "Keeps the modeled oak score low and leaves citrus, apple and acidity prominent; a steel vessel does not itself create mineral flavors."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "chablis-appellation",
+      "chablis-producer",
+      "chablis-cellaring"
+    ]
+  },
+  "primitivo-manduria": {
+    "name": "Primitivo di Manduria DOC — Puglia",
+    "country": "Italy",
+    "climate": "Warm Mediterranean",
+    "summary": "This reference selects a dry Primitivo di Manduria expression from Puglia, keeping the existing Zinfandel grape identity while using its Italian consumer name.",
+    "grapes": {
+      "zinfandel": {
+        "mods": {
+          "oak": -1.5
+        },
+        "notes": {
+          "Fruit": [
+            "dark cherry",
+            "plum",
+            "blackberry"
+          ],
+          "Spice": [
+            "aniseed",
+            "ginger"
+          ],
+          "Oak / ageing": [
+            "subtle toast"
+          ]
+        },
+        "serve": "16–18°C",
+        "decant": "Taste first; 20–40 min may help a closed young bottle",
+        "glass": "Medium-large red wine glass",
+        "ageing": "Ready after release; follow the particular producer before extended cellaring.",
+        "ageingBasis": "release",
+        "pairings": [
+          "roast lamb",
+          "roast beef",
+          "eggplant parmigiana",
+          "hard cheese"
+        ],
+        "expect": "Dry Primitivo di Manduria, with ripe cherry and plum, rounded tannin and discreet oak. Sweet-spice aromas do not imply a sweet palate; Dolce Naturale is a different expression.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry Primitivo di Manduria",
+          "method": "Still red vinification; the cited dry example has restrained oak and is not modeled as a sweet or dried-grape wine",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Primitivo / Zinfandel grape reference; this is a selected dry DOC expression"
+          }
+        },
+        "evidence": [
+          {
+            "claim": "Selected dry DOC style, grape, alcohol, discreet oak and serving example",
+            "sources": [
+              "manduria-lirica"
+            ]
+          },
+          {
+            "claim": "Primitivo / Zinfandel identity",
+            "sources": [
+              "ucdavis-zinfandel"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Cellaring and decanting suggestions are editorial; one producer example cannot establish all Manduria styles or every Puglian appellation."
+        ],
+        "displayName": "Primitivo (Zinfandel)"
+      }
+    },
+    "identity": {
+      "setting": "Mediterranean Puglia, southern Italy",
+      "terrain": "Manduria-area vineyard reference; locator is approximate",
+      "soil": "Site-specific soils are not fixed by this model",
+      "influences": [
+        "Selected appellation rather than all Puglia",
+        "Dry DOC example kept separate from sweet styles"
+      ]
+    },
+    "why": [
+      {
+        "cause": "A selected dry Primitivo expression",
+        "effect": "Ripe fruit and warming alcohol can coexist with a dry palate; the model keeps residual sweetness distinct from ripe-fruit and spice descriptors."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "manduria-lirica",
+      "ucdavis-zinfandel"
+    ]
+  },
+  "valpolicella": {
+    "name": "Valpolicella Classico DOC",
+    "country": "Italy",
+    "climate": "Northern Italian hill setting",
+    "summary": "A young, fresh-grape Corvina-led blend reference, deliberately separated from concentrated Amarone.",
+    "grapes": {
+      "corvina": {
+        "mods": {},
+        "notes": {
+          "Fruit": [
+            "sour cherry",
+            "redcurrant"
+          ],
+          "Floral": [
+            "violet"
+          ],
+          "Mineral / herbal": [
+            "dried herbs"
+          ]
+        },
+        "serve": "14–16°C",
+        "decant": "Usually none; brief air only if it seems closed",
+        "glass": "Medium red wine glass",
+        "ageing": "Enjoy young after release for fresh fruit; no universal multi-decade cellaring claim.",
+        "ageingBasis": "release",
+        "pairings": [
+          "pasta with tomato sauce",
+          "roast chicken",
+          "grilled vegetables",
+          "mushroom pizza"
+        ],
+        "expect": "Fresh, dry Valpolicella Classico: cherry, violet and lively acidity in a lighter Corvina-led blend. Fresh-grape vinification is represented here, rather than Ripasso or Amarone.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry Valpolicella Classico · Fresh grapes",
+          "method": "Fresh grapes are crushed and fermented on their skins; the selected young style uses neutral tank maturation, without appassimento or ripasso",
+          "composition": {
+            "kind": "representative-blend",
+            "text": "Representative Corvina-led blend; Rondinella and other permitted partners vary"
+          }
+        },
+        "evidence": [
+          {
+            "claim": "Fresh-grape production, blend examples, young drinking and serving context",
+            "sources": [
+              "valpolicella-fresh",
+              "valpolicella-analysis"
+            ]
+          },
+          {
+            "claim": "Regional varieties and distinct wine-type context",
+            "sources": [
+              "valpolicella-varieties"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Exact blend, decanting and numerical scores remain bottle-dependent editorial guidance; this reference excludes Ripasso and dried-grape Amarone."
+        ],
+        "displayName": "Corvina-led blend",
+        "related": [
+          {
+            "region": "amarone",
+            "grape": "corvina",
+            "label": "Contrast with dried-grape Amarone della Valpolicella"
+          }
+        ]
+      }
+    },
+    "identity": {
+      "setting": "Valpolicella Classica, Veneto",
+      "terrain": "Hills north-west of Verona; producer examples from the Classico zone",
+      "soil": "Limestone/clay in cited sites; soils vary across the zone",
+      "influences": [
+        "Fresh-grape and dried-grape production create distinct references",
+        "Blend and maturation choices vary by producer"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Fresh-grape rather than dried-grape vinification",
+        "effect": "The selected reference emphasizes cherry, acidity and moderate alcohol instead of the concentration modeled for Amarone."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "valpolicella-fresh",
+      "valpolicella-analysis",
+      "valpolicella-varieties"
+    ]
+  },
+  "amarone": {
+    "name": "Amarone della Valpolicella Classico DOCG",
+    "country": "Italy",
+    "climate": "Northern Italian hill setting",
+    "summary": "A dry dried-grape blend reference: appassimento and maturation, rather than grape identity alone, explain the deliberate contrast with young Valpolicella.",
+    "grapes": {
+      "corvina": {
+        "mods": {
+          "body": 2.5,
+          "acidity": -0.5,
+          "tannin": 1.5,
+          "alcohol": 2,
+          "fruit": 1,
+          "oak": 2.5,
+          "earth": 1
+        },
+        "notes": {
+          "Fruit": [
+            "dried cherry",
+            "prune",
+            "fig"
+          ],
+          "Spice": [
+            "baking spice"
+          ],
+          "Oak / ageing": [
+            "cocoa",
+            "tobacco"
+          ]
+        },
+        "serve": "16–18°C",
+        "decant": "Young structured bottle: try 30–60 min after tasting; mature bottles need gentler handling",
+        "glass": "Large red wine glass",
+        "ageing": "Producer maturation precedes release; further cellaring depends on cuvée, vintage and storage rather than a universal extra interval.",
+        "ageingBasis": "release",
+        "pairings": [
+          "beef stew",
+          "roast lamb",
+          "game",
+          "aged cheese"
+        ],
+        "expect": "Dry Amarone Classico, a concentrated Corvina-led blend made with dried grapes: dried cherry, plum and spice, substantial body and high alcohol. It is not the sweet Recioto style.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry Amarone · Appassimento",
+          "method": "Appassimento: grapes dry before crushing, then ferment as a dry red wine and mature in oak; drying does not make this selected wine a sweet dessert style",
+          "composition": {
+            "kind": "representative-blend",
+            "text": "Representative Corvina-led Amarone blend; partners and proportions vary"
+          },
+          "productionClass": "dried-grape-red",
+          "effervescence": "none"
+        },
+        "evidence": [
+          {
+            "claim": "Appassimento, selected dry style and representative blend",
+            "sources": [
+              "amarone-production",
+              "amarone-style"
+            ]
+          },
+          {
+            "claim": "A documented high-alcohol example and serving context",
+            "sources": [
+              "amarone-example",
+              "amarone-production"
+            ]
+          },
+          {
+            "claim": "Regional varieties and distinct wine-type context",
+            "sources": [
+              "valpolicella-varieties"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Serving range, decanting and scores are editorial. Producer examples do not establish fixed drying duration, blend percentages or an ageing window for every Amarone."
+        ],
+        "displayName": "Corvina-led blend",
+        "related": [
+          {
+            "region": "valpolicella",
+            "grape": "corvina",
+            "label": "Contrast with fresh-grape Valpolicella Classico"
+          }
+        ]
+      }
+    },
+    "identity": {
+      "setting": "Valpolicella Classica, Veneto",
+      "terrain": "Hills north-west of Verona; producer examples from the Classico zone",
+      "soil": "Limestone/clay in cited sites; soils vary across the zone",
+      "influences": [
+        "Fresh-grape and dried-grape production create distinct references",
+        "Blend and maturation choices vary by producer"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Appassimento before fermentation",
+        "effect": "Drying concentrates the grapes; fermenting this selected expression to a dry palate produces a powerful red rather than sweet Recioto."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "amarone-production",
+      "amarone-style",
+      "amarone-example",
+      "valpolicella-varieties"
+    ]
+  },
+  "rueda": {
+    "name": "Rueda DO",
+    "country": "Spain",
+    "climate": "Continental plateau",
+    "summary": "The selected dry Verdejo reference emphasizes aromatic fruit, herbal notes and freshness, rather than representing all Rueda grape varieties or wine styles.",
+    "grapes": {
+      "verdejo": {
+        "mods": {
+          "body": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "pear",
+            "citrus",
+            "white peach"
+          ],
+          "Mineral / herbal": [
+            "fennel",
+            "aniseed"
+          ],
+          "Earth / savory": [
+            "almond-like bitter finish"
+          ]
+        },
+        "serve": "8–10°C",
+        "decant": "Usually none; let it open in the glass",
+        "glass": "Medium white wine glass",
+        "ageing": "Enjoy young for the selected fresh style; check the producer for cuvées intended for longer development.",
+        "ageingBasis": "release",
+        "pairings": [
+          "grilled fish",
+          "roast chicken",
+          "soft cheese",
+          "grilled vegetables"
+        ],
+        "expect": "Dry Rueda Verdejo with pear, citrus, fennel and a gently bitter finish. The selected fresh style may gain texture from lees; it is not a model of every Rueda white.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry Rueda Verdejo · Fresh style",
+          "method": "White vinification with optional lees contact; steel is common, while the cited producer also uses concrete and wood",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Verdejo-led reference; the cited producer example is 100% Verdejo"
+          }
+        },
+        "evidence": [
+          {
+            "claim": "Varietal identity, selected white style and service",
+            "sources": [
+              "rueda-verdejo",
+              "rueda-grape"
+            ]
+          },
+          {
+            "claim": "Continental setting, vessel variation and lees texture in a producer example",
+            "sources": [
+              "rueda-producer"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "No universal cellaring duration or vessel recipe is claimed. Dryness and sensory scores are the selected editorial reference, not a measurement for all Rueda bottlings."
+        ]
+      }
+    },
+    "identity": {
+      "setting": "Continental Castilian plateau around Rueda and La Seca",
+      "terrain": "Plateau vineyards in the Valladolid-area producer example",
+      "soil": "Pebbles with some limestone outcrops in the cited vineyards",
+      "influences": [
+        "Seasonal temperature extremes",
+        "Producer choices in lees contact and fermentation vessel"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Selected aromatic Verdejo expression",
+        "effect": "The reference balances white fruit and fennel-like aromas with acidity and a lightly bitter finish; wood and lees influence depend on the cuvée."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "rueda-verdejo",
+      "rueda-grape",
+      "rueda-producer"
     ]
   }
 }

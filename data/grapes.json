@@ -687,5 +687,54 @@
     "fruit": 4,
     "oak": 2.5,
     "earth": 3
+  },
+  "corvina": {
+    "name": "Corvina",
+    "color": "red",
+    "indigenous": true,
+    "origin": [
+      "Italy"
+    ],
+    "body": 2.5,
+    "acidity": 4,
+    "tannin": 2,
+    "sweetness": 1,
+    "alcohol": 3,
+    "fruit": 3.5,
+    "oak": 0,
+    "earth": 2
+  },
+  "verdejo": {
+    "name": "Verdejo",
+    "color": "white",
+    "indigenous": true,
+    "origin": [
+      "Spain"
+    ],
+    "aromatic": true,
+    "body": 2.5,
+    "acidity": 4,
+    "tannin": 0.5,
+    "sweetness": 1,
+    "alcohol": 3.5,
+    "fruit": 3.5,
+    "oak": 0.5,
+    "earth": 1.5
+  },
+  "pinotage": {
+    "name": "Pinotage",
+    "color": "red",
+    "indigenous": false,
+    "origin": [
+      "South Africa"
+    ],
+    "body": 4,
+    "acidity": 3.5,
+    "tannin": 3.5,
+    "sweetness": 1,
+    "alcohol": 4.5,
+    "fruit": 4.5,
+    "oak": 3,
+    "earth": 2.5
   }
 }

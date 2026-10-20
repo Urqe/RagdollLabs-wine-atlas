@@ -1,6 +1,6 @@
-# Evidence audit — R3
+# Evidence audit — R3 foundation and R5 batch A
 
-Reviewed 2026-10-20. This is a prioritized audit, not a claim that the full catalog has been reverified.
+Updated 2026-10-20 through R5 batch A. Current records: 31 reviewed references and 58 background records pending claim-level metadata review. Every one of the 126 profiles retains explicit evidence limitations. This is a prioritized audit, not a claim that the full catalog has been reverified.
 
 ## Completed priority work
 
@@ -9,7 +9,7 @@ Reviewed 2026-10-20. This is a prioritized audit, not a claim that the full cata
 - Broad Bordeaux/Burgundy drinking-window scope, mature versus young aeration and storage assumptions.
 - Single interrupted Moscato fermentation and direct-pressed rosé in the beginner guide.
 
-Sixteen targeted references support those claim groups. Every profile retains at least one explicit evidence limitation, including precise serving/ageing advice or regional facts not covered by the priority review. A reviewed source is not a fully reviewed profile.
+R3 added sixteen targeted references supporting those claim groups. R5 batch A adds primary producer/appellation material for six profiles and rechecks the existing UC Davis Zinfandel/Primitivo identity record. Every profile retains at least one explicit evidence limitation, including precise serving/ageing advice or regional facts not covered by the priority review. A reviewed source is not a fully reviewed profile.
 
 ## Next audit batches
 
@@ -18,10 +18,11 @@ Sixteen targeted references support those claim groups. Every profile retains at
 3. **Medium:** replace the legacy generic book/publisher links with the actual edition and entry/chapter/pages used. If that provenance cannot be recovered, substitute a directly relevant primary source rather than claiming a book was consulted.
 4. **Ongoing:** migrate the regional and grape references below into dated claim groups as profiles are substantively reviewed. A site root is a discoverability problem, not evidence that its facts are wrong. The R1 alias research remains documented separately.
 
-## Reviewed targeted references
+## Reviewed references
 
 | ID | Authority / publisher | Locator | Review limitation |
 | --- | --- | --- | --- |
+| `ucdavis-zinfandel` | UC Davis Foundation Plant Services | [Zinfandel chapter: genetic identity and Primitivo history](https://fps.ucdavis.edu/grapebook/winebook.cfm?chap=Zinfandel) | Grape identity only; this reference does not establish the style of a specific Puglian wine. |
 | `vouvray-styles` | Syndicat des Vignerons de Vouvray | [Understanding our Vouvray white wines; sec / demi-sec / moelleux](https://www.vinsdevouvray.com/en/vouvray-white-wine/) | Supports the named claim group, not editorial scores. |
 | `tokaj-dry-example` | Disznókő | [Pages 1–2: Vinification, Maturing, Serving](https://disznoko.hu/pdf/vin/en/disznok-tokaji-dry-furmint-2022-90.pdf) | A producer example of fresh dry Furmint, not evidence that every dry Tokaj is made identically. |
 | `georgia-rkatsiteli` | National Wine Agency of Georgia | [Rkatsiteli: European vinification compared with qvevri vinification](https://wine.gov.ge/En/VarietyWhite) | Supports the named claim group, not editorial scores. |
@@ -38,10 +39,24 @@ Sixteen targeted references support those claim groups. Every profile retains at
 | `asti-fermentation` | Consorzio per la Tutela dell’Asti DOCG | [Production: fermentation stopped around 5% alcohol](https://astidocg.it/en/wines/moscato-dasti-docg/) | Page content checked through indexed publisher text; direct retrieval returned 403. |
 | `moscato-producer` | Fontanafredda | [Vinification: cooling to stop fermentation](https://www.fontanafredda.it/en/wine/moscato-dasti-docg-2/) | Producer example supporting the single interrupted fermentation, not a universal temperature recipe. |
 | `provence-rose-methods` | Conseil Interprofessionnel des Vins de Provence | [Skin maceration and direct pressing](https://www.vinsdeprovence.com/en/le-rose/l-elaboration-du-rose) | Supports the named claim group, not editorial scores. |
+| `chablis-appellation` | Bureau Interprofessionnel des Vins de Bourgogne | [Four appellations; dry Chardonnay; semi-continental setting and Serein valley](https://www.chablis-wines.com/discover/a-unique-territory-and-terroir/four-appellations-and-one-varietal/four-appellations-and-one-varietal,1807,7644.html) | Supports the named claim group, not editorial scores. |
+| `chablis-producer` | Ropiteau Frères | [Production area; vinification and maturing; serving and ageing](https://www.ropiteau.com/en/our-wines.r-81/chablis.v-376.html) | Mostly steel with a small barrel-aged fraction in this example. This is not evidence that all Chablis is unoaked. |
+| `chablis-cellaring` | Bureau Interprofessionnel des Vins de Bourgogne | [Storage conditions and distinction between Chablis, Premier Cru and Grand Cru](https://www.chablis-wines.com/tasting/the-art-of-tasting/10-storage-tips/tips-for-storing-chablis,1837,7684.html) | Supports the named claim group, not editorial scores. |
+| `manduria-lirica` | Produttori di Manduria | [Page 1: Primitivo, dry palate, 14.5% alcohol, discreet oak and 16–18°C service](https://www.produttoridimanduria.it/wp-content/uploads/2022/10/LIRICA-it-enb.pdf) | One dry DOC example; this does not make every Primitivo dry or cover Dolce Naturale DOCG. |
+| `valpolicella-fresh` | Speri Viticoltori | [Vineyards; Corvina/Rondinella/Molinara blend; immediate crushing, steel/cement maturation; young drinking](https://www.speri.com/en/wines/valpolicella-classico/) | Producer proportions and vessel choices are examples, not a recipe for every Valpolicella. |
+| `valpolicella-analysis` | Allegrini | [Page 1: blend, 12.9% alcohol, 0.6 g/L residual sugar, steel maturation and food pairings](https://allegrini.it/wp-content/uploads/2024/11/2023_Valpolicella_classico_trade_eng.pdf) | Supports the named claim group, not editorial scores. |
+| `amarone-production` | Zenato | [Page 1: Corvina-led blend, 3–4 months of grape drying, fermentation and large-cask maturation](https://www.zenato.it/wp-content/uploads/2026/03/AMARONE-CLASSICO.pdf) | A producer example; blend percentages and maturation duration are not universal appellation requirements. |
+| `amarone-example` | Allegrini | [Page 1: 15.95% alcohol, 3.4 g/L residual sugar, blend, grape drying and maturation](https://allegrini.it/wp-content/uploads/2024/11/2020_Amarone_trade_eng_compressed.pdf) | A dry high-alcohol producer/vintage example; blend and maturation differ from the separately cited Zenato example. |
+| `amarone-style` | Consorzio Tutela Vini Valpolicella | [Publisher-indexed description: drying in fruttaio; dry Amarone style](https://www.consorziovalpolicella.it/en/types-of-wines/amarone-della-valpolicella-docg/) | Publisher text was available in search indexing; direct page retrieval timed out. Producer technical material independently supports drying and blending. |
+| `rueda-verdejo` | Consejo Regulador D.O. Rueda | [Verdejo content, aromatic character, 12.5–13.5% range and 8–10°C serving](https://dorueda.com/vinos/blancos/verdejo/) | The atlas selects a dry Verdejo reference; it does not represent every white, sparkling or fortified Rueda style. |
+| `rueda-grape` | Consejo Regulador D.O. Rueda | [Verdejo as the native variety of D.O. Rueda](https://dorueda.com/verdejo/) | Supports the named claim group, not editorial scores. |
+| `rueda-producer` | Bodegas José Pariente | [Page 1: 100% Verdejo, continental setting, mixed fermentation vessels, lees contact, 13% alcohol](https://josepariente.com/wp-content/uploads/2025/02/JP_FICHA_VERDEJO-2024-ENG-low.pdf) | A producer example of lees texture; the atlas does not claim all Rueda Verdejo uses steel alone. |
+| `stellenbosch-pinotage` | Kanonkop Wine Estate | [Page 1: Stellenbosch origin, 100% Pinotage, concrete fermentation, French oak, 14.51% alcohol and 2.45 g/L sugar](https://kanonkop.co.za/wp-content/uploads/2025/12/Kanonkop-Pinotage-2023-Factsheet.pdf) | A structured estate-style example. Its 10–15-year window is explicitly producer/vintage-specific. |
+| `valpolicella-varieties` | Consorzio Tutela Vini Valpolicella | [Indigenous regional varieties and the separate Valpolicella, Ripasso, Amarone and Recioto styles](https://www.consorziovalpolicella.it/en/types-of-wines/) | Publisher-indexed text reviewed; direct consortium pages timed out. Independent producer material supports the selected blends and production distinctions. |
 
 ## Remaining background records
 
-59 records await a fresh claim-level metadata audit; 48 use a root or locale-root URL. None is silently promoted into the new reviewed claim groups.
+58 records await a fresh claim-level metadata audit; 48 use a root or locale-root URL. They are not silently promoted into reviewed claim groups.
 
 | ID | Reference | URL scope / next action |
 | --- | --- | --- |
@@ -75,13 +90,13 @@ Sixteen targeted references support those claim groups. Every profile retains at
 | `uruguay-wine` | [INAVI — Instituto Nacional de Vitivinicultura, Uruguay](https://www.inavi.com.uy/) | Root/locale root: locate a claim-specific page |
 | `armenia-wine` | [Vine and Wine Foundation of Armenia](https://www.vwfa.am/) | Root/locale root: locate a claim-specific page |
 | `wines-of-romania` | [Wines of Romania](https://winesofromania.com/en/) | Root/locale root: locate a claim-specific page |
-| `canary-wine` | [Canary Islands wine sector references](https://www.gobiernodecanarias.org/agpsa/icca/) | Specific path: recheck claim fit and record publisher, locator and review date |
-| `oxford-companion` | [Jancis Robinson (ed.), Oxford Companion to Wine — reference summaries](https://www.oxfordreference.com/) | Actual edition, chapter/entry and pages missing; recover provenance or replace the citation |
+| `canary-wine` | [Canary Islands wine sector references](https://www.gobiernodecanarias.org/agpsa/icca/) | Specific path: recheck claim fit and complete metadata |
+| `oxford-companion` | [Jancis Robinson (ed.), Oxford Companion to Wine — reference summaries](https://www.oxfordreference.com/) | Actual edition, chapter/entry and pages missing; recover provenance or replace citation |
 | `wine-folly` | [Wine Folly — regional and varietal overviews](https://winefolly.com/) | Root/locale root: locate a claim-specific page |
-| `world-atlas-of-wine` | [Hugh Johnson & Jancis Robinson, The World Atlas of Wine — regional context](https://www.mitchell-beazley.com/) | Actual edition, chapter/entry and pages missing; recover provenance or replace the citation |
-| `sonora-wine-study` | [Cananea, Sonora emerging wine geography — Estudios Sociales / SciELO México](https://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S0187-73722021000100118) | Specific path: recheck claim fit and record publisher, locator and review date |
-| `lodi-wine` | [Lodi Winegrape Commission — Old Vines](https://www.lodiwine.com/about-lodi/old-vines/) | Specific path: recheck claim fit and record publisher, locator and review date |
-| `amador-wine` | [Amador Vintners — Amador wine region](https://amadorwine.com/about-our-region/) | Specific path: recheck claim fit and record publisher, locator and review date |
+| `world-atlas-of-wine` | [Hugh Johnson & Jancis Robinson, The World Atlas of Wine — regional context](https://www.mitchell-beazley.com/) | Actual edition, chapter/entry and pages missing; recover provenance or replace citation |
+| `sonora-wine-study` | [Cananea, Sonora emerging wine geography — Estudios Sociales / SciELO México](https://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S0187-73722021000100118) | Specific path: recheck claim fit and complete metadata |
+| `lodi-wine` | [Lodi Winegrape Commission — Old Vines](https://www.lodiwine.com/about-lodi/old-vines/) | Specific path: recheck claim fit and complete metadata |
+| `amador-wine` | [Amador Vintners — Amador wine region](https://amadorwine.com/about-our-region/) | Specific path: recheck claim fit and complete metadata |
 | `madiran-wine` | [Madiran & Pacherenc du Vic-Bilh wine region](https://www.madiran-pacherenc.com/) | Root/locale root: locate a claim-specific page |
 | `prosecco-doc` | [Consorzio Tutela Prosecco DOC](https://www.prosecco.wine/en/) | Root/locale root: locate a claim-specific page |
 | `cava-do` | [Consejo Regulador de la D.O. Cava](https://www.cava.wine/en/) | Root/locale root: locate a claim-specific page |
@@ -90,17 +105,16 @@ Sixteen targeted references support those claim groups. Every profile retains at
 | `vins-provence` | [Vins de Provence](https://www.vinsdeprovence.com/en/) | Root/locale root: locate a claim-specific page |
 | `navarra-do` | [Consejo Regulador D.O. Navarra](https://navarrawine.com/en/) | Root/locale root: locate a claim-specific page |
 | `collio-consorzio` | [Consorzio Tutela Vini Collio](https://www.collio.it/en/) | Root/locale root: locate a claim-specific page |
-| `cremant-bourgogne` | [Crémant federation — Bourgogne](https://cremants.com/cremant-de-bourgogne/) | Specific path: recheck claim fit and record publisher, locator and review date |
-| `cremant-alsace` | [Vins d’Alsace — Crémant d’Alsace](https://www.vinsalsace.com/en/gouts-et-couleurs/aoc/aoc-cremant-dalsace/) | Specific path: recheck claim fit and record publisher, locator and review date |
-| `cremant-loire` | [Crémant federation — Loire](https://cremants.com/cremant-de-loire/) | Specific path: recheck claim fit and record publisher, locator and review date |
+| `cremant-bourgogne` | [Crémant federation — Bourgogne](https://cremants.com/cremant-de-bourgogne/) | Specific path: recheck claim fit and complete metadata |
+| `cremant-alsace` | [Vins d’Alsace — Crémant d’Alsace](https://www.vinsalsace.com/en/gouts-et-couleurs/aoc/aoc-cremant-dalsace/) | Specific path: recheck claim fit and complete metadata |
+| `cremant-loire` | [Crémant federation — Loire](https://cremants.com/cremant-de-loire/) | Specific path: recheck claim fit and complete metadata |
 | `alto-adige-wine` | [Alto Adige Wines (Consorzio Vini Alto Adige)](https://www.suedtirolwein.com/) | Root/locale root: locate a claim-specific page |
 | `inter-beaujolais` | [Inter Beaujolais (Vins du Beaujolais)](https://www.beaujolais.com/) | Root/locale root: locate a claim-specific page |
 | `rias-baixas-do` | [Consejo Regulador DO Rías Baixas](https://www.riasbaixaswines.com/) | Root/locale root: locate a claim-specific page |
 | `asti-docg` | [Consorzio per la tutela dell'Asti DOCG](https://www.astidocg.it/) | Root/locale root: locate a claim-specific page |
 | `vins-alsace` | [Vins d’Alsace (CIVA)](https://www.vinsalsace.com/en/) | Root/locale root: locate a claim-specific page |
-| `wine-folly-wachau` | [Wine Folly — in-depth guide to the Wachau](https://winefolly.com/deep-dive/in-depth-guide-to-the-wachau-valley-wine-region/) | Specific path: recheck claim fit and record publisher, locator and review date |
+| `wine-folly-wachau` | [Wine Folly — in-depth guide to the Wachau](https://winefolly.com/deep-dive/in-depth-guide-to-the-wachau-valley-wine-region/) | Specific path: recheck claim fit and complete metadata |
 | `wines-of-argentina` | [Wines of Argentina](https://www.winesofargentina.org/) | Root/locale root: locate a claim-specific page |
 | `austrian-wine` | [Austrian Wine Marketing Board](https://www.austrianwine.com/) | Root/locale root: locate a claim-specific page |
-| `germany-spatburgunder` | [Wines of Germany — Spätburgunder / Pinot Noir](https://winesofgermany.co.uk/grape/spatburgunder/) | Specific path: recheck claim fit and record publisher, locator and review date |
-| `ucdavis-zinfandel` | [UC Davis Foundation Plant Services — Zinfandel / Primitivo](https://fps.ucdavis.edu/grapebook/winebook.cfm?chap=Zinfandel) | Specific path: recheck claim fit and record publisher, locator and review date |
-| `ucdavis-albarino` | [UC Davis Foundation Plant Services — Albariño / Alvarinho synonyms](https://fps.ucdavis.edu/FGRfamilies.cfm?varietyid=170) | Specific path: recheck claim fit and record publisher, locator and review date |
+| `germany-spatburgunder` | [Wines of Germany — Spätburgunder / Pinot Noir](https://winesofgermany.co.uk/grape/spatburgunder/) | Specific path: recheck claim fit and complete metadata |
+| `ucdavis-albarino` | [UC Davis Foundation Plant Services — Albariño / Alvarinho synonyms](https://fps.ucdavis.edu/FGRfamilies.cfm?varietyid=170) | Specific path: recheck claim fit and complete metadata |

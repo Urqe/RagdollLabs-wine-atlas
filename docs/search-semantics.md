@@ -26,7 +26,9 @@ Aliases live on the existing canonical grape objects in `data/grapes.json`, with
 
 Evidence checked 2026-10-20. Synonym identity does not imply identical clones, winemaking or regional styles.
 
-An alias result states the canonical grape and dynamically lists countries whose expressions are actually represented. For example, Primitivo currently resolves to the available USA Zinfandel profiles; `Primitivo Italy` correctly returns no matching profile. It does not relabel California wines as Puglia or add nonexistent coverage.
+An alias result states the canonical grape and dynamically lists countries whose expressions are actually represented. R5 batch A adds an actual Primitivo di Manduria DOC expression under the existing `zinfandel` ID. `Primitivo Italy` now selects that profile; `Primitivo Lodi` still selects the US expression. Notices report Italy and USA. Recognizing an alias does not imply that every Puglian appellation is covered.
+
+R5 also adds structured production-class constraints for appassimento, precise appellation rules for the new expressions, and explicit unavailable-expression notices for Ripasso, Recioto, Primitivo Dolce Naturale and unrepresented Chablis levels. These return no substitute. See [batch A integration](familiar-names-batch-a.md).
 
 Generic `muscat` / `moscato` resolves the represented Muscat grape family (Muscat Blanc and Muscat of Alexandria), across their represented regions and production styles. More specific names win: `Moscato Bianco` selects Muscat Blanc, and `Moscato d'Asti` remains constrained to its named sparkling expression. This is a family search, not a claim that the two Muscat varieties are synonyms.
 
