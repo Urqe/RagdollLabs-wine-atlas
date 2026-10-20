@@ -2784,7 +2784,9 @@
           "composition": {
             "kind": "grape-reference",
             "text": "Grape-led reference; a bottle’s exact blend is not specified"
-          }
+          },
+          "productionClass": "traditional-bottle",
+          "effervescence": "sparkling"
         },
         "notes": {
           "Fruit": [
@@ -2878,7 +2880,9 @@
           "composition": {
             "kind": "grape-reference",
             "text": "Grape-led reference; a bottle’s exact blend is not specified"
-          }
+          },
+          "productionClass": "tank-second",
+          "effervescence": "gentle"
         },
         "notes": {
           "Fruit": [
@@ -2964,7 +2968,9 @@
           "composition": {
             "kind": "representative-blend",
             "text": "Representative Macabeo-containing white Cava blend, commonly with Xarel·lo and Parellada; no fixed proportions or pure-Macabeo claim"
-          }
+          },
+          "productionClass": "traditional-bottle",
+          "effervescence": "sparkling"
         },
         "notes": {
           "Fruit": [
@@ -3078,7 +3084,9 @@
           "composition": {
             "kind": "grape-reference",
             "text": "Grape-led reference; a bottle’s exact blend is not specified"
-          }
+          },
+          "productionClass": "botrytised",
+          "effervescence": "none"
         },
         "notes": {
           "Fruit": [
@@ -3169,7 +3177,9 @@
           "composition": {
             "kind": "grape-reference",
             "text": "Grape-led reference; a bottle’s exact blend is not specified"
-          }
+          },
+          "productionClass": "botrytised",
+          "effervescence": "none"
         },
         "notes": {
           "Fruit": [
@@ -3261,7 +3271,9 @@
           "composition": {
             "kind": "representative-blend",
             "text": "Representative blend; proportions vary by producer"
-          }
+          },
+          "productionClass": "fortified-protected",
+          "effervescence": "none"
         },
         "notes": {
           "Fruit": [
@@ -3348,7 +3360,9 @@
           "composition": {
             "kind": "representative-blend",
             "text": "Representative blend; proportions vary by producer"
-          }
+          },
+          "productionClass": "fortified-oxidative",
+          "effervescence": "none"
         },
         "notes": {
           "Fruit": [
@@ -3437,7 +3451,9 @@
           "composition": {
             "kind": "grape-reference",
             "text": "Grape-led reference; a bottle’s exact blend is not specified"
-          }
+          },
+          "productionClass": "fortified-muscat-cask",
+          "effervescence": "none"
         },
         "notes": {
           "Fruit": [
@@ -6402,7 +6418,9 @@
           "composition": {
             "kind": "representative-blend",
             "text": "Representative blend; proportions vary by producer"
-          }
+          },
+          "productionClass": "rose-direct-or-short",
+          "effervescence": "none"
         },
         "notes": {
           "Fruit": [
@@ -6500,7 +6518,9 @@
           "composition": {
             "kind": "grape-reference",
             "text": "Grape-led reference; a bottle’s exact blend is not specified"
-          }
+          },
+          "productionClass": "rose-extracted",
+          "effervescence": "none"
         },
         "notes": {
           "Fruit": [
@@ -6587,7 +6607,9 @@
           "composition": {
             "kind": "grape-reference",
             "text": "Grape-led reference; a bottle’s exact blend is not specified"
-          }
+          },
+          "productionClass": "rose-bled",
+          "effervescence": "none"
         },
         "notes": {
           "Fruit": [
@@ -6673,7 +6695,9 @@
           "composition": {
             "kind": "grape-reference",
             "text": "Grape-led reference; a bottle’s exact blend is not specified"
-          }
+          },
+          "productionClass": "skin-maceration",
+          "effervescence": "none"
         },
         "notes": {
           "Fruit": [
@@ -6760,7 +6784,9 @@
           "composition": {
             "kind": "grape-reference",
             "text": "Grape-led reference; a bottle’s exact blend is not specified"
-          }
+          },
+          "productionClass": "skin-maceration",
+          "effervescence": "none"
         },
         "notes": {
           "Fruit": [
@@ -6862,7 +6888,9 @@
           "composition": {
             "kind": "grape-reference",
             "text": "Grape-led reference; a bottle’s exact blend is not specified"
-          }
+          },
+          "productionClass": "traditional-bottle",
+          "effervescence": "sparkling"
         },
         "notes": {
           "Fruit": [
@@ -6908,7 +6936,9 @@
           "composition": {
             "kind": "grape-reference",
             "text": "Grape-led reference; a bottle’s exact blend is not specified"
-          }
+          },
+          "productionClass": "traditional-bottle",
+          "effervescence": "sparkling"
         },
         "notes": {
           "Fruit": [
@@ -6986,7 +7016,9 @@
           "composition": {
             "kind": "grape-reference",
             "text": "Grape-led reference; a bottle’s exact blend is not specified"
-          }
+          },
+          "productionClass": "traditional-bottle",
+          "effervescence": "sparkling"
         },
         "notes": {
           "Fruit": [
@@ -7032,7 +7064,9 @@
           "composition": {
             "kind": "grape-reference",
             "text": "Grape-led reference; a bottle’s exact blend is not specified"
-          }
+          },
+          "productionClass": "traditional-bottle",
+          "effervescence": "sparkling"
         },
         "notes": {
           "Fruit": [
@@ -7111,7 +7145,9 @@
           "composition": {
             "kind": "grape-reference",
             "text": "Grape-led reference; a bottle’s exact blend is not specified"
-          }
+          },
+          "productionClass": "traditional-bottle",
+          "effervescence": "sparkling"
         },
         "notes": {
           "Fruit": [
@@ -8054,7 +8090,9 @@
           "composition": {
             "kind": "grape-reference",
             "text": "Grape-led reference; a bottle’s exact blend is not specified"
-          }
+          },
+          "productionClass": "single-partial-tank",
+          "effervescence": "gentle"
         },
         "notes": {
           "Fruit": [
@@ -8385,7 +8423,9 @@
           "composition": {
             "kind": "representative-blend",
             "text": "Representative blend; proportions vary by producer"
-          }
+          },
+          "productionClass": "traditional-bottle",
+          "effervescence": "sparkling"
         },
         "notes": {
           "Fruit": [
@@ -9052,7 +9092,9 @@
           "composition": {
             "kind": "grape-reference",
             "text": "Grape-led reference; a bottle’s exact blend is not specified"
-          }
+          },
+          "productionClass": "late-harvest",
+          "effervescence": "none"
         },
         "notes": {
           "Fruit": [
@@ -9273,7 +9315,9 @@
           "composition": {
             "kind": "grape-reference",
             "text": "Grape-led reference; a bottle’s exact blend is not specified"
-          }
+          },
+          "productionClass": "fortified-muscat-cask",
+          "effervescence": "none"
         },
         "notes": {
           "Fruit": [

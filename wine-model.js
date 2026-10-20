@@ -25,6 +25,38 @@ window.WineModel = (() => {
     const family = item.regional?.style?.family || "still";
     return family === "still" ? `still:${item.grape.color}` : family;
   };
+  // Discovery is stricter than broad comparison compatibility. These classes
+  // describe the selected reference, not legal categories or measured pressure.
+  const productionLabels = Object.freeze({
+    "still-red": "still red vinification", "still-white": "still white vinification",
+    "traditional-bottle": "second fermentation in bottle with lees ageing",
+    "tank-second": "second fermentation in tank", "single-partial-tank": "one interrupted tank fermentation",
+    botrytised: "noble-rot concentration", "late-harvest": "late-harvest concentration",
+    "fortified-protected": "fortification with relatively protected maturation",
+    "fortified-oxidative": "fortification with oxidative cask ageing",
+    "fortified-muscat-cask": "fortified Muscat with cask maturation",
+    "rose-direct-or-short": "direct pressing or brief rosé maceration",
+    "rose-extracted": "more extracted rosé vinification", "rose-bled": "bled-must rosé vinification",
+    "skin-maceration": "extended white-grape skin contact"
+  });
+  const discoveryContext = item => {
+    const style = item.regional.style || {};
+    const family = style.family || "still";
+    return { family, color: color(item), sweetness: style.sweetness,
+      production: style.productionClass || (family === "still" ? `still-${color(item)}` : null),
+      bubbles: style.effervescence || (family === "still" ? "none" : null) };
+  };
+  const productionLabel = value => productionLabels[value] || "production not specified";
+  const bubbleLabel = value => ({ none: "no bubbles", gentle: "gentle bubbles", sparkling: "sparkling bubbles" }[value] || "bubble style not specified");
+  const styleDifferences = (a, b) => {
+    const x = discoveryContext(a), y = discoveryContext(b), differences = [];
+    if (x.sweetness !== y.sweetness) differences.push(`Sweetness: ${x.sweetness || "unspecified"} → ${y.sweetness || "unspecified"}`);
+    if (x.color !== y.color) differences.push(`Colour: ${colorLabel(x.color)} → ${colorLabel(y.color)}${x.family === "sparkling" && y.family === "sparkling" ? "; white vinification versus rosé skin contact" : ""}`);
+    if (x.family !== y.family) differences.push(`Family: ${x.family} → ${y.family}`);
+    if (!x.production || !y.production || x.production !== y.production) differences.push(`Production: ${productionLabel(x.production)} → ${productionLabel(y.production)}`);
+    if (!x.bubbles || !y.bubbles || x.bubbles !== y.bubbles) differences.push(`Bubbles: ${bubbleLabel(x.bubbles)} → ${bubbleLabel(y.bubbles)}`);
+    return differences;
+  };
   const compatible = (a, b) => Boolean(a && b && compatibilityKey(a) === compatibilityKey(b));
-  return Object.freeze({ metrics, normalize, color, colorLabel, ageingAdvice, expressionSummary, compatibilityKey, compatible });
+  return Object.freeze({ metrics, normalize, color, colorLabel, ageingAdvice, expressionSummary, compatibilityKey, compatible, discoveryContext, productionLabel, bubbleLabel, styleDifferences });
 })();
