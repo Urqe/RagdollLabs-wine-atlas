@@ -70,7 +70,6 @@
       "id": "moscato",
       "label": "Moscato d'Asti",
       "aliases": [
-        "moscato",
         "moscato d'asti",
         "moscato dasti"
       ],
@@ -78,6 +77,130 @@
       "regions": [
         "moscato-dasti"
       ]
+    },
+    {
+      "id": "muscat",
+      "label": "Muscat grape family",
+      "aliases": [
+        "muscat",
+        "moscato"
+      ],
+      "grapeIds": [
+        "muscat-blanc",
+        "moscatel-alexandria"
+      ]
+    },
+    {
+      "id": "rose",
+      "label": "rosé wines",
+      "aliases": [
+        "rosé",
+        "rosés",
+        "rosé wine",
+        "rosé wines"
+      ],
+      "colors": [
+        "rose"
+      ]
+    },
+    {
+      "id": "orange",
+      "label": "orange / amber skin-contact wines",
+      "aliases": [
+        "orange",
+        "orange wine",
+        "orange wines",
+        "amber",
+        "amber wine",
+        "amber wines"
+      ],
+      "family": "orange"
+    },
+    {
+      "id": "red",
+      "label": "red wines",
+      "aliases": [
+        "red",
+        "reds",
+        "red wine",
+        "red wines"
+      ],
+      "colors": [
+        "red"
+      ]
+    },
+    {
+      "id": "white",
+      "label": "white wines",
+      "aliases": [
+        "white",
+        "whites",
+        "white wine",
+        "white wines"
+      ],
+      "colors": [
+        "white",
+        "white-gold"
+      ]
+    },
+    {
+      "id": "sweet",
+      "label": "sweet wines",
+      "aliases": [
+        "sweet",
+        "sweet wine",
+        "sweet wines",
+        "dessert wine",
+        "dessert wines"
+      ],
+      "sweetness": [
+        "sweet"
+      ]
+    },
+    {
+      "id": "dry",
+      "label": "dry wines",
+      "aliases": [
+        "dry",
+        "dry wine",
+        "dry wines"
+      ],
+      "sweetness": [
+        "dry"
+      ]
+    },
+    {
+      "id": "off-dry",
+      "label": "off-dry / dry-to-off-dry wines",
+      "aliases": [
+        "off-dry",
+        "semi-dry",
+        "dry-to-off-dry"
+      ],
+      "sweetness": [
+        "off-dry",
+        "dry-to-off-dry"
+      ]
+    },
+    {
+      "id": "fortified",
+      "label": "fortified wines",
+      "aliases": [
+        "fortified",
+        "fortified wine",
+        "fortified wines"
+      ],
+      "family": "fortified"
+    },
+    {
+      "id": "still",
+      "label": "still wines",
+      "aliases": [
+        "still",
+        "still wine",
+        "still wines"
+      ],
+      "family": "still"
     }
   ]
 }

@@ -10,7 +10,14 @@
     "alcohol": 2.5,
     "fruit": 3,
     "oak": 2,
-    "earth": 3
+    "earth": 3,
+    "aliases": [
+      "Spätburgunder",
+      "Spaetburgunder"
+    ],
+    "aliasSources": [
+      "germany-spatburgunder"
+    ]
   },
   "cabernet-sauvignon": {
     "name": "Cabernet Sauvignon",
@@ -373,7 +380,13 @@
     "alcohol": 4.5,
     "fruit": 4.5,
     "oak": 3,
-    "earth": 2.5
+    "earth": 2.5,
+    "aliases": [
+      "Primitivo"
+    ],
+    "aliasSources": [
+      "ucdavis-zinfandel"
+    ]
   },
   "glera": {
     "name": "Glera",
@@ -555,7 +568,13 @@
     "fruit": 4,
     "oak": 0,
     "earth": 1.5,
-    "aromatic": true
+    "aromatic": true,
+    "aliases": [
+      "Alvarinho"
+    ],
+    "aliasSources": [
+      "ucdavis-albarino"
+    ]
   },
   "gewurztraminer": {
     "name": "Gewürztraminer",

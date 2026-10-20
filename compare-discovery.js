@@ -49,6 +49,13 @@ function compareRenderResults() {
   if (!container || !topButton) return;
   container.replaceChildren();
 
+  const rawQuery = document.getElementById("compareDiscoveryInput")?.value || "";
+  const context = WineSearch.describe(rawQuery);
+  if (context) container.append(WineDOM.element("div", `Showing ${context}`, "search-empty"));
+  for (const notice of WineSearch.notices(rawQuery)) {
+    container.append(WineDOM.element("div", notice, "search-empty"));
+  }
+
   if (!compareDiscoveryMatches.length) {
     topButton.classList.add("hidden");
     return;
@@ -143,7 +150,8 @@ function injectCompareDiscovery() {
     <h3>Find wines to compare</h3>
     <p class="small">Search by grape, place, style or food. Add candidates individually, or let Wine Atlas build a compatible comparison from the best matches.</p>
     <label for="compareDiscoveryInput">Search comparison candidates</label>
-    <input id="compareDiscoveryInput" type="search" autocomplete="off" placeholder="Try ‘lamb’, ‘sparkling’, ‘rosé’ or ‘Cabernet’" aria-controls="compareDiscoveryResults">
+    <input id="compareDiscoveryInput" type="search" autocomplete="off" placeholder="Try ‘lamb’, ‘sparkling dry’, ‘rosé’ or ‘Cabernet’" aria-controls="compareDiscoveryResults" aria-describedby="compareSearchHelp">
+    <p id="compareSearchHelp" class="small">Colour and sweetness filter wines. For tasting notes, try “aroma: rose” or “aroma: orange”.</p>
     <div id="compareDiscoveryResults" class="compare-discovery-results" aria-label="Comparison search results"></div>
     <button id="compareTopMatches" class="compare-top-matches hidden" type="button">Compare top 3 compatible matches</button>`;
   controls.prepend(panel);

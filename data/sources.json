@@ -222,5 +222,17 @@
   "austrian-wine": {
     "name": "Austrian Wine Marketing Board",
     "url": "https://www.austrianwine.com/"
+  },
+  "germany-spatburgunder": {
+    "name": "Wines of Germany — Spätburgunder / Pinot Noir",
+    "url": "https://winesofgermany.co.uk/grape/spatburgunder/"
+  },
+  "ucdavis-zinfandel": {
+    "name": "UC Davis Foundation Plant Services — Zinfandel / Primitivo",
+    "url": "https://fps.ucdavis.edu/grapebook/winebook.cfm?chap=Zinfandel"
+  },
+  "ucdavis-albarino": {
+    "name": "UC Davis Foundation Plant Services — Albariño / Alvarinho synonyms",
+    "url": "https://fps.ucdavis.edu/FGRfamilies.cfm?varietyid=170"
   }
 }
