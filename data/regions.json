@@ -27,9 +27,9 @@
           ]
         },
         "serve": "15–17°C",
-        "decant": "15–45 min",
+        "decant": "Taste first; brief air only if a young wine seems closed. Avoid prolonged aeration of fragile mature bottles; separate sediment gently if needed.",
         "glass": "Large Burgundy bowl",
-        "ageing": "5–15+ years",
+        "ageing": "Regional Bourgogne: often about 2–4 years from vintage; selected village/cru wines may develop longer. Producer, vintage and storage decide.",
         "pairings": [
           "duck",
           "mushrooms",
@@ -41,7 +41,37 @@
           "mushroom pizza",
           "white pizza"
         ],
-        "expect": "Elegant and high-acid, with red cherry, cranberry and earthy complexity."
+        "expect": "Elegant and high-acid, with red cherry, cranberry and earthy complexity.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "The broad profile does not specify a producer, village or cru. Exact drinking windows and terroir claims need bottle/site-specific evidence."
+        ],
+        "evidence": [
+          {
+            "claim": "Regional versus selected cellar-worthy wines",
+            "sources": [
+              "burgundy-drinking",
+              "wine-storage"
+            ]
+          },
+          {
+            "claim": "Young versus mature bottle aeration (general guidance)",
+            "sources": [
+              "bordeaux-serving"
+            ]
+          }
+        ]
       },
       "chardonnay": {
         "mods": {
@@ -64,9 +94,9 @@
           ]
         },
         "serve": "10–13°C",
-        "decant": "0–20 min",
+        "decant": "Taste first; brief air only if a young wine seems closed. Avoid prolonged aeration of fragile mature bottles; separate sediment gently if needed.",
         "glass": "Medium-large white glass",
-        "ageing": "5–15+ years",
+        "ageing": "Regional Bourgogne: often about 2–4 years from vintage; selected village/cru wines may develop longer. Producer, vintage and storage decide.",
         "pairings": [
           "roast chicken",
           "lobster",
@@ -74,7 +104,37 @@
           "soft cheese",
           "white pizza"
         ],
-        "expect": "Tense, mineral and citrus-led, often with restrained oak and excellent acidity."
+        "expect": "Tense, mineral and citrus-led, often with restrained oak and excellent acidity.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "The broad profile does not specify a producer, village or cru. Exact drinking windows and terroir claims need bottle/site-specific evidence."
+        ],
+        "evidence": [
+          {
+            "claim": "Regional versus selected cellar-worthy wines",
+            "sources": [
+              "burgundy-drinking",
+              "wine-storage"
+            ]
+          },
+          {
+            "claim": "Young versus mature bottle aeration (general guidance)",
+            "sources": [
+              "bordeaux-serving"
+            ]
+          }
+        ]
       }
     },
     "identity": {
@@ -147,7 +207,22 @@
           "short ribs",
           "hard cheese"
         ],
-        "expect": "Full-bodied and ripe, with black fruit, cedar, substantial tannin and polished oak."
+        "expect": "Full-bodied and ripe, with black fruit, cedar, substantial tannin and polished oak.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "merlot": {
         "mods": {
@@ -178,7 +253,22 @@
           "burgers",
           "aged cheese"
         ],
-        "expect": "Plush and ripe, with soft black fruit, rounded tannin and sweet oak spice."
+        "expect": "Plush and ripe, with soft black fruit, rounded tannin and sweet oak spice.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -243,16 +333,47 @@
           ]
         },
         "serve": "16–18°C",
-        "decant": "45–90 min",
+        "decant": "Young, structured wine: try 30–60 min after tasting; mature bottles: decant gently only if sediment requires it, then serve promptly",
         "glass": "Bordeaux glass",
-        "ageing": "10–25+ years",
+        "ageing": "Many everyday bottles drink well young; selected structured cuvées may develop for 5–10 years, and fine wines longer. Check the producer.",
         "pairings": [
           "lamb",
           "beef",
           "duck",
           "hard cheese"
         ],
-        "expect": "Structured and savory, with blackcurrant, cedar, graphite and firm tannin."
+        "expect": "Cabernet Sauvignon-led dry Bordeaux blend: blackcurrant, cedar and firm tannin with savory detail.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry Cabernet Sauvignon-led Bordeaux blend",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "representative-blend",
+            "text": "Representative Cabernet Sauvignon-led Bordeaux blend; partners and proportions vary"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Exact blend, drinking window and serving times depend on the bottle. Soil and regional climate claims still need more specific evidence."
+        ],
+        "evidence": [
+          {
+            "claim": "Representative blend and grape roles",
+            "sources": [
+              "bordeaux-blending"
+            ]
+          },
+          {
+            "claim": "Different drinking windows and decanting by bottle maturity",
+            "sources": [
+              "bordeaux-drinking",
+              "bordeaux-serving",
+              "wine-storage"
+            ]
+          }
+        ]
       },
       "merlot": {
         "mods": {
@@ -275,16 +396,47 @@
           ]
         },
         "serve": "16–17°C",
-        "decant": "30–60 min",
+        "decant": "Young, structured wine: try 30–60 min after tasting; mature bottles: decant gently only if sediment requires it, then serve promptly",
         "glass": "Bordeaux glass",
-        "ageing": "6–15 years",
+        "ageing": "Many everyday bottles drink well young; selected structured cuvées may develop for 5–10 years, and fine wines longer. Check the producer.",
         "pairings": [
           "duck",
           "beef",
           "mushrooms",
           "hard cheese"
         ],
-        "expect": "More savory and structured than plush New World Merlot, with plum, tobacco and earthy detail."
+        "expect": "Merlot-led dry Bordeaux blend: plum, tobacco and earthy detail with a rounded but structured palate.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry Merlot-led Bordeaux blend",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "representative-blend",
+            "text": "Representative Merlot-led Bordeaux blend; partners and proportions vary"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Exact blend, drinking window and serving times depend on the bottle. Soil and regional climate claims still need more specific evidence."
+        ],
+        "evidence": [
+          {
+            "claim": "Representative blend and grape roles",
+            "sources": [
+              "bordeaux-blending"
+            ]
+          },
+          {
+            "claim": "Different drinking windows and decanting by bottle maturity",
+            "sources": [
+              "bordeaux-drinking",
+              "bordeaux-serving",
+              "wine-storage"
+            ]
+          }
+        ]
       }
     },
     "identity": {
@@ -356,7 +508,22 @@
           "mushrooms",
           "pork"
         ],
-        "expect": "Fresh and aromatic, with cherry, raspberry and earthy spice framed by bright acidity."
+        "expect": "Fresh and aromatic, with cherry, raspberry and earthy spice framed by bright acidity.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -424,7 +591,22 @@
           "aged cheese",
           "mushroom pizza"
         ],
-        "expect": "Pale yet powerful, with soaring acidity, formidable tannin, rose, cherry, tar and truffle."
+        "expect": "Pale yet powerful, with soaring acidity, formidable tannin, rose, cherry, tar and truffle.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -494,7 +676,22 @@
           "tacos al pastor",
           "tonkotsu ramen"
         ],
-        "expect": "Savory and polished, with cherry, plum, vanilla, leather and tobacco."
+        "expect": "Savory and polished, with cherry, plum, vanilla, leather and tobacco.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -562,7 +759,22 @@
           "roast pork",
           "hard cheese"
         ],
-        "expect": "Dense, dark-fruited and structured, with more power and ripeness than traditional Rioja."
+        "expect": "Dense, dark-fruited and structured, with more power and ripeness than traditional Rioja.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -630,7 +842,22 @@
           "game",
           "roasted vegetables"
         ],
-        "expect": "Concentrated and mineral, with ripe red-black fruit, licorice and characteristic slate."
+        "expect": "Concentrated and mineral, with ripe red-black fruit, licorice and characteristic slate.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -702,7 +929,22 @@
           "tonkotsu ramen",
           "korean-style chicken wings"
         ],
-        "expect": "Peppery and savory, with blackberry, olive, smoke and violet over firm structure."
+        "expect": "Peppery and savory, with blackberry, olive, smoke and violet over firm structure.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -773,7 +1015,22 @@
           "lamb",
           "smoked meats"
         ],
-        "expect": "Rich and muscular, with ripe blackberry, plum, licorice and sweet oak spice."
+        "expect": "Rich and muscular, with ripe blackberry, plum, licorice and sweet oak spice.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -848,7 +1105,22 @@
           "pad thai",
           "butter chicken"
         ],
-        "expect": "Light-bodied yet intense, with piercing acidity, lime, peach and slate-like minerality. Styles run from dry (trocken) to sweet; this profile reflects a classic off-dry Kabinett."
+        "expect": "Light-bodied yet intense, with piercing acidity, lime, peach and slate-like minerality. Styles run from dry (trocken) to sweet; this profile reflects a classic off-dry Kabinett.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "off-dry",
+          "label": "Still · Off-dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -915,7 +1187,22 @@
           "green herbs",
           "shellfish"
         ],
-        "expect": "Vivid and aromatic, with passionfruit, lime, gooseberry and grassy freshness."
+        "expect": "Vivid and aromatic, with passionfruit, lime, gooseberry and grassy freshness.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -975,7 +1262,22 @@
           "salads",
           "asparagus"
         ],
-        "expect": "Brisk and fruit-forward for the Loire, with citrus, gooseberry and fresh herbs; rounder and less flinty than Sancerre."
+        "expect": "Brisk and fruit-forward for the Loire, with citrus, gooseberry and fresh herbs; rounder and less flinty than Sancerre.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -1043,7 +1345,22 @@
           "margherita pizza",
           "pepperoni pizza"
         ],
-        "expect": "Bright and savory, with sour cherry, herbs, leather and food-friendly acidity."
+        "expect": "Bright and savory, with sour cherry, herbs, leather and food-friendly acidity.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -1109,7 +1426,22 @@
           "pork",
           "mushrooms"
         ],
-        "expect": "Silky and fruit-forward, with ripe cherry and raspberry balanced by coastal freshness."
+        "expect": "Silky and fruit-forward, with ripe cherry and raspberry balanced by coastal freshness.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "chardonnay": {
         "mods": {
@@ -1138,7 +1470,22 @@
           "cream sauces",
           "salmon"
         ],
-        "expect": "Ripe but fresh, often combining orchard fruit, citrus and restrained oak."
+        "expect": "Ripe but fresh, often combining orchard fruit, citrus and restrained oak.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -1205,7 +1552,22 @@
           "pork",
           "mushrooms"
         ],
-        "expect": "Juicy and intense for Pinot Noir, with dark cherry, plum and bright acidity."
+        "expect": "Juicy and intense for Pinot Noir, with dark cherry, plum and bright acidity.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -1273,7 +1635,22 @@
           "mushrooms",
           "charcuterie"
         ],
-        "expect": "Light, lifted and savory, with red fruit, smoke and brisk acidity."
+        "expect": "Light, lifted and savory, with red fruit, smoke and brisk acidity.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -1341,7 +1718,22 @@
           "roast meats",
           "hard cheese"
         ],
-        "expect": "Structured and cassis-driven, often with minty freshness and firm tannin."
+        "expect": "Structured and cassis-driven, often with minty freshness and firm tannin.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -1409,7 +1801,22 @@
           "duck",
           "hard cheese"
         ],
-        "expect": "Polished Cabernet with cassis, bay leaf and cedar, balancing ripeness with freshness."
+        "expect": "Polished Cabernet with cassis, bay leaf and cedar, balancing ripeness with freshness.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "chardonnay": {
         "mods": {
@@ -1444,7 +1851,22 @@
           "rich fish",
           "creamy pasta"
         ],
-        "expect": "Powerful yet taut Chardonnay, with citrus, stone fruit and savory oak."
+        "expect": "Powerful yet taut Chardonnay, with citrus, stone fruit and savory oak.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -1510,7 +1932,22 @@
           "game",
           "hard cheese"
         ],
-        "expect": "Ripe and structured, with cassis, cedar and a distinctive herbal-savory edge."
+        "expect": "Ripe and structured, with cassis, cedar and a distinctive herbal-savory edge.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "syrah": {
         "mods": {
@@ -1542,7 +1979,22 @@
           "game",
           "sausages"
         ],
-        "expect": "Dark-fruited and peppery, combining warmth with savory South African character."
+        "expect": "Dark-fruited and peppery, combining warmth with savory South African character.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "chenin-blanc": {
         "mods": {
@@ -1572,7 +2024,22 @@
           "spiced dishes",
           "soft cheese"
         ],
-        "expect": "Textured and ripe, with quince, apple and waxy complexity held by Chenin's acidity."
+        "expect": "Textured and ripe, with quince, apple and waxy complexity held by Chenin's acidity.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -1637,7 +2104,22 @@
           "grilled meats",
           "hard cheese"
         ],
-        "expect": "Ripe cassis and blackberry meet minty, herbal freshness and firm tannin."
+        "expect": "Ripe cassis and blackberry meet minty, herbal freshness and firm tannin.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -1706,7 +2188,22 @@
           "vietnamese summer rolls",
           "pad thai"
         ],
-        "expect": "More structured than Mosel Riesling, with citrus, stone fruit and firm acidity."
+        "expect": "More structured than Mosel Riesling, with citrus, stone fruit and firm acidity.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -1773,7 +2270,22 @@
           "salads",
           "tacos al pastor"
         ],
-        "expect": "Dry, piercing and lime-driven, often developing toast and mineral complexity with age."
+        "expect": "Dry, piercing and lime-driven, often developing toast and mineral complexity with age.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -1843,7 +2355,22 @@
           "hummus",
           "vietnamese summer rolls"
         ],
-        "expect": "Lean, citrusy and mineral, with restrained fruit and herbal-flinty detail."
+        "expect": "Lean, citrusy and mineral, with restrained fruit and herbal-flinty detail.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -1901,7 +2428,7 @@
         "serve": "9–12°C",
         "decant": "0–20 min",
         "glass": "Medium white wine glass",
-        "ageing": "5–20+ years",
+        "ageing": "Drink on release; choose producer guidance before extended cellaring",
         "pairings": [
           "pork",
           "roast chicken",
@@ -1912,7 +2439,36 @@
           "sweet and sour pork",
           "kung pao chicken"
         ],
-        "expect": "High-acid and versatile, with quince, pear and honeyed complexity depending on sweetness and age."
+        "expect": "Off-dry still Vouvray (demi-sec), with quince, pear and a honeyed impression balanced by bright Chenin acidity.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "off-dry",
+          "label": "Still · Vouvray demi-sec (off-dry)",
+          "method": "Still white vinification with residual grape sugar; this reference models demi-sec, not dry, sweet or sparkling Vouvray",
+          "composition": {
+            "kind": "varietal-reference",
+            "text": "Chenin Blanc varietal reference"
+          }
+        },
+        "ageingBasis": "release",
+        "evidenceGaps": [
+          "A producer-specific drinking window and vessel choice have not been selected; the previous 5–20+ year range is not used for this broad reference."
+        ],
+        "why": [
+          {
+            "cause": "Selected demi-sec expression",
+            "effect": "Residual sugar gives a rounded impression balanced by Chenin acidity; dry, sweet and sparkling Vouvray are different expressions."
+          }
+        ],
+        "evidence": [
+          {
+            "claim": "Modeled expression and grape",
+            "sources": [
+              "vouvray-styles"
+            ]
+          }
+        ]
       }
     },
     "identity": {
@@ -1979,7 +2535,22 @@
           "lamb",
           "pecorino"
         ],
-        "expect": "Powerful and ageworthy, with cherry, plum, herbs, leather and firm tannin."
+        "expect": "Powerful and ageworthy, with cherry, plum, herbs, leather and firm tannin.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -2048,7 +2619,22 @@
           "aged cheese",
           "mushroom pizza"
         ],
-        "expect": "Perfumed and structured, with rose, cherry and savory complexity, often slightly less forbidding than Barolo."
+        "expect": "Perfumed and structured, with rose, cherry and savory complexity, often slightly less forbidding than Barolo.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -2118,7 +2704,30 @@
           "carne asada",
           "pepperoni pizza"
         ],
-        "expect": "Warm, generous and herbal, with ripe red fruit, licorice and garrigue."
+        "expect": "Grenache-led dry Southern Rhône blend: generous red fruit, licorice and garrigue-like herbal notes; this is not a guarantee of pure Grenache.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry Grenache-led Southern Rhône blend",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "representative-blend",
+            "text": "Grenache-led red blend reference; Syrah and/or Mourvèdre are common partners, with proportions depending on the appellation and producer"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Côtes du Rhône evidence supports this representative blend; rules differ across Southern Rhône appellations. The drinking window and site-level claims remain to review."
+        ],
+        "evidence": [
+          {
+            "claim": "Grenache role and blended red-wine context",
+            "sources": [
+              "rhone-blending"
+            ]
+          }
+        ]
       }
     },
     "identity": {
@@ -2171,7 +2780,11 @@
           "sweetness": "dry",
           "label": "Sparkling · Traditional method",
           "method": "Second fermentation in bottle with lees ageing",
-          "effect": "Bottle fermentation creates the bubbles; time on lees can add bread, biscuit and creamy texture while Chardonnay keeps citrus and chalky freshness."
+          "effect": "Bottle fermentation creates the bubbles; time on lees can add bread, biscuit and creamy texture while Chardonnay keeps citrus and chalky freshness.",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
         },
         "notes": {
           "Fruit": [
@@ -2204,7 +2817,11 @@
           "miso ramen",
           "fried chicken"
         ],
-        "expect": "Taut, fine-bubbled and citrus-led, with chalky freshness and increasing brioche complexity from lees ageing."
+        "expect": "Taut, fine-bubbled and citrus-led, with chalky freshness and increasing brioche complexity from lees ageing.",
+        "ageingBasis": "release",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -2257,7 +2874,11 @@
           "sweetness": "dry-to-off-dry",
           "label": "Sparkling · Martinotti tank method",
           "method": "Second fermentation in pressurised tank",
-          "effect": "Tank fermentation emphasizes Glera's fresh floral and orchard-fruit character rather than the stronger autolytic toast associated with long lees-aged bottle fermentation."
+          "effect": "Tank fermentation emphasizes Glera's fresh floral and orchard-fruit character rather than the stronger autolytic toast associated with long lees-aged bottle fermentation.",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
         },
         "notes": {
           "Fruit": [
@@ -2283,7 +2904,11 @@
           "butter chicken",
           "vegetable samosas"
         ],
-        "expect": "Light, lively and fruit-forward, with pear, apple, citrus and floral notes carried by gentle bubbles."
+        "expect": "Light, lively and fruit-forward, with pear, apple, citrus and floral notes carried by gentle bubbles.",
+        "ageingBasis": "release",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -2333,9 +2958,13 @@
           "family": "sparkling",
           "color": "white",
           "sweetness": "dry",
-          "label": "Sparkling · Traditional method",
-          "method": "Second fermentation in bottle",
-          "effect": "Bottle fermentation and lees contact add texture and bread-like complexity while Macabeo contributes fresh fruit and floral lift."
+          "label": "Sparkling · White Cava blend · Brut",
+          "method": "Second fermentation in bottle with lees ageing; this reference selects the dry Brut category",
+          "effect": "Bottle fermentation and lees contact add texture and bread-like complexity while Macabeo contributes fresh fruit and floral lift.",
+          "composition": {
+            "kind": "representative-blend",
+            "text": "Representative Macabeo-containing white Cava blend, commonly with Xarel·lo and Parellada; no fixed proportions or pure-Macabeo claim"
+          }
         },
         "notes": {
           "Fruit": [
@@ -2354,7 +2983,7 @@
         "serve": "7–9°C",
         "decant": "No decant",
         "glass": "Tulip-shaped sparkling wine glass",
-        "ageing": "Best young to 5 years; longer-aged categories can develop further",
+        "ageing": "Ready on release; drink for freshness unless the producer recommends further cellaring",
         "pairings": [
           "tapas",
           "fried foods",
@@ -2373,7 +3002,26 @@
           "fried vegetable spring rolls",
           "vegetable samosas"
         ],
-        "expect": "Fresh, dry and fine-bubbled, with apple, citrus and floral notes plus subtle bread-and-almond complexity from bottle ageing."
+        "expect": "Dry Brut white Cava blend with Macabeo: fresh apple, citrus and floral notes, plus bread-and-almond complexity from bottle ageing.",
+        "ageingBasis": "release",
+        "evidenceGaps": [
+          "Exact grape proportions, lees duration and post-release drinking window are cuvée-specific."
+        ],
+        "evidence": [
+          {
+            "claim": "Blending and traditional-method production",
+            "sources": [
+              "cava-grapes",
+              "cava-production"
+            ]
+          },
+          {
+            "claim": "Selected dry Brut category",
+            "sources": [
+              "cava-sugar"
+            ]
+          }
+        ]
       }
     },
     "identity": {
@@ -2426,7 +3074,11 @@
           "sweetness": "sweet",
           "label": "Sweet · Botrytised",
           "method": "Noble-rot concentration followed by slow fermentation",
-          "effect": "Botrytis dehydrates berries and concentrates sugar, acidity and aroma, creating honeyed, apricot-rich wines with saffron and marmalade complexity."
+          "effect": "Botrytis dehydrates berries and concentrates sugar, acidity and aroma, creating honeyed, apricot-rich wines with saffron and marmalade complexity.",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
         },
         "notes": {
           "Fruit": [
@@ -2455,7 +3107,11 @@
           "crème brûlée",
           "apricot tart"
         ],
-        "expect": "Lusciously sweet yet structured, with apricot, honey, citrus preserve and saffron-like complexity."
+        "expect": "Lusciously sweet yet structured, with apricot, honey, citrus preserve and saffron-like complexity.",
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -2509,7 +3165,11 @@
           "sweetness": "sweet",
           "label": "Sweet · Botrytised Aszú",
           "method": "Selection of botrytised Aszú berries with slow fermentation and maturation",
-          "effect": "Concentrated noble-rot fruit brings honey, apricot, citrus peel and spice while Furmint's high acidity keeps even very sweet wines vivid."
+          "effect": "Concentrated noble-rot fruit brings honey, apricot, citrus peel and spice while Furmint's high acidity keeps even very sweet wines vivid.",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
         },
         "notes": {
           "Fruit": [
@@ -2539,7 +3199,11 @@
           "cheesecake",
           "walnut cake"
         ],
-        "expect": "Intensely sweet but electrically fresh, with apricot, citrus peel, honey and spice over Furmint's high-acid spine."
+        "expect": "Intensely sweet but electrically fresh, with apricot, citrus peel, honey and spice over Furmint's high-acid spine.",
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -2593,7 +3257,11 @@
           "sweetness": "sweet",
           "label": "Fortified · Ruby / LBV style",
           "method": "Fermentation stopped by grape spirit, followed by limited oxidative ageing",
-          "effect": "Early fortification retains natural grape sugar and raises alcohol; relatively protected maturation preserves dark fruit, color and power."
+          "effect": "Early fortification retains natural grape sugar and raises alcohol; relatively protected maturation preserves dark fruit, color and power.",
+          "composition": {
+            "kind": "representative-blend",
+            "text": "Representative blend; proportions vary by producer"
+          }
         },
         "notes": {
           "Fruit": [
@@ -2618,7 +3286,11 @@
           "cheesecake",
           "blue cheese"
         ],
-        "expect": "Sweet, powerful and dark-fruited, with blackberry, plum and chocolate notes backed by warming alcohol and substantial structure."
+        "expect": "Sweet, powerful and dark-fruited, with blackberry, plum and chocolate notes backed by warming alcohol and substantial structure.",
+        "ageingBasis": "producer",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -2672,7 +3344,11 @@
           "sweetness": "sweet",
           "label": "Fortified · Oxidatively aged Tawny",
           "method": "Fortification followed by extended cask maturation",
-          "effect": "Slow oxidation in wood softens color and tannin while developing walnut, caramel, dried-fruit and spice aromas."
+          "effect": "Slow oxidation in wood softens color and tannin while developing walnut, caramel, dried-fruit and spice aromas.",
+          "composition": {
+            "kind": "representative-blend",
+            "text": "Representative blend; proportions vary by producer"
+          }
         },
         "notes": {
           "Fruit": [
@@ -2699,7 +3375,11 @@
           "walnut ice cream",
           "dried fruit"
         ],
-        "expect": "Silky, sweet and nutty, with fig, walnut, caramel and orange-peel complexity rather than the fresh dark fruit of Ruby styles."
+        "expect": "Silky, sweet and nutty, with fig, walnut, caramel and orange-peel complexity rather than the fresh dark fruit of Ruby styles.",
+        "ageingBasis": "bottling",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -2753,7 +3433,11 @@
           "sweetness": "sweet",
           "label": "Fortified sweet · Moscatel de Setúbal",
           "method": "Fortification during fermentation, aromatic skin contact and maturation",
-          "effect": "Fortification preserves natural sweetness; aromatic Moscatel character and maturation emphasize orange blossom, citrus peel, honey, raisin, caramel and nuts."
+          "effect": "Fortification preserves natural sweetness; aromatic Moscatel character and maturation emphasize orange blossom, citrus peel, honey, raisin, caramel and nuts.",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
         },
         "notes": {
           "Fruit": [
@@ -2782,7 +3466,11 @@
           "pavlova",
           "azeitão cheese"
         ],
-        "expect": "Richly aromatic and sweet, with orange blossom, candied citrus, honey and raisin; age can bring caramel, nuts and spice."
+        "expect": "Richly aromatic and sweet, with orange blossom, candied citrus, honey and raisin; age can bring caramel, nuts and spice.",
+        "ageingBasis": "producer",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -2852,7 +3540,22 @@
           "burgers",
           "hard cheese"
         ],
-        "expect": "Ripe and robust, with dark fruit, generous body and warm-climate richness."
+        "expect": "Ripe and robust, with dark fruit, generous body and warm-climate richness.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "tempranillo": {
         "mods": {
@@ -2883,7 +3586,22 @@
           "lamb",
           "aged cheese"
         ],
-        "expect": "Bold Tempranillo with ripe black fruit, spice and generous alcohol."
+        "expect": "Bold Tempranillo with ripe black fruit, spice and generous alcohol.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "syrah": {
         "mods": {
@@ -2914,7 +3632,22 @@
           "beef",
           "smoked meats"
         ],
-        "expect": "Ripe, peppery and full-bodied, with dark fruit and smoky spice."
+        "expect": "Ripe, peppery and full-bodied, with dark fruit and smoky spice.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "chenin-blanc": {
         "mods": {
@@ -2948,7 +3681,22 @@
           "soft cheese",
           "tacos de cochinita pibil"
         ],
-        "expect": "Richer and broader than Loire Chenin, with ripe orchard fruit and softer acidity."
+        "expect": "Richer and broader than Loire Chenin, with ripe orchard fruit and softer acidity.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -3017,7 +3765,22 @@
           "grilled meats",
           "hard cheese"
         ],
-        "expect": "Full-bodied and dark-fruited, with savory herbal detail from a warm Black Sea climate."
+        "expect": "Full-bodied and dark-fruited, with savory herbal detail from a warm Black Sea climate.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "merlot": {
         "mods": {
@@ -3046,7 +3809,22 @@
           "mushrooms",
           "cheese"
         ],
-        "expect": "Ripe plum and black cherry with a savory, structured edge."
+        "expect": "Ripe plum and black cherry with a savory, structured edge.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "sauvignon-blanc": {
         "mods": {
@@ -3074,7 +3852,22 @@
           "vegetables",
           "shellfish"
         ],
-        "expect": "Fresh and aromatic, with citrus, herbs and lively acidity."
+        "expect": "Fresh and aromatic, with citrus, herbs and lively acidity.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "odesa-black": {
         "mods": {
@@ -3105,7 +3898,22 @@
           "game",
           "hard cheese"
         ],
-        "expect": "Very dark and intense, with blackberry, mint and velvety, jammy fruit."
+        "expect": "Very dark and intense, with blackberry, mint and velvety, jammy fruit.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "saperavi": {
         "mods": {
@@ -3135,7 +3943,22 @@
           "barbecue",
           "aged cheese"
         ],
-        "expect": "Deeply colored and structured, with dark fruit, acidity and savory spice."
+        "expect": "Deeply colored and structured, with dark fruit, acidity and savory spice.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -3204,7 +4027,22 @@
           "soft cheese",
           "vegetarian dishes"
         ],
-        "expect": "Fresh and aromatic, with citrus, orchard fruit and a cool-climate profile."
+        "expect": "Fresh and aromatic, with citrus, orchard fruit and a cool-climate profile.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "off-dry",
+          "label": "Still · Off-dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -3274,7 +4112,22 @@
           "game",
           "aged cheese"
         ],
-        "expect": "Sturdy and dark-fruited, with firm tannin, herbs and tobacco-like complexity."
+        "expect": "Sturdy and dark-fruited, with firm tannin, herbs and tobacco-like complexity.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "merlot": {
         "mods": {
@@ -3302,7 +4155,22 @@
           "grilled vegetables",
           "cheese"
         ],
-        "expect": "Ripe, generous Merlot with dark fruit and warm-climate richness."
+        "expect": "Ripe, generous Merlot with dark fruit and warm-climate richness.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "chardonnay": {
         "mods": {
@@ -3332,7 +4200,22 @@
           "soft cheese",
           "rich fish"
         ],
-        "expect": "Round and ripe, with orchard fruit and moderate acidity."
+        "expect": "Round and ripe, with orchard fruit and moderate acidity.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -3405,7 +4288,22 @@
           "game",
           "hard cheese"
         ],
-        "expect": "Savory and spicy, with red-black fruit, tobacco and a Rhône-like structural feel."
+        "expect": "Savory and spicy, with red-black fruit, tobacco and a Rhône-like structural feel.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -3473,7 +4371,22 @@
           "grilled meats",
           "hard cheese"
         ],
-        "expect": "Dark-fruited and savory, with cassis, dried plum and herbal-pepper detail."
+        "expect": "Dark-fruited and savory, with cassis, dried plum and herbal-pepper detail.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "saperavi": {
         "mods": {
@@ -3504,7 +4417,22 @@
           "game",
           "aged cheese"
         ],
-        "expect": "Deeply colored, firm and savory, with dark fruit, pronounced structure and spice."
+        "expect": "Deeply colored, firm and savory, with dark fruit, pronounced structure and spice.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "riesling": {
         "mods": {
@@ -3533,7 +4461,22 @@
           "soft cheese",
           "smoked foods"
         ],
-        "expect": "Fresh and aromatic, with citrus and orchard fruit in a warmer southern expression."
+        "expect": "Fresh and aromatic, with citrus and orchard fruit in a warmer southern expression.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "off-dry",
+          "label": "Still · Off-dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -3611,7 +4554,22 @@
           "stews",
           "aged cheese"
         ],
-        "expect": "Deeply colored and structured, with dark fruit, high acidity and firm tannin."
+        "expect": "Deeply colored and structured, with dark fruit, high acidity and firm tannin.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "rkatsiteli": {
         "mods": {
@@ -3628,25 +4586,57 @@
           "Floral": [
             "white flowers"
           ],
-          "Earth / savory": [
-            "tea",
-            "dried herbs"
-          ],
           "Mineral / herbal": [
             "stone"
           ]
         },
         "serve": "9–12°C",
-        "decant": "0–20 min; longer for qvevri styles",
+        "decant": "Usually none; taste first",
         "glass": "Medium white wine glass",
-        "ageing": "3–10 years",
+        "ageing": "Enjoy young for fresh fruit; follow producer advice for any cellaring",
         "pairings": [
           "roast chicken",
           "pork",
           "herb dishes",
           "cheese"
         ],
-        "expect": "High-acid and savory, ranging from crisp white styles to structured amber qvevri wines."
+        "expect": "Dry, white-vinified Rkatsiteli with apple, quince, subtle flowers and bright acidity; this low-tannin reference does not model amber qvevri wine.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry, white-vinified Rkatsiteli",
+          "method": "White vinification without extended skin maceration; vessel choice is not fixed",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "release",
+        "evidenceGaps": [
+          "No producer-specific cellaring duration is verified; serving advice is editorial."
+        ],
+        "why": [
+          {
+            "cause": "White vinification without extended skin contact",
+            "effect": "Keeps the modeled color white and tannin low, unlike the separately represented amber qvevri expression."
+          }
+        ],
+        "evidence": [
+          {
+            "claim": "White versus amber production and sensory context",
+            "sources": [
+              "georgia-rkatsiteli"
+            ]
+          }
+        ],
+        "related": [
+          {
+            "region": "kakheti-qvevri-amber",
+            "grape": "rkatsiteli",
+            "label": "Explore amber Rkatsiteli with extended qvevri skin contact"
+          }
+        ]
       }
     },
     "identity": {
@@ -3676,6 +4666,14 @@
     "sources": [
       "georgia-nwa",
       "oxford-companion"
+    ],
+    "evidence": [
+      {
+        "claim": "Regional setting and coexistence of European and traditional winemaking",
+        "sources": [
+          "georgia-kakheti"
+        ]
+      }
     ]
   },
   "santorini": {
@@ -3716,7 +4714,22 @@
           "shellfish",
           "hummus"
         ],
-        "expect": "Bone-dry, powerful and piercingly fresh, with citrus, saline and stony character."
+        "expect": "Bone-dry, powerful and piercingly fresh, with citrus, saline and stony character.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -3790,7 +4803,22 @@
           "mushrooms",
           "aged cheese"
         ],
-        "expect": "High-acid and tannic with sour cherry, tomato-leaf and savory complexity."
+        "expect": "High-acid and tannic with sour cherry, tomato-leaf and savory complexity.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -3854,14 +4882,50 @@
         "serve": "8–11°C",
         "decant": "No decant for young dry styles",
         "glass": "Aromatic white wine glass",
-        "ageing": "5–20+ years",
+        "ageing": "Drink young for freshness; cellar only with guidance for the particular cuvée",
         "pairings": [
           "pork",
           "duck",
           "soft cheese",
           "spiced dishes"
         ],
-        "expect": "Taut and high-acid with apple, quince and mineral detail; sweetness varies widely by style."
+        "expect": "Dry Tokaj Furmint: taut acidity, apple and quince, without the concentrated sweetness of separately represented Tokaji Aszú.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry Tokaj Furmint",
+          "method": "Modeled as a fresh, dry white expression; steel fermentation is one documented example, while other producers use oak",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "release",
+        "evidenceGaps": [
+          "The technical sheet is one producer example; regional soil claims and an extended cellaring window are not verified by it."
+        ],
+        "why": [
+          {
+            "cause": "Dry-wine expression",
+            "effect": "Fermentation leaves a dry palate; the botrytised sweet Aszú style is modeled separately."
+          }
+        ],
+        "evidence": [
+          {
+            "claim": "Dry expression, production example and young-drinking advice",
+            "sources": [
+              "tokaj-dry-example"
+            ]
+          }
+        ],
+        "related": [
+          {
+            "region": "tokaj-aszu",
+            "grape": "furmint",
+            "label": "Explore the separately modeled sweet Tokaji Aszú"
+          }
+        ]
       }
     },
     "identity": {
@@ -3931,7 +4995,22 @@
           "game",
           "aged cheese"
         ],
-        "expect": "Dense, floral and structured, with dark fruit, violet and firm tannin."
+        "expect": "Dense, floral and structured, with dark fruit, violet and firm tannin.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -4002,7 +5081,22 @@
           "lamb",
           "hard cheese"
         ],
-        "expect": "Dark, structured and fresh, with firm tannin, black fruit and savory detail."
+        "expect": "Dark, structured and fresh, with firm tannin, black fruit and savory detail.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -4072,7 +5166,22 @@
           "mushrooms",
           "herb dishes"
         ],
-        "expect": "Medium-bodied and aromatic, with bright red fruit, fresh acidity and herbal spice."
+        "expect": "Medium-bodied and aromatic, with bright red fruit, fresh acidity and herbal spice.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -4143,7 +5252,22 @@
           "lamb",
           "aged cheese"
         ],
-        "expect": "Ripe and spicy with dark fruit, moderate-firm tannin and savory depth."
+        "expect": "Ripe and spicy with dark fruit, moderate-firm tannin and savory depth.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -4216,7 +5340,22 @@
           "mushrooms",
           "tacos al pastor"
         ],
-        "expect": "Light to medium-bodied, peppery and smoky, with fresh red fruit and bright acidity."
+        "expect": "Light to medium-bodied, peppery and smoky, with fresh red fruit and bright acidity.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -4288,7 +5427,22 @@
           "beef",
           "smoked meats"
         ],
-        "expect": "Full-bodied yet fresh for a desert-grown Syrah, with dark fruit, pepper, violet and savory herbs."
+        "expect": "Full-bodied yet fresh for a desert-grown Syrah, with dark fruit, pepper, violet and savory herbs.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "cabernet-sauvignon": {
         "mods": {
@@ -4322,7 +5476,22 @@
           "lamb",
           "hard cheese"
         ],
-        "expect": "Ripe black fruit and firm Cabernet structure, balanced by high-desert freshness and herbal detail."
+        "expect": "Ripe black fruit and firm Cabernet structure, balanced by high-desert freshness and herbal detail.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -4395,7 +5564,22 @@
           "aged cheddar",
           "carne asada"
         ],
-        "expect": "Juicy and generous, with ripe berry fruit, peppery spice and the supple concentration associated with old head-trained vines."
+        "expect": "Juicy and generous, with ripe berry fruit, peppery spice and the supple concentration associated with old head-trained vines.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -4468,7 +5652,22 @@
           "sausages",
           "hard cheese"
         ],
-        "expect": "Powerful and spicy, with dark berry fruit, elevated alcohol, firmer tannin and a fresher edge from foothill elevation."
+        "expect": "Powerful and spicy, with dark berry fruit, elevated alcohol, firmer tannin and a fresher edge from foothill elevation.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -4539,7 +5738,22 @@
           "mushrooms",
           "aged cheese"
         ],
-        "expect": "Lighter and more aromatic than Naoussa, with vivid acidity, red fruit, rose and savory Xinomavro character."
+        "expect": "Lighter and more aromatic than Naoussa, with vivid acidity, red fruit, rose and savory Xinomavro character.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -4606,7 +5820,22 @@
           "lemon chicken",
           "grilled vegetables"
         ],
-        "expect": "Fresh and aromatic, with citrus and orchard fruit, less saline austerity than Santorini and a clean high-acid finish."
+        "expect": "Fresh and aromatic, with citrus and orchard fruit, less saline austerity than Santorini and a clean high-acid finish.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -4675,7 +5904,22 @@
           "cassoulet",
           "aged cheese"
         ],
-        "expect": "Dense, savory and formidable, with dark fruit, high tannin, earthy depth and long ageing potential."
+        "expect": "Dense, savory and formidable, with dark fruit, high tannin, earthy depth and long ageing potential.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -4747,7 +5991,22 @@
           "mushrooms",
           "hard cheese"
         ],
-        "expect": "Floral and structured but less massive than Douro, with fresh acidity, dark-red fruit and savory herbal detail."
+        "expect": "Floral and structured but less massive than Douro, with fresh acidity, dark-red fruit and savory herbal detail.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -4818,7 +6077,22 @@
           "mushrooms",
           "semi-hard cheese"
         ],
-        "expect": "Fresh, spicy and medium-bodied, with red-black fruit and a more lifted profile than richer southern Romanian expressions."
+        "expect": "Fresh, spicy and medium-bodied, with red-black fruit and a more lifted profile than richer southern Romanian expressions.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -4892,7 +6166,22 @@
           "charcuterie",
           "lentils"
         ],
-        "expect": "Light, bright and smoky, with tart red fruit, pepper and savory volcanic-island character."
+        "expect": "Light, bright and smoky, with tart red fruit, pepper and savory volcanic-island character.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -4961,7 +6250,22 @@
           "hard cheese",
           "root vegetables"
         ],
-        "expect": "Bone-dry, taut and savory, with apple, quince, smoke and a distinctly firm mineral impression."
+        "expect": "Bone-dry, taut and savory, with apple, quince, smoke and a distinctly firm mineral impression.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -5029,7 +6333,22 @@
           "soft cheese",
           "herb dishes"
         ],
-        "expect": "Crisp and linear, with green apple, citrus and herbs; generally lighter than the broadest Kakhetian expressions."
+        "expect": "Crisp and linear, with green apple, citrus and herbs; generally lighter than the broadest Kakhetian expressions.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -5079,7 +6398,11 @@
           "sweetness": "dry",
           "label": "Rosé · Pale Mediterranean style",
           "method": "Direct pressing or brief skin maceration, followed by cool white-wine-style fermentation",
-          "effect": "Short skin contact limits tannin and color while preserving fresh red-fruit, citrus and floral aromas."
+          "effect": "Short skin contact limits tannin and color while preserving fresh red-fruit, citrus and floral aromas.",
+          "composition": {
+            "kind": "representative-blend",
+            "text": "Representative blend; proportions vary by producer"
+          }
         },
         "notes": {
           "Fruit": [
@@ -5108,7 +6431,19 @@
           "tacos de cochinita pibil",
           "falafel"
         ],
-        "expect": "Pale, dry and delicate, with fresh strawberry, peach and citrus carried by crisp acidity."
+        "expect": "Pale, dry and delicate, with fresh strawberry, peach and citrus carried by crisp acidity.",
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Blend proportions, local terroir and serving advice are not tied to a selected producer."
+        ],
+        "evidence": [
+          {
+            "claim": "Direct pressing and short skin maceration",
+            "sources": [
+              "provence-rose-methods"
+            ]
+          }
+        ]
       }
     },
     "identity": {
@@ -5161,7 +6496,11 @@
           "sweetness": "dry",
           "label": "Rosé · Fuller Rhône style",
           "method": "Rosé vinification with more extraction and color than the palest Mediterranean styles",
-          "effect": "Greater skin-derived structure gives a fuller, more savory rosé that can handle substantial food."
+          "effect": "Greater skin-derived structure gives a fuller, more savory rosé that can handle substantial food.",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
         },
         "notes": {
           "Fruit": [
@@ -5186,7 +6525,11 @@
           "grilled pork",
           "tomato dishes"
         ],
-        "expect": "Deeper and fuller than pale Provence rosé, with ripe red fruit, herbs and enough structure for a meal."
+        "expect": "Deeper and fuller than pale Provence rosé, with ripe red fruit, herbs and enough structure for a meal.",
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -5240,7 +6583,11 @@
           "sweetness": "dry",
           "label": "Rosado · Garnacha sangrado style",
           "method": "Traditionally made from free-run or bled must after short contact with red-grape skins",
-          "effect": "The method preserves vivid Garnacha fruit and color while keeping tannin modest and acidity refreshing."
+          "effect": "The method preserves vivid Garnacha fruit and color while keeping tannin modest and acidity refreshing.",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
         },
         "notes": {
           "Fruit": [
@@ -5266,7 +6613,11 @@
           "roast chicken",
           "margherita pizza"
         ],
-        "expect": "Bright and juicy, with strawberry and cherry, refreshing acidity and a vivid pink color."
+        "expect": "Bright and juicy, with strawberry and cherry, refreshing acidity and a vivid pink color.",
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -5318,7 +6669,11 @@
           "sweetness": "dry",
           "label": "Orange / amber · Long skin contact",
           "method": "Extended maceration of white Ribolla Gialla on its skins, a style strongly associated with Oslavia",
-          "effect": "Skin contact adds amber color, phenolic grip and tea-like savory complexity while Ribolla's acidity keeps the wine fresh."
+          "effect": "Skin contact adds amber color, phenolic grip and tea-like savory complexity while Ribolla's acidity keeps the wine fresh.",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
         },
         "notes": {
           "Fruit": [
@@ -5344,7 +6699,11 @@
           "mushrooms",
           "pork"
         ],
-        "expect": "Dry and grippy, with dried citrus, apricot, tea and savory notes over firm acidity."
+        "expect": "Dry and grippy, with dried citrus, apricot, tea and savory notes over firm acidity.",
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -5397,7 +6756,11 @@
           "sweetness": "dry",
           "label": "Amber / orange · Qvevri skin contact",
           "method": "White grapes ferment and mature in buried qvevri with extended contact with skins and other grape solids",
-          "effect": "Long contact extracts amber color and tannin, creating a structured white-grape wine with tea, dried-fruit and herbal character."
+          "effect": "Long contact extracts amber color and tannin, creating a structured white-grape wine with tea, dried-fruit and herbal character.",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
         },
         "notes": {
           "Fruit": [
@@ -5424,7 +6787,26 @@
           "mushrooms",
           "aged cheese"
         ],
-        "expect": "Amber, dry and structured, with dried fruit, tea, herbs and noticeable tannic grip from extended qvevri skin contact."
+        "expect": "Amber, dry and structured, with dried fruit, tea, herbs and noticeable tannic grip from extended qvevri skin contact.",
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "The 4–12 year drinking window and precise serving/decanting times remain editorial estimates awaiting producer-level evidence."
+        ],
+        "evidence": [
+          {
+            "claim": "Amber color, tannin and qvevri skin-contact context",
+            "sources": [
+              "georgia-rkatsiteli"
+            ]
+          }
+        ],
+        "related": [
+          {
+            "region": "kakheti",
+            "grape": "rkatsiteli",
+            "label": "Explore the separate low-tannin, white-vinified Rkatsiteli"
+          }
+        ]
       }
     },
     "identity": {
@@ -5476,7 +6858,11 @@
           "sweetness": "dry",
           "label": "Sparkling · Blanc de blancs · Brut",
           "method": "Traditional method: second fermentation in bottle, lees ageing and disgorgement",
-          "effect": "This profile models a Chardonnay-led blanc de blancs; other permitted white varieties may occur. Lees contact can add bread and nut notes; dosage, producer and ageing change the final style."
+          "effect": "This profile models a Chardonnay-led blanc de blancs; other permitted white varieties may occur. Lees contact can add bread and nut notes; dosage, producer and ageing change the final style.",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
         },
         "notes": {
           "Fruit": [
@@ -5498,7 +6884,11 @@
           "fried chicken",
           "pork dumplings"
         ],
-        "expect": "Fresh and citrus-led, with orchard fruit, fine bubbles and a light bread-like note."
+        "expect": "Fresh and citrus-led, with orchard fruit, fine bubbles and a light bread-like note.",
+        "ageingBasis": "release",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "pinot-noir": {
         "mods": {
@@ -5514,7 +6904,11 @@
           "sweetness": "dry",
           "label": "Sparkling · Blanc de noirs · Brut",
           "method": "Traditional method: second fermentation in bottle, lees ageing and disgorgement",
-          "effect": "This profile models a Pinot Noir-led white sparkling wine; Gamay may also be included. It is not a still red wine. Lees contact can add bread and nut notes; dosage, producer and ageing change the final style."
+          "effect": "This profile models a Pinot Noir-led white sparkling wine; Gamay may also be included. It is not a still red wine. Lees contact can add bread and nut notes; dosage, producer and ageing change the final style.",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
         },
         "notes": {
           "Fruit": [
@@ -5534,7 +6928,11 @@
           "charcuterie",
           "mushroom pizza"
         ],
-        "expect": "A fuller white sparkling expression of Pinot Noir, with orchard fruit, subtle berry notes and savory breadth."
+        "expect": "A fuller white sparkling expression of Pinot Noir, with orchard fruit, subtle berry notes and savory breadth.",
+        "ageingBasis": "release",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -5584,7 +6982,11 @@
           "sweetness": "dry",
           "label": "Sparkling · Pinot Blanc-led · Brut",
           "method": "Traditional method: second fermentation in bottle, lees ageing and disgorgement",
-          "effect": "Pinot Blanc is a major white base; Auxerrois, Chardonnay, Riesling, Pinot Gris and Pinot Noir can also contribute to white cuvées. Lees contact can add bread and nut notes; dosage, producer and ageing change the final style."
+          "effect": "Pinot Blanc is a major white base; Auxerrois, Chardonnay, Riesling, Pinot Gris and Pinot Noir can also contribute to white cuvées. Lees contact can add bread and nut notes; dosage, producer and ageing change the final style.",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
         },
         "notes": {
           "Fruit": [
@@ -5607,7 +7009,11 @@
           "pork dumplings",
           "fried vegetable spring rolls"
         ],
-        "expect": "Supple orchard fruit, fresh bubbles and gentle floral notes in a dry white sparkling style."
+        "expect": "Supple orchard fruit, fresh bubbles and gentle floral notes in a dry white sparkling style.",
+        "ageingBasis": "release",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "pinot-noir": {
         "mods": {
@@ -5622,7 +7028,11 @@
           "sweetness": "dry",
           "label": "Sparkling · Rosé · Brut",
           "method": "Traditional method: second fermentation in bottle, lees ageing and disgorgement",
-          "effect": "Crémant d’Alsace rosé is made from Pinot Noir. White cuvées have a different range of permitted grapes. Lees contact can add bread and nut notes; dosage, producer and ageing change the final style."
+          "effect": "Crémant d’Alsace rosé is made from Pinot Noir. White cuvées have a different range of permitted grapes. Lees contact can add bread and nut notes; dosage, producer and ageing change the final style.",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
         },
         "notes": {
           "Fruit": [
@@ -5642,7 +7052,11 @@
           "roast chicken",
           "margherita pizza"
         ],
-        "expect": "Dry and lively rosé bubbles with red-berry fruit, light structure and a fresh finish."
+        "expect": "Dry and lively rosé bubbles with red-berry fruit, light structure and a fresh finish.",
+        "ageingBasis": "release",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -5693,7 +7107,11 @@
           "sweetness": "dry",
           "label": "Sparkling · Chenin-led white · Brut",
           "method": "Traditional method: second fermentation in bottle, lees ageing and disgorgement",
-          "effect": "This is a Chenin-led white expression, sometimes blended with Chardonnay or other permitted grapes. It does not represent every permitted blend or the rosé style. Lees contact can add bread and nut notes; dosage, producer and ageing change the final style."
+          "effect": "This is a Chenin-led white expression, sometimes blended with Chardonnay or other permitted grapes. It does not represent every permitted blend or the rosé style. Lees contact can add bread and nut notes; dosage, producer and ageing change the final style.",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
         },
         "notes": {
           "Fruit": [
@@ -5718,7 +7136,11 @@
           "fried vegetable spring rolls",
           "goat cheese"
         ],
-        "expect": "Brisk apple and citrus, a touch of quince and a fine savory finish, with pronounced freshness."
+        "expect": "Brisk apple and citrus, a touch of quince and a fine savory finish, with pronounced freshness.",
+        "ageingBasis": "release",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -5790,7 +7212,22 @@
           "lamb",
           "hard cheese"
         ],
-        "expect": "Plush and dark-fruited, with plum, blackberry and violet, ripe tannin and a fresher finish than its warmth suggests."
+        "expect": "Plush and dark-fruited, with plum, blackberry and violet, ripe tannin and a fresher finish than its warmth suggests.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -5863,7 +7300,22 @@
           "lamb",
           "hard cheese"
         ],
-        "expect": "Dark, firm and savoury, with black fruit, violet and tobacco over grippy tannin that rewards ageing."
+        "expect": "Dark, firm and savoury, with black fruit, violet and tobacco over grippy tannin that rewards ageing.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -5930,7 +7382,22 @@
           "roast chicken",
           "sushi and nigiri"
         ],
-        "expect": "Crisp, clean and lightly textured, with pear, apple and a faint almond note — more precise than everyday Pinot Grigio."
+        "expect": "Crisp, clean and lightly textured, with pear, apple and a faint almond note — more precise than everyday Pinot Grigio.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "gewurztraminer": {
         "mods": {
@@ -5960,7 +7427,22 @@
           "soft cheese",
           "smoked foods"
         ],
-        "expect": "Intensely perfumed but mostly dry, with lychee, rose and ginger and more freshness than many Alsace examples."
+        "expect": "Intensely perfumed but mostly dry, with lychee, rose and ginger and more freshness than many Alsace examples.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "off-dry",
+          "label": "Still · Off-dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -6036,7 +7518,22 @@
           "shellfish",
           "soft cheese"
         ],
-        "expect": "Fuller and usually drier than Mosel Riesling, with citrus, white peach and stony freshness."
+        "expect": "Fuller and usually drier than Mosel Riesling, with citrus, white peach and stony freshness.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "off-dry",
+          "label": "Still · Off-dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "pinot-gris": {
         "mods": {
@@ -6072,7 +7569,22 @@
           "mushrooms",
           "creamy dishes"
         ],
-        "expect": "Rich, round and often off-dry, with ripe pear, peach, honey and a smoky edge — very different from light Italian Pinot Grigio."
+        "expect": "Rich, round and often off-dry, with ripe pear, peach, honey and a smoky edge — very different from light Italian Pinot Grigio.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "off-dry",
+          "label": "Still · Off-dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "gewurztraminer": {
         "mods": {
@@ -6103,7 +7615,22 @@
           "soft cheese",
           "smoked foods"
         ],
-        "expect": "Lush and exotic, with lychee, rose and ginger, low acidity and often a touch of sweetness."
+        "expect": "Lush and exotic, with lychee, rose and ginger, low acidity and often a touch of sweetness.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "off-dry",
+          "label": "Still · Off-dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -6172,7 +7699,22 @@
           "mushroom pizza",
           "margherita pizza"
         ],
-        "expect": "Juicy and fragrant, with red cherry, raspberry and soft tannin; best served slightly cool."
+        "expect": "Juicy and fragrant, with red cherry, raspberry and soft tannin; best served slightly cool.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -6241,7 +7783,22 @@
           "vietnamese summer rolls",
           "sushi and nigiri"
         ],
-        "expect": "Dry, dense and peppery, with green apple, lime and white pepper over firm acidity."
+        "expect": "Dry, dense and peppery, with green apple, lime and white pepper over firm acidity.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "riesling": {
         "mods": {
@@ -6273,7 +7830,22 @@
           "smoked foods",
           "soft cheese"
         ],
-        "expect": "Dry and concentrated, with apricot, lime and stony intensity; riper and fuller than most German Riesling."
+        "expect": "Dry and concentrated, with apricot, lime and stony intensity; riper and fuller than most German Riesling.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -6338,7 +7910,22 @@
           "sushi and nigiri",
           "fried appetizers"
         ],
-        "expect": "Crisp and aromatic, with citrus, white peach and a saline finish."
+        "expect": "Crisp and aromatic, with citrus, white peach and a saline finish.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -6401,7 +7988,22 @@
           "creamy dishes",
           "butter chicken"
         ],
-        "expect": "Rich and perfumed, with apricot, peach and honeysuckle, low acidity and a broad, silky texture."
+        "expect": "Rich and perfumed, with apricot, peach and honeysuckle, low acidity and a broad, silky texture.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -6448,7 +8050,11 @@
           "sweetness": "sweet",
           "label": "Sparkling · Sweet, lightly sparkling (frizzante)",
           "method": "Single partial fermentation in pressurised tank, stopped early",
-          "effect": "Stopping fermentation early keeps grape sugar and fresh grape aromas and captures only gentle bubbles; alcohol stays very low."
+          "effect": "Stopping fermentation early keeps grape sugar and fresh grape aromas and captures only gentle bubbles; alcohol stays very low.",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
         },
         "notes": {
           "Fruit": [
@@ -6469,7 +8075,20 @@
           "pavlova",
           "almond pastries"
         ],
-        "expect": "Sweet, gently fizzy and low in alcohol, with fresh grape, peach and orange blossom."
+        "expect": "Sweet, gently fizzy and low in alcohol, with fresh grape, peach and orange blossom.",
+        "ageingBasis": "release",
+        "evidenceGaps": [
+          "The 1–2 year post-release drinking suggestion remains editorial; follow the vintage and producer guidance."
+        ],
+        "evidence": [
+          {
+            "claim": "Single interrupted fermentation and gentle bubbles",
+            "sources": [
+              "asti-fermentation",
+              "moscato-producer"
+            ]
+          }
+        ]
       }
     },
     "identity": {
@@ -6536,7 +8155,22 @@
           "pepperoni pizza",
           "charcuterie"
         ],
-        "expect": "Juicy and bright, with cherry and plum, soft tannin and mouth-watering acidity."
+        "expect": "Juicy and bright, with cherry and plum, soft tannin and mouth-watering acidity.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -6603,7 +8237,22 @@
           "mushrooms",
           "roast chicken"
         ],
-        "expect": "Fragrant and savoury, with raspberry, violet and a leafy, peppery edge over fine-grained tannin."
+        "expect": "Fragrant and savoury, with raspberry, violet and a leafy, peppery edge over fine-grained tannin.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -6669,7 +8318,22 @@
           "barbecue",
           "burgers"
         ],
-        "expect": "Soft and dark-fruited, with plum, black pepper and a herbal, green-pepper edge."
+        "expect": "Soft and dark-fruited, with plum, black pepper and a herbal, green-pepper edge.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -6717,7 +8381,11 @@
           "sweetness": "dry",
           "label": "Sparkling · Traditional method · Brut NV",
           "method": "Blend of grapes and years, second fermentation in bottle, lees ageing and dosage",
-          "effect": "Blending smooths out vintage variation; lees ageing adds bread and biscuit notes, and a small dosage balances the high acidity."
+          "effect": "Blending smooths out vintage variation; lees ageing adds bread and biscuit notes, and a small dosage balances the high acidity.",
+          "composition": {
+            "kind": "representative-blend",
+            "text": "Representative blend; proportions vary by producer"
+          }
         },
         "notes": {
           "Fruit": [
@@ -6744,7 +8412,11 @@
           "soft cheese",
           "sushi and nigiri"
         ],
-        "expect": "Fresh and fine-bubbled, with citrus, apple and a hint of red fruit, plus brioche and biscuit from lees ageing."
+        "expect": "Fresh and fine-bubbled, with citrus, apple and a hint of red fruit, plus brioche and biscuit from lees ageing.",
+        "ageingBasis": "release",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -6821,7 +8493,22 @@
           "tacos de cochinita pibil",
           "butter chicken"
         ],
-        "expect": "Dry, taut and textured, with quince, lemon and beeswax; austere when young but long-lived."
+        "expect": "Dry, taut and textured, with quince, lemon and beeswax; austere when young but long-lived.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -6893,7 +8580,22 @@
           "grilled meats",
           "hard cheese"
         ],
-        "expect": "Inky and concentrated, with blackberry, blueberry and violet, firmer tannin than Mendoza and a fresh, peppery lift from extreme altitude."
+        "expect": "Inky and concentrated, with blackberry, blueberry and violet, firmer tannin than Mendoza and a fresh, peppery lift from extreme altitude.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -6962,7 +8664,22 @@
           "roast chicken",
           "lamb"
         ],
-        "expect": "Ripe and supple, with bright red cherry, raspberry and plum, less earthiness than Burgundy and a fresh, wind-swept finish."
+        "expect": "Ripe and supple, with bright red cherry, raspberry and plum, less earthiness than Burgundy and a fresh, wind-swept finish.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -7035,7 +8752,22 @@
           "trout",
           "salad with pumpkin seed oil"
         ],
-        "expect": "Riper and broader than Loire or Marlborough, with gooseberry, yellow peach and elderflower over a stony, sometimes lightly oak-framed core."
+        "expect": "Riper and broader than Loire or Marlborough, with gooseberry, yellow peach and elderflower over a stony, sometimes lightly oak-framed core.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -7104,7 +8836,22 @@
           "roast pork",
           "hard cheese"
         ],
-        "expect": "Dark cherry and blackberry with peppery spice, bright acidity and fine-grained tannin — fresher and more savoury than its colour suggests."
+        "expect": "Dark cherry and blackberry with peppery spice, bright acidity and fine-grained tannin — fresher and more savoury than its colour suggests.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -7177,7 +8924,22 @@
           "mild curry",
           "hard cheese"
         ],
-        "expect": "Textured and dry, with quince, yellow apple and chamomile, waxy depth from lees and old oak, and a stony finish from old dryland vines."
+        "expect": "Textured and dry, with quince, yellow apple and chamomile, waxy depth from lees and old oak, and a stony finish from old dryland vines.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "syrah": {
         "mods": {
@@ -7212,7 +8974,22 @@
           "sausages",
           "mushrooms"
         ],
-        "expect": "Medium-bodied for Syrah, with black cherry, white pepper and fynbos, gentle oak and a fresh, savoury finish."
+        "expect": "Medium-bodied for Syrah, with black cherry, white pepper and fynbos, gentle oak and a fresh, savoury finish.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -7271,7 +9048,11 @@
           "sweetness": "sweet",
           "label": "Sweet · Vin de Constance style",
           "method": "Late harvest from grapes shrivelled on the vine, followed by long barrel maturation",
-          "effect": "Shrivelled grapes concentrate sugar, acidity and aroma without fortification; barrel ageing adds honey, marmalade and spice."
+          "effect": "Shrivelled grapes concentrate sugar, acidity and aroma without fortification; barrel ageing adds honey, marmalade and spice.",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
         },
         "notes": {
           "Fruit": [
@@ -7299,7 +9080,11 @@
           "apricot tart",
           "foie gras"
         ],
-        "expect": "Lusciously sweet but fresh, with dried apricot, orange marmalade, ginger and honey — made from shrivelled grapes, not fortified."
+        "expect": "Lusciously sweet but fresh, with dried apricot, orange marmalade, ginger and honey — made from shrivelled grapes, not fortified.",
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -7367,7 +9152,22 @@
           "grilled fish",
           "sushi"
         ],
-        "expect": "Juicy and saline, with white peach, lime and a sea-breeze finish; slightly riper and rounder than Rías Baixas."
+        "expect": "Juicy and saline, with white peach, lime and a sea-breeze finish; slightly riper and rounder than Rías Baixas.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white",
+          "method": "Modeled as still white vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       },
       "tannat": {
         "mods": {
@@ -7400,7 +9200,22 @@
           "lamb",
           "hard cheese"
         ],
-        "expect": "Bold but fresher than Canelones Tannat, with blackberry, plum and cocoa, and firm tannin polished by cool Atlantic nights."
+        "expect": "Bold but fresher than Canelones Tannat, with blackberry, plum and cocoa, and firm tannin polished by cool Atlantic nights.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red",
+          "method": "Modeled as still red vinification; vessel and maturation vary by producer",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
+        },
+        "ageingBasis": "vintage",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {
@@ -7454,7 +9269,11 @@
           "sweetness": "sweet",
           "label": "Fortified sweet · Cask-aged Muscat",
           "method": "Fortification of partly fermented must, followed by long cask ageing",
-          "effect": "Grape spirit stops fermentation and keeps natural sweetness; long cask ageing adds honey, dried fruit and tea-like depth."
+          "effect": "Grape spirit stops fermentation and keeps natural sweetness; long cask ageing adds honey, dried fruit and tea-like depth.",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Grape-led reference; a bottle’s exact blend is not specified"
+          }
         },
         "notes": {
           "Fruit": [
@@ -7480,7 +9299,11 @@
           "chocolate dessert",
           "dried fruit"
         ],
-        "expect": "Rich and sweet, with dried apricot, quince jam and honey, lifted by Muscat's floral perfume and deepened by long cask ageing."
+        "expect": "Rich and sweet, with dried apricot, quince jam and honey, lifted by Muscat's floral perfume and deepened by long cask ageing.",
+        "ageingBasis": "producer",
+        "evidenceGaps": [
+          "Profile-specific production, drinking window and regional claims still need claim-level review; regional references are background context."
+        ]
       }
     },
     "identity": {

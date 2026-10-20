@@ -41,6 +41,7 @@ function advancedStyle(profile) {
     label: style?.label || `${profile.grape.color === "red" ? "Red" : "White"} · Still`,
     method: style?.method || null,
     effect: style?.effect || null,
+    composition: style?.composition?.text || null,
     sweetness: style?.sweetness || null
   };
 }
@@ -169,7 +170,7 @@ function advancedProductionContext(selections) {
   if (!rows.length) return "";
   return `<section class="advanced-production"><h3>Production context</h3><p class="small">These notes explain relevant production differences without claiming that one technique alone causes every sensory difference above.</p>${rows.map(item => {
     const style = advancedStyle(item);
-    return `<div class="advanced-production-row"><strong>${WineAtlas.escapeHtml(advancedShortName(item))}</strong><span>${WineAtlas.escapeHtml(style.method || style.label)}</span>${style.effect ? `<p>${WineAtlas.escapeHtml(style.effect)}</p>` : ""}</div>`;
+    return `<div class="advanced-production-row"><strong>${WineAtlas.escapeHtml(advancedShortName(item))}</strong><span>${WineAtlas.escapeHtml(style.method || style.label)}</span>${style.composition ? `<p>${WineAtlas.escapeHtml(style.composition)}</p>` : ""}${style.effect ? `<p>${WineAtlas.escapeHtml(style.effect)}</p>` : ""}</div>`;
   }).join("")}</section>`;
 }
 
@@ -218,7 +219,7 @@ function advancedRender() {
   grid.innerHTML = selections.map(item => {
     const style = advancedStyle(item);
     const metrics = metricKeys ? ADV_COMPARE_METRICS.filter(metric => metricKeys.has(metric.key)) : ADV_COMPARE_METRICS;
-    return `<article class="compareCard advanced-compare-card"><div class="advanced-card-head"><div><h3>${WineAtlas.escapeHtml(item.grape.name)} · ${WineAtlas.escapeHtml(item.region.name)}</h3><div class="small">${WineAtlas.escapeHtml(item.region.country)} · ${WineAtlas.escapeHtml(style.label)}</div></div><button type="button" class="advanced-remove" data-slot="${item.compareSlot}">Remove</button></div><div class="bars compare-bars">${metrics.map(metric => advancedMetricBar(metric, item)).join("")}</div><p class="small compare-summary">${WineAtlas.escapeHtml(item.regional.expect)}</p><p class="small"><strong>Serve:</strong> ${WineAtlas.escapeHtml(item.regional.serve)} · <strong>Ageing:</strong> ${WineAtlas.escapeHtml(item.regional.ageing)}</p></article>`;
+    return `<article class="compareCard advanced-compare-card"><div class="advanced-card-head"><div><h3>${WineAtlas.escapeHtml(item.grape.name)} · ${WineAtlas.escapeHtml(item.region.name)}</h3><div class="small">${WineAtlas.escapeHtml(item.region.country)} · ${WineAtlas.escapeHtml(WineModel.expressionSummary(item))}</div></div><button type="button" class="advanced-remove" data-slot="${item.compareSlot}">Remove</button></div><div class="bars compare-bars">${metrics.map(metric => advancedMetricBar(metric, item)).join("")}</div><p class="small compare-summary">${WineAtlas.escapeHtml(item.regional.expect)}</p><p class="small"><strong>Serve:</strong> ${WineAtlas.escapeHtml(item.regional.serve)} · <strong>Ageing:</strong> ${WineAtlas.escapeHtml(WineModel.ageingAdvice(item))}</p></article>`;
   }).join("");
 
   if (rows.length) {

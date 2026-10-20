@@ -33,6 +33,8 @@ function renderSpecialStyle(profile) {
   const rows = [
     ["Style", style.label],
     ["Family", style.family],
+    ["Colour", WineModel.colorLabel(style.color)],
+    ["Composition", style.composition?.text],
     ["Sweetness", style.sweetness],
     ["Method", style.method]
   ];
@@ -48,8 +50,14 @@ function renderSpecialStyle(profile) {
   }
   const effect = document.createElement("p");
   effect.className = "small";
-  effect.textContent = style.effect;
+  effect.textContent = style.effect || "";
   section.append(heading, grid, effect);
+  for (const related of profile.regional.related || []) {
+    const button = WineDOM.element("button", related.label, "score-help");
+    button.type = "button";
+    button.addEventListener("click", () => WineAtlas.selectProfile(related.grape, related.region, true));
+    section.append(button);
+  }
   anchor.insertAdjacentElement("beforebegin", section);
   document.dispatchEvent(new CustomEvent("wineatlas:special-style-rendered", { detail: { profile } }));
 }

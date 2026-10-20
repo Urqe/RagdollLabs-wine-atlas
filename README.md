@@ -42,7 +42,7 @@ Many grapes appear in two or more regions so Compare can show how place changes 
 
 A rendered profile is **grape / represented-blend baseline + regional modifiers**, clamped to 0–5 and kept to half-point steps.
 
-Alcohol and sweetness use fixed real-world anchors, so a score means the same thing across the atlas:
+All scores are approximate editorial judgments for the named modeled expression, not laboratory measurements or quality ratings. Alcohol and sweetness use the following broad anchors:
 
 | Score | Alcohol (typical ABV) | Sweetness |
 | --- | --- | --- |
@@ -53,9 +53,11 @@ Alcohol and sweetness use fixed real-world anchors, so a score means the same th
 | 4 | ~13.75% | sweet |
 | 5 | 15% or more, including fortified | lusciously sweet |
 
-Alcohol is interpolated linearly between the anchors. Body, acidity, tannin, fruit, oak and earth are relative editorial scores across the atlas. All scores describe a typical example; producers and vintages vary.
+The alcohol scale interpolates between approximate anchors; it does not report a bottle’s measured ABV. Sweetness is a broad sensory category, not measured residual sugar. Body, acidity, tannin, fruit, oak and earth are relative judgments; producer, vintage and bottle age vary.
 
-The validator rejects two profiles of the same grape with identical scores, because Compare would have nothing to show.
+Identical rounded scores are allowed and reported by the advisory content audit; no numeric difference should be invented just to populate Compare. See [modeled expressions and evidence](docs/profile-methodology.md) and the [remaining evidence audit](docs/evidence-audit.md).
+
+Every profile declares its selected style, production scope, composition status and ageing time basis. Sources distinguish reviewed claim groups from legacy background leads and explicitly track evidence gaps. R3 preserves all existing wine scores and profile URLs.
 
 ## Tech
 

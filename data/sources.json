@@ -1,238 +1,507 @@
 {
   "bivb": {
     "name": "Bureau Interprofessionnel des Vins de Bourgogne (BIVB)",
-    "url": "https://www.bourgogne-wines.com/"
+    "url": "https://www.bourgogne-wines.com/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "civb": {
     "name": "Conseil Interprofessionnel du Vin de Bordeaux (CIVB)",
-    "url": "https://www.bordeaux.com/"
+    "url": "https://www.bordeaux.com/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "inter-rhone": {
     "name": "InterRhône (Côtes du Rhône)",
-    "url": "https://www.inter-rhone.com/"
+    "url": "https://www.inter-rhone.com/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "civc": {
     "name": "Comité Interprofessionnel du vin de Champagne (CIVC)",
-    "url": "https://www.champagne.fr/"
+    "url": "https://www.champagne.fr/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "wines-of-germany": {
     "name": "Wines of Germany (Deutsches Weininstitut)",
-    "url": "https://www.winesofgermany.com/"
+    "url": "https://www.winesofgermany.com/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "vdp": {
     "name": "Verband Deutscher Prädikatsweingüter (VDP)",
-    "url": "https://www.vdp.de/"
+    "url": "https://www.vdp.de/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "rioja": {
     "name": "Consejo Regulador DOCa Rioja",
-    "url": "https://www.riojawine.com/"
+    "url": "https://www.riojawine.com/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "ribera-duero": {
     "name": "Consejo Regulador DO Ribera del Duero",
-    "url": "https://www.riberaduero.es/"
+    "url": "https://www.riberaduero.es/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "priorat-doc": {
     "name": "DOQ Priorat",
-    "url": "https://priorat.org/"
+    "url": "https://priorat.org/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "chianti": {
     "name": "Consorzio Vino Chianti Classico",
-    "url": "https://www.chianticlassico.com/"
+    "url": "https://www.chianticlassico.com/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "brunello-consorzio": {
     "name": "Consorzio del Vino Brunello di Montalcino",
-    "url": "https://www.consorziobrunellodimontalcino.it/"
+    "url": "https://www.consorziobrunellodimontalcino.it/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "barolo-barbaresco": {
     "name": "Consorzio di Tutela Barolo Barbaresco Alba Langhe e Roero",
-    "url": "https://www.langhevini.it/"
+    "url": "https://www.langhevini.it/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "napa-vintners": {
     "name": "Napa Valley Vintners",
-    "url": "https://napavintners.com/"
+    "url": "https://napavintners.com/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "sonoma-wine": {
     "name": "Sonoma County Vintners / Sonoma Wine Institute",
-    "url": "https://www.sonomawine.com/"
+    "url": "https://www.sonomawine.com/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "willamette": {
     "name": "Willamette Valley Wineries Association",
-    "url": "https://willamettewines.com/"
+    "url": "https://willamettewines.com/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "wine-australia": {
     "name": "Wine Australia (regional guides)",
-    "url": "https://www.wineaustralia.com/"
+    "url": "https://www.wineaustralia.com/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "nzw-wine": {
     "name": "New Zealand Winegrowers (regional guides)",
-    "url": "https://www.nzwine.com/"
+    "url": "https://www.nzwine.com/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "wosa": {
     "name": "Wines of South Africa (WOSA)",
-    "url": "https://www.wosa.co.za/"
+    "url": "https://www.wosa.co.za/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "wines-of-chile": {
     "name": "Wines of Chile",
-    "url": "https://www.winesofchile.org/"
+    "url": "https://www.winesofchile.org/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "wines-of-mexico": {
     "name": "Wines of Mexico / Baja California wine sector",
-    "url": "https://www.winesofmexico.org/"
+    "url": "https://www.winesofmexico.org/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "wines-of-ukraine": {
     "name": "Wines of Ukraine (industry body)",
-    "url": "https://winesofukraine.org/"
+    "url": "https://winesofukraine.org/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "bg-wine": {
     "name": "Bulgarian wine sector overviews (Bulgarian National Vine and Wine Chamber)",
-    "url": "https://www.bulgarianwines.org/"
+    "url": "https://www.bulgarianwines.org/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "black-sea-wine": {
     "name": "Black Sea region wine overviews (OIV and national wine offices)",
-    "url": "https://www.oiv.int/"
+    "url": "https://www.oiv.int/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "georgia-nwa": {
     "name": "National Wine Agency of Georgia",
-    "url": "https://wine.gov.ge/En/"
+    "url": "https://wine.gov.ge/En/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "wines-of-greece": {
     "name": "Wines of Greece",
-    "url": "https://winesofgreece.org/"
+    "url": "https://winesofgreece.org/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "wines-of-hungary": {
     "name": "Wines of Hungary",
-    "url": "https://winesofhungary.hu/"
+    "url": "https://winesofhungary.hu/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "wines-of-portugal": {
     "name": "Wines of Portugal / ViniPortugal",
-    "url": "https://www.winesofportugal.com/en/"
+    "url": "https://www.winesofportugal.com/en/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "uruguay-wine": {
     "name": "INAVI — Instituto Nacional de Vitivinicultura, Uruguay",
-    "url": "https://www.inavi.com.uy/"
+    "url": "https://www.inavi.com.uy/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "armenia-wine": {
     "name": "Vine and Wine Foundation of Armenia",
-    "url": "https://www.vwfa.am/"
+    "url": "https://www.vwfa.am/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "wines-of-romania": {
     "name": "Wines of Romania",
-    "url": "https://winesofromania.com/en/"
+    "url": "https://winesofromania.com/en/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "canary-wine": {
     "name": "Canary Islands wine sector references",
-    "url": "https://www.gobiernodecanarias.org/agpsa/icca/"
+    "url": "https://www.gobiernodecanarias.org/agpsa/icca/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "oxford-companion": {
     "name": "Jancis Robinson (ed.), Oxford Companion to Wine — reference summaries",
-    "url": "https://www.oxfordreference.com/"
+    "url": "https://www.oxfordreference.com/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Bibliographic lead only: the edition, chapter and page used by the original profile are not recorded. No claim-level verification is implied.",
+    "publisher": "Oxford University Press"
   },
   "wine-folly": {
     "name": "Wine Folly — regional and varietal overviews",
-    "url": "https://winefolly.com/"
+    "url": "https://winefolly.com/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "world-atlas-of-wine": {
     "name": "Hugh Johnson & Jancis Robinson, The World Atlas of Wine — regional context",
-    "url": "https://www.mitchell-beazley.com/"
+    "url": "https://www.mitchell-beazley.com/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Bibliographic lead only: the edition, chapter and page used by the original profile are not recorded. No claim-level verification is implied.",
+    "publisher": "Mitchell Beazley"
   },
   "sonora-wine-study": {
     "name": "Cananea, Sonora emerging wine geography — Estudios Sociales / SciELO México",
-    "url": "https://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S0187-73722021000100118"
+    "url": "https://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S0187-73722021000100118",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "lodi-wine": {
     "name": "Lodi Winegrape Commission — Old Vines",
-    "url": "https://www.lodiwine.com/about-lodi/old-vines/"
+    "url": "https://www.lodiwine.com/about-lodi/old-vines/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "amador-wine": {
     "name": "Amador Vintners — Amador wine region",
-    "url": "https://amadorwine.com/about-our-region/"
+    "url": "https://amadorwine.com/about-our-region/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "madiran-wine": {
     "name": "Madiran & Pacherenc du Vic-Bilh wine region",
-    "url": "https://www.madiran-pacherenc.com/"
+    "url": "https://www.madiran-pacherenc.com/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "prosecco-doc": {
     "name": "Consorzio Tutela Prosecco DOC",
-    "url": "https://www.prosecco.wine/en/"
+    "url": "https://www.prosecco.wine/en/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "cava-do": {
     "name": "Consejo Regulador de la D.O. Cava",
-    "url": "https://www.cava.wine/en/"
+    "url": "https://www.cava.wine/en/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "ivdp": {
     "name": "Instituto dos Vinhos do Douro e do Porto (IVDP)",
-    "url": "https://www.ivdp.pt/en/"
+    "url": "https://www.ivdp.pt/en/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "setubal-cvr": {
     "name": "Comissão Vitivinícola Regional da Península de Setúbal",
-    "url": "https://vinhosdapeninsuladesetubal.org/"
+    "url": "https://vinhosdapeninsuladesetubal.org/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "vins-provence": {
     "name": "Vins de Provence",
-    "url": "https://www.vinsdeprovence.com/en/"
+    "url": "https://www.vinsdeprovence.com/en/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "navarra-do": {
     "name": "Consejo Regulador D.O. Navarra",
-    "url": "https://navarrawine.com/en/"
+    "url": "https://navarrawine.com/en/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "collio-consorzio": {
     "name": "Consorzio Tutela Vini Collio",
-    "url": "https://www.collio.it/en/"
+    "url": "https://www.collio.it/en/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "cremant-bourgogne": {
     "name": "Crémant federation — Bourgogne",
-    "url": "https://cremants.com/cremant-de-bourgogne/"
+    "url": "https://cremants.com/cremant-de-bourgogne/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "cremant-alsace": {
     "name": "Vins d’Alsace — Crémant d’Alsace",
-    "url": "https://www.vinsalsace.com/en/gouts-et-couleurs/aoc/aoc-cremant-dalsace/"
+    "url": "https://www.vinsalsace.com/en/gouts-et-couleurs/aoc/aoc-cremant-dalsace/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "cremant-loire": {
     "name": "Crémant federation — Loire",
-    "url": "https://cremants.com/cremant-de-loire/"
+    "url": "https://cremants.com/cremant-de-loire/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "alto-adige-wine": {
     "name": "Alto Adige Wines (Consorzio Vini Alto Adige)",
-    "url": "https://www.suedtirolwein.com/"
+    "url": "https://www.suedtirolwein.com/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "inter-beaujolais": {
     "name": "Inter Beaujolais (Vins du Beaujolais)",
-    "url": "https://www.beaujolais.com/"
+    "url": "https://www.beaujolais.com/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "rias-baixas-do": {
     "name": "Consejo Regulador DO Rías Baixas",
-    "url": "https://www.riasbaixaswines.com/"
+    "url": "https://www.riasbaixaswines.com/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "asti-docg": {
     "name": "Consorzio per la tutela dell'Asti DOCG",
-    "url": "https://www.astidocg.it/"
+    "url": "https://www.astidocg.it/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "vins-alsace": {
     "name": "Vins d’Alsace (CIVA)",
-    "url": "https://www.vinsalsace.com/en/"
+    "url": "https://www.vinsalsace.com/en/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "wine-folly-wachau": {
     "name": "Wine Folly — in-depth guide to the Wachau",
-    "url": "https://winefolly.com/deep-dive/in-depth-guide-to-the-wachau-valley-wine-region/"
+    "url": "https://winefolly.com/deep-dive/in-depth-guide-to-the-wachau-valley-wine-region/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "wines-of-argentina": {
     "name": "Wines of Argentina",
-    "url": "https://www.winesofargentina.org/"
+    "url": "https://www.winesofargentina.org/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "austrian-wine": {
     "name": "Austrian Wine Marketing Board",
-    "url": "https://www.austrianwine.com/"
+    "url": "https://www.austrianwine.com/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "germany-spatburgunder": {
     "name": "Wines of Germany — Spätburgunder / Pinot Noir",
-    "url": "https://winesofgermany.co.uk/grape/spatburgunder/"
+    "url": "https://winesofgermany.co.uk/grape/spatburgunder/",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "ucdavis-zinfandel": {
     "name": "UC Davis Foundation Plant Services — Zinfandel / Primitivo",
-    "url": "https://fps.ucdavis.edu/grapebook/winebook.cfm?chap=Zinfandel"
+    "url": "https://fps.ucdavis.edu/grapebook/winebook.cfm?chap=Zinfandel",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
   },
   "ucdavis-albarino": {
     "name": "UC Davis Foundation Plant Services — Albariño / Alvarinho synonyms",
-    "url": "https://fps.ucdavis.edu/FGRfamilies.cfm?varietyid=170"
+    "url": "https://fps.ucdavis.edu/FGRfamilies.cfm?varietyid=170",
+    "reviewStatus": "background-only",
+    "reviewNote": "Legacy context reference; claim-level support and access have not been reverified in R3."
+  },
+  "vouvray-styles": {
+    "name": "Vouvray: still and sparkling styles",
+    "url": "https://www.vinsdevouvray.com/en/vouvray-white-wine/",
+    "publisher": "Syndicat des Vignerons de Vouvray",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "locator": "Understanding our Vouvray white wines; sec / demi-sec / moelleux"
+  },
+  "tokaj-dry-example": {
+    "name": "Disznókő Tokaji Dry Furmint 2022: technical sheet",
+    "url": "https://disznoko.hu/pdf/vin/en/disznok-tokaji-dry-furmint-2022-90.pdf",
+    "publisher": "Disznókő",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "locator": "Pages 1–2: Vinification, Maturing, Serving",
+    "reviewNote": "A producer example of fresh dry Furmint, not evidence that every dry Tokaj is made identically."
+  },
+  "georgia-rkatsiteli": {
+    "name": "Rkatsiteli: European and qvevri expressions",
+    "url": "https://wine.gov.ge/En/VarietyWhite",
+    "publisher": "National Wine Agency of Georgia",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "locator": "Rkatsiteli: European vinification compared with qvevri vinification"
+  },
+  "georgia-kakheti": {
+    "name": "Kakheti: regional setting and winemaking",
+    "url": "https://wine.gov.ge/En/WineMakingRegions/1",
+    "publisher": "National Wine Agency of Georgia",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "locator": "Kakheti: Alazani and Iori basins; European and traditional techniques"
+  },
+  "bordeaux-blending": {
+    "name": "The art of blending",
+    "url": "https://www.bordeaux.com/en/know-how/blending/",
+    "publisher": "Conseil Interprofessionnel du Vin de Bordeaux",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "locator": "Which cépage brings which note?; first, second and third wines"
+  },
+  "bordeaux-drinking": {
+    "name": "Choosing red Bordeaux: different styles and ageing potential",
+    "url": "https://www.bordeaux.com/en/choosing-a-wine/red/",
+    "publisher": "Conseil Interprofessionnel du Vin de Bordeaux",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "locator": "Can you age it? under the four red-wine styles",
+    "reviewNote": "Distinguishes young-drinking wines from cellar-worthy cuvées; atlas windows remain editorial guidance."
+  },
+  "bordeaux-serving": {
+    "name": "Serving wine: aeration and decanting",
+    "url": "https://www.bordeaux.com/en/wine-tasting-basics/serve/",
+    "publisher": "Conseil Interprofessionnel du Vin de Bordeaux",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "locator": "Aeration guidance for young wines and older vintages"
+  },
+  "wine-storage": {
+    "name": "Storing wine: temperature and bottle care",
+    "url": "https://www.bordeaux.com/en/wine-tasting-basics/store/",
+    "publisher": "Conseil Interprofessionnel du Vin de Bordeaux",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "locator": "Temperature; light; long-term storage"
+  },
+  "burgundy-drinking": {
+    "name": "When should one drink a Bourgogne wine?",
+    "url": "https://www.bourgogne-wines.com/food-and-wine-combinations/choosing-and-serving-wine/vintages/when-should-one-drink-a-wine,3347,16882.html",
+    "publisher": "Bureau Interprofessionnel des Vins de Bourgogne",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "locator": "Regional appellations: two to four years; vintage and preference dependence"
+  },
+  "rhone-blending": {
+    "name": "Côtes du Rhône: grape varieties and blends",
+    "url": "https://www.vins-rhone.com/en/rhone-valley-vineyards/appellations/aoc-cotes-du-rhone",
+    "publisher": "Inter Rhône",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "locator": "Grape varieties and red blends",
+    "reviewNote": "Supports a Grenache-led Côtes du Rhône reference, not identical rules throughout the Southern Rhône."
+  },
+  "cava-production": {
+    "name": "How Cava is produced",
+    "url": "https://www.cava.wine/en/origin-cava/winemaking/",
+    "publisher": "Consejo Regulador de la D.O. Cava",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "locator": "Blending; second fermentation in bottle; lees ageing"
+  },
+  "cava-grapes": {
+    "name": "Authorised Cava grape varieties",
+    "url": "https://www.cava.wine/en/origin-cava/authorised-grape-varieties/",
+    "publisher": "Consejo Regulador de la D.O. Cava",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "locator": "Macabeo, Xarel·lo and Parellada"
+  },
+  "cava-sugar": {
+    "name": "Cava types and sugar categories",
+    "url": "https://www.cava.wine/en/news-articles/types-and-varieties-of-cava-differences-between-the-various-types-of-cava/",
+    "publisher": "Consejo Regulador de la D.O. Cava",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "locator": "Types by sugar content"
+  },
+  "asti-fermentation": {
+    "name": "Moscato d’Asti: interrupted fermentation",
+    "url": "https://astidocg.it/en/wines/moscato-dasti-docg/",
+    "publisher": "Consorzio per la Tutela dell’Asti DOCG",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "locator": "Production: fermentation stopped around 5% alcohol",
+    "reviewNote": "Page content checked through indexed publisher text; direct retrieval returned 403."
+  },
+  "moscato-producer": {
+    "name": "Moscato d’Asti: producer vinification",
+    "url": "https://www.fontanafredda.it/en/wine/moscato-dasti-docg-2/",
+    "publisher": "Fontanafredda",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "locator": "Vinification: cooling to stop fermentation",
+    "reviewNote": "Producer example supporting the single interrupted fermentation, not a universal temperature recipe."
+  },
+  "provence-rose-methods": {
+    "name": "The making of Provence rosé",
+    "url": "https://www.vinsdeprovence.com/en/le-rose/l-elaboration-du-rose",
+    "publisher": "Conseil Interprofessionnel des Vins de Provence",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-20",
+    "reviewedOn": "2026-10-20",
+    "locator": "Skin maceration and direct pressing"
   }
 }

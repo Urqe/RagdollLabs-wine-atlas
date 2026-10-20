@@ -269,20 +269,41 @@ function renderWhy(region, regional, grapeId) {
   return `<section class="why" aria-labelledby="whyHeading"><h3 id="whyHeading">Why does it taste like this?</h3><p class="small">Typical growing and winemaking associations; sensory descriptors do not imply literal flavor transfer from soil or nearby plants.</p><ul class="why-list">${why.map(item => `<li><span class="why-cause">${escapeHtml(item.cause)}</span><span class="why-arrow" aria-hidden="true">→</span><span class="why-effect">${escapeHtml(item.effect)}</span></li>`).join("")}</ul></section>`;
 }
 
-function renderSources(region) {
+function renderSources(region, regional) {
   const details = WineDOM.element("details", null, "sources");
   details.append(WineDOM.element("summary", "Sources & methodology"),
-    WineDOM.element("p", "Regional profiles summarize typical characteristics. Producers and vintages vary.", "small"));
-  const resolved = (region.sources || []).map(id => SOURCES[id]).filter(Boolean);
-  if (resolved.length) {
+    WineDOM.element("p", "Scores and tasting notes are approximate editorial judgments for the modeled expression, not measurements or quality ratings. Identical rounded scores are valid. References support the named factual claim groups, not every score or tasting descriptor.", "small"));
+  function appendSources(ids, target) {
     const list = WineDOM.element("ul", null, "source-list");
-    for (const source of resolved) {
+    for (const id of [...new Set(ids)]) {
+      const source = SOURCES[id];
+      if (!source) continue;
       const row = WineDOM.element("li");
       row.append(WineDOM.referenceLink(source));
+      const meta = [source.publisher, source.locator,
+        source.accessedOn ? `Accessed ${source.accessedOn}` : null,
+        source.reviewedOn ? `Reviewed ${source.reviewedOn}` : "Claim-level review pending",
+        source.reviewNote].filter(Boolean).join(" · ");
+      row.append(WineDOM.element("p", meta, "small"));
       list.append(row);
     }
-    details.append(list);
+    target.append(list);
   }
+  for (const group of [...(regional.evidence || []), ...(region.evidence || [])]) {
+    const section = WineDOM.element("section");
+    section.append(WineDOM.element("h4", group.claim));
+    appendSources(group.sources, section);
+    details.append(section);
+  }
+  if (regional.evidenceGaps?.length) {
+    details.append(WineDOM.element("h4", "Evidence still to review"));
+    for (const gap of regional.evidenceGaps) details.append(WineDOM.element("p", gap, "small"));
+  }
+  const background = WineDOM.element("details");
+  background.append(WineDOM.element("summary", "Regional background references"),
+    WineDOM.element("p", "These legacy references are research leads. A regional homepage or an unspecified book edition does not verify a particular claim.", "small"));
+  appendSources(region.sources || [], background);
+  details.append(background);
   return details;
 }
 
@@ -315,14 +336,15 @@ function renderExplore() {
   $("title").textContent = `${grape.name} · ${region.name}`;
   $("pill").textContent = `${region.country} · ${region.climate}`;
   $("expect").textContent = regional.expect;
+  $("profileExpression").textContent = WineModel.expressionSummary(current);
   $("climate").replaceChildren(WineDOM.element("strong", "Climate effect:"), document.createTextNode(` ${region.summary}`));
   $("locatorMap").innerHTML = renderLocator(regionId, region);
   $("identity").innerHTML = renderBadges(region, grape) + renderIdentity(region);
   $("why").innerHTML = renderWhy(region, regional, grapeId);
-  $("sourcesDrawer").replaceChildren(renderSources(region));
+  $("sourcesDrawer").replaceChildren(renderSources(region, regional));
   $("bars").innerHTML = METRICS.map(metric => metricBar(metric, profile)).join("");
   $("notes").replaceChildren(renderFlavorGroups(regional.notes));
-  $("serve").replaceChildren(...[["Serving temp", regional.serve], ["Decant", regional.decant], ["Glass", regional.glass], ["Ageing", regional.ageing]].map(([key, value]) => {
+  $("serve").replaceChildren(...[["Serving temp", regional.serve], ["Decant", regional.decant], ["Glass", regional.glass], ["Ageing", WineModel.ageingAdvice(current)]].map(([key, value]) => {
     const box = WineDOM.element("div", null, "box");
     box.append(WineDOM.element("div", key, "k"), WineDOM.element("div", value, "v"));
     return box;

@@ -45,21 +45,12 @@ function updateProfileColor() {
   const color = regional?.style?.color || grape?.color;
   if (!color) return;
 
-  const labels = {
-    red: "Red",
-    white: "White",
-    "white-gold": "White / gold",
-    rose: "Rosé",
-    orange: "Orange / amber",
-    tawny: "Tawny",
-    amber: "Amber"
-  };
   const wrapper = document.createElement("span");
   wrapper.className = "wine-color-badge";
   const dot = document.createElement("span");
   dot.className = `wine-color-dot ${color}`;
   dot.setAttribute("aria-hidden", "true");
-  wrapper.append(dot, document.createTextNode(labels[color] || color));
+  wrapper.append(dot, document.createTextNode(WineModel.colorLabel(color)));
   badge.appendChild(wrapper);
 }
 
