@@ -27,6 +27,13 @@ WINEMAKING_PREVALENCE = {"very common", "common", "sometimes", "rare"}
 MATURITY_STAGES = ["Young", "Developing", "Mature"]
 STYLE_FAMILIES = {"still", "sparkling", "sweet", "fortified", "rose", "orange"}
 PLACEHOLDER_NOTES = {"spice", "flowers", "herbs", "fruit", "earth"}
+PRODUCTION_CLASSES = {
+    "sparkling": {"traditional-bottle", "tank-second", "single-partial-tank"},
+    "sweet": {"botrytised", "late-harvest"},
+    "fortified": {"fortified-protected", "fortified-oxidative", "fortified-muscat-cask"},
+    "rose": {"rose-direct-or-short", "rose-extracted", "rose-bled"},
+    "orange": {"skin-maceration"},
+}
 STYLE_SWEETNESS = {"dry", "dry-to-off-dry", "off-dry", "sweet"}
 
 SENSITIVE_LABEL_RULES = {
@@ -184,6 +191,15 @@ def main() -> None:
                 assert isinstance(style, dict), f"{prefix}: style must be an object"
                 special_style_count += style.get("family") != "still"
                 assert style.get("family") in STYLE_FAMILIES, f"{prefix}: invalid style family"
+                if style["family"] != "still":
+                    production = style.get("productionClass")
+                    assert production in PRODUCTION_CLASSES[style["family"]], f"{prefix}: invalid discovery production class"
+                    bubbles = style.get("effervescence")
+                    allowed_bubbles = {"gentle"} if production == "single-partial-tank" else {"gentle", "sparkling"} if production == "tank-second" else {"sparkling"} if style["family"] == "sparkling" else {"none"}
+                    assert bubbles in allowed_bubbles, f"{prefix}: inconsistent discovery bubble style"
+                else:
+                    assert style.get("productionClass", f"still-{style['color']}") == f"still-{style['color']}", f"{prefix}: invalid still production class"
+                    assert style.get("effervescence", "none") == "none", f"{prefix}: still wine cannot have bubbles"
                 assert style.get("sweetness") in STYLE_SWEETNESS, f"{prefix}: invalid style sweetness"
                 assert style.get("color") in {"red", "white", "rose", "orange", "amber", "tawny", "white-gold"}, f"{prefix}: invalid style color"
                 for field in ("color", "label", "method"):

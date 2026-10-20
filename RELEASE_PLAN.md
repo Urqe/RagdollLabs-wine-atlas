@@ -1,6 +1,6 @@
 # Wine Atlas release plan
 
-Status: R1–R3 implemented on 2026-10-20; R4–R7 remain planned.
+Status: R1–R4 implemented on 2026-10-20; R5–R7 remain planned.
 Created: 2026-10-19.  
 Review baseline: main at `d819d99505b188f2319c37f0f4aa01153278438b` (120 profiles, 92 region entries, 47 grape/blend baselines).  
 Release IDs below are planning identifiers, not published semantic versions.
@@ -141,22 +141,26 @@ Validation: full automated regression/data checks, including expression and evid
 
 **Likely files:** `smart-discovery.js`, `wine-model.js`, comparison presentation, structured metadata if justified, regression tests.
 
+Implementation notes: see [Honest Discovery](docs/discovery-methodology.md). Close routes now require matching selected style semantics and a documented structural threshold. Sparse catalogs can show fewer cards or explicit contrasts. No regions, profile IDs, metric scores or broad comparison rules change; the R3 evidence backlog remains open.
+
+Validation: full automated regression suite, including threshold boundaries, sparse fixtures, explanation checks and catalog-wide invariants. Deployed desktop Chrome smoke checks cover Moscato and Pinot Noir contrasts, coverage labels, profile navigation and comparison context. iPhone/iPad Safari and physical touch-device checks remain unverified.
+
 ### Scope
 
-- [ ] Evaluate sweetness, production method and pressure/style where meaningful in addition to broad family and numeric distance.
-- [ ] Keep “can be compared” separate from “is a close substitute”. Broad comparison families may remain useful for learning.
-- [ ] Define a defensible similarity threshold; do not force three similar recommendations when no convincing candidates exist.
-- [ ] Present fewer recommendations or label a contrast explicitly when the catalog is sparse.
-- [ ] Replace generic “comparable production context” copy with the actual common ground and material differences.
-- [ ] Check that “same grape, different place” does not conceal a major change in colour or production.
-- [ ] Verify “adventurous” reflects a meaningful discovery rather than automatically treating every native grape as unusual.
+- [x] Evaluate sweetness, production method and pressure/style where meaningful in addition to broad family and numeric distance.
+- [x] Keep “can be compared” separate from “is a close substitute”. Broad comparison families may remain useful for learning.
+- [x] Define a defensible similarity threshold; do not force three similar recommendations when no convincing candidates exist.
+- [x] Present fewer recommendations or label a contrast explicitly when the catalog is sparse.
+- [x] Replace generic “comparable production context” copy with the actual common ground and material differences.
+- [x] Check that “same grape, different place” does not conceal a major change in colour or production.
+- [x] Verify “adventurous” reflects a meaningful discovery rather than automatically treating every native grape as unusual.
 
 ### Acceptance criteria
 
-- [ ] Moscato d'Asti → dry Cava/Prosecco is explained as a contrast where appropriate, not an interchangeable sweetness/production match.
-- [ ] Pinot Noir blanc de noirs → Pinot Noir sparkling rosé acknowledges colour/production differences.
-- [ ] Similarity reasons mention useful shared characteristics rather than only incidental zero scores.
-- [ ] Sparse families remain honest about the number and strength of available recommendations.
+- [x] Moscato d'Asti → dry Cava/Prosecco is explained as a contrast where appropriate, not an interchangeable sweetness/production match.
+- [x] Pinot Noir blanc de noirs → Pinot Noir sparkling rosé acknowledges colour/production differences.
+- [x] Similarity reasons mention useful shared characteristics rather than only incidental zero scores.
+- [x] Sparse families remain honest about the number and strength of available recommendations.
 
 ## R5 — Familiar Names, Better Coverage
 

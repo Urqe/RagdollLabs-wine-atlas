@@ -44,4 +44,6 @@ rejected(lambda d: d['regions.json']['tokaj']['grapes']['furmint']['related'][0]
 rejected(lambda d: d['regions.json']['tokaj']['grapes']['furmint'].update(ageingBasis='unclear'), 'Unknown ageing basis accepted')
 rejected(lambda d: d['sources.json']['tokaj-dry-example'].update(reviewedOn='not-a-date'), 'Invalid review date accepted')
 rejected(lambda d: d['taste-basics.json']['sections'][5]['sources'].append('missing-guide-source'), 'Broken section evidence accepted')
+rejected(lambda d: d['regions.json']['moscato-dasti']['grapes']['muscat-blanc']['style'].update(productionClass='traditional-bottle', effervescence='gentle'), 'Inconsistent production/bubble metadata accepted')
+rejected(lambda d: d['regions.json']['cava']['grapes']['macabeo']['style'].update(productionClass='botrytised'), 'Wrong-family production class accepted')
 print('OK: duplicate scores advisory; invalid metrics, metadata, evidence and links still block validation')

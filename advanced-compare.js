@@ -168,9 +168,10 @@ function advancedShortName(profile) {
 function advancedProductionContext(selections) {
   const rows = selections.filter(item => advancedStyle(item).method || advancedStyle(item).effect);
   if (!rows.length) return "";
-  return `<section class="advanced-production"><h3>Production context</h3><p class="small">These notes explain relevant production differences without claiming that one technique alone causes every sensory difference above.</p>${rows.map(item => {
+  return `<section class="advanced-production"><h3>Production context</h3><p class="small">Broad comparison compatibility does not make wines substitutes. Check the selected sweetness, colour, bubble style and production context alongside the editorial scores.</p>${rows.map(item => {
     const style = advancedStyle(item);
-    return `<div class="advanced-production-row"><strong>${WineAtlas.escapeHtml(advancedShortName(item))}</strong><span>${WineAtlas.escapeHtml(style.method || style.label)}</span>${style.composition ? `<p>${WineAtlas.escapeHtml(style.composition)}</p>` : ""}${style.effect ? `<p>${WineAtlas.escapeHtml(style.effect)}</p>` : ""}</div>`;
+    const changes = item === selections[0] ? [] : WineModel.styleDifferences(selections[0], item);
+    return `<div class="advanced-production-row"><strong>${WineAtlas.escapeHtml(advancedShortName(item))}</strong><span>${WineAtlas.escapeHtml(style.method || style.label)}</span>${style.composition ? `<p>${WineAtlas.escapeHtml(style.composition)}</p>` : ""}${style.effect ? `<p>${WineAtlas.escapeHtml(style.effect)}</p>` : ""}${changes.length ? `<p><strong>Compared with slot 1:</strong> ${WineAtlas.escapeHtml(changes.join("; "))}.</p>` : ""}</div>`;
   }).join("")}</section>`;
 }
 
@@ -225,7 +226,7 @@ function advancedRender() {
   if (rows.length) {
     differences.innerHTML = `<section class="differences" aria-labelledby="advancedDiffHeading"><h3 id="advancedDiffHeading">Biggest differences</h3>${rows.slice(0, 4).map(row => `<div class="diff-row"><span class="diff-metric">${WineAtlas.escapeHtml(row.metric.label)}</span><span class="diff-text">${WineAtlas.escapeHtml(advancedShortName(row.high.item))} is ${WineAtlas.escapeHtml(row.metric.high)}, while ${WineAtlas.escapeHtml(advancedShortName(row.low.item))} is ${WineAtlas.escapeHtml(row.metric.low)}.</span></div>`).join("")}</section>${advancedProductionContext(selections)}`;
   } else if (selections.length >= 2) {
-    differences.innerHTML = `<p class="small">These selections are unusually close on the atlas metrics.</p>${advancedProductionContext(selections)}`;
+    differences.innerHTML = `<p class="small">No metric difference reaches the 0.5-point display threshold. Check sweetness, colour and production context before treating these as similar styles.</p>${advancedProductionContext(selections)}`;
   } else {
     differences.replaceChildren();
   }

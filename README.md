@@ -59,6 +59,10 @@ Identical rounded scores are allowed and reported by the advisory content audit;
 
 Every profile declares its selected style, production scope, composition status and ageing time basis. Sources distinguish reviewed claim groups from legacy background leads and explicitly track evidence gaps. R3 preserves all existing wine scores and profile URLs.
 
+## Discovery routes
+
+“Where to go next” distinguishes close modeled styles from explicitly labeled contrasts. Close matches must agree on colour, selected sweetness, production class and qualitative bubble style and pass a conservative structural-distance threshold. The atlas may show fewer than three routes; indigenous grapes receive no automatic adventurous bonus. Compare remains broad enough for learning from contrasts. See [Honest Discovery](docs/discovery-methodology.md) for the policy and regression coverage.
+
 ## Tech
 
 The runtime is HTML, CSS and vanilla JavaScript only. No backend, framework, analytics or external API is required at runtime. Wine knowledge lives in structured JSON. CI installs **jsdom** as a development-only dependency for DOM regression tests.

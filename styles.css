@@ -136,6 +136,7 @@ h3 { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: va
 .mood-hint { font-size: 10px; color: var(--muted); }
 
 /* Similar-wine cards are buttons so the recommendation itself is navigable. */
+.discovery-coverage { grid-column: 1 / -1; margin: 0 0 4px; }
 .similar-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; }
 .similar-item { text-align: left; border: 1px solid #302128; background: #120d10; color: var(--text); border-radius: 12px; padding: 12px; cursor: pointer; }
 .similar-item:hover { border-color: var(--gold); }
