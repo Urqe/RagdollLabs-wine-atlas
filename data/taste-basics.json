@@ -6,14 +6,22 @@
       "id": "scores",
       "heading": "Reading the scores",
       "body": [
-        "Every profile scores eight traits from 0 to 5. Alcohol and sweetness use fixed real-world anchors so they mean the same thing everywhere in the atlas.",
-        "Alcohol: 0 is under about 6% ABV, 1 about 8.5%, 2 about 10.5%, 3 about 12.5%, 4 about 13.75% and 5 is 15% or more (including fortified wines).",
-        "Sweetness: 0 bone dry, 1 dry (including Brut sparkling), 2 off-dry, 3 medium-sweet, 4 sweet, 5 lusciously sweet.",
+        "The eight 0–5 scores are approximate editorial judgments for the named modeled expression, not laboratory measurements or quality ratings. Rounded profiles can legitimately share the same scores.",
+        "Alcohol uses approximate ABV anchors: 0 under about 6%, 1 about 8.5%, 2 about 10.5%, 3 about 12.5%, 4 about 13.75%, and 5 at 15% or more. A score is not a bottle’s measured ABV.",
+        "Sweetness uses broad sensory anchors: 0 bone dry, 1 dry (including Brut sparkling), 2 off-dry, 3 medium-sweet, 4 sweet, 5 lusciously sweet. Acidity and style affect perception; these are not residual-sugar measurements.",
         "Body, acidity, tannin, fruit, oak and earth are relative scores across the wines in the atlas. They describe a typical example; producers and vintages vary."
       ],
       "examples": [
-        { "region": "mosel", "grape": "riesling", "label": "Light and low in alcohol: Mosel Riesling" },
-        { "region": "barossa", "grape": "syrah", "label": "Full and high in alcohol: Barossa Shiraz" }
+        {
+          "region": "mosel",
+          "grape": "riesling",
+          "label": "Light and low in alcohol: Mosel Riesling"
+        },
+        {
+          "region": "barossa",
+          "grape": "syrah",
+          "label": "Full and high in alcohol: Barossa Shiraz"
+        }
       ]
     },
     {
@@ -24,10 +32,26 @@
         "Cooler places keep more acidity and give lighter, more tart-fruited wines with less alcohol. The same grape can taste very different on either side of that line."
       ],
       "examples": [
-        { "region": "burgundy", "grape": "pinot-noir", "label": "Cool: Burgundy Pinot Noir" },
-        { "region": "central-otago", "grape": "pinot-noir", "label": "Sunnier: Central Otago Pinot Noir" },
-        { "region": "bordeaux", "grape": "cabernet-sauvignon", "label": "Moderate: Bordeaux Cabernet" },
-        { "region": "napa", "grape": "cabernet-sauvignon", "label": "Warm: Napa Cabernet" }
+        {
+          "region": "burgundy",
+          "grape": "pinot-noir",
+          "label": "Cool: Burgundy Pinot Noir"
+        },
+        {
+          "region": "central-otago",
+          "grape": "pinot-noir",
+          "label": "Sunnier: Central Otago Pinot Noir"
+        },
+        {
+          "region": "bordeaux",
+          "grape": "cabernet-sauvignon",
+          "label": "Moderate: Bordeaux Cabernet"
+        },
+        {
+          "region": "napa",
+          "grape": "cabernet-sauvignon",
+          "label": "Warm: Napa Cabernet"
+        }
       ]
     },
     {
@@ -37,8 +61,16 @@
         "Many high-altitude and desert regions have a large difference between day and night temperatures. Warm days build sugar and flavour; cold nights slow the loss of acidity. The result is ripe fruit that still tastes fresh."
       ],
       "examples": [
-        { "region": "mendoza", "grape": "malbec", "label": "Mendoza Malbec" },
-        { "region": "cahors", "grape": "malbec", "label": "Compare: Cahors Malbec" }
+        {
+          "region": "mendoza",
+          "grape": "malbec",
+          "label": "Mendoza Malbec"
+        },
+        {
+          "region": "cahors",
+          "grape": "malbec",
+          "label": "Compare: Cahors Malbec"
+        }
       ]
     },
     {
@@ -49,9 +81,21 @@
         "Aromatic grapes such as Gewürztraminer, Muscat, Riesling and Sauvignon Blanc carry high levels of aroma compounds, so they smell strongly of flowers, lychee, citrus or grass even without oak or age. Some grapes, such as Furmint and Assyrtiko, keep high acidity even in warm places."
       ],
       "examples": [
-        { "region": "madiran", "grape": "tannat", "label": "Thick-skinned: Madiran Tannat" },
-        { "region": "barolo", "grape": "nebbiolo", "label": "Pale but tannic: Barolo" },
-        { "region": "alsace", "grape": "gewurztraminer", "label": "Aromatic: Alsace Gewürztraminer" }
+        {
+          "region": "madiran",
+          "grape": "tannat",
+          "label": "Thick-skinned: Madiran Tannat"
+        },
+        {
+          "region": "barolo",
+          "grape": "nebbiolo",
+          "label": "Pale but tannic: Barolo"
+        },
+        {
+          "region": "alsace",
+          "grape": "gewurztraminer",
+          "label": "Aromatic: Alsace Gewürztraminer"
+        }
       ]
     },
     {
@@ -62,9 +106,21 @@
         "Port is sweet for a different reason: grape spirit is added during fermentation, which stops the yeast and raises alcohol to around 20% while leaving natural sugar behind. Noble rot (botrytis) concentrates sugar in the grapes themselves, as in Sauternes and Tokaji Aszú."
       ],
       "examples": [
-        { "region": "moscato-dasti", "grape": "muscat-blanc", "label": "Stopped early: Moscato d'Asti" },
-        { "region": "douro-port-ruby", "grape": "port-blend", "label": "Fortified: Ruby Port" },
-        { "region": "sauternes", "grape": "semillon", "label": "Noble rot: Sauternes" }
+        {
+          "region": "moscato-dasti",
+          "grape": "muscat-blanc",
+          "label": "Stopped early: Moscato d'Asti"
+        },
+        {
+          "region": "douro-port-ruby",
+          "grape": "port-blend",
+          "label": "Fortified: Ruby Port"
+        },
+        {
+          "region": "sauternes",
+          "grape": "semillon",
+          "label": "Noble rot: Sauternes"
+        }
       ]
     },
     {
@@ -72,12 +128,28 @@
       "heading": "Skins: red, rosé, white and orange",
       "body": [
         "Almost all grape juice is clear. Colour and tannin come from the skins, so what matters is how long the juice stays in contact with them.",
-        "Red wine ferments with the skins. Rosé gets only a few hours of contact. White wine is pressed straight away, which is why red grapes can make white sparkling wine (blanc de noirs). Orange or amber wine is white grapes fermented on their skins, which adds colour, tannin and tea-like flavours."
+        "Red wine ferments with the skins. Rosé can use direct pressing or short skin maceration. White vinification separates the juice from skins before fermentation; gentle pressing also lets red grapes make white sparkling wine (blanc de noirs). Orange or amber wine ferments white grapes with their skins, adding color, tannin and tea-like notes."
       ],
       "examples": [
-        { "region": "cotes-de-provence-rose", "grape": "provence-rose-blend", "label": "Brief contact: Provence rosé" },
-        { "region": "cremant-bourgogne", "grape": "pinot-noir", "label": "White from red grapes: blanc de noirs" },
-        { "region": "kakheti-qvevri-amber", "grape": "rkatsiteli", "label": "Long contact: Georgian amber wine" }
+        {
+          "region": "cotes-de-provence-rose",
+          "grape": "provence-rose-blend",
+          "label": "Direct pressing or short maceration: Provence rosé"
+        },
+        {
+          "region": "cremant-bourgogne",
+          "grape": "pinot-noir",
+          "label": "White from red grapes: blanc de noirs"
+        },
+        {
+          "region": "kakheti-qvevri-amber",
+          "grape": "rkatsiteli",
+          "label": "Long contact: Georgian amber wine"
+        }
+      ],
+      "sources": [
+        "provence-rose-methods",
+        "georgia-rkatsiteli"
       ]
     },
     {
@@ -88,9 +160,21 @@
         "Older or larger barrels add little flavour, and stainless steel adds none, so they keep the focus on fruit. Clay vessels such as qvevri and amphorae give oxygen exchange without oak flavour."
       ],
       "examples": [
-        { "region": "rioja", "grape": "tempranillo", "label": "American oak: Rioja" },
-        { "region": "napa", "grape": "cabernet-sauvignon", "label": "New French oak: Napa Cabernet" },
-        { "region": "santorini", "grape": "assyrtiko", "label": "Mostly steel: Santorini Assyrtiko" }
+        {
+          "region": "rioja",
+          "grape": "tempranillo",
+          "label": "American oak: Rioja"
+        },
+        {
+          "region": "napa",
+          "grape": "cabernet-sauvignon",
+          "label": "New French oak: Napa Cabernet"
+        },
+        {
+          "region": "santorini",
+          "grape": "assyrtiko",
+          "label": "Mostly steel: Santorini Assyrtiko"
+        }
       ]
     },
     {
@@ -101,21 +185,51 @@
         "Lees are the spent yeast cells left after fermentation. Leaving wine on them adds texture and bread or biscuit aromas, which is central to Champagne."
       ],
       "examples": [
-        { "region": "sonoma-coast", "grape": "chardonnay", "label": "Rounder Chardonnay: Sonoma Coast" },
-        { "region": "burgundy", "grape": "chardonnay", "label": "Tenser Chardonnay: Burgundy" },
-        { "region": "champagne-brut-nv", "grape": "champagne-blend", "label": "Lees ageing: Champagne" }
+        {
+          "region": "sonoma-coast",
+          "grape": "chardonnay",
+          "label": "Rounder Chardonnay: Sonoma Coast"
+        },
+        {
+          "region": "burgundy",
+          "grape": "chardonnay",
+          "label": "Tenser Chardonnay: Burgundy"
+        },
+        {
+          "region": "champagne-brut-nv",
+          "grape": "champagne-blend",
+          "label": "Lees ageing: Champagne"
+        }
       ]
     },
     {
       "id": "bubbles",
       "heading": "Where bubbles come from",
       "body": [
-        "Sparkling wine gets its bubbles from a second fermentation in a closed container, which traps the carbon dioxide. In the traditional method (Champagne, Cava, Crémant) this happens in each bottle, and long contact with the lees adds toasty, bready notes.",
-        "In the tank method (Prosecco) it happens in a large pressurised tank, which keeps the wine fresher and more fruit-led."
+        "Many sparkling wines trap carbon dioxide from a second fermentation. Champagne, Cava and Crémant use the traditional method, with that fermentation in bottle; lees contact can add bread-like aromas.",
+        "Prosecco commonly uses a second fermentation in a pressure tank. Moscato d’Asti instead uses one interrupted fermentation: stopping it early leaves sweetness and gentle bubbles at low alcohol. Second fermentation is not universal."
       ],
       "examples": [
-        { "region": "champagne-brut-nv", "grape": "champagne-blend", "label": "Bottle method: Champagne Brut NV" },
-        { "region": "prosecco-doc", "grape": "glera", "label": "Tank method: Prosecco" }
+        {
+          "region": "champagne-brut-nv",
+          "grape": "champagne-blend",
+          "label": "Bottle method: Champagne Brut NV"
+        },
+        {
+          "region": "prosecco-doc",
+          "grape": "glera",
+          "label": "Tank method: Prosecco"
+        },
+        {
+          "region": "moscato-dasti",
+          "grape": "muscat-blanc",
+          "label": "Single interrupted fermentation: Moscato d’Asti"
+        }
+      ],
+      "sources": [
+        "cava-production",
+        "asti-fermentation",
+        "moscato-producer"
       ]
     },
     {
@@ -123,12 +237,31 @@
       "heading": "Ageing: from fruit to savoury",
       "body": [
         "Young wines taste of fresh fruit and flowers (primary aromas) and of winemaking such as oak or lees (secondary). With years in bottle, fruit fades and dried-fruit, leather, forest-floor, nutty or honeyed notes appear (tertiary aromas). Tannins soften as they slowly bind together and drop out as sediment.",
-        "Only some wines improve this way; most are best young. Profiles with a maturity section show how a specific wine typically develops."
+        "Only some wines improve this way; most are best young. Profiles with a maturity section show how a specific wine typically develops.",
+        "Drinking windows are approximate, with the time basis shown in the profile. Long ageing requires suitable storage; producer, vintage, closure and bottle history matter. Decanting a tight young wine for air is different from gently separating sediment in a fragile mature bottle."
       ],
       "examples": [
-        { "region": "barolo", "grape": "nebbiolo", "label": "Long-lived red: Barolo" },
-        { "region": "douro-port-tawny", "grape": "port-blend", "label": "Aged in cask: Tawny Port" },
-        { "region": "mosel", "grape": "riesling", "label": "Long-lived white: Mosel Riesling" }
+        {
+          "region": "barolo",
+          "grape": "nebbiolo",
+          "label": "Long-lived red: Barolo"
+        },
+        {
+          "region": "douro-port-tawny",
+          "grape": "port-blend",
+          "label": "Aged in cask: Tawny Port"
+        },
+        {
+          "region": "mosel",
+          "grape": "riesling",
+          "label": "Long-lived white: Mosel Riesling"
+        }
+      ],
+      "sources": [
+        "burgundy-drinking",
+        "bordeaux-drinking",
+        "bordeaux-serving",
+        "wine-storage"
       ]
     },
     {
@@ -139,10 +272,30 @@
         "Words such as chalk, flint, slate or saline are tasting descriptors for a sensation, often linked to high acidity and restrained fruit. The atlas uses them that way."
       ],
       "examples": [
-        { "region": "sancerre", "grape": "sauvignon-blanc", "label": "Flinty: Sancerre" },
-        { "region": "santorini", "grape": "assyrtiko", "label": "Saline: Santorini Assyrtiko" }
+        {
+          "region": "sancerre",
+          "grape": "sauvignon-blanc",
+          "label": "Flinty: Sancerre"
+        },
+        {
+          "region": "santorini",
+          "grape": "assyrtiko",
+          "label": "Saline: Santorini Assyrtiko"
+        }
       ]
     }
   ],
-  "sources": ["oxford-companion", "world-atlas-of-wine", "wine-folly"]
+  "sources": [
+    "oxford-companion",
+    "world-atlas-of-wine",
+    "wine-folly",
+    "cava-production",
+    "asti-fermentation",
+    "moscato-producer",
+    "provence-rose-methods",
+    "georgia-rkatsiteli",
+    "burgundy-drinking",
+    "bordeaux-drinking",
+    "wine-storage"
+  ]
 }

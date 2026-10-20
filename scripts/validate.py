@@ -11,6 +11,8 @@ Keeping this dependency-free lets reviewers run it locally and keeps CI lightwei
 from __future__ import annotations
 
 import json
+import math
+from datetime import date
 import re
 import unicodedata
 from urllib.parse import urlsplit
@@ -23,7 +25,7 @@ REQUIRED_PROFILE_FIELDS = {"notes", "serve", "decant", "glass", "ageing", "pairi
 METRICS = {"body", "acidity", "tannin", "sweetness", "alcohol", "fruit", "oak", "earth"}
 WINEMAKING_PREVALENCE = {"very common", "common", "sometimes", "rare"}
 MATURITY_STAGES = ["Young", "Developing", "Mature"]
-STYLE_FAMILIES = {"sparkling", "sweet", "fortified", "rose", "orange"}
+STYLE_FAMILIES = {"still", "sparkling", "sweet", "fortified", "rose", "orange"}
 PLACEHOLDER_NOTES = {"spice", "flowers", "herbs", "fruit", "earth"}
 STYLE_SWEETNESS = {"dry", "dry-to-off-dry", "off-dry", "sweet"}
 
@@ -54,6 +56,14 @@ def main() -> None:
     sources = load(DATA / "sources.json")
     for source_id, source in sources.items():
         assert source.get("name") and valid_reference_url(source.get("url")), f"invalid HTTPS reference: {source_id}"
+        assert source.get("reviewStatus") in {"reviewed", "background-only"}, f"{source_id}: invalid review status"
+        if source["reviewStatus"] == "reviewed":
+            for field in ("publisher", "locator", "accessedOn", "reviewedOn"):
+                assert isinstance(source.get(field), str) and source[field].strip(), f"{source_id}: missing {field}"
+            for field in ("accessedOn", "reviewedOn"):
+                date.fromisoformat(source[field])
+        else:
+            assert source.get("reviewNote"), f"{source_id}: background reference needs a limitation note"
     locators = load(DATA / "locators.json")
     food_aliases = load(DATA / "food-aliases.json")
     food_dishes = load(DATA / "food-dishes.json")
@@ -78,7 +88,7 @@ def main() -> None:
             assert grape["kind"] in {"grape", "blend"}, f"{grape_id}: invalid kind"
         for metric in METRICS:
             value = grape.get(metric)
-            assert isinstance(value, (int, float)) and 0 <= value <= 5, f"{grape_id}: invalid {metric}"
+            assert type(value) in (int, float) and math.isfinite(value) and 0 <= value <= 5, f"{grape_id}: invalid {metric}"
 
     def search_key(value):
         value = "".join(c for c in unicodedata.normalize("NFD", value.lower()) if not unicodedata.combining(c))
@@ -121,6 +131,16 @@ def main() -> None:
             assert normalized not in search_aliases and normalized not in canonical_names, f"{grape_id}: conflicting alias {alias}"
             search_aliases.add(normalized)
 
+    def validate_evidence(groups, prefix):
+        assert isinstance(groups, list), f"{prefix}: evidence must be a list"
+        for group in groups:
+            assert isinstance(group, dict) and isinstance(group.get("claim"), str) and group["claim"].strip(), f"{prefix}: missing claim group"
+            refs = group.get("sources")
+            assert isinstance(refs, list) and refs, f"{prefix}: missing evidence references"
+            for sid in refs:
+                assert sid in sources, f"{prefix}: unknown evidence source {sid}"
+                assert sources[sid]["reviewStatus"] == "reviewed", f"{prefix}: claim evidence must use a reviewed reference: {sid}"
+
     special_style_count = 0
     pairing_values: set[str] = set()
     for region_id, region in regions.items():
@@ -133,6 +153,7 @@ def main() -> None:
             if keyword in searchable_name:
                 assert region["country"] == expected_country, f"{region_id}: {keyword} must be labeled {expected_country}"
 
+        validate_evidence(region.get("evidence", []), region_id)
         for source_id in region.get("sources", []):
             assert source_id in sources, f"{region_id}: unknown source {source_id}"
         for grape_id, profile in region["grapes"].items():
@@ -148,33 +169,43 @@ def main() -> None:
                 pairing_values.add(pairing.casefold().strip())
             for metric, modifier in profile.get("mods", {}).items():
                 assert metric in METRICS, f"{prefix}: unknown modifier {metric}"
-                assert isinstance(modifier, (int, float)), f"{prefix}: non-numeric modifier {metric}"
+                assert type(modifier) in (int, float) and math.isfinite(modifier), f"{prefix}: non-numeric modifier {metric}"
+            assert profile.get("ageingBasis") in {"vintage", "release", "bottling", "producer"}, f"{prefix}: invalid ageing time basis"
+            validate_evidence(profile.get("evidence", []), prefix)
+            gaps = profile.get("evidenceGaps")
+            assert isinstance(gaps, list) and all(isinstance(gap, str) and gap.strip() for gap in gaps), f"{prefix}: invalid evidence gaps"
+            assert gaps or profile.get("evidence"), f"{prefix}: evidence or an explicit review gap is required"
+            for related in profile.get("related", []):
+                assert related.get("grape") in regions.get(related.get("region"), {}).get("grapes", {}), f"{prefix}: unknown related expression"
+                assert isinstance(related.get("label"), str) and related["label"].strip(), f"{prefix}: missing related label"
+            assert "style" in profile, f"{prefix}: explicit modeled expression required"
             if "style" in profile:
-                special_style_count += 1
                 style = profile["style"]
                 assert isinstance(style, dict), f"{prefix}: style must be an object"
+                special_style_count += style.get("family") != "still"
                 assert style.get("family") in STYLE_FAMILIES, f"{prefix}: invalid style family"
                 assert style.get("sweetness") in STYLE_SWEETNESS, f"{prefix}: invalid style sweetness"
                 assert style.get("color") in {"red", "white", "rose", "orange", "amber", "tawny", "white-gold"}, f"{prefix}: invalid style color"
-                for field in ("color", "label", "method", "effect"):
+                for field in ("color", "label", "method"):
                     assert isinstance(style.get(field), str) and style[field].strip(), f"{prefix}: invalid style {field}"
 
-    # Each profile must say something its siblings do not: identical scores for
-    # the same grape make Compare show "no differences", and placeholder notes
-    # that merely repeat the category name carry no tasting information.
-    by_grape: dict[tuple, list[str]] = {}
+                if "effect" in style:
+                    assert isinstance(style["effect"], str) and style["effect"].strip(), f"{prefix}: invalid style effect"
+                composition = style.get("composition")
+                assert isinstance(composition, dict) and composition.get("kind") in {"grape-reference", "varietal-reference", "representative-blend"}, f"{prefix}: invalid blend status"
+                assert isinstance(composition.get("text"), str) and composition["text"].strip(), f"{prefix}: missing composition label"
+                sweetness = max(0, min(5, grapes[grape_id]["sweetness"] + profile.get("mods", {}).get("sweetness", 0)))
+                assert style["sweetness"] != "dry" or sweetness <= 1, f"{prefix}: dry label contradicts sweetness score"
+                assert style["sweetness"] != "sweet" or sweetness >= 3, f"{prefix}: sweet label contradicts sweetness score"
+                assert style["sweetness"] != "off-dry" or 1 < sweetness < 3, f"{prefix}: off-dry label contradicts sweetness score"
+
+    # Placeholder notes are a structural error; identical rounded scores are
+    # legitimate editorial outcomes and are reported only by content_audit.py.
     for region_id, region in regions.items():
         for grape_id, profile in region["grapes"].items():
-            base = grapes[grape_id]
-            scores = tuple(
-                max(0, min(5, base[m] + profile.get("mods", {}).get(m, 0))) for m in sorted(METRICS)
-            )
-            by_grape.setdefault((grape_id, scores), []).append(region_id)
             for category, notes in profile["notes"].items():
                 for note in notes:
                     assert note.casefold() not in PLACEHOLDER_NOTES, f"{region_id}/{grape_id}: placeholder note {note!r} in {category}"
-    duplicates = [f"{grape}: {', '.join(ids)}" for (grape, _), ids in by_grape.items() if len(ids) > 1]
-    assert not duplicates, f"identical scores for the same grape: {duplicates}"
 
     def food_key(value):
         return " ".join("".join(c for c in unicodedata.normalize("NFD", value) if not unicodedata.combining(c)).casefold().split())
@@ -293,6 +324,8 @@ def main() -> None:
         for example in section.get("examples", []):
             assert example.get("label"), f"{prefix}: example needs a label"
             assert example.get("grape") in regions.get(example.get("region"), {}).get("grapes", {}), f"{prefix}: unknown profile {example.get('region')}/{example.get('grape')}"
+        for sid in section.get("sources", []):
+            assert sid in sources, f"{prefix}: unknown guide source {sid}"
     for source_id in taste.get("sources", []):
         assert source_id in sources, f"taste basics: unknown source {source_id}"
 

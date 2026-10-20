@@ -13,11 +13,18 @@ window.WineModel = (() => {
   Object.freeze(metrics);
   const normalize = value => String(value || "").normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "").toLowerCase().trim().replace(/\s+/g, " ");
+  const colorLabels = Object.freeze({ red: "Red", white: "White", rose: "Rosé", orange: "Orange / amber", amber: "Amber", tawny: "Tawny", "white-gold": "White / gold" });
+  const colorLabel = value => colorLabels[value] || value;
+  const ageingAdvice = item => {
+    const basis = { vintage: "vintage year", release: "release", bottling: "bottling", producer: "producer-specific cask/bottle guidance" }[item.regional.ageingBasis];
+    return `${item.regional.ageing}${basis ? ` Time basis: ${basis}.` : ""}`;
+  };
+  const expressionSummary = item => [item.regional.style?.label, item.regional.style?.composition?.text].filter(Boolean).join(" · ");
   const color = item => item.regional?.style?.color || item.grape.color;
   const compatibilityKey = item => {
     const family = item.regional?.style?.family || "still";
     return family === "still" ? `still:${item.grape.color}` : family;
   };
   const compatible = (a, b) => Boolean(a && b && compatibilityKey(a) === compatibilityKey(b));
-  return Object.freeze({ metrics, normalize, color, compatibilityKey, compatible });
+  return Object.freeze({ metrics, normalize, color, colorLabel, ageingAdvice, expressionSummary, compatibilityKey, compatible });
 })();

@@ -35,12 +35,9 @@ open("saperavi", "krasnodar");
 await settle();
 assert.ok(!document.getElementById("identity").textContent.includes("Indigenous grape"));
 
-// Same-grape profiles never share identical scores, so Compare always has something to show.
-const seen = new Map();
+// Similar rounded scores are permitted; profile identity is not a numeric uniqueness constraint.
 for (const item of atlas.allPairs()) {
-  const key = `${item.grapeId}|${["body", "acidity", "tannin", "sweetness", "alcohol", "fruit", "oak", "earth"].map(m => item.profile[m]).join(",")}`;
-  assert.ok(!seen.has(key), `${item.regionId} duplicates ${seen.get(key)} for ${item.grapeId}`);
-  seen.set(key, item.regionId);
+  assert.ok(item.regional.style?.label && item.regional.style?.composition?.text);
 }
 
 // Alcohol follows the documented ABV anchors.

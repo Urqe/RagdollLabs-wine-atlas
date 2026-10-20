@@ -12,6 +12,7 @@ from __future__ import annotations
 import json
 from collections import Counter, defaultdict
 from pathlib import Path
+from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -25,6 +26,10 @@ def load(path: Path):
 
 def main() -> None:
     regions = load(REGION_FILE)
+    grapes = load(DATA / "grapes.json")
+    sources = load(DATA / "sources.json")
+    by_grape = defaultdict(list)
+    metrics = sorted({"body", "acidity", "tannin", "sweetness", "alcohol", "fruit", "oak", "earth"})
 
     maturity = load(DATA / "maturity.json")
     winemaking = load(DATA / "winemaking.json")
@@ -36,6 +41,8 @@ def main() -> None:
     for region_id, region in regions.items():
         for grape_id, profile in region.get("grapes", {}).items():
             profile_count += 1
+            scores = tuple(max(0, min(5, grapes[grape_id][metric] + profile.get("mods", {}).get(metric, 0))) for metric in metrics)
+            by_grape[(grape_id, scores)].append(region_id)
             key = f"{region_id}/{grape_id}"
             expect = " ".join(profile.get("expect", "").split())
             if expect:
@@ -53,6 +60,14 @@ def main() -> None:
     for profiles in expect_to_profiles.values():
         if len(profiles) > 1:
             warnings.append(f"repeated expect copy: {', '.join(profiles)}")
+
+    for (grape_id, _), region_ids in by_grape.items():
+        if len(region_ids) > 1:
+            warnings.append(f"identical rounded scores (allowed; review context, do not invent differences): {grape_id}: {', '.join(region_ids)}")
+    background = [sid for sid, source in sources.items() if source.get("reviewStatus") != "reviewed"]
+    roots = [sid for sid in background if urlsplit(sources[sid]["url"]).path.rstrip("/") in {"", "/en", "/En"}]
+    print(f"Evidence audit: {len(sources) - len(background)} reviewed references; {len(background)} background references pending claim-level review ({len(roots)} root/locale-root URLs)")
+    print(f"Profiles with explicitly tracked evidence gaps: {sum(bool(p.get('evidenceGaps')) for r in regions.values() for p in r['grapes'].values())}")
 
     maturity_count = sum(len(entries) for entries in maturity.values())
     winemaking_count = sum(len(entries) for entries in winemaking.values())

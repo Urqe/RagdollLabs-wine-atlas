@@ -1,6 +1,6 @@
 # Wine Atlas release plan
 
-Status: R1 and R2 implemented on 2026-10-20; R3–R7 remain planned.
+Status: R1–R3 implemented on 2026-10-20; R4–R7 remain planned.
 Created: 2026-10-19.  
 Review baseline: main at `d819d99505b188f2319c37f0f4aa01153278438b` (120 profiles, 92 region entries, 47 grape/blend baselines).  
 Release IDs below are planning identifiers, not published semantic versions.
@@ -104,30 +104,34 @@ Implementation notes: see [Navigation and history](docs/navigation.md). Automate
 
 **Likely files:** `data/regions.json`, `data/grapes.json`, `data/sources.json`, `data/taste-basics.json`, `data/maturity.json`, `scripts/validate.py`, `scripts/content_audit.py`, source rendering and documentation.
 
+Implementation notes: see [Modeled expressions and evidence](docs/profile-methodology.md) and the [prioritized evidence audit](docs/evidence-audit.md). R3 names all 120 modeled expressions while preserving existing scores and IDs. It addresses the priority factual conflicts with 16 reviewed targeted references; 59 legacy records remain background leads pending claim-level metadata review, with gaps explicitly recorded for every profile. Missing book editions/pages remain flagged rather than invented.
+
+Validation: full automated regression/data checks, including expression and evidence-contract fixtures. Deployed desktop Chrome smoke checks cover expression labels, linked styles, sources and comparison context. iPhone/iPad Safari and physical touch-device checks remain unverified.
+
 ### Scope
 
-- [ ] Give each profile an explicit modeled expression. Initial corrections: Vouvray's selected sweetness/style, dry Tokaj Furmint and white-vinified Kakheti Rkatsiteli.
-- [ ] Align scores, expectation copy, production metadata, serving advice and comparison context. Link to separately represented amber/sweet expressions where useful.
-- [ ] Identify representative blends clearly: review Cabernet-led and Merlot-led Bordeaux, Grenache-led Southern Rhône and the represented Cava expression. Distinguish a grape-led reference from a guaranteed monovarietal bottle.
-- [ ] Review ageing ranges, starting with Bordeaux and Burgundy. Distinguish ordinary regional examples from selected ageworthy wines, and specify whether time is from vintage, bottling or release as appropriate.
-- [ ] Make storage and producer/vintage dependence clear where they change the advice. Review decanting guidance for young versus fragile mature examples.
-- [ ] Replace the blocking “identical scores for the same grape” rule with an advisory editorial check. Retain blocking checks for invalid metrics, broken references and other genuine data-contract failures.
-- [ ] Document editorial scores as approximate typical-style judgments. Do not introduce unsupported numeric differences solely to make Compare look more informative.
-- [ ] Correct the beginner explainer: common second-fermentation methods are not universal; Moscato d'Asti uses an interrupted single fermentation. Include direct pressing alongside short skin contact for rosé.
-- [ ] Improve source records with specific pages/technical sheets, publisher or authority, access/review dates, and book edition/chapter/page details where available.
-- [ ] Associate evidence with modeled expressions or claim groups, particularly production, ageing and factual regional claims. Separate editorial score judgments from factual citations.
-- [ ] Audit existing references in risk order. The review found 38 of 56 URLs pointed to website roots; this is an auditability concern, not proof that their claims are false.
-- [ ] Provide understandable methodology/source presentation without making the main profile hard to read.
+- [x] Give each profile an explicit modeled expression. Initial corrections: Vouvray's selected sweetness/style, dry Tokaj Furmint and white-vinified Kakheti Rkatsiteli.
+- [x] Align scores, expectation copy, production metadata, serving advice and comparison context. Link to separately represented amber/sweet expressions where useful.
+- [x] Identify representative blends clearly: review Cabernet-led and Merlot-led Bordeaux, Grenache-led Southern Rhône and the represented Cava expression. Distinguish a grape-led reference from a guaranteed monovarietal bottle.
+- [x] Review ageing ranges, starting with Bordeaux and Burgundy. Distinguish ordinary regional examples from selected ageworthy wines, and specify whether time is from vintage, bottling or release as appropriate.
+- [x] Make storage and producer/vintage dependence clear where they change the advice. Review decanting guidance for young versus fragile mature examples.
+- [x] Replace the blocking “identical scores for the same grape” rule with an advisory editorial check. Retain blocking checks for invalid metrics, broken references and other genuine data-contract failures.
+- [x] Document editorial scores as approximate typical-style judgments. Do not introduce unsupported numeric differences solely to make Compare look more informative.
+- [x] Correct the beginner explainer: common second-fermentation methods are not universal; Moscato d'Asti uses an interrupted single fermentation. Include direct pressing alongside short skin contact for rosé.
+- [x] Improve source records with specific pages/technical sheets, publisher or authority, access/review dates, and book edition/chapter/page details where available.
+- [x] Associate evidence with modeled expressions or claim groups, particularly production, ageing and factual regional claims. Separate editorial score judgments from factual citations.
+- [x] Audit existing references in risk order. The review found 38 of 56 URLs pointed to website roots; this is an auditability concern, not proof that their claims are false.
+- [x] Provide understandable methodology/source presentation without making the main profile hard to read.
 
 ### Acceptance criteria
 
-- [ ] A reader can identify the modeled sweetness, colour, production style and blend status without reconciling contradictory sections.
-- [ ] Kakheti's white reference no longer describes its low-tannin score as representing amber skin-contact wine.
-- [ ] Broad Bordeaux/Burgundy profiles do not imply all bottles warrant premium-wine cellaring windows.
-- [ ] Identical rounded scores are allowed when evidence and other content justify the profiles.
-- [ ] The beginner guide agrees with the app's Moscato and rosé production entries.
-- [ ] High-risk factual claims have usable supporting references; remaining evidence gaps are tracked explicitly.
-- [ ] Revised labels/data preserve existing links or provide a documented compatibility path.
+- [x] A reader can identify the modeled sweetness, colour, production style and blend status without reconciling contradictory sections.
+- [x] Kakheti's white reference no longer describes its low-tannin score as representing amber skin-contact wine.
+- [x] Broad Bordeaux/Burgundy profiles do not imply all bottles warrant premium-wine cellaring windows.
+- [x] Identical rounded scores are allowed when evidence and other content justify the profiles.
+- [x] The beginner guide agrees with the app's Moscato and rosé production entries.
+- [x] High-risk factual claims have usable supporting references; remaining evidence gaps are tracked explicitly.
+- [x] Revised labels/data preserve existing links or provide a documented compatibility path.
 
 ## R4 — Honest Discovery
 

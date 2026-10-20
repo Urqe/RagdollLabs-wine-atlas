@@ -1,7 +1,9 @@
 {
   "santorini": {
     "assyrtiko": {
-      "sources": ["wines-of-greece"],
+      "sources": [
+        "wines-of-greece"
+      ],
       "choices": [
         {
           "vessel": "Stainless steel",
@@ -16,28 +18,11 @@
       ]
     }
   },
-  "kakheti": {
-    "rkatsiteli": {
-      "sources": ["georgia-nwa"],
-      "choices": [
-        {
-          "vessel": "Qvevri",
-          "prevalence": "common",
-          "context": "Traditional Kakhetian style",
-          "effect": "Skin contact and ageing in qvevri can give amber color, more tannin and a broader, savory profile with dried orange peel, spice, tea and stone-fruit notes."
-        },
-        {
-          "vessel": "Stainless steel / neutral tank",
-          "prevalence": "common",
-          "context": "Modern European-style vinification",
-          "effect": "Produces a fresher, lighter expression that keeps citrus, quince, apple and floral notes more prominent and carries much less tannin."
-        }
-      ]
-    }
-  },
   "napa": {
     "cabernet-sauvignon": {
-      "sources": ["napa-vintners"],
+      "sources": [
+        "napa-vintners"
+      ],
       "choices": [
         {
           "vessel": "French oak",
@@ -49,7 +34,9 @@
   },
   "rioja": {
     "tempranillo": {
-      "sources": ["rioja"],
+      "sources": [
+        "rioja"
+      ],
       "choices": [
         {
           "vessel": "Oak barrel",
@@ -62,6 +49,22 @@
           "prevalence": "common",
           "context": "Especially relevant to younger, fruit-first Rioja styles",
           "effect": "Keeps red fruit, floral character and freshness more prominent, with less wood-derived vanilla, coconut and toast."
+        }
+      ]
+    }
+  },
+  "kakheti-qvevri-amber": {
+    "rkatsiteli": {
+      "sources": [
+        "georgia-rkatsiteli",
+        "georgia-kakheti"
+      ],
+      "choices": [
+        {
+          "vessel": "Qvevri",
+          "prevalence": "common",
+          "context": "Selected Kakhetian amber skin-contact expression",
+          "effect": "Fermentation with grape skins and other solids in qvevri gives this expression amber color, more tannin and savory dried-fruit and tea-like notes. The separate white-vinified profile does not model extended skin contact."
         }
       ]
     }

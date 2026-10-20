@@ -1,0 +1,62 @@
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import { createApp, ROOT } from './harness.mjs';
+const app = await createApp();
+const { window: w, document: d } = app;
+await app.settle();
+const open = async (grape, region) => { assert.ok(w.WineAtlas.selectProfile(grape, region)); await app.settle(); return w.WineAtlas.combinedProfile(grape, region); };
+let item = await open('chenin-blanc', 'vouvray');
+assert.equal(item.profile.sweetness, 2);
+assert.match(d.getElementById('profileExpression').textContent, /demi-sec \(off-dry\)/);
+assert.ok((await w.WineSearch.rank('off-dry vouvray')).length);
+assert.equal((await w.WineSearch.rank('dry vouvray')).length, 0);
+item = await open('furmint', 'tokaj');
+assert.equal(item.regional.style.sweetness, 'dry');
+assert.match(d.getElementById('expect').textContent, /Dry Tokaj/);
+assert.ok(d.querySelector('#specialStyle button').textContent.includes('Aszú'));
+d.querySelector('#specialStyle button').click();
+await app.settle();
+assert.equal(new URL(w.location.href).searchParams.get('region'), 'tokaj-aszu');
+assert.equal(d.activeElement.id, 'profileHeading');
+item = await open('rkatsiteli', 'kakheti');
+assert.equal(item.regional.style.color, 'white');
+assert.ok(item.profile.tannin <= 0.5);
+assert.ok(d.getElementById('winemaking').classList.contains('hidden'), 'unverified vessel choices must not be added to the white profile');
+assert.match(d.getElementById('expect').textContent, /does not model amber/);
+assert.match(d.getElementById('decant')?.textContent || d.getElementById('serve').textContent, /Usually none/);
+d.querySelector('#specialStyle button').click();
+await app.settle();
+assert.equal(new URL(w.location.href).searchParams.get('region'), 'kakheti-qvevri-amber');
+assert.match(d.getElementById('profileExpression').textContent, /Qvevri skin contact/);
+for (const [grape, region] of [['cabernet-sauvignon', 'bordeaux'], ['merlot', 'bordeaux'], ['grenache', 'southern-rhone'], ['macabeo', 'cava']]) {
+  item = await open(grape, region);
+  assert.equal(item.regional.style.composition.kind, 'representative-blend');
+  assert.match(d.getElementById('profileExpression').textContent, /blend/i);
+  assert.match(d.getElementById('sourcesDrawer').textContent, /Accessed 2026-10-20/);
+  assert.match(d.getElementById('sourcesDrawer').textContent, /Evidence still to review/);
+}
+item = await open('pinot-noir', 'burgundy');
+assert.match(d.getElementById('ageingSnapshot').textContent, /2–4 years from vintage/);
+assert.match(d.getElementById('maturitySummary').textContent, /Selected ageworthy/);
+assert.match(d.getElementById('sourcesDrawer').textContent, /not measurements or quality ratings/);
+assert.ok(d.querySelector('#sourcesDrawer a[href*="when-should-one-drink-a-wine"]'));
+// Compare and Explore use the same expression and ageing presentation.
+w.WineAtlas.setMode('compare');
+w.WineComparison.replace(['cabernet-sauvignon::bordeaux', 'merlot::bordeaux']);
+assert.match(d.getElementById('advancedCompareGrid').textContent, /Cabernet Sauvignon-led Bordeaux blend/);
+assert.match(d.getElementById('advancedCompareGrid').textContent, /Time basis: vintage year/);
+assert.match(d.getElementById('advancedCompareGrid').textContent, /everyday bottles drink well young/);
+for (const profile of w.WineAtlas.allPairs()) {
+  assert.ok(profile.regional.style.label && profile.regional.style.method);
+  assert.ok(profile.regional.style.composition.text);
+  assert.ok(profile.regional.ageingBasis);
+  assert.ok(profile.regional.evidenceGaps.length || profile.regional.evidence?.length);
+}
+const guide = JSON.parse(await readFile(`${ROOT}/data/taste-basics.json`, 'utf8'));
+const sections = Object.fromEntries(guide.sections.map(x => [x.id, x]));
+assert.match(sections.bubbles.body.join(' '), /one interrupted fermentation/);
+assert.match(sections.skins.body.join(' '), /direct pressing or short skin maceration/);
+assert.match(sections.scores.body.join(' '), /not laboratory measurements/);
+assert.ok(sections.bubbles.sources.includes('moscato-producer'));
+await app.close();
+console.log('OK: modeled expressions, blends, sources, ageing, guide and legacy-link regression tests');

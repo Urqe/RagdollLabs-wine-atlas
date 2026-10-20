@@ -13,14 +13,14 @@
   },
   "bordeaux": {
     "cabernet-sauvignon": {
-      "summary": "Cabernet-led Bordeaux commonly moves from cassis, cedar and firm structure toward tobacco, leather, dried fruit and more integrated tannin with age.",
+      "summary": "Selected ageworthy Cabernet-led Bordeaux blends may develop from fresh dark fruit toward savory complexity. This sequence does not imply that an everyday Bordeaux needs long cellaring.",
       "stages": [
         {"label": "Young", "effect": "Blackcurrant, plum, cedar and graphite dominate; tannin and acidity can feel strict."},
         {"label": "Developing", "effect": "Fruit becomes less primary as tobacco, cedar, dried herbs and leather build complexity and the structure starts to soften."},
         {"label": "Mature", "effect": "Dried black fruit, cigar box, earth, leather and savory notes can dominate, with tannin more resolved and texture more supple."}
       ],
-      "vintage": "Riper years can emphasize plush fruit and earlier accessibility; cooler or more classic years may feel firmer and develop more gradually.",
-      "sources": ["civb", "world-atlas-of-wine"]
+      "vintage": "Riper years can emphasize plush fruit and earlier accessibility; cooler or more classic years may feel firmer and develop more gradually. Long-term development assumes cool, stable, dark storage and an ageworthy producer/cuvée; a warm room can shorten useful life. Stages are editorial descriptions, not a guaranteed timetable.",
+      "sources": ["bordeaux-drinking", "bordeaux-blending", "wine-storage"]
     }
   },
   "rioja": {
@@ -49,14 +49,14 @@
   },
   "burgundy": {
     "pinot-noir": {
-      "summary": "Ageing Burgundy Pinot Noir can move from red berries and floral lift toward dried cherry, mushroom, forest floor, spice and game while remaining relatively light in body.",
+      "summary": "Selected ageworthy Burgundy Pinot Noir may develop from red fruit toward savory aromas. Regional Bourgogne is often enjoyable around 2–4 years from vintage; not every bottle follows the long evolution below.",
       "stages": [
         {"label": "Young", "effect": "Red cherry, cranberry and violet lead, with bright acidity and relatively fine but noticeable tannin."},
         {"label": "Developing", "effect": "Fruit turns more savory and less fresh as mushroom, spice and forest-floor notes emerge."},
         {"label": "Mature", "effect": "Dried red fruit, earth, mushroom, tea and game can dominate, with a softer, silkier structure."}
       ],
-      "vintage": "Warmer years often show more generous fruit and earlier openness; cooler years can be more delicate, acidic and slow to reveal secondary complexity.",
-      "sources": ["bivb", "world-atlas-of-wine"]
+      "vintage": "Warmer years often show more generous fruit and earlier openness; cooler years can be more delicate, acidic and slow to reveal secondary complexity. Long-term development assumes cool, stable, dark storage and an ageworthy producer/cuvée; a warm room can shorten useful life. Stages are editorial descriptions, not a guaranteed timetable.",
+      "sources": ["burgundy-drinking", "wine-storage"]
     }
   },
   "naoussa": {

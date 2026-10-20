@@ -17,12 +17,12 @@
   <meta property="og:image:alt" content="RagDollLabs Wine Atlas: a ragdoll cat beside a glass of red wine in a vineyard at dusk">
   <meta name="twitter:card" content="summary_large_image">
   <!-- One release token keeps visible assets in sync after a GitHub Pages deploy. -->
-  <link rel="stylesheet" href="./styles.css?v=20261020-navigation-r2">
-  <link rel="stylesheet" href="./ux.css?v=20261020-navigation-r2">
-  <link rel="stylesheet" href="./maturity.css?v=20261020-navigation-r2">
-  <link rel="stylesheet" href="./learning.css?v=20261020-navigation-r2">
-  <link rel="stylesheet" href="./advanced-compare.css?v=20261020-navigation-r2">
-  <link rel="stylesheet" href="./home-brand.css?v=20261020-navigation-r2">
+  <link rel="stylesheet" href="./styles.css?v=20261020-expressions-r3">
+  <link rel="stylesheet" href="./ux.css?v=20261020-expressions-r3">
+  <link rel="stylesheet" href="./maturity.css?v=20261020-expressions-r3">
+  <link rel="stylesheet" href="./learning.css?v=20261020-expressions-r3">
+  <link rel="stylesheet" href="./advanced-compare.css?v=20261020-expressions-r3">
+  <link rel="stylesheet" href="./home-brand.css?v=20261020-expressions-r3">
 </head>
 <body>
   <div class="wrap">
@@ -61,7 +61,7 @@
           <p>Search, browse by grape or place, compare regional expressions, and discover styles from classic and emerging wine regions.</p>
         </div>
         <a class="app-home-cat" href="./" data-home-return aria-label="Return to Wine Atlas home">
-          <img src="./assets/ragdoll-cat.svg?v=20261020-navigation-r2" alt="">
+          <img src="./assets/ragdoll-cat.svg?v=20261020-expressions-r3" alt="">
         </a>
       </header>
 
@@ -104,6 +104,7 @@
             <article class="card profile-card">
               <div class="titleline"><h2 id="profileHeading"><span id="title"></span></h2><div class="title-meta"><span id="profileWineColor"></span><div class="pill" id="pill"></div></div></div>
               <p class="summary" id="expect"></p>
+              <p class="small" id="profileExpression"></p>
 
               <div class="content2 profile-core"><section aria-labelledby="styleHeading"><h3 id="styleHeading">Style profile</h3><div class="bars" id="bars"></div><button id="scoreHelp" class="score-help" type="button" data-taste-basics data-taste-section="scores">What do the scores mean?</button></section><section aria-labelledby="notesHeading"><h3 id="notesHeading">Typical notes</h3><div id="notes"></div></section></div>
 
@@ -123,6 +124,7 @@
                   <section class="learning-section" aria-labelledby="ageingLearningHeading">
                     <h3 id="ageingLearningHeading">Ageing &amp; maturity</h3>
                     <div id="ageingSnapshot" class="ageing-snapshot"></div>
+                    <p class="small">Cellaring assumes cool, stable, dark storage. Producer, vintage, closure and bottle history matter. Taste before aerating; fragile mature wines may need only gentle sediment separation and prompt serving.</p>
                     <section id="maturity" class="maturity hidden" aria-labelledby="maturityHeading"><h3 id="maturityHeading">Maturity &amp; vintage evolution</h3><p id="maturitySummary" class="small"></p><div id="maturityStages" class="maturity-stages"></div><div class="vintage-note"><strong>Vintage effect:</strong> <span id="vintageEffect"></span></div></section>
                   </section>
 
@@ -156,23 +158,23 @@
 
     <footer class="footer">RagDollLabs Wine Atlas · Typical-style reference, not a guarantee about a specific bottle.</footer>
   </div>
-  <script src="./wine-model.js?v=20261020-navigation-r2" defer></script>
-  <script src="./dom-utils.js?v=20261020-navigation-r2" defer></script>
-  <script src="./data-loader.js?v=20261020-navigation-r2" defer></script>
-  <script src="./app.js?v=20261020-navigation-r2" defer></script>
-  <script src="./ux.js?v=20261020-navigation-r2" defer></script>
-  <script src="./food-discovery.js?v=20261020-navigation-r2" defer></script>
-  <script src="./wine-search.js?v=20261020-navigation-r2" defer></script>
-  <script src="./functional.js?v=20261020-navigation-r2" defer></script>
-  <script src="./search-enhance.js?v=20261020-navigation-r2" defer></script>
-  <script src="./compare-state.js?v=20261020-navigation-r2" defer></script>
-  <script src="./advanced-compare.js?v=20261020-navigation-r2" defer></script>
-  <script src="./compare-discovery.js?v=20261020-navigation-r2" defer></script>
-  <script src="./maturity.js?v=20261020-navigation-r2" defer></script>
-  <script src="./learning.js?v=20261020-navigation-r2" defer></script>
-  <script src="./smart-discovery.js?v=20261020-navigation-r2" defer></script>
-  <script src="./home-brand.js?v=20261020-navigation-r2" defer></script>
-  <script src="./gallery.js?v=20261020-navigation-r2" defer></script>
-  <script src="./navigation.js?v=20261020-navigation-r2" defer></script>
+  <script src="./wine-model.js?v=20261020-expressions-r3" defer></script>
+  <script src="./dom-utils.js?v=20261020-expressions-r3" defer></script>
+  <script src="./data-loader.js?v=20261020-expressions-r3" defer></script>
+  <script src="./app.js?v=20261020-expressions-r3" defer></script>
+  <script src="./ux.js?v=20261020-expressions-r3" defer></script>
+  <script src="./food-discovery.js?v=20261020-expressions-r3" defer></script>
+  <script src="./wine-search.js?v=20261020-expressions-r3" defer></script>
+  <script src="./functional.js?v=20261020-expressions-r3" defer></script>
+  <script src="./search-enhance.js?v=20261020-expressions-r3" defer></script>
+  <script src="./compare-state.js?v=20261020-expressions-r3" defer></script>
+  <script src="./advanced-compare.js?v=20261020-expressions-r3" defer></script>
+  <script src="./compare-discovery.js?v=20261020-expressions-r3" defer></script>
+  <script src="./maturity.js?v=20261020-expressions-r3" defer></script>
+  <script src="./learning.js?v=20261020-expressions-r3" defer></script>
+  <script src="./smart-discovery.js?v=20261020-expressions-r3" defer></script>
+  <script src="./home-brand.js?v=20261020-expressions-r3" defer></script>
+  <script src="./gallery.js?v=20261020-expressions-r3" defer></script>
+  <script src="./navigation.js?v=20261020-expressions-r3" defer></script>
 </body>
 </html>
