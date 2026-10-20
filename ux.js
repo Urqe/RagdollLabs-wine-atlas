@@ -48,6 +48,7 @@ function updateProfileColor() {
   const labels = {
     red: "Red",
     white: "White",
+    "white-gold": "White / gold",
     rose: "Rosé",
     orange: "Orange / amber",
     tawny: "Tawny",
@@ -262,7 +263,7 @@ function renderFeaturedDiscoveries() {
 }
 
 function enterApp(action) {
-  showAppShell();
+  if (!window.WineNavigation) showAppShell();
   WineAtlas.begin(action);
 }
 
@@ -298,6 +299,7 @@ document.addEventListener("wineatlas:ready", event => {
   updateSelectorColor("grape", "grapeColor");
   updateSelectorColor("placeGrape", "placeGrapeColor");
 
+  if (window.WineNavigation) return;
   if (event.detail.sharedProfile) {
     showAppShell();
     showExploreResult();
@@ -353,3 +355,5 @@ document.addEventListener("wineatlas:mode-changed", event => {
   if (event.detail.hasProfile) showExploreResult();
   else showEmpty("Choose where to begin", "Pick a grape, browse by place, search the atlas or use Discover.");
 });
+
+window.WineUX = { showWelcome, showAppShell, showInvalidInitialRoute };

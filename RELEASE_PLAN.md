@@ -1,6 +1,6 @@
 # Wine Atlas release plan
 
-Status: R1 implemented on 2026-10-20; R2–R7 remain planned.
+Status: R1 and R2 implemented on 2026-10-20; R3–R7 remain planned.
 Created: 2026-10-19.  
 Review baseline: main at `d819d99505b188f2319c37f0f4aa01153278438b` (120 profiles, 92 region entries, 47 grape/blend baselines).  
 Release IDs below are planning identifiers, not published semantic versions.
@@ -75,24 +75,26 @@ Validation: the full automated validation/regression suite covers the R1 accepta
 
 **Likely files:** `app.js`, `ux.js`, `gallery.js`, `advanced-compare.js`, `compare-state.js`, `functional.js`, `styles.css`, `ux.css`.
 
+Implementation notes: see [Navigation and history](docs/navigation.md). Automated regression tests cover view restoration, legacy links, comparison validation, focus, and status messages. Desktop Chrome checks cover layout and navigation; iPhone/iPad Safari and physical touch-device checks remain unverified.
+
 ### Scope
 
-- [ ] Fix gallery-to-profile scroll behavior. Bring the new profile heading into view and give keyboard/screen-reader users a meaningful focus destination.
-- [ ] Apply an explicit scroll/focus policy to recommendation, search and comparison transitions. Preserve expected browser Back/Forward restoration.
-- [ ] Fix the identity/production definition-list grid to match the renderer's actual row wrappers. Verify long descriptions and narrow screens.
-- [ ] Represent Gallery and Compare in navigable state. Restore the visible view and valid comparison selections after refresh and Back/Forward; provide a shareable comparison URL.
-- [ ] Keep existing `?grape=...&region=...` links working and validate unknown, duplicate or incompatible comparison keys.
-- [ ] Ensure live-status messages describe the visible selection rather than an earlier empty state.
-- [ ] Add a user-facing label for `white-gold` and check every allowed colour value has a consistent display label.
+- [x] Fix gallery-to-profile scroll behavior. Bring the new profile heading into view and give keyboard/screen-reader users a meaningful focus destination.
+- [x] Apply an explicit scroll/focus policy to recommendation, search and comparison transitions. Preserve expected browser Back/Forward restoration.
+- [x] Fix the identity/production definition-list grid to match the renderer's actual row wrappers. Verify long descriptions and narrow screens.
+- [x] Represent Gallery and Compare in navigable state. Restore the visible view and valid comparison selections after refresh and Back/Forward; provide a shareable comparison URL.
+- [x] Keep existing `?grape=...&region=...` links working and validate unknown, duplicate or incompatible comparison keys.
+- [x] Ensure live-status messages describe the visible selection rather than an earlier empty state.
+- [x] Add a user-facing label for `white-gold` and check every allowed colour value has a consistent display label.
 
 ### Acceptance criteria
 
-- [ ] Gallery → USA → Napa Cabernet opens at the profile heading, not near the footer; focus is not abandoned on a hidden card or document body.
-- [ ] Regional identity and production fields remain readable at phone, tablet and desktop widths, without alternating 84/96-pixel content columns.
-- [ ] Profile → Gallery → another profile → Back returns to Gallery with useful position restoration.
-- [ ] A comparison can be refreshed/shared and restored without silently reverting to a previous Explore profile.
-- [ ] Remove controls and subsequent keyboard actions retain useful focus.
-- [ ] Sweet white profiles display a readable colour label rather than `white-gold`.
+- [x] Gallery → USA → Napa Cabernet opens at the profile heading, not near the footer; focus is not abandoned on a hidden card or document body.
+- [x] Regional identity and production fields remain readable at phone, tablet and desktop widths, without alternating 84/96-pixel content columns.
+- [x] Profile → Gallery → another profile → Back returns to Gallery with useful position restoration.
+- [x] A comparison can be refreshed/shared and restored without silently reverting to a previous Explore profile.
+- [x] Remove controls and subsequent keyboard actions retain useful focus.
+- [x] Sweet white profiles display a readable colour label rather than `white-gold`.
 
 ## R3 — Profiles You Can Trust
 

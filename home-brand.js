@@ -10,6 +10,7 @@
 function returnToWineAtlasHome(event) {
   const keyboardActivation = event?.detail === 0;
   event?.preventDefault?.();
+  if (window.WineNavigation) return WineNavigation.go({ view: "home" }, { pointer: !keyboardActivation });
   WineAtlas.clearProfileUrl();
   document.getElementById("appShell")?.classList.add("hidden");
   const welcome = document.getElementById("welcomeView");

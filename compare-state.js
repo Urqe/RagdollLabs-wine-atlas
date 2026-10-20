@@ -5,13 +5,14 @@ window.WineComparison = (() => {
   let keys = ["", "", ""];
   let biggestOnly = false;
   function profile(key) {
-    if (!key) return null;
+    if (typeof key !== "string" || key.split("::").length !== 2) return null;
     const [grapeId, regionId] = key.split("::");
     return WineAtlas.combinedProfile(grapeId, regionId);
   }
   const keyOf = item => typeof item === "string" ? item : `${item.grapeId}::${item.regionId}`;
   const snapshot = () => ({ keys: keys.slice(), biggestOnly });
   function commit(next, concise, resetWhenThirdCleared = false) {
+    document.dispatchEvent(new CustomEvent("wineatlas:comparison-changing"));
     const seen = new Set();
     let reference = null;
     keys = [0, 1, 2].map(index => {
@@ -50,5 +51,6 @@ window.WineComparison = (() => {
     }).filter(Boolean);
   }
   return Object.freeze({ snapshot, profiles, replace, setSlot, remove,
+    restore: state => commit(Array.isArray(state.keys) ? state.keys : [], state.biggestOnly),
     setBiggestOnly: value => commit(keys, value) });
 })();
