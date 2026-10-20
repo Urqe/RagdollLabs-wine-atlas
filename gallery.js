@@ -91,6 +91,7 @@
   }
 
   function showGallery() {
+    if (window.WineNavigation && !WineNavigation.rendering) return WineNavigation.go({ view: "gallery" });
     const gallery = document.getElementById("galleryView");
     const shell = document.getElementById("appShell");
     if (!gallery || !shell) return;

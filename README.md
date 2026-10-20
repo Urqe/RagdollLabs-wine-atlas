@@ -22,7 +22,7 @@ The visible brand is **RagDollLabs**; the repository and GitHub Pages path keep 
 - **Mood discovery** — Light & elegant, Big & ripe, Earthy & savoury, Fresh & mineral, Aromatic, Something unusual
 - **Food-first discovery** — search what you are eating, including desserts, cheese and modern dishes
 - **Regional identity**, **locator maps**, **Serve It Tonight** guidance and **sources** for every region
-- **Shareable URLs and history** — `?grape=...&region=...` opens a profile directly; Back and Forward move between viewed wines
+- **Shareable URLs and history** — `?grape=...&region=...` opens a profile directly; Gallery and Compare have shareable routes, and Back/Forward restore views, comparison selections, scroll and focus (see [navigation](docs/navigation.md))
 
 ## Searching by style, grape or aroma
 

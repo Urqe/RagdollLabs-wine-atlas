@@ -404,7 +404,7 @@ function runSearch() {
  * `history: "none"` is used while restoring an entry from popstate.
  */
 function writeUrl(url, history) {
-  if (history === "none" || url.href === window.location.href) return;
+  if (window.WineNavigation || history === "none" || url.href === window.location.href) return;
   if (history === "replace") window.history.replaceState(null, "", url);
   else window.history.pushState(null, "", url);
 }
@@ -416,6 +416,10 @@ function updateUrl(grapeId, regionId, history = "push") {
   writeUrl(url, history);
 }
 function clearProfileUrl({ replace = false } = {}) {
+  if (window.WineNavigation) {
+    if (!WineNavigation.rendering) WineNavigation.recordExplore(replace);
+    return;
+  }
   const url = new URL(window.location.href);
   url.searchParams.delete("grape");
   url.searchParams.delete("region");
@@ -434,6 +438,8 @@ function restoreFromHistory() {
 function selectProfile(grapeId, regionId, shouldAnnounce = false, { history = "push" } = {}) {
   const profile = combinedProfile(grapeId, regionId);
   if (!profile) return false;
+  if (window.WineNavigation && !WineNavigation.rendering) return WineNavigation.go({ view: "profile", grapeId, regionId }, { history });
+  currentProfile = profile;
   setMode("explore");
   $("grape").value = grapeId;
   fillExploreRegions(grapeId, regionId, false);
@@ -442,13 +448,12 @@ function selectProfile(grapeId, regionId, shouldAnnounce = false, { history = "p
   currentProfile = profile;
   updateUrl(grapeId, regionId, history);
   emit("profile-selected", { profile });
-  if (shouldAnnounce) announce(`Showing ${profile.grape.name} from ${profile.region.name}.`);
+  announce(`Showing ${profile.grape.name} from ${profile.region.name}.`);
   return true;
 }
 
 function announce(text) {
-  $("liveStatus").textContent = "";
-  window.setTimeout(() => { $("liveStatus").textContent = text; }, 30);
+  $("liveStatus").textContent = text;
 }
 
 function applyInitialRoute() {
@@ -458,6 +463,9 @@ function applyInitialRoute() {
 }
 
 function setMode(mode) {
+  if (window.WineNavigation && !WineNavigation.rendering) {
+    return WineNavigation.go(mode === "compare" ? { view: "compare" } : currentProfile ? { view: "profile", ...currentProfile } : { view: "explore" });
+  }
   const explore = mode === "explore";
   $("bExplore").classList.toggle("on", explore);
   $("bCompare").classList.toggle("on", !explore);
@@ -478,6 +486,7 @@ function clearCurrentProfile() {
 
 function begin(action) {
   if (action === "surprise") return surpriseMe();
+  if (window.WineNavigation && !WineNavigation.rendering) return WineNavigation.go({ view: action === "compare" ? "compare" : "explore", action });
   clearCurrentProfile();
 
   if (action === "compare") {
@@ -554,7 +563,7 @@ function wireEvents() {
   $("browseByPlace").addEventListener("click", () => setBrowseMethod("place"));
   $("bExplore").addEventListener("click", () => setMode("explore"));
   $("bCompare").addEventListener("click", () => setMode("compare"));
-  window.addEventListener("popstate", restoreFromHistory);
+  window.addEventListener("popstate", () => { if (!window.WineNavigation) restoreFromHistory(); });
 }
 
 async function init() {
@@ -567,7 +576,7 @@ async function init() {
     populatePlaceGrapes(null, false);
     renderMoods();
     wireEvents();
-    const sharedProfile = applyInitialRoute();
+    const sharedProfile = !window.WineNavigation && applyInitialRoute();
     if (!sharedProfile) renderExplore();
     window.WineAtlas.ready = true;
     emit("ready", { sharedProfile, initialRoute: new URL(INITIAL_ROUTE.href) });
@@ -596,6 +605,8 @@ window.WineAtlas = {
   clearProfileUrl,
   combinedProfile,
   allPairs: () => allPairs().slice(),
+  getActiveProfile: () => currentProfile,
+  clearActiveProfile: () => { currentProfile = null; },
   hasActiveProfile: () => Boolean(currentProfile),
   getSearchRules: () => SEARCH_RULES,
   getData: () => ({ grapes: GRAPES, regions: REGIONS }),

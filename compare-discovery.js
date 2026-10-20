@@ -134,7 +134,9 @@ function compareDiscoveryClick(event) {
   const add = event.target.closest?.("button[data-profile-key]");
   if (add) {
     const result = compareDiscoveryMatches.find(entry => compareProfileKey(entry.item) === add.dataset.profileKey);
+    const hadFocus = document.activeElement === add;
     if (result) compareAddProfile(result.item);
+    if (hadFocus) (document.querySelector("#compareDiscoveryResults button:not(:disabled)") || document.getElementById("compareDiscoveryInput"))?.focus();
     return;
   }
   if (event.target.closest?.("#compareTopMatches")) compareFillTopMatches();

@@ -174,7 +174,15 @@ function advancedProductionContext(selections) {
 }
 
 function advancedSetBiggestOnly(value) { WineComparison.setBiggestOnly(value); }
-function advancedRemoveSlot(slot) { WineComparison.remove(slot); }
+function advancedRemoveSlot(slot) {
+  const active = document.activeElement;
+  const restoreFocus = active?.matches(".advanced-remove, .advanced-slot-remove");
+  WineComparison.remove(slot);
+  if (restoreFocus) {
+    const buttons = [...document.querySelectorAll(active.matches(".advanced-remove") ? ".advanced-remove" : ".advanced-slot-remove")].filter(button => !button.hidden && !button.disabled);
+    (buttons[Math.min(slot - 1, buttons.length - 1)] || document.getElementById("advancedCompare1"))?.focus();
+  }
+}
 
 function advancedHandleGridClick(event) {
   const button = event.target.closest?.(".advanced-remove");
@@ -298,7 +306,7 @@ document.addEventListener("wineatlas:profile-selected", event => {
 document.addEventListener("wineatlas:mode-changed", event => {
   if (event.detail.mode !== "compare" || !advancedCompareInitialized) return;
   // Seed only on the first visit; once the user has cleared Compare, keep it empty.
-  if (!advancedCompareSeededOnce && !WineComparison.snapshot().keys[0] && advancedCompareLastProfile) {
+  if (!window.WineNavigation?.restoring && !advancedCompareSeededOnce && !WineComparison.snapshot().keys[0] && advancedCompareLastProfile) {
     advancedCompareSeededOnce = true;
     advancedSeedProfile(advancedCompareLastProfile);
     return;
