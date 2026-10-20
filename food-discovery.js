@@ -80,6 +80,8 @@ window.FoodDiscovery = (() => {
     // Update only the explanatory slot: preserve result buttons and keyboard focus.
     void loadGuidance().then(() => { if (slot.isConnected) fillGuidance(slot, query); });
   }
-  return { load, loadGuidance, normalize, terms, score, guidance, appendGuidance,
+  // Include both alias phrases and canonical dishes when protecting food intent.
+  const phrases = () => [...new Set([...Object.keys(aliases), ...Object.values(aliases).flat()])];
+  return { load, loadGuidance, normalize, terms, score, guidance, appendGuidance, phrases,
     known: query => Boolean(aliases[normalize(query)]) };
 })();

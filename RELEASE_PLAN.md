@@ -1,6 +1,6 @@
 # Wine Atlas release plan
 
-Status: planned; no application changes are implemented by this document.  
+Status: R1 implemented on 2026-10-20; R2–R7 remain planned.
 Created: 2026-10-19.  
 Review baseline: main at `d819d99505b188f2319c37f0f4aa01153278438b` (120 profiles, 92 region entries, 47 grape/blend baselines).  
 Release IDs below are planning identifiers, not published semantic versions.
@@ -32,7 +32,7 @@ R5–R7 are independent content programs once the quality foundation is complete
 - Keep optional winemaking and maturity sections selective; missing useful evidence is a reason to omit a section, not fill it with boilerplate.
 - Run the existing `npm run validate` checks and add regression coverage for the behavior being changed. UI releases also need real-browser checks; jsdom cannot validate layout, scrolling or Safari behavior.
 - Check iPhone and iPad Safari as well as desktop Chrome, keyboard navigation and touch use. Record untested environments honestly.
-- A release is complete only when its acceptance criteria and applicable checks pass. All tasks below are initially unchecked.
+- A release is complete only when its acceptance criteria and applicable checks pass. Completed release tasks are checked below; later releases remain unchecked.
 
 ## R1 — Search with Meaning
 
@@ -42,26 +42,30 @@ R5–R7 are independent content programs once the quality foundation is complete
 
 **Likely files:** `wine-search.js`, `data/wine-search.json`, `data/grapes.json`, `search-enhance.js`, `compare-discovery.js`, relevant tests and validators.
 
+Implementation notes: see [Search semantics](docs/search-semantics.md). The R1 changes add search semantics and evidence-backed aliases; they do not add regions or change wine scores.
+
+Validation: the full automated validation/regression suite covers the R1 acceptance criteria. iPhone/iPad Safari and physical touch-device checks remain unverified in this environment; they are not claimed as passed.
+
 ### Scope
 
-- [ ] Recognize rosé, orange/amber, red, white, sweet, dry, sparkling and fortified as structured search intents, with an explicit policy for ambiguous words such as rose/orange.
-- [ ] Keep sensory searches possible through an explicit aroma context or a clearly distinguished fallback. Rose-petal notes must not masquerade as rosé wine.
-- [ ] Combine family, colour, sweetness, grape, place and food constraints consistently. Structured qualifiers must remain available after an appellation or family rule consumes part of a query.
-- [ ] Use boundary-aware matching for identity terms rather than incidental substrings in unrelated prose.
-- [ ] Add a maintainable synonym mechanism. Initial aliases include Spätburgunder/Spaetburgunder for Pinot Noir, Primitivo for Zinfandel and Alvarinho for Albariño. Verify and document synonyms before adding them.
-- [ ] Separate grape identity from regional coverage: recognizing Primitivo does not imply that Puglia is already represented.
-- [ ] Review the broad `moscato` alias, currently restricted to Moscato d'Asti, so generic grape searches do not accidentally hide other represented Muscat expressions.
-- [ ] Keep Explore and Compare on the same semantics and retain accent-insensitive matching.
+- [x] Recognize rosé, orange/amber, red, white, sweet, dry, sparkling and fortified as structured search intents, with an explicit policy for ambiguous words such as rose/orange.
+- [x] Keep sensory searches possible through an explicit aroma context or a clearly distinguished fallback. Rose-petal notes must not masquerade as rosé wine.
+- [x] Combine family, colour, sweetness, grape, place and food constraints consistently. Structured qualifiers must remain available after an appellation or family rule consumes part of a query.
+- [x] Use boundary-aware matching for identity terms rather than incidental substrings in unrelated prose.
+- [x] Add a maintainable synonym mechanism. Initial aliases include Spätburgunder/Spaetburgunder for Pinot Noir, Primitivo for Zinfandel and Alvarinho for Albariño. Verify and document synonyms before adding them.
+- [x] Separate grape identity from regional coverage: recognizing Primitivo does not imply that Puglia is already represented.
+- [x] Review the broad `moscato` alias, currently restricted to Moscato d'Asti, so generic grape searches do not accidentally hide other represented Muscat expressions.
+- [x] Keep Explore and Compare on the same semantics and retain accent-insensitive matching.
 
 ### Acceptance criteria
 
-- [ ] `rosé` excludes still Gewürztraminer; `white` excludes still red Burgundy Pinot Noir.
-- [ ] `sweet` does not include a dry wine merely because its prose says “sweet oak”.
-- [ ] `orange wine` finds skin-contact wines without matching dessert wines solely for orange-fruit notes.
-- [ ] `sparkling dry` finds appropriate dry sparkling profiles; `sparkling sweet` finds Moscato d'Asti.
-- [ ] Existing Champagne, crémant, Cava and Prosecco constraints and food aliases remain correct.
-- [ ] Synonym queries resolve the intended existing grape identities and honestly expose regional coverage limits.
-- [ ] Equivalent queries produce consistent candidates in Explore and Compare.
+- [x] `rosé` excludes still Gewürztraminer; `white` excludes still red Burgundy Pinot Noir.
+- [x] `sweet` does not include a dry wine merely because its prose says “sweet oak”.
+- [x] `orange wine` finds skin-contact wines without matching dessert wines solely for orange-fruit notes.
+- [x] `sparkling dry` finds appropriate dry sparkling profiles; `sparkling sweet` finds Moscato d'Asti.
+- [x] Existing Champagne, crémant, Cava and Prosecco constraints and food aliases remain correct.
+- [x] Synonym queries resolve the intended existing grape identities and honestly expose regional coverage limits.
+- [x] Equivalent queries produce consistent candidates in Explore and Compare.
 
 ## R2 — Find Your Place
 

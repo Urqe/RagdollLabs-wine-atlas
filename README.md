@@ -10,7 +10,7 @@ The visible brand is **RagDollLabs**; the repository and GitHub Pages path keep 
 
 - **Welcome experience** — first-time visitors start from a minimal landing page, including a **New to wine?** route into the taste explainer
 - **Wine Explorer** — browse by grape / represented blend, or through **Country → Region → Grape / blend**; when only one choice is valid it opens automatically
-- **Atlas search** — grapes, regions, countries, climate and style descriptions, flavour notes, discovery labels and food, with constrained appellation searches (Champagne, crémant, Cava, Prosecco, Moscato)
+- **Atlas search** — grapes, regions, countries, climate and style descriptions, flavour notes, discovery labels and food, with structured colour/sweetness filters, grape synonyms and constrained appellation searches (Champagne, crémant, Cava, Prosecco, Moscato d'Asti)
 - **Sensory profile** — body, acidity, tannin, sweetness, alcohol, fruit, oak and earth on a 0–5 scale (see [Scores](#scores))
 - **Why does it taste like this?** — explicit cause → effect explanations connecting growing conditions and winemaking to style
 - **How wine gets its taste** — a beginner explainer covering climate, grape, fermentation, skins, oak, lees, bubbles, ageing and minerality, with links to profiles that show each effect
@@ -23,6 +23,14 @@ The visible brand is **RagDollLabs**; the repository and GitHub Pages path keep 
 - **Food-first discovery** — search what you are eating, including desserts, cheese and modern dishes
 - **Regional identity**, **locator maps**, **Serve It Tonight** guidance and **sources** for every region
 - **Shareable URLs and history** — `?grape=...&region=...` opens a profile directly; Back and Forward move between viewed wines
+
+## Searching by style, grape or aroma
+
+Use `sparkling dry`, `sparkling sweet`, `rosé`, `orange wine` or `dry Riesling Germany` to filter the modeled wine attributes. For tasting notes rather than wine colour/style, use `aroma: rose` or `notes: orange`; filters can precede the marker, such as `dry aroma: rose`.
+
+Spätburgunder/Spaetburgunder, Primitivo and Alvarinho resolve to their existing Pinot Noir, Zinfandel and Albariño identities. Alias results state which countries are actually represented: recognizing Primitivo does not create a Puglia profile. Generic Moscato/Muscat searches span the represented Muscat family; Moscato d'Asti stays appellation-specific.
+
+Sweetness uses explicit expression metadata, or the existing editorial score anchors when absent. Dry-to-off-dry ranges appear under off-dry, not guaranteed dry. Food phrases such as “white pizza” remain intact. See [Search semantics](docs/search-semantics.md) for the matching policy, evidence and regression coverage.
 
 ## Coverage
 

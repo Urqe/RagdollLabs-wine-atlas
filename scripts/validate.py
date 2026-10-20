@@ -11,6 +11,8 @@ Keeping this dependency-free lets reviewers run it locally and keeps CI lightwei
 from __future__ import annotations
 
 import json
+import re
+import unicodedata
 from urllib.parse import urlsplit
 from pathlib import Path
 
@@ -78,20 +80,45 @@ def main() -> None:
             value = grape.get(metric)
             assert isinstance(value, (int, float)) and 0 <= value <= 5, f"{grape_id}: invalid {metric}"
 
+    def search_key(value):
+        value = "".join(c for c in unicodedata.normalize("NFD", value.lower()) if not unicodedata.combining(c))
+        return " ".join(re.sub(r"[^\w\s]|_", " ", value).split())
+
     search_rules = load(DATA / "wine-search.json")["rules"]
     search_aliases = set()
     rule_ids = set()
     for rule in search_rules:
         assert rule["id"] not in rule_ids, "duplicate wine rule"
         rule_ids.add(rule["id"])
-        assert rule["family"] in STYLE_FAMILIES and rule["label"] and rule["aliases"]
+        assert rule["label"] and rule["aliases"]
+        assert any(rule.get(field) for field in ("family", "regions", "grapeIds", "colors", "sweetness")), "wine search: missing constraint"
+        if "family" in rule:
+            assert rule["family"] in STYLE_FAMILIES | {"still"}, "wine search: invalid family"
+        for field, allowed in [("colors", {"red", "white", "rose", "orange", "amber", "tawny", "white-gold"}),
+                               ("sweetness", STYLE_SWEETNESS), ("grapeIds", set(grapes))]:
+            if field in rule:
+                assert isinstance(rule[field], list) and rule[field] and set(rule[field]) <= allowed, f"wine search: invalid {field}"
         for rid in rule.get("regions", []):
             assert rid in regions, f"wine search: unknown region {rid}"
-            assert all(p.get("style", {}).get("family") == rule["family"] for p in regions[rid]["grapes"].values()), f"wine search: family mismatch {rid}"
+            if "family" in rule:
+                assert all(p.get("style", {}).get("family", "still") == rule["family"] for p in regions[rid]["grapes"].values()), f"wine search: family mismatch {rid}"
         for alias in rule["aliases"]:
-            import unicodedata
-            normalized = "".join(c for c in unicodedata.normalize("NFD", alias.lower()) if not unicodedata.combining(c))
+            assert isinstance(alias, str) and search_key(alias), "wine search: empty alias"
+            normalized = search_key(alias)
             assert normalized not in search_aliases, f"duplicate wine alias: {alias}"
+            search_aliases.add(normalized)
+
+    # Grape synonyms resolve an identity; they do not create regional coverage.
+    canonical_names = {search_key(name): gid for gid, grape in grapes.items() for name in grape["name"].split("/")}
+    for grape_id, grape in grapes.items():
+        if "aliases" not in grape:
+            continue
+        assert isinstance(grape["aliases"], list) and grape["aliases"], f"{grape_id}: invalid aliases"
+        assert grape.get("aliasSources") and all(source in sources for source in grape["aliasSources"]), f"{grape_id}: missing alias evidence"
+        for alias in grape["aliases"]:
+            assert isinstance(alias, str) and search_key(alias), f"{grape_id}: empty alias"
+            normalized = search_key(alias)
+            assert normalized not in search_aliases and normalized not in canonical_names, f"{grape_id}: conflicting alias {alias}"
             search_aliases.add(normalized)
 
     special_style_count = 0
@@ -149,7 +176,6 @@ def main() -> None:
     duplicates = [f"{grape}: {', '.join(ids)}" for (grape, _), ids in by_grape.items() if len(ids) > 1]
     assert not duplicates, f"identical scores for the same grape: {duplicates}"
 
-    import unicodedata
     def food_key(value):
         return " ".join("".join(c for c in unicodedata.normalize("NFD", value) if not unicodedata.combining(c)).casefold().split())
     normalized_targets = {food_key(k): {food_key(v) for v in targets} for k, targets in food_aliases.items()}

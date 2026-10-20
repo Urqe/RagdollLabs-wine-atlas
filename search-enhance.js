@@ -24,6 +24,12 @@ async function renderEnhancedAtlasSearch() {
   const foodQuery = WineSearch.parse(rawQuery).remainder;
   const aliasKnown = FoodDiscovery.known(foodQuery);
 
+  const wineContext = WineSearch.describe(rawQuery);
+  if (wineContext) container.append(WineDOM.element("div", `Showing ${wineContext}`, "search-empty"));
+  for (const notice of WineSearch.notices(rawQuery)) {
+    container.append(WineDOM.element("div", notice, "search-empty"));
+  }
+
   if (!matches.length) {
     const empty = document.createElement("div");
     empty.className = "search-empty";
@@ -39,13 +45,6 @@ async function renderEnhancedAtlasSearch() {
     container.appendChild(label);
   }
 
-  const wineContext = WineSearch.describe(rawQuery);
-  if (wineContext) {
-    const context = document.createElement("div");
-    context.className = "search-empty";
-    context.textContent = `Showing ${wineContext}`;
-    container.append(context);
-  }
   FoodDiscovery.appendGuidance(container, foodQuery);
 
   for (const { item, pairingScore } of matches) {
