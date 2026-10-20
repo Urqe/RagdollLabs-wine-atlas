@@ -26,7 +26,7 @@
     dot.className = `wine-color-dot ${WineModel.color(item)}`;
     dot.setAttribute("aria-hidden", "true");
     const title = document.createElement("strong");
-    title.textContent = item.grape.name;
+    title.textContent = WineModel.profileName(item);
     head.append(dot, title);
 
     const region = document.createElement("span");
@@ -58,7 +58,7 @@
     container.replaceChildren();
     jump?.replaceChildren();
     for (const [country, items] of countries) {
-      items.sort((a, b) => a.region.name.localeCompare(b.region.name) || a.grape.name.localeCompare(b.grape.name));
+      items.sort((a, b) => a.region.name.localeCompare(b.region.name) || WineModel.profileName(a).localeCompare(WineModel.profileName(b)));
       const anchor = countryAnchor(country);
 
       const section = document.createElement("section");

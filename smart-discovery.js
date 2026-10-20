@@ -105,7 +105,7 @@ function smartRender(current) {
     const dot = document.createElement("span");
     dot.className = `wine-color-dot ${smartAppearance(item)}`;
     dot.setAttribute("aria-hidden", "true");
-    title.append(dot, document.createTextNode(item.grape.name));
+    title.append(dot, document.createTextNode(WineModel.profileName(item)));
 
     const region = document.createElement("span");
     region.className = "similar-region";

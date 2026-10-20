@@ -108,13 +108,16 @@ def main() -> None:
         assert rule["id"] not in rule_ids, "duplicate wine rule"
         rule_ids.add(rule["id"])
         assert rule["label"] and rule["aliases"]
-        assert any(rule.get(field) for field in ("family", "regions", "grapeIds", "colors", "sweetness")), "wine search: missing constraint"
+        assert any(rule.get(field) for field in ("family", "regions", "grapeIds", "colors", "sweetness", "unavailable", "productionClasses")), "wine search: missing constraint"
         if "family" in rule:
             assert rule["family"] in STYLE_FAMILIES | {"still"}, "wine search: invalid family"
         for field, allowed in [("colors", {"red", "white", "rose", "orange", "amber", "tawny", "white-gold"}),
-                               ("sweetness", STYLE_SWEETNESS), ("grapeIds", set(grapes))]:
+                               ("sweetness", STYLE_SWEETNESS), ("grapeIds", set(grapes)),
+                               ("productionClasses", {"still-red", "still-white", "dried-grape-red"}.union(*PRODUCTION_CLASSES.values()))]:
             if field in rule:
                 assert isinstance(rule[field], list) and rule[field] and set(rule[field]) <= allowed, f"wine search: invalid {field}"
+        if "unavailable" in rule:
+            assert rule["unavailable"] is True and isinstance(rule.get("coverageNote"), str) and rule["coverageNote"].strip(), "wine search: unavailable expression needs an explicit coverage note"
         for rid in rule.get("regions", []):
             assert rid in regions, f"wine search: unknown region {rid}"
             if "family" in rule:
@@ -185,6 +188,8 @@ def main() -> None:
             for related in profile.get("related", []):
                 assert related.get("grape") in regions.get(related.get("region"), {}).get("grapes", {}), f"{prefix}: unknown related expression"
                 assert isinstance(related.get("label"), str) and related["label"].strip(), f"{prefix}: missing related label"
+            if "displayName" in profile:
+                assert isinstance(profile["displayName"], str) and profile["displayName"].strip(), f"{prefix}: invalid display name"
             assert "style" in profile, f"{prefix}: explicit modeled expression required"
             if "style" in profile:
                 style = profile["style"]
@@ -198,7 +203,8 @@ def main() -> None:
                     allowed_bubbles = {"gentle"} if production == "single-partial-tank" else {"gentle", "sparkling"} if production == "tank-second" else {"sparkling"} if style["family"] == "sparkling" else {"none"}
                     assert bubbles in allowed_bubbles, f"{prefix}: inconsistent discovery bubble style"
                 else:
-                    assert style.get("productionClass", f"still-{style['color']}") == f"still-{style['color']}", f"{prefix}: invalid still production class"
+                    allowed_production = {f"still-{style['color']}"} | ({"dried-grape-red"} if style["color"] == "red" else set())
+                    assert style.get("productionClass", f"still-{style['color']}") in allowed_production, f"{prefix}: invalid still production class"
                     assert style.get("effervescence", "none") == "none", f"{prefix}: still wine cannot have bubbles"
                 assert style.get("sweetness") in STYLE_SWEETNESS, f"{prefix}: invalid style sweetness"
                 assert style.get("color") in {"red", "white", "rose", "orange", "amber", "tawny", "white-gold"}, f"{prefix}: invalid style color"

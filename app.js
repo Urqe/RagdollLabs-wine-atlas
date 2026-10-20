@@ -178,7 +178,7 @@ function populatePlaceRegions(preferredRegion = null, withPlaceholder = false) {
 
 function populatePlaceGrapes(preferredGrape = null, withPlaceholder = false) {
   const region = REGIONS[$("placeRegion").value];
-  const entries = Object.keys(region?.grapes || {}).map(id => [id, GRAPES[id]]).filter(([, grape]) => grape).sort(byName);
+  const entries = Object.keys(region?.grapes || {}).map(id => [id, GRAPES[id] && { ...GRAPES[id], name: region.grapes[id].displayName || GRAPES[id].name }]).filter(([, grape]) => grape).sort(byName);
   setSelectOptions($("placeGrape"), entries);
   if (preferredGrape && entries.some(([id]) => id === preferredGrape)) $("placeGrape").value = preferredGrape;
   else if (withPlaceholder && entries.length > 1) prependPlaceholder($("placeGrape"), "Choose a grape…");
@@ -333,7 +333,7 @@ function renderExplore() {
   const current = combinedProfile($("grape").value, $("region").value);
   if (!current) return false;
   const { grapeId, regionId, grape, region, regional, profile } = current;
-  $("title").textContent = `${grape.name} · ${region.name}`;
+  $("title").textContent = `${WineModel.profileName(current)} · ${region.name}`;
   $("pill").textContent = `${region.country} · ${region.climate}`;
   $("expect").textContent = regional.expect;
   $("profileExpression").textContent = WineModel.expressionSummary(current);
@@ -391,7 +391,7 @@ function renderMoods() {
 
 function flattenNotes(notes) { return Object.values(notes || {}).flat().join(" "); }
 function searchHaystack(item) {
-  return [item.grape.name, item.region.name, item.region.country, item.region.climate, item.region.summary, item.regional.expect, flattenNotes(item.regional.notes), ...(item.region.badges || [])].join(" ").toLowerCase();
+  return [item.grape.name, WineModel.profileName(item), item.region.name, item.region.country, item.region.climate, item.region.summary, item.regional.expect, flattenNotes(item.regional.notes), ...(item.region.badges || [])].join(" ").toLowerCase();
 }
 
 function runSearch() {
@@ -412,7 +412,7 @@ function runSearch() {
     score += terms.filter(term => haystack.includes(term)).length;
     return { item, matched, score };
   }).filter(result => result.matched).sort((a, b) => b.score - a.score || a.item.region.name.localeCompare(b.item.region.name)).slice(0, 10);
-  $("searchResults").innerHTML = matches.length ? matches.map(({ item }) => `<button type="button" class="search-result" data-grape="${escapeAttr(item.grapeId)}" data-region="${escapeAttr(item.regionId)}"><strong>${wineColorDot(item.grape, item.regional)}${escapeHtml(item.grape.name)} · ${escapeHtml(item.region.name)}</strong><span>${escapeHtml(item.region.country)} · ${escapeHtml(item.region.climate)}</span></button>`).join("") : '<div class="search-empty">No matching profiles yet.</div>';
+  $("searchResults").innerHTML = matches.length ? matches.map(({ item }) => `<button type="button" class="search-result" data-grape="${escapeAttr(item.grapeId)}" data-region="${escapeAttr(item.regionId)}"><strong>${wineColorDot(item.grape, item.regional)}${escapeHtml(WineModel.profileName(item))} · ${escapeHtml(item.region.name)}</strong><span>${escapeHtml(item.region.country)} · ${escapeHtml(item.region.climate)}</span></button>`).join("") : '<div class="search-empty">No matching profiles yet.</div>';
   $("searchResults").querySelectorAll(".search-result").forEach(button => button.addEventListener("click", () => {
     selectProfile(button.dataset.grape, button.dataset.region, true);
     $("searchInput").value = "";
@@ -470,7 +470,7 @@ function selectProfile(grapeId, regionId, shouldAnnounce = false, { history = "p
   currentProfile = profile;
   updateUrl(grapeId, regionId, history);
   emit("profile-selected", { profile });
-  announce(`Showing ${profile.grape.name} from ${profile.region.name}.`);
+  announce(`Showing ${WineModel.profileName(profile)} from ${profile.region.name}.`);
   return true;
 }
 

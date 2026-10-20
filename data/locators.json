@@ -366,5 +366,25 @@
   "crimea-muscat": {
     "lat": 44.5,
     "lon": 34.15
+  },
+  "chablis": {
+    "lat": 47.81,
+    "lon": 3.8
+  },
+  "primitivo-manduria": {
+    "lat": 40.4,
+    "lon": 17.63
+  },
+  "valpolicella": {
+    "lat": 45.52,
+    "lon": 10.9
+  },
+  "amarone": {
+    "lat": 45.52,
+    "lon": 10.9
+  },
+  "rueda": {
+    "lat": 41.41,
+    "lon": -4.96
   }
 }

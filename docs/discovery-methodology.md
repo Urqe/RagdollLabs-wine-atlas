@@ -47,6 +47,8 @@ Compare continues to accept educational contrasts within its broad compatibility
 
 ## Validation and limitations
 
-`tests/honest-discovery.mjs` tests the examples, threshold boundaries, the core-trait cap, unknown-method exclusion, absent/single-alternative catalogs, deterministic ordering, indigenous-flag independence, and invariants across all 120 profiles. It checks both explanation text and the Explore/Compare presentations. Validation rejects production tags outside a style family and inconsistent method/bubble combinations.
+`tests/honest-discovery.mjs` tests the examples, threshold boundaries, the core-trait cap, unknown-method exclusion, absent/single-alternative catalogs, deterministic ordering, indigenous-flag independence, and invariants across all represented profiles. It checks both explanation text and the Explore/Compare presentations. Validation rejects production tags outside a style family and inconsistent method/bubble combinations.
 
 `npm run validate` includes all existing search, navigation, loading-failure and content suites. Desktop Chrome smoke checks verify deployed contrast labels, coverage, navigation and comparison context. iPhone/iPad Safari and physical touch-device checks remain unverified. No new regions, score changes or claim-level wine research are introduced by R4; the R3 evidence backlog remains applicable.
+
+R5 batch A adds an explicit `dried-grape-red` class for the selected dry Amarone expression. It remains broadly comparable with still reds but cannot become a close fresh-grape Valpolicella substitute solely through numeric distance.

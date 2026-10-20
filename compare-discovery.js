@@ -26,7 +26,7 @@ function compareSetProfiles(profiles) { WineComparison.replace(profiles); }
 
 function compareProfileLabel(item) {
   const style = item.regional.style?.label;
-  return `${item.grape.name} · ${item.region.name}${style ? ` · ${style}` : ""}`;
+  return `${WineModel.profileName(item)} · ${item.region.name}${style ? ` · ${style}` : ""}`;
 }
 
 async function rankCompareMatches(rawQuery) {

@@ -28,15 +28,17 @@ The visible brand is **RagDollLabs**; the repository and GitHub Pages path keep 
 
 Use `sparkling dry`, `sparkling sweet`, `rosé`, `orange wine` or `dry Riesling Germany` to filter the modeled wine attributes. For tasting notes rather than wine colour/style, use `aroma: rose` or `notes: orange`; filters can precede the marker, such as `dry aroma: rose`.
 
-Spätburgunder/Spaetburgunder, Primitivo and Alvarinho resolve to their existing Pinot Noir, Zinfandel and Albariño identities. Alias results state which countries are actually represented: recognizing Primitivo does not create a Puglia profile. Generic Moscato/Muscat searches span the represented Muscat family; Moscato d'Asti stays appellation-specific.
+Spätburgunder/Spaetburgunder, Primitivo and Alvarinho resolve to their existing Pinot Noir, Zinfandel and Albariño identities. Alias results state which countries are actually represented. R5 batch A adds a specific dry Primitivo di Manduria DOC profile from Puglia, displayed as Primitivo (Zinfandel), alongside existing US Zinfandel expressions. Generic Moscato/Muscat searches span the represented Muscat family; Moscato d'Asti stays appellation-specific.
 
 Sweetness uses explicit expression metadata, or the existing editorial score anchors when absent. Dry-to-off-dry ranges appear under off-dry, not guaranteed dry. Food phrases such as “white pizza” remain intact. See [Search semantics](docs/search-semantics.md) for the matching policy, evidence and regression coverage.
 
 ## Coverage
 
-92 regions and 120 grape-region profiles across 22 countries, built on 47 grape or represented-blend baselines. Coverage deliberately combines the classics a newcomer is most likely to buy (Bordeaux, Burgundy, Rioja, Napa, Marlborough, Mendoza Malbec, Pinot Grigio, Prosecco, Champagne, Beaujolais, Rías Baixas Albariño) with discovery regions and indigenous grapes (Georgia, Greece, Armenia, Romania, Bulgaria, Ukraine, the Canary Islands, Uruguay and Mexico).
+97 region/style entries and 126 grape-expression profiles across 22 countries, built on 50 grape or represented-blend baselines. Coverage deliberately combines the classics a newcomer is most likely to buy (Bordeaux, Burgundy, Rioja, Napa, Marlborough, Mendoza Malbec, Pinot Grigio, Prosecco, Champagne, Beaujolais, Rías Baixas Albariño, Chablis, Primitivo di Manduria, Valpolicella, Amarone, Rueda Verdejo and Stellenbosch Pinotage) with discovery regions and indigenous grapes (Georgia, Greece, Armenia, Romania, Bulgaria, Ukraine, the Canary Islands, Uruguay and Mexico).
 
 Many grapes appear in two or more regions so Compare can show how place changes a grape: for example Malbec in Mendoza, Salta and Cahors, Chenin Blanc in Stellenbosch and Swartland, Sauvignon Blanc in Sancerre, Marlborough and Steiermark, Pinot Gris in Alto Adige and Alsace, Riesling in the Mosel, Rheingau, Wachau, Alsace and Clare Valley.
+
+See [R5 batch A](docs/familiar-names-batch-a.md) for the six new modeled expressions, primary evidence and exact-versus-unrepresented search coverage. Later R5 batches remain queued.
 
 ## Scores
 
@@ -142,9 +144,11 @@ The learning layer replaces matching text nodes with accessible glossary buttons
 - `aromatic: true` marks strongly aromatic varieties (Riesling, Sauvignon Blanc, Gewürztraminer, Muscat, Viognier, Albariño). The Aromatic mood uses this flag.
 - `kind: "blend"` marks represented blends (Port, Provence rosé, Champagne Brut NV) so a multi-variety wine is not presented as monovarietal.
 - A region's `why` items can carry `grapes` to scope an explanation to specific profiles; a profile-level `why` replaces the regional list.
-- Optional profile `style` objects describe sparkling, sweet, fortified, rosé and orange wines: `family`, `color`, `sweetness`, `label`, `method` and `effect`. Compare groups by style family, and by grape colour for still wines.
+- Profile `style` objects describe every selected still, sparkling, sweet, fortified, rosé and orange expression: `family`, `color`, `sweetness`, `label`, `method` and `effect`. Compare groups by style family, and by grape colour for still wines.
 - Soil and landscape language is cautious: the atlas describes drainage, water supply, heat and vine vigour, and treats words such as flint, slate or garrigue as tasting descriptors, not literal flavour transfer.
 - `winemaking.json` and `maturity.json` are intentionally sparse; profiles without a meaningful entry show no section.
+- Optional profile `displayName` gives a consumer-facing regional name, such as Primitivo (Zinfandel), while canonical grape IDs and synonyms remain stable.
+- Search rules can constrain `productionClasses`; `unavailable` expressions require a coverage note and return no substitute.
 - Food pairing labels are lowercase. `food-aliases.json` maps search-only spellings and translations to canonical labels; dish guidance in `food-dishes.json` is editorial and referenced.
 - `locators.json` points are approximate, for locator diagrams only. `assets/world-map.svg` derives from public-domain Natural Earth data and shows no political borders.
 - The landing ragdoll is inline vector geometry inside `assets/vineyard-welcome.svg`; CSS background SVGs cannot load external `<image>` dependencies.
@@ -156,7 +160,7 @@ npm ci --no-audit --no-fund
 npm run validate
 ```
 
-This runs the JavaScript syntax check, `validate.py` (references, metrics, locators, Why scoping, identical-score and placeholder-note checks, glossary, taste-basics links, style metadata, HTTPS sources), the advisory `content_audit.py`, and the jsdom suites (profile selection, search constraints, food aliases, glossary, comparison transactions, hostile input, startup errors, optional-data timeouts). CI runs the same command. Browser checks remain necessary for artwork or responsive CSS changes.
+This runs the JavaScript syntax check, `validate.py` (references, metrics, locators, Why scoping, expression/evidence and placeholder-note checks, glossary, taste-basics links, style metadata, HTTPS sources), the advisory `content_audit.py` (including identical rounded scores), and the jsdom suites (profile selection, search constraints, food aliases, glossary, comparison transactions, hostile input, startup errors, optional-data timeouts). CI runs the same command. Browser checks remain necessary for artwork or responsive CSS changes.
 
 Release assets share a cache token in `index.html` so fresh HTML is never paired with stale CSS or JavaScript.
 

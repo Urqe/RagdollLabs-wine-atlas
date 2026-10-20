@@ -418,5 +418,18 @@
       "oxford-companion"
     ],
     "inline": true
+  },
+  "appassimento": {
+    "term": "Appassimento",
+    "aliases": [
+      "appassimento"
+    ],
+    "definition": "Drying harvested grapes before vinification. Amarone uses this concentration step, then ferments the selected expression to a dry red style.",
+    "why": "Dried-grape concentration helps distinguish Amarone from a fresh-grape Valpolicella blend. Drying is not a synonym for sweetness; Recioto is a separate sweet expression.",
+    "sources": [
+      "amarone-production",
+      "amarone-style"
+    ],
+    "inline": true
   }
 }

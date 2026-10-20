@@ -25,7 +25,7 @@ window.WineSearch = (() => {
       entries.sort(longestFirst);
       const profiles = WineAtlas.allPairs().map(item => ({ item, identity: identity(item), haystack: haystack(item),
         notes: normalize(Object.values(item.regional.notes || {}).flat().join(" ")),
-        grape: normalize(item.grape.name), region: normalize(item.region.name), country: normalize(item.region.country) }));
+        grape: normalize(`${item.grape.name} ${WineModel.profileName(item)}`), region: normalize(item.region.name), country: normalize(item.region.country) }));
       const pairings = [...new Set(profiles.flatMap(row => row.item.regional.pairings || []))];
       index = { entries, profiles, pairings };
     }
@@ -78,16 +78,17 @@ window.WineSearch = (() => {
     return score <= 1 ? "dry" : score < 3 ? "off-dry" : "sweet";
   }
   function allows(item, intent) {
-    return intent.constraints.every(rule =>
+    return intent.constraints.every(rule => !rule.unavailable &&
       (!rule.family || (item.regional.style?.family || "still") === rule.family) &&
       (!rule.regions || rule.regions.includes(item.regionId)) &&
       (!rule.grapeIds || rule.grapeIds.includes(item.grapeId)) &&
+      (!rule.productionClasses || rule.productionClasses.includes(WineModel.discoveryContext(item).production)) &&
       (!rule.colors || rule.colors.includes(WineModel.color(item))) &&
       (!rule.sweetness || rule.sweetness.includes(sweetness(item))));
   }
   function identity(item) {
     // Blend components mentioned only in prose are not profile identities.
-    return normalize([item.grape.name, ...(item.grape.aliases || []), item.region.name, item.region.country,
+    return normalize([item.grape.name, WineModel.profileName(item), ...(item.grape.aliases || []), item.region.name, item.region.country,
       item.regional.style?.label].filter(Boolean).join(" "));
   }
   function haystack(item) {
@@ -103,6 +104,7 @@ window.WineSearch = (() => {
   async function rank(rawQuery, limit = 10) {
     if (normalize(rawQuery).length < 2) return [];
     let intent = parse(rawQuery);
+    if (intent.constraints.some(rule => rule.unavailable)) return [];
     let candidates = searchIndex().profiles.filter(({ item }) => allows(item, intent));
     // Pure wine/identity/aroma queries do not wait for optional food requests.
     // Reparse after loading aliases: a previously unknown dish may contain a
@@ -142,12 +144,13 @@ window.WineSearch = (() => {
       ...(intent.sensory ? [`aroma notes: ${intent.aromaQuery || "…"}`] : [])].join(" · ");
   }
   function notices(rawQuery) {
-    return parse(rawQuery).aliases.map(({ grapeId, phrase }) => {
+    const intent = parse(rawQuery);
+    return [...intent.constraints.filter(rule => rule.unavailable).map(rule => rule.coverageNote), ...intent.aliases.map(({ grapeId, phrase }) => {
       const grape = WineAtlas.getData().grapes[grapeId];
       const countries = [...new Set(searchIndex().profiles.filter(row => row.item.grapeId === grapeId)
         .map(row => row.item.region.country))].sort((a, b) => a.localeCompare(b));
       return `${phrase} → ${grape.name}. Showing represented regions in ${countries.join(", ")}.`;
-    });
+    })];
   }
   return { parse, allows, rank, describe, notices, matchedPairings };
 })();

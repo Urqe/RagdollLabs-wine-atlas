@@ -19,6 +19,7 @@ window.WineModel = (() => {
     const basis = { vintage: "vintage year", release: "release", bottling: "bottling", producer: "producer-specific cask/bottle guidance" }[item.regional.ageingBasis];
     return `${item.regional.ageing}${basis ? ` Time basis: ${basis}.` : ""}`;
   };
+  const profileName = item => item.regional?.displayName || item.grape.name;
   const expressionSummary = item => [item.regional.style?.label, item.regional.style?.composition?.text].filter(Boolean).join(" · ");
   const color = item => item.regional?.style?.color || item.grape.color;
   const compatibilityKey = item => {
@@ -28,6 +29,7 @@ window.WineModel = (() => {
   // Discovery is stricter than broad comparison compatibility. These classes
   // describe the selected reference, not legal categories or measured pressure.
   const productionLabels = Object.freeze({
+    "dried-grape-red": "red vinification from dried grapes (appassimento)",
     "still-red": "still red vinification", "still-white": "still white vinification",
     "traditional-bottle": "second fermentation in bottle with lees ageing",
     "tank-second": "second fermentation in tank", "single-partial-tank": "one interrupted tank fermentation",
@@ -58,5 +60,5 @@ window.WineModel = (() => {
     return differences;
   };
   const compatible = (a, b) => Boolean(a && b && compatibilityKey(a) === compatibilityKey(b));
-  return Object.freeze({ metrics, normalize, color, colorLabel, ageingAdvice, expressionSummary, compatibilityKey, compatible, discoveryContext, productionLabel, bubbleLabel, styleDifferences });
+  return Object.freeze({ metrics, normalize, color, colorLabel, ageingAdvice, expressionSummary, profileName, compatibilityKey, compatible, discoveryContext, productionLabel, bubbleLabel, styleDifferences });
 })();
