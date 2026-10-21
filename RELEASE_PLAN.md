@@ -1,6 +1,6 @@
 # Wine Atlas release plan
 
-Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates.
+Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8–R10 planned 2026-10-21: guided tasting, a beginner journey and bottle-label guidance.
 Created: 2026-10-19.  
 Review baseline: main at `d819d99505b188f2319c37f0f4aa01153278438b` (120 profiles, 92 region entries, 47 grape/blend baselines).  
 Release IDs below are planning identifiers, not published semantic versions.
@@ -18,8 +18,11 @@ Fix misleading behavior and content before increasing the catalog. Preserve the 
 | R5 | Familiar Names, Better Coverage | P3 — low | Close prominent grape, appellation and wine-style gaps in small batches | R1–R4 |
 | R6 | America Beyond California | P3 — low | Focused US regions outside California, including smaller AVAs | R1–R4; normally follows R5's first batch |
 | R7 | Canada: Frozen on the Vine | P3 — low | Canadian icewine with accurate production and comparison context | R1–R4; normally follows R6's first batch |
+| R8 | Taste the Difference | P2 — medium | Six guided tasting flights connected to Compare | R1–R4; uses existing R5–R7 profiles |
+| R9 | Your First Glass | P2 — medium | Short practical beginner journey with clear next steps | R8 for guided-flight integration |
+| R10 | From Atlas to Bottle | P2 — medium | Recognize modeled expressions on labels and wine lists | R8/R9 for integrated learning and buying cues |
 
-R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. No target dates are assigned.
+R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8–R10 are the next feature sequence, ahead of remaining content expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned.
 
 ## Working rules for every release
 
@@ -262,6 +265,107 @@ These comparisons are editorial questions to investigate, not predetermined nume
 - [x] Colour, comparison compatibility, discovery and glossary behavior work for the new expressions.
 - [x] Ageing advice is qualified by grape, producer and storage rather than promising every icewine decades of improvement.
 
+## R8 — Taste the Difference
+
+**Goal:** Turn the existing atlas and Compare into guided tasting experiences for learners and enthusiasts.
+
+**Priority:** P2 — medium; next feature release, ahead of remaining catalog expansion candidates.
+
+**Why:** The catalog already supports useful contrasts, but choosing the wines and knowing what to notice still requires prior knowledge. Curated flights give Compare a concrete purpose and connect reading to tasting.
+
+**Likely files:** A small structured flight dataset (for example `data/tasting-flights.json`), the learning/discovery presentation, `compare-state.js`, `advanced-compare.js`, navigation, validators and focused tests. Reuse the existing profile computation and comparison transaction.
+
+### Scope
+
+- [ ] Ship six curated flights using existing profiles, with two or three wines per flight. Each has one learning question, concise context, selection/buying cues, serving order and two or three sensory observations to try.
+- [ ] Start with the candidate flights below; confirm the actual modeled expressions and evidence before finalizing the teaching claims. Explain that producer, vintage, ripeness and winemaking can confound a regional comparison.
+- [ ] Offer one-click opening of each flight in Compare through its existing atomic state API. Keep ordinary manual comparison available.
+- [ ] Make flights discoverable from the learning entry point and relevant profiles, with a useful return route.
+- [ ] Include a concise printable tasting worksheet: bottle/vintage identification, observations before reading the expected profile, and a reflection on the learning question. This is a worksheet, not a saved tasting notebook or account feature.
+- [ ] Preserve a shareable route to the flight and its learning context, alongside existing profile and comparison links. Define refresh, Back/Forward and invalid-flight behavior.
+- [ ] Provide value without purchasing wine: users can read the question and explore the modeled comparison.
+
+### Candidate first flights
+
+| Flight | Existing profile candidates | Learning question |
+| --- | --- | --- |
+| Sauvignon Blanc, two places | Sancerre and Marlborough | How can the same grape express different fruit and savoury characters? |
+| Cabernet across regions | Bordeaux and Napa | What changes in ripeness, structure and blending context? |
+| Fresh versus dried grapes | Valpolicella Classico and Amarone | What does grape drying change beyond sweetness? |
+| Same grape, different names | Primitivo di Manduria and Lodi Zinfandel | How can shared grape identity coexist with different regional expressions? |
+| Sparkling production | Champagne Brut NV and Prosecco | What might lees contact and production method contribute to texture and aroma? |
+| Routes to sweetness | Niagara Riesling Icewine, Sauternes and Tokaji Aszú | How do natural freezing and noble rot produce distinct sweet-wine references? |
+
+### Acceptance criteria
+
+- [ ] Every flight references valid, distinct profiles that satisfy existing Compare compatibility; unavailable references fail gracefully.
+- [ ] One action opens exactly the intended two or three wines, with correct labels and production context, without duplicate or stale slots.
+- [ ] Teaching copy identifies meaningful similarities and contrasts without inventing score differences or claiming a controlled experiment.
+- [ ] Flight context and selections survive refresh and sharing; Back/Forward restores a useful location and focus.
+- [ ] The worksheet prints legibly without clipping or depending on dark backgrounds.
+- [ ] Keyboard and screen-reader users can find and open flights. Check phone/tablet layout and real touch behavior; record untested environments explicitly.
+- [ ] Run existing validation plus focused dataset, comparison-state and navigation regression checks.
+
+## R9 — Your First Glass
+
+**Goal:** Give beginners a short, practical learning journey before the detailed production guide.
+
+**Priority:** P2 — medium; follows R8 and links into its flights.
+
+**Why:** The current beginner entry opens a substantial reference guide beginning with score methodology. New learners first need words for sensations and a manageable next action.
+
+**Likely files:** `learning.js`, `learning.css`, `ux.js`, `data/taste-basics.json`, glossary data, a small journey dataset if useful, navigation and focused tests.
+
+### Scope
+
+- [ ] Reshape “New to wine?” into a short sequence covering acidity, tannin, body and sweetness, followed by a first guided comparison. Define a clear beginning and end.
+- [ ] Explain each concept through observable sensations: mouth-watering acidity, drying tannin, perceived weight/body and residual sweetness. Distinguish fruit aroma from sugar and tannin from acidity.
+- [ ] Include brief observation exercises and optional familiar food/drink analogies; allow learning without buying or drinking wine.
+- [ ] Use progressive disclosure for score methodology, production detail and technical terms. Preserve access to the full existing taste guide and glossary.
+- [ ] Connect each lesson to a relevant existing profile and, where suitable, an R8 flight. Keep one clear next action and allow skipping, returning and restarting.
+- [ ] Keep the journey optional: experienced users retain direct access to Explore, Compare and the detailed reference.
+- [ ] Reuse existing editorial definitions and profile data; avoid a second scoring system, mandatory quizzes, accounts or persistent learning tracking.
+
+### Acceptance criteria
+
+- [ ] A first-time visitor can identify where to start and finish the core journey without navigating the entire long-form guide.
+- [ ] Learners can distinguish dry from fruity, tannin from acidity, and body from quality after reading the relevant explanations.
+- [ ] Each lesson supplies a concrete observation and a working next-step link; detailed reference material remains reachable.
+- [ ] Closing a glossary/guide or returning from a profile/flight preserves useful lesson context and focus; define refresh and Back/Forward behavior.
+- [ ] Content remains readable at phone and tablet widths and at enlarged text settings. Check keyboard, screen-reader, Safari and touch interaction; report any unverified checks.
+- [ ] Run existing validation and focused checks for lesson references, progression, skipping and return navigation.
+
+## R10 — From Atlas to Bottle
+
+**Goal:** Help users recognize the modeled expression on a bottle label or restaurant list and understand where that bottle may differ.
+
+**Priority:** P2 — medium; follows R9. Begin with a focused batch rather than mandatory boilerplate across all 150 profiles.
+
+**Why:** A clear editorial profile is useful only if users can connect it to an actual wine. Labels may foreground appellation, grape, production method or sweetness, and those cues do not all guarantee the atlas's typical style.
+
+**Likely files:** Profile rendering, a structured label-guidance dataset or optional profile fields, `data/sources.json`, `learning.js`, validators and focused tests.
+
+### Scope
+
+- [ ] Add an optional “Recognize it on the label” section with common names, useful appellation/grape/style cues, important qualifiers and specific reasons a bottle may differ.
+- [ ] Pilot guidance for six learning cases: Chablis Chardonnay; selected Bordeaux Cabernet-led versus Merlot-led references; Valpolicella versus Amarone; Prosecco sweetness wording; selected Sherry styles; and Niagara icewine. Choose exact profile coverage during implementation.
+- [ ] Distinguish regulated identity/category terms from sensory clues, marketing language and producer choices. Verify current jurisdiction-specific meanings using authoritative sources.
+- [ ] Explain when grape names may be absent, when a regional name covers several styles, and which additional label information is needed to select the represented expression.
+- [ ] Cover producer, vintage, cuvée, oak treatment, sweetness and age only where they materially affect the selected example. Do not infer precise blend, ABV, sugar, oak or drinking windows from an appellation alone.
+- [ ] Link relevant glossary definitions and explicitly represented alternatives; connect buying cues in R8 flights to this shared guidance.
+- [ ] Keep guidance useful for shops and restaurant lists without requiring live inventory, prices, commercial recommendations, label scanning or a backend.
+- [ ] Preserve source traceability and reviewed/limited evidence distinctions; leave unsupported fields absent rather than generating generic advice.
+
+### Acceptance criteria
+
+- [ ] Each pilot case explains what to look for, what the cue establishes, what it does not establish and when more information is needed.
+- [ ] A user can connect example label wording to the correct represented expression or an explicit coverage limitation.
+- [ ] No guide implies that a familiar appellation guarantees one sweetness, blend, oak treatment or exact sensory score.
+- [ ] Legal/category claims have direct, dated authoritative references with their jurisdiction and review scope recorded.
+- [ ] Shared guidance stays consistent across profiles, flights, glossary and search; existing URLs and search identities remain stable.
+- [ ] Optional sections are omitted cleanly when guidance is missing; verify readable mobile layout, accessible disclosure and return focus.
+- [ ] Run existing validation and focused checks for guidance references, links, optional rendering and representative ambiguous label cases.
+
 ## Review finding traceability
 
 | Finding | Review issue | Planned release |
@@ -283,6 +387,9 @@ These comparisons are editorial questions to investigate, not predetermined nume
 | Gaps | Original review's missing grapes, regions and wine families | R5 |
 | New request | Smaller US regions outside California | R6 |
 | New request | Canadian icewine | R7 |
+| Product direction | Guided tasting flights and a printable worksheet | R8 |
+| Product direction | Short practical beginner learning journey | R9 |
+| Product direction | Connect modeled profiles to bottle labels and wine lists | R10 |
 
 ## Research starting points
 
