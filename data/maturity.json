@@ -142,5 +142,29 @@
       "vintage": "Years with well-timed humidity and dry harvest windows can support more complete noble-rot concentration; warmer or less even years may show different balances of richness, acidity and botrytis character.",
       "sources": ["civb", "oxford-companion"]
     }
+  },
+  "hunter-semillon": {
+    "semillon": {
+      "summary": "Selected ageworthy dry Hunter Sémillon can evolve from citrus toward wax and toast without oak. This is a qualitative path, not a timetable or a promise for every bottle.",
+      "stages": [
+        {
+          "label": "Young",
+          "effect": "Lemon and lime are prominent, with a lean frame and lively acidity."
+        },
+        {
+          "label": "Developing",
+          "effect": "Citrus can broaden toward lemon-curd and wax-like notes while freshness remains."
+        },
+        {
+          "label": "Mature",
+          "effect": "Toast and honey-like aromas can emerge in well-stored ageworthy bottles; the selected wine remains dry and unoaked."
+        }
+      ],
+      "vintage": "Producer, vineyard, vintage, closure and storage affect the pace. The main profile scores describe the young reference, not an automatically aged wine.",
+      "sources": [
+        "hunter-semillon-guide",
+        "thomas-semillon"
+      ]
+    }
   }
 }

@@ -606,6 +606,126 @@
         "rioja",
         "rioja-blanco"
       ]
+    },
+    {
+      "id": "chateauneuf-red",
+      "label": "represented red Châteauneuf-du-Pape",
+      "aliases": [
+        "chateauneuf du pape",
+        "chateauneuf",
+        "chateauneuf du pape rouge",
+        "red chateauneuf du pape"
+      ],
+      "regions": [
+        "chateauneuf-du-pape"
+      ]
+    },
+    {
+      "id": "bandol-red",
+      "label": "represented red Bandol",
+      "aliases": [
+        "bandol",
+        "bandol rouge",
+        "red bandol"
+      ],
+      "regions": [
+        "bandol-red"
+      ]
+    },
+    {
+      "id": "muscadet-melon",
+      "label": "represented Muscadet Sèvre et Maine",
+      "aliases": [
+        "muscadet",
+        "muscadet sevre et maine",
+        "muscadet sevre et maine sur lie"
+      ],
+      "regions": [
+        "muscadet-sevre-maine"
+      ]
+    },
+    {
+      "id": "melon-grape",
+      "label": "represented Melon grape",
+      "aliases": [
+        "melon"
+      ],
+      "grapeIds": [
+        "melon-de-bourgogne"
+      ]
+    },
+    {
+      "id": "torrontes-reference",
+      "label": "represented Torrontés Riojano reference",
+      "aliases": [
+        "torrontes"
+      ],
+      "grapeIds": [
+        "torrontes-riojano"
+      ]
+    },
+    {
+      "id": "hunter-semillon",
+      "label": "represented dry Hunter Valley Sémillon",
+      "aliases": [
+        "hunter valley",
+        "hunter semillon",
+        "hunter valley semillon",
+        "hunter valley dry semillon",
+        "dry hunter semillon"
+      ],
+      "regions": [
+        "hunter-semillon"
+      ]
+    },
+    {
+      "id": "other-chateauneuf",
+      "label": "unrepresented expression",
+      "aliases": [
+        "chateauneuf du pape blanc",
+        "white chateauneuf du pape",
+        "chateauneuf blanc"
+      ],
+      "unavailable": true,
+      "coverageNote": "White Châteauneuf-du-Pape is not represented. The selected reference is a red Grenache-led blend."
+    },
+    {
+      "id": "other-bandol",
+      "label": "unrepresented expression",
+      "aliases": [
+        "bandol rose",
+        "rose bandol",
+        "bandol blanc",
+        "white bandol"
+      ],
+      "unavailable": true,
+      "coverageNote": "This Bandol colour is not represented separately. The selected Bandol reference is a dry red Mourvèdre-led blend."
+    },
+    {
+      "id": "other-muscadet",
+      "label": "unrepresented expression",
+      "aliases": [
+        "muscadet gros plant",
+        "gros plant du pays nantais",
+        "muscadet clisson",
+        "muscadet gorges",
+        "muscadet le pallet"
+      ],
+      "unavailable": true,
+      "coverageNote": "This Nantes appellation/cru expression is not represented separately; the current Muscadet reference is a young Sèvre et Maine sur lie."
+    },
+    {
+      "id": "other-torrontes",
+      "label": "unrepresented expression",
+      "aliases": [
+        "torrontes mendocino",
+        "torrontes sanjuanino",
+        "sweet torrontes",
+        "torrontes tardio",
+        "torrontes late harvest"
+      ],
+      "unavailable": true,
+      "coverageNote": "This Torrontés variety or sweet expression is not represented separately. The current reference is dry Torrontés Riojano style in Salta."
     }
   ]
 }

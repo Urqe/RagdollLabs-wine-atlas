@@ -45,3 +45,7 @@ Sherry/Jerez covers Fino, dry Oloroso and sweet PX; qualifiers filter those styl
 ## R5 batch C
 
 Adds precise everyday appellation coverage for Montepulciano d’Abruzzo, Sicilian Nero d’Avola, Jumilla Monastrell, Bierzo Mencía and young white Rioja. Monastrell/Mataró resolve to one Mourvèdre identity and report only represented country coverage. Viura retains shared identity with Macabeo: its dry Cava and still white Rioja expressions can both match generic grape queries. Exact Rioja excludes incidental mentions in Ribera prose. Tuscan Montepulciano appellations and selected unrepresented styles have no-substitute notices. See [batch C](everyday-coverage-batch-c.md).
+
+## R5 batch D
+
+Châteauneuf-du-Pape and Bandol resolve the selected red blends, with explicit coverage notices for unrepresented colours. Muscadet/Melon remain distinct from Muscat/Moscato. Generic Torrontés resolves the labeled Riojano reference; unrepresented named types and sweet expressions are not substituted. Hunter Valley resolves dry unoaked Sémillon, separate from sweet Sauternes. Monastrell/Mataró now report France and Spain as actual represented countries, sharing the Mourvèdre identity between Bandol and Jumilla. See [batch D](regional-identity-batch-d.md).
