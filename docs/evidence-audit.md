@@ -1,6 +1,6 @@
-# Evidence audit — R3 foundation and R5 batches A/B
+# Evidence audit — R3 foundation and R5 batches A–C
 
-Updated 2026-10-21 through R5 batch B. Current records: 43 reviewed references and 58 background records pending claim-level metadata review. Every one of the 131 profiles retains explicit evidence limitations. This is a prioritized audit, not a claim that the full catalog has been reverified.
+Updated 2026-10-21 through R5 batch C. Current records: 55 reviewed references and 58 background records pending claim-level metadata review. Every one of the 136 profiles retains explicit evidence limitations. This is a prioritized audit, not a claim that the full catalog has been reverified.
 
 ## Completed priority work
 
@@ -24,6 +24,18 @@ R5 batch B adds twelve primary references for selected Sherry, Madeira and Alvar
 
 | ID | Authority / publisher | Locator | Review limitation |
 | --- | --- | --- | --- |
+| `masciarelli-classico` | Masciarelli | [Page 1: Grapes; Vineyard location and soil; Vinification; Serving; Ageing potential](https://www.masciarelli.it/wp-content/uploads/2024/03/LC_montepulciano_eng.pdf) | 100% Montepulciano, steel fermentation/maturation and a 14–16°C service example. Not all Montepulciano d’Abruzzo is unoaked; no exact bottle-ageing duration is supplied. |
+| `montepulciano-place` | Consorzio Vino Nobile di Montepulciano | [Vino Nobile: The Grapes](https://www.consorziovinonobile.it/disciplinaries/) | Supports the Sangiovese-led identity of the Tuscan wine; this is not a Montepulciano-grape profile or a newly represented appellation. |
+| `planeta-nero-2024` | Planeta | [Page 1: Vinification; Maturation; Tasting notes; Pairing; Ageing capacity](https://storage1368.cdn-immedia.net/wp-content/uploads/2024/06/Planeta_La-Segreta-NERO-DAVOLA-2024-ENG.pdf) | 100% Nero d’Avola, steel maturation, 13% ABV and short producer drinking context. The atlas does not generalize exact chemistry or duration across Sicily. |
+| `planeta-menfi` | Planeta | [Denomination; Variety; Location; Vineyard; Details](https://www.planeta.it/en/wines/la-segreta-nero-davola/) | Menfi/Dispensa and local soil context only; not a description of all Sicilian vineyards. |
+| `jumilla-varieties` | Consejo Regulador DOP Jumilla | [Variedad principal: Monastrell, also Mourvèdre or Mataró](https://jumilla.wine/variedades-uvas/) | Verifies the synonyms, not French or Australian catalog coverage. No changing vineyard percentage is presented as a permanent fact. |
+| `jumilla-setting` | Consejo Regulador DOP Jumilla | [Where We Are: Albacete through Murcia](https://jumilla.wine/en/where-we-are/) | The PDO crosses the province of Albacete in Castilla-La Mancha and northern Murcia; it is not confined to Murcia. |
+| `luzon-monastrell` | Bodegas Luzón | [Variedad; Vinificación; Nota de cata; Temp. de Servicio](https://www.bodegasluzon.com/product/luzon-coleccion-monastrell/) | Young 100% Monastrell example, skin fermentation, 14.5% ABV and 14–16°C service. The page does not document an exact oak recipe or residual-sugar analysis. |
+| `luna-mencia-2024` | Luna Beberide | [Pages 1–2: title; variety; vineyard; vinification; origin](https://lunabeberide.es/wp-content/uploads/2026/09/LB_Fichas_de_Cata_2025_Mencia_Luna_Beberide_ENG-ESP.pdf) | File name says 2025 but the sheet itself describes 2024. It gives differing altitude ranges and sensory “slightly sweet” wording without a sugar analysis; no exact altitude or measured sugar category is inferred. |
+| `bierzo-mencia` | Consejo Regulador DO Bierzo | [Mencía section](https://www.crdobierzo.es/en/the-bierzo-designation-of-origin/varieties-grapes/) | Supports Mencía’s regional role. Changing area percentages and the incomplete introductory list are not used as a current legal specification. |
+| `cvne-monopole-2025` | CVNE | [Page 1: The vineyard; Winemaking; Grape varieties; Tasting notes; service](https://cvne.com/wp-content/uploads/2021/03/MONOPOLE-2025-ENG.pdf) | Fresh 100% Viura, brief pre-press skin contact and steel fermentation. Not the separate oak-aged Monopole Clásico; does not make all white Rioja unoaked. |
+| `cvne-monopole-style` | CVNE | [Monopole wines: young Rioja / dry style; separate Clásico link](https://cvne.com/en/wineries/monopole/) | The dry young reference is read alongside its own technical sheet, not the different Clásico maturation recipe. |
+| `rioja-viura` | Consejo Regulador DOCa Rioja | [Viura: synonym and young / wood-aged white styles](https://riojawine.com/en-us/the-designation/grape-varieties/viura/) | Supports shared Macabeo/Viura identity and stylistic breadth, not a universal oak treatment. |
 | `sherry-fino` | Consejo Regulador Jerez-Xérès-Sherry | [Tasting Notes; Production and Ageing; Serving and consuming](https://www.sherry.wine/sherry-wine/dry-sherry-wines/fino) | Supports a selected fortified Fino reference; no universal bottle-ageing window is inferred. |
 | `sherry-oloroso` | Consejo Regulador Jerez-Xérès-Sherry | [Tasting Notes; Production and Ageing; Serving and consuming](https://www.sherry.wine/sherry-wine/dry-sherry-wines/oloroso) | Dry Oloroso, not sweetened Cream. Scores remain editorial. |
 | `sherry-px` | Consejo Regulador Jerez-Xérès-Sherry | [Production and Ageing; Tasting Notes; Serving and consuming](https://www.sherry.wine/sherry-wine/naturally-sweet-sherry-wine/pedro-ximenez) | Supports raisining, interrupted fermentation and oxidative ageing; does not establish vineyard origin of every Sherry PX. |
@@ -132,3 +144,5 @@ R5 batch B adds twelve primary references for selected Sherry, Madeira and Alvar
 | `austrian-wine` | [Austrian Wine Marketing Board](https://www.austrianwine.com/) | Root/locale root: locate a claim-specific page |
 | `germany-spatburgunder` | [Wines of Germany — Spätburgunder / Pinot Noir](https://winesofgermany.co.uk/grape/spatburgunder/) | Specific path: recheck claim fit and complete metadata |
 | `ucdavis-albarino` | [UC Davis Foundation Plant Services — Albariño / Alvarinho synonyms](https://fps.ucdavis.edu/FGRfamilies.cfm?varietyid=170) | Specific path: recheck claim fit and complete metadata |
+
+R5 batch C adds twelve primary references for five everyday expressions. Producer scope, filename/content discrepancies and sensory-versus-analytical sweetness limits are tracked in [batch C notes](everyday-coverage-batch-c.md).

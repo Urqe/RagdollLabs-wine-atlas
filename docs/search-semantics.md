@@ -41,3 +41,7 @@ Run `npm run validate`. Real-browser checks are still needed for visible behavio
 ## R5 batch B
 
 Sherry/Jerez covers Fino, dry Oloroso and sweet PX; qualifiers filter those styles. Madeira models medium-sweet Boal only. Vinho Verde models dry still Alvarinho from Monção e Melgaço. Alvarinho country coverage now includes Portugal, Spain and Uruguay. Longer unsupported expressions return coverage notices rather than substitutes; see [batch scope](classic-families-batch-b.md). `white fortified` finds pale Fino; amber Oloroso/Madeira and brown PX retain their actual selected wine colour.
+
+## R5 batch C
+
+Adds precise everyday appellation coverage for Montepulciano d’Abruzzo, Sicilian Nero d’Avola, Jumilla Monastrell, Bierzo Mencía and young white Rioja. Monastrell/Mataró resolve to one Mourvèdre identity and report only represented country coverage. Viura retains shared identity with Macabeo: its dry Cava and still white Rioja expressions can both match generic grape queries. Exact Rioja excludes incidental mentions in Ribera prose. Tuscan Montepulciano appellations and selected unrepresented styles have no-substitute notices. See [batch C](everyday-coverage-batch-c.md).

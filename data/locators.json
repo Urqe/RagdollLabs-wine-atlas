@@ -406,5 +406,25 @@
   "vinho-verde-alvarinho": {
     "lat": 42.08,
     "lon": -8.3
+  },
+  "montepulciano-abruzzo": {
+    "lat": 42.29,
+    "lon": 14.15
+  },
+  "sicilia-nero-davola": {
+    "lat": 37.61,
+    "lon": 12.97
+  },
+  "jumilla": {
+    "lat": 38.48,
+    "lon": -1.32
+  },
+  "bierzo": {
+    "lat": 42.61,
+    "lon": -6.79
+  },
+  "rioja-blanco": {
+    "lat": 42.58,
+    "lon": -2.85
   }
 }

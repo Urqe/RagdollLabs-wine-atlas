@@ -10445,5 +10445,459 @@
         ]
       }
     ]
+  },
+  "montepulciano-abruzzo": {
+    "name": "Montepulciano d’Abruzzo DOC",
+    "country": "Italy",
+    "climate": "Adriatic hills with varied exposure",
+    "summary": "A fruit-led, steel-matured Montepulciano reference; oak-aged and premium cuvées can differ.",
+    "grapes": {
+      "montepulciano": {
+        "mods": {},
+        "notes": {
+          "Fruit": [
+            "dark cherry",
+            "blackberry"
+          ],
+          "Earth / savory": [
+            "undergrowth"
+          ],
+          "Spice": [
+            "black pepper"
+          ]
+        },
+        "serve": "14–16°C",
+        "decant": "Usually none; allow a young bottle to open in the glass",
+        "glass": "Medium red wine glass",
+        "ageing": "Ready to drink on release; the cited example can develop, but no universal long-cellaring window is promised.",
+        "ageingBasis": "release",
+        "pairings": [
+          "barbecued meat",
+          "tomato pasta",
+          "roast pork",
+          "aged cheese"
+        ],
+        "expect": "Dark cherry and blackberry with a firm but approachable structure in a steel-led dry red. Montepulciano here names the grape from Abruzzo; Vino Nobile di Montepulciano is a different, Sangiovese-led Tuscan wine.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry Montepulciano d’Abruzzo · Steel-led",
+          "method": "Red skin fermentation and maturation in stainless steel in the cited producer example",
+          "composition": {
+            "kind": "varietal-reference",
+            "text": "Single-varietal Montepulciano reference, following a 100% producer example"
+          }
+        },
+        "evidence": [
+          {
+            "claim": "Selected varietal expression and production example",
+            "sources": [
+              "masciarelli-classico",
+              "montepulciano-place"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Dryness and scores are the selected editorial reference, not a measured residual-sugar analysis. Serving, pairing and aeration advice include practical editorial suggestions; producer and vintage can change the result."
+        ]
+      }
+    },
+    "identity": {
+      "setting": "Abruzzo, eastern central Italy",
+      "terrain": "Hillside vineyard examples in Chieti, Pescara and Teramo areas",
+      "soil": "Clay and limestone in the cited producer vineyards",
+      "influences": [
+        "Varying hillside exposures",
+        "Selected steel maturation preserves fruit without new-oak flavour"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Selected vineyard fruit and steel maturation",
+        "effect": "Dark-fruit character and tannin remain central; oak flavour is not required for this selected expression."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "masciarelli-classico",
+      "montepulciano-place"
+    ],
+    "evidence": [
+      {
+        "claim": "Selected place or vineyard context",
+        "sources": [
+          "masciarelli-classico"
+        ]
+      }
+    ]
+  },
+  "sicilia-nero-davola": {
+    "name": "Sicilia DOC — Nero d’Avola / Menfi",
+    "country": "Italy",
+    "climate": "Warm Mediterranean setting",
+    "summary": "Selected Menfi Nero d’Avola with steel maturation and ripe fruit; not all Sicilian red wine or every Nero d’Avola.",
+    "grapes": {
+      "nero-davola": {
+        "mods": {},
+        "notes": {
+          "Fruit": [
+            "ripe plum",
+            "wild berries"
+          ],
+          "Earth / savory": [
+            "cocoa",
+            "coffee"
+          ],
+          "Spice": [
+            "black pepper"
+          ]
+        },
+        "serve": "14–16°C as an editorial starting point",
+        "decant": "Usually none; allow a young bottle to open in the glass",
+        "glass": "Medium red wine glass",
+        "ageing": "Ready on release for fruit; the cited producer suggests only a short optional period of further ageing. Follow the bottle rather than assuming decades of improvement.",
+        "ageingBasis": "release",
+        "pairings": [
+          "tomato pasta",
+          "grilled meat",
+          "roast aubergine",
+          "meatballs"
+        ],
+        "expect": "Ripe plum, dark berries and a cocoa-like savoury note, with body and tannin but little overt oak. The reference follows a Menfi example; Sicily’s Nero d’Avola styles vary.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry Nero d’Avola · Menfi / steel-led",
+          "method": "Red skin fermentation, malolactic fermentation and stainless-steel maturation in the cited example",
+          "composition": {
+            "kind": "varietal-reference",
+            "text": "Single-varietal Nero d’Avola reference, following Planeta’s 100% example"
+          }
+        },
+        "evidence": [
+          {
+            "claim": "Selected varietal expression and production example",
+            "sources": [
+              "planeta-nero-2024"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Dryness and scores are the selected editorial reference, not a measured residual-sugar analysis. Serving, pairing and aeration advice include practical editorial suggestions; producer and vintage can change the result."
+        ]
+      }
+    },
+    "identity": {
+      "setting": "Menfi / Dispensa, southwestern Sicily",
+      "terrain": "Low-elevation vineyard example near Menfi",
+      "soil": "Calcareous soil context at the cited Dispensa vineyard",
+      "influences": [
+        "Warm Sicilian setting",
+        "Extraction and steel maturation shape the selected texture"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Ripe fruit with steel maturation",
+        "effect": "The selected wine can show cocoa and coffee-like notes without those being proof of oak ageing."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "planeta-menfi",
+      "planeta-nero-2024"
+    ],
+    "evidence": [
+      {
+        "claim": "Selected place or vineyard context",
+        "sources": [
+          "planeta-menfi"
+        ]
+      }
+    ]
+  },
+  "jumilla": {
+    "name": "Jumilla DOP — Monastrell",
+    "country": "Spain",
+    "climate": "Warm, dry southeastern Spanish interior",
+    "summary": "A selected young Monastrell expression from a PDO spanning northern Murcia and southeastern Albacete.",
+    "grapes": {
+      "mourvedre": {
+        "mods": {
+          "tannin": -0.5
+        },
+        "notes": {
+          "Fruit": [
+            "cherry",
+            "strawberry",
+            "black plum"
+          ],
+          "Spice": [
+            "pepper"
+          ],
+          "Earth / savory": [
+            "dried thyme"
+          ]
+        },
+        "serve": "14–16°C",
+        "decant": "Usually none; allow a young bottle to open in the glass",
+        "glass": "Medium red wine glass",
+        "ageing": "Enjoy after release for fruit. No universal cellaring duration is given for young Jumilla Monastrell.",
+        "ageingBasis": "release",
+        "pairings": [
+          "grilled lamb",
+          "barbecued meat",
+          "roast vegetables",
+          "chorizo"
+        ],
+        "expect": "Ripe red and black fruit with a full, warming structure and a fresh finish in a selected young Jumilla style. The reference follows 100% Monastrell; it does not represent every Jumilla blend or oak-aged cuvée.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry Jumilla Monastrell · Young fruit-led style",
+          "method": "Red fermentation on skins; the cited young example prioritizes fruit, with no fixed barrel recipe asserted",
+          "composition": {
+            "kind": "varietal-reference",
+            "text": "Single-varietal Monastrell reference; Monastrell, Mourvèdre and Mataró are names for the same grape"
+          }
+        },
+        "evidence": [
+          {
+            "claim": "Selected varietal expression and production example",
+            "sources": [
+              "luzon-monastrell",
+              "jumilla-varieties"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Dryness and scores are the selected editorial reference, not a measured residual-sugar analysis. Serving, pairing and aeration advice include practical editorial suggestions; producer and vintage can change the result."
+        ],
+        "displayName": "Monastrell (Mourvèdre)"
+      }
+    },
+    "identity": {
+      "setting": "Northern Murcia and southeastern Albacete, Castilla-La Mancha",
+      "terrain": "Interior vineyard country across both sides of the regional boundary",
+      "soil": "Soils vary across the PDO; no single vineyard soil is assigned to the whole region",
+      "influences": [
+        "Warm, dry regional context",
+        "Young fruit-led production selected here"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Producer choice within a broad PDO",
+        "effect": "The reference emphasizes ripe fruit and freshness rather than assuming every Jumilla wine is heavily oaked."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "jumilla-setting",
+      "luzon-monastrell",
+      "jumilla-varieties"
+    ],
+    "evidence": [
+      {
+        "claim": "Selected place or vineyard context",
+        "sources": [
+          "jumilla-setting"
+        ]
+      }
+    ]
+  },
+  "bierzo": {
+    "name": "Bierzo DO — Mencía",
+    "country": "Spain",
+    "climate": "Northwestern inland valley and hillside vineyards",
+    "summary": "A young, steel-fermented Mencía reference anchored to a Villafranca del Bierzo example.",
+    "grapes": {
+      "mencia": {
+        "mods": {},
+        "notes": {
+          "Fruit": [
+            "raspberry",
+            "red cherry"
+          ],
+          "Floral": [
+            "violet"
+          ],
+          "Earth / savory": [
+            "dried herbs"
+          ]
+        },
+        "serve": "14–16°C as an editorial starting point",
+        "decant": "Usually none; allow a young bottle to open in the glass",
+        "glass": "Medium red wine glass",
+        "ageing": "Drink for youthful fruit after release; no fixed long-ageing window is inferred from the cited producer sheet.",
+        "ageingBasis": "release",
+        "pairings": [
+          "roast chicken",
+          "pork",
+          "mushrooms",
+          "charcuterie"
+        ],
+        "expect": "Red berries, floral lift and fine tannin in a selected dry, fruit-led Bierzo Mencía. A ripe-fruit impression is not a measured sugar category, and site-specific or wood-aged wines can be more structured.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry Mencía · Young Bierzo style",
+          "method": "Red fermentation and malolactic fermentation in stainless steel in the cited young example",
+          "composition": {
+            "kind": "varietal-reference",
+            "text": "Single-varietal Mencía reference, following a 100% producer example"
+          }
+        },
+        "evidence": [
+          {
+            "claim": "Selected varietal expression and production example",
+            "sources": [
+              "luna-mencia-2024",
+              "bierzo-mencia"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Dryness and scores are the selected editorial reference, not a measured residual-sugar analysis. Serving, pairing and aeration advice include practical editorial suggestions; producer and vintage can change the result."
+        ]
+      }
+    },
+    "identity": {
+      "setting": "Villafranca del Bierzo, León, Castilla y León",
+      "terrain": "Hillside vineyards at the cited Finca Valdetruchas",
+      "soil": "Clay-limestone soils in the cited producer example; Bierzo also has other soil types",
+      "influences": [
+        "Site and harvest timing shape fruit and structure",
+        "Steel handling keeps this example focused on fruit"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Selected young Mencía expression",
+        "effect": "The reference emphasizes red fruit and fine tannin; it does not assign one soil, extraction level or oak regime to all Bierzo."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "luna-mencia-2024",
+      "bierzo-mencia"
+    ],
+    "evidence": [
+      {
+        "claim": "Selected place or vineyard context",
+        "sources": [
+          "luna-mencia-2024"
+        ]
+      }
+    ]
+  },
+  "rioja-blanco": {
+    "name": "Rioja DOCa — Young white Viura",
+    "country": "Spain",
+    "climate": "Rioja Alta vineyard example",
+    "summary": "A young, fresh, steel-fermented Viura reference; a separate expression from red Rioja and from long oak-aged whites.",
+    "grapes": {
+      "macabeo": {
+        "mods": {
+          "oak": -0.5,
+          "sweetness": -0.5
+        },
+        "notes": {
+          "Fruit": [
+            "green apple",
+            "pear",
+            "citrus"
+          ],
+          "Floral": [
+            "white blossom"
+          ]
+        },
+        "serve": "8–10°C",
+        "decant": "Usually none; allow a young bottle to open in the glass",
+        "glass": "Medium white wine glass",
+        "ageing": "Enjoy young after release for freshness; no additional bottle ageing is needed for this selected style.",
+        "ageingBasis": "release",
+        "pairings": [
+          "grilled fish",
+          "shellfish",
+          "appetisers",
+          "cured ham"
+        ],
+        "expect": "Fresh, dry white Rioja with apple, pear and floral notes, following a young Viura expression. Brief pre-press skin contact does not make it an orange wine. Oak-aged white Rioja and Monopole Clásico are different expressions.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry white Rioja · Young Viura",
+          "method": "Brief pre-press skin contact, pressing and temperature-controlled stainless-steel fermentation in the cited example",
+          "composition": {
+            "kind": "varietal-reference",
+            "text": "Single-varietal Viura reference; Viura is also called Macabeo"
+          }
+        },
+        "evidence": [
+          {
+            "claim": "Selected varietal expression and production example",
+            "sources": [
+              "cvne-monopole-2025",
+              "cvne-monopole-style",
+              "rioja-viura"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "The dry young expression is supported by the producer’s style description; scores are editorial. No universal white-Rioja oak treatment, blend or cellaring duration is claimed. Pairing and aeration advice include editorial suggestions."
+        ],
+        "displayName": "Viura (Macabeo)"
+      }
+    },
+    "identity": {
+      "setting": "Rioja Alta, with Haro as the producer reference",
+      "terrain": "Head-trained vineyard examples supplying the cited wine",
+      "soil": "Loam-clay soils in the cited producer vineyards",
+      "influences": [
+        "Vineyard selection in Rioja Alta",
+        "Brief pre-press contact and steel fermentation"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Selected young white-wine handling",
+        "effect": "Fruit and floral aromas remain prominent without inheriting red Rioja’s barrel-ageing description."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "cvne-monopole-2025",
+      "cvne-monopole-style",
+      "rioja-viura"
+    ],
+    "evidence": [
+      {
+        "claim": "Selected place or vineyard context",
+        "sources": [
+          "cvne-monopole-2025"
+        ]
+      }
+    ]
   }
 }

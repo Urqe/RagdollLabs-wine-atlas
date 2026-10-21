@@ -763,5 +763,125 @@
     "accessedOn": "2026-10-21",
     "reviewedOn": "2026-10-21",
     "reviewNote": "Biological versus oxidative maturation and fractional blending; no universal bottle-ageing window."
+  },
+  "masciarelli-classico": {
+    "name": "Masciarelli Montepulciano d’Abruzzo DOC: Linea Classica",
+    "url": "https://www.masciarelli.it/wp-content/uploads/2024/03/LC_montepulciano_eng.pdf",
+    "publisher": "Masciarelli",
+    "locator": "Page 1: Grapes; Vineyard location and soil; Vinification; Serving; Ageing potential",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "100% Montepulciano, steel fermentation/maturation and a 14–16°C service example. Not all Montepulciano d’Abruzzo is unoaked; no exact bottle-ageing duration is supplied."
+  },
+  "montepulciano-place": {
+    "name": "Vino Nobile di Montepulciano: grape identity distinction",
+    "url": "https://www.consorziovinonobile.it/disciplinaries/",
+    "publisher": "Consorzio Vino Nobile di Montepulciano",
+    "locator": "Vino Nobile: The Grapes",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Supports the Sangiovese-led identity of the Tuscan wine; this is not a Montepulciano-grape profile or a newly represented appellation."
+  },
+  "planeta-nero-2024": {
+    "name": "La Segreta Nero d’Avola 2024: technical sheet",
+    "url": "https://storage1368.cdn-immedia.net/wp-content/uploads/2024/06/Planeta_La-Segreta-NERO-DAVOLA-2024-ENG.pdf",
+    "publisher": "Planeta",
+    "locator": "Page 1: Vinification; Maturation; Tasting notes; Pairing; Ageing capacity",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "100% Nero d’Avola, steel maturation, 13% ABV and short producer drinking context. The atlas does not generalize exact chemistry or duration across Sicily."
+  },
+  "planeta-menfi": {
+    "name": "La Segreta Nero d’Avola: Menfi / Dispensa setting",
+    "url": "https://www.planeta.it/en/wines/la-segreta-nero-davola/",
+    "publisher": "Planeta",
+    "locator": "Denomination; Variety; Location; Vineyard; Details",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Menfi/Dispensa and local soil context only; not a description of all Sicilian vineyards."
+  },
+  "jumilla-varieties": {
+    "name": "Jumilla grape varieties: Monastrell identity",
+    "url": "https://jumilla.wine/variedades-uvas/",
+    "publisher": "Consejo Regulador DOP Jumilla",
+    "locator": "Variedad principal: Monastrell, also Mourvèdre or Mataró",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Verifies the synonyms, not French or Australian catalog coverage. No changing vineyard percentage is presented as a permanent fact."
+  },
+  "jumilla-setting": {
+    "name": "Jumilla: location across Albacete and Murcia",
+    "url": "https://jumilla.wine/en/where-we-are/",
+    "publisher": "Consejo Regulador DOP Jumilla",
+    "locator": "Where We Are: Albacete through Murcia",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "The PDO crosses the province of Albacete in Castilla-La Mancha and northern Murcia; it is not confined to Murcia."
+  },
+  "luzon-monastrell": {
+    "name": "Luzón Colección Monastrell 2025",
+    "url": "https://www.bodegasluzon.com/product/luzon-coleccion-monastrell/",
+    "publisher": "Bodegas Luzón",
+    "locator": "Variedad; Vinificación; Nota de cata; Temp. de Servicio",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Young 100% Monastrell example, skin fermentation, 14.5% ABV and 14–16°C service. The page does not document an exact oak recipe or residual-sugar analysis."
+  },
+  "luna-mencia-2024": {
+    "name": "Mencía Luna Beberide 2024: bilingual technical sheet",
+    "url": "https://lunabeberide.es/wp-content/uploads/2026/09/LB_Fichas_de_Cata_2025_Mencia_Luna_Beberide_ENG-ESP.pdf",
+    "publisher": "Luna Beberide",
+    "locator": "Pages 1–2: title; variety; vineyard; vinification; origin",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "File name says 2025 but the sheet itself describes 2024. It gives differing altitude ranges and sensory “slightly sweet” wording without a sugar analysis; no exact altitude or measured sugar category is inferred."
+  },
+  "bierzo-mencia": {
+    "name": "Bierzo grape varieties: Mencía",
+    "url": "https://www.crdobierzo.es/en/the-bierzo-designation-of-origin/varieties-grapes/",
+    "publisher": "Consejo Regulador DO Bierzo",
+    "locator": "Mencía section",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Supports Mencía’s regional role. Changing area percentages and the incomplete introductory list are not used as a current legal specification."
+  },
+  "cvne-monopole-2025": {
+    "name": "Monopole Blanco 2025: technical sheet",
+    "url": "https://cvne.com/wp-content/uploads/2021/03/MONOPOLE-2025-ENG.pdf",
+    "publisher": "CVNE",
+    "locator": "Page 1: The vineyard; Winemaking; Grape varieties; Tasting notes; service",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Fresh 100% Viura, brief pre-press skin contact and steel fermentation. Not the separate oak-aged Monopole Clásico; does not make all white Rioja unoaked."
+  },
+  "cvne-monopole-style": {
+    "name": "Monopole: selected dry white style",
+    "url": "https://cvne.com/en/wineries/monopole/",
+    "publisher": "CVNE",
+    "locator": "Monopole wines: young Rioja / dry style; separate Clásico link",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "The dry young reference is read alongside its own technical sheet, not the different Clásico maturation recipe."
+  },
+  "rioja-viura": {
+    "name": "Viura / Macabeo: young and aged white Rioja",
+    "url": "https://riojawine.com/en-us/the-designation/grape-varieties/viura/",
+    "publisher": "Consejo Regulador DOCa Rioja",
+    "locator": "Viura: synonym and young / wood-aged white styles",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Supports shared Macabeo/Viura identity and stylistic breadth, not a universal oak treatment."
   }
 }
