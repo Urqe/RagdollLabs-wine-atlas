@@ -468,6 +468,144 @@
       ],
       "unavailable": true,
       "coverageNote": "This Vinho Verde expression is not represented. The current reference is dry still Alvarinho from Monção e Melgaço."
+    },
+    {
+      "id": "montepulciano-abruzzo",
+      "label": "represented Montepulciano d’Abruzzo",
+      "aliases": [
+        "montepulciano d abruzzo",
+        "montepulciano dabruzzo",
+        "abruzzo",
+        "abruzzi"
+      ],
+      "regions": [
+        "montepulciano-abruzzo"
+      ]
+    },
+    {
+      "id": "sicilia-nero-davola",
+      "label": "represented Sicilian Nero d’Avola",
+      "aliases": [
+        "sicily",
+        "sicilia",
+        "nero davola",
+        "nero d avola",
+        "menfi"
+      ],
+      "regions": [
+        "sicilia-nero-davola"
+      ]
+    },
+    {
+      "id": "jumilla-monastrell",
+      "label": "represented Jumilla Monastrell",
+      "aliases": [
+        "jumilla",
+        "jumilla monastrell",
+        "monastrell jumilla"
+      ],
+      "regions": [
+        "jumilla"
+      ]
+    },
+    {
+      "id": "bierzo-mencia",
+      "label": "represented Bierzo Mencía",
+      "aliases": [
+        "bierzo",
+        "el bierzo",
+        "bierzo mencia",
+        "mencia bierzo"
+      ],
+      "regions": [
+        "bierzo"
+      ]
+    },
+    {
+      "id": "rioja-white",
+      "label": "represented young white Rioja",
+      "aliases": [
+        "white rioja",
+        "rioja white",
+        "rioja blanco",
+        "blanco rioja",
+        "rioja blanca",
+        "viura rioja",
+        "rioja viura"
+      ],
+      "regions": [
+        "rioja-blanco"
+      ]
+    },
+    {
+      "id": "nobile-not-abruzzo",
+      "label": "unrepresented expression",
+      "aliases": [
+        "vino nobile di montepulciano",
+        "nobile di montepulciano",
+        "rosso di montepulciano"
+      ],
+      "unavailable": true,
+      "coverageNote": "This Tuscan appellation is not represented separately. It is Sangiovese-led and must not be substituted with the Montepulciano grape profile from Abruzzo."
+    },
+    {
+      "id": "other-abruzzo",
+      "label": "unrepresented expression",
+      "aliases": [
+        "cerasuolo d abruzzo",
+        "cerasuolo dabruzzo",
+        "montepulciano d abruzzo riserva",
+        "montepulciano dabruzzo riserva"
+      ],
+      "unavailable": true,
+      "coverageNote": "This Abruzzo expression is not represented separately; the current reference is a dry steel-led red, not a rosé or Riserva."
+    },
+    {
+      "id": "other-sicilia",
+      "label": "unrepresented expression",
+      "aliases": [
+        "cerasuolo di vittoria",
+        "nero d avola passito",
+        "nero davola passito"
+      ],
+      "unavailable": true,
+      "coverageNote": "This Sicilian expression is not represented separately; the current Nero d’Avola reference is a dry still red from Menfi."
+    },
+    {
+      "id": "other-jumilla",
+      "label": "unrepresented expression",
+      "aliases": [
+        "jumilla dulce",
+        "sweet jumilla",
+        "jumilla sweet"
+      ],
+      "unavailable": true,
+      "coverageNote": "Sweet Jumilla is not represented. The current Monastrell reference is dry."
+    },
+    {
+      "id": "other-white-rioja",
+      "label": "unrepresented expression",
+      "aliases": [
+        "oak aged white rioja",
+        "barrel aged white rioja",
+        "white rioja reserva",
+        "rioja blanco reserva",
+        "rioja white reserva",
+        "monopole clasico"
+      ],
+      "unavailable": true,
+      "coverageNote": "This aged white Rioja expression is not represented separately; the current Viura reference is a young steel-fermented style."
+    },
+    {
+      "id": "rioja",
+      "label": "represented Rioja expressions",
+      "aliases": [
+        "rioja"
+      ],
+      "regions": [
+        "rioja",
+        "rioja-blanco"
+      ]
     }
   ]
 }
