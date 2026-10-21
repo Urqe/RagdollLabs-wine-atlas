@@ -340,6 +340,134 @@
       "productionClasses": [
         "dried-grape-red"
       ]
+    },
+    {
+      "id": "sherry",
+      "label": "represented Sherry styles",
+      "aliases": [
+        "sherry",
+        "jerez",
+        "jerez xeres sherry",
+        "xeres"
+      ],
+      "family": "fortified",
+      "regions": [
+        "jerez-fino",
+        "jerez-oloroso",
+        "jerez-px"
+      ]
+    },
+    {
+      "id": "fino-sherry",
+      "label": "dry Fino Sherry",
+      "aliases": [
+        "fino",
+        "fino sherry"
+      ],
+      "regions": [
+        "jerez-fino"
+      ]
+    },
+    {
+      "id": "oloroso-sherry",
+      "label": "dry Oloroso Sherry",
+      "aliases": [
+        "oloroso",
+        "oloroso sherry",
+        "dry oloroso"
+      ],
+      "regions": [
+        "jerez-oloroso"
+      ]
+    },
+    {
+      "id": "px-sherry",
+      "label": "sweet PX Sherry",
+      "aliases": [
+        "px",
+        "px sherry",
+        "pedro ximenez sherry"
+      ],
+      "regions": [
+        "jerez-px"
+      ]
+    },
+    {
+      "id": "boal-madeira",
+      "label": "represented medium-sweet Boal Madeira",
+      "aliases": [
+        "madeira",
+        "boal",
+        "bual",
+        "boal madeira",
+        "bual madeira",
+        "medium sweet madeira",
+        "medium rich madeira"
+      ],
+      "regions": [
+        "madeira-boal"
+      ]
+    },
+    {
+      "id": "vinho-verde",
+      "label": "represented dry still Alvarinho Vinho Verde",
+      "aliases": [
+        "vinho verde",
+        "vinho verde alvarinho",
+        "alvarinho vinho verde",
+        "moncao e melgaco"
+      ],
+      "regions": [
+        "vinho-verde-alvarinho"
+      ]
+    },
+    {
+      "id": "other-sherry",
+      "label": "unrepresented expression",
+      "aliases": [
+        "manzanilla",
+        "amontillado",
+        "palo cortado",
+        "cream sherry",
+        "pale cream",
+        "medium sherry",
+        "sweet oloroso",
+        "sherry moscatel",
+        "moscatel sherry"
+      ],
+      "unavailable": true,
+      "coverageNote": "This Sherry style is not represented separately. The catalog currently models Fino, dry Oloroso and sweet Pedro Ximénez."
+    },
+    {
+      "id": "other-madeira",
+      "label": "unrepresented expression",
+      "aliases": [
+        "sercial",
+        "verdelho madeira",
+        "malmsey",
+        "malvasia madeira",
+        "dry madeira",
+        "medium dry madeira",
+        "rich madeira",
+        "sweet madeira malvasia"
+      ],
+      "unavailable": true,
+      "coverageNote": "This Madeira expression is not represented. The current reference is medium-sweet Boal, not a substitute for this style."
+    },
+    {
+      "id": "other-vinho-verde",
+      "label": "unrepresented expression",
+      "aliases": [
+        "loureiro",
+        "vinho verde rose",
+        "rose vinho verde",
+        "red vinho verde",
+        "vinho verde red",
+        "sparkling vinho verde",
+        "vinho verde sparkling"
+      ],
+      "unavailable": true,
+      "coverageNote": "This Vinho Verde expression is not represented. The current reference is dry still Alvarinho from Monção e Melgaço."
     }
   ]
 }

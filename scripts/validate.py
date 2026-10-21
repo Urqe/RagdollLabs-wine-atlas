@@ -30,7 +30,7 @@ PLACEHOLDER_NOTES = {"spice", "flowers", "herbs", "fruit", "earth"}
 PRODUCTION_CLASSES = {
     "sparkling": {"traditional-bottle", "tank-second", "single-partial-tank"},
     "sweet": {"botrytised", "late-harvest"},
-    "fortified": {"fortified-protected", "fortified-oxidative", "fortified-muscat-cask"},
+    "fortified": {"fortified-protected", "fortified-oxidative", "fortified-muscat-cask", "fortified-flor", "fortified-raisined", "fortified-heated-oxidative"},
     "rose": {"rose-direct-or-short", "rose-extracted", "rose-bled"},
     "orange": {"skin-maceration"},
 }
@@ -111,7 +111,7 @@ def main() -> None:
         assert any(rule.get(field) for field in ("family", "regions", "grapeIds", "colors", "sweetness", "unavailable", "productionClasses")), "wine search: missing constraint"
         if "family" in rule:
             assert rule["family"] in STYLE_FAMILIES | {"still"}, "wine search: invalid family"
-        for field, allowed in [("colors", {"red", "white", "rose", "orange", "amber", "tawny", "white-gold"}),
+        for field, allowed in [("colors", {"red", "white", "rose", "orange", "amber", "tawny", "brown", "white-gold"}),
                                ("sweetness", STYLE_SWEETNESS), ("grapeIds", set(grapes)),
                                ("productionClasses", {"still-red", "still-white", "dried-grape-red"}.union(*PRODUCTION_CLASSES.values()))]:
             if field in rule:
@@ -207,7 +207,7 @@ def main() -> None:
                     assert style.get("productionClass", f"still-{style['color']}") in allowed_production, f"{prefix}: invalid still production class"
                     assert style.get("effervescence", "none") == "none", f"{prefix}: still wine cannot have bubbles"
                 assert style.get("sweetness") in STYLE_SWEETNESS, f"{prefix}: invalid style sweetness"
-                assert style.get("color") in {"red", "white", "rose", "orange", "amber", "tawny", "white-gold"}, f"{prefix}: invalid style color"
+                assert style.get("color") in {"red", "white", "rose", "orange", "amber", "tawny", "brown", "white-gold"}, f"{prefix}: invalid style color"
                 for field in ("color", "label", "method"):
                     assert isinstance(style.get(field), str) and style[field].strip(), f"{prefix}: invalid style {field}"
 

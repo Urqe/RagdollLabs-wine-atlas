@@ -643,5 +643,125 @@
     "accessedOn": "2026-10-20",
     "reviewedOn": "2026-10-20",
     "reviewNote": "Publisher-indexed text reviewed; direct consortium pages timed out. Independent producer material supports the selected blends and production distinctions."
+  },
+  "sherry-fino": {
+    "name": "Fino: selected dry biological style",
+    "url": "https://www.sherry.wine/sherry-wine/dry-sherry-wines/fino",
+    "publisher": "Consejo Regulador Jerez-Xérès-Sherry",
+    "locator": "Tasting Notes; Production and Ageing; Serving and consuming",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Supports a selected fortified Fino reference; no universal bottle-ageing window is inferred."
+  },
+  "sherry-oloroso": {
+    "name": "Oloroso: dry oxidative style",
+    "url": "https://www.sherry.wine/sherry-wine/dry-sherry-wines/oloroso",
+    "publisher": "Consejo Regulador Jerez-Xérès-Sherry",
+    "locator": "Tasting Notes; Production and Ageing; Serving and consuming",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Dry Oloroso, not sweetened Cream. Scores remain editorial."
+  },
+  "sherry-px": {
+    "name": "Pedro Ximénez: naturally sweet Sherry",
+    "url": "https://www.sherry.wine/sherry-wine/naturally-sweet-sherry-wine/pedro-ximenez",
+    "publisher": "Consejo Regulador Jerez-Xérès-Sherry",
+    "locator": "Production and Ageing; Tasting Notes; Serving and consuming",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Supports raisining, interrupted fermentation and oxidative ageing; does not establish vineyard origin of every Sherry PX."
+  },
+  "sherry-region": {
+    "name": "The Sherry Wine Region",
+    "url": "https://www.sherry.wine/sherry-region/sherry-wine-region",
+    "publisher": "Consejo Regulador Jerez-Xérès-Sherry",
+    "locator": "The origins; The Sherry country",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Regional setting only. The map point is Jerez, not an appellation boundary or a grape-origin guarantee."
+  },
+  "madeira-boal": {
+    "name": "Boal: grape and medium-sweet reference",
+    "url": "https://vinhomadeira.com/o-vinho-madeira/castas/boal",
+    "publisher": "IVBAM",
+    "locator": "Vine Varieties: Boal",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Grape/style reference; no universal ABV, blend percentage or cellaring window."
+  },
+  "madeira-production": {
+    "name": "Madeira: vinification and ageing",
+    "url": "https://vinhomadeira.com/o-vinho-madeira/vinificacao-e-envelhecimento",
+    "publisher": "IVBAM",
+    "locator": "The vinification process; Aging; Canteiro",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Use detailed cask-ageing section: the introductory English phrase “Canteiro - Storage in bottles” is a translation error. No exact producer heating schedule is claimed."
+  },
+  "madeira-boal-example": {
+    "name": "Henriques & Henriques Boal 10 anos",
+    "url": "https://henriquesehenriques.pt/produto/boal-10-anos/",
+    "publisher": "Henriques & Henriques",
+    "locator": "Notas de prova; analysis table; Visão Geral",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Producer example: 20% ABV and 90.4 g/L total sugars; not measurements for all Boal. No 100% varietal claim is made. The linked PDF has different analysis (97 g/L total sugars); no single sugar figure is generalized or displayed as a regional measurement."
+  },
+  "madeira-serving": {
+    "name": "Serving Madeira Wine",
+    "url": "https://vinhomadeira.com/o-vinho-madeira/consumir/consumir",
+    "publisher": "IVBAM",
+    "locator": "Temperature; Glass; Decanting; Storage",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Use service guidance only; broad sweetness wording under Palate is not used as a numerical sugar range."
+  },
+  "madeira-pairing": {
+    "name": "Madeira food matching: Boal",
+    "url": "https://vinhomadeira.com/o-vinho-madeira/consumir/foodmatching",
+    "publisher": "IVBAM",
+    "locator": "Boal",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Pairing suggestions, not guarantees of preference."
+  },
+  "madeira-region": {
+    "name": "Madeira wine-growing region",
+    "url": "https://vinhomadeira.com/o-vinho-madeira/regiao",
+    "publisher": "IVBAM",
+    "locator": "Wine-Growing Region",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Terrain, volcanic-origin soils and maritime setting only; no literal transfer of rock flavours."
+  },
+  "vinho-verde-alvarinho": {
+    "name": "Soalheiro Alvarinho Clássico 2025: technical sheet",
+    "url": "https://cdn.shopify.com/s/files/1/0962/8470/5145/files/TechSheet-Soalheiro_Classico-2025.pdf?v=1788422241",
+    "publisher": "Soalheiro",
+    "locator": "Page 1: Terroir; Vinification; Ageing potential; Technical information; Pairing",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Single-varietal dry steel/lees producer example in Monção e Melgaço. Not every Vinho Verde is white, dry or still; no universal ageing duration."
+  },
+  "sherry-ageing": {
+    "name": "Sherry ageing: flor and solera",
+    "url": "https://www.sherry.wine/sherry-wine/production/ageing",
+    "publisher": "Consejo Regulador Jerez-Xérès-Sherry",
+    "locator": "Types of Ageing; The Solera Criadera System",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Biological versus oxidative maturation and fractional blending; no universal bottle-ageing window."
   }
 }

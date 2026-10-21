@@ -34,7 +34,9 @@ Sweetness uses explicit expression metadata, or the existing editorial score anc
 
 ## Coverage
 
-97 region/style entries and 126 grape-expression profiles across 22 countries, built on 50 grape or represented-blend baselines. Coverage deliberately combines the classics a newcomer is most likely to buy (Bordeaux, Burgundy, Rioja, Napa, Marlborough, Mendoza Malbec, Pinot Grigio, Prosecco, Champagne, Beaujolais, Rías Baixas Albariño, Chablis, Primitivo di Manduria, Valpolicella, Amarone, Rueda Verdejo and Stellenbosch Pinotage) with discovery regions and indigenous grapes (Georgia, Greece, Armenia, Romania, Bulgaria, Ukraine, the Canary Islands, Uruguay and Mexico).
+102 region/style entries and 131 grape-expression profiles across 22 countries, built on 53 grape or represented-blend baselines. Coverage deliberately combines the classics a newcomer is most likely to buy (Bordeaux, Burgundy, Rioja, Napa, Marlborough, Mendoza Malbec, Pinot Grigio, Prosecco, Champagne, Beaujolais, Rías Baixas Albariño, Chablis, Primitivo di Manduria, Valpolicella, Amarone, Rueda Verdejo, Stellenbosch Pinotage, Fino/dry Oloroso/sweet PX Sherry, medium-sweet Boal Madeira and dry Alvarinho Vinho Verde) with discovery regions and indigenous grapes (Georgia, Greece, Armenia, Romania, Bulgaria, Ukraine, the Canary Islands, Uruguay and Mexico).
+
+R5 batch B adds selected classic families; see [scope, evidence limits and validation](docs/classic-families-batch-b.md). Fortified Compare permits dry/sweet learning contrasts while displaying actual wine colour and production differences; discovery remains stricter.
 
 Many grapes appear in two or more regions so Compare can show how place changes a grape: for example Malbec in Mendoza, Salta and Cahors, Chenin Blanc in Stellenbosch and Swartland, Sauvignon Blanc in Sancerre, Marlborough and Steiermark, Pinot Gris in Alto Adige and Alsace, Riesling in the Mosel, Rheingau, Wachau, Alsace and Clare Valley.
 

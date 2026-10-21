@@ -37,3 +37,7 @@ Generic `muscat` / `moscato` resolves the represented Muscat grape family (Musca
 `tests/search-semantics.mjs` covers the original failures; colour/sweetness combinations; food protection; grape and regional constraints; aroma queries; synonyms and honest coverage notices; Muscat/appellation distinctions; actual Explore/Compare rendering parity; safe text rendering; and delayed food-vocabulary loading. Existing regression suites continue to cover appellations, food aliases, state transitions and optional-data failures.
 
 Run `npm run validate`. Real-browser checks are still needed for visible behavior; jsdom does not establish iPhone/iPad Safari layout or interaction correctness.
+
+## R5 batch B
+
+Sherry/Jerez covers Fino, dry Oloroso and sweet PX; qualifiers filter those styles. Madeira models medium-sweet Boal only. Vinho Verde models dry still Alvarinho from Monção e Melgaço. Alvarinho country coverage now includes Portugal, Spain and Uruguay. Longer unsupported expressions return coverage notices rather than substitutes; see [batch scope](classic-families-batch-b.md). `white fortified` finds pale Fino; amber Oloroso/Madeira and brown PX retain their actual selected wine colour.

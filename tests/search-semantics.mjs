@@ -42,7 +42,7 @@ assert.deepEqual(keys(await results("sparkling off-dry")), ["glera::prosecco-doc
 assert.deepEqual(keys(await results("sparkling dry-to-off-dry")), ["glera::prosecco-doc"]);
 assert.deepEqual(keys(await results("dry sparkling rose")), ["pinot-noir::cremant-alsace"]);
 assert.deepEqual(keys(await results("cremant dry chardonnay")), ["chardonnay::cremant-bourgogne"]);
-assert.deepEqual(keys(await results("white fortified")), [], "amber/tawny fortified wines are not white in this catalog");
+assert.deepEqual(keys(await results("white fortified")), ["palomino::jerez-fino"], "wine colour distinguishes pale Fino from amber/brown fortified expressions");
 assert.deepEqual(keys(await results("dry Riesling Germany")), ["riesling::rheingau"]);
 const chicken = await results("dry sparkling fried chicken");
 assert.ok(chicken.length > 0 && chicken.every(row => row.pairingScore > 0));
@@ -76,7 +76,7 @@ assert.deepEqual(keys(await results("Primitivo Lodi")), ["zinfandel::lodi"]);
 assert.deepEqual(keys(await results("Alvarinho Uruguay")), ["albarino::maldonado"]);
 assert.deepEqual(keys(await results("Primitivo Italy")), ["zinfandel::primitivo-manduria"]);
 assert.match(w.WineSearch.notices("Primitivo")[0], /regions in Italy, USA/);
-assert.match(w.WineSearch.notices("Alvarinho")[0], /Spain, Uruguay/);
+assert.match(w.WineSearch.notices("Alvarinho")[0], /Portugal, Spain, Uruguay/);
 
 // The generic Muscat family and a named appellation are different searches.
 const muscat = await results("moscato");

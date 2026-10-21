@@ -1,6 +1,6 @@
-# Evidence audit — R3 foundation and R5 batch A
+# Evidence audit — R3 foundation and R5 batches A/B
 
-Updated 2026-10-20 through R5 batch A. Current records: 31 reviewed references and 58 background records pending claim-level metadata review. Every one of the 126 profiles retains explicit evidence limitations. This is a prioritized audit, not a claim that the full catalog has been reverified.
+Updated 2026-10-21 through R5 batch B. Current records: 43 reviewed references and 58 background records pending claim-level metadata review. Every one of the 131 profiles retains explicit evidence limitations. This is a prioritized audit, not a claim that the full catalog has been reverified.
 
 ## Completed priority work
 
@@ -18,10 +18,24 @@ R3 added sixteen targeted references supporting those claim groups. R5 batch A a
 3. **Medium:** replace the legacy generic book/publisher links with the actual edition and entry/chapter/pages used. If that provenance cannot be recovered, substitute a directly relevant primary source rather than claiming a book was consulted.
 4. **Ongoing:** migrate the regional and grape references below into dated claim groups as profiles are substantively reviewed. A site root is a discoverability problem, not evidence that its facts are wrong. The R1 alias research remains documented separately.
 
+R5 batch B adds twelve primary references for selected Sherry, Madeira and Alvarinho expressions. Conflicting producer sugar figures and source translation limits are recorded without creating universal chemical or ageing claims.
+
 ## Reviewed references
 
 | ID | Authority / publisher | Locator | Review limitation |
 | --- | --- | --- | --- |
+| `sherry-fino` | Consejo Regulador Jerez-Xérès-Sherry | [Tasting Notes; Production and Ageing; Serving and consuming](https://www.sherry.wine/sherry-wine/dry-sherry-wines/fino) | Supports a selected fortified Fino reference; no universal bottle-ageing window is inferred. |
+| `sherry-oloroso` | Consejo Regulador Jerez-Xérès-Sherry | [Tasting Notes; Production and Ageing; Serving and consuming](https://www.sherry.wine/sherry-wine/dry-sherry-wines/oloroso) | Dry Oloroso, not sweetened Cream. Scores remain editorial. |
+| `sherry-px` | Consejo Regulador Jerez-Xérès-Sherry | [Production and Ageing; Tasting Notes; Serving and consuming](https://www.sherry.wine/sherry-wine/naturally-sweet-sherry-wine/pedro-ximenez) | Supports raisining, interrupted fermentation and oxidative ageing; does not establish vineyard origin of every Sherry PX. |
+| `sherry-region` | Consejo Regulador Jerez-Xérès-Sherry | [The origins; The Sherry country](https://www.sherry.wine/sherry-region/sherry-wine-region) | Regional setting only. The map point is Jerez, not an appellation boundary or a grape-origin guarantee. |
+| `madeira-boal` | IVBAM | [Vine Varieties: Boal](https://vinhomadeira.com/o-vinho-madeira/castas/boal) | Grape/style reference; no universal ABV, blend percentage or cellaring window. |
+| `madeira-production` | IVBAM | [The vinification process; Aging; Canteiro](https://vinhomadeira.com/o-vinho-madeira/vinificacao-e-envelhecimento) | Use detailed cask-ageing section: the introductory English phrase “Canteiro - Storage in bottles” is a translation error. No exact producer heating schedule is claimed. |
+| `madeira-boal-example` | Henriques & Henriques | [Notas de prova; analysis table; Visão Geral](https://henriquesehenriques.pt/produto/boal-10-anos/) | Producer example: 20% ABV and 90.4 g/L total sugars; not measurements for all Boal. No 100% varietal claim is made. The linked PDF has different analysis (97 g/L total sugars); no single sugar figure is generalized or displayed as a regional measurement. |
+| `madeira-serving` | IVBAM | [Temperature; Glass; Decanting; Storage](https://vinhomadeira.com/o-vinho-madeira/consumir/consumir) | Use service guidance only; broad sweetness wording under Palate is not used as a numerical sugar range. |
+| `madeira-pairing` | IVBAM | [Boal](https://vinhomadeira.com/o-vinho-madeira/consumir/foodmatching) | Pairing suggestions, not guarantees of preference. |
+| `madeira-region` | IVBAM | [Wine-Growing Region](https://vinhomadeira.com/o-vinho-madeira/regiao) | Terrain, volcanic-origin soils and maritime setting only; no literal transfer of rock flavours. |
+| `vinho-verde-alvarinho` | Soalheiro | [Page 1: Terroir; Vinification; Ageing potential; Technical information; Pairing](https://cdn.shopify.com/s/files/1/0962/8470/5145/files/TechSheet-Soalheiro_Classico-2025.pdf?v=1788422241) | Single-varietal dry steel/lees producer example in Monção e Melgaço. Not every Vinho Verde is white, dry or still; no universal ageing duration. |
+| `sherry-ageing` | Consejo Regulador Jerez-Xérès-Sherry | [Types of Ageing; The Solera Criadera System](https://www.sherry.wine/sherry-wine/production/ageing) | Biological versus oxidative maturation and fractional blending; no universal bottle-ageing window. |
 | `ucdavis-zinfandel` | UC Davis Foundation Plant Services | [Zinfandel chapter: genetic identity and Primitivo history](https://fps.ucdavis.edu/grapebook/winebook.cfm?chap=Zinfandel) | Grape identity only; this reference does not establish the style of a specific Puglian wine. |
 | `vouvray-styles` | Syndicat des Vignerons de Vouvray | [Understanding our Vouvray white wines; sec / demi-sec / moelleux](https://www.vinsdevouvray.com/en/vouvray-white-wine/) | Supports the named claim group, not editorial scores. |
 | `tokaj-dry-example` | Disznókő | [Pages 1–2: Vinification, Maturing, Serving](https://disznoko.hu/pdf/vin/en/disznok-tokaji-dry-furmint-2022-90.pdf) | A producer example of fresh dry Furmint, not evidence that every dry Tokaj is made identically. |

@@ -49,4 +49,7 @@ rejected(lambda d: d['regions.json']['cava']['grapes']['macabeo']['style'].updat
 rejected(lambda d: d['regions.json']['rueda']['grapes']['verdejo']['style'].update(productionClass='dried-grape-red'), 'White wine accepted with dried-grape-red production')
 rejected(lambda d: d['regions.json']['primitivo-manduria']['grapes']['zinfandel'].update(displayName=7), 'Invalid display name accepted')
 rejected(lambda d: d['wine-search.json']['rules'].append({'id':'bad-coverage','label':'Bad coverage','aliases':['missing-example'],'unavailable':True}), 'Unavailable query without coverage explanation accepted')
+rejected(lambda d: d['regions.json']['jerez-px']['grapes']['pedro-ximenez']['style'].update(color='ebony'), 'Unknown wine colour accepted')
+rejected(lambda d: d['regions.json']['jerez-fino']['grapes']['palomino']['style'].update(effervescence='sparkling'), 'Sparkling Fino accepted')
+rejected(lambda d: d['regions.json']['vinho-verde-alvarinho']['grapes']['albarino']['style'].update(productionClass='fortified-flor'), 'Still Alvarinho accepted with flor fortification class')
 print('OK: duplicate scores advisory; invalid metrics, metadata, evidence and links still block validation')

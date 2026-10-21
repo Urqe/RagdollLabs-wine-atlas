@@ -431,5 +431,41 @@
       "amarone-style"
     ],
     "inline": true
+  },
+  "flor": {
+    "term": "Flor",
+    "aliases": [
+      "flor"
+    ],
+    "definition": "A layer of living yeasts that develops on certain wines during biological ageing. In the selected Fino reference, it protects the wine from oxidation.",
+    "why": "Explains why dry Fino remains pale and develops almond and dough-like aromas, unlike oxidative Oloroso.",
+    "sources": [
+      "sherry-fino"
+    ],
+    "inline": true
+  },
+  "solera": {
+    "term": "Solera",
+    "aliases": [
+      "solera"
+    ],
+    "definition": "A fractional maturation and blending system: wine is drawn from an older scale and replenished from younger scales (criaderas).",
+    "why": "A solera wine combines maturation stages; the system is not a vintage date or a single compulsory age.",
+    "sources": [
+      "sherry-ageing"
+    ],
+    "inline": true
+  },
+  "canteiro": {
+    "term": "Canteiro",
+    "aliases": [
+      "canteiro"
+    ],
+    "definition": "A Madeira maturation method using casks in warm wine-cellar spaces, with oxidative ageing. The name refers to the wooden supports beneath the casks.",
+    "why": "Distinguishes the selected warm cask-aged Madeira reference from ordinary cool bottle storage and from tank estufagem.",
+    "sources": [
+      "madeira-production"
+    ],
+    "inline": true
   }
 }
