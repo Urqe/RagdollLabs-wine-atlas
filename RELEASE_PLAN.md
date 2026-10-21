@@ -1,6 +1,6 @@
 # Wine Atlas release plan
 
-Status: R1–R5 complete (R5 batch D implemented 2026-10-21). R6–R7 remain planned.
+Status: R1–R5 complete. R6 first batch implemented 2026-10-21; later US candidates remain open. R7 Canadian icewine is next.
 Created: 2026-10-19.  
 Review baseline: main at `d819d99505b188f2319c37f0f4aa01153278438b` (120 profiles, 92 region entries, 47 grape/blend baselines).  
 Release IDs below are planning identifiers, not published semantic versions.
@@ -184,7 +184,7 @@ Validation: full automated regression suite, including threshold boundaries, spa
 - [x] C — Broader everyday coverage: five profiles implemented. See [batch notes, sources and validation](docs/everyday-coverage-batch-c.md).
 - [x] D — Further regional identity: five profiles implemented. See [batch notes, sources and validation](docs/regional-identity-batch-d.md).
 
-Current coverage: 141 profiles, 112 region/style records, 59 grape/blend baselines, 22 countries. All four planned R5 batches are implemented. R6 America Beyond California is next, followed by R7 Canadian icewine; later content candidates remain subject to evidence and priority.
+Current coverage after R6: 147 profiles, 117 region/style records, 59 grape/blend baselines, 22 countries. All four R5 batches and the R6 first batch are implemented. R7 Canadian icewine is next; later content candidates remain subject to evidence and priority.
 
 ### Requirements and acceptance criteria
 
@@ -203,7 +203,7 @@ The completed checks below apply to all four implemented R5 batches and should b
 
 **Goal:** Add focused US appellations outside California, including smaller and less familiar regions. The existing Willamette Valley entry remains; do not count it again as new coverage.
 
-**Priority:** Low. First batch target: five region entries and six profiles, subject to sufficient evidence.
+**Priority:** Low. First batch complete: five region entries and six profiles. See [implementation and evidence](docs/america-beyond-california-r6.md). Later candidates remain open.
 
 ### First batch
 
@@ -225,14 +225,14 @@ These comparisons are editorial questions to investigate, not predetermined nume
 - [ ] Umpqua Valley / Applegate Valley, Oregon — select an evidence-supported expression that adds value beyond existing Willamette Pinot Noir.
 - [ ] Leelanau Peninsula, Michigan — assess whether a second Michigan profile teaches enough to warrant a separate entry.
 
-### Requirements and acceptance criteria
+### First-batch requirements and acceptance criteria
 
-- [ ] Verify AVA boundaries, canonical names and grape relevance using regional bodies, official appellation material and representative producer technical sheets.
-- [ ] Reflect cross-state AVAs correctly, including Walla Walla and Snake River Valley. Avoid labeling the whole appellation as belonging to only one state.
-- [ ] Keep state names searchable and visible where useful without turning country into inconsistent values such as “USA — Virginia”.
-- [ ] Do not assign numerical contrasts in advance or generalize an unusually famous producer/subregion to an entire AVA.
-- [ ] Ensure US discovery has meaningful coverage outside California without duplicating existing entries.
-- [ ] Apply R3's evidence and expression rules and run all applicable content/search checks.
+- [x] Verify AVA boundaries, canonical names and grape relevance using regional bodies, official appellation material and representative producer technical sheets.
+- [x] Reflect the represented cross-state Walla Walla AVA correctly. Apply the same requirement to Snake River Valley if added later. Avoid labeling the whole appellation as belonging to only one state.
+- [x] Keep state names searchable and visible where useful without turning country into inconsistent values such as “USA — Virginia”.
+- [x] Do not assign numerical contrasts in advance or generalize an unusually famous producer/subregion to an entire AVA.
+- [x] Ensure US discovery has meaningful coverage outside California without duplicating existing entries.
+- [x] Apply R3's evidence and expression rules and run all applicable content/search checks.
 
 ## R7 — Canada: Frozen on the Vine
 

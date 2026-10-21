@@ -1,6 +1,6 @@
-# Evidence audit — R3 foundation and R5 batches A–D
+# Evidence audit — R3 foundation through R6
 
-Updated 2026-10-21 through R5 batch D. Current records: 66 reviewed references and 58 background records pending claim-level metadata review. Every one of the 141 profiles retains explicit evidence limitations. This is a prioritized audit, not a claim that the full catalog has been reverified.
+Updated 2026-10-21 through R6 first batch. Current records: 78 reviewed references and 58 background records pending claim-level metadata review. Every one of the 147 profiles retains explicit evidence limitations. This is a prioritized audit, not a claim that the full catalog has been reverified.
 
 ## Completed priority work
 
@@ -159,3 +159,5 @@ R5 batch B adds twelve primary references for selected Sherry, Madeira and Alvar
 R5 batch C adds twelve primary references for five everyday expressions. Producer scope, filename/content discrepancies and sensory-versus-analytical sweetness limits are tracked in [batch C notes](everyday-coverage-batch-c.md).
 
 R5 batch D adds eleven reviewed primary references. [Batch D notes](regional-identity-batch-d.md) distinguish blends, Muscadet identity, Torrontés subtype scope and dry Hunter bottle evolution; background audit work remains open.
+
+R6 adds twelve reviewed primary references: the TTB AVA register, five regional bodies and six producer references. [R6 notes](america-beyond-california-r6.md) document AVA scope, cross-state geography, blend composition, vintage discrepancies and unlabelled sugar units. The 58 background records remain open.

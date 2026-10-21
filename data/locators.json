@@ -446,5 +446,25 @@
   "hunter-semillon": {
     "lat": -32.77,
     "lon": 151.3
+  },
+  "red-mountain": {
+    "lat": 46.28,
+    "lon": -119.44
+  },
+  "walla-walla": {
+    "lat": 46.0,
+    "lon": -118.4
+  },
+  "finger-lakes-dry": {
+    "lat": 42.58,
+    "lon": -76.96
+  },
+  "monticello": {
+    "lat": 38.06,
+    "lon": -78.75
+  },
+  "old-mission-dry": {
+    "lat": 44.9,
+    "lon": -85.5
   }
 }

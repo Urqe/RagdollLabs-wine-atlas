@@ -5,9 +5,9 @@ const { window: w, document: d } = app;
 await app.settle();
 const search = async query => Array.from(await w.WineSearch.rank(query,200), row=>`${row.item.grapeId}::${row.item.regionId}`).sort();
 const keys = ['montepulciano::montepulciano-abruzzo','nero-davola::sicilia-nero-davola','mourvedre::jumilla','mencia::bierzo','macabeo::rioja-blanco'];
-assert.equal(w.WineAtlas.allPairs().length,141);
+assert.equal(w.WineAtlas.allPairs().length,147);
 assert.equal(Object.keys(w.WineAtlas.getData().grapes).length,59);
-assert.equal(Object.keys(w.WineAtlas.getData().regions).length,112);
+assert.equal(Object.keys(w.WineAtlas.getData().regions).length,117);
 for (const key of keys) {
   const [grape,region]=key.split('::');
   assert.ok(w.WineAtlas.selectProfile(grape,region));
@@ -76,7 +76,7 @@ w.WineComparison.replace(['mourvedre::jumilla','montepulciano::montepulciano-abr
 assert.equal(w.WineComparison.snapshot().keys.filter(Boolean).length,3);
 assert.match(d.querySelector('#advancedCompareGrid h3').textContent,/Monastrell \(Mourvèdre\)/);
 w.WineAtlas.setMode('explore');w.WineGallery.show();
-assert.equal(d.querySelectorAll('.gallery-card').length,141);
+assert.equal(d.querySelectorAll('.gallery-card').length,147);
 assert.match(d.querySelector('.gallery-card[data-region="jumilla"]').textContent,/Monastrell \(Mourvèdre\)/);
 await app.close();
 const restored=await createApp({url:'https://example.test/RagdollLabs-wine-atlas/?view=compare&compare=macabeo::rioja-blanco,verdejo::rueda'});

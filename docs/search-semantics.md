@@ -49,3 +49,9 @@ Adds precise everyday appellation coverage for Montepulciano d’Abruzzo, Sicili
 ## R5 batch D
 
 Châteauneuf-du-Pape and Bandol resolve the selected red blends, with explicit coverage notices for unrepresented colours. Muscadet/Melon remain distinct from Muscat/Moscato. Generic Torrontés resolves the labeled Riojano reference; unrepresented named types and sweet expressions are not substituted. Hunter Valley resolves dry unoaked Sémillon, separate from sweet Sauternes. Monastrell/Mataró now report France and Spain as actual represented countries, sharing the Mourvèdre identity between Bandol and Jumilla. See [batch D](regional-identity-batch-d.md).
+
+## R6 US AVAs and states
+
+Exact Red Mountain, Walla Walla, Finger Lakes, Monticello and Old Mission names select only their represented expressions. Washington, Oregon, New York, Virginia, Michigan and California constrain structured region IDs in both Explore and Compare. Oregon retains Willamette Pinot Noir and includes the cross-state Walla Walla AVA; a state match describes AVA geography, not a claim that each bottle contains fruit from both states. Country remains USA.
+
+The two new Rieslings are explicitly dry. Sweet/semi-dry or icewine requests do not fall back to them. The Oregon-only Rocks District is not separately represented and cannot silently become the broader Walla Walla profile. See [R6 notes](america-beyond-california-r6.md).

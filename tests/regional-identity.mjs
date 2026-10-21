@@ -5,9 +5,9 @@ const {window:w,document:d}=app;
 await app.settle();
 const search=async query=>Array.from(await w.WineSearch.rank(query,200),row=>`${row.item.grapeId}::${row.item.regionId}`).sort();
 const keys=['grenache::chateauneuf-du-pape','mourvedre::bandol-red','melon-de-bourgogne::muscadet-sevre-maine','torrontes-riojano::salta-torrontes','semillon::hunter-semillon'];
-assert.equal(w.WineAtlas.allPairs().length,141);
+assert.equal(w.WineAtlas.allPairs().length,147);
 assert.equal(Object.keys(w.WineAtlas.getData().grapes).length,59);
-assert.equal(Object.keys(w.WineAtlas.getData().regions).length,112);
+assert.equal(Object.keys(w.WineAtlas.getData().regions).length,117);
 for(const key of keys){
  const [grape,region]=key.split('::');assert.ok(w.WineAtlas.selectProfile(grape,region));await app.settle();
  assert.equal(d.activeElement.id,'profileHeading');assert.equal(d.querySelectorAll('#bars .bar').length,8);
@@ -58,7 +58,7 @@ for(const query of ['Bandol','Muscadet','Torrontés','Hunter Valley','white Band
 w.WineComparison.replace(['mourvedre::bandol-red','mourvedre::jumilla']);
 assert.match(d.querySelector('#advancedCompareGrid h3').textContent,/Mourvèdre-led blend/);
 assert.equal(w.WineComparison.snapshot().keys.filter(Boolean).length,2);
-w.WineAtlas.setMode('explore');w.WineGallery.show();assert.equal(d.querySelectorAll('.gallery-card').length,141);
+w.WineAtlas.setMode('explore');w.WineGallery.show();assert.equal(d.querySelectorAll('.gallery-card').length,147);
 assert.match(d.querySelector('.gallery-card[data-region="bandol-red"]').textContent,/Mourvèdre-led blend/);
 await app.close();
 const restored=await createApp({url:'https://example.test/RagdollLabs-wine-atlas/?view=compare&compare=semillon::hunter-semillon,melon-de-bourgogne::muscadet-sevre-maine'});

@@ -11384,5 +11384,552 @@
         ]
       }
     ]
+  },
+  "red-mountain": {
+    "name": "Red Mountain AVA — Washington",
+    "country": "USA",
+    "climate": "Warm, dry interior Washington",
+    "summary": "A selected estate-style Cabernet-led red from Red Mountain, without assigning every bottle a decades-long cellaring promise.",
+    "grapes": {
+      "cabernet-sauvignon": {
+        "mods": {
+          "acidity": -0.5,
+          "alcohol": 0.5,
+          "fruit": 0.5,
+          "oak": -0.5
+        },
+        "notes": {
+          "Fruit": [
+            "blackcurrant",
+            "black cherry"
+          ],
+          "Spice": [
+            "anise",
+            "black pepper"
+          ],
+          "Oak / ageing": [
+            "cedar",
+            "vanilla"
+          ],
+          "Mineral / herbal": [
+            "sage"
+          ]
+        },
+        "serve": "16–18°C as an editorial starting point",
+        "decant": "For a young structured bottle, consider 30–60 minutes as an editorial starting point; handle mature examples gently",
+        "glass": "Medium red wine glass",
+        "ageing": "Enjoy after release; follow producer and vintage guidance for further cellaring rather than assuming a fixed regional window.",
+        "ageingBasis": "release",
+        "pairings": [
+          "grilled beef",
+          "roast lamb",
+          "braised mushrooms",
+          "aged cheese"
+        ],
+        "expect": "A structured dry Cabernet-led Red Mountain reference with dark fruit, firm tannin and oak spice. The named Washington AVA is smaller than the broader Columbia Valley; the profile is not a model of every Washington Cabernet.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry Red Mountain Cabernet-led blend",
+          "method": "Red fermentation followed by barrel maturation in the cited estate example",
+          "composition": {
+            "kind": "representative-blend",
+            "text": "Cabernet Sauvignon-led blend; the Hedges example is 85% Cabernet Sauvignon with other red varieties"
+          }
+        },
+        "evidence": [
+          {
+            "claim": "Selected expression, vineyard/appellation origin and production",
+            "sources": [
+              "hedges-rm-cab-2023"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Scores, service and some food/aeration suggestions are editorial; source examples do not establish one recipe, sugar analysis or drinking window for the whole AVA."
+        ],
+        "displayName": "Cabernet Sauvignon-led blend"
+      }
+    },
+    "identity": {
+      "setting": "Benton County, Washington; within Yakima Valley and Columbia Valley",
+      "terrain": "Southwest-facing slopes near Benton City",
+      "soil": "Sandy loam and gravel contexts; soils vary by vineyard",
+      "influences": [
+        "Warm dry growing conditions",
+        "Site exposure, wind and producer choices"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Selected Cabernet-led expression",
+        "effect": "Ripe dark fruit and firm structure are central; blending and barrel choices shape the final wine."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "New World"
+    ],
+    "sources": [
+      "wa-red-mountain",
+      "us-ava-register",
+      "hedges-rm-cab-2023"
+    ],
+    "evidence": [
+      {
+        "claim": "AVA identity, state context and regional setting",
+        "sources": [
+          "us-ava-register",
+          "wa-red-mountain"
+        ]
+      }
+    ]
+  },
+  "walla-walla": {
+    "name": "Walla Walla Valley AVA — Washington / Oregon",
+    "country": "USA",
+    "climate": "Varied inland valley climate",
+    "summary": "Selected Syrah expression from a cross-state AVA; vineyard sites, rainfall and cellar choices vary.",
+    "grapes": {
+      "syrah": {
+        "mods": {
+          "body": -0.5,
+          "tannin": -0.5,
+          "oak": -1,
+          "earth": -0.5
+        },
+        "notes": {
+          "Fruit": [
+            "blackberry",
+            "black plum"
+          ],
+          "Spice": [
+            "anise",
+            "baking spice"
+          ],
+          "Earth / savory": [
+            "black olive"
+          ]
+        },
+        "serve": "16–18°C as an editorial starting point",
+        "decant": "Usually none; let a young bottle open in the glass",
+        "glass": "Medium red wine glass",
+        "ageing": "Enjoy after release; follow producer and vintage guidance for further cellaring rather than assuming a fixed regional window.",
+        "ageingBasis": "release",
+        "pairings": [
+          "roast lamb",
+          "grilled meat",
+          "mushrooms",
+          "lentil stew"
+        ],
+        "expect": "Dry, dark-fruited Walla Walla Valley Syrah with savoury olive-like notes and a generous texture. The AVA spans Washington and Oregon. This Seven Hills-based reference does not assign the Rocks District’s distinctive style to the whole valley.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry Walla Walla Valley Syrah · Estate example",
+          "method": "Red fermentation with stems and French-oak maturation in the cited Seven Hills example",
+          "composition": {
+            "kind": "varietal-reference",
+            "text": "Single-varietal Syrah reference; the cited producer example is 100% Syrah"
+          }
+        },
+        "evidence": [
+          {
+            "claim": "Selected expression, vineyard/appellation origin and production",
+            "sources": [
+              "lecole-ww-syrah-2023"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Scores, service and some food/aeration suggestions are editorial; source examples do not establish one recipe, sugar analysis or drinking window for the whole AVA."
+        ]
+      }
+    },
+    "identity": {
+      "setting": "Walla Walla County, Washington, and Umatilla County, Oregon",
+      "terrain": "Valley vineyards and Blue Mountains foothill settings",
+      "soil": "Loess, flood deposits, basalt and cobble sites occur; the selected Seven Hills example is loess-based",
+      "influences": [
+        "Cross-state growing region",
+        "Substantial site and rainfall variation"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Site and production choices within a broad AVA",
+        "effect": "Dark fruit and savoury notes can coexist, but a single vineyard expression does not define every Walla Walla wine."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "New World"
+    ],
+    "sources": [
+      "wa-walla-walla",
+      "us-ava-register",
+      "lecole-ww-syrah-2023"
+    ],
+    "evidence": [
+      {
+        "claim": "AVA identity, state context and regional setting",
+        "sources": [
+          "us-ava-register",
+          "wa-walla-walla"
+        ]
+      }
+    ]
+  },
+  "finger-lakes-dry": {
+    "name": "Finger Lakes AVA — New York",
+    "country": "USA",
+    "climate": "Cool continental with lake moderation",
+    "summary": "A selected dry steel-fermented Riesling reference, not a sweetness claim for every Finger Lakes wine.",
+    "grapes": {
+      "riesling": {
+        "mods": {
+          "sweetness": -2,
+          "oak": -0.5,
+          "fruit": -0.5
+        },
+        "notes": {
+          "Fruit": [
+            "lime",
+            "apricot",
+            "nectarine"
+          ],
+          "Floral": [
+            "white blossom"
+          ],
+          "Mineral / herbal": [
+            "citrus zest"
+          ]
+        },
+        "serve": "8–10°C as an editorial starting point",
+        "decant": "Usually none; let a young bottle open in the glass",
+        "glass": "Medium white wine glass",
+        "ageing": "Enjoy young after release for freshness; selected producer/vintage examples can develop, but no universal cellaring duration is supplied.",
+        "ageingBasis": "release",
+        "pairings": [
+          "grilled fish",
+          "roast chicken",
+          "goat cheese",
+          "vegetable spring rolls"
+        ],
+        "expect": "Explicitly dry Finger Lakes Riesling with citrus, stone fruit and bright acidity. The reference follows Keuka/Seneca estate sites; off-dry, sweet and sparkling Finger Lakes Riesling are different expressions.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry Finger Lakes Riesling",
+          "method": "Direct pressing, temperature-controlled steel fermentation, no oak or malolactic conversion in the cited example",
+          "composition": {
+            "kind": "varietal-reference",
+            "text": "Single-varietal Riesling reference; the cited producer example is 100% Riesling"
+          }
+        },
+        "evidence": [
+          {
+            "claim": "Selected expression, vineyard/appellation origin and production",
+            "sources": [
+              "frank-dry-riesling-2024"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Scores, service and some food/aeration suggestions are editorial; source examples do not establish one recipe, sugar analysis or drinking window for the whole AVA."
+        ]
+      }
+    },
+    "identity": {
+      "setting": "Finger Lakes, New York; Keuka and Seneca estate sites in the example",
+      "terrain": "Lake-adjacent slopes with differing exposures",
+      "soil": "Shale-based and silt-loam sites occur in the producer example; the AVA has varied soils",
+      "influences": [
+        "Lakes buffer seasonal temperatures",
+        "Site, exposure and harvest decisions"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Lake moderation and selected dry fermentation",
+        "effect": "Riesling can retain freshness in a dry expression; soil descriptions do not mean rocks literally supply flavours."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "New World"
+    ],
+    "sources": [
+      "ny-finger-lakes",
+      "us-ava-register",
+      "frank-dry-riesling-2024"
+    ],
+    "evidence": [
+      {
+        "claim": "AVA identity, state context and regional setting",
+        "sources": [
+          "us-ava-register",
+          "ny-finger-lakes"
+        ]
+      }
+    ]
+  },
+  "monticello": {
+    "name": "Monticello AVA — Virginia",
+    "country": "USA",
+    "climate": "Central Virginia Piedmont setting",
+    "summary": "Two selected estate-supported expressions: Cabernet Franc-led red and Viognier-led white, with different production contexts.",
+    "grapes": {
+      "cabernet-franc": {
+        "mods": {
+          "acidity": -0.5,
+          "alcohol": -0.5,
+          "oak": -0.5,
+          "earth": -0.5
+        },
+        "notes": {
+          "Fruit": [
+            "black cherry",
+            "strawberry"
+          ],
+          "Earth / savory": [
+            "dried tea leaves"
+          ],
+          "Spice": [
+            "white pepper"
+          ]
+        },
+        "serve": "15–17°C as an editorial starting point",
+        "decant": "Usually none; let a young bottle open in the glass",
+        "glass": "Medium red wine glass",
+        "ageing": "Enjoy after release; follow producer and vintage guidance for further cellaring rather than assuming a fixed regional window.",
+        "ageingBasis": "release",
+        "pairings": [
+          "roast pork",
+          "mushrooms",
+          "roast chicken",
+          "lentils"
+        ],
+        "expect": "Dry Cabernet Franc-led Monticello red with cherry, a tea-like savoury note and fine tannin. The selected estate example is a blend with limited partners, not a guarantee of pure Cabernet Franc or heavy oak in every Virginia bottle.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry Monticello Cabernet Franc-led blend",
+          "method": "Red fermentation and short maceration followed by French-oak puncheon and concrete maturation in the cited example",
+          "composition": {
+            "kind": "representative-blend",
+            "text": "Cabernet Franc-led blend; cited King Family 2024 example is 95% Cabernet Franc, 3% Malbec and 2% Merlot"
+          }
+        },
+        "evidence": [
+          {
+            "claim": "Selected expression, vineyard/appellation origin and production",
+            "sources": [
+              "king-cabfranc-2024"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Scores, service and some food/aeration suggestions are editorial; source examples do not establish one recipe, sugar analysis or drinking window for the whole AVA."
+        ],
+        "displayName": "Cabernet Franc-led blend"
+      },
+      "viognier": {
+        "mods": {
+          "body": -0.5,
+          "acidity": 0.5,
+          "alcohol": -1,
+          "fruit": -0.5,
+          "oak": -0.5
+        },
+        "notes": {
+          "Fruit": [
+            "white peach",
+            "citrus"
+          ],
+          "Floral": [
+            "honeysuckle"
+          ]
+        },
+        "serve": "10–12°C as an editorial starting point",
+        "decant": "Usually none; let a young bottle open in the glass",
+        "glass": "Medium white wine glass",
+        "ageing": "Enjoy after release for aromatic freshness; no fixed long-cellaring window is inferred from the cited sheet.",
+        "ageingBasis": "release",
+        "pairings": [
+          "roast chicken",
+          "pork",
+          "mild vegetable curry",
+          "soft cheese"
+        ],
+        "expect": "A selected dry Viognier-led Monticello white with peach, honeysuckle and rounded texture. The producer example includes Chardonnay and several vessel types; floral richness is not proof of sweetness or new-oak ageing.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry Monticello Viognier-led white blend",
+          "method": "Brief pre-press contact, mixed steel/used-wood/acacia/concrete vessels and partial malolactic conversion in the cited example",
+          "composition": {
+            "kind": "representative-blend",
+            "text": "Viognier-led white blend; cited King Family 2023 example is 84% Viognier and 16% Chardonnay"
+          }
+        },
+        "evidence": [
+          {
+            "claim": "Selected expression, vineyard/appellation origin and production",
+            "sources": [
+              "king-viognier-2023"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "The producer sheet documents blend, AVA and production but gives no residual-sugar analysis; dryness is the selected editorial reference. Scores, service and some food suggestions are editorial."
+        ],
+        "displayName": "Viognier-led blend"
+      }
+    },
+    "identity": {
+      "setting": "Central Piedmont, Virginia, on the eastern side of the Blue Ridge",
+      "terrain": "Rolling countryside around the Charlottesville / Crozet area",
+      "soil": "Site-dependent soils; no universal soil is assigned to these AVA profiles",
+      "influences": [
+        "Foothill exposures and seasonal weather",
+        "Producer choices differ between the two selected wines"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Gentle red extraction and mixed maturation",
+        "effect": "The selected Cabernet Franc-led example emphasizes fruit and fine tannin rather than a mandatory heavy-oak style.",
+        "grapes": [
+          "cabernet-franc"
+        ]
+      },
+      {
+        "cause": "Viognier-led blend and varied vessels",
+        "effect": "The selected white balances aromatic fruit with texture; its Chardonnay component and vessel mix are explicit.",
+        "grapes": [
+          "viognier"
+        ]
+      }
+    ],
+    "badges": [
+      "Discovery",
+      "New World"
+    ],
+    "sources": [
+      "va-monticello",
+      "us-ava-register",
+      "king-cabfranc-2024",
+      "king-viognier-2023"
+    ],
+    "evidence": [
+      {
+        "claim": "AVA identity, state context and regional setting",
+        "sources": [
+          "us-ava-register",
+          "va-monticello"
+        ]
+      }
+    ]
+  },
+  "old-mission-dry": {
+    "name": "Old Mission Peninsula AVA — Michigan",
+    "country": "USA",
+    "climate": "Cool Great Lakes peninsula",
+    "summary": "A selected dry Riesling from Old Mission Peninsula, without implying all Michigan Riesling shares its sweetness.",
+    "grapes": {
+      "riesling": {
+        "mods": {
+          "sweetness": -2,
+          "oak": -0.5,
+          "fruit": -0.5
+        },
+        "notes": {
+          "Fruit": [
+            "lime zest",
+            "green apple",
+            "white peach"
+          ],
+          "Floral": [
+            "jasmine"
+          ],
+          "Mineral / herbal": [
+            "light herbal finish"
+          ]
+        },
+        "serve": "8–10°C as an editorial starting point",
+        "decant": "Usually none; let a young bottle open in the glass",
+        "glass": "Medium white wine glass",
+        "ageing": "Enjoy young after release for citrus freshness; the cited page does not establish a universal bottle-ageing window.",
+        "ageingBasis": "release",
+        "pairings": [
+          "grilled fish",
+          "pork schnitzel",
+          "tofu curry",
+          "roast cauliflower"
+        ],
+        "expect": "Explicitly dry Old Mission Peninsula Riesling from Michigan, with citrus, apple and a light-to-medium frame. The region also makes semi-dry and sweet wines; the selected dry profile must not be substituted for those.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry Old Mission Peninsula Riesling",
+          "method": "White vinification with stainless-steel maturation and lees contact in the cited dry example",
+          "composition": {
+            "kind": "varietal-reference",
+            "text": "Riesling varietal reference; no fixed regional blend percentage is asserted"
+          }
+        },
+        "evidence": [
+          {
+            "claim": "Selected expression, vineyard/appellation origin and production",
+            "sources": [
+              "cgt-dry-riesling"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "The producer page explicitly names the dry style but has inconsistent vintage/harvest dates and an unlabelled sugar unit. Those figures are not used as measurements; scores, service and some advice remain editorial."
+        ]
+      }
+    },
+    "identity": {
+      "setting": "Grand Traverse County, Michigan; Old Mission Peninsula",
+      "terrain": "Rolling peninsula between the arms of Grand Traverse Bay",
+      "soil": "Glacially influenced, site-dependent soils; no fixed composition is assigned to the AVA",
+      "influences": [
+        "Lake-influenced seasonal temperatures",
+        "Cool-climate ripening and selected dry style"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Peninsula setting and a selected dry expression",
+        "effect": "Fresh citrus and acidity are emphasized; wine sweetness depends on the bottle rather than the state or grape alone."
+      }
+    ],
+    "badges": [
+      "Discovery",
+      "New World"
+    ],
+    "sources": [
+      "mi-old-mission",
+      "us-ava-register",
+      "cgt-dry-riesling"
+    ],
+    "evidence": [
+      {
+        "claim": "AVA identity, state context and regional setting",
+        "sources": [
+          "us-ava-register",
+          "mi-old-mission"
+        ]
+      }
+    ]
   }
 }

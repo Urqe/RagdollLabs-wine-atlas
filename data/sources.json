@@ -993,5 +993,125 @@
     "accessedOn": "2026-10-21",
     "reviewedOn": "2026-10-21",
     "reviewNote": "Practical producer perspective. Braemore-specific long-life estimates are not copied as a universal regional guarantee."
+  },
+  "us-ava-register": {
+    "name": "Established American Viticultural Areas",
+    "url": "https://www.ttb.gov/regulated-commodities/beverage-alcohol/wine/established-avas",
+    "publisher": "Alcohol and Tobacco Tax and Trade Bureau",
+    "locator": "Rows for Red Mountain, Walla Walla Valley, Finger Lakes, Monticello, Old Mission Peninsula; linked 27 CFR 9.167, 9.91, 9.34, 9.48, 9.114",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Names and state/county context checked against the register and current eCFR boundary descriptions. Locator dots are approximate reference points, not legal polygons."
+  },
+  "wa-red-mountain": {
+    "name": "Red Mountain AVA",
+    "url": "https://www.washingtonwine.org/resource/red-mountain/",
+    "publisher": "Washington State Wine Commission",
+    "locator": "Location; Top varieties; climate/soils; regional map",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Warm dry setting and Cabernet relevance; do not treat every vineyard, wine or changing planting percentage as identical."
+  },
+  "wa-walla-walla": {
+    "name": "Walla Walla Valley AVA",
+    "url": "https://www.washingtonwine.org/resource/walla-walla-valley-ava/",
+    "publisher": "Washington State Wine Commission",
+    "locator": "Location; Top varieties; shared Washington/Oregon appellation; soils and map",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Cross-state AVA with varied sites. The whole valley is not the Oregon-only Rocks District."
+  },
+  "ny-finger-lakes": {
+    "name": "Finger Lakes winegrowing region",
+    "url": "https://newyorkwines.org/avas/finger-lakes/",
+    "publisher": "New York Wine & Grape Foundation",
+    "locator": "Finger Lakes; soils; Climate; regional map",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Supports Riesling relevance and lake moderation. No universal soil, sweetness or exact growing-season duration is inferred."
+  },
+  "va-monticello": {
+    "name": "Central Virginia: Monticello AVA",
+    "url": "https://www.virginiawine.org/regions/central-virginia",
+    "publisher": "Virginia Wine Board",
+    "locator": "Viticultural areas: The Monticello AVA",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Central Piedmont/eastern Blue Ridge setting. The broader tourism region is not used as the AVA boundary or proof of fruit origin."
+  },
+  "mi-old-mission": {
+    "name": "Old Mission Peninsula setting",
+    "url": "https://www.ompwinetrail.com/frequently-asked-questions/",
+    "publisher": "Old Mission Peninsula Wine Trail",
+    "locator": "Peninsula extent; Wine Making / cool-climate context",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Regional setting only; Michigan ice-wine statements are not applied to Canadian icewine rules or used to define this dry Riesling."
+  },
+  "hedges-rm-cab-2023": {
+    "name": "HFE Estate Cabernet Sauvignon 2023: Red Mountain",
+    "url": "https://hedges-family-estate.sfo3.digitaloceanspaces.com/trade/tech-sheets-current-releases/2023-HFE-RM-Cab.pdf",
+    "publisher": "Hedges Family Estate",
+    "locator": "Page 1: Red Mountain AVA; Blend; Vineyards; Production; release",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "85% Cabernet Sauvignon-led blend from named estate AVA vineyards, with barrel maturation. Its sweeping 20+ year regional cellaring statement is not generalized."
+  },
+  "lecole-ww-syrah-2023": {
+    "name": "Estate Seven Hills Vineyard Syrah 2023",
+    "url": "https://www.lecole.com/wp-content/uploads/2026/09/2023-Syrah-EST-WW_TECH.pdf",
+    "publisher": "L’Ecole No 41",
+    "locator": "Page 1: Walla Walla Valley; Seven Hills Vineyard; Winemaking; Composition",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "100% Syrah from Seven Hills, with stems and barrel ageing. Winery address in Washington does not define vineyard state or the full AVA; no Rocks District character is assigned to the whole valley."
+  },
+  "frank-dry-riesling-2024": {
+    "name": "Dr. Konstantin Frank Dry Riesling 2024",
+    "url": "https://www.drfrankwines.com/wp-content/uploads/2020/07/Dr-Konstantin-Frank-2024-Dry-Riesling-Tech-Sheet.pdf",
+    "publisher": "Dr. Konstantin Frank Winery",
+    "locator": "Page 1: Variety; Vinification; Vessel; Fermentation; Vineyard; The Wine",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Named dry 100% Riesling from Keuka/Seneca estate sites, steel/unoaked. No literal shale flavour transfer or claim that all Finger Lakes Riesling is dry."
+  },
+  "king-cabfranc-2024": {
+    "name": "King Family Cabernet Franc 2024",
+    "url": "https://kingfamilyvineyards.com/wp-content/uploads/2026/08/Cabernet-Franc-2024.pdf",
+    "publisher": "King Family Vineyards",
+    "locator": "Page 1: AVA; Vineyard; Variety; RS; Winemaking",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Monticello origin explicitly stated; 95% Cabernet Franc plus Malbec/Merlot. Three-to-five-year advice lacks a clear time origin and is not copied as a regional window."
+  },
+  "king-viognier-2023": {
+    "name": "King Family Viognier 2023",
+    "url": "https://kingfamilyvineyards.com/wp-content/uploads/2024/10/Viognier-2023.pdf",
+    "publisher": "King Family Vineyards",
+    "locator": "Page 1: title; AVA; Vineyard; Variety; Winemaking",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Trade page labels its link 2024, but the actual PDF is 2023. It is 84% Viognier/16% Chardonnay with mixed vessels, not a pure-Viognier or all-new-oak recipe. No sugar analysis is given."
+  },
+  "cgt-dry-riesling": {
+    "name": "Chateau Grand Traverse Dry Riesling",
+    "url": "https://shop.cgtwines.com/products/dry-riesling",
+    "publisher": "Chateau Grand Traverse",
+    "locator": "Dry Riesling description; Wine Specs; lees contact; food pairing suggestions",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Explicit dry Old Mission Peninsula example. Page lists a 2024 vintage with 2023 harvest date and a sugar figure without units; those exact dates/units are not inferred or displayed as measurements."
   }
 }
