@@ -17,12 +17,13 @@
   <meta property="og:image:alt" content="RagDollLabs Wine Atlas: a ragdoll cat beside a glass of red wine in a vineyard at dusk">
   <meta name="twitter:card" content="summary_large_image">
   <!-- One release token keeps visible assets in sync after a GitHub Pages deploy. -->
-  <link rel="stylesheet" href="./styles.css?v=20261021-canada-r7">
-  <link rel="stylesheet" href="./ux.css?v=20261021-canada-r7">
-  <link rel="stylesheet" href="./maturity.css?v=20261021-canada-r7">
-  <link rel="stylesheet" href="./learning.css?v=20261021-canada-r7">
-  <link rel="stylesheet" href="./advanced-compare.css?v=20261021-canada-r7">
-  <link rel="stylesheet" href="./home-brand.css?v=20261021-canada-r7">
+  <link rel="stylesheet" href="./styles.css?v=20261021-tasting-r8">
+  <link rel="stylesheet" href="./ux.css?v=20261021-tasting-r8">
+  <link rel="stylesheet" href="./maturity.css?v=20261021-tasting-r8">
+  <link rel="stylesheet" href="./learning.css?v=20261021-tasting-r8">
+  <link rel="stylesheet" href="./advanced-compare.css?v=20261021-tasting-r8">
+  <link rel="stylesheet" href="./home-brand.css?v=20261021-tasting-r8">
+  <link rel="stylesheet" href="./tasting-flights.css?v=20261021-tasting-r8">
 </head>
 <body>
   <div class="wrap">
@@ -43,6 +44,7 @@
         <!-- The cat artwork lives inside the vineyard SVG so the foreground glassware can sit in front of it. This link is only its interactive hit target. -->
         <a class="welcome-ragdoll-link" href="./" data-home-return aria-label="RagDollLabs home"></a>
       </div>
+      <p class="gallery-entry"><a id="welcomeFlights" class="flight-link" href="?view=flights" data-flights-open>Taste the Difference · Guided tasting flights</a></p>
       <section aria-labelledby="featuredHeading">
         <h2 id="featuredHeading">A few places to start</h2>
         <div id="featuredDiscoveries" class="welcome-discoveries"></div>
@@ -61,13 +63,15 @@
           <p>Search, browse by grape or place, compare regional expressions, and discover styles from classic and emerging wine regions.</p>
         </div>
         <a class="app-home-cat" href="./" data-home-return aria-label="Return to Wine Atlas home">
-          <img src="./assets/ragdoll-cat.svg?v=20261021-canada-r7" alt="">
+          <img src="./assets/ragdoll-cat.svg?v=20261021-tasting-r8" alt="">
         </a>
       </header>
 
       <div class="layout">
         <aside class="card side" aria-label="Wine Atlas controls">
           <div class="mode" role="group" aria-label="View mode"><button id="bExplore" class="on" type="button" aria-pressed="true">Explore</button><button id="bCompare" type="button" aria-pressed="false">Compare</button></div>
+
+          <a id="sidebarFlights" class="flight-link flight-sidebar-link" href="?view=flights" data-flights-open>Guided tasting flights</a>
 
           <section id="searchSection" class="sidebar-primary" aria-labelledby="searchHeading">
             <h2 id="searchHeading">Search Wine Atlas</h2>
@@ -100,7 +104,10 @@
         <main>
           <p id="liveStatus" class="sr-only" role="status" aria-live="polite"></p>
           <section id="emptyView" class="card empty-state hidden"><div class="empty-state-inner"><h2 id="emptyTitle">Choose where to begin</h2><p id="emptyText"></p></div></section>
+          <section id="flightsView" class="card flights-view hidden" aria-labelledby="flightsHeading"></section>
+          <section id="worksheetView" class="card hidden" aria-labelledby="worksheetHeading"></section>
           <section id="exploreView" aria-labelledby="profileHeading">
+            <section id="profileFlightContext" class="card flight-context hidden" aria-labelledby="flightProfileHeading"></section>
             <article class="card profile-card">
               <div class="titleline"><h2 id="profileHeading"><span id="title"></span></h2><div class="title-meta"><span id="profileWineColor"></span><div class="pill" id="pill"></div></div></div>
               <p class="summary" id="expect"></p>
@@ -133,9 +140,10 @@
               </details>
             </article>
             <article class="card serve-card"><h2>Serve It Tonight</h2><div class="serve" id="serve"></div><h3>Food pairings</h3><div class="chips" id="pair"></div></article>
+            <section id="relatedFlightsCard" class="card related-flights hidden" aria-labelledby="relatedFlightsHeading"><h2 id="relatedFlightsHeading">Try a guided tasting</h2><p class="small">Explore a question with this wine and a contrasting expression.</p><div id="relatedFlights" class="flight-actions"></div></section>
             <article class="card similar-card"><h2>Where to go next</h2><p class="small">Follow a close modeled style, explore another region, or learn from an explicitly labeled contrast.</p><div id="similarWines" class="similar-grid"></div></article>
           </section>
-          <section id="compareView" class="hidden" aria-labelledby="regionalComparisonHeading"><article class="card"><h2 id="regionalComparisonHeading">Wine Comparison</h2></article></section>
+          <section id="compareView" class="hidden" aria-labelledby="regionalComparisonHeading"><section id="compareFlightContext" class="card flight-context hidden" aria-labelledby="flightCompareHeading"></section><article class="card"><h2 id="regionalComparisonHeading">Wine Comparison</h2></article></section>
           <section id="galleryView" class="hidden" aria-labelledby="galleryHeading">
             <article class="card">
               <h2 id="galleryHeading">The whole map</h2>
@@ -158,23 +166,24 @@
 
     <footer class="footer">RagDollLabs Wine Atlas · Typical-style reference, not a guarantee about a specific bottle.</footer>
   </div>
-  <script src="./wine-model.js?v=20261021-canada-r7" defer></script>
-  <script src="./dom-utils.js?v=20261021-canada-r7" defer></script>
-  <script src="./data-loader.js?v=20261021-canada-r7" defer></script>
-  <script src="./app.js?v=20261021-canada-r7" defer></script>
-  <script src="./ux.js?v=20261021-canada-r7" defer></script>
-  <script src="./food-discovery.js?v=20261021-canada-r7" defer></script>
-  <script src="./wine-search.js?v=20261021-canada-r7" defer></script>
-  <script src="./functional.js?v=20261021-canada-r7" defer></script>
-  <script src="./search-enhance.js?v=20261021-canada-r7" defer></script>
-  <script src="./compare-state.js?v=20261021-canada-r7" defer></script>
-  <script src="./advanced-compare.js?v=20261021-canada-r7" defer></script>
-  <script src="./compare-discovery.js?v=20261021-canada-r7" defer></script>
-  <script src="./maturity.js?v=20261021-canada-r7" defer></script>
-  <script src="./learning.js?v=20261021-canada-r7" defer></script>
-  <script src="./smart-discovery.js?v=20261021-canada-r7" defer></script>
-  <script src="./home-brand.js?v=20261021-canada-r7" defer></script>
-  <script src="./gallery.js?v=20261021-canada-r7" defer></script>
-  <script src="./navigation.js?v=20261021-canada-r7" defer></script>
+  <script src="./wine-model.js?v=20261021-tasting-r8" defer></script>
+  <script src="./dom-utils.js?v=20261021-tasting-r8" defer></script>
+  <script src="./data-loader.js?v=20261021-tasting-r8" defer></script>
+  <script src="./app.js?v=20261021-tasting-r8" defer></script>
+  <script src="./ux.js?v=20261021-tasting-r8" defer></script>
+  <script src="./food-discovery.js?v=20261021-tasting-r8" defer></script>
+  <script src="./wine-search.js?v=20261021-tasting-r8" defer></script>
+  <script src="./functional.js?v=20261021-tasting-r8" defer></script>
+  <script src="./search-enhance.js?v=20261021-tasting-r8" defer></script>
+  <script src="./compare-state.js?v=20261021-tasting-r8" defer></script>
+  <script src="./advanced-compare.js?v=20261021-tasting-r8" defer></script>
+  <script src="./compare-discovery.js?v=20261021-tasting-r8" defer></script>
+  <script src="./maturity.js?v=20261021-tasting-r8" defer></script>
+  <script src="./learning.js?v=20261021-tasting-r8" defer></script>
+  <script src="./smart-discovery.js?v=20261021-tasting-r8" defer></script>
+  <script src="./home-brand.js?v=20261021-tasting-r8" defer></script>
+  <script src="./gallery.js?v=20261021-tasting-r8" defer></script>
+  <script src="./tasting-flights.js?v=20261021-tasting-r8" defer></script>
+  <script src="./navigation.js?v=20261021-tasting-r8" defer></script>
 </body>
 </html>

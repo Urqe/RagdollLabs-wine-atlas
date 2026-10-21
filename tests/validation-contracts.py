@@ -53,3 +53,12 @@ rejected(lambda d: d['regions.json']['jerez-px']['grapes']['pedro-ximenez']['sty
 rejected(lambda d: d['regions.json']['jerez-fino']['grapes']['palomino']['style'].update(effervescence='sparkling'), 'Sparkling Fino accepted')
 rejected(lambda d: d['regions.json']['vinho-verde-alvarinho']['grapes']['albarino']['style'].update(productionClass='fortified-flor'), 'Still Alvarinho accepted with flor fortification class')
 print('OK: duplicate scores advisory; invalid metrics, metadata, evidence and links still block validation')
+
+# Flights must remain meaningful atomic comparisons as the catalog evolves.
+rejected(lambda d: d['tasting-flights.json'][0]['wines'][0].update(region='missing'), 'Unknown flight wine accepted')
+rejected(lambda d: d['tasting-flights.json'][0]['wines'].__setitem__(1, copy.deepcopy(d['tasting-flights.json'][0]['wines'][0])), 'Duplicate flight wine accepted')
+rejected(lambda d: d['tasting-flights.json'][0]['wines'].__setitem__(1, {'grape':'cabernet-sauvignon','region':'napa'}), 'Incompatible flight accepted')
+rejected(lambda d: d['tasting-flights.json'][1].update(id=d['tasting-flights.json'][0]['id']), 'Duplicate flight ID accepted')
+rejected(lambda d: d['tasting-flights.json'][0].update(observations=['only one']), 'Missing observation prompts accepted')
+rejected(lambda d: d['tasting-flights.json'][0].update(limitation=''), 'Missing flight limitations accepted')
+print('OK: flight identities, references, compatibility and lesson contracts')

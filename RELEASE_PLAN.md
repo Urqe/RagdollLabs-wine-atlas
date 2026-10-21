@@ -1,6 +1,6 @@
 # Wine Atlas release plan
 
-Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8–R10 planned 2026-10-21: guided tasting, a beginner journey and bottle-label guidance.
+Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9–R10 remain planned: a beginner journey and bottle-label guidance. Browser/device verification limits are recorded below.
 Created: 2026-10-19.  
 Review baseline: main at `d819d99505b188f2319c37f0f4aa01153278438b` (120 profiles, 92 region entries, 47 grape/blend baselines).  
 Release IDs below are planning identifiers, not published semantic versions.
@@ -269,7 +269,7 @@ These comparisons are editorial questions to investigate, not predetermined nume
 
 **Goal:** Turn the existing atlas and Compare into guided tasting experiences for learners and enthusiasts.
 
-**Priority:** P2 — medium; next feature release, ahead of remaining catalog expansion candidates.
+**Priority:** P2 — medium. Implementation complete; see [release notes and verification limits](docs/tasting-flights-r8.md). Remaining device/assistive-technology checks are explicitly tracked, not claimed as passed.
 
 **Why:** The catalog already supports useful contrasts, but choosing the wines and knowing what to notice still requires prior knowledge. Curated flights give Compare a concrete purpose and connect reading to tasting.
 
@@ -277,13 +277,13 @@ These comparisons are editorial questions to investigate, not predetermined nume
 
 ### Scope
 
-- [ ] Ship six curated flights using existing profiles, with two or three wines per flight. Each has one learning question, concise context, selection/buying cues, serving order and two or three sensory observations to try.
-- [ ] Start with the candidate flights below; confirm the actual modeled expressions and evidence before finalizing the teaching claims. Explain that producer, vintage, ripeness and winemaking can confound a regional comparison.
-- [ ] Offer one-click opening of each flight in Compare through its existing atomic state API. Keep ordinary manual comparison available.
-- [ ] Make flights discoverable from the learning entry point and relevant profiles, with a useful return route.
-- [ ] Include a concise printable tasting worksheet: bottle/vintage identification, observations before reading the expected profile, and a reflection on the learning question. This is a worksheet, not a saved tasting notebook or account feature.
-- [ ] Preserve a shareable route to the flight and its learning context, alongside existing profile and comparison links. Define refresh, Back/Forward and invalid-flight behavior.
-- [ ] Provide value without purchasing wine: users can read the question and explore the modeled comparison.
+- [x] Ship six curated flights using existing profiles, with two or three wines per flight. Each has one learning question, concise context, selection/buying cues, serving order and two or three sensory observations to try.
+- [x] Start with the candidate flights below; confirm the actual modeled expressions and evidence before finalizing the teaching claims. Explain that producer, vintage, ripeness and winemaking can confound a regional comparison.
+- [x] Offer one-click opening of each flight in Compare through its existing atomic state API. Keep ordinary manual comparison available.
+- [x] Make flights discoverable from the learning entry point and relevant profiles, with a useful return route.
+- [x] Include a concise printable tasting worksheet: bottle/vintage identification, observations before reading the expected profile, and a reflection on the learning question. This is a worksheet, not a saved tasting notebook or account feature.
+- [x] Preserve a shareable route to the flight and its learning context, alongside existing profile and comparison links. Define refresh, Back/Forward and invalid-flight behavior.
+- [x] Provide value without purchasing wine: users can read the question and explore the modeled comparison.
 
 ### Candidate first flights
 
@@ -298,13 +298,13 @@ These comparisons are editorial questions to investigate, not predetermined nume
 
 ### Acceptance criteria
 
-- [ ] Every flight references valid, distinct profiles that satisfy existing Compare compatibility; unavailable references fail gracefully.
-- [ ] One action opens exactly the intended two or three wines, with correct labels and production context, without duplicate or stale slots.
-- [ ] Teaching copy identifies meaningful similarities and contrasts without inventing score differences or claiming a controlled experiment.
-- [ ] Flight context and selections survive refresh and sharing; Back/Forward restores a useful location and focus.
-- [ ] The worksheet prints legibly without clipping or depending on dark backgrounds.
+- [x] Every flight references valid, distinct profiles that satisfy existing Compare compatibility; unavailable references fail gracefully.
+- [x] One action opens exactly the intended two or three wines, with correct labels and production context, without duplicate or stale slots.
+- [x] Teaching copy identifies meaningful similarities and contrasts without inventing score differences or claiming a controlled experiment.
+- [x] Flight context and selections survive refresh and sharing; Back/Forward restores a useful location and focus.
+- [x] The worksheet prints legibly without clipping or depending on dark backgrounds.
 - [ ] Keyboard and screen-reader users can find and open flights. Check phone/tablet layout and real touch behavior; record untested environments explicitly.
-- [ ] Run existing validation plus focused dataset, comparison-state and navigation regression checks.
+- [x] Run existing validation plus focused dataset, comparison-state and navigation regression checks.
 
 ## R9 — Your First Glass
 

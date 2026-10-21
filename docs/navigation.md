@@ -19,3 +19,13 @@ History entries store window/sidebar scroll, focused control (or gallery card id
 Live status is updated synchronously for the visible selection/view so delayed messages cannot overwrite newer selections. Colour labels cover every allowed value, including `white-gold` as “White / gold”. Definition-list rows each own their label/value grid, with a flexible wrapping value column at narrow widths.
 
 Validation: `npm run validate` includes `tests/navigation.mjs` for Gallery/profile Back/Forward, focus/scroll targets, comparison sharing and sparse slots, invalid keys, Remove focus, legacy links, recovery and colour labels. Existing loading-failure and late-guidance tests also pass. Desktop Chrome is used for deployed navigation and responsive layout checks. iPhone/iPad Safari and physical touch-device behavior are not verified in this environment.
+
+
+## Guided tasting routes (R8)
+
+- `?view=flights` opens the catalog; `?view=flight&flight=<id>` opens a lesson.
+- `?view=worksheet&flight=<id>` opens its printable worksheet. It contains blank writing space, not saved personal notes or expected tasting answers.
+- `?view=compare&flight=<id>` seeds the complete canonical flight once. Generated comparison URLs also contain the ordinary `compare` keys and `biggest` preference. If explicit selections differ from the flight, the selection is respected and the flight context is dropped.
+- Profile links from a flight retain `flight=<id>` only when that profile belongs to the flight, and show an explicit return link. Existing profile URLs remain valid.
+- Refresh and Back/Forward restore flight views through the same router and history-position policy as other views. Links support native open-in-new-tab behavior. Manual wine edits remove a mismatched flight label; toggling the biggest-differences preference preserves it.
+- Unknown or unusable lesson/worksheet routes show a visible unavailable state with browse/explore links. An unavailable comparison flight falls back to ordinary Compare without a partial lesson. Missing optional flight data does not block wine browsing. Pending loading is canceled only by a newer route, not keyboard focus changes.
