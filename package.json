@@ -6,7 +6,7 @@
     "check:syntax": "node scripts/check-syntax.mjs",
     "validate:data": "python3 scripts/validate.py",
     "audit:content": "python3 scripts/content_audit.py",
-    "test": "node tests/dom-smoke.mjs && node tests/discovery-home-smoke.mjs && node tests/hardening.mjs && node tests/content-features.mjs && node tests/gallery-smoke.mjs && node tests/search-semantics.mjs && node tests/navigation.mjs && node tests/profile-trust.mjs && node tests/honest-discovery.mjs && node tests/familiar-names.mjs && node tests/classic-families.mjs && node tests/everyday-coverage.mjs && node tests/regional-identity.mjs && node tests/america-regions.mjs && node tests/canadian-icewine.mjs && node tests/tasting-flights.mjs && python3 tests/validation-contracts.py",
+    "test": "node tests/dom-smoke.mjs && node tests/discovery-home-smoke.mjs && node tests/hardening.mjs && node tests/content-features.mjs && node tests/gallery-smoke.mjs && node tests/search-semantics.mjs && node tests/navigation.mjs && node tests/profile-trust.mjs && node tests/honest-discovery.mjs && node tests/familiar-names.mjs && node tests/classic-families.mjs && node tests/everyday-coverage.mjs && node tests/regional-identity.mjs && node tests/america-regions.mjs && node tests/canadian-icewine.mjs && node tests/tasting-flights.mjs && node tests/beginner-journey.mjs && python3 tests/validation-contracts.py",
     "validate": "npm run check:syntax && npm run validate:data && npm run audit:content && npm test"
   },
   "devDependencies": {

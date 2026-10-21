@@ -23,7 +23,7 @@ window.WineNavigation = (() => {
   }
   function urlFor(route) {
     const url = new URL(window.location.href);
-    for (const key of ['view', 'grape', 'region', 'compare', 'biggest', 'action', 'flight']) url.searchParams.delete(key);
+    for (const key of ['view', 'grape', 'region', 'compare', 'biggest', 'action', 'flight', 'lesson']) url.searchParams.delete(key);
     if (route.view === 'profile') {
       url.searchParams.set('grape', route.grapeId);
       url.searchParams.set('region', route.regionId);
@@ -39,6 +39,8 @@ window.WineNavigation = (() => {
       }
     }
     if (route.flightId && (['flight', 'worksheet'].includes(route.view) || WineFlights.contextId(route))) url.searchParams.set('flight', route.flightId);
+    if (route.view === 'learn') url.searchParams.set('lesson', route.lessonId || 'start');
+    else if (WineJourney.contextId(route)) url.searchParams.set('lesson', route.lessonId);
     return url;
   }
   function write(route, method = 'push') {
@@ -49,20 +51,23 @@ window.WineNavigation = (() => {
   function read() {
     const params = new URL(location.href).searchParams;
     const view = params.get('view');
+    const lessonId = params.get('lesson');
+    if (view === 'learn') return { view, lessonId: lessonId || 'start' };
     if (view === 'compare') {
       const state = params.has('compare') ? { keys: params.get('compare').split(',').slice(0, 3), biggestOnly: params.get('biggest') === '1' } : params.has('flight') ? null : { keys: [], biggestOnly: false };
-      return { view, flightId: params.get('flight'), state };
+      return { view, flightId: params.get('flight'), lessonId, state };
     }
-    if (WineFlights.isView(view)) return { view, flightId: params.get('flight') };
+    if (WineFlights.isView(view)) return { view, flightId: params.get('flight'), lessonId };
     if (view === 'gallery') return { view };
     if (view === 'explore') return { view, action: params.get('action') };
     if (params.has('grape') || params.has('region')) {
       const grapeId = params.get('grape'), regionId = params.get('region');
-      return WineAtlas.combinedProfile(grapeId, regionId) ? { view: 'profile', grapeId, regionId, flightId: params.get('flight') } : { view: 'invalid' };
+      return WineAtlas.combinedProfile(grapeId, regionId) ? { view: 'profile', grapeId, regionId, flightId: params.get('flight'), lessonId } : { view: 'invalid' };
     }
     return { view: 'home' };
   }
   function destination(route) {
+    if (route.view === 'learn') return byId('journeyHeading');
     if (WineFlights.isView(route.view)) return byId(route.view === 'worksheet' ? 'worksheetHeading' : 'flightsHeading');
     if (route.view === 'compare' && WineFlights.contextId(route)) return byId('flightCompareHeading');
     return byId(route.view === 'profile' ? 'profileHeading' : route.view === 'gallery' ? 'galleryHeading' : route.view === 'compare' ? 'compareDiscoveryInput' : route.view === 'home' ? 'welcomeTitle' : route.action === 'search' ? 'searchInput' : route.action === 'place' ? 'country' : 'grape');
@@ -105,16 +110,14 @@ window.WineNavigation = (() => {
     restoring = Boolean(options.restore);
     rendering = true;
     try {
-      const dialog = byId('glossaryDialog');
-      if (dialog?.open) {
-        if (typeof dialog.close === 'function') dialog.close();
-        else dialog.removeAttribute('open');
-      }
+      WineLearning.cancel();
       WineGallery.hide();
       WineFlights.hide();
-      if (WineFlights.needsData(route) && !WineFlights.loaded) {
-        WineFlights.showLoading();
-        WineFlights.load().then(() => {
+      WineJourney.hide();
+      const feature = route.view === 'learn' || route.lessonId ? WineJourney : WineFlights.needsData(route) ? WineFlights : null;
+      if (feature && !feature.loaded) {
+        feature.showLoading();
+        feature.load().then(() => {
           if (transition === transitionToken) go(route, { ...options, skipSave: true });
         });
         return true;
@@ -125,7 +128,11 @@ window.WineNavigation = (() => {
         byId('liveStatus').textContent = 'Wine Atlas. Choose how to explore.';
       } else {
         WineUX.showAppShell();
-        if (WineFlights.isView(route.view)) {
+        if (route.view === 'learn') {
+          WineAtlas.clearActiveProfile();
+          WineAtlas.setMode('explore');
+          WineJourney.show(route);
+        } else if (WineFlights.isView(route.view)) {
           WineAtlas.clearActiveProfile();
           WineAtlas.setMode('explore');
           WineFlights.show(route);
@@ -148,6 +155,7 @@ window.WineNavigation = (() => {
         }
       }
       if (['compare', 'profile'].includes(route.view)) WineFlights.renderContext(route);
+      WineJourney.renderReturn(route);
       write(route, options.history || 'push');
     } finally { rendering = false; }
     if (options.restore) restorePosition(route, options.saved, token);
@@ -161,8 +169,10 @@ window.WineNavigation = (() => {
   document.addEventListener('wineatlas:comparison-changing', save);
   document.addEventListener('wineatlas:comparison-changed', () => {
     if (rendering || restoring || new URL(location.href).searchParams.get('view') !== 'compare') return;
-    const route = { view: 'compare', flightId: new URL(location.href).searchParams.get('flight') };
+    const params = new URL(location.href).searchParams;
+    const route = { view: 'compare', flightId: params.get('flight'), lessonId: params.get('lesson') };
     WineFlights.renderContext(route);
+    WineJourney.renderReturn(route);
     write(route);
     byId('liveStatus').textContent = `Compare wines. ${WineComparison.profiles().length} selected.`;
     save();

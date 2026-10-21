@@ -1,6 +1,6 @@
 # Wine Atlas release plan
 
-Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9–R10 remain planned: a beginner journey and bottle-label guidance. Browser/device verification limits are recorded below.
+Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9 implemented 2026-10-21: Your First Glass. R10 remains planned: bottle-label guidance. Browser/device verification limits are recorded below.
 Created: 2026-10-19.  
 Review baseline: main at `d819d99505b188f2319c37f0f4aa01153278438b` (120 profiles, 92 region entries, 47 grape/blend baselines).  
 Release IDs below are planning identifiers, not published semantic versions.
@@ -311,7 +311,7 @@ These comparisons are editorial questions to investigate, not predetermined nume
 
 **Goal:** Give beginners a short, practical learning journey before the detailed production guide.
 
-**Priority:** P2 — medium; follows R8 and links into its flights.
+**Priority:** P2 — medium. Implementation complete; see [release notes and verification limits](docs/beginner-journey-r9.md). Real-device and assistive-technology checks remain open as recorded below.
 
 **Why:** The current beginner entry opens a substantial reference guide beginning with score methodology. New learners first need words for sensations and a manageable next action.
 
@@ -319,22 +319,22 @@ These comparisons are editorial questions to investigate, not predetermined nume
 
 ### Scope
 
-- [ ] Reshape “New to wine?” into a short sequence covering acidity, tannin, body and sweetness, followed by a first guided comparison. Define a clear beginning and end.
-- [ ] Explain each concept through observable sensations: mouth-watering acidity, drying tannin, perceived weight/body and residual sweetness. Distinguish fruit aroma from sugar and tannin from acidity.
-- [ ] Include brief observation exercises and optional familiar food/drink analogies; allow learning without buying or drinking wine.
-- [ ] Use progressive disclosure for score methodology, production detail and technical terms. Preserve access to the full existing taste guide and glossary.
-- [ ] Connect each lesson to a relevant existing profile and, where suitable, an R8 flight. Keep one clear next action and allow skipping, returning and restarting.
-- [ ] Keep the journey optional: experienced users retain direct access to Explore, Compare and the detailed reference.
-- [ ] Reuse existing editorial definitions and profile data; avoid a second scoring system, mandatory quizzes, accounts or persistent learning tracking.
+- [x] Reshape “New to wine?” into a short sequence covering acidity, tannin, body and sweetness, followed by a first guided comparison. Define a clear beginning and end.
+- [x] Explain each concept through observable sensations: mouth-watering acidity, drying tannin, perceived weight/body and residual sweetness. Distinguish fruit aroma from sugar and tannin from acidity.
+- [x] Include brief observation exercises and optional familiar food/drink analogies; allow learning without buying or drinking wine.
+- [x] Use progressive disclosure for score methodology, production detail and technical terms. Preserve access to the full existing taste guide and glossary.
+- [x] Connect each lesson to a relevant existing profile and, where suitable, an R8 flight. Keep one clear next action and allow skipping, returning and restarting.
+- [x] Keep the journey optional: experienced users retain direct access to Explore, Compare and the detailed reference.
+- [x] Reuse existing editorial definitions and profile data; avoid a second scoring system, mandatory quizzes, accounts or persistent learning tracking.
 
 ### Acceptance criteria
 
-- [ ] A first-time visitor can identify where to start and finish the core journey without navigating the entire long-form guide.
-- [ ] Learners can distinguish dry from fruity, tannin from acidity, and body from quality after reading the relevant explanations.
-- [ ] Each lesson supplies a concrete observation and a working next-step link; detailed reference material remains reachable.
-- [ ] Closing a glossary/guide or returning from a profile/flight preserves useful lesson context and focus; define refresh and Back/Forward behavior.
-- [ ] Content remains readable at phone and tablet widths and at enlarged text settings. Check keyboard, screen-reader, Safari and touch interaction; report any unverified checks.
-- [ ] Run existing validation and focused checks for lesson references, progression, skipping and return navigation.
+- [x] A first-time visitor can identify where to start and finish the core journey without navigating the entire long-form guide.
+- [x] Learners can distinguish dry from fruity, tannin from acidity, and body from quality after reading the relevant explanations.
+- [x] Each lesson supplies a concrete observation and a working next-step link; detailed reference material remains reachable.
+- [x] Closing a glossary/guide or returning from a profile/flight preserves useful lesson context and focus; define refresh and Back/Forward behavior.
+- [ ] Complete phone/tablet, enlarged-text, Safari, physical touch and real screen-reader checks. Responsive layout and keyboard/focus regression coverage are implemented; untested environments remain explicitly unverified.
+- [x] Run existing validation and focused checks for lesson references, progression, skipping and return navigation.
 
 ## R10 — From Atlas to Bottle
 
