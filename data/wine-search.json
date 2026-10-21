@@ -726,6 +726,170 @@
       ],
       "unavailable": true,
       "coverageNote": "This Torrontés variety or sweet expression is not represented separately. The current reference is dry Torrontés Riojano style in Salta."
+    },
+    {
+      "id": "red-mountain",
+      "label": "represented Red Mountain Cabernet reference",
+      "aliases": [
+        "red mountain",
+        "red mountain ava"
+      ],
+      "regions": [
+        "red-mountain"
+      ]
+    },
+    {
+      "id": "walla-walla",
+      "label": "represented Walla Walla Valley Syrah",
+      "aliases": [
+        "walla walla",
+        "walla walla valley",
+        "walla walla valley ava"
+      ],
+      "regions": [
+        "walla-walla"
+      ]
+    },
+    {
+      "id": "finger-lakes",
+      "label": "represented dry Finger Lakes Riesling",
+      "aliases": [
+        "finger lakes",
+        "finger lakes ava"
+      ],
+      "regions": [
+        "finger-lakes-dry"
+      ]
+    },
+    {
+      "id": "monticello",
+      "label": "represented Monticello expressions",
+      "aliases": [
+        "monticello",
+        "monticello ava"
+      ],
+      "regions": [
+        "monticello"
+      ]
+    },
+    {
+      "id": "old-mission",
+      "label": "represented dry Old Mission Peninsula Riesling",
+      "aliases": [
+        "old mission",
+        "old mission peninsula",
+        "old mission peninsula ava"
+      ],
+      "regions": [
+        "old-mission-dry"
+      ]
+    },
+    {
+      "id": "us-washington",
+      "label": "represented Washington wines",
+      "aliases": [
+        "washington",
+        "washington state"
+      ],
+      "regions": [
+        "red-mountain",
+        "walla-walla"
+      ]
+    },
+    {
+      "id": "us-oregon",
+      "label": "represented Oregon / cross-state AVAs",
+      "aliases": [
+        "oregon"
+      ],
+      "regions": [
+        "willamette",
+        "walla-walla"
+      ]
+    },
+    {
+      "id": "us-new-york",
+      "label": "represented New York wines",
+      "aliases": [
+        "new york",
+        "new york state"
+      ],
+      "regions": [
+        "finger-lakes-dry"
+      ]
+    },
+    {
+      "id": "us-virginia",
+      "label": "represented Virginia wines",
+      "aliases": [
+        "virginia"
+      ],
+      "regions": [
+        "monticello"
+      ]
+    },
+    {
+      "id": "us-michigan",
+      "label": "represented Michigan wines",
+      "aliases": [
+        "michigan"
+      ],
+      "regions": [
+        "old-mission-dry"
+      ]
+    },
+    {
+      "id": "us-california",
+      "label": "represented California wines",
+      "aliases": [
+        "california"
+      ],
+      "regions": [
+        "napa",
+        "sonoma-coast",
+        "lodi",
+        "amador"
+      ]
+    },
+    {
+      "id": "other-finger-lakes",
+      "label": "unrepresented expression",
+      "aliases": [
+        "finger lakes semi dry riesling",
+        "semi dry finger lakes riesling",
+        "finger lakes sweet riesling",
+        "sweet finger lakes riesling",
+        "finger lakes ice wine",
+        "finger lakes icewine"
+      ],
+      "unavailable": true,
+      "coverageNote": "This Finger Lakes sweetness/icewine expression is not represented. The current Riesling reference is dry."
+    },
+    {
+      "id": "other-old-mission",
+      "label": "unrepresented expression",
+      "aliases": [
+        "old mission semi dry riesling",
+        "old mission peninsula semi dry riesling",
+        "semi dry old mission riesling",
+        "old mission sweet riesling",
+        "old mission peninsula sweet riesling",
+        "sweet old mission riesling",
+        "old mission ice wine",
+        "old mission icewine"
+      ],
+      "unavailable": true,
+      "coverageNote": "This Old Mission Peninsula sweetness/icewine expression is not represented. The current Riesling reference is dry."
+    },
+    {
+      "id": "rocks-district",
+      "label": "unrepresented expression",
+      "aliases": [
+        "rocks district",
+        "rocks district of milton freewater"
+      ],
+      "unavailable": true,
+      "coverageNote": "The Rocks District of Milton-Freewater is not represented separately. It is an Oregon-only sub-AVA; the broader Walla Walla reference is not a substitute for its specific style."
     }
   ]
 }

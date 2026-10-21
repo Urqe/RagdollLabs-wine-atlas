@@ -82,7 +82,7 @@ w.WineComparison.replace(['port-blend::douro-port-ruby','port-blend::douro-port-
 assert.equal(w.WineComparison.snapshot().keys.filter(Boolean).length,2);
 w.WineAtlas.setMode('explore');
 w.WineGallery.show();
-assert.equal(d.querySelectorAll('.gallery-card').length,141);
+assert.equal(d.querySelectorAll('.gallery-card').length,147);
 assert.match(d.querySelector('.gallery-card[data-region="vinho-verde-alvarinho"]').textContent,/Alvarinho \(Albariño\)/);
 await app.close();
 // Fortified contrast links survive refresh, including the new brown colour.
