@@ -307,7 +307,8 @@ document.addEventListener("wineatlas:profile-selected", event => {
 
 document.addEventListener("wineatlas:mode-changed", event => {
   if (event.detail.mode !== "compare" || !advancedCompareInitialized) return;
-  // Seed only on the first visit; once the user has cleared Compare, keep it empty.
+  // Seed only before any explicit comparison choice. Restoring/resetting an
+  // empty selection (including an unavailable flight) must remain empty.
   if (!window.WineNavigation?.restoring && !advancedCompareSeededOnce && !WineComparison.snapshot().keys[0] && advancedCompareLastProfile) {
     advancedCompareSeededOnce = true;
     advancedSeedProfile(advancedCompareLastProfile);
@@ -319,6 +320,7 @@ document.addEventListener("wineatlas:mode-changed", event => {
 
 // Only the model emits changes; selectors, cards and discovery consume the same snapshot.
 document.addEventListener("wineatlas:comparison-changed", () => {
+  advancedCompareSeededOnce = true;
   if (!advancedCompareInitialized) return;
   advancedRefreshSelectors();
   advancedRender();

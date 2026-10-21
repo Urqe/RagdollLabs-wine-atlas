@@ -30,6 +30,8 @@ R8 adds [Taste the Difference](docs/tasting-flights-r8.md): six flights using th
 
 R9 adds [Your First Glass](docs/beginner-journey-r9.md) at `?view=learn`: an optional sensory introduction before the existing detailed guide.
 
+M1 performs a [code, content and learning/UX audit](docs/maintenance-m1.md), fixes reproduced maintenance defects and plans practical tasting, aroma training and optional blind practice in R11–R13. The current journey introduces concepts; it does not certify tasting or region-identification skill.
+
 ## Searching by style, grape or aroma
 
 Use `sparkling dry`, `sparkling sweet`, `rosé`, `orange wine` or `dry Riesling Germany` to filter the modeled wine attributes. For tasting notes rather than wine colour/style, use `aroma: rose` or `notes: orange`; filters can precede the marker, such as `dry aroma: rose`.
