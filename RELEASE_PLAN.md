@@ -22,7 +22,7 @@ Fix misleading behavior and content before increasing the catalog. Preserve the 
 | R9 | Your First Glass | P2 — medium | Short practical beginner journey with clear next steps | R8 for guided-flight integration |
 | R10 | From Atlas to Bottle | P2 — medium | Recognize modeled expressions on labels and wine lists | R8/R9 for integrated learning and buying cues |
 
-R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8–R10 are the next feature sequence, ahead of remaining content expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned.
+R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8–R10 form the learning-focused feature sequence, ahead of remaining content expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned.
 
 ## Working rules for every release
 
@@ -303,7 +303,8 @@ These comparisons are editorial questions to investigate, not predetermined nume
 - [x] Teaching copy identifies meaningful similarities and contrasts without inventing score differences or claiming a controlled experiment.
 - [x] Flight context and selections survive refresh and sharing; Back/Forward restores a useful location and focus.
 - [x] The worksheet prints legibly without clipping or depending on dark backgrounds.
-- [ ] Keyboard and screen-reader users can find and open flights. Check phone/tablet layout and real touch behavior; record untested environments explicitly.
+- [x] Keyboard navigation, accessible names and focus are covered by regression tests and deployed desktop Chrome checks. Catalog and comparison layouts were visually inspected on desktop.
+- [ ] Complete real screen-reader, iPhone/iPad Safari and physical touch checks, including phone/tablet layouts. These environments remain explicitly unverified.
 - [x] Run existing validation plus focused dataset, comparison-state and navigation regression checks.
 
 ## R9 — Your First Glass
