@@ -206,13 +206,13 @@ function advancedRender() {
     message.classList.remove("hidden");
     grid.replaceChildren();
     differences.replaceChildren();
-    hint.textContent = "Still wines compare within the same color. Sparkling, sweet and fortified wines compare within their style family.";
+    hint.textContent = "Still wines compare within the same color. Sparkling, sweet and fortified wines compare within their style family. Dry and sweet fortified wines can be contrasted; check sweetness, wine colour and production below.";
     return;
   }
 
   message.classList.add("hidden");
   const reference = selections[0];
-  hint.textContent = `Comparing ${advancedCompatibilityLabel(reference)}. Choose up to three wines.`;
+  hint.textContent = `Comparing ${advancedCompatibilityLabel(reference)}. Choose up to three wines.${reference.regional.style?.family === "fortified" ? " Dry and sweet fortified wines can be contrasted; wine colour and production differences are shown below." : ""}`;
   const rows = advancedDifferenceRows(selections);
   const biggestOnly = WineComparison.snapshot().biggestOnly;
   const metricKeys = biggestOnly && rows.length ? new Set(rows.slice(0, 4).map(row => row.metric.key)) : null;

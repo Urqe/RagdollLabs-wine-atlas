@@ -9922,5 +9922,528 @@
       "rueda-grape",
       "rueda-producer"
     ]
+  },
+  "jerez-fino": {
+    "name": "Jerez-Xérès-Sherry — Fino",
+    "country": "Spain",
+    "climate": "Warm Mediterranean with Atlantic influence",
+    "summary": "A selected Sherry expression from the Jerez tradition; this record is a style reference, not a separate geographic appellation.",
+    "grapes": {
+      "palomino": {
+        "mods": {},
+        "notes": {
+          "Fruit": [
+            "lemon peel"
+          ],
+          "Oak / ageing": [
+            "almond",
+            "fresh dough"
+          ],
+          "Mineral / herbal": [
+            "dried chamomile",
+            "saline impression"
+          ]
+        },
+        "serve": "6–8°C",
+        "decant": "Usually none for a recent bottling; follow the producer for older bottles",
+        "glass": "Small tulip-shaped white wine glass",
+        "ageing": "Drink for freshness after release; do not cellar this reference for improvement. Refrigerate after opening and follow the producer’s short consumption window.",
+        "ageingBasis": "release",
+        "pairings": [
+          "olives",
+          "salted almonds",
+          "cured ham",
+          "shellfish",
+          "sashimi"
+        ],
+        "expect": "Pale, dry and savoury Fino, with almond and fresh-dough notes and restrained fruit. Flor ageing is not the same as the oxidative path of Oloroso.",
+        "style": {
+          "family": "fortified",
+          "color": "white-gold",
+          "sweetness": "dry",
+          "label": "Fortified · Dry Fino Sherry · Flor-aged",
+          "method": "Complete fermentation, fortification and biological ageing under flor in a criaderas and solera system",
+          "effect": "Flor limits oxidation and develops dough-like and almond notes; the selected wine is dry, not a dessert Sherry.",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Palomino-led reference; no fixed blend percentage is asserted"
+          },
+          "productionClass": "fortified-flor",
+          "effervescence": "none"
+        },
+        "evidence": [
+          {
+            "claim": "Selected expression, production, service and pairing context",
+            "sources": [
+              "sherry-fino"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Sensory scores and practical decanting advice are editorial reference judgments. No universal bottle-life, opening-life or recipe is claimed across producers."
+        ],
+        "displayName": "Palomino · Fino Sherry",
+        "related": [
+          {
+            "region": "jerez-oloroso",
+            "grape": "palomino",
+            "label": "Contrast with dry oxidative Oloroso"
+          },
+          {
+            "region": "jerez-px",
+            "grape": "pedro-ximenez",
+            "label": "Contrast with sweet Pedro Ximénez Sherry"
+          }
+        ]
+      }
+    },
+    "identity": {
+      "setting": "Jerez area, Andalusia, southwestern Spain",
+      "terrain": "Gently rolling country near the Bay of Cádiz",
+      "soil": "Albariza is characteristic around Jerez; this is not a vineyard-specific soil claim",
+      "influences": [
+        "Atlantic breezes moderate the hot summer setting",
+        "Bodega maturation strongly shapes these selected styles"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Different maturation paths",
+        "effect": "Flor-protected Fino and oxidative Oloroso share Palomino but have different colour, texture and aroma. Sweet PX follows a separate raisined-grape route."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "sherry-region",
+      "sherry-fino"
+    ],
+    "evidence": [
+      {
+        "claim": "Selected regional setting",
+        "sources": [
+          "sherry-region"
+        ]
+      }
+    ]
+  },
+  "jerez-oloroso": {
+    "name": "Jerez-Xérès-Sherry — Dry Oloroso",
+    "country": "Spain",
+    "climate": "Warm Mediterranean with Atlantic influence",
+    "summary": "A selected Sherry expression from the Jerez tradition; this record is a style reference, not a separate geographic appellation.",
+    "grapes": {
+      "palomino": {
+        "mods": {
+          "body": 2,
+          "alcohol": 1,
+          "oak": 1.5
+        },
+        "notes": {
+          "Fruit": [
+            "dried orange peel"
+          ],
+          "Oak / ageing": [
+            "walnut",
+            "polished wood"
+          ],
+          "Earth / savory": [
+            "tobacco leaf",
+            "mushroom"
+          ]
+        },
+        "serve": "12–14°C",
+        "decant": "Usually none for a recent bottling; follow the producer for older bottles",
+        "glass": "Small tulip-shaped white wine glass",
+        "ageing": "Ready to drink on release after cellar maturation; no extra bottle ageing is needed. Follow the producer for storage and opening guidance.",
+        "ageingBasis": "release",
+        "pairings": [
+          "beef stew",
+          "game",
+          "mushrooms",
+          "aged cheese"
+        ],
+        "expect": "Dry and full-textured, with walnut, tobacco and a long savoury finish. Richness and amber colour do not imply residual sweetness; Cream is a different sweetened style.",
+        "style": {
+          "family": "fortified",
+          "color": "amber",
+          "sweetness": "dry",
+          "label": "Fortified · Dry Oloroso Sherry · Oxidative",
+          "method": "Complete fermentation followed by fortification sufficient to prevent flor, then oxidative cask ageing through criaderas and solera",
+          "effect": "Oxidation and concentration develop amber colour, walnut notes and a fuller texture without making the selected wine sweet.",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Palomino-led reference; no fixed blend percentage is asserted"
+          },
+          "productionClass": "fortified-oxidative",
+          "effervescence": "none"
+        },
+        "evidence": [
+          {
+            "claim": "Selected expression, production, service and pairing context",
+            "sources": [
+              "sherry-oloroso"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Sensory scores and practical decanting advice are editorial reference judgments. No universal bottle-life, opening-life or recipe is claimed across producers."
+        ],
+        "displayName": "Palomino · Dry Oloroso Sherry",
+        "related": [
+          {
+            "region": "jerez-fino",
+            "grape": "palomino",
+            "label": "Contrast with flor-aged Fino"
+          },
+          {
+            "region": "jerez-px",
+            "grape": "pedro-ximenez",
+            "label": "Contrast with sweet Pedro Ximénez Sherry"
+          }
+        ]
+      }
+    },
+    "identity": {
+      "setting": "Jerez area, Andalusia, southwestern Spain",
+      "terrain": "Gently rolling country near the Bay of Cádiz",
+      "soil": "Albariza is characteristic around Jerez; this is not a vineyard-specific soil claim",
+      "influences": [
+        "Atlantic breezes moderate the hot summer setting",
+        "Bodega maturation strongly shapes these selected styles"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Different maturation paths",
+        "effect": "Flor-protected Fino and oxidative Oloroso share Palomino but have different colour, texture and aroma. Sweet PX follows a separate raisined-grape route."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "sherry-region",
+      "sherry-oloroso"
+    ],
+    "evidence": [
+      {
+        "claim": "Selected regional setting",
+        "sources": [
+          "sherry-region"
+        ]
+      }
+    ]
+  },
+  "jerez-px": {
+    "name": "Jerez-Xérès-Sherry — Sweet Pedro Ximénez",
+    "country": "Spain",
+    "climate": "Warm Mediterranean with Atlantic influence",
+    "summary": "A selected Sherry expression from the Jerez tradition; this record is a style reference, not a separate geographic appellation.",
+    "grapes": {
+      "pedro-ximenez": {
+        "mods": {},
+        "notes": {
+          "Fruit": [
+            "raisin",
+            "fig",
+            "date"
+          ],
+          "Oak / ageing": [
+            "coffee",
+            "cocoa"
+          ],
+          "Spice": [
+            "liquorice"
+          ]
+        },
+        "serve": "12–14°C",
+        "decant": "Usually none for a recent bottling; follow the producer for older bottles",
+        "glass": "Small tulip-shaped white wine glass",
+        "ageing": "Ready to drink on release after cellar maturation; no extra bottle ageing is needed. Follow the producer for storage and opening guidance.",
+        "ageingBasis": "release",
+        "pairings": [
+          "dark chocolate",
+          "vanilla ice cream",
+          "blue cheese",
+          "chocolate dessert"
+        ],
+        "expect": "Very sweet, dark mahogany to near-ebony Sherry with raisin, fig and cocoa, a syrupy texture and warming alcohol. This reference represents the Sherry style, not every wine made from Pedro Ximénez.",
+        "style": {
+          "family": "fortified",
+          "color": "brown",
+          "sweetness": "sweet",
+          "label": "Fortified · Sweet Pedro Ximénez Sherry · Raisined grapes",
+          "method": "Sun-dried grapes are pressed; spirit interrupts fermentation, followed by oxidative maturation",
+          "effect": "Raisining concentrates sugar before fermentation and fortification retains sweetness; cask ageing develops dried-fruit and cocoa complexity.",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Pedro Ximénez-led reference; no fixed blend percentage is asserted"
+          },
+          "productionClass": "fortified-raisined",
+          "effervescence": "none"
+        },
+        "evidence": [
+          {
+            "claim": "Selected expression, production, service and pairing context",
+            "sources": [
+              "sherry-px"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Sensory scores and practical decanting advice are editorial reference judgments. No universal bottle-life, opening-life or recipe is claimed across producers."
+        ],
+        "displayName": "Pedro Ximénez · Sweet Sherry",
+        "related": [
+          {
+            "region": "jerez-oloroso",
+            "grape": "palomino",
+            "label": "Contrast with dry Oloroso Sherry"
+          }
+        ]
+      }
+    },
+    "identity": {
+      "setting": "Jerez area, Andalusia, southwestern Spain",
+      "terrain": "Gently rolling country near the Bay of Cádiz",
+      "soil": "Albariza is characteristic around Jerez; this is not a vineyard-specific soil claim",
+      "influences": [
+        "Atlantic breezes moderate the hot summer setting",
+        "Bodega maturation strongly shapes these selected styles"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Different maturation paths",
+        "effect": "Flor-protected Fino and oxidative Oloroso share Palomino but have different colour, texture and aroma. Sweet PX follows a separate raisined-grape route."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "sherry-region",
+      "sherry-px"
+    ],
+    "evidence": [
+      {
+        "claim": "Selected regional setting",
+        "sources": [
+          "sherry-region"
+        ]
+      }
+    ]
+  },
+  "madeira-boal": {
+    "name": "Madeira — Medium-sweet Boal",
+    "country": "Portugal",
+    "climate": "Maritime subtropical island",
+    "summary": "A selected medium-sweet Boal Madeira with warm oxidative cask maturation; not a proxy for Sercial, Verdelho, Malvasia or every Madeira.",
+    "grapes": {
+      "boal": {
+        "mods": {},
+        "notes": {
+          "Fruit": [
+            "raisin",
+            "orange peel"
+          ],
+          "Oak / ageing": [
+            "walnut",
+            "caramel",
+            "honey"
+          ],
+          "Spice": [
+            "baking spice"
+          ]
+        },
+        "serve": "14–16°C; follow the bottle’s producer guidance",
+        "decant": "Usually none for a recent bottling; follow the producer for older bottles",
+        "glass": "Small tulip-shaped white wine glass",
+        "ageing": "Ready after producer maturation; a ten-year indication concerns the matured blend, not ten extra years to wait after purchase. No universal improvement window in bottle is promised.",
+        "ageingBasis": "release",
+        "pairings": [
+          "aged cheese",
+          "fruit tart",
+          "dried fruit",
+          "honey cake"
+        ],
+        "expect": "Medium-sweet (medium-rich) Boal Madeira: amber, rich and fresh, with raisin, citrus peel and nutty maturation notes. The broad sweet search category includes this medium-sweet expression; it is less sweet than the selected PX Sherry.",
+        "style": {
+          "family": "fortified",
+          "color": "amber",
+          "sweetness": "sweet",
+          "label": "Fortified · Medium-sweet Boal Madeira · Canteiro reference",
+          "method": "Fortification interrupts fermentation; selected canteiro maturation uses warm cellars and oxidative ageing in cask",
+          "effect": "Sweetness remains balanced by acidity. Heat and oxygen develop dried-fruit, nut and caramel notes; Madeira also includes drier and richer expressions.",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Boal-led Madeira reference (also known as Bual); no 100% varietal or fixed blend claim"
+          },
+          "productionClass": "fortified-heated-oxidative",
+          "effervescence": "none"
+        },
+        "evidence": [
+          {
+            "claim": "Selected expression, production, service and pairing context",
+            "sources": [
+              "madeira-boal",
+              "madeira-production",
+              "madeira-boal-example",
+              "madeira-serving",
+              "madeira-pairing"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Sensory scores and practical decanting advice are editorial reference judgments. No universal bottle-life, opening-life or recipe is claimed across producers.",
+          "The canteiro reference is a selected regional method, not a verified heating schedule for the cited H&H bottle. Medium-sweet is grouped under sweet in the atlas’s coarse sweetness categories."
+        ],
+        "displayName": "Boal (Bual) · Medium-sweet Madeira"
+      }
+    },
+    "identity": {
+      "setting": "Madeira island in the Atlantic",
+      "terrain": "Steep slopes, often terraced as poios",
+      "soil": "Volcanic-origin soils, mainly basaltic parent material",
+      "influences": [
+        "Ocean proximity",
+        "Warm oxidative maturation in the selected canteiro expression"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Fortification followed by warm cask maturation",
+        "effect": "Retained sugar, acidity, heat and oxygen shape a rich but fresh reference; nutty aromas are maturation descriptors, not literal soil flavours."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "madeira-region",
+      "madeira-boal",
+      "madeira-production",
+      "madeira-boal-example",
+      "madeira-serving",
+      "madeira-pairing"
+    ],
+    "evidence": [
+      {
+        "claim": "Selected regional setting",
+        "sources": [
+          "madeira-region"
+        ]
+      }
+    ]
+  },
+  "vinho-verde-alvarinho": {
+    "name": "Vinho Verde DOC — Monção e Melgaço",
+    "country": "Portugal",
+    "climate": "Sheltered northern Portuguese valley",
+    "summary": "A dry, still, steel-and-lees Alvarinho reference, supported by Soalheiro Clássico; not the whole range of Vinho Verde.",
+    "grapes": {
+      "albarino": {
+        "mods": {
+          "body": 0.5,
+          "acidity": -0.5,
+          "sweetness": -0.5,
+          "alcohol": -0.5
+        },
+        "notes": {
+          "Fruit": [
+            "lime",
+            "grapefruit",
+            "green apple"
+          ],
+          "Floral": [
+            "citrus blossom"
+          ],
+          "Mineral / herbal": [
+            "saline finish"
+          ]
+        },
+        "serve": "8–10°C",
+        "decant": "Usually none for a recent bottling; follow the producer for older bottles",
+        "glass": "Medium white wine glass",
+        "ageing": "Enjoy young for citrus freshness; the cited Soalheiro example can develop in bottle, but no universal duration applies to Vinho Verde.",
+        "ageingBasis": "release",
+        "pairings": [
+          "shellfish",
+          "grilled fish",
+          "white meat",
+          "aged cheese"
+        ],
+        "expect": "Dry, still Alvarinho from Monção e Melgaço, with citrus, floral lift and fine lees texture. This is one Vinho Verde DOC expression; the region also makes other colours, blends and sparkling wines.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry Alvarinho · Monção e Melgaço",
+          "method": "White vinification in stainless steel, followed by fine-lees contact in the cited producer example",
+          "composition": {
+            "kind": "grape-reference",
+            "text": "Single-varietal Alvarinho producer reference; Alvarinho and Albariño share the existing canonical grape identity"
+          },
+          "productionClass": "still-white",
+          "effervescence": "none"
+        },
+        "evidence": [
+          {
+            "claim": "Selected expression, production, service and pairing context",
+            "sources": [
+              "vinho-verde-alvarinho"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Sensory scores and practical decanting advice are editorial reference judgments. No universal bottle-life, opening-life or recipe is claimed across producers."
+        ],
+        "displayName": "Alvarinho (Albariño)",
+        "related": [
+          {
+            "region": "rias-baixas",
+            "grape": "albarino",
+            "label": "Explore Albariño in Rías Baixas"
+          }
+        ]
+      }
+    },
+    "identity": {
+      "setting": "Monção e Melgaço, northern Portugal",
+      "terrain": "Valley vineyards sheltered by surrounding mountains",
+      "soil": "No vineyard-specific soil generalization is made for this reference",
+      "influences": [
+        "Mountain shelter limits direct Atlantic influence",
+        "Warm days and cool nights support ripening with freshness"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Sheltered valley and selected steel/lees handling",
+        "effect": "The producer example combines ripe citrus, fresh acidity and texture without requiring oak or bubbles."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "vinho-verde-alvarinho",
+      "ucdavis-albarino"
+    ],
+    "evidence": [
+      {
+        "claim": "Selected regional setting",
+        "sources": [
+          "vinho-verde-alvarinho"
+        ]
+      }
+    ]
   }
 }

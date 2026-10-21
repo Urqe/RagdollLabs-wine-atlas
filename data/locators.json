@@ -386,5 +386,25 @@
   "rueda": {
     "lat": 41.41,
     "lon": -4.96
+  },
+  "jerez-fino": {
+    "lat": 36.68,
+    "lon": -6.14
+  },
+  "jerez-oloroso": {
+    "lat": 36.68,
+    "lon": -6.14
+  },
+  "jerez-px": {
+    "lat": 36.68,
+    "lon": -6.14
+  },
+  "madeira-boal": {
+    "lat": 32.73,
+    "lon": -17.0
+  },
+  "vinho-verde-alvarinho": {
+    "lat": 42.08,
+    "lon": -8.3
   }
 }

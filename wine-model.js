@@ -13,7 +13,7 @@ window.WineModel = (() => {
   Object.freeze(metrics);
   const normalize = value => String(value || "").normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "").toLowerCase().trim().replace(/\s+/g, " ");
-  const colorLabels = Object.freeze({ red: "Red", white: "White", rose: "Rosé", orange: "Orange / amber", amber: "Amber", tawny: "Tawny", "white-gold": "White / gold" });
+  const colorLabels = Object.freeze({ red: "Red", white: "White", rose: "Rosé", orange: "Orange / amber", amber: "Amber", tawny: "Tawny", brown: "Brown / mahogany", "white-gold": "White / gold" });
   const colorLabel = value => colorLabels[value] || value;
   const ageingAdvice = item => {
     const basis = { vintage: "vintage year", release: "release", bottling: "bottling", producer: "producer-specific cask/bottle guidance" }[item.regional.ageingBasis];
@@ -34,6 +34,9 @@ window.WineModel = (() => {
     "traditional-bottle": "second fermentation in bottle with lees ageing",
     "tank-second": "second fermentation in tank", "single-partial-tank": "one interrupted tank fermentation",
     botrytised: "noble-rot concentration", "late-harvest": "late-harvest concentration",
+    "fortified-flor": "fortification with biological ageing under flor",
+    "fortified-raisined": "sun-dried grapes, fortification and oxidative ageing",
+    "fortified-heated-oxidative": "fortification with warm oxidative cask maturation (canteiro)",
     "fortified-protected": "fortification with relatively protected maturation",
     "fortified-oxidative": "fortification with oxidative cask ageing",
     "fortified-muscat-cask": "fortified Muscat with cask maturation",

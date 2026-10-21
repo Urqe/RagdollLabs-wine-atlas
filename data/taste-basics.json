@@ -283,6 +283,43 @@
           "label": "Saline: Santorini Assyrtiko"
         }
       ]
+    },
+    {
+      "id": "fortification",
+      "heading": "Fortified does not always mean sweet",
+      "body": [
+        "Fortification adds wine spirit. In Fino and dry Oloroso Sherry, the base wine has fermented dry before fortification. Fino then ages under flor; Oloroso ages oxidatively without that protective yeast layer. Amber colour, nutty aromas and a full texture do not by themselves mean a wine is sweet.",
+        "Sweet Pedro Ximénez Sherry starts with sun-dried grapes and interrupted fermentation. Madeira spans different sweetness styles; the atlas selects medium-sweet Boal with warm oxidative cask maturation. Compare can show these contrasts together, but that does not make them substitutes."
+      ],
+      "examples": [
+        {
+          "region": "jerez-fino",
+          "grape": "palomino",
+          "label": "Dry and flor-aged: Fino"
+        },
+        {
+          "region": "jerez-oloroso",
+          "grape": "palomino",
+          "label": "Dry and oxidative: Oloroso"
+        },
+        {
+          "region": "jerez-px",
+          "grape": "pedro-ximenez",
+          "label": "Raisined and sweet: Pedro Ximénez"
+        },
+        {
+          "region": "madeira-boal",
+          "grape": "boal",
+          "label": "Warm cask maturation: medium-sweet Boal Madeira"
+        }
+      ],
+      "sources": [
+        "sherry-fino",
+        "sherry-oloroso",
+        "sherry-px",
+        "madeira-boal",
+        "madeira-production"
+      ]
     }
   ],
   "sources": [
@@ -296,6 +333,11 @@
     "georgia-rkatsiteli",
     "burgundy-drinking",
     "bordeaux-drinking",
-    "wine-storage"
+    "wine-storage",
+    "sherry-fino",
+    "sherry-oloroso",
+    "sherry-px",
+    "madeira-boal",
+    "madeira-production"
   ]
 }

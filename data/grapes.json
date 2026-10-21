@@ -736,5 +736,44 @@
     "fruit": 4.5,
     "oak": 3,
     "earth": 2.5
+  },
+  "palomino": {
+    "name": "Palomino",
+    "color": "white",
+    "indigenous": false,
+    "body": 2,
+    "acidity": 3,
+    "tannin": 0,
+    "sweetness": 0,
+    "alcohol": 4,
+    "fruit": 1,
+    "oak": 0,
+    "earth": 3
+  },
+  "pedro-ximenez": {
+    "name": "Pedro Ximénez",
+    "color": "white",
+    "indigenous": false,
+    "body": 5,
+    "acidity": 3,
+    "tannin": 0,
+    "sweetness": 5,
+    "alcohol": 4.5,
+    "fruit": 5,
+    "oak": 1,
+    "earth": 2
+  },
+  "boal": {
+    "name": "Boal (Bual)",
+    "color": "white",
+    "indigenous": false,
+    "body": 3.5,
+    "acidity": 4.5,
+    "tannin": 0,
+    "sweetness": 3.5,
+    "alcohol": 5,
+    "fruit": 3,
+    "oak": 1.5,
+    "earth": 2
   }
 }

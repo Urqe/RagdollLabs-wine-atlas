@@ -53,7 +53,7 @@ assert.ok(aromaticButton);
 for (let i = 0; i < 10; i += 1) {
   aromaticButton.click();
   await settle();
-  const grape = Object.values(atlas.getData().grapes).find(entry => document.getElementById("title").textContent.startsWith(`${entry.name} · `));
+  const grape = atlas.getActiveProfile().grape;
   assert.equal(grape?.aromatic, true, `Aromatic mood picked ${document.getElementById("title").textContent}`);
 }
 
