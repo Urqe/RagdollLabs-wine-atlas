@@ -241,6 +241,17 @@ async function showTasteBasics(event) {
   title.textContent = data.title;
   intro.textContent = data.intro;
   content.replaceChildren(...data.sections.map(tasteSectionCard));
+  const flights = document.createElement("a");
+  flights.href = "?view=flights";
+  flights.className = "flight-link";
+  flights.textContent = "Try a guided tasting flight";
+  flights.addEventListener("click", event => {
+    if (event.button || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    closeDialog();
+    WineNavigation.go({ view: "flights" });
+  });
+  content.prepend(flights);
   const glossary = document.createElement("button");
   glossary.type = "button";
   glossary.className = "glossary-browse-all";

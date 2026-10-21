@@ -17,12 +17,15 @@ The visible brand is **RagDollLabs**; the repository and GitHub Pages path keep 
 - **Wine glossary** — beginner basics (acidity, body, dry vs sweet, oak, vintage) and technical terms (qvevri, botrytis, dosage, carbonic maceration); technical terms are tappable inside profiles
 - **Beyond still wine** — sparkling, sweet, fortified, rosé and orange profiles carry structured production-method metadata
 - **Winemaking choices** and **maturity & vintage evolution** — sparse, curated sections only where they genuinely teach something
+- **Guided tasting flights** — six question-led comparisons with bottle-selection cues, serving order, observation prompts and a printable worksheet; explore them without buying wine at `?view=flights`
 - **Compare** — up to three wines side by side: still wines within the same colour, other styles within their family (sparkling, sweet, fortified, rosé, orange), with ranked biggest differences
 - **Similar Wines** — same grape elsewhere, similar structure, and a more adventurous pick
 - **Mood discovery** — Light & elegant, Big & ripe, Earthy & savoury, Fresh & mineral, Aromatic, Something unusual
 - **Food-first discovery** — search what you are eating, including desserts, cheese and modern dishes
 - **Regional identity**, **locator maps**, **Serve It Tonight** guidance and **sources** for every region
 - **Shareable URLs and history** — `?grape=...&region=...` opens a profile directly; Gallery and Compare have shareable routes, and Back/Forward restore views, comparison selections, scroll and focus (see [navigation](docs/navigation.md))
+
+R8 adds [Taste the Difference](docs/tasting-flights-r8.md): six flights using the existing catalog and comparison model. They do not add profiles, change scores or imply that every factual claim in the source profiles has been reverified.
 
 ## Searching by style, grape or aroma
 
@@ -92,11 +95,14 @@ The runtime is HTML, CSS and vanilla JavaScript only. No backend, framework, ana
 ├── functional.js          # style metadata and winemaking choices
 ├── maturity.js            # maturity / vintage evolution
 ├── learning.js            # glossary, contextual terms and the taste explainer
+├── tasting-flights.js     # curated lessons, profile return context and worksheet
+├── tasting-flights.css    # flight layouts and ink-friendly worksheet printing
 ├── home-brand.js          # landing artwork link
 ├── assets/                # world map, landing artwork
 ├── data/
 │   ├── grapes.json        # grape / represented-blend baselines and metadata
 │   ├── regions.json       # every region, its identity, Why entries and grape profiles
+│   ├── tasting-flights.json # six lessons referencing existing profiles
 │   ├── taste-basics.json  # "How wine gets its taste" sections and profile examples
 │   ├── glossary.json      # definitions, aliases, why-it-matters notes, sources
 │   ├── winemaking.json    # sparse profile-specific vessel choices

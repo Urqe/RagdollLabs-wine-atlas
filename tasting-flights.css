@@ -1,0 +1,70 @@
+/* Flights are reading/tasting workspaces. Hide browse controls here so the
+   learning question comes first on phones as well as larger screens. */
+.flight-layout { grid-template-columns: minmax(0, 1fr); }
+.flight-layout > aside { display: none; }
+.layout > main { min-width: 0; }
+.flights-view, #worksheetView { max-width: 1040px; margin-inline: auto; }
+.flights-view h2, #worksheetView h2, .flight-context h2 { font-size: clamp(26px, 4vw, 36px); margin: 8px 0 14px; scroll-margin-top: 18px; }
+.flights-view p, .flights-view li, .flight-context p { line-height: 1.6; }
+.flights-view p:not(.kicker), .flights-view li { max-width: 78ch; }
+.flight-question { font: italic 21px/1.5 Georgia, serif; color: #e5d5b7; }
+.flight-link { display: inline-flex; align-items: center; min-height: 44px; border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; color: var(--gold); background: #120d10; font: inherit; font-size: 14px; line-height: 1.45; text-align: left; text-decoration: none; cursor: pointer; overflow-wrap: anywhere; }
+.flight-link:hover { border-color: var(--gold); background: #24171d; }
+.flight-link:focus-visible, .flight-section summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.flight-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0; }
+.flight-sidebar-link { display: flex; margin: 0 0 18px; }
+.flight-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
+.flight-card { min-width: 0; border: 1px solid var(--line); border-radius: 14px; padding: 20px; background: #120d10; }
+.flight-card .kicker { margin: 0 0 8px; }
+.flight-card h3 { margin: 0; font: 24px/1.2 Georgia, serif; text-transform: none; letter-spacing: 0; }
+.flight-card h3 a { border: 0; padding: 4px 0; font: inherit; background: none; }
+.flight-card h3 a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.flight-card p { margin-bottom: 0; }
+.flight-section { padding: 18px 0; border-top: 1px solid var(--line); }
+.flight-section h3 { margin-top: 0; }
+.flight-section p { margin-bottom: 0; }
+.flight-section li + li { margin-top: 12px; }
+.flight-section summary { padding: 8px 0; color: var(--gold); cursor: pointer; min-height: 44px; }
+.flight-wines { display: grid; gap: 8px; }
+.flight-context { margin-bottom: 16px; }
+.flight-context h2 { font-size: 24px; }
+.flight-context .kicker { margin-top: 0; }
+.related-flights { margin-top: 16px; }
+.related-flights h2 { margin-top: 0; }
+.flight-notice { border-left: 3px solid var(--gold); padding: 12px; }
+#worksheetView { width: 100%; }
+.worksheet-wine, .worksheet-reflection { margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--line); break-inside: avoid; }
+.worksheet-wine h3 { font-size: 14px; text-transform: none; letter-spacing: 0; margin: 0 0 12px; }
+.worksheet-line { display: flex; align-items: end; gap: 12px; min-height: 30px; font-size: 12px; color: var(--muted); }
+.worksheet-line > span:first-child { flex: 0 1 auto; }
+.worksheet-blank { flex: 1; min-width: 40px; border-bottom: 1px solid var(--muted); min-height: 22px; }
+.worksheet-notes { display: block; padding-top: 8px; }
+.worksheet-notes .worksheet-blank { display: block; min-height: 30px; }
+@media (max-width: 620px) {
+  .flight-grid { grid-template-columns: 1fr; }
+  .flight-card { padding: 16px; }
+  .flight-actions > .flight-link { flex: 1 1 200px; }
+  .worksheet-line { flex-wrap: wrap; }
+}
+@page { size: A4; margin: 14mm; }
+@media print {
+  body.worksheet-route { background: white; color: black; font: 10pt/1.3 Arial, sans-serif; }
+  body.worksheet-route .wrap { max-width: none; padding: 0; }
+  body.worksheet-route #welcomeView, body.worksheet-route .hero, body.worksheet-route aside,
+  body.worksheet-route .footer, body.worksheet-route dialog, body.worksheet-route #liveStatus,
+  body.worksheet-route main > :not(#worksheetView), body.worksheet-route .flight-actions { display: none !important; }
+  body.worksheet-route #appShell, body.worksheet-route .layout, body.worksheet-route main { display: block !important; margin: 0; }
+  body.worksheet-route #worksheetView { display: block !important; max-width: none; padding: 0; border: 0; border-radius: 0; box-shadow: none; background: white; }
+  body.worksheet-route #worksheetView * { color: black; background: transparent; }
+  body.worksheet-route #worksheetHeading { font-size: 20pt; margin: 0 0 2mm; }
+  body.worksheet-route .flight-question { font-size: 13pt; margin: 0 0 2mm; }
+  body.worksheet-route #worksheetView > p { margin: 2mm 0; }
+  body.worksheet-route .worksheet-intro { font-size: 9pt; }
+  body.worksheet-route .worksheet-wine, body.worksheet-route .worksheet-reflection { margin-top: 3mm; padding-top: 2mm; border-color: black; }
+  body.worksheet-route .worksheet-wine h3, body.worksheet-route .worksheet-reflection h3 { font-size: 10pt; margin: 0 0 1mm; }
+  body.worksheet-route .worksheet-line { display: flex; flex-wrap: nowrap; min-height: 6mm; font-size: 9pt; padding: 0; }
+  body.worksheet-route .worksheet-blank { display: block; min-height: 5mm; border-color: black; }
+  body.worksheet-route .worksheet-notes { min-height: 9mm; }
+  body.worksheet-route .worksheet-notes .worksheet-blank { min-height: 8mm; }
+  body.worksheet-route .worksheet-reflection .small { font-size: 8pt; margin-bottom: 0; }
+}

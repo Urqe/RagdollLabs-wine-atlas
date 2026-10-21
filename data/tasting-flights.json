@@ -1,0 +1,111 @@
+[
+  {
+    "id": "sauvignon-two-places",
+    "title": "Sauvignon Blanc, two places",
+    "question": "How can the same grape express different fruit and savoury characters?",
+    "intro": "Explore the atlas's restrained, citrus-led Sancerre alongside its vivid, aromatic Marlborough reference. Both are modeled as dry white wines; aromatic fruit does not mean residual sweetness.",
+    "selection": "Look for a dry white Sancerre and a dry Marlborough Sauvignon Blanc. Choose young bottles of similar age, and check the producer's description for obvious oak or special-cuvée treatments.",
+    "serving": "Start with Sancerre, then Marlborough, then revisit the first glass. Use similar glasses and start both around 8–10°C. The order and temperature are editorial starting points.",
+    "observations": [
+      "Smell before sipping: do your own words lean towards citrus, green herbs or tropical fruit?",
+      "Compare how mouth-watering each feels, separately from how intense its aroma is.",
+      "Do you prefer the more restrained or the more aromatic glass, and does food change that?"
+    ],
+    "limitation": "These are selected regional models, not a controlled climate experiment. Site, harvest timing, producer and vintage can change the result. Both profiles still have claim-level evidence gaps; the lesson uses their editorial descriptions, not newly verified regional rules.",
+    "wines": [
+      { "grape": "sauvignon-blanc", "region": "sancerre" },
+      { "grape": "sauvignon-blanc", "region": "marlborough" }
+    ]
+  },
+  {
+    "id": "cabernet-across-regions",
+    "title": "Cabernet across regions",
+    "question": "What changes in ripeness, structure and blending context?",
+    "intro": "Compare a Cabernet Sauvignon-led Bordeaux blend with the atlas's ripe Napa Cabernet reference. Look beyond fruit names to weight, tannin and freshness.",
+    "selection": "For Bordeaux, confirm a Cabernet Sauvignon-led blend in the producer's information; Bordeaux on its own does not establish the blend. Pair it with Napa Valley Cabernet Sauvignon of broadly similar age and price level. Check actual bottle composition rather than assuming either is 100% Cabernet.",
+    "serving": "Try Bordeaux first, then Napa, and revisit both. Start around 16–18°C and use the same glass shape. Taste before deciding whether a young bottle needs air; avoid prolonged aeration of fragile older bottles.",
+    "observations": [
+      "Describe the fruit as you perceive it: tart, fresh, ripe or dried, rather than simply better or worse.",
+      "Separate mouth-drying tannin, mouth-watering acidity and the impression of weight.",
+      "Can you distinguish oak-like cedar or toast from the fruit? Check the producer's information before attributing a cause."
+    ],
+    "limitation": "Blending, vineyard, oak regime, vintage and bottle age all matter. This comparison cannot isolate climate or establish a regional quality ranking. Bordeaux's blend context has reviewed evidence; Napa's detailed regional and production claims remain in the existing evidence backlog.",
+    "wines": [
+      { "grape": "cabernet-sauvignon", "region": "bordeaux" },
+      { "grape": "cabernet-sauvignon", "region": "napa" }
+    ]
+  },
+  {
+    "id": "fresh-versus-dried-grapes",
+    "title": "Fresh versus dried grapes",
+    "question": "What does grape drying change beyond sweetness?",
+    "intro": "Valpolicella Classico and Amarone share a Corvina-led regional blend context but represent different production choices. The atlas selects dry expressions for both; drying grapes does not automatically make a dessert wine.",
+    "selection": "Choose Valpolicella Classico DOC and Amarone della Valpolicella Classico DOCG. Avoid substituting Ripasso or sweet Recioto for this particular lesson. Producer examples support the selected styles, not one fixed blend or barrel recipe.",
+    "serving": "Start with Valpolicella, then Amarone, then return to Valpolicella. Use small, similar pours around 16–18°C. Taste before deciding on air; bottle age and condition matter.",
+    "observations": [
+      "Compare fresh-cherry and dried-fruit impressions without treating aroma as a sugar measurement.",
+      "Notice differences in weight, concentration and warming alcohol sensation.",
+      "Does the lighter wine feel different after the fuller glass? Revisit it and describe the change."
+    ],
+    "limitation": "Grape drying is a meaningful production contrast, but producer, blend, oak, age and vintage also vary. Do not attribute every difference to appassimento or assume every Amarone matches the atlas's scores. Reviewed production examples are linked in the profiles.",
+    "wines": [
+      { "grape": "corvina", "region": "valpolicella" },
+      { "grape": "corvina", "region": "amarone" }
+    ]
+  },
+  {
+    "id": "same-grape-different-names",
+    "title": "Same grape, different names",
+    "question": "How can shared grape identity coexist with different regional expressions?",
+    "intro": "Primitivo and Zinfandel share grape identity, but that does not make bottles interchangeable. Compare the selected dry Primitivo di Manduria expression with Lodi Zinfandel.",
+    "selection": "Choose a dry Primitivo di Manduria DOC, not the separately named Dolce Naturale DOCG, and a dry Lodi Zinfandel. Check producer descriptions for sweetness and oak choices; keep bottle age broadly similar.",
+    "serving": "Try Primitivo first, then Lodi, and reverse the order on a second pass. Start both around 16–18°C in similar glasses. This is an editorial tasting order, not a rule about which must be lighter.",
+    "observations": [
+      "Find similarities in the fruit and spice before looking for differences.",
+      "Compare weight, tannin and freshness. Similar rounded scores can still leave distinct aromas.",
+      "Does knowing the name or country change your expectations? Try describing each glass before rereading its profile."
+    ],
+    "limitation": "Genetic identity is supported by the reviewed UC Davis reference linked in the Primitivo profile. Producer choices, growing conditions and vintage still differ. Lodi's detailed claims remain background context pending review; no numerical contrast is invented for this flight.",
+    "wines": [
+      { "grape": "zinfandel", "region": "primitivo-manduria" },
+      { "grape": "zinfandel", "region": "lodi" }
+    ]
+  },
+  {
+    "id": "sparkling-production",
+    "title": "Sparkling production",
+    "question": "What might lees contact and production method contribute to texture and aroma?",
+    "intro": "Explore the atlas's Champagne Brut NV blend and tank-method Prosecco references. Their production contexts differ, but so do grapes and selected sweetness; this is a learning contrast, not a claim of substitution.",
+    "selection": "Choose white Champagne Brut non-vintage and a standard tank-method Prosecco DOC. Check the Prosecco sweetness wording and producer details rather than assuming it is as dry as the Champagne. Keep special long-aged or alternative-method cuvées out of this first comparison.",
+    "serving": "Try Prosecco first, then Champagne, and revisit both. Begin around 8°C in similar white-wine glasses, with small pours, and keep bottles chilled and stoppered between pours. Temperature and glass choices are editorial suggestions.",
+    "observations": [
+      "Describe orchard-fruit and floral impressions separately from bread, biscuit or toast notes.",
+      "Notice texture and the way bubbles feel; the atlas's bubble labels are qualitative, not pressure measurements.",
+      "Compare sweetness and acidity together. Differences in sugar can influence perceived balance as well as the production method."
+    ],
+    "limitation": "This is not a controlled test of bottle versus tank fermentation: grape, dosage, lees time, producer and age can differ. Detailed claim review for these profiles remains open. Read production explanations as the selected models and consult their evidence limitations.",
+    "wines": [
+      { "grape": "glera", "region": "prosecco-doc" },
+      { "grape": "champagne-blend", "region": "champagne-brut-nv" }
+    ]
+  },
+  {
+    "id": "routes-to-sweetness",
+    "title": "Routes to sweetness",
+    "question": "How do natural freezing and noble rot produce distinct sweet-wine references?",
+    "intro": "Compare Niagara Riesling Icewine with Sauternes and Tokaji Aszú. The selected icewine uses natural freezing on the vine; the other two represent noble-rot concentration. All three are sweet, still references, not interchangeable bottles.",
+    "selection": "Look for Niagara Peninsula Ontario Riesling Icewine, Sauternes and Tokaji Aszú. Dry Niagara Riesling, dry Tokaj Furmint and generic late-harvest wines are different expressions. Small bottles are sufficient for a small-pour comparison.",
+    "serving": "Try Niagara Riesling Icewine, then Sauternes, then Tokaji Aszú, and revisit in reverse order. Begin around 10°C with small dessert-wine pours and similar glasses. The order is editorial, not a guaranteed sweetness ranking; taste without dessert first.",
+    "observations": [
+      "Describe citrus, stone-fruit, honey or spice associations in your own words before checking the profiles.",
+      "Which glass feels most mouth-watering relative to its sweetness? Acidity balances sugar without removing it.",
+      "Compare texture and finish without assuming the darkest, thickest or sweetest glass is the oldest or best."
+    ],
+    "limitation": "Grapes, blends, fermentation, maturation, vintage and producer all differ; this cannot isolate concentration method. Ontario identity and the selected Niagara example have reviewed evidence. Detailed Sauternes and Aszú claims still need claim-level review, and no universal ageing promise follows from sweetness.",
+    "wines": [
+      { "grape": "riesling", "region": "niagara-icewine" },
+      { "grape": "semillon", "region": "sauternes" },
+      { "grape": "furmint", "region": "tokaj-aszu" }
+    ]
+  }
+]

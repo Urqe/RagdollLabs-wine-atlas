@@ -351,6 +351,36 @@ def main() -> None:
     for source_id in taste.get("sources", []):
         assert source_id in sources, f"taste basics: unknown source {source_id}"
 
+    flights = load(DATA / "tasting-flights.json")
+    assert isinstance(flights, list) and flights, "tasting flights: expected non-empty list"
+    flight_ids = set()
+    for flight in flights:
+        assert isinstance(flight, dict), "tasting flights: expected object"
+        fid = flight.get("id")
+        assert isinstance(fid, str) and re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", fid), "tasting flights: invalid id"
+        assert fid not in flight_ids, f"tasting flights: duplicate id {fid}"
+        flight_ids.add(fid)
+        for field in ("title", "question", "intro", "selection", "serving", "limitation"):
+            assert isinstance(flight.get(field), str) and flight[field].strip(), f"flight/{fid}: missing {field}"
+        prompts = flight.get("observations")
+        assert isinstance(prompts, list) and 2 <= len(prompts) <= 3, f"flight/{fid}: expected 2–3 observations"
+        assert all(isinstance(text, str) and text.strip() for text in prompts), f"flight/{fid}: invalid observation"
+        wines = flight.get("wines")
+        assert isinstance(wines, list) and 2 <= len(wines) <= 3, f"flight/{fid}: expected 2–3 wines"
+        keys = set()
+        compatibility = set()
+        for wine in wines:
+            assert isinstance(wine, dict), f"flight/{fid}: invalid wine reference"
+            gid, rid = wine.get("grape"), wine.get("region")
+            assert isinstance(gid, str) and isinstance(rid, str), f"flight/{fid}: invalid profile identifiers"
+            assert gid in regions.get(rid, {}).get("grapes", {}), f"flight/{fid}: unknown profile {gid}/{rid}"
+            assert (gid, rid) not in keys, f"flight/{fid}: duplicate wine"
+            keys.add((gid, rid))
+            style = regions[rid]["grapes"][gid]["style"]
+            family = style["family"]
+            compatibility.add((family, grapes[gid]["color"] if family == "still" else None))
+        assert len(compatibility) == 1, f"flight/{fid}: incompatible comparison family/colour"
+
     extra_locators = set(locators) - set(regions)
     assert not extra_locators, f"locator entries without regions: {sorted(extra_locators)}"
 
