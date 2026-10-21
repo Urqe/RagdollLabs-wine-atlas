@@ -1,6 +1,6 @@
-# Evidence audit — R3 foundation through R6
+# Evidence audit — R3 foundation through R7
 
-Updated 2026-10-21 through R6 first batch. Current records: 78 reviewed references and 58 background records pending claim-level metadata review. Every one of the 147 profiles retains explicit evidence limitations. This is a prioritized audit, not a claim that the full catalog has been reverified.
+Updated 2026-10-21 through R7 first batch. Current records: 86 reviewed references and 58 background records pending claim-level metadata review. Every one of the 150 profiles retains explicit evidence limitations. This is a prioritized audit, not a claim that the full catalog has been reverified.
 
 ## Completed priority work
 
@@ -161,3 +161,5 @@ R5 batch C adds twelve primary references for five everyday expressions. Produce
 R5 batch D adds eleven reviewed primary references. [Batch D notes](regional-identity-batch-d.md) distinguish blends, Muscadet identity, Torrontés subtype scope and dry Hunter bottle evolution; background audit work remains open.
 
 R6 adds twelve reviewed primary references: the TTB AVA register, five regional bodies and six producer references. [R6 notes](america-beyond-california-r6.md) document AVA scope, cross-state geography, blend composition, vintage discrepancies and unlabelled sugar units. The 58 background records remain open.
+
+R7 adds eight reviewed primary references: CFIA’s current icewine identity standard, Ontario authority/category and regional material, Wine Country Ontario production context, UC Davis Vidal identity and three Inniskillin producer references hosted by its importer. [R7 notes](canadian-icewine-r7.md) distinguish Ontario thresholds from the federal definition and exclude the repealed federal regulation and copied third-party reviews as evidence. The 58 background records remain open.

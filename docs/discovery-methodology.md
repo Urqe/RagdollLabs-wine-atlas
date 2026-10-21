@@ -54,3 +54,5 @@ Compare continues to accept educational contrasts within its broad compatibility
 R5 batch A adds an explicit `dried-grape-red` class for the selected dry Amarone expression. It remains broadly comparable with still reds but cannot become a close fresh-grape Valpolicella substitute solely through numeric distance.
 
 R5 batch B retains broad fortified Compare compatibility for explicit dry/sweet and colour contrasts, preserving prior shared comparisons. New flor, raisined-fortified and heated-oxidative production classes prevent misleading close-style routes. See [batch B](classic-families-batch-b.md).
+
+R7 adds `natural-freeze` to the sweet family for naturally frozen-on-the-vine grapes pressed while frozen. Broad Compare permits contrasts with botrytised or late-harvest sweet wines and displays colour/production differences. Close-style discovery requires matching production context and colour, so even identical scores cannot turn icewine into a noble-rot substitute. A sweet red Cabernet Franc icewine is not comparable within the dry still-red family merely because the grape is red.

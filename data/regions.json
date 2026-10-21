@@ -11931,5 +11931,264 @@
         ]
       }
     ]
+  },
+  "niagara-icewine": {
+    "name": "Niagara Peninsula — Ontario Icewine",
+    "country": "Canada",
+    "climate": "Cool continental with lake moderation and cold winter harvest conditions",
+    "summary": "Three selected sweet, still icewine expressions from Ontario; Niagara also makes dry and sparkling wines that are not represented by this entry.",
+    "grapes": {
+      "vidal-blanc": {
+        "mods": {
+          "body": 1,
+          "acidity": 0.5,
+          "sweetness": 4.5,
+          "alcohol": -1.0,
+          "fruit": 0.5,
+          "earth": -0.5
+        },
+        "displayName": "Vidal Blanc Icewine",
+        "notes": {
+          "Fruit": [
+            "mango",
+            "peach",
+            "apricot",
+            "orange peel"
+          ]
+        },
+        "serve": "8–10°C; small pours in a small white / dessert wine glass as an editorial starting point",
+        "decant": "No routine decant; pour gently and follow the bottle’s condition",
+        "glass": "Small white / dessert wine glass",
+        "ageing": "Enjoy after release for fresh fruit. Further development depends on grape, producer, vintage, closure and cool, stable storage; no universal decades-long window is promised.",
+        "ageingBasis": "release",
+        "pairings": [
+          "aged cheddar",
+          "peach tart",
+          "baked cheesecake",
+          "blue cheese"
+        ],
+        "expect": "Lusciously sweet Niagara Vidal icewine with tropical and stone fruit, rounded texture and balancing acidity. Vidal Blanc is a French-bred white hybrid, not an indigenous Canadian vinifera grape. Sweetness here belongs to the selected icewine expression, not every Vidal wine.",
+        "style": {
+          "family": "sweet",
+          "color": "white-gold",
+          "sweetness": "sweet",
+          "label": "Sweet · Still Niagara Vidal Blanc Icewine",
+          "method": "Naturally frozen grapes pressed while frozen, then slow cool fermentation; the selected Pearl example does not specify an oak regime",
+          "effect": "Water remains as ice during pressing, leaving a small amount of juice concentrated in natural sugar, acidity and flavour. The wine retains substantial sugar after fermentation. This is natural freeze concentration, distinct from artificial freezing, noble rot, ordinary late harvest and fortification.",
+          "composition": {
+            "kind": "varietal-reference",
+            "text": "Single-varietal reference; the cited Inniskillin example is 100% Vidal Blanc"
+          },
+          "productionClass": "natural-freeze",
+          "effervescence": "none"
+        },
+        "evidence": [
+          {
+            "claim": "Selected Niagara expression, composition, sweetness and production",
+            "sources": [
+              "inniskillin-vidal-2023"
+            ]
+          },
+          {
+            "claim": "Natural-freeze identity and Ontario production context",
+            "sources": [
+              "canada-icewine-identity",
+              "ontario-icewine-categories",
+              "ontario-icewine-process"
+            ]
+          },
+          {
+            "claim": "Vidal Blanc identity and French hybrid origin",
+            "sources": [
+              "ucd-vidal-blanc"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Scores are rounded editorial judgments, not residual-sugar, acidity or ABV measurements. Service, aeration and some pairings are editorial; the selected example does not establish a universal oak regime, vineyard soil or cellaring window."
+        ]
+      },
+      "riesling": {
+        "mods": {
+          "body": 1.5,
+          "sweetness": 2.5,
+          "alcohol": -0.5,
+          "oak": -0.5,
+          "earth": -1.0
+        },
+        "displayName": "Riesling Icewine",
+        "notes": {
+          "Fruit": [
+            "lime",
+            "citrus",
+            "honeydew melon"
+          ],
+          "Mineral / herbal": [
+            "lemongrass"
+          ]
+        },
+        "serve": "8–10°C; small pours in a small white / dessert wine glass as an editorial starting point",
+        "decant": "No routine decant; pour gently and follow the bottle’s condition",
+        "glass": "Small white / dessert wine glass",
+        "ageing": "Enjoy after release for fresh fruit. Further development depends on grape, producer, vintage, closure and cool, stable storage; no universal decades-long window is promised.",
+        "ageingBasis": "release",
+        "pairings": [
+          "lemon tart",
+          "key lime pie",
+          "cheesecake",
+          "blue cheese"
+        ],
+        "expect": "Intensely sweet Niagara Riesling icewine, with citrus, melon and vivid acidity. Natural freeze concentration makes this a different expression from dry Finger Lakes or off-dry Mosel Riesling; acidity balances sweetness without removing sugar.",
+        "style": {
+          "family": "sweet",
+          "color": "white-gold",
+          "sweetness": "sweet",
+          "label": "Sweet · Still Niagara Riesling Icewine",
+          "method": "Naturally frozen grapes pressed while frozen, settled and cool-fermented; no oak programme is specified in the selected example",
+          "effect": "Water remains as ice during pressing, leaving a small amount of juice concentrated in natural sugar, acidity and flavour. The wine retains substantial sugar after fermentation. This is natural freeze concentration, distinct from artificial freezing, noble rot, ordinary late harvest and fortification.",
+          "composition": {
+            "kind": "varietal-reference",
+            "text": "Single-varietal reference; the cited Inniskillin example is 100% Riesling"
+          },
+          "productionClass": "natural-freeze",
+          "effervescence": "none"
+        },
+        "evidence": [
+          {
+            "claim": "Selected Niagara expression, composition, sweetness and production",
+            "sources": [
+              "inniskillin-riesling-2022"
+            ]
+          },
+          {
+            "claim": "Natural-freeze identity and Ontario production context",
+            "sources": [
+              "canada-icewine-identity",
+              "ontario-icewine-categories",
+              "ontario-icewine-process"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Scores are rounded editorial judgments, not residual-sugar, acidity or ABV measurements. Service, aeration and some pairings are editorial; the selected example does not establish a universal oak regime, vineyard soil or cellaring window."
+        ],
+        "related": [
+          {
+            "grape": "riesling",
+            "region": "finger-lakes-dry",
+            "label": "Contrast with explicitly dry Finger Lakes Riesling"
+          }
+        ]
+      },
+      "cabernet-franc": {
+        "mods": {
+          "body": 1,
+          "tannin": -2.5,
+          "sweetness": 4,
+          "alcohol": -1.5,
+          "fruit": 1.0,
+          "oak": -2,
+          "earth": -2.5
+        },
+        "displayName": "Cabernet Franc Icewine",
+        "notes": {
+          "Fruit": [
+            "strawberry",
+            "raspberry",
+            "ripe rhubarb"
+          ]
+        },
+        "serve": "8–10°C; small pours in a small white / dessert wine glass as an editorial starting point",
+        "decant": "No routine decant; pour gently and follow the bottle’s condition",
+        "glass": "Small white / dessert wine glass",
+        "ageing": "Enjoy after release for fresh fruit. Further development depends on grape, producer, vintage, closure and cool, stable storage; no universal decades-long window is promised.",
+        "ageingBasis": "release",
+        "pairings": [
+          "dark chocolate",
+          "chocolate raspberry tart",
+          "berry desserts",
+          "blue cheese"
+        ],
+        "expect": "A sweet red Niagara Cabernet Franc icewine with concentrated red berries and balancing acidity. In the cited example, colour comes from pressing, with no skin contact during fermentation; red colour does not imply dry-red tannin or fortification.",
+        "style": {
+          "family": "sweet",
+          "color": "red",
+          "sweetness": "sweet",
+          "label": "Sweet · Still Niagara Cabernet Franc Icewine",
+          "method": "Naturally frozen grapes pressed immediately while frozen; cool fermentation without skin contact, followed by stainless-steel holding",
+          "effect": "Water remains as ice during pressing, leaving a small amount of juice concentrated in natural sugar, acidity and flavour. The wine retains substantial sugar after fermentation. This is natural freeze concentration, distinct from artificial freezing, noble rot, ordinary late harvest and fortification.",
+          "composition": {
+            "kind": "varietal-reference",
+            "text": "Single-varietal reference; the cited Inniskillin example is 100% Cabernet Franc"
+          },
+          "productionClass": "natural-freeze",
+          "effervescence": "none"
+        },
+        "evidence": [
+          {
+            "claim": "Selected Niagara expression, composition, sweetness and production",
+            "sources": [
+              "inniskillin-cabfranc-2022"
+            ]
+          },
+          {
+            "claim": "Natural-freeze identity and Ontario production context",
+            "sources": [
+              "canada-icewine-identity",
+              "ontario-icewine-categories",
+              "ontario-icewine-process"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Scores are rounded editorial judgments, not residual-sugar, acidity or ABV measurements. Service, aeration and some pairings are editorial; the selected example does not establish a universal oak regime, vineyard soil or cellaring window."
+        ],
+        "related": [
+          {
+            "grape": "cabernet-franc",
+            "region": "monticello",
+            "label": "Contrast with the dry Monticello Cabernet Franc-led red"
+          }
+        ]
+      }
+    },
+    "identity": {
+      "setting": "Niagara Peninsula, Ontario, Canada",
+      "terrain": "Lake Ontario plains and Niagara Escarpment slopes; sites vary",
+      "soil": "Glacially shaped mixtures of clay, silt and sand; no single soil defines these wines",
+      "influences": [
+        "Lake Ontario and escarpment moderate growing conditions",
+        "Winter natural freezing enables concentration; harvest timing and yields vary"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Natural freezing on the vine and pressing while frozen",
+        "effect": "Ice retains much of the water while concentrated juice is extracted. Fermentation leaves a sweet wine with balancing acidity; spirit addition is not the defining process."
+      },
+      {
+        "cause": "Ontario VQA icewine requirements",
+        "effect": "The Ontario guidance describes harvesting and pressing at or below −8°C and juice averaging at least 35° Brix. Brix describes juice, not finished-wine residual sugar; these Ontario thresholds are not asserted for every province."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "New World",
+      "Sweet"
+    ],
+    "sources": [
+      "niagara-appellation",
+      "canada-icewine-identity",
+      "ontario-icewine-categories",
+      "ontario-icewine-process"
+    ],
+    "evidence": [
+      {
+        "claim": "Niagara geography and growing setting",
+        "sources": [
+          "niagara-appellation"
+        ]
+      }
+    ]
   }
 }

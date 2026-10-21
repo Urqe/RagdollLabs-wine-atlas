@@ -1,6 +1,6 @@
 # Wine Atlas release plan
 
-Status: R1–R5 complete. R6 first batch implemented 2026-10-21; later US candidates remain open. R7 Canadian icewine is next.
+Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates.
 Created: 2026-10-19.  
 Review baseline: main at `d819d99505b188f2319c37f0f4aa01153278438b` (120 profiles, 92 region entries, 47 grape/blend baselines).  
 Release IDs below are planning identifiers, not published semantic versions.
@@ -184,7 +184,7 @@ Validation: full automated regression suite, including threshold boundaries, spa
 - [x] C — Broader everyday coverage: five profiles implemented. See [batch notes, sources and validation](docs/everyday-coverage-batch-c.md).
 - [x] D — Further regional identity: five profiles implemented. See [batch notes, sources and validation](docs/regional-identity-batch-d.md).
 
-Current coverage after R6: 147 profiles, 117 region/style records, 59 grape/blend baselines, 22 countries. All four R5 batches and the R6 first batch are implemented. R7 Canadian icewine is next; later content candidates remain subject to evidence and priority.
+Current coverage after R7: 150 profiles, 118 region/style records, 60 grape/blend baselines, 23 countries. All four R5 batches and the R6/R7 first batches are implemented; later content candidates remain subject to evidence and priority.
 
 ### Requirements and acceptance criteria
 
@@ -238,29 +238,29 @@ These comparisons are editorial questions to investigate, not predetermined nume
 
 **Goal:** Introduce Canadian icewine as a distinct sweet-wine production story.
 
-**Priority:** Low. First batch: Niagara Peninsula, Ontario, with Vidal and Riesling icewine. Consider Cabernet Franc icewine as a third profile if evidence and presentation are ready.
+**Priority:** Low. First batch complete: Niagara Peninsula, Ontario, with Vidal Blanc, Riesling and red Cabernet Franc icewine. See [implementation, sources and validation](docs/canadian-icewine-r7.md).
 
 ### Scope
 
-- [ ] Add Canada to the existing country/gallery/locator flows through normal data-driven mechanisms.
-- [ ] Add a properly sourced Vidal/Vidal Blanc grape baseline. Identify it accurately as a hybrid; do not imply it is an indigenous Canadian vinifera variety.
-- [ ] Add Niagara Vidal icewine and Niagara Riesling icewine as explicitly sweet expressions; optionally add Cabernet Franc icewine with its correct appearance and production context.
-- [ ] Confirm whether the current one-grape/one-region key can express all selected profiles cleanly. Use explicit expression modeling if necessary rather than overwriting a future dry Niagara profile.
-- [ ] Explain naturally frozen-on-the-vine grapes and pressing while frozen, concentration, retained sugar and acidity.
-- [ ] Distinguish Canadian icewine from artificially frozen-grape wines, late-harvest wines, botrytised wines and fortified wines. Verify terminology and requirements against current provincial authorities at implementation.
-- [ ] Add icewine / ice wine search aliases, glossary/taste-guide context and appropriate serving, dessert/cheese pairing and ageing guidance.
-- [ ] Compare within the sweet family: highlight freeze concentration versus noble rot or shriveling, rather than describing all sweet wines as equivalent.
+- [x] Add Canada to the existing country/gallery/locator flows through normal data-driven mechanisms.
+- [x] Add a properly sourced Vidal/Vidal Blanc grape baseline. Identify it accurately as a hybrid; do not imply it is an indigenous Canadian vinifera variety.
+- [x] Add Niagara Vidal icewine and Niagara Riesling icewine as explicitly sweet expressions; optionally add Cabernet Franc icewine with its correct appearance and production context.
+- [x] Confirm whether the current one-grape/one-region key can express all selected profiles cleanly. Use explicit expression modeling if necessary rather than overwriting a future dry Niagara profile.
+- [x] Explain naturally frozen-on-the-vine grapes and pressing while frozen, concentration, retained sugar and acidity.
+- [x] Distinguish Canadian icewine from artificially frozen-grape wines, late-harvest wines, botrytised wines and fortified wines. Verify terminology and requirements against current provincial authorities at implementation.
+- [x] Add icewine / ice wine search aliases, glossary/taste-guide context and appropriate serving, dessert/cheese pairing and ageing guidance.
+- [x] Compare within the sweet family: highlight freeze concentration versus noble rot or shriveling, rather than describing all sweet wines as equivalent.
 - [ ] Consider a later Okanagan Valley, British Columbia, Riesling icewine profile. Reconfirm current regional production and availability before committing; Ontario's rules must not be assumed to apply unchanged in BC.
-- [ ] Keep German/Austrian Eiswein as a later optional comparison, not a prerequisite for this Canadian release.
+- [ ] Later optional comparison: German/Austrian Eiswein; not a prerequisite for this Canadian release.
 
 ### Acceptance criteria
 
-- [ ] Searches for Canada, Canadian icewine, ice wine, Niagara and Vidal find appropriate profiles.
-- [ ] Scores and wording distinguish icewine from dry Riesling and explain sweetness balanced by acidity.
-- [ ] No guidance implies fortification, noble rot or artificial freezing is the defining Canadian icewine process.
-- [ ] Vidal identity, production terminology and province-specific factual claims have direct authoritative sources.
-- [ ] Colour, comparison compatibility, discovery and glossary behavior work for the new expressions.
-- [ ] Ageing advice is qualified by grape, producer and storage rather than promising every icewine decades of improvement.
+- [x] Searches for Canada, Canadian icewine, ice wine, Niagara and Vidal find appropriate profiles.
+- [x] Scores and wording distinguish icewine from dry Riesling and explain sweetness balanced by acidity.
+- [x] No guidance implies fortification, noble rot or artificial freezing is the defining Canadian icewine process.
+- [x] Vidal identity, production terminology and province-specific factual claims have direct authoritative sources.
+- [x] Colour, comparison compatibility, discovery and glossary behavior work for the new expressions.
+- [x] Ageing advice is qualified by grape, producer and storage rather than promising every icewine decades of improvement.
 
 ## Review finding traceability
 

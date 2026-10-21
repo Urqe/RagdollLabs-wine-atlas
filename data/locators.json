@@ -466,5 +466,9 @@
   "old-mission-dry": {
     "lat": 44.9,
     "lon": -85.5
+  },
+  "niagara-icewine": {
+    "lat": 43.1,
+    "lon": -79.2
   }
 }

@@ -7,10 +7,10 @@ const keys = rows => Array.from(rows, row => `${row.item.grapeId}::${row.item.re
 const search = async query => keys(await w.WineSearch.rank(query, 200));
 const newPairs = [['chardonnay','chablis'],['zinfandel','primitivo-manduria'],['corvina','valpolicella'],['corvina','amarone'],['verdejo','rueda'],['pinotage','stellenbosch']];
 const data = w.WineAtlas.getData();
-assert.equal(Object.keys(data.grapes).length, 59);
-assert.equal(Object.keys(data.regions).length, 117);
-assert.equal(w.WineAtlas.allPairs().length, 147);
-assert.equal(new Set(w.WineAtlas.allPairs().map(item=>item.region.country)).size, 22);
+assert.equal(Object.keys(data.grapes).length, 60);
+assert.equal(Object.keys(data.regions).length, 118);
+assert.equal(w.WineAtlas.allPairs().length, 150);
+assert.equal(new Set(w.WineAtlas.allPairs().map(item=>item.region.country)).size, 23);
 for (const [grape, region] of newPairs) {
   assert.ok(w.WineAtlas.selectProfile(grape, region));
   await app.settle();
@@ -61,7 +61,7 @@ assert.match(d.getElementById('placeGrape').selectedOptions[0].textContent, /Pri
 assert.match(d.getElementById('liveStatus').textContent, /Primitivo/);
 w.WineGallery.show();
 assert.match(d.querySelector('.gallery-card[data-region="primitivo-manduria"]').textContent, /Primitivo \(Zinfandel\)/);
-assert.equal(d.querySelectorAll('.gallery-card').length, 147);
+assert.equal(d.querySelectorAll('.gallery-card').length, 150);
 w.WineAtlas.begin('search');
 for (const query of ['Primitivo Italy','Valpolicella','Amarone','Chablis','Rueda Verdejo','Pinotage']) {
   d.getElementById('searchInput').value = query;

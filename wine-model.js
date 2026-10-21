@@ -33,6 +33,7 @@ window.WineModel = (() => {
     "still-red": "still red vinification", "still-white": "still white vinification",
     "traditional-bottle": "second fermentation in bottle with lees ageing",
     "tank-second": "second fermentation in tank", "single-partial-tank": "one interrupted tank fermentation",
+    "natural-freeze": "natural freezing on the vine and pressing while frozen",
     botrytised: "noble-rot concentration", "late-harvest": "late-harvest concentration",
     "fortified-flor": "fortification with biological ageing under flor",
     "fortified-raisined": "sun-dried grapes, fortification and oxidative ageing",

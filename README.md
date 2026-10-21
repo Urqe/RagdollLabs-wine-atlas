@@ -34,13 +34,13 @@ Sweetness uses explicit expression metadata, or the existing editorial score anc
 
 ## Coverage
 
-117 region/style entries and 147 grape-expression profiles across 22 countries, built on 59 grape or represented-blend baselines. Coverage deliberately combines the classics a newcomer is most likely to buy (Bordeaux, Burgundy, Rioja, Napa, Marlborough, Mendoza Malbec, Pinot Grigio, Prosecco, Champagne, Beaujolais, Rías Baixas Albariño, Chablis, Primitivo di Manduria, Valpolicella, Amarone, Rueda Verdejo, Stellenbosch Pinotage, Fino/dry Oloroso/sweet PX Sherry, medium-sweet Boal Madeira and dry Alvarinho Vinho Verde) with discovery regions and indigenous grapes (Georgia, Greece, Armenia, Romania, Bulgaria, Ukraine, the Canary Islands, Uruguay and Mexico).
+118 region/style entries and 150 grape-expression profiles across 23 countries, built on 60 grape or represented-blend baselines. Coverage deliberately combines the classics a newcomer is most likely to buy (Bordeaux, Burgundy, Rioja, Napa, Marlborough, Mendoza Malbec, Pinot Grigio, Prosecco, Champagne, Beaujolais, Rías Baixas Albariño, Chablis, Primitivo di Manduria, Valpolicella, Amarone, Rueda Verdejo, Stellenbosch Pinotage, Fino/dry Oloroso/sweet PX Sherry, medium-sweet Boal Madeira and dry Alvarinho Vinho Verde) with discovery regions and indigenous grapes (Georgia, Greece, Armenia, Romania, Bulgaria, Ukraine, the Canary Islands, Uruguay and Mexico).
 
 R5’s four batches are complete: [classic families](docs/classic-families-batch-b.md), [everyday wines](docs/everyday-coverage-batch-c.md) and [further regional identity](docs/regional-identity-batch-d.md) build on [batch A](docs/familiar-names-batch-a.md). Fortified Compare permits dry/sweet learning contrasts while displaying actual wine colour and production differences; discovery remains stricter.
 
 Many grapes appear in two or more regions so Compare can show how place changes a grape: for example Malbec in Mendoza, Salta and Cahors, Chenin Blanc in Stellenbosch and Swartland, Sauvignon Blanc in Sancerre, Marlborough and Steiermark, Pinot Gris in Alto Adige and Alsace, Riesling in the Mosel, Rheingau, Wachau, Alsace and Clare Valley.
 
-[R6 America Beyond California](docs/america-beyond-california-r6.md) adds six expressions across five AVAs in Washington/Oregon, New York, Virginia and Michigan. State searches retain existing California and Willamette coverage. R7 Canadian icewine is next.
+[R6 America Beyond California](docs/america-beyond-california-r6.md) adds six expressions across five AVAs in Washington/Oregon, New York, Virginia and Michigan. State searches retain existing California and Willamette coverage. [R7 Canadian icewine](docs/canadian-icewine-r7.md) adds Niagara Vidal Blanc, Riesling and red Cabernet Franc icewine, a natural-freeze production class and contextual learning. Later US regions, Okanagan and Eiswein remain open candidates.
 
 ## Scores
 

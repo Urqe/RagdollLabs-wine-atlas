@@ -890,6 +890,72 @@
       ],
       "unavailable": true,
       "coverageNote": "The Rocks District of Milton-Freewater is not represented separately. It is an Oregon-only sub-AVA; the broader Walla Walla reference is not a substitute for its specific style."
+    },
+    {
+      "id": "icewine",
+      "label": "natural-freeze icewine",
+      "aliases": [
+        "icewine",
+        "ice wine",
+        "vin de glace"
+      ],
+      "family": "sweet",
+      "productionClasses": [
+        "natural-freeze"
+      ]
+    },
+    {
+      "id": "niagara",
+      "label": "represented Niagara icewine expressions",
+      "aliases": [
+        "niagara",
+        "niagara peninsula"
+      ],
+      "regions": [
+        "niagara-icewine"
+      ]
+    },
+    {
+      "id": "canada",
+      "label": "represented Canadian expressions",
+      "aliases": [
+        "canada",
+        "canadian",
+        "ontario"
+      ],
+      "regions": [
+        "niagara-icewine"
+      ]
+    },
+    {
+      "id": "eiswein-unavailable",
+      "label": "unrepresented Eiswein",
+      "aliases": [
+        "eiswein"
+      ],
+      "unavailable": true,
+      "coverageNote": "German and Austrian Eiswein are not represented. The Canadian Niagara icewine profiles are separate expressions."
+    },
+    {
+      "id": "okanagan-unavailable",
+      "label": "unrepresented Okanagan",
+      "aliases": [
+        "okanagan",
+        "okanagan valley",
+        "british columbia"
+      ],
+      "unavailable": true,
+      "coverageNote": "Okanagan / British Columbia expressions are not represented. Current Canadian coverage is Niagara Peninsula, Ontario."
+    },
+    {
+      "id": "niagara-sparkling-icewine-unavailable",
+      "label": "unrepresented sparkling icewine",
+      "aliases": [
+        "sparkling icewine",
+        "sparkling ice wine"
+      ],
+      "unavailable": true,
+      "coverageNote": "Sparkling icewine is not represented. The current Niagara icewine profiles are still wines."
     }
   ]
 }

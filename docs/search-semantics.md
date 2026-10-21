@@ -55,3 +55,9 @@ Châteauneuf-du-Pape and Bandol resolve the selected red blends, with explicit c
 Exact Red Mountain, Walla Walla, Finger Lakes, Monticello and Old Mission names select only their represented expressions. Washington, Oregon, New York, Virginia, Michigan and California constrain structured region IDs in both Explore and Compare. Oregon retains Willamette Pinot Noir and includes the cross-state Walla Walla AVA; a state match describes AVA geography, not a claim that each bottle contains fruit from both states. Country remains USA.
 
 The two new Rieslings are explicitly dry. Sweet/semi-dry or icewine requests do not fall back to them. The Oregon-only Rocks District is not separately represented and cannot silently become the broader Walla Walla profile. See [R6 notes](america-beyond-california-r6.md).
+
+## R7 Canadian icewine
+
+`icewine`, `ice wine`, hyphenated `ice-wine` and `vin de glace` constrain the sweet family and natural-freeze production class. Canada/Canadian/Ontario and Niagara/Peninsula names resolve the three represented still Niagara icewines. Vidal and Vidal 256 resolve the new Vidal Blanc grape identity. Dry, fortified and botrytised qualifiers do not fall back to icewine.
+
+Sparkling icewine, Okanagan/British Columbia and German/Austrian Eiswein receive explicit unavailable-expression notices. An ordinary Niagara or Canada query describes current coverage, not a claim that all regional wines are sweet. The expression-specific `niagara-icewine` key leaves room for future dry Niagara records.

@@ -864,5 +864,25 @@
       "Argentina"
     ],
     "aromatic": true
+  },
+  "vidal-blanc": {
+    "name": "Vidal Blanc",
+    "color": "white",
+    "indigenous": false,
+    "body": 3,
+    "acidity": 4,
+    "tannin": 0,
+    "sweetness": 0.5,
+    "alcohol": 2.5,
+    "fruit": 4,
+    "oak": 0,
+    "earth": 1,
+    "aliases": [
+      "Vidal",
+      "Vidal 256"
+    ],
+    "aliasSources": [
+      "ucd-vidal-blanc"
+    ]
   }
 }
