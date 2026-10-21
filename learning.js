@@ -20,10 +20,35 @@ let glossaryPromise = null;
 let glossaryData = {};
 let glossaryAliases = [];
 
+const learningText = value => typeof value === "string" && Boolean(value.trim());
+const learningRecord = value => value && typeof value === "object" && !Array.isArray(value);
+function validGlossaryEntry(entry) {
+  return learningRecord(entry) && ["term", "definition", "why"].every(field => learningText(entry[field])) &&
+    Array.isArray(entry.aliases) && entry.aliases.every(learningText) &&
+    (entry.inline === undefined || typeof entry.inline === "boolean");
+}
+
+// A successful JSON request can still contain an obsolete/malformed shape.
+// Omit unusable enrichment instead of rejecting the journey's loading promise.
+function normalizeTasteGuide(value) {
+  if (!learningRecord(value) || !learningText(value.title) || !learningText(value.intro) || !Array.isArray(value.sections)) return null;
+  const seen = new Set();
+  const sections = [];
+  for (const section of value.sections) {
+    if (!learningRecord(section) || !learningText(section.id) || seen.has(section.id) || !learningText(section.heading) ||
+        !Array.isArray(section.body) || !section.body.length || !section.body.every(learningText)) continue;
+    seen.add(section.id);
+    const examples = Array.isArray(section.examples) ? section.examples.filter(example => learningRecord(example) &&
+      ["grape", "region", "label"].every(field => learningText(example[field]))) : [];
+    sections.push({ ...section, examples });
+  }
+  return sections.length ? { ...value, sections } : null;
+}
+
 function loadGlossary() {
   if (!glossaryPromise) {
     glossaryPromise = WineData.json("./data/glossary.json", { optional: true }).then(data => {
-      glossaryData = data && typeof data === "object" && !Array.isArray(data) ? data : {};
+      glossaryData = learningRecord(data) ? Object.fromEntries(Object.entries(data).filter(([, entry]) => validGlossaryEntry(entry))) : {};
       glossaryAliases = buildAliasIndex(glossaryData);
       return glossaryData;
     });
@@ -225,7 +250,7 @@ async function showFullGlossary(trigger) {
 let tasteBasicsPromise = null;
 
 function loadTasteBasics() {
-  if (!tasteBasicsPromise) tasteBasicsPromise = WineData.json("./data/taste-basics.json", { optional: true });
+  if (!tasteBasicsPromise) tasteBasicsPromise = WineData.json("./data/taste-basics.json", { optional: true }).then(normalizeTasteGuide);
   return tasteBasicsPromise;
 }
 

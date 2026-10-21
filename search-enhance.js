@@ -10,7 +10,10 @@ function atlasNormalize(value) { return FoodDiscovery.normalize(value); }
 function atlasLoadFoodAliases() { return FoodDiscovery.load(); }
 function atlasPairingScore(pairings, query) { return FoodDiscovery.score(pairings, query); }
 
+let atlasSearchRequest = 0;
+
 async function renderEnhancedAtlasSearch() {
+  const request = ++atlasSearchRequest;
   const input = document.getElementById("searchInput");
   const container = document.getElementById("searchResults");
   if (!input || !container) return;
@@ -20,7 +23,7 @@ async function renderEnhancedAtlasSearch() {
   if (query.length < 2) return;
 
   const matches = await WineSearch.rank(rawQuery, 10);
-  if (input.value.trim() !== rawQuery) return;
+  if (request !== atlasSearchRequest || input.value.trim() !== rawQuery) return;
   const foodQuery = WineSearch.parse(rawQuery).remainder;
   const aliasKnown = FoodDiscovery.known(foodQuery);
 

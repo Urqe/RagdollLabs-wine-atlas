@@ -1,6 +1,6 @@
 # Wine Atlas release plan
 
-Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9 implemented 2026-10-21: Your First Glass. R10 remains planned: bottle-label guidance. Browser/device verification limits are recorded below.
+Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9 implemented 2026-10-21: Your First Glass. M1 maintenance implemented after the R1–R9 audit; verification limits are recorded below. R10–R13 remain planned, with practical tasting and aroma training prioritized before advanced blind practice.
 Created: 2026-10-19.  
 Review baseline: main at `d819d99505b188f2319c37f0f4aa01153278438b` (120 profiles, 92 region entries, 47 grape/blend baselines).  
 Release IDs below are planning identifiers, not published semantic versions.
@@ -20,9 +20,13 @@ Fix misleading behavior and content before increasing the catalog. Preserve the 
 | R7 | Canada: Frozen on the Vine | P3 — low | Canadian icewine with accurate production and comparison context | R1–R4; normally follows R6's first batch |
 | R8 | Taste the Difference | P2 — medium | Six guided tasting flights connected to Compare | R1–R4; uses existing R5–R7 profiles |
 | R9 | Your First Glass | P2 — medium | Short practical beginner journey with clear next steps | R8 for guided-flight integration |
-| R10 | From Atlas to Bottle | P2 — medium | Recognize modeled expressions on labels and wine lists | R8/R9 for integrated learning and buying cues |
+| M1 | R1–R9 Maintenance | P2 — medium | Repair reproduced search/comparison/enrichment defects and comparison layout | R1–R9; current maintenance release |
+| R11 | Learn to Taste | P2 — medium | Repeatable tasting procedure and sensory calibration for complete beginners | R8/R9; next feature release after M1 |
+| R12 | Find the Notes | P2 — medium | Aroma references, vocabulary and repeated non-leading practice | R11 |
+| R10 | From Atlas to Bottle | P2 — medium | Recognize modeled expressions on labels and wine lists | R8/R9; complete before R13 regional practice |
+| R13 | Taste Before the Reveal | P2 — medium | Optional blind practice progressing from broad style to regional hypotheses | R11/R12; R10 for regional/bottle-selection work |
 
-R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8–R10 form the learning-focused feature sequence, ahead of remaining content expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned.
+R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8/R9 introduce the reference and beginner vocabulary. The maintenance audit found additional work is needed to train sensory recognition. Execute M1 now, then R11 → R12 → R10 → R13; IDs are stable planning identifiers, not an obligation to implement in numeric order. R11 is the next feature release. This learning sequence takes priority over remaining catalog expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned.
 
 ## Working rules for every release
 
@@ -337,11 +341,31 @@ These comparisons are editorial questions to investigate, not predetermined nume
 - [ ] Complete phone/tablet, enlarged-text, Safari, physical touch and real screen-reader checks. These environments remain explicitly unverified.
 - [x] Run existing validation and focused checks for lesson references, progression, skipping and return navigation.
 
+## M1 — R1–R9 Maintenance
+
+**Goal:** Preserve the existing learning/reference experience while fixing reproducible maintenance defects and planning the remaining beginner-training work.
+
+**Scope boundary:** This release is maintenance and planning. It does not implement R10–R13, new wine profiles, blind exercises or personal tasting records. See the [code, content and UX audit](docs/maintenance-m1.md).
+
+### Repairs and checks
+
+- [x] Reproduce and fix overlapping same-query Explore requests appending duplicate result buttons.
+- [x] Respect explicit empty comparison transactions, including unavailable-flight fallback after browsing a profile; do not silently auto-seed the previous wine.
+- [x] Keep malformed optional glossary/guide records from rejecting the beginner loading path or crashing reference dialogs. Retain usable entries and fail softly when no guide remains.
+- [x] Replace guessed comparison-header height with progressive CSS row alignment where supported, retaining natural flow as fallback.
+- [x] Add regression coverage for the reproduced state/loading/rendering failures and run the complete validation suite.
+- [ ] Confirm deployed desktop comparison alignment, search and beginner navigation after deployment.
+- [ ] Complete the inherited Safari/touch, real-screen-reader and mobile/enlarged-text checks; record untested environments honestly.
+
+### Review outcome
+
+R8's named comparisons and R9's four vocabulary lessons remain useful. They do not yet teach a complete tasting procedure, practical intensity calibration, aroma-reference recognition or blind regional inference. Existing worksheets print identities and must not be advertised as blind practice. R11–R13 below address those gaps. Region recognition is an advanced, uncertain inference; the app must never promise mastery after reading a short guide.
+
 ## R10 — From Atlas to Bottle
 
 **Goal:** Help users recognize the modeled expression on a bottle label or restaurant list and understand where that bottle may differ.
 
-**Priority:** P2 — medium; follows R9. Begin with a focused batch rather than mandatory boilerplate across all 150 profiles.
+**Priority:** P2 — medium; execute after R11/R12 and before R13 regional practice. Begin with a focused batch rather than mandatory boilerplate across all 150 profiles.
 
 **Why:** A clear editorial profile is useful only if users can connect it to an actual wine. Labels may foreground appellation, grape, production method or sweetness, and those cues do not all guarantee the atlas's typical style.
 
@@ -368,6 +392,75 @@ These comparisons are editorial questions to investigate, not predetermined nume
 - [ ] Optional sections are omitted cleanly when guidance is missing; verify readable mobile layout, accessible disclosure and return focus.
 - [ ] Run existing validation and focused checks for guidance references, links, optional rendering and representative ambiguous label cases.
 
+## R11 — Learn to Taste
+
+**Goal:** Help a complete beginner perform a repeatable tasting and distinguish what they physically notice.
+
+**Priority and execution:** Next feature release after M1, ahead of R10 and catalog expansion. Extend R9 rather than building a competing learning system.
+
+### Scope
+
+- [ ] Add a short practical procedure: prepare similar glasses/conditions, look, smell before and after gentle swirling, take a small sip, notice mouth-watering/drying/weight/sweetness and finish, then record an observation before reading suggested notes.
+- [ ] Explain the difference between aroma/flavour, sweetness, bitterness, astringency and alcohol warmth in plain language. Keep quality preference separate from sensory description.
+- [ ] Make tannin recognition a real exercise: use familiar tea texture as an optional reference, then a sourced low-/higher-tannin red-wine contrast. Add separate acidity and body contrasts; do not use two whites as evidence of learning red-wine tannin.
+- [ ] Choose a small, accessible set of existing profiles/bottle styles after reviewing their teaching claims and expression evidence. Give selection and substitution cues so an unsuitable sweet/oaked/mature bottle does not invalidate the lesson silently.
+- [ ] Teach relative low/medium/high observations using real reference comparisons. Do not require learners to match the atlas's editorial half-point scores or treat its alcohol/sugar anchors as measured calibration standards.
+- [ ] Keep theory available without wine, but explicitly distinguish reading or imagined analogies from practical recognition. Allow small pours, spitting and stopping without a drinking-volume or session-frequency target.
+- [ ] Preserve skipping, restarting, accessible controls and useful return context. No mandatory quiz, account or persistent tasting notebook.
+
+### Acceptance criteria
+
+- [ ] A first-time learner can follow the physical tasting sequence without external instructions and record their own observations before seeing expected descriptors.
+- [ ] The practical exercises explicitly distinguish tannin's drying/grip from acidity's mouth-watering response, bitterness and sweetness; body is not presented as quality.
+- [ ] Every contrast has appropriate reviewed expression evidence, bottle-selection cues and named confounding factors; no artificial score differences are introduced.
+- [ ] Observe novice users completing the procedure and explaining the distinctions. Record difficulties and limits instead of equating a Finish click or DOM test with skill acquisition.
+- [ ] Validate references/navigation and check phone/tablet readability, enlarged text, keyboard, screen readers and physical Safari/touch behavior; keep unverified checks open.
+
+## R12 — Find the Notes
+
+**Goal:** Build aroma recognition and useful vocabulary through familiar references and practice, not suggestion alone.
+
+**Depends on:** R11. Retain and reuse the existing profile note data where appropriate; review terminology and supporting teaching sources before expanding it.
+
+### Scope
+
+- [ ] Teach a broad-to-specific sequence: fruity/floral/herbal/spicy/toasty/earthy or another defensible family, then a familiar example such as citrus or red berries, then a more precise descriptor only when useful.
+- [ ] Add a small original set of familiar food/aroma reference exercises with clear preparation/smelling instructions. Teach orthonasal smelling and retronasal flavour perception in beginner language.
+- [ ] Explain that a tasting descriptor is an association, not proof of an added ingredient or literal soil transfer. Allow unfamiliarity with a reference, different cultural vocabularies, individual sensitivity and “I cannot identify it yet”.
+- [ ] Ask for independent observations before offering optional vocabulary or the atlas's expected notes. Use labeled reference practice first, then optional coded matching and repeat sessions with actual examples.
+- [ ] Make feedback describe the overlap and differences without declaring a person's perception wrong because it differs from a modeled profile. Feedback on reference matching must use the actual sample identity, not an editorial score.
+- [ ] Author original material with usable references. Do not copy proprietary aroma-wheel artwork, tasting grids or certification content without permission.
+
+### Acceptance criteria
+
+- [ ] Beginners can use a broad aroma family without being forced to guess an obscure fruit; optional examples progressively help refine the description.
+- [ ] Expected notes are not the first thing shown in a practice exercise, and actual reference identity is revealed only at the intended feedback step.
+- [ ] Repeatability and vocabulary usefulness are assessed in a small novice observation exercise; difficulty and individual differences are documented. Do not invent improvement percentages.
+- [ ] Existing glossary/search/profile semantics remain consistent; accessibility and mobile/touch checks include the practice/feedback transition.
+
+## R13 — Taste Before the Reveal
+
+**Goal:** Provide optional blind practice that rewards observation and reasoned hypotheses, with regional recognition as an advanced stretch goal.
+
+**Depends on:** R11/R12. Complete R10 and review selected teaching profiles before using regional/bottle-selection challenges as answer material.
+
+### Scope
+
+- [ ] Separate Learn (identities visible), Practice (cues optional) and Blind (sample identities withheld) with clear labels. Reuse the existing catalog/model; do not relabel the current named flights as blind.
+- [ ] Give a host/self-setup workflow for real bottles: neutral A/B/C codes, concealed labels, recorded actual bottle/vintage and an explicit reveal. Explain that an app cannot taste or verify the bottle in front of the learner.
+- [ ] Offer a neutral observation sheet and screen. Withhold grape/place/expected notes from normal pre-reveal titles, links, URLs, accessibility labels and printed output. Use a neutral challenge route; hiding identities is a teaching aid, not anti-cheat security for public static data.
+- [ ] Progress from broad structural/style contrasts and known references to a small announced candidate set; then consider grape/style hypotheses and finally region. Open-ended exact-region guesses are optional advanced practice.
+- [ ] Ask for several observed clues, at least one plausible alternative and confidence. Permit insufficient evidence; never map one fruit note, a soil descriptor or an editorial score directly to a region.
+- [ ] Reveal the actual selected bottle information and explain compatible/conflicting clues, overlap, confounders and uncertainty. Distinguish a correct closed-set guess from evidence of general regional mastery.
+- [ ] Keep participation optional and notes ephemeral/printable by default. Do not add accounts, hidden telemetry, mandatory rankings or a persistent personal notebook under this scope.
+
+### Acceptance criteria
+
+- [ ] A partner can set up a genuine blind sample; a learner can record observations before identity/expected notes are exposed, then reveal and review the actual sample information.
+- [ ] Regression/accessibility/print checks catch accidental pre-reveal identity leakage, premature reveal on navigation, and incorrect sample-to-answer mapping after refresh or reorder.
+- [ ] Regional practice uses a defined reviewed candidate set, multiple clues, alternatives and uncertainty. No region-identification accuracy or completion guarantee is claimed without evidence.
+- [ ] A novice usability trial checks setup, observation, reveal and feedback separately from knowledge questions. Physical iPhone/iPad Safari, keyboard, screen readers and enlarged text are checked and unresolved issues remain explicit.
+
 ## Review finding traceability
 
 | Finding | Review issue | Planned release |
@@ -392,6 +485,10 @@ These comparisons are editorial questions to investigate, not predetermined nume
 | Product direction | Guided tasting flights and a printable worksheet | R8 |
 | Product direction | Short practical beginner learning journey | R9 |
 | Product direction | Connect modeled profiles to bottle labels and wine lists | R10 |
+| Maintenance | Search race, empty comparison intent, malformed learning enrichment and metric-row alignment | M1 |
+| Learning audit | Practical tasting technique and sensory calibration | R11 |
+| Learning audit | Aroma references, vocabulary and non-leading practice | R12 |
+| Learning audit | Blind sample setup, reveal and cautious regional hypotheses | R13 |
 
 ## Research starting points
 
