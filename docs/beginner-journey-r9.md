@@ -32,7 +32,7 @@ This release reframes existing introductory concepts and uses shared glossary de
 - Coverage includes begin/skip/restart/finish, every lesson deep-link, profile returns, disclosure and focus restoration, glossary/guide close and cancel behavior, guide-section targeting, lesson context through flight/Compare/worksheet/profile routes, refresh, invalid context, data failures, nonblocking loading, late-response cancellation and safe text rendering.
 - Reopening the same flight from different lessons is tested to ensure its return links update rather than reuse a stale lesson marker.
 - Validator fixtures reject invalid lesson IDs/order, unknown definitions/profiles/flights/guide sections and missing exercises.
-- Desktop browser inspection will follow deployment; the preview browser cannot reach the local development server in this environment.
-- iPhone/iPad Safari, physical touch, real screen-reader use and enlarged-text/mobile layout checks remain unverified at this commit. Automated DOM tests do not claim to verify these. No learner usability/retention study has been performed.
+- Deployed desktop Chrome checks passed: the New to wine entry, all four lessons, finish/restart, native glossary Escape and guide Close with invoker-focus restoration, profile Back with restored disclosure/focus, the R8 flight/Compare handoff, refresh with lesson context, and Tab to the primary action. Intro and lesson layouts were visually inspected and had no horizontal overflow at the desktop viewport.
+- iPhone/iPad Safari, physical touch, real screen-reader use and enlarged-text/mobile layout checks remain unverified. Automated DOM tests do not claim to verify these. No learner usability/retention study has been performed.
 
 R10's broader bottle-label guidance remains a separate planned release. R9 uses the existing R8 flight-selection cues only.

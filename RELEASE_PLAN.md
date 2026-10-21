@@ -333,7 +333,8 @@ These comparisons are editorial questions to investigate, not predetermined nume
 - [x] Learners can distinguish dry from fruity, tannin from acidity, and body from quality after reading the relevant explanations.
 - [x] Each lesson supplies a concrete observation and a working next-step link; detailed reference material remains reachable.
 - [x] Closing a glossary/guide or returning from a profile/flight preserves useful lesson context and focus; define refresh and Back/Forward behavior.
-- [ ] Complete phone/tablet, enlarged-text, Safari, physical touch and real screen-reader checks. Responsive layout and keyboard/focus regression coverage are implemented; untested environments remain explicitly unverified.
+- [x] Deployed desktop Chrome checks cover all four lessons, optional reference dialogs, keyboard focus, profile Back, the flight/Compare handoff, refresh, finish and restart. Intro and lesson layouts were visually inspected on desktop.
+- [ ] Complete phone/tablet, enlarged-text, Safari, physical touch and real screen-reader checks. These environments remain explicitly unverified.
 - [x] Run existing validation and focused checks for lesson references, progression, skipping and return navigation.
 
 ## R10 — From Atlas to Bottle
