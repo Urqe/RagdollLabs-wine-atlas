@@ -1113,5 +1113,85 @@
     "accessedOn": "2026-10-21",
     "reviewedOn": "2026-10-21",
     "reviewNote": "Explicit dry Old Mission Peninsula example. Page lists a 2024 vintage with 2023 harvest date and a sugar figure without units; those exact dates/units are not inferred or displayed as measurements."
+  },
+  "ucd-vidal-blanc": {
+    "name": "UC Davis Foundation Plant Services — Vidal blanc",
+    "url": "https://fps.ucdavis.edu/FGRfamilies.cfm?varietyid=2712",
+    "publisher": "University of California, Davis — Foundation Plant Services",
+    "locator": "Grape Variety: Vidal blanc; Countries of Origin; Species; Pedigree; Berry Color",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "White interspecific hybrid of French origin, Ugni blanc x Seibel 4986 (Rayon d’Or), synonym Vidal 256. No claim of Canadian indigenous vinifera identity. Scores are editorial, not genetic properties."
+  },
+  "canada-icewine-identity": {
+    "name": "Canadian Standards of Identity, Volume 8 — Icewine",
+    "url": "https://inspection.canada.ca/en/about-cfia/acts-and-regulations/list-acts-and-regulations/documents-incorporated-reference/canadian-standards-identity-volume-8",
+    "publisher": "Canadian Food Inspection Agency",
+    "locator": "Icewine, paragraph 1; incorporated into SFCR",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Natural freezing on the vine and provincial determination for Canadian production. Current incorporated standard, not the repealed SOR/2014-10. Does not establish Ontario’s numerical thresholds for other provinces."
+  },
+  "ontario-icewine-categories": {
+    "name": "Ontario wine categories and labelling",
+    "url": "https://vqaontario.ca/vqa-wine-program/wine-categories-and-labelling/",
+    "publisher": "Ontario Wine Appellation Authority",
+    "locator": "Wine categories: Late Harvest / Icewine; Vintage",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Ontario natural-freeze definition, below −8°C harvest and at least 35° Brix juice; late harvest categories distinguished. Brix is juice sugar, not finished residual sugar or an atlas score."
+  },
+  "ontario-icewine-process": {
+    "name": "Ontario Icewine — production and serving context",
+    "url": "https://winecountryontario.ca/icewine/",
+    "publisher": "Wine Country Ontario / Wine Marketing Association of Ontario",
+    "locator": "What is Icewine; VQA requirements; grape varieties and food pairing sections",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Ontario harvest and pressing while naturally frozen at or below −8°C, concentration and varietal context. Broad promotional claims about guaranteed annual crops or world superiority are not adopted; Ontario thresholds are not generalized to BC."
+  },
+  "niagara-appellation": {
+    "name": "Niagara Peninsula appellation",
+    "url": "https://vqaontario.ca/ontario-appellations/niagara-peninsula/",
+    "publisher": "Ontario Wine Appellation Authority",
+    "locator": "Appellation overview; Characteristics: Topography, Soil and Climate",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Niagara Peninsula geography, Lake Ontario / Escarpment moderation, variable glacial soils and grape relevance. Approximate locator is not a boundary map; no universal soil or guaranteed winter harvest."
+  },
+  "inniskillin-vidal-2023": {
+    "name": "Inniskillin Pearl Vidal Icewine 2023",
+    "url": "https://mmdusa.net/portfolio/inniskillin/pearl-vidal-icewine/2023",
+    "publisher": "Inniskillin producer material hosted by Maisons Marques & Domaines",
+    "locator": "Overview; Winemaking; Tasting Notes; Food Pairing; Technical Information",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "100% Vidal Blanc, Niagara Peninsula, naturally frozen harvest, slow cool fermentation; 224 g/L residual sugar and 9.5% ABV in this example. No oak regime or universal cellaring duration is inferred."
+  },
+  "inniskillin-riesling-2022": {
+    "name": "Inniskillin Riesling Icewine 2022",
+    "url": "https://mmdusa.net/portfolio/inniskillin/riesling-icewine/2022",
+    "publisher": "Inniskillin producer material hosted by Maisons Marques & Domaines",
+    "locator": "Overview; Winemaking; Tasting Notes; Food Pairing; Technical Information",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "100% Riesling, Niagara Peninsula, −10°C harvest, cool fermentation; 200 g/L residual sugar and 9.5% ABV. Producer tasting and technical sections support the reference, not third-party review windows."
+  },
+  "inniskillin-cabfranc-2022": {
+    "name": "Inniskillin Cabernet Franc Icewine 2022",
+    "url": "https://mmdusa.net/portfolio/inniskillin/cabernet-franc-icewine/2022",
+    "publisher": "Inniskillin producer material hosted by Maisons Marques & Domaines",
+    "locator": "Overview; Winemaking; Tasting Notes; Food Pairing; Technical Information",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "100% Cabernet Franc from Niagara Peninsula vineyards; pressing supplies red colour with no skin contact during fermentation; cool fermentation and steel holding; 263.8 g/L residual sugar and 9.5% ABV. Third-party review text appears duplicated from Riesling and is not used."
   }
 }

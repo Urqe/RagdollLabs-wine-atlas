@@ -29,7 +29,7 @@ STYLE_FAMILIES = {"still", "sparkling", "sweet", "fortified", "rose", "orange"}
 PLACEHOLDER_NOTES = {"spice", "flowers", "herbs", "fruit", "earth"}
 PRODUCTION_CLASSES = {
     "sparkling": {"traditional-bottle", "tank-second", "single-partial-tank"},
-    "sweet": {"botrytised", "late-harvest"},
+    "sweet": {"botrytised", "late-harvest", "natural-freeze"},
     "fortified": {"fortified-protected", "fortified-oxidative", "fortified-muscat-cask", "fortified-flor", "fortified-raisined", "fortified-heated-oxidative"},
     "rose": {"rose-direct-or-short", "rose-extracted", "rose-bled"},
     "orange": {"skin-maceration"},

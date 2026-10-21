@@ -4,9 +4,9 @@ const app=await createApp();const {window:w,document:d}=app;await app.settle();
 const search=async q=>Array.from(await w.WineSearch.rank(q,200),row=>`${row.item.grapeId}::${row.item.regionId}`).sort();
 const keys=['cabernet-sauvignon::red-mountain','syrah::walla-walla','riesling::finger-lakes-dry','cabernet-franc::monticello','viognier::monticello','riesling::old-mission-dry'];
 const pairs=w.WineAtlas.allPairs();
-assert.equal(pairs.length,147);assert.equal(Object.keys(w.WineAtlas.getData().regions).length,117);assert.equal(Object.keys(w.WineAtlas.getData().grapes).length,59);
+assert.equal(pairs.length,150);assert.equal(Object.keys(w.WineAtlas.getData().regions).length,118);assert.equal(Object.keys(w.WineAtlas.getData().grapes).length,60);
 assert.equal(pairs.filter(item=>item.region.country==='USA').length,13);
-assert.equal(new Set(pairs.map(item=>item.region.country)).size,22);
+assert.equal(new Set(pairs.map(item=>item.region.country)).size,23);
 for(const key of keys){const [grape,region]=key.split('::');assert.ok(w.WineAtlas.selectProfile(grape,region));await app.settle();assert.equal(d.activeElement.id,'profileHeading');assert.equal(d.querySelectorAll('#bars .bar').length,8);assert.ok(d.querySelector('#locatorMap svg'));assert.ok(d.querySelectorAll('#pair .chip').length>=4);assert.match(d.getElementById('sourcesDrawer').textContent,/Reviewed 2026-10-21/);assert.match(d.getElementById('sourcesDrawer').textContent,/Evidence still to review/);assert.equal(new URL(w.location.href).searchParams.get('region'),region);}
 for(const [query,expected] of [
  ['Red Mountain',[keys[0]]],['Walla Walla',[keys[1]]],['Finger Lakes',[keys[2]]],['Old Mission Peninsula',[keys[5]]],['Monticello',[keys[3],keys[4]]],
@@ -33,7 +33,7 @@ for(const query of ['Red Mountain','Oregon','Finger Lakes','Monticello white','M
 w.WineComparison.replace(['riesling::finger-lakes-dry','riesling::old-mission-dry']);
 assert.match(d.getElementById('advancedCompareDifferences').textContent,/No metric difference reaches the 0.5-point display threshold/);
 assert.equal(w.WineComparison.snapshot().keys.filter(Boolean).length,2);
-w.WineAtlas.setMode('explore');w.WineGallery.show();assert.equal(d.querySelectorAll('.gallery-card').length,147);assert.equal(d.querySelectorAll('#gallery-usa .gallery-card').length,13);
+w.WineAtlas.setMode('explore');w.WineGallery.show();assert.equal(d.querySelectorAll('.gallery-card').length,150);assert.equal(d.querySelectorAll('#gallery-usa .gallery-card').length,13);
 await app.close();
 const restored=await createApp({url:'https://example.test/RagdollLabs-wine-atlas/?view=compare&compare=riesling::finger-lakes-dry,riesling::old-mission-dry'});await restored.settle();assert.equal(restored.window.WineComparison.snapshot().keys.filter(Boolean).length,2);await restored.close();
 console.log('OK: R6 US AVA/state coverage, blends, dry Riesling, scoped Why, search parity, Compare and Gallery');

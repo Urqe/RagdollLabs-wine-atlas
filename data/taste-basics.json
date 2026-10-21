@@ -124,6 +124,40 @@
       ]
     },
     {
+      "id": "icewine",
+      "heading": "Icewine: concentration by natural freezing",
+      "body": [
+        "Grapes remain on the vine until naturally frozen, then are pressed while frozen. Ice retains much of the water, so only a small amount of concentrated juice emerges. Fermentation leaves substantial natural sugar; bright acidity can balance the sweetness without making the wine dry.",
+        "Canadian icewine requires grapes naturally frozen on the vine. Ontario VQA guidance describes harvest and pressing at or below −8°C and juice averaging at least 35° Brix. Those Ontario thresholds are not automatically rules for British Columbia, and Brix is not finished-wine residual sugar.",
+        "Icewine is distinct from artificially frozen-grape wine, ordinary late harvest, noble rot and fortified wine. The three Niagara references are still, including the red Cabernet Franc example whose colour comes from pressing without skin fermentation.",
+        "Start with a small chilled pour alongside fruit desserts or cheese. For dessert, try a dish less sweet than the wine. Ageing depends on grape, producer, vintage and storage; sweetness alone is not a promise of decades of improvement."
+      ],
+      "examples": [
+        {
+          "grape": "vidal-blanc",
+          "region": "niagara-icewine",
+          "label": "French-bred hybrid: Niagara Vidal Blanc Icewine"
+        },
+        {
+          "grape": "riesling",
+          "region": "niagara-icewine",
+          "label": "Sweet and high in acidity: Niagara Riesling Icewine"
+        },
+        {
+          "grape": "cabernet-franc",
+          "region": "niagara-icewine",
+          "label": "Sweet red: Niagara Cabernet Franc Icewine"
+        }
+      ],
+      "sources": [
+        "canada-icewine-identity",
+        "ontario-icewine-categories",
+        "ontario-icewine-process",
+        "ucd-vidal-blanc",
+        "inniskillin-cabfranc-2022"
+      ]
+    },
+    {
       "id": "skins",
       "heading": "Skins: red, rosé, white and orange",
       "body": [
@@ -338,6 +372,11 @@
     "sherry-oloroso",
     "sherry-px",
     "madeira-boal",
-    "madeira-production"
+    "madeira-production",
+    "canada-icewine-identity",
+    "ontario-icewine-categories",
+    "ontario-icewine-process",
+    "ucd-vidal-blanc",
+    "inniskillin-cabfranc-2022"
   ]
 }

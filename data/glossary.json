@@ -467,5 +467,22 @@
       "madeira-production"
     ],
     "inline": true
+  },
+  "icewine": {
+    "term": "Icewine",
+    "aliases": [
+      "icewine",
+      "ice wine",
+      "ice-wine",
+      "vin de glace"
+    ],
+    "definition": "A sweet wine made from grapes naturally frozen on the vine and pressed while frozen. Much of the water stays as ice, concentrating the extracted juice; fermentation leaves natural grape sugar in the wine.",
+    "why": "Natural freeze concentration differs from artificial freezing, noble rot, ordinary late harvest and fortification. Ontario VQA guidance specifies harvest and pressing at or below −8°C and average juice of at least 35° Brix; these are Ontario-specific thresholds, not atlas scores or finished sugar measurements.",
+    "sources": [
+      "canada-icewine-identity",
+      "ontario-icewine-categories",
+      "ontario-icewine-process"
+    ],
+    "inline": true
   }
 }

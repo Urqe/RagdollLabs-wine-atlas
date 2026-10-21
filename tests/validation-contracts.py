@@ -43,7 +43,7 @@ rejected(lambda d: d['regions.json']['vouvray']['grapes']['chenin-blanc']['style
 rejected(lambda d: d['regions.json']['tokaj']['grapes']['furmint']['related'][0].update(region='missing'), 'Broken related-expression link accepted')
 rejected(lambda d: d['regions.json']['tokaj']['grapes']['furmint'].update(ageingBasis='unclear'), 'Unknown ageing basis accepted')
 rejected(lambda d: d['sources.json']['tokaj-dry-example'].update(reviewedOn='not-a-date'), 'Invalid review date accepted')
-rejected(lambda d: d['taste-basics.json']['sections'][5]['sources'].append('missing-guide-source'), 'Broken section evidence accepted')
+rejected(lambda d: next(s for s in d['taste-basics.json']['sections'] if s['id'] == 'bubbles')['sources'].append('missing-guide-source'), 'Broken section evidence accepted')
 rejected(lambda d: d['regions.json']['moscato-dasti']['grapes']['muscat-blanc']['style'].update(productionClass='traditional-bottle', effervescence='gentle'), 'Inconsistent production/bubble metadata accepted')
 rejected(lambda d: d['regions.json']['cava']['grapes']['macabeo']['style'].update(productionClass='botrytised'), 'Wrong-family production class accepted')
 rejected(lambda d: d['regions.json']['rueda']['grapes']['verdejo']['style'].update(productionClass='dried-grape-red'), 'White wine accepted with dried-grape-red production')
