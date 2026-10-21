@@ -834,5 +834,35 @@
     "fruit": 4,
     "oak": 0,
     "earth": 2
+  },
+  "melon-de-bourgogne": {
+    "name": "Melon de Bourgogne / Melon B",
+    "color": "white",
+    "indigenous": false,
+    "body": 2,
+    "acidity": 4,
+    "tannin": 0,
+    "sweetness": 0.5,
+    "alcohol": 2.5,
+    "fruit": 2.5,
+    "oak": 0,
+    "earth": 1.5
+  },
+  "torrontes-riojano": {
+    "name": "Torrontés Riojano",
+    "color": "white",
+    "indigenous": true,
+    "body": 2.5,
+    "acidity": 3.5,
+    "tannin": 0,
+    "sweetness": 0.5,
+    "alcohol": 3,
+    "fruit": 4,
+    "oak": 0,
+    "earth": 1,
+    "origin": [
+      "Argentina"
+    ],
+    "aromatic": true
   }
 }

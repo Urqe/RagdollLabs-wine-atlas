@@ -5,9 +5,9 @@ const { window: w, document: d } = app;
 await app.settle();
 const search = async query => Array.from(await w.WineSearch.rank(query,200), row=>`${row.item.grapeId}::${row.item.regionId}`).sort();
 const keys = ['montepulciano::montepulciano-abruzzo','nero-davola::sicilia-nero-davola','mourvedre::jumilla','mencia::bierzo','macabeo::rioja-blanco'];
-assert.equal(w.WineAtlas.allPairs().length,136);
-assert.equal(Object.keys(w.WineAtlas.getData().grapes).length,57);
-assert.equal(Object.keys(w.WineAtlas.getData().regions).length,107);
+assert.equal(w.WineAtlas.allPairs().length,141);
+assert.equal(Object.keys(w.WineAtlas.getData().grapes).length,59);
+assert.equal(Object.keys(w.WineAtlas.getData().regions).length,112);
 for (const key of keys) {
   const [grape,region]=key.split('::');
   assert.ok(w.WineAtlas.selectProfile(grape,region));
@@ -23,13 +23,14 @@ for (const key of keys) {
 const exact=[
  ['Montepulciano',keys[0]], ["Montepulciano d'Abruzzo",keys[0]], ['Abruzzo',keys[0]],
  ["Nero d'Avola",keys[1]], ['Nero davola',keys[1]], ['Sicily',keys[1]], ['Sicilia',keys[1]],
- ['Monastrell',keys[2]], ['Mourvèdre',keys[2]], ['Mataro',keys[2]], ['Jumilla',keys[2]],
+ ['Monastrell Jumilla',keys[2]], ['Mourvèdre Jumilla',keys[2]], ['Mataro Jumilla',keys[2]], ['Jumilla',keys[2]],
  ['Mencía',keys[3]], ['Mencia Bierzo',keys[3]], ['El Bierzo',keys[3]],
  ['white Rioja',keys[4]], ['Rioja blanco',keys[4]], ['Viura Rioja',keys[4]]
 ];
 for (const [query,key] of exact) assert.deepEqual(await search(query),[key],query);
-assert.match(w.WineSearch.notices('Monastrell')[0],/Monastrell → Mourvèdre.*Spain/);
-assert.deepEqual(await search('Monastrell France'),[]);
+assert.match(w.WineSearch.notices('Monastrell')[0],/Monastrell → Mourvèdre.*France, Spain/);
+assert.deepEqual(await search('Monastrell France'),['mourvedre::bandol-red']);
+for (const query of ['Monastrell','Mourvèdre','Mataro']) assert.deepEqual(await search(query),['mourvedre::bandol-red',keys[2]].sort());
 assert.deepEqual(await search('sweet Jumilla'),[]);
 assert.deepEqual(await search('red white Rioja'),[]);
 assert.deepEqual(await search('sparkling Viura'),['macabeo::cava']);
@@ -75,7 +76,7 @@ w.WineComparison.replace(['mourvedre::jumilla','montepulciano::montepulciano-abr
 assert.equal(w.WineComparison.snapshot().keys.filter(Boolean).length,3);
 assert.match(d.querySelector('#advancedCompareGrid h3').textContent,/Monastrell \(Mourvèdre\)/);
 w.WineAtlas.setMode('explore');w.WineGallery.show();
-assert.equal(d.querySelectorAll('.gallery-card').length,136);
+assert.equal(d.querySelectorAll('.gallery-card').length,141);
 assert.match(d.querySelector('.gallery-card[data-region="jumilla"]').textContent,/Monastrell \(Mourvèdre\)/);
 await app.close();
 const restored=await createApp({url:'https://example.test/RagdollLabs-wine-atlas/?view=compare&compare=macabeo::rioja-blanco,verdejo::rueda'});

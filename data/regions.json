@@ -10899,5 +10899,490 @@
         ]
       }
     ]
+  },
+  "chateauneuf-du-pape": {
+    "name": "Châteauneuf-du-Pape AOC — Red",
+    "country": "France",
+    "climate": "Warm Mediterranean with Mistral influence",
+    "summary": "A selected Grenache-led red blend, distinct from the broader Southern Rhône reference and from white Châteauneuf-du-Pape.",
+    "grapes": {
+      "grenache": {
+        "mods": {
+          "acidity": 0.5,
+          "tannin": 0.5,
+          "fruit": -0.5,
+          "oak": -1.5,
+          "earth": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "wild strawberry",
+            "black berries"
+          ],
+          "Earth / savory": [
+            "undergrowth"
+          ],
+          "Spice": [
+            "sweet spice",
+            "liquorice"
+          ]
+        },
+        "serve": "15–17°C",
+        "decant": "For a young structured bottle, consider 30–60 minutes as an editorial starting point; handle fragile mature bottles gently",
+        "glass": "Large red wine glass",
+        "ageing": "Approachable after release following producer maturation; selected bottles can develop with cellaring, but use producer/vintage guidance rather than a universal decades-long promise.",
+        "ageingBasis": "release",
+        "pairings": [
+          "roast lamb",
+          "mushroom-stuffed poultry",
+          "beef stew",
+          "roast vegetables"
+        ],
+        "expect": "A dry Grenache-led Châteauneuf-du-Pape red with ripe fruit, spice and savoury depth. This is a selected blend, not pure Grenache, not a compulsory blend of every permitted grape, and not the separate white appellation expression.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red Châteauneuf-du-Pape · Grenache-led blend",
+          "method": "Red fermentation followed by large-cask maturation in the cited producer example",
+          "composition": {
+            "kind": "representative-blend",
+            "text": "Grenache-led blend with Syrah and Mourvèdre in the producer example; proportions and permitted partners vary"
+          }
+        },
+        "evidence": [
+          {
+            "claim": "Selected expression and production context",
+            "sources": [
+              "chateauneuf-sinards",
+              "chateauneuf-grapes"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Scores, practical aeration and some pairing suggestions are editorial. Producer, vintage and storage affect the result; no fixed regional recipe or universal cellaring duration is promised."
+        ],
+        "displayName": "Grenache-led blend"
+      }
+    },
+    "identity": {
+      "setting": "Southern Rhône around Châteauneuf-du-Pape",
+      "terrain": "Several vineyard sites in the cited producer blend",
+      "soil": "Rounded-stone terraces and limestone sites occur in the example; soils vary across the appellation",
+      "influences": [
+        "Varied vineyard and blending choices",
+        "Large-cask maturation in the selected example"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Selected blend and maturation",
+        "effect": "Grenache supplies generous fruit while partners and cellar choices shape structure; a tasting descriptor is not literal soil or nearby-herb transfer."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "chateauneuf-sinards",
+      "chateauneuf-grapes"
+    ],
+    "evidence": [
+      {
+        "claim": "Selected regional or vineyard context",
+        "sources": [
+          "chateauneuf-sinards"
+        ]
+      }
+    ]
+  },
+  "bandol-red": {
+    "name": "Bandol AOC — Red",
+    "country": "France",
+    "climate": "Mediterranean Provence",
+    "summary": "A dry Mourvèdre-led red blend with cask maturation, not the rosé or white wines also made in Bandol.",
+    "grapes": {
+      "mourvedre": {
+        "mods": {
+          "body": 0.5,
+          "acidity": 0.5,
+          "tannin": 0.5,
+          "oak": 0.5,
+          "earth": 0.5
+        },
+        "notes": {
+          "Fruit": [
+            "blackberry",
+            "dark cherry"
+          ],
+          "Earth / savory": [
+            "tobacco",
+            "forest floor"
+          ],
+          "Spice": [
+            "liquorice"
+          ]
+        },
+        "serve": "16–18°C as an editorial starting point",
+        "decant": "For a young structured bottle, consider 30–60 minutes; taste first and handle mature examples gently",
+        "glass": "Large red wine glass",
+        "ageing": "Ready after producer maturation, with further development possible for selected bottles. Follow the producer and vintage; the cited cellaring range has no clear starting point, so no exact regional window is imposed.",
+        "ageingBasis": "release",
+        "pairings": [
+          "roast lamb",
+          "braised beef",
+          "game",
+          "mushrooms"
+        ],
+        "expect": "Structured dry red Bandol with dark fruit and savoury notes, modeled as a Mourvèdre-led blend. Large-cask ageing does not imply a strong new-oak vanilla flavour. Bandol rosé and white are separate expressions.",
+        "style": {
+          "family": "still",
+          "color": "red",
+          "sweetness": "dry",
+          "label": "Still · Dry red Bandol · Mourvèdre-led blend",
+          "method": "Red skin fermentation followed by maturation in large wooden casks in the cited example",
+          "composition": {
+            "kind": "representative-blend",
+            "text": "Mourvèdre-led blend; the Tempier example uses about 75% Mourvèdre with Grenache, Cinsault and smaller partners"
+          }
+        },
+        "evidence": [
+          {
+            "claim": "Selected expression and production context",
+            "sources": [
+              "tempier-red",
+              "bandol-red"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Scores, practical aeration and some pairing suggestions are editorial. Producer, vintage and storage affect the result; no fixed regional recipe or universal cellaring duration is promised."
+        ],
+        "displayName": "Mourvèdre-led blend",
+        "related": [
+          {
+            "region": "jumilla",
+            "grape": "mourvedre",
+            "label": "Explore Monastrell in Jumilla"
+          }
+        ]
+      }
+    },
+    "identity": {
+      "setting": "Le Castellet area, Bandol appellation, Provence",
+      "terrain": "Several vineyard sites in the cited estate blend",
+      "soil": "Clay-limestone, marl and sandy-limestone contexts in the producer example",
+      "influences": [
+        "Mourvèdre-led blending",
+        "Large-cask maturation before release"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Mourvèdre structure and time in cask",
+        "effect": "The selected blend has firm structure that can soften with development; cask maturation and bottle age are different stages."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "tempier-red",
+      "bandol-red"
+    ],
+    "evidence": [
+      {
+        "claim": "Selected regional or vineyard context",
+        "sources": [
+          "tempier-red"
+        ]
+      }
+    ]
+  },
+  "muscadet-sevre-maine": {
+    "name": "Muscadet Sèvre et Maine sur lie",
+    "country": "France",
+    "climate": "Atlantic-influenced western Loire",
+    "summary": "A young dry Melon white with lees contact, rather than every Muscadet cru or maturation style.",
+    "grapes": {
+      "melon-de-bourgogne": {
+        "mods": {},
+        "notes": {
+          "Fruit": [
+            "lemon",
+            "green apple"
+          ],
+          "Earth / savory": [
+            "light yeast note"
+          ],
+          "Mineral / herbal": [
+            "saline impression"
+          ]
+        },
+        "serve": "8–10°C as an editorial starting point",
+        "decant": "Usually none; let a young bottle open in the glass",
+        "glass": "Medium white wine glass",
+        "ageing": "The cited fresh producer reference is best within about three years from harvest; selected older or cru wines can differ. No blanket long-ageing promise.",
+        "ageingBasis": "vintage",
+        "pairings": [
+          "oysters",
+          "shellfish",
+          "grilled fish",
+          "goat cheese"
+        ],
+        "expect": "Dry, fresh Muscadet Sèvre et Maine sur lie with citrus and subtle lees texture. Muscadet names the wine/appellation family; the grape is Melon, not Muscat, and this is not a sweet Moscato expression.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry Muscadet Sèvre et Maine sur lie",
+          "method": "White vinification with fine-lees maturation; the cited producer uses six months on lees",
+          "composition": {
+            "kind": "varietal-reference",
+            "text": "Single-varietal Melon reference; Melon de Bourgogne is also called Melon B"
+          }
+        },
+        "evidence": [
+          {
+            "claim": "Selected expression and production context",
+            "sources": [
+              "colombier-muscadet",
+              "muscadet-style"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Scores, practical aeration and some pairing suggestions are editorial. Producer, vintage and storage affect the result; no fixed regional recipe or universal cellaring duration is promised."
+        ],
+        "displayName": "Melon de Bourgogne (Melon B)"
+      }
+    },
+    "identity": {
+      "setting": "Sèvre-et-Maine area near Nantes, western Loire",
+      "terrain": "Vineyard reference near Tillières / Sèvremoine",
+      "soil": "No single soil type is assigned to the whole appellation",
+      "influences": [
+        "Atlantic regional setting",
+        "Fine-lees contact in the selected expression"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Lees maturation without sweetness",
+        "effect": "Lees contact can add texture to a lean dry white; it does not make Muscadet a Muscat-based sweet wine."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "Old World"
+    ],
+    "sources": [
+      "colombier-muscadet",
+      "muscadet-style"
+    ],
+    "evidence": [
+      {
+        "claim": "Selected regional or vineyard context",
+        "sources": [
+          "colombier-muscadet"
+        ]
+      }
+    ]
+  },
+  "salta-torrontes": {
+    "name": "Salta / Calchaquí Valleys — Torrontés",
+    "country": "Argentina",
+    "climate": "High-elevation dry valley setting",
+    "summary": "Selected dry aromatic Torrontés reference supported by a La Brava estate example; this record overlaps existing Salta coverage rather than claiming a wholly new wine area.",
+    "grapes": {
+      "torrontes-riojano": {
+        "mods": {},
+        "notes": {
+          "Fruit": [
+            "grapefruit",
+            "white peach"
+          ],
+          "Floral": [
+            "rose petal",
+            "jasmine"
+          ],
+          "Spice": [
+            "light ginger"
+          ]
+        },
+        "serve": "8–10°C as an editorial starting point",
+        "decant": "Usually none; let a young bottle open in the glass",
+        "glass": "Medium white wine glass",
+        "ageing": "Enjoy young after release for floral freshness; no universal cellaring period is claimed.",
+        "ageingBasis": "release",
+        "pairings": [
+          "empanadas",
+          "spiced chicken",
+          "thai curry",
+          "grilled vegetables"
+        ],
+        "expect": "A dry aromatic Salta Torrontés reference with floral perfume, citrus and fresh acidity. Rose-like aromas do not make it rosé, and a fragrant nose does not make the wine sweet. Riojano is distinguished from the other Argentine Torrontés varieties.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry Torrontés Riojano reference · Salta",
+          "method": "Cool white-wine fermentation in the cited producer example, retaining floral and citrus aromas",
+          "composition": {
+            "kind": "varietal-reference",
+            "text": "Torrontés Riojano style reference; cited Colomé example is labeled 100% Torrontés without a subtype"
+          }
+        },
+        "evidence": [
+          {
+            "claim": "Selected expression and production context",
+            "sources": [
+              "colome-torrontes-sheet",
+              "argentina-torrontes"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "The producer sheet labels the grape Torrontés without a subtype; the modeled Riojano scope follows the regional varietal reference, not independent genetic verification of the bottle. Scores, service and some pairings are editorial."
+        ]
+      }
+    },
+    "identity": {
+      "setting": "Calchaquí Valleys, Salta, northwestern Argentina",
+      "terrain": "High-elevation La Brava vineyard example",
+      "soil": "No vineyard-specific soil claim is made here",
+      "influences": [
+        "High sunlight exposure",
+        "Large day–night temperature differences"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Selected aromatic white expression",
+        "effect": "Floral perfume can accompany a dry palate; the cited producer analysis supports dryness without defining every regional bottle."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "New World"
+    ],
+    "sources": [
+      "colome-torrontes",
+      "colome-torrontes-sheet",
+      "argentina-torrontes"
+    ],
+    "evidence": [
+      {
+        "claim": "Selected regional or vineyard context",
+        "sources": [
+          "colome-torrontes"
+        ]
+      }
+    ]
+  },
+  "hunter-semillon": {
+    "name": "Hunter Valley — Dry Sémillon",
+    "country": "Australia",
+    "climate": "Warm growing season with harvest rain risk",
+    "summary": "Selected early-picked, unoaked dry Sémillon with a meaningful bottle-evolution story, separate from sweet Sauternes.",
+    "grapes": {
+      "semillon": {
+        "mods": {
+          "body": -1,
+          "acidity": 2,
+          "sweetness": -1.5,
+          "alcohol": -1.5,
+          "fruit": -1,
+          "oak": -1.5
+        },
+        "notes": {
+          "Fruit": [
+            "lemon",
+            "lime"
+          ],
+          "Mineral / herbal": [
+            "lemongrass"
+          ],
+          "Floral": [
+            "light citrus blossom"
+          ]
+        },
+        "serve": "8–10°C young; 10–12°C for a mature bottle",
+        "decant": "Usually none; let a young bottle open in the glass",
+        "glass": "Medium white wine glass",
+        "ageing": "Enjoy young for citrus freshness. Selected ageworthy bottles can develop for years under cool, stable storage; follow producer/vintage guidance rather than assuming every bottle improves for decades.",
+        "ageingBasis": "release",
+        "pairings": [
+          "oysters",
+          "grilled fish",
+          "goat cheese",
+          "grilled vegetables"
+        ],
+        "expect": "Light, dry, citrus-driven Hunter Valley Sémillon with brisk acidity and modest alcohol. Selected ageworthy bottles can develop toast, honey and wax-like aromas without oak; those are bottle-evolution notes, not sweetness or barrel-flavour claims.",
+        "style": {
+          "family": "still",
+          "color": "white",
+          "sweetness": "dry",
+          "label": "Still · Dry Hunter Valley Sémillon · Young unoaked reference",
+          "method": "Early picking, cool fermentation in stainless steel and early bottling without oak in the selected classic style",
+          "composition": {
+            "kind": "varietal-reference",
+            "text": "Single-varietal Sémillon reference, distinct from sweet botrytised Sauternes"
+          }
+        },
+        "evidence": [
+          {
+            "claim": "Selected expression and production context",
+            "sources": [
+              "hunter-semillon-guide",
+              "thomas-semillon"
+            ]
+          }
+        ],
+        "evidenceGaps": [
+          "Scores describe the young classic dry reference, not every Hunter Sémillon or an age simulation. Maturity stages are qualitative; no universal ageing schedule or exact ABV is claimed."
+        ],
+        "related": [
+          {
+            "region": "sauternes",
+            "grape": "semillon",
+            "label": "Contrast with sweet botrytised Sauternes"
+          }
+        ]
+      }
+    },
+    "identity": {
+      "setting": "Hunter Valley, New South Wales",
+      "terrain": "Valley vineyards with varied sites",
+      "soil": "Site-dependent soils; no one soil is assigned to the regional reference",
+      "influences": [
+        "Early harvest while sugars remain modest",
+        "Gentle handling, steel fermentation and bottle development"
+      ]
+    },
+    "why": [
+      {
+        "cause": "Early picking and restrained winemaking",
+        "effect": "The selected style combines a light young frame with freshness; toast-like maturity can develop without oak."
+      }
+    ],
+    "badges": [
+      "Classic",
+      "New World"
+    ],
+    "sources": [
+      "hunter-semillon-guide",
+      "thomas-semillon"
+    ],
+    "evidence": [
+      {
+        "claim": "Selected regional or vineyard context",
+        "sources": [
+          "hunter-semillon-guide"
+        ]
+      }
+    ]
   }
 }

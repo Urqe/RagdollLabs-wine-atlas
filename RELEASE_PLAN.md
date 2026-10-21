@@ -1,6 +1,6 @@
 # Wine Atlas release plan
 
-Status: R1–R4 complete; R5 batches A–C implemented (latest 2026-10-21). R5 batch D and R6–R7 remain planned.
+Status: R1–R5 complete (R5 batch D implemented 2026-10-21). R6–R7 remain planned.
 Created: 2026-10-19.  
 Review baseline: main at `d819d99505b188f2319c37f0f4aa01153278438b` (120 profiles, 92 region entries, 47 grape/blend baselines).  
 Release IDs below are planning identifiers, not published semantic versions.
@@ -182,13 +182,13 @@ Validation: full automated regression suite, including threshold boundaries, spa
 - [x] A — Familiar regional contrasts: six profiles implemented. See [batch notes, sources and validation](docs/familiar-names-batch-a.md).
 - [x] B — Missing classic families: five profiles implemented. See [batch notes, sources and validation](docs/classic-families-batch-b.md).
 - [x] C — Broader everyday coverage: five profiles implemented. See [batch notes, sources and validation](docs/everyday-coverage-batch-c.md).
-- [ ] D — Further regional identity.
+- [x] D — Further regional identity: five profiles implemented. See [batch notes, sources and validation](docs/regional-identity-batch-d.md).
 
-Current coverage: 136 profiles, 107 region/style records, 57 grape/blend baselines, 22 countries. Batch C adds five selected expressions, including a separate young white Rioja reference. Batch D remains open and is the next R5 implementation step; R6/R7 stay later in the queue.
+Current coverage: 141 profiles, 112 region/style records, 59 grape/blend baselines, 22 countries. All four planned R5 batches are implemented. R6 America Beyond California is next, followed by R7 Canadian icewine; later content candidates remain subject to evidence and priority.
 
 ### Requirements and acceptance criteria
 
-The completed checks below apply to batches A–C and must be repeated for each later batch.
+The completed checks below apply to all four implemented R5 batches and should be repeated for future content expansions.
 
 - [x] Confirm the intended appellation/style and evidence before finalizing every candidate. These are a queue, not claims that all regional wines share one style.
 - [x] Use proper blend and production modeling; do not present Amarone as generic Corvina or Sherry/Madeira as uniformly sweet.

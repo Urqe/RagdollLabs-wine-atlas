@@ -883,5 +883,115 @@
     "accessedOn": "2026-10-21",
     "reviewedOn": "2026-10-21",
     "reviewNote": "Supports shared Macabeo/Viura identity and stylistic breadth, not a universal oak treatment."
+  },
+  "chateauneuf-grapes": {
+    "name": "Châteauneuf-du-Pape: grape repertoire",
+    "url": "https://en.chateauneuf.com/appellation-chateauneuf-du-pape/13-grapes-chateauneuf-du-pape/",
+    "publisher": "Maison des Vins de Châteauneuf-du-Pape",
+    "locator": "Grape varieties: repertoire and winemaker freedom",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Supports blend diversity; the selected profile does not require all permitted grapes or a fixed recipe."
+  },
+  "chateauneuf-sinards": {
+    "name": "Les Sinards Rouge 2024: Grenache-led example",
+    "url": "https://m.familleperrin.com/TU2V8F",
+    "publisher": "Famille Perrin",
+    "locator": "Présentation; Situation; Terroir; Élevage; Service",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Grenache-led with Syrah/Mourvèdre and large-cask maturation; producer guidance does not establish one recipe or drinking window for the appellation."
+  },
+  "bandol-red": {
+    "name": "Bandol in three colours: red expression",
+    "url": "https://vinsdebandol.com/vins-vignobles-3-couleurs",
+    "publisher": "Maison des Vins de Bandol",
+    "locator": "Rouge: Mourvèdre-led blend and wood maturation",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Selected red only; rosé and white Bandol remain different unrepresented expressions. Long-lived examples do not prove every bottle improves for decades."
+  },
+  "tempier-red": {
+    "name": "Tempier Cuvée Lulu & Lucien: red Bandol",
+    "url": "https://www.domainetempier.com/vins-tempier/cuvee-classique-tempier/",
+    "publisher": "Domaine Tempier",
+    "locator": "Composition; Vinification; Élevage; Conservation",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Approximately 75% Mourvèdre producer example with other grapes; large casks at least 18 months. The quoted conservation range lacks an explicit time origin, so no exact universal window is copied."
+  },
+  "muscadet-style": {
+    "name": "Nantes / Muscadet: dry Melon white wine",
+    "url": "https://www.vinsdeloire.fr/fr/vignoble-nantais",
+    "publisher": "InterLoire / Vins de Loire",
+    "locator": "Qu’est-ce qui distingue le Muscadet des autres vins ?",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Publisher text checked through indexing; direct retrieval returned 403. Dry Melon identity is independently supported by the producer example."
+  },
+  "colombier-muscadet": {
+    "name": "Muscadet Sèvre et Maine sur lie: Domaine du Colombier",
+    "url": "https://www.muscadet-sur-lie.com/muscadet%20sevre%20et%20maine%20sur%20lie.htm",
+    "publisher": "Domaine du Colombier / Jean-Yves Bretaudeau",
+    "locator": "Caractéristiques; Vinification-élevage; Accords mets et vins",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "100% Melon B, six months on lees and a young-drinking example. Three years is counted from harvest in this producer’s text; it is not a universal Muscadet limit."
+  },
+  "argentina-torrontes": {
+    "name": "Argentine grape varieties: Torrontés types",
+    "url": "https://winesofargentina.org/assets/pdf/en/varieties.pdf",
+    "publisher": "Wines of Argentina",
+    "locator": "Torrontés / White varieties: Riojano, Sanjuanino and Mendocino",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Distinguishes the three named varieties. The selected Riojano reference does not make them synonyms, and no claim that Torrontés grows only in Argentina is repeated."
+  },
+  "colome-torrontes": {
+    "name": "Colomé Torrontés: La Brava / Salta setting",
+    "url": "https://bodegacolome.com/en/shop/colome-torrontes/",
+    "publisher": "Bodega Colomé",
+    "locator": "Product data; La Brava vineyard and Calchaquí Valleys",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "The cited producer labels the grape Torrontés without a subtype; this supports the regional example, not an independent genetic identification as Riojano."
+  },
+  "colome-torrontes-sheet": {
+    "name": "Colomé Estate Torrontés 2025: producer sheet",
+    "url": "https://www.foliowine.com/wp-content/uploads/2026/03/colome-estate-torrontes-2025-ts.pdf",
+    "publisher": "Bodega Colomé, distributed by Folio Fine Wine Partners",
+    "locator": "Page 1: Variety; Vineyards; Analysis; Cold fermentation",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Producer-authored sheet hosted by its importer. 100% Torrontés, 2 g/L sugar and cool fermentation; exact chemistry is not generalized to all Torrontés."
+  },
+  "hunter-semillon-guide": {
+    "name": "The ultimate guide to Semillon and Sauvignon Blanc",
+    "url": "https://www.australianwine.com/getcontentasset/25b6af5b-2556-4560-b292-4245eba62a8f/2a6464f5-7547-4f96-aacf-a0c3da1718f8/awd_semsauvblanc_consumerguide.pdf?language=en-AU",
+    "publisher": "Wine Australia",
+    "locator": "PDF pages 12–16: growing season, winemaking, youthful and bottle-aged Hunter Semillon",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Supports selected dry early-picked unoaked style and bottle evolution. Premium longevity is not promised for every bottle."
+  },
+  "thomas-semillon": {
+    "name": "Hunter Valley Semillon: production, serving and ageing",
+    "url": "https://www.thomaswines.com.au/pages/ultimate-guide-hunter-valley-semillon",
+    "publisher": "Thomas Wines",
+    "locator": "Why unique; Young/mature styles; Ageing potential; Food; Serving; FAQ",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-21",
+    "reviewedOn": "2026-10-21",
+    "reviewNote": "Practical producer perspective. Braemore-specific long-life estimates are not copied as a universal regional guarantee."
   }
 }

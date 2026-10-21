@@ -1,6 +1,6 @@
-# Evidence audit — R3 foundation and R5 batches A–C
+# Evidence audit — R3 foundation and R5 batches A–D
 
-Updated 2026-10-21 through R5 batch C. Current records: 55 reviewed references and 58 background records pending claim-level metadata review. Every one of the 136 profiles retains explicit evidence limitations. This is a prioritized audit, not a claim that the full catalog has been reverified.
+Updated 2026-10-21 through R5 batch D. Current records: 66 reviewed references and 58 background records pending claim-level metadata review. Every one of the 141 profiles retains explicit evidence limitations. This is a prioritized audit, not a claim that the full catalog has been reverified.
 
 ## Completed priority work
 
@@ -24,6 +24,17 @@ R5 batch B adds twelve primary references for selected Sherry, Madeira and Alvar
 
 | ID | Authority / publisher | Locator | Review limitation |
 | --- | --- | --- | --- |
+| `chateauneuf-grapes` | Maison des Vins de Châteauneuf-du-Pape | [Grape varieties: repertoire and winemaker freedom](https://en.chateauneuf.com/appellation-chateauneuf-du-pape/13-grapes-chateauneuf-du-pape/) | Supports blend diversity; the selected profile does not require all permitted grapes or a fixed recipe. |
+| `chateauneuf-sinards` | Famille Perrin | [Présentation; Situation; Terroir; Élevage; Service](https://m.familleperrin.com/TU2V8F) | Grenache-led with Syrah/Mourvèdre and large-cask maturation; producer guidance does not establish one recipe or drinking window for the appellation. |
+| `bandol-red` | Maison des Vins de Bandol | [Rouge: Mourvèdre-led blend and wood maturation](https://vinsdebandol.com/vins-vignobles-3-couleurs) | Selected red only; rosé and white Bandol remain different unrepresented expressions. Long-lived examples do not prove every bottle improves for decades. |
+| `tempier-red` | Domaine Tempier | [Composition; Vinification; Élevage; Conservation](https://www.domainetempier.com/vins-tempier/cuvee-classique-tempier/) | Approximately 75% Mourvèdre producer example with other grapes; large casks at least 18 months. The quoted conservation range lacks an explicit time origin, so no exact universal window is copied. |
+| `muscadet-style` | InterLoire / Vins de Loire | [Qu’est-ce qui distingue le Muscadet des autres vins ?](https://www.vinsdeloire.fr/fr/vignoble-nantais) | Publisher text checked through indexing; direct retrieval returned 403. Dry Melon identity is independently supported by the producer example. |
+| `colombier-muscadet` | Domaine du Colombier / Jean-Yves Bretaudeau | [Caractéristiques; Vinification-élevage; Accords mets et vins](https://www.muscadet-sur-lie.com/muscadet%20sevre%20et%20maine%20sur%20lie.htm) | 100% Melon B, six months on lees and a young-drinking example. Three years is counted from harvest in this producer’s text; it is not a universal Muscadet limit. |
+| `argentina-torrontes` | Wines of Argentina | [Torrontés / White varieties: Riojano, Sanjuanino and Mendocino](https://winesofargentina.org/assets/pdf/en/varieties.pdf) | Distinguishes the three named varieties. The selected Riojano reference does not make them synonyms, and no claim that Torrontés grows only in Argentina is repeated. |
+| `colome-torrontes` | Bodega Colomé | [Product data; La Brava vineyard and Calchaquí Valleys](https://bodegacolome.com/en/shop/colome-torrontes/) | The cited producer labels the grape Torrontés without a subtype; this supports the regional example, not an independent genetic identification as Riojano. |
+| `colome-torrontes-sheet` | Bodega Colomé, distributed by Folio Fine Wine Partners | [Page 1: Variety; Vineyards; Analysis; Cold fermentation](https://www.foliowine.com/wp-content/uploads/2026/03/colome-estate-torrontes-2025-ts.pdf) | Producer-authored sheet hosted by its importer. 100% Torrontés, 2 g/L sugar and cool fermentation; exact chemistry is not generalized to all Torrontés. |
+| `hunter-semillon-guide` | Wine Australia | [PDF pages 12–16: growing season, winemaking, youthful and bottle-aged Hunter Semillon](https://www.australianwine.com/getcontentasset/25b6af5b-2556-4560-b292-4245eba62a8f/2a6464f5-7547-4f96-aacf-a0c3da1718f8/awd_semsauvblanc_consumerguide.pdf?language=en-AU) | Supports selected dry early-picked unoaked style and bottle evolution. Premium longevity is not promised for every bottle. |
+| `thomas-semillon` | Thomas Wines | [Why unique; Young/mature styles; Ageing potential; Food; Serving; FAQ](https://www.thomaswines.com.au/pages/ultimate-guide-hunter-valley-semillon) | Practical producer perspective. Braemore-specific long-life estimates are not copied as a universal regional guarantee. |
 | `masciarelli-classico` | Masciarelli | [Page 1: Grapes; Vineyard location and soil; Vinification; Serving; Ageing potential](https://www.masciarelli.it/wp-content/uploads/2024/03/LC_montepulciano_eng.pdf) | 100% Montepulciano, steel fermentation/maturation and a 14–16°C service example. Not all Montepulciano d’Abruzzo is unoaked; no exact bottle-ageing duration is supplied. |
 | `montepulciano-place` | Consorzio Vino Nobile di Montepulciano | [Vino Nobile: The Grapes](https://www.consorziovinonobile.it/disciplinaries/) | Supports the Sangiovese-led identity of the Tuscan wine; this is not a Montepulciano-grape profile or a newly represented appellation. |
 | `planeta-nero-2024` | Planeta | [Page 1: Vinification; Maturation; Tasting notes; Pairing; Ageing capacity](https://storage1368.cdn-immedia.net/wp-content/uploads/2024/06/Planeta_La-Segreta-NERO-DAVOLA-2024-ENG.pdf) | 100% Nero d’Avola, steel maturation, 13% ABV and short producer drinking context. The atlas does not generalize exact chemistry or duration across Sicily. |
@@ -146,3 +157,5 @@ R5 batch B adds twelve primary references for selected Sherry, Madeira and Alvar
 | `ucdavis-albarino` | [UC Davis Foundation Plant Services — Albariño / Alvarinho synonyms](https://fps.ucdavis.edu/FGRfamilies.cfm?varietyid=170) | Specific path: recheck claim fit and complete metadata |
 
 R5 batch C adds twelve primary references for five everyday expressions. Producer scope, filename/content discrepancies and sensory-versus-analytical sweetness limits are tracked in [batch C notes](everyday-coverage-batch-c.md).
+
+R5 batch D adds eleven reviewed primary references. [Batch D notes](regional-identity-batch-d.md) distinguish blends, Muscadet identity, Torrontés subtype scope and dry Hunter bottle evolution; background audit work remains open.
