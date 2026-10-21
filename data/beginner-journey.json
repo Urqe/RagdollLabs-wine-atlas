@@ -1,0 +1,51 @@
+{
+  "title": "Your First Glass",
+  "intro": "Four useful ideas for describing wine, then one guided comparison. Take about five minutes, skip around, or explore at your own pace. No bottle, purchase or tasting experience is needed.",
+  "firstFlight": "sauvignon-two-places",
+  "lessons": [
+    {
+      "id": "acidity",
+      "title": "Acidity · the mouth-watering part",
+      "glossary": "acidity",
+      "cue": "Notice the fresh, tart sensation that makes your mouth water. That is different from tannin, which feels drying or grippy.",
+      "exercise": "If you have a wine, take a small sip and notice whether your mouth waters afterwards. Without wine, imagine biting a lemon: concentrate on the mouth-watering response rather than the flavour.",
+      "takeaway": "Ask: how mouth-watering does it feel? More acidity is not automatically better; notice how it fits the rest of the wine.",
+      "profile": { "grape": "assyrtiko", "region": "santorini" },
+      "flight": "sauvignon-two-places",
+      "guideSection": "climate"
+    },
+    {
+      "id": "tannin",
+      "title": "Tannin · the drying grip",
+      "glossary": "tannin",
+      "cue": "Tannin can make your gums and cheeks feel dry or grippy. Separate that texture from the mouth-watering effect of acidity: a wine can have both.",
+      "exercise": "After a sip, gently move your tongue across your gums and notice any grip. Without wine, recall the drying sensation of strong black tea. This is a texture analogy, not a claim that wine should taste of tea.",
+      "takeaway": "Ask: how drying or grippy does it feel? Drying tannin does not mean the same thing as a dry wine; dry describes a wine with very little remaining sugar.",
+      "profile": { "grape": "tannat", "region": "madiran" },
+      "flight": "cabernet-across-regions",
+      "guideSection": "skins"
+    },
+    {
+      "id": "body",
+      "title": "Body · the weight in your mouth",
+      "glossary": "body",
+      "cue": "Body describes perceived weight: light and delicate through to rich and full. It is a description of texture, not a quality score.",
+      "exercise": "Ask how weighty a sip feels before naming its flavours. Without wine, imagine the difference in weight between skimmed milk and cream. The comparison is about texture, not dairy flavour or an instruction to drink either.",
+      "takeaway": "Ask: does it feel light, medium or full? A light wine can be excellent, and a fuller wine is not automatically more complex or better.",
+      "profile": { "grape": "pinot-noir", "region": "burgundy" },
+      "flight": "cabernet-across-regions",
+      "guideSection": "scores"
+    },
+    {
+      "id": "sweetness",
+      "title": "Sweetness · sugar, not fruit aroma",
+      "glossary": "sweetness",
+      "cue": "A dry wine can smell intensely fruity while tasting dry. Sweetness concerns sugar remaining in the wine; fruit aroma and drying tannin are separate observations.",
+      "exercise": "If tasting, describe the aroma first, then ask separately whether the sip tastes sweet. Without wine, imagine smelling ripe fruit and tasting unsweetened fruit tea: an association with fruit does not establish sugar content.",
+      "takeaway": "Ask: how sweet does it taste, separately from how fruity it smells? Acidity can balance sweetness without removing the sugar. The atlas's scores are broad sensory guides, not sugar measurements.",
+      "profile": { "grape": "sauvignon-blanc", "region": "marlborough" },
+      "flight": "routes-to-sweetness",
+      "guideSection": "fermentation"
+    }
+  ]
+}

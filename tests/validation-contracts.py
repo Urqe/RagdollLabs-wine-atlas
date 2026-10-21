@@ -62,3 +62,13 @@ rejected(lambda d: d['tasting-flights.json'][1].update(id=d['tasting-flights.jso
 rejected(lambda d: d['tasting-flights.json'][0].update(observations=['only one']), 'Missing observation prompts accepted')
 rejected(lambda d: d['tasting-flights.json'][0].update(limitation=''), 'Missing flight limitations accepted')
 print('OK: flight identities, references, compatibility and lesson contracts')
+
+# The short journey uses the existing definitions, profiles, flights and guide.
+rejected(lambda d: d['beginner-journey.json']['lessons'][0].update(id='start'), 'Reserved/invalid journey ID accepted')
+rejected(lambda d: d['beginner-journey.json']['lessons'][0].update(glossary='unknown'), 'Unknown journey definition accepted')
+rejected(lambda d: d['beginner-journey.json']['lessons'][0]['profile'].update(region='unknown'), 'Unknown journey example accepted')
+rejected(lambda d: d['beginner-journey.json']['lessons'][0].update(flight='unknown'), 'Unknown journey flight accepted')
+rejected(lambda d: d['beginner-journey.json']['lessons'][0].update(guideSection='unknown'), 'Unknown journey guide section accepted')
+rejected(lambda d: d['beginner-journey.json'].update(firstFlight='unknown'), 'Unknown first-comparison flight accepted')
+rejected(lambda d: d['beginner-journey.json']['lessons'][0].update(exercise=''), 'Missing observation exercise accepted')
+print('OK: beginner journey sequence, definitions, observation prompts and linked references')

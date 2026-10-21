@@ -29,3 +29,14 @@ Validation: `npm run validate` includes `tests/navigation.mjs` for Gallery/profi
 - Profile links from a flight retain `flight=<id>` only when that profile belongs to the flight, and show an explicit return link. Existing profile URLs remain valid.
 - Refresh and Back/Forward restore flight views through the same router and history-position policy as other views. Links support native open-in-new-tab behavior. Manual wine edits remove a mismatched flight label; toggling the biggest-differences preference preserves it.
 - Unknown or unusable lesson/worksheet routes show a visible unavailable state with browse/explore links. An unavailable comparison flight falls back to ordinary Compare without a partial lesson. Missing optional flight data does not block wine browsing. Pending loading is canceled only by a newer route, not keyboard focus changes.
+
+
+## Beginner journey routes (R9)
+
+- `?view=learn` starts at the introduction and normalizes to `lesson=start`. Explicit lessons are `acidity`, `tannin`, `body`, `sweetness`, `first-comparison` and `complete`.
+- The URL identifies the current page, not stored learning progress. Skip, step navigation, finish and restart are freely available; no completion claim or prerequisite gates access.
+- A journey example uses `lesson=<id>` on its profile or flight route to expose a return link. The marker continues through that flight's Compare, worksheet and member profiles. It is kept only if the referenced lesson/example/flight relationship is valid. Manual comparison edits that break the flight also remove the lesson marker.
+- Standard Explore/Compare and existing URLs do not inherit a lesson. Unknown lessons show an unavailable page with restart/explore links, while unrelated profile context markers are dropped.
+- Refresh and Back/Forward use the existing router, saved scroll/focus and disclosure-state policy. Returning from a profile with Back restores the example control and its open disclosure; the explicit lesson-return link opens the lesson heading.
+- Glossary and detailed-guide dialogs remain transient overlays rather than history pages. Close/Escape returns focus to the invoking control; navigating away cancels pending dialog opens and clears stale focus targets.
+- Journey JSON, definitions and flight enrichment load through the existing bounded optional loader. Delayed data does not block ordinary wine browsing; a newer navigation cancels a pending lesson render, while keyboard focus changes do not.

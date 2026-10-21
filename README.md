@@ -8,11 +8,12 @@ The visible brand is **RagDollLabs**; the repository and GitHub Pages path keep 
 
 ## Features
 
-- **Welcome experience** — first-time visitors start from a minimal landing page, including a **New to wine?** route into the taste explainer
+- **Welcome experience** — first-time visitors start from a minimal landing page; **New to wine?** opens **Your First Glass**, an optional short journey through acidity, tannin, body and sweetness, ending with an R8 tasting flight
 - **Wine Explorer** — browse by grape / represented blend, or through **Country → Region → Grape / blend**; when only one choice is valid it opens automatically
 - **Atlas search** — grapes, regions, countries, climate and style descriptions, flavour notes, discovery labels and food, with structured colour/sweetness filters, grape synonyms and constrained appellation searches (Champagne, crémant, Cava, Prosecco, Moscato d'Asti)
 - **Sensory profile** — body, acidity, tannin, sweetness, alcohol, fruit, oak and earth on a 0–5 scale (see [Scores](#scores))
 - **Why does it taste like this?** — explicit cause → effect explanations connecting growing conditions and winemaking to style
+- **Your First Glass** — short observation exercises with no bottle required, optional definitions/examples, shareable lesson URLs and return links from profiles/flights; no quiz, account or saved progress
 - **How wine gets its taste** — a beginner explainer covering climate, grape, fermentation, skins, oak, lees, bubbles, ageing and minerality, with links to profiles that show each effect
 - **Wine glossary** — beginner basics (acidity, body, dry vs sweet, oak, vintage) and technical terms (qvevri, botrytis, dosage, carbonic maceration); technical terms are tappable inside profiles
 - **Beyond still wine** — sparkling, sweet, fortified, rosé and orange profiles carry structured production-method metadata
@@ -26,6 +27,8 @@ The visible brand is **RagDollLabs**; the repository and GitHub Pages path keep 
 - **Shareable URLs and history** — `?grape=...&region=...` opens a profile directly; Gallery and Compare have shareable routes, and Back/Forward restore views, comparison selections, scroll and focus (see [navigation](docs/navigation.md))
 
 R8 adds [Taste the Difference](docs/tasting-flights-r8.md): six flights using the existing catalog and comparison model. They do not add profiles, change scores or imply that every factual claim in the source profiles has been reverified.
+
+R9 adds [Your First Glass](docs/beginner-journey-r9.md) at `?view=learn`: an optional sensory introduction before the existing detailed guide.
 
 ## Searching by style, grape or aroma
 
@@ -95,6 +98,7 @@ The runtime is HTML, CSS and vanilla JavaScript only. No backend, framework, ana
 ├── functional.js          # style metadata and winemaking choices
 ├── maturity.js            # maturity / vintage evolution
 ├── learning.js            # glossary, contextual terms and the taste explainer
+├── beginner-journey.js    # short sensory lessons and validated lesson return links
 ├── tasting-flights.js     # curated lessons, profile return context and worksheet
 ├── tasting-flights.css    # flight layouts and ink-friendly worksheet printing
 ├── home-brand.js          # landing artwork link
@@ -102,6 +106,7 @@ The runtime is HTML, CSS and vanilla JavaScript only. No backend, framework, ana
 ├── data/
 │   ├── grapes.json        # grape / represented-blend baselines and metadata
 │   ├── regions.json       # every region, its identity, Why entries and grape profiles
+│   ├── beginner-journey.json # four lessons referencing shared definitions and examples
 │   ├── tasting-flights.json # six lessons referencing existing profiles
 │   ├── taste-basics.json  # "How wine gets its taste" sections and profile examples
 │   ├── glossary.json      # definitions, aliases, why-it-matters notes, sources

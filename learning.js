@@ -14,6 +14,8 @@
  * and definitions stay unavailable for that page session; reload is the retry.
  */
 
+let learningRequest = 0;
+let learningInvoker = null;
 let glossaryPromise = null;
 let glossaryData = {};
 let glossaryAliases = [];
@@ -21,9 +23,9 @@ let glossaryAliases = [];
 function loadGlossary() {
   if (!glossaryPromise) {
     glossaryPromise = WineData.json("./data/glossary.json", { optional: true }).then(data => {
-      glossaryData = data;
-      glossaryAliases = buildAliasIndex(data);
-      return data;
+      glossaryData = data && typeof data === "object" && !Array.isArray(data) ? data : {};
+      glossaryAliases = buildAliasIndex(glossaryData);
+      return glossaryData;
     });
   }
   return glossaryPromise;
@@ -123,6 +125,27 @@ function dialogElement() {
   return document.getElementById("glossaryDialog");
 }
 
+function beginLearningRequest(trigger) {
+  if (!dialogElement()?.open) learningInvoker = trigger instanceof Element ? trigger : trigger?.currentTarget instanceof Element ? trigger.currentTarget : document.activeElement;
+  return ++learningRequest;
+}
+
+function restoreLearningFocus() {
+  if (dialogElement()?.open) return;
+  const target = learningInvoker;
+  learningInvoker = null;
+  if (target?.isConnected && !target.closest('.hidden, [hidden]')) target.focus({ preventScroll: true });
+}
+
+function cancelLearning() {
+  ++learningRequest;
+  learningInvoker = null;
+  const dialog = dialogElement();
+  if (!dialog?.open) return;
+  if (typeof dialog.close === 'function') dialog.close();
+  else dialog.removeAttribute('open');
+}
+
 function openDialog() {
   const dialog = dialogElement();
   if (!dialog) return;
@@ -132,10 +155,11 @@ function openDialog() {
 }
 
 function closeDialog() {
+  ++learningRequest;
   const dialog = dialogElement();
   if (!dialog) return;
   if (typeof dialog.close === "function") dialog.close();
-  else dialog.removeAttribute("open");
+  else { dialog.removeAttribute("open"); restoreLearningFocus(); }
 }
 
 function glossaryEntryCard(entry, compact = false) {
@@ -154,8 +178,10 @@ function glossaryEntryCard(entry, compact = false) {
   return article;
 }
 
-async function showGlossaryEntry(id) {
+async function showGlossaryEntry(id, trigger) {
+  const request = beginLearningRequest(trigger);
   await loadGlossary();
+  if (request !== learningRequest) return;
   const entry = glossaryData[id];
   if (!entry) return;
   const title = document.getElementById("glossaryDialogTitle");
@@ -175,8 +201,10 @@ async function showGlossaryEntry(id) {
   openDialog();
 }
 
-async function showFullGlossary() {
+async function showFullGlossary(trigger) {
+  const request = beginLearningRequest(trigger);
   await loadGlossary();
+  if (request !== learningRequest) return;
   const title = document.getElementById("glossaryDialogTitle");
   const intro = document.getElementById("glossaryIntro");
   const content = document.getElementById("glossaryContent");
@@ -185,6 +213,7 @@ async function showFullGlossary() {
   intro.textContent = "Short explanations for technical terms that appear across Wine Atlas.";
   const entries = Object.values(glossaryData).sort((a, b) => a.term.localeCompare(b.term));
   content.replaceChildren(...entries.map(entry => glossaryEntryCard(entry)));
+  if (!entries.length) content.append(WineDOM.element("p", "The glossary could not be loaded. Reload the page to try again."));
   openDialog();
 }
 
@@ -232,12 +261,21 @@ function tasteSectionCard(section) {
 }
 
 async function showTasteBasics(event) {
-  const sectionId = event?.currentTarget?.dataset?.tasteSection;
+  const sectionId = event?.section || event?.currentTarget?.dataset?.tasteSection;
+  const request = beginLearningRequest(event?.currentTarget);
   const data = await loadTasteBasics();
+  if (request !== learningRequest) return;
   const title = document.getElementById("glossaryDialogTitle");
   const intro = document.getElementById("glossaryIntro");
   const content = document.getElementById("glossaryContent");
-  if (!title || !intro || !content || !data?.sections) return;
+  if (!title || !intro || !content) return;
+  if (!data?.sections) {
+    title.textContent = "Taste guide unavailable";
+    intro.textContent = "The detailed guide could not be loaded.";
+    content.replaceChildren(WineDOM.element("p", "You can continue the lesson or reload the page to try the guide again."));
+    openDialog();
+    return;
+  }
   title.textContent = data.title;
   intro.textContent = data.intro;
   content.replaceChildren(...data.sections.map(tasteSectionCard));
@@ -271,12 +309,14 @@ function wireLearningLayer() {
   document.getElementById("glossaryOpen")?.addEventListener("click", showFullGlossary);
   document.querySelectorAll("[data-taste-basics]").forEach(button => button.addEventListener("click", showTasteBasics));
   document.getElementById("glossaryClose")?.addEventListener("click", closeDialog);
+  dialogElement()?.addEventListener("close", restoreLearningFocus);
+  dialogElement()?.addEventListener("cancel", event => { event.preventDefault(); closeDialog(); });
   dialogElement()?.addEventListener("click", event => {
     if (event.target === dialogElement()) closeDialog();
   });
   document.getElementById("exploreView")?.addEventListener("click", event => {
     const button = event.target.closest?.(".glossary-term");
-    if (button) void showGlossaryEntry(button.dataset.glossaryId);
+    if (button) void showGlossaryEntry(button.dataset.glossaryId, button);
   });
 }
 
@@ -300,4 +340,13 @@ document.addEventListener("wineatlas:special-style-rendered", () => {
 
 document.addEventListener("wineatlas:maturity-rendered", () => {
   void annotateContext();
+});
+
+
+// Explicit entry points let the journey share the existing dialogs and definitions.
+window.WineLearning = Object.freeze({
+  cancel: cancelLearning,
+  showGlossary: showFullGlossary,
+  showEntry: showGlossaryEntry,
+  showGuide: (section, trigger) => showTasteBasics({ currentTarget: trigger, section })
 });

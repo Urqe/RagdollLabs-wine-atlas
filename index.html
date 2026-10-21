@@ -17,13 +17,13 @@
   <meta property="og:image:alt" content="RagDollLabs Wine Atlas: a ragdoll cat beside a glass of red wine in a vineyard at dusk">
   <meta name="twitter:card" content="summary_large_image">
   <!-- One release token keeps visible assets in sync after a GitHub Pages deploy. -->
-  <link rel="stylesheet" href="./styles.css?v=20261021-tasting-r8">
-  <link rel="stylesheet" href="./ux.css?v=20261021-tasting-r8">
-  <link rel="stylesheet" href="./maturity.css?v=20261021-tasting-r8">
-  <link rel="stylesheet" href="./learning.css?v=20261021-tasting-r8">
-  <link rel="stylesheet" href="./advanced-compare.css?v=20261021-tasting-r8">
-  <link rel="stylesheet" href="./home-brand.css?v=20261021-tasting-r8">
-  <link rel="stylesheet" href="./tasting-flights.css?v=20261021-tasting-r8">
+  <link rel="stylesheet" href="./styles.css?v=20261021-learning-r9">
+  <link rel="stylesheet" href="./ux.css?v=20261021-learning-r9">
+  <link rel="stylesheet" href="./maturity.css?v=20261021-learning-r9">
+  <link rel="stylesheet" href="./learning.css?v=20261021-learning-r9">
+  <link rel="stylesheet" href="./advanced-compare.css?v=20261021-learning-r9">
+  <link rel="stylesheet" href="./home-brand.css?v=20261021-learning-r9">
+  <link rel="stylesheet" href="./tasting-flights.css?v=20261021-learning-r9">
 </head>
 <body>
   <div class="wrap">
@@ -38,7 +38,7 @@
             <button class="welcome-action" type="button" data-welcome-action="grape"><strong>Explore wines</strong><span>Browse by grape or place, then open a regional style.</span></button>
             <button class="welcome-action" type="button" data-welcome-action="compare"><strong>Compare wines</strong><span>Put regional expressions side by side.</span></button>
             <button class="welcome-action" type="button" data-welcome-action="surprise"><strong>Surprise me</strong><span>Jump straight into a discovery profile.</span></button>
-            <button class="welcome-action" type="button" data-taste-basics><strong>New to wine?</strong><span>Learn why wines taste the way they do.</span></button>
+            <button class="welcome-action" type="button" data-journey-open><strong>New to wine?</strong><span>Four ideas for your first glass. Start here.</span></button>
           </div>
         </div>
         <!-- The cat artwork lives inside the vineyard SVG so the foreground glassware can sit in front of it. This link is only its interactive hit target. -->
@@ -63,7 +63,7 @@
           <p>Search, browse by grape or place, compare regional expressions, and discover styles from classic and emerging wine regions.</p>
         </div>
         <a class="app-home-cat" href="./" data-home-return aria-label="Return to Wine Atlas home">
-          <img src="./assets/ragdoll-cat.svg?v=20261021-tasting-r8" alt="">
+          <img src="./assets/ragdoll-cat.svg?v=20261021-learning-r9" alt="">
         </a>
       </header>
 
@@ -71,6 +71,7 @@
         <aside class="card side" aria-label="Wine Atlas controls">
           <div class="mode" role="group" aria-label="View mode"><button id="bExplore" class="on" type="button" aria-pressed="true">Explore</button><button id="bCompare" type="button" aria-pressed="false">Compare</button></div>
 
+          <button id="sidebarJourney" class="glossary-open journey-sidebar" type="button" data-journey-open>Your First Glass · Start learning</button>
           <a id="sidebarFlights" class="flight-link flight-sidebar-link" href="?view=flights" data-flights-open>Guided tasting flights</a>
 
           <section id="searchSection" class="sidebar-primary" aria-labelledby="searchHeading">
@@ -104,6 +105,8 @@
         <main>
           <p id="liveStatus" class="sr-only" role="status" aria-live="polite"></p>
           <section id="emptyView" class="card empty-state hidden"><div class="empty-state-inner"><h2 id="emptyTitle">Choose where to begin</h2><p id="emptyText"></p></div></section>
+          <nav id="journeyReturn" class="card journey-return hidden" aria-label="Return to your lesson"></nav>
+          <section id="journeyView" class="card journey-view hidden" aria-labelledby="journeyHeading"></section>
           <section id="flightsView" class="card flights-view hidden" aria-labelledby="flightsHeading"></section>
           <section id="worksheetView" class="card hidden" aria-labelledby="worksheetHeading"></section>
           <section id="exploreView" aria-labelledby="profileHeading">
@@ -166,24 +169,25 @@
 
     <footer class="footer">RagDollLabs Wine Atlas · Typical-style reference, not a guarantee about a specific bottle.</footer>
   </div>
-  <script src="./wine-model.js?v=20261021-tasting-r8" defer></script>
-  <script src="./dom-utils.js?v=20261021-tasting-r8" defer></script>
-  <script src="./data-loader.js?v=20261021-tasting-r8" defer></script>
-  <script src="./app.js?v=20261021-tasting-r8" defer></script>
-  <script src="./ux.js?v=20261021-tasting-r8" defer></script>
-  <script src="./food-discovery.js?v=20261021-tasting-r8" defer></script>
-  <script src="./wine-search.js?v=20261021-tasting-r8" defer></script>
-  <script src="./functional.js?v=20261021-tasting-r8" defer></script>
-  <script src="./search-enhance.js?v=20261021-tasting-r8" defer></script>
-  <script src="./compare-state.js?v=20261021-tasting-r8" defer></script>
-  <script src="./advanced-compare.js?v=20261021-tasting-r8" defer></script>
-  <script src="./compare-discovery.js?v=20261021-tasting-r8" defer></script>
-  <script src="./maturity.js?v=20261021-tasting-r8" defer></script>
-  <script src="./learning.js?v=20261021-tasting-r8" defer></script>
-  <script src="./smart-discovery.js?v=20261021-tasting-r8" defer></script>
-  <script src="./home-brand.js?v=20261021-tasting-r8" defer></script>
-  <script src="./gallery.js?v=20261021-tasting-r8" defer></script>
-  <script src="./tasting-flights.js?v=20261021-tasting-r8" defer></script>
-  <script src="./navigation.js?v=20261021-tasting-r8" defer></script>
+  <script src="./wine-model.js?v=20261021-learning-r9" defer></script>
+  <script src="./dom-utils.js?v=20261021-learning-r9" defer></script>
+  <script src="./data-loader.js?v=20261021-learning-r9" defer></script>
+  <script src="./app.js?v=20261021-learning-r9" defer></script>
+  <script src="./ux.js?v=20261021-learning-r9" defer></script>
+  <script src="./food-discovery.js?v=20261021-learning-r9" defer></script>
+  <script src="./wine-search.js?v=20261021-learning-r9" defer></script>
+  <script src="./functional.js?v=20261021-learning-r9" defer></script>
+  <script src="./search-enhance.js?v=20261021-learning-r9" defer></script>
+  <script src="./compare-state.js?v=20261021-learning-r9" defer></script>
+  <script src="./advanced-compare.js?v=20261021-learning-r9" defer></script>
+  <script src="./compare-discovery.js?v=20261021-learning-r9" defer></script>
+  <script src="./maturity.js?v=20261021-learning-r9" defer></script>
+  <script src="./learning.js?v=20261021-learning-r9" defer></script>
+  <script src="./smart-discovery.js?v=20261021-learning-r9" defer></script>
+  <script src="./home-brand.js?v=20261021-learning-r9" defer></script>
+  <script src="./gallery.js?v=20261021-learning-r9" defer></script>
+  <script src="./tasting-flights.js?v=20261021-learning-r9" defer></script>
+  <script src="./beginner-journey.js?v=20261021-learning-r9" defer></script>
+  <script src="./navigation.js?v=20261021-learning-r9" defer></script>
 </body>
 </html>

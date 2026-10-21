@@ -6,6 +6,7 @@ window.WineFlights = (() => {
   const flightViews = new Set(['flights', 'flight', 'worksheet']);
   let data = [];
   let loaded = false;
+  let lessonContext = null;
   const promise = WineData.json('./data/tasting-flights.json', { optional: true, fallback: [] }).then(value => {
     data = Array.isArray(value) ? value : [];
     loaded = true;
@@ -46,6 +47,7 @@ window.WineFlights = (() => {
   function routeHref(route) {
     const params = new URLSearchParams({ view: route.view });
     if (route.flightId) params.set('flight', route.flightId);
+    if (route.lessonId) params.set('lesson', route.lessonId);
     if (route.view === 'profile') {
       params.delete('view');
       params.set('grape', route.grapeId);
@@ -54,6 +56,7 @@ window.WineFlights = (() => {
     return `?${params}`;
   }
   function link(text, route, id) {
+    route = window.WineJourney ? WineJourney.carry(route, lessonContext) : route;
     const node = el('a', text, 'flight-link');
     node.href = routeHref(route);
     if (id) node.id = id;
@@ -79,6 +82,7 @@ window.WineFlights = (() => {
     return row;
   }
   function hide() {
+    lessonContext = null;
     for (const id of ['flightsView', 'worksheetView', 'profileFlightContext', 'compareFlightContext']) byId(id)?.classList.add('hidden');
     document.querySelector('.layout')?.classList.remove('flight-layout');
     document.body.classList.remove('worksheet-route');
@@ -187,6 +191,7 @@ window.WineFlights = (() => {
     byId('liveStatus').textContent = `Printable worksheet for ${flight.title}.`;
   }
   function show(route) {
+    lessonContext = window.WineJourney?.contextId(route) || null;
     const target = prepare(route.view === 'worksheet');
     if (route.view === 'flights') return showCatalog(target);
     const flight = resolve(route.flightId);
@@ -195,13 +200,15 @@ window.WineFlights = (() => {
     else showDetail(target, flight);
   }
   function renderContext(route) {
+    lessonContext = window.WineJourney?.contextId(route) || null;
     const id = contextId(route);
     const target = byId(route.view === 'compare' ? 'compareFlightContext' : 'profileFlightContext');
     if (!target) return;
     // Stable nodes retain keyboard focus when only the display preference changes.
-    if (id && target.dataset.flightId === id) { target.classList.remove('hidden'); return; }
+    if (id && target.dataset.flightId === id && target.dataset.lessonId === (lessonContext || '')) { target.classList.remove('hidden'); return; }
     target.replaceChildren();
     target.dataset.flightId = id || '';
+    target.dataset.lessonId = lessonContext || '';
     target.classList.toggle('hidden', !id);
     if (!id) return;
     const flight = resolve(id);

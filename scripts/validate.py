@@ -381,6 +381,25 @@ def main() -> None:
             compatibility.add((family, grapes[gid]["color"] if family == "still" else None))
         assert len(compatibility) == 1, f"flight/{fid}: incompatible comparison family/colour"
 
+    journey = load(DATA / "beginner-journey.json")
+    assert isinstance(journey, dict), "journey: expected object"
+    for field in ("title", "intro"):
+        assert isinstance(journey.get(field), str) and journey[field].strip(), f"journey: missing {field}"
+    assert journey.get("firstFlight") in flight_ids, "journey: unknown first flight"
+    lessons = journey.get("lessons")
+    assert isinstance(lessons, list) and len(lessons) == 4, "journey: expected four lessons"
+    assert [lesson.get("id") for lesson in lessons] == ["acidity", "tannin", "body", "sweetness"], "journey: invalid lesson sequence"
+    for lesson in lessons:
+        prefix = f"journey/{lesson['id']}"
+        for field in ("title", "cue", "exercise", "takeaway"):
+            assert isinstance(lesson.get(field), str) and lesson[field].strip(), f"{prefix}: missing {field}"
+        assert lesson.get("glossary") == lesson["id"] and lesson["glossary"] in glossary, f"{prefix}: unknown/mismatched definition"
+        profile = lesson.get("profile")
+        assert isinstance(profile, dict), f"{prefix}: missing example"
+        assert profile.get("grape") in regions.get(profile.get("region"), {}).get("grapes", {}), f"{prefix}: unknown profile"
+        assert lesson.get("flight") in flight_ids, f"{prefix}: unknown flight"
+        assert lesson.get("guideSection") in section_ids, f"{prefix}: unknown guide section"
+
     extra_locators = set(locators) - set(regions)
     assert not extra_locators, f"locator entries without regions: {sorted(extra_locators)}"
 
