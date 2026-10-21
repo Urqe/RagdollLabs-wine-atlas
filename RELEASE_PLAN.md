@@ -354,7 +354,7 @@ These comparisons are editorial questions to investigate, not predetermined nume
 - [x] Keep malformed optional glossary/guide records from rejecting the beginner loading path or crashing reference dialogs. Retain usable entries and fail softly when no guide remains.
 - [x] Replace guessed comparison-header height with progressive CSS row alignment where supported, retaining natural flow as fallback.
 - [x] Add regression coverage for the reproduced state/loading/rendering failures and run the complete validation suite.
-- [ ] Confirm deployed desktop comparison alignment, search and beginner navigation after deployment.
+- [x] Confirm deployed desktop comparison alignment, search and beginner navigation after deployment (Chrome: aligned sweet-flight metric rows, ten Riesling results, acidity → glossary → return → tannin).
 - [ ] Complete the inherited Safari/touch, real-screen-reader and mobile/enlarged-text checks; record untested environments honestly.
 
 ### Review outcome

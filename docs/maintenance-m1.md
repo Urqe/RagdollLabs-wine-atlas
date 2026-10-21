@@ -75,6 +75,6 @@ The recommendation to use regional hypotheses, alternatives and explicit uncerta
 
 - Baseline and post-fix `npm run validate`: syntax, blocking data validation, advisory audit and all regression suites, including the new maintenance suite.
 - New deterministic checks cover M01–M03. The existing suites cover all six flights, beginner progression, navigation/history, manual and seeded comparisons, special wine families, search semantics and safe rendering.
-- Desktop before-fix geometry confirmed M04. Post-deployment alignment, normal search and learner-return smoke checks are pending at this commit.
+- Desktop Chrome on the deployed M1 build: all three Routes to sweetness metric rows align at y=517 (before: y=505/455/465); Riesling search renders the expected ten distinct results; Your First Glass opens, advances through acidity to tannin, and restores focus to the glossary trigger after closing its dialog. Main-branch validation and Pages deployment both passed.
 - iPhone/iPad Safari, physical touch, real screen readers, mobile/enlarged-text layout and browser-native printing remain unverified. These are inherited gaps, not newly proven regressions or checks passed by jsdom.
 - No new profiles, score edits or teaching features ship in M1. Deferred US regions, Okanagan and German/Austrian Eiswein remain separate candidates.
