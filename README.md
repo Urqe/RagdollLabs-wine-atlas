@@ -200,3 +200,5 @@ Settings → Pages → Deploy from branch → main → / (root)
 R11 extends the same journey with [Learn to Taste](docs/learn-to-taste-r11.md). Scratch notes are optional, held in tab memory and cleared by reload. Completing the journey is not evidence of tasting skill.
 
 R12 adds [Find the Notes](docs/find-the-notes-r12.md) at `?view=learn&lesson=aromas`: independent aroma observations, optional vocabulary, six household smelling references and partner-prepared coded matching. Actual sample identities come from partner setup; this is reference practice, not blind wine identification.
+
+M3 [code maintenance](docs/maintenance-m3.md) prevents stale Compare search results and keeps slow-loading learning/flight routes shareable and keyboard-oriented.

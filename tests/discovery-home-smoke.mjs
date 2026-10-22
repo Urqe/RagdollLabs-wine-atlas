@@ -11,18 +11,20 @@ assert.ok(document.querySelectorAll("[data-home-return]").length >= 4, "cat, tit
 // Shared food vocabulary: equivalent aliases produce the same candidates in both workspaces.
 await window.FoodDiscovery.load();
 const identity = rows => rows.map(({item}) => `${item.grapeId}::${item.regionId}`);
+const compareRank = query => window.WineSearch.rank(query, 12);
+const pairingScore = (pairings, query) => window.FoodDiscovery.score(pairings, query);
 for (const [alias, canonical] of [["hamburger", "burger"], ["BBQ", "barbecue"], ["Döner", "doner"], ["phở", "pho"], ["taco al pastor", "tacos al pastor"]]) {
-  assert.deepEqual(identity(await window.rankCompareMatches(alias)), identity(await window.rankCompareMatches(canonical)), `${alias} and ${canonical} should resolve equally`);
+  assert.deepEqual(identity(await compareRank(alias)), identity(await compareRank(canonical)), `${alias} and ${canonical} should resolve equally`);
   const profiles = window.WineAtlas.allPairs();
-  assert.deepEqual(profiles.map(p => window.atlasPairingScore(p.regional.pairings, alias)), profiles.map(p => window.atlasPairingScore(p.regional.pairings, canonical)));
+  assert.deepEqual(profiles.map(p => pairingScore(p.regional.pairings, alias)), profiles.map(p => pairingScore(p.regional.pairings, canonical)));
 }
 for (const query of ["doner kebab", "carne asada", "tacos al pastor", "cochinita pibil", "sushi", "spicy sushi", "pho", "ramen", "shoyu ramen", "tonkotsu", "miso ramen", "falafel", "hummus", "summer rolls", "banh xeo"]) {
-  const matches = await window.rankCompareMatches(query);
+  const matches = await compareRank(query);
   assert.ok(matches.some(row => row.pairingMatch), `${query} must find curated pairings`);
 }
-assert.equal(window.atlasPairingScore(["pork"], "tacos al pastor"), 0, "a specific dish must not resolve to every pork pairing");
-assert.equal(window.atlasPairingScore(["Sushi and nigiri"], "spicy sushi"), 0, "spicy sushi must not collapse into delicate nigiri");
-assert.equal(window.atlasPairingScore(["Shoyu ramen"], "tonkotsu"), 0, "ramen broth variants must remain distinct");
+assert.equal(pairingScore(["pork"], "tacos al pastor"), 0, "a specific dish must not resolve to every pork pairing");
+assert.equal(pairingScore(["Sushi and nigiri"], "spicy sushi"), 0, "spicy sushi must not collapse into delicate nigiri");
+assert.equal(pairingScore(["Shoyu ramen"], "tonkotsu"), 0, "ramen broth variants must remain distinct");
 const exploreInput = document.getElementById("searchInput");
 exploreInput.value = "hamburger";
 await window.renderEnhancedAtlasSearch();
@@ -44,7 +46,7 @@ for (const [query, grapeId, count] of [["cremant pinot noir", "pinot-noir", 2], 
   const result = await window.WineSearch.rank(query, 50);
   assert.equal(result.length, count, query);
   assert.ok(result.every(({item}) => item.grapeId === grapeId && item.regional.style.family === "sparkling"));
-  assert.deepEqual(identity(await window.rankCompareMatches(query)), identity(result), "Compare and Explore must share query interpretation");
+  assert.deepEqual(identity(await compareRank(query)), identity(result), "Compare and Explore must share query interpretation");
 }
 assert.equal((await window.WineSearch.rank("cremant cabernet sauvignon")).length, 0, "permitted blending varieties mentioned in prose are not actual profile identities");
 assert.equal((await window.WineSearch.rank("cremant champagne")).length, 0, "contradictory appellations must not silently broaden");

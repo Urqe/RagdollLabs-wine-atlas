@@ -1,6 +1,6 @@
 # Wine Atlas release plan
 
-Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9 implemented 2026-10-21: Your First Glass. M1 maintenance implemented after the R1–R9 audit; verification limits are recorded below. M2 implemented 2026-10-22: scoped landing-heading focus styling for the reported macOS Safari highlight; browser verification limits remain below. R11 implemented 2026-10-22: tasting method and practical contrasts; novice and device trials remain open. R12 implemented 2026-10-22: aroma memory, vocabulary and coded household-reference practice; novice/device trials remain open. R10/R13/R14 remain planned, with label guidance next.
+Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9 implemented 2026-10-21: Your First Glass. M1 maintenance implemented after the R1–R9 audit; verification limits are recorded below. M2 implemented 2026-10-22: scoped landing-heading focus styling for the reported macOS Safari highlight; browser verification limits remain below. R11 implemented 2026-10-22: tasting method and practical contrasts; novice and device trials remain open. R12 implemented 2026-10-22: aroma memory, vocabulary and coded household-reference practice; novice/device trials remain open. M3 implemented 2026-10-22: Compare search race and optional-route loading focus/URL fixes. R10/R13/R14 remain planned, with label guidance next.
 Created: 2026-10-19.  
 Review baseline: main at `d819d99505b188f2319c37f0f4aa01153278438b` (120 profiles, 92 region entries, 47 grape/blend baselines).  
 Release IDs below are planning identifiers, not published semantic versions.
@@ -24,11 +24,12 @@ Fix misleading behavior and content before increasing the catalog. Preserve the 
 | M2 | Focus and browser polish | P2 — medium | Fix the reported macOS Safari landing-heading highlight while preserving accessible navigation | M1; implemented maintenance release |
 | R11 | Learn to Taste | P2 — medium | Repeatable tasting procedure and sensory calibration for complete beginners | R8/R9; implemented; practical verification open |
 | R12 | Find the Notes | P2 — medium | Aroma references, vocabulary and repeated non-leading practice | R11; implemented; practical verification open |
+| M3 | R12 code maintenance | P2 — medium | Fix asynchronous Compare search ordering and optional-route loading orientation | R12; implemented maintenance release |
 | R10 | From Atlas to Bottle | P2 — medium | Recognize modeled expressions on labels and wine lists | R8/R9; complete before R13 regional practice |
 | R14 | Wine Before the Modern Cellar | P3 — low | Three short historical production stories linked to modern techniques | R10; small optional learning release |
 | R13 | Taste Before the Reveal | P2 — medium | Optional blind practice progressing from broad style to regional hypotheses | R11/R12; R10 for regional/bottle-selection work |
 
-R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8/R9 introduce the reference and beginner vocabulary. The maintenance audit found additional work is needed to train sensory recognition. M1 is implemented. M2 supplies the focused heading-style correction; the feature sequence remains R11 → R12 → R10 → R14 → R13; IDs are stable planning identifiers, not an obligation to implement in numeric order. R10 is the next feature release. R14 is a compact optional guide after R10, not a catalog expansion. This learning sequence takes priority over remaining catalog expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned.
+R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8/R9 introduce the reference and beginner vocabulary. The maintenance audit found additional work is needed to train sensory recognition. M1–M3 are implemented. The feature sequence remains R11 → R12 → R10 → R14 → R13; IDs are stable planning identifiers, not an obligation to implement in numeric order. R10 is the next feature release. R14 is a compact optional guide after R10, not a catalog expansion. This learning sequence takes priority over remaining catalog expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned.
 
 ## Working rules for every release
 
@@ -384,6 +385,16 @@ R8's named comparisons and R9's four vocabulary lessons remain useful. They do n
 - [ ] Verify iPhone/iPad Safari separately if shared focus styling changes. Keep the inherited physical-touch, real-screen-reader and enlarged-text obligations open until actually checked.
 
 This is a newly reported macOS Safari visual issue. It does not close or replace M1’s older unverified device checks. M2 scopes `outline: none` to the focused, non-interactive landing heading; it does not change route focus or other heading styles.
+
+## M3 — R12 code maintenance
+
+**Status:** Implemented 2026-10-22. See [code review and verification](docs/maintenance-m3.md).
+
+- [x] Discard stale Compare results by request generation, including an earlier identical query after an A → B → A edit and a result arriving after leaving Compare.
+- [x] Write an optional lesson/flight route and focus its visible loading heading while data is pending; late data must not pull the user back after another navigation.
+- [x] Remove the unused pairing-score alias and have tests call the shared search/food APIs directly. Retain the deliberately tested fallback Explore renderer.
+- [x] Run full syntax, data, content and DOM regression validation.
+- [ ] Check deployed browser behavior and cross-device keyboard/screen-reader/Safari behavior separately; automated DOM tests do not establish those results.
 
 ## R10 — From Atlas to Bottle
 
