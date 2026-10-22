@@ -1,0 +1,98 @@
+{
+  "families": [
+    {
+      "id": "fruit",
+      "name": "Fruity",
+      "examples": "Start with fresh or dried fruit. Try citrus, orchard fruit, berries or dried fruit; use lemon, apple or raisin only if that memory fits."
+    },
+    {
+      "id": "floral",
+      "name": "Floral",
+      "examples": "Think of a flower you know. Blossom, rose or violet may help; simply floral is enough if a particular flower is unfamiliar."
+    },
+    {
+      "id": "herbal",
+      "name": "Herbal",
+      "examples": "Try fresh green herbs, dried herbs or leafy impressions. Mint is one familiar reference, not the answer to every green aroma."
+    },
+    {
+      "id": "spicy",
+      "name": "Spicy",
+      "examples": "Think of a spice cupboard: cinnamon, clove or pepper. An aromatic spice association does not mean the wine tastes hot."
+    },
+    {
+      "id": "toasty",
+      "name": "Toasty",
+      "examples": "Consider toasted bread, roasted coffee or cocoa. These words describe associations; they do not establish a particular barrel recipe."
+    },
+    {
+      "id": "earthy",
+      "name": "Earthy / savoury",
+      "examples": "Try mushroom, dried leaves or another familiar savoury association. An earthy word is not proof that soil has passed into the wine."
+    }
+  ],
+  "samples": [
+    {
+      "id": "lemon",
+      "name": "Lemon peel",
+      "family": "fruit",
+      "prepare": "Wash a lemon and place a small piece of fresh peel in a clean glass. Smell from above the rim; compare it with your memory of citrus.",
+      "reflection": "Did it feel broadly fruity, then citrus-like? Lemon and other citrus memories can overlap."
+    },
+    {
+      "id": "apple",
+      "name": "Fresh apple",
+      "family": "fruit",
+      "prepare": "Put a freshly cut slice of an apple you know in a clean glass. Smell it now, then again later and notice whether it changes.",
+      "reflection": "Was orchard fruit useful even if the apple variety was hard to name? Freshness and variety change the reference."
+    },
+    {
+      "id": "raisin",
+      "name": "Raisins",
+      "family": "fruit",
+      "prepare": "Put a few plain raisins in a clean glass. Smell them separately from the fresh apple. Use familiar dried fruit if raisins are unavailable, but record the actual substitution.",
+      "reflection": "Did dried fruit fit better than fresh fruit? Your own familiar dried-fruit word is useful too."
+    },
+    {
+      "id": "mint",
+      "name": "Fresh mint",
+      "family": "herbal",
+      "prepare": "Lightly bruise a clean mint leaf in a glass. Smell gently; compare the leafy impression with any more specific association.",
+      "reflection": "Did herbal fit? Mint can be particularly distinctive, and does not stand for every herb."
+    },
+    {
+      "id": "cinnamon",
+      "name": "Cinnamon stick",
+      "family": "spicy",
+      "prepare": "Place a plain cinnamon stick in a clean glass. Smell gently without grinding it or inhaling powder.",
+      "reflection": "Could you describe it as spicy before naming cinnamon? Familiarity with a spice changes how easily its name comes to mind."
+    },
+    {
+      "id": "toast",
+      "name": "Plain toast",
+      "family": "toasty",
+      "prepare": "Let a small piece of plain toasted bread cool, then place it in a clean glass. Compare its smell with untoasted bread if available.",
+      "reflection": "Was toasted or roasted enough? Toast level and the bread itself change what you notice."
+    }
+  ],
+  "sources": [
+    {
+      "label": "WSET · How to train your palate",
+      "url": "https://www.wsetglobal.com/knowledge-centre/blog/2026/how-to-train-your-palate",
+      "scope": "Everyday aroma memory and broad-to-specific language; original household exercises, not copied course material.",
+      "reviewedOn": "2026-10-22"
+    },
+    {
+      "label": "UC Davis · Sensory Evaluation of Wine",
+      "url": "https://news.bftv.ucdavis.edu/viticulture-and-enology/course-profile-professor-hildegarde-heymanns-class-sensory-evaluation-wine",
+      "scope": "Labeled, coded and matching reference practice and individual sensory variation; this small exercise does not replicate or validate the university course.",
+      "reviewedOn": "2026-10-22"
+    },
+    {
+      "label": "NIDCD · How taste works",
+      "url": "https://www.nidcd.nih.gov/health/taste-disorders",
+      "scope": "Aroma via the nose and from the mouth, basic taste and texture; no exclusive tongue map.",
+      "reviewedOn": "2026-10-22"
+    }
+  ]
+}

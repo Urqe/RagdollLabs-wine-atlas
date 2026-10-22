@@ -198,3 +198,5 @@ Settings → Pages → Deploy from branch → main → / (root)
 > Wine profiles describe typical regional and varietal characteristics. Individual wines may differ substantially by vintage, producer, vineyard and winemaking. Terroir descriptions summarize growing conditions and common regional associations; they should not be read as claims that soil minerals or nearby plants directly transfer specific flavors into wine.
 
 R11 extends the same journey with [Learn to Taste](docs/learn-to-taste-r11.md). Scratch notes are optional, held in tab memory and cleared by reload. Completing the journey is not evidence of tasting skill.
+
+R12 adds [Find the Notes](docs/find-the-notes-r12.md) at `?view=learn&lesson=aromas`: independent aroma observations, optional vocabulary, six household smelling references and partner-prepared coded matching. Actual sample identities come from partner setup; this is reference practice, not blind wine identification.

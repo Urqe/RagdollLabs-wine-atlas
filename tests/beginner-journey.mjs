@@ -123,7 +123,7 @@ assert.equal(params().get('lesson'), 'start');
 await app.close();
 
 // Every step deep-links and refreshes; invalid steps and unrelated context fail honestly.
-for (const id of ['start', 'taste', ...data.lessons.map(x => x.id), 'first-comparison', 'complete', 'unknown']) {
+for (const id of ['start', 'taste', 'aromas', ...data.lessons.map(x => x.id), 'first-comparison', 'complete', 'unknown']) {
   const direct = await createApp({ url: `${base}?view=learn&lesson=${id}` });
   await direct.settle();
   assert.equal(direct.document.activeElement.id, 'journeyHeading');
