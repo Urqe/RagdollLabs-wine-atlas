@@ -1,6 +1,6 @@
 # Wine Atlas release plan
 
-Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9 implemented 2026-10-21: Your First Glass. M1 maintenance implemented after the R1–R9 audit; verification limits are recorded below. M2 implemented 2026-10-22: scoped landing-heading focus styling for the reported macOS Safari highlight; browser verification limits remain below. R11 implemented 2026-10-22: tasting method and practical contrasts; novice and device trials remain open. R10/R12/R13 remain planned, with aroma training next.
+Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9 implemented 2026-10-21: Your First Glass. M1 maintenance implemented after the R1–R9 audit; verification limits are recorded below. M2 implemented 2026-10-22: scoped landing-heading focus styling for the reported macOS Safari highlight; browser verification limits remain below. R11 implemented 2026-10-22: tasting method and practical contrasts; novice and device trials remain open. R12 implemented 2026-10-22: aroma memory, vocabulary and coded household-reference practice; novice/device trials remain open. R10/R13/R14 remain planned, with label guidance next.
 Created: 2026-10-19.  
 Review baseline: main at `d819d99505b188f2319c37f0f4aa01153278438b` (120 profiles, 92 region entries, 47 grape/blend baselines).  
 Release IDs below are planning identifiers, not published semantic versions.
@@ -23,11 +23,12 @@ Fix misleading behavior and content before increasing the catalog. Preserve the 
 | M1 | R1–R9 Maintenance | P2 — medium | Repair reproduced search/comparison/enrichment defects and comparison layout | R1–R9; implemented maintenance release |
 | M2 | Focus and browser polish | P2 — medium | Fix the reported macOS Safari landing-heading highlight while preserving accessible navigation | M1; implemented maintenance release |
 | R11 | Learn to Taste | P2 — medium | Repeatable tasting procedure and sensory calibration for complete beginners | R8/R9; implemented; practical verification open |
-| R12 | Find the Notes | P2 — medium | Aroma references, vocabulary and repeated non-leading practice | R11; next feature release |
+| R12 | Find the Notes | P2 — medium | Aroma references, vocabulary and repeated non-leading practice | R11; implemented; practical verification open |
 | R10 | From Atlas to Bottle | P2 — medium | Recognize modeled expressions on labels and wine lists | R8/R9; complete before R13 regional practice |
+| R14 | Wine Before the Modern Cellar | P3 — low | Three short historical production stories linked to modern techniques | R10; small optional learning release |
 | R13 | Taste Before the Reveal | P2 — medium | Optional blind practice progressing from broad style to regional hypotheses | R11/R12; R10 for regional/bottle-selection work |
 
-R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8/R9 introduce the reference and beginner vocabulary. The maintenance audit found additional work is needed to train sensory recognition. M1 is implemented. M2 supplies the focused heading-style correction; the feature sequence remains R11 → R12 → R10 → R13; IDs are stable planning identifiers, not an obligation to implement in numeric order. R12 is the next feature release. This learning sequence takes priority over remaining catalog expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned.
+R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8/R9 introduce the reference and beginner vocabulary. The maintenance audit found additional work is needed to train sensory recognition. M1 is implemented. M2 supplies the focused heading-style correction; the feature sequence remains R11 → R12 → R10 → R14 → R13; IDs are stable planning identifiers, not an obligation to implement in numeric order. R10 is the next feature release. R14 is a compact optional guide after R10, not a catalog expansion. This learning sequence takes priority over remaining catalog expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned.
 
 ## Working rules for every release
 
@@ -405,6 +406,13 @@ This is a newly reported macOS Safari visual issue. It does not close or replace
 - [ ] Keep guidance useful for shops and restaurant lists without requiring live inventory, prices, commercial recommendations, label scanning or a backend.
 - [ ] Preserve source traceability and reviewed/limited evidence distinctions; leave unsupported fields absent rather than generating generic advice.
 
+### Phylloxera and vineyard terminology
+
+- [ ] Add connected glossary entries for phylloxera, grafted/ungrafted/own-rooted vines, and pre-/post-phylloxera terminology. Explain susceptible roots and resistant/tolerant rootstocks using authoritative viticulture sources; grafting does not mean the wine is a blend of rootstock and fruiting varieties.
+- [ ] Distinguish wine actually made before a local outbreak, vines demonstrably surviving from that period, and modern wine from ungrafted vines. Ungrafted does not establish vine age; there is no single worldwide pre-/post-phylloxera cutoff. Check what a producer means rather than treating the phrase as a universal classification.
+- [ ] Add one or two concise “Why this vineyard matters” examples attached to documented parcels/bottlings, such as Quinta do Noval Nacional or Bollinger Vieilles Vignes Françaises after current claim review. Do not label a whole region phylloxera-free from one surviving parcel.
+- [ ] Keep the atlas’s style model unchanged: no pre-phylloxera wine family, automatic quality bonus, purity claim or promised universal flavour fingerprint. Teach why the distinction matters to history and vineyard practice, and what it cannot establish about taste.
+
 ### Acceptance criteria
 
 - [ ] Each pilot case explains what to look for, what the cue establishes, what it does not establish and when more information is needed.
@@ -419,7 +427,7 @@ This is a newly reported macOS Safari visual issue. It does not close or replace
 
 **Goal:** Help a complete beginner perform a repeatable tasting and distinguish what they physically notice.
 
-**Status:** Implemented 2026-10-22 as an extension of R9. See [implementation, teaching sources and verification limits](docs/learn-to-taste-r11.md). R12 is next; novice observation and physical-device checks below remain open.
+**Status:** Implemented 2026-10-22 as an extension of R9. See [implementation, teaching sources and verification limits](docs/learn-to-taste-r11.md). R12 extends aroma recognition; novice observation and physical-device checks below remain open.
 
 ### Scope
 
@@ -447,23 +455,46 @@ This is a newly reported macOS Safari visual issue. It does not close or replace
 
 **Goal:** Build aroma recognition and useful vocabulary through familiar references and practice, not suggestion alone.
 
+**Status:** Implemented 2026-10-22. See [implementation, sources and verification](docs/find-the-notes-r12.md).
+
 **Depends on:** R11. Retain and reuse the existing profile note data where appropriate; review terminology and supporting teaching sources before expanding it.
 
 ### Scope
 
-- [ ] Teach a broad-to-specific sequence: fruity/floral/herbal/spicy/toasty/earthy or another defensible family, then a familiar example such as citrus or red berries, then a more precise descriptor only when useful.
-- [ ] Add a small original set of familiar food/aroma reference exercises with clear preparation/smelling instructions. Teach orthonasal smelling and retronasal flavour perception in beginner language.
-- [ ] Explain that a tasting descriptor is an association, not proof of an added ingredient or literal soil transfer. Allow unfamiliarity with a reference, different cultural vocabularies, individual sensitivity and “I cannot identify it yet”.
-- [ ] Ask for independent observations before offering optional vocabulary or the atlas's expected notes. Use labeled reference practice first, then optional coded matching and repeat sessions with actual examples.
-- [ ] Make feedback describe the overlap and differences without declaring a person's perception wrong because it differs from a modeled profile. Feedback on reference matching must use the actual sample identity, not an editorial score.
-- [ ] Author original material with usable references. Do not copy proprietary aroma-wheel artwork, tasting grids or certification content without permission.
+- [x] Teach a broad-to-specific sequence: fruity/floral/herbal/spicy/toasty/earthy or another defensible family, then a familiar example such as citrus or red berries, then a more precise descriptor only when useful.
+- [x] Add a small original set of familiar food/aroma reference exercises with clear preparation/smelling instructions. Teach orthonasal smelling and retronasal flavour perception in beginner language.
+- [x] Explain that a tasting descriptor is an association, not proof of an added ingredient or literal soil transfer. Allow unfamiliarity with a reference, different cultural vocabularies, individual sensitivity and “I cannot identify it yet”.
+- [x] Ask for independent observations before offering optional vocabulary or the atlas's expected notes. Use labeled reference practice first, then optional coded matching and repeat sessions with actual examples.
+- [x] Make feedback describe the overlap and differences without declaring a person's perception wrong because it differs from a modeled profile. Feedback on reference matching must use the actual sample identity, not an editorial score.
+- [x] Author original material with usable references. Do not copy proprietary aroma-wheel artwork, tasting grids or certification content without permission.
 
 ### Acceptance criteria
 
-- [ ] Beginners can use a broad aroma family without being forced to guess an obscure fruit; optional examples progressively help refine the description.
-- [ ] Expected notes are not the first thing shown in a practice exercise, and actual reference identity is revealed only at the intended feedback step.
+- [x] Offer broad families, optional finer vocabulary and an independent observation field; users can use their own words or remain uncertain. Actual novice usability remains to be assessed below.
+- [x] Expected notes are not the first thing shown in a practice exercise, and actual reference identity is revealed only at the intended feedback step.
 - [ ] Repeatability and vocabulary usefulness are assessed in a small novice observation exercise; difficulty and individual differences are documented. Do not invent improvement percentages.
-- [ ] Existing glossary/search/profile semantics remain consistent; accessibility and mobile/touch checks include the practice/feedback transition.
+- [ ] Complete manual phone/tablet, enlarged-text, keyboard/screen-reader and Safari/touch checks across setup, matching and reveal. Automated glossary/search/profile and learning contracts pass; record deployed Chrome checks separately.
+
+## R14 — Wine Before the Modern Cellar
+
+**Status:** Planned. Small optional learning release after R10; retain stable numbering. Follow with R13 blind practice. No dates assigned.
+
+**Goal:** Explain historical production through techniques that help wine lovers understand today’s bottles, without adding a historical-wine database.
+
+### Scope
+
+- [ ] Create one optional guide of approximately 600–900 words, with three compact stories: Georgia, ancient Greece and Rome. For each use “what they did → why → what differs today → what survives”. Keep dates/regions specific; none is a single uniform ancient method.
+- [ ] Georgian story: distinguish archaeological evidence for early grape wine from documented later/living qvevri traditions. Explain clay vessels and skin contact with regional variation; do not claim an unchanged recipe over millennia or equate every qvevri wine with amber wine.
+- [ ] Greek story: review evidence for making, storage, transport, preservation and serving practices in a defined period. Discuss resin/amphorae where supported; distinguish drinking customs from fermentation and avoid presenting every Greek wine as resinated or sweet.
+- [ ] Roman story: pressing, large fermentation/storage vessels such as dolia, and production/distribution. Separate archaeological/textual findings from experimental reconstructions or inferred sensory possibilities. Do not claim that a modern clay wine reproduces one definitive Roman taste.
+- [ ] Link relevant existing glossary terms (qvevri, amphora, skin contact, oxidation and grafting/phylloxera as appropriate) and Georgian profiles. Place the guide in optional learning/reference material, outside the primary tasting sequence. Add glossary terms only when needed for the guide.
+- [ ] Use archaeology publications, museum/university research, documented primary texts and living-tradition sources with dated review scope. Preserve the distinction between evidence and interpretation in ordinary language. Do not copy proprietary maps, artwork or book passages.
+
+### Acceptance and boundaries
+
+- [ ] Each story connects a historical practice to a useful modern production concept without a simplistic ancient-bad/modern-good or ancient-pure/modern-artificial progression.
+- [ ] The guide stays within the compact scope: no new historical profiles, fabricated tasting scores, comprehensive timeline, producer catalog or promised ancient flavour recreation.
+- [ ] Readers can open and leave the guide with accessible controls and useful return context; check links, phone/tablet readability, keyboard, screen readers and physical Safari/touch, recording unverified environments honestly.
 
 ## R13 — Taste Before the Reveal
 

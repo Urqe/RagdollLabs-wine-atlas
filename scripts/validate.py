@@ -425,6 +425,27 @@ def main() -> None:
         if key == "tannin":
             assert all(grapes[w["grape"]]["color"] == "red" for w in wines), "practice/tannin: requires two red wines"
 
+    aromas = load(DATA / "aroma-practice.json")
+    assert isinstance(aromas, dict), "aromas: expected object"
+    families, samples = aromas.get("families"), aromas.get("samples")
+    assert isinstance(families, list) and len(families) == 6, "aromas: expected six families"
+    assert isinstance(samples, list) and len(samples) == 6, "aromas: expected six references"
+    family_ids, sample_ids = set(), set()
+    for family in families:
+        assert isinstance(family, dict) and all(isinstance(family.get(k), str) and family[k].strip() for k in ("id", "name", "examples")), "aromas: invalid family"
+        assert family["id"] not in family_ids, "aromas: duplicate family"
+        family_ids.add(family["id"])
+    for sample in samples:
+        assert isinstance(sample, dict) and all(isinstance(sample.get(k), str) and sample[k].strip() for k in ("id", "name", "prepare", "reflection")), "aromas: invalid reference"
+        assert sample["id"] not in sample_ids, "aromas: duplicate reference"
+        assert sample.get("family") in family_ids, "aromas: unknown family"
+        sample_ids.add(sample["id"])
+    aroma_sources = aromas.get("sources")
+    assert isinstance(aroma_sources, list) and aroma_sources, "aromas: missing sources"
+    for source in aroma_sources:
+        assert isinstance(source, dict) and all(isinstance(source.get(k), str) and source[k].strip() for k in ("label", "url", "scope", "reviewedOn")), "aromas: invalid source"
+        assert source["url"].startswith("https://"), "aromas: unsafe source URL"
+
     extra_locators = set(locators) - set(regions)
     assert not extra_locators, f"locator entries without regions: {sorted(extra_locators)}"
 

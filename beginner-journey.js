@@ -6,12 +6,12 @@ window.WineJourney = (() => {
   let data = null;
   let glossary = {};
   let loaded = false;
-  const reserved = ['start', 'taste', 'first-comparison', 'complete'];
+  const reserved = ['start', 'taste', 'aromas', 'first-comparison', 'complete'];
   const scratch = new Map();
   const label = lesson => lesson.id[0].toUpperCase() + lesson.id.slice(1);
   const promise = Promise.all([
     WineData.json('./data/beginner-journey.json', { optional: true, fallback: null }),
-    loadGlossary(), WineFlights.load()
+    loadGlossary(), WineFlights.load(), WineAromas.load()
   ]).then(([value, definitions]) => {
     data = value;
     glossary = definitions;
@@ -108,7 +108,7 @@ window.WineJourney = (() => {
   function progress(current) {
     const nav = el('nav', null, 'journey-progress');
     nav.setAttribute('aria-label', 'Journey steps');
-    const steps = [['start', 'Start'], ['taste', 'Tasting method'], ...lessons().map(lesson => [lesson.id, label(lesson)]), ['first-comparison', 'Try a comparison'], ['complete', 'Finish']];
+    const steps = [['start', 'Start'], ['taste', 'Tasting method'], ...lessons().map(lesson => [lesson.id, label(lesson)]), ['aromas', 'Find the Notes'], ['first-comparison', 'Try a comparison'], ['complete', 'Finish']];
     for (const [id, label] of steps) {
       const node = link(label, { view: 'learn', lessonId: id }, `journey-step-${id}`);
       if (id === current) node.setAttribute('aria-current', 'step');
@@ -219,12 +219,18 @@ window.WineJourney = (() => {
       return;
     }
     target.append(el('p', data.title, 'kicker'));
-    if (id === 'taste') {
+    if (id === 'aromas') {
+      const status = WineAromas.show(target, { heading, actions, link, observation, clearNotes: key => scratch.delete(key), rerender: () => WineNavigation.go({ view: 'learn', lessonId: 'aromas' }, { history: 'none' }) });
+      target.append(progress(id));
+      byId('liveStatus').textContent = `${data.title}. ${status}`;
+      return;
+    } else if (id === 'taste') {
       showMethod(target);
     } else if (id === 'start') {
       target.append(heading('From your first sip to useful words'), el('p', data.intro, 'journey-lead'),
         el('p', 'Learn to separate mouth-watering acidity, drying tannin, the weight of body and the taste of sweetness. There is no right preference and no test to pass.'),
         actions(link('Learn the tasting method', { view: 'learn', lessonId: 'taste' }, 'journey-next', true)),
+        actions(link('Find aroma notes', { view: 'learn', lessonId: 'aromas' }, 'journey-aromas')),
         actions(link('Begin with acidity', { view: 'learn', lessonId: lessons()[0].id }, 'journey-vocabulary')),
         el('p', 'Already comfortable with those ideas? Skip straight to the comparison or use Explore and Compare as usual.', 'small'),
         actions(link('Skip to the comparison', { view: 'learn', lessonId: 'first-comparison' }, 'journey-skip'), link('Explore wines', { view: 'explore' })));
@@ -233,6 +239,7 @@ window.WineJourney = (() => {
       target.append(heading('You have four useful questions'), el('p', 'How mouth-watering? How grippy? How weighty? How sweet? Use those questions to describe a wine before deciding whether you like it.', 'journey-lead'),
         el('p', 'Fruit aroma is separate from sugar; drying tannin is separate from acidity. Body describes weight, not quality. Reading or finishing this journey does not demonstrate tasting skill. Return to real examples when useful; your preference can change with the bottle, food and occasion.'),
         actions(link('Explore tasting flights', { view: 'flights' }, 'journey-next', true), link('Explore wines', { view: 'explore' })),
+        actions(link('Practise aroma recognition', { view: 'learn', lessonId: 'aromas' }, 'journey-aromas')),
         actions(link('Restart the journey', { view: 'learn', lessonId: 'start' }, 'journey-restart'), link('Back to the comparison', { view: 'learn', lessonId: 'first-comparison' })));
       referenceButtons(target, 'scores');
     } else if (id === 'first-comparison') {

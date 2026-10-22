@@ -79,3 +79,9 @@ rejected(lambda d: d['beginner-journey.json']['practice']['contrasts']['acidity'
 rejected(lambda d: d['beginner-journey.json']['practice']['method'][0].update(body=''), 'Empty tasting instruction accepted')
 rejected(lambda d: d['beginner-journey.json']['practice']['contrasts']['body']['wines'][0].update(region='missing'), 'Unknown practical profile accepted')
 print('OK: practical tasting steps, references and contrasting profiles')
+
+rejected(lambda d: d['aroma-practice.json']['samples'][0].update(family='missing'), 'Unknown aroma family accepted')
+rejected(lambda d: d['aroma-practice.json']['samples'][1].update(id=d['aroma-practice.json']['samples'][0]['id']), 'Duplicate aroma identity accepted')
+rejected(lambda d: d['aroma-practice.json']['samples'][0].update(prepare=''), 'Empty reference preparation accepted')
+rejected(lambda d: d['aroma-practice.json']['sources'][0].update(url='javascript:alert(1)'), 'Unsafe aroma source accepted')
+print('OK: aroma families, reference identities, preparation and sources')
