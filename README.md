@@ -8,12 +8,12 @@ The visible brand is **RagDollLabs**; the repository and GitHub Pages path keep 
 
 ## Features
 
-- **Welcome experience** — first-time visitors start from a minimal landing page; **New to wine?** opens **Your First Glass**, an optional short journey through acidity, tannin, body and sweetness, ending with an R8 tasting flight
+- **Welcome experience** — first-time visitors start from a minimal landing page; **New to wine?** opens **Your First Glass**, an optional tasting method and practice with acidity, tannin, body and sweetness, ending with an R8 tasting flight
 - **Wine Explorer** — browse by grape / represented blend, or through **Country → Region → Grape / blend**; when only one choice is valid it opens automatically
 - **Atlas search** — grapes, regions, countries, climate and style descriptions, flavour notes, discovery labels and food, with structured colour/sweetness filters, grape synonyms and constrained appellation searches (Champagne, crémant, Cava, Prosecco, Moscato d'Asti)
 - **Sensory profile** — body, acidity, tannin, sweetness, alcohol, fruit, oak and earth on a 0–5 scale (see [Scores](#scores))
 - **Why does it taste like this?** — explicit cause → effect explanations connecting growing conditions and winemaking to style
-- **Your First Glass** — short observation exercises with no bottle required, optional definitions/examples, shareable lesson URLs and return links from profiles/flights; no quiz, account or saved progress
+- **Your First Glass** — a six-step tasting method, sourced practical contrasts, optional scratch notes and guidance after observation, with shareable lessons and profile/flight returns; reading needs no bottle, practical recognition needs real examples
 - **How wine gets its taste** — a beginner explainer covering climate, grape, fermentation, skins, oak, lees, bubbles, ageing and minerality, with links to profiles that show each effect
 - **Wine glossary** — beginner basics (acidity, body, dry vs sweet, oak, vintage) and technical terms (qvevri, botrytis, dosage, carbonic maceration); technical terms are tappable inside profiles
 - **Beyond still wine** — sparkling, sweet, fortified, rosé and orange profiles carry structured production-method metadata
@@ -196,3 +196,5 @@ Settings → Pages → Deploy from branch → main → / (root)
 ## Disclaimer
 
 > Wine profiles describe typical regional and varietal characteristics. Individual wines may differ substantially by vintage, producer, vineyard and winemaking. Terroir descriptions summarize growing conditions and common regional associations; they should not be read as claims that soil minerals or nearby plants directly transfer specific flavors into wine.
+
+R11 extends the same journey with [Learn to Taste](docs/learn-to-taste-r11.md). Scratch notes are optional, held in tab memory and cleared by reload. Completing the journey is not evidence of tasting skill.

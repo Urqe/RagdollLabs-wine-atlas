@@ -1,6 +1,6 @@
 # Wine Atlas release plan
 
-Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9 implemented 2026-10-21: Your First Glass. M1 maintenance implemented after the R1–R9 audit; verification limits are recorded below. M2 implemented 2026-10-22: scoped landing-heading focus styling for the reported macOS Safari highlight; browser verification limits remain below. R10–R13 remain planned, with practical tasting and aroma training prioritized before advanced blind practice.
+Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9 implemented 2026-10-21: Your First Glass. M1 maintenance implemented after the R1–R9 audit; verification limits are recorded below. M2 implemented 2026-10-22: scoped landing-heading focus styling for the reported macOS Safari highlight; browser verification limits remain below. R11 implemented 2026-10-22: tasting method and practical contrasts; novice and device trials remain open. R10/R12/R13 remain planned, with aroma training next.
 Created: 2026-10-19.  
 Review baseline: main at `d819d99505b188f2319c37f0f4aa01153278438b` (120 profiles, 92 region entries, 47 grape/blend baselines).  
 Release IDs below are planning identifiers, not published semantic versions.
@@ -22,12 +22,12 @@ Fix misleading behavior and content before increasing the catalog. Preserve the 
 | R9 | Your First Glass | P2 — medium | Short practical beginner journey with clear next steps | R8 for guided-flight integration |
 | M1 | R1–R9 Maintenance | P2 — medium | Repair reproduced search/comparison/enrichment defects and comparison layout | R1–R9; implemented maintenance release |
 | M2 | Focus and browser polish | P2 — medium | Fix the reported macOS Safari landing-heading highlight while preserving accessible navigation | M1; implemented maintenance release |
-| R11 | Learn to Taste | P2 — medium | Repeatable tasting procedure and sensory calibration for complete beginners | R8/R9; next feature release after M1 |
-| R12 | Find the Notes | P2 — medium | Aroma references, vocabulary and repeated non-leading practice | R11 |
+| R11 | Learn to Taste | P2 — medium | Repeatable tasting procedure and sensory calibration for complete beginners | R8/R9; implemented; practical verification open |
+| R12 | Find the Notes | P2 — medium | Aroma references, vocabulary and repeated non-leading practice | R11; next feature release |
 | R10 | From Atlas to Bottle | P2 — medium | Recognize modeled expressions on labels and wine lists | R8/R9; complete before R13 regional practice |
 | R13 | Taste Before the Reveal | P2 — medium | Optional blind practice progressing from broad style to regional hypotheses | R11/R12; R10 for regional/bottle-selection work |
 
-R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8/R9 introduce the reference and beginner vocabulary. The maintenance audit found additional work is needed to train sensory recognition. M1 is implemented. M2 supplies the focused heading-style correction; the feature sequence remains R11 → R12 → R10 → R13; IDs are stable planning identifiers, not an obligation to implement in numeric order. R11 is the next feature release. This learning sequence takes priority over remaining catalog expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned.
+R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8/R9 introduce the reference and beginner vocabulary. The maintenance audit found additional work is needed to train sensory recognition. M1 is implemented. M2 supplies the focused heading-style correction; the feature sequence remains R11 → R12 → R10 → R13; IDs are stable planning identifiers, not an obligation to implement in numeric order. R12 is the next feature release. This learning sequence takes priority over remaining catalog expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned.
 
 ## Working rules for every release
 
@@ -419,28 +419,28 @@ This is a newly reported macOS Safari visual issue. It does not close or replace
 
 **Goal:** Help a complete beginner perform a repeatable tasting and distinguish what they physically notice.
 
-**Priority and execution:** Next feature release after M1, ahead of R10 and catalog expansion. Extend R9 rather than building a competing learning system.
+**Status:** Implemented 2026-10-22 as an extension of R9. See [implementation, teaching sources and verification limits](docs/learn-to-taste-r11.md). R12 is next; novice observation and physical-device checks below remain open.
 
 ### Scope
 
-- [ ] Lead learning copy with what to expect, what to notice and how to connect familiar sensations to words. Keep review backlogs and internal evidence status in methodology/developer documentation; retain useful bottle variation and uncertainty in plain language. Audit the guide, profiles and flights for process-heavy copy.
-- [ ] Explain smell versus basic taste versus mouthfeel. Use gums/inner cheeks for noticing tannic grip and the mouth-watering response for acidity; do not teach exclusive tongue zones or assign fruit aromas to locations on the tongue.
+- [x] Lead learning copy with what to expect, what to notice and how to connect familiar sensations to words. Keep review backlogs and internal evidence status in methodology/developer documentation; retain useful bottle variation and uncertainty in plain language. Audit the guide, profiles and flights for process-heavy copy.
+- [x] Explain smell versus basic taste versus mouthfeel. Use gums/inner cheeks for noticing tannic grip and the mouth-watering response for acidity; do not teach exclusive tongue zones or assign fruit aromas to locations on the tongue.
 
-- [ ] Add a short practical procedure: prepare similar glasses/conditions, look, smell before and after gentle swirling, take a small sip, notice mouth-watering/drying/weight/sweetness and finish, then record an observation before reading suggested notes.
-- [ ] Explain the difference between aroma/flavour, sweetness, bitterness, astringency and alcohol warmth in plain language. Keep quality preference separate from sensory description.
-- [ ] Make tannin recognition a real exercise: use familiar tea texture as an optional reference, then a sourced low-/higher-tannin red-wine contrast. Add separate acidity and body contrasts; do not use two whites as evidence of learning red-wine tannin.
-- [ ] Choose a small, accessible set of existing profiles/bottle styles after reviewing their teaching claims and expression evidence. Give selection and substitution cues so an unsuitable sweet/oaked/mature bottle does not invalidate the lesson silently.
-- [ ] Teach relative low/medium/high observations using real reference comparisons. Do not require learners to match the atlas's editorial half-point scores or treat its alcohol/sugar anchors as measured calibration standards.
-- [ ] Keep theory available without wine, but explicitly distinguish reading or imagined analogies from practical recognition. Allow small pours, spitting and stopping without a drinking-volume or session-frequency target.
-- [ ] Preserve skipping, restarting, accessible controls and useful return context. No mandatory quiz, account or persistent tasting notebook.
+- [x] Add a short practical procedure: prepare similar glasses/conditions, look, smell before and after gentle swirling, take a small sip, notice mouth-watering/drying/weight/sweetness and finish, then record an observation before reading suggested notes.
+- [x] Explain the difference between aroma/flavour, sweetness, bitterness, astringency and alcohol warmth in plain language. Keep quality preference separate from sensory description.
+- [x] Make tannin recognition a real exercise: use familiar tea texture as an optional reference, then a sourced low-/higher-tannin red-wine contrast. Add separate acidity and body contrasts; do not use two whites as evidence of learning red-wine tannin.
+- [x] Choose a small, accessible set of existing profiles/bottle styles after reviewing their teaching claims and expression evidence. Give selection and substitution cues so an unsuitable sweet/oaked/mature bottle does not invalidate the lesson silently.
+- [x] Teach relative low/medium/high observations using real reference comparisons. Do not require learners to match the atlas's editorial half-point scores or treat its alcohol/sugar anchors as measured calibration standards.
+- [x] Keep theory available without wine, but explicitly distinguish reading or imagined analogies from practical recognition. Allow small pours, spitting and stopping without a drinking-volume or session-frequency target.
+- [x] Preserve skipping, restarting, accessible controls and useful return context. No mandatory quiz, account or persistent tasting notebook.
 
 ### Acceptance criteria
 
-- [ ] A first-time learner can follow the physical tasting sequence without external instructions and record their own observations before seeing expected descriptors.
-- [ ] The practical exercises explicitly distinguish tannin's drying/grip from acidity's mouth-watering response, bitterness and sweetness; body is not presented as quality.
-- [ ] Every contrast has appropriate reviewed expression evidence, bottle-selection cues and named confounding factors; no artificial score differences are introduced.
+- [x] A first-time learner can follow the physical tasting sequence without external instructions and record their own observations before seeing expected descriptors.
+- [x] The practical exercises explicitly distinguish tannin's drying/grip from acidity's mouth-watering response, bitterness and sweetness; body is not presented as quality.
+- [x] Every contrast has appropriate reviewed expression evidence, bottle-selection cues and named confounding factors; no artificial score differences are introduced.
 - [ ] Observe novice users completing the procedure and explaining the distinctions. Record difficulties and limits instead of equating a Finish click or DOM test with skill acquisition.
-- [ ] Validate references/navigation and check phone/tablet readability, enlarged text, keyboard, screen readers and physical Safari/touch behavior; keep unverified checks open.
+- [ ] Complete manual phone/tablet, enlarged-text, screen-reader and physical Safari/touch checks. Automated reference/navigation contracts pass; deployed Chrome checks are recorded separately and do not replace these trials.
 
 ## R12 — Find the Notes
 

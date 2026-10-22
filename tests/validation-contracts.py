@@ -72,3 +72,10 @@ rejected(lambda d: d['beginner-journey.json']['lessons'][0].update(guideSection=
 rejected(lambda d: d['beginner-journey.json'].update(firstFlight='unknown'), 'Unknown first-comparison flight accepted')
 rejected(lambda d: d['beginner-journey.json']['lessons'][0].update(exercise=''), 'Missing observation exercise accepted')
 print('OK: beginner journey sequence, definitions, observation prompts and linked references')
+
+# Practical lessons must retain usable teaching content and canonical examples.
+rejected(lambda d: d['beginner-journey.json']['practice']['contrasts']['tannin']['wines'][0].update(grape='riesling', region='clare-valley'), 'White substituted for tannin practice')
+rejected(lambda d: d['beginner-journey.json']['practice']['contrasts']['acidity'].update(references=['missing']), 'Unknown teaching reference accepted')
+rejected(lambda d: d['beginner-journey.json']['practice']['method'][0].update(body=''), 'Empty tasting instruction accepted')
+rejected(lambda d: d['beginner-journey.json']['practice']['contrasts']['body']['wines'][0].update(region='missing'), 'Unknown practical profile accepted')
+print('OK: practical tasting steps, references and contrasting profiles')

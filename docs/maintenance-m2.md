@@ -10,7 +10,7 @@ Implemented 2026-10-22 following the supplied macOS Safari screenshot showing a 
 
 ## Verification
 
-- Run the existing full `npm run validate` suite, including navigation/history/focus and home-return regression checks. No behavioral test is added for this CSS-only correction; a DOM test cannot verify Safari’s native painting.
-- Deployed desktop Chrome check: pending at implementation commit. Check fresh load, refresh, pointer/keyboard home return, control focus, history and representative other headings.
+- Passed the existing full `npm run validate` suite, including navigation/history/focus and home-return regression checks. No behavioral test is added for this CSS-only correction; a DOM test cannot verify Safari’s native painting.
+- Deployed desktop Chrome: after reload the heading still receives focus and has `outline-style: none`; pressing Tab reaches Explore wines with a visible 3px gold outline. This confirms the scoped style and preserved actionable focus. Remaining pointer/keyboard home-return, history and other-heading behavior is covered by existing regression suites; additional manual Safari checks stay open.
 - User-provided screenshot establishes the macOS Safari symptom. Actual before/after Safari rendering, Safari keyboard settings and physical iPhone/iPad testing remain unverified here.
 - Real screen-reader use, mobile/enlarged-text checks and browser-native printing remain inherited open verification items; M2 does not mark those as complete.

@@ -400,6 +400,31 @@ def main() -> None:
         assert lesson.get("flight") in flight_ids, f"{prefix}: unknown flight"
         assert lesson.get("guideSection") in section_ids, f"{prefix}: unknown guide section"
 
+    practice = journey.get("practice")
+    assert isinstance(practice, dict), "practice: expected object"
+    method = practice.get("method")
+    assert isinstance(method, list) and len(method) == 6, "practice: expected six method steps"
+    for step in method:
+        assert isinstance(step, dict) and all(isinstance(step.get(k), str) and step[k].strip() for k in ("title", "body")), "practice: invalid method step"
+    references = practice.get("references")
+    assert isinstance(references, dict) and references, "practice: missing references"
+    for key, ref in references.items():
+        assert all(isinstance(ref.get(k), str) and ref[k].strip() for k in ("label", "url", "scope", "reviewedOn")), f"practice/{key}: invalid reference"
+        assert ref["url"].startswith("https://") and len(ref["reviewedOn"]) == 10, f"practice/{key}: invalid reference URL/date"
+    contrasts = practice.get("contrasts")
+    assert isinstance(contrasts, dict) and set(contrasts) == {"acidity", "tannin", "body", "sweetness"}, "practice: expected four contrasts"
+    for key, contrast in contrasts.items():
+        assert all(isinstance(contrast.get(k), str) and contrast[k].strip() for k in ("title", "selection", "prompt", "guidance")), f"practice/{key}: missing copy"
+        refs = contrast.get("references")
+        assert isinstance(refs, list) and refs and all(ref in references for ref in refs), f"practice/{key}: invalid references"
+        wines = contrast.get("wines")
+        assert isinstance(wines, list) and len(wines) == 2, f"practice/{key}: expected two wines"
+        assert len({(w.get("grape"), w.get("region")) for w in wines}) == 2, f"practice/{key}: duplicate wines"
+        for wine in wines:
+            assert wine.get("grape") in regions.get(wine.get("region"), {}).get("grapes", {}), f"practice/{key}: unknown profile"
+        if key == "tannin":
+            assert all(grapes[w["grape"]]["color"] == "red" for w in wines), "practice/tannin: requires two red wines"
+
     extra_locators = set(locators) - set(regions)
     assert not extra_locators, f"locator entries without regions: {sorted(extra_locators)}"
 

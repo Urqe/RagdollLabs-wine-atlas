@@ -28,6 +28,8 @@ assert.equal(params().get('lesson'), 'complete');
 assert.match(d.getElementById('journeyView').textContent, /Body describes weight, not quality/);
 d.getElementById('journey-restart').click();
 d.getElementById('journey-next').click();
+assert.equal(params().get('lesson'), 'taste');
+d.getElementById('journey-next').click();
 assert.equal(params().get('lesson'), 'acidity');
 
 for (const lesson of data.lessons) {
@@ -121,7 +123,7 @@ assert.equal(params().get('lesson'), 'start');
 await app.close();
 
 // Every step deep-links and refreshes; invalid steps and unrelated context fail honestly.
-for (const id of ['start', ...data.lessons.map(x => x.id), 'first-comparison', 'complete', 'unknown']) {
+for (const id of ['start', 'taste', ...data.lessons.map(x => x.id), 'first-comparison', 'complete', 'unknown']) {
   const direct = await createApp({ url: `${base}?view=learn&lesson=${id}` });
   await direct.settle();
   assert.equal(direct.document.activeElement.id, 'journeyHeading');
