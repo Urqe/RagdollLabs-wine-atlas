@@ -473,6 +473,7 @@ This is a newly reported macOS Safari visual issue. It does not close or replace
 - [x] Offer broad families, optional finer vocabulary and an independent observation field; users can use their own words or remain uncertain. Actual novice usability remains to be assessed below.
 - [x] Expected notes are not the first thing shown in a practice exercise, and actual reference identity is revealed only at the intended feedback step.
 - [ ] Repeatability and vocabulary usefulness are assessed in a small novice observation exercise; difficulty and individual differences are documented. Do not invent improvement percentages.
+- [x] Deployed desktop Chrome: observation/vocabulary, partner setup, neutral matching, navigation without reveal, recorded-identity feedback and reset checked. Keyboard focus and desktop layout inspected.
 - [ ] Complete manual phone/tablet, enlarged-text, keyboard/screen-reader and Safari/touch checks across setup, matching and reveal. Automated glossary/search/profile and learning contracts pass; record deployed Chrome checks separately.
 
 ## R14 — Wine Before the Modern Cellar

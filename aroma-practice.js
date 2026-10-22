@@ -42,7 +42,7 @@ window.WineAromas = (() => {
   function coded(target, api) {
     const { heading, actions, observation, rerender } = api;
     target.append(heading(round.revealed ? 'Compare your reference matches' : 'Match two aroma references'),
-      el('p', 'Smell the partner-prepared samples A and B. Write your impressions first, then choose a possible match or leave it uncertain. The choices are the six household references you practised, not wine identities.', 'journey-lead'));
+      el('p', round.revealed ? 'Now compare your own words with the recorded contents. Smell the named references again and keep any description that helps you remember them.' : 'Smell the partner-prepared samples A and B. Write your impressions first, then choose a possible match or leave it uncertain. The choices are the six household references you practised, not wine identities.', 'journey-lead'));
     observation(target, 'aromas-coded');
     if (!round.revealed) {
       for (const code of ['A', 'B']) choices(target, `Sample ${code} · your match`, `aroma-guess-${code}`, round.guesses[code], value => { round.guesses[code] = value; });

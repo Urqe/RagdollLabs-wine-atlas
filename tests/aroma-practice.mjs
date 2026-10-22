@@ -36,6 +36,7 @@ assert.equal(d.getElementById('journey-observation').value,'A bright, B leafy');
 assert.equal(new URL(w.location.href).searchParams.get('lesson'),'aromas');
 assert.ok(!w.location.href.includes('lemon'));assert.equal(w.localStorage.length,0);assert.equal(w.sessionStorage.length,0);
 d.getElementById('aroma-reveal').click();
+assert.match(d.getElementById('journeyView').textContent,/Now compare your own words/);
 assert.match(d.getElementById('aroma-feedback').textContent,/Sample A: Lemon peel/);
 assert.match(d.getElementById('aroma-feedback').textContent,/selection matches/);
 assert.match(d.getElementById('aroma-feedback').textContent,/Sample B: Fresh mint/);

@@ -36,7 +36,7 @@ Primary teaching inputs reviewed 2026-10-22:
 
 - Targeted tests cover direct-route entry, closed optional vocabulary, independent notes, safe text, setup errors, neutral matching DOM, explicit reveal, uncertain and different choices, reversed mappings in new rounds, navigation without premature reveal, memory-only state, reset/fresh-instance behavior and malformed/unsafe optional data.
 - Blocking fixtures reject missing preparation, duplicate reference IDs, unknown families and unsafe sources. Existing journey deep-link tests include the new route.
-- Full `npm run validate`: passed, including all existing and new aroma-practice suites. Deployed desktop Chrome workflow and visual checks follow merge.
+- Full `npm run validate`: passed, including all existing and new aroma-practice suites. Deployed desktop Chrome checks pass: independent note entry; optional family/refinement; partner setup; neutral matching without setup/reference DOM; notes and guesses retained through acidity → return without reveal; explicit reveal of recorded Lemon/Mint samples with matching/different feedback; reset to blank setup; visible 3px keyboard focus on the observation field. Desktop feedback layout was visually inspected without horizontal overflow. Reveal-stage instructions now explicitly describe reviewing the matches.
 - Novice observation/retention work is not complete; no recognition improvement, accuracy or mastery is claimed. Real screen readers, physical iPhone/iPad/macOS Safari, enlarged text and device-specific layout remain open checks. DOM tests do not establish sensory learning or native-browser usability.
 
 ## Release planning recorded alongside R12
