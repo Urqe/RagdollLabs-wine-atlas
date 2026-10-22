@@ -28,6 +28,11 @@
   .app-home-cat img { width: 52px; transform: translateY(14px); }
 }
 
+/* The non-interactive landing heading receives route focus for orientation.
+   Keep that focus without Safari painting a frame around the entire hero title.
+   Actionable controls retain their own :focus-visible indicators above. */
+#welcomeTitle:focus { outline: none; }
+
 /* Landing composition: a quiet brand line and an unbroken product name. */
 .welcome-copy { max-width: 760px; }
 .welcome-brand { display: block; font-size: clamp(26px,3.3vw,42px); line-height: 1.2; color: #decfc2; margin-bottom: 5px; }
