@@ -10,4 +10,6 @@ Implemented 2026-10-22. Scope: code paths shared by Explore, Compare, flights an
 
 ## Verification and limits
 
-`npm run validate` passes: JavaScript syntax, blocking data contracts, advisory content audit, DOM suites and Python validation contracts. The catalog remains 150 profiles across 23 countries. This audit is focused; it does not claim to prove the absence of all dead code or bugs. Browser checks should confirm the deployed URL and focus behavior. macOS/iOS Safari, physical touch, enlarged text, real screen-reader use and novice tasting outcomes remain unverified here.
+`npm run validate` passes: JavaScript syntax, blocking data contracts, advisory content audit, DOM suites and Python validation contracts. GitHub validation and Pages deployment succeeded on the merged release. In deployed desktop Chrome, the direct aroma lesson URL focused its heading after refresh with the M3 asset token; moving to Explore and Compare returned a populated Riesling candidate list. The catalog remains 150 profiles across 23 countries.
+
+The response-order and slow-network tests use controlled asynchronous responses in the DOM harness; they have not been replicated by network throttling in the live browser. This audit is focused; it does not prove the absence of all dead code or bugs. macOS/iOS Safari, physical touch, enlarged text, real screen-reader use and novice tasting outcomes remain unverified here.

@@ -394,7 +394,8 @@ This is a newly reported macOS Safari visual issue. It does not close or replace
 - [x] Write an optional lesson/flight route and focus its visible loading heading while data is pending; late data must not pull the user back after another navigation.
 - [x] Remove the unused pairing-score alias and have tests call the shared search/food APIs directly. Retain the deliberately tested fallback Explore renderer.
 - [x] Run full syntax, data, content and DOM regression validation.
-- [ ] Check deployed browser behavior and cross-device keyboard/screen-reader/Safari behavior separately; automated DOM tests do not establish those results.
+- [x] Check deployed desktop Chrome route focus and Compare results after Pages deployment.
+- [ ] Check slow-network loading and overlapping response timing in a real browser, plus cross-device keyboard/screen-reader/Safari behavior; automated DOM tests cover those races but do not establish physical-device results.
 
 ## R10 — From Atlas to Bottle
 
