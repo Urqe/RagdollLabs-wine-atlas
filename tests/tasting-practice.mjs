@@ -7,6 +7,7 @@ await app.settle();
 const {window:w,document:d} = app;
 assert.equal(d.querySelectorAll('.journey-method > li').length,6);
 assert.equal(d.activeElement.id,'journeyHeading');
+assert.equal(d.getElementById('liveStatus').textContent,'Your First Glass. Tasting method.');
 const field=d.getElementById('journey-observation');
 assert.ok(d.querySelector(`label[for="${field.id}"]`));
 field.value='My own <aroma> and uncertain grip'; field.dispatchEvent(new w.Event('input'));

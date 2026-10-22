@@ -267,7 +267,7 @@ window.WineJourney = (() => {
       referenceButtons(target, step.guideSection, step.glossary);
     }
     target.append(progress(id));
-    byId('liveStatus').textContent = `${data.title}. ${id === 'complete' ? 'Journey complete.' : id === 'start' ? 'Ready to begin.' : id === 'first-comparison' ? 'Try a guided comparison.' : step.title}`;
+    byId('liveStatus').textContent = `${data.title}. ${id === 'complete' ? 'Journey complete.' : id === 'start' ? 'Ready to begin.' : id === 'first-comparison' ? 'Try a guided comparison.' : id === 'taste' ? 'Tasting method.' : step.title}`;
   }
   function renderReturn(route) {
     const target = byId('journeyReturn');

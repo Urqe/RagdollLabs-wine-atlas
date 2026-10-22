@@ -50,7 +50,7 @@ Reviewed the journey, six flight lessons, taste guide and profile rendering for 
 
 - Targeted practice tests cover the six-step route, optional guidance before/after observation, labeled notes, tab-memory retention across profile returns, no web storage/URL note leakage, reset on a fresh instance and malformed optional practice.
 - Existing beginner tests now traverse the tasting-method step before the unchanged four-idea sequence and cover its direct URL. Validator fixtures reject unusable method steps, unknown teaching sources/profiles and white-wine tannin substitutions.
-- Full `npm run validate`: passed, including all existing and new practical-learning suites. Deployed desktop Chrome entry, method, practice/profile returns and keyboard checks follow deployment.
+- Full `npm run validate`: passed, including all existing and new practical-learning suites. Deployed desktop Chrome checks pass: entry → six-step method → acidity; independent notes precede collapsed guidance; the Condrieu practice profile carries an explicit lesson return, notes survive that return and guidance starts closed again. Desktop practice layout was visually inspected with no horizontal overflow. The method-step live status label found missing during deployment QA is corrected and regression-tested.
 - No novice observation or retention study has been performed. Practical usability and actual skill acquisition remain unverified; finishing the journey is explicitly not proof.
 - Physical iPhone/iPad Safari, macOS Safari, real screen readers and enlarged-text/device layout remain open verification work. M2’s native landing-title correction is deployed; Chrome confirms heading focus is retained without its frame and Tab still visibly identifies Explore wines.
 

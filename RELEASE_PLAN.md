@@ -436,10 +436,11 @@ This is a newly reported macOS Safari visual issue. It does not close or replace
 
 ### Acceptance criteria
 
-- [x] A first-time learner can follow the physical tasting sequence without external instructions and record their own observations before seeing expected descriptors.
+- [x] Implement the complete physical tasting sequence and an independent note field before suggested descriptors. First-time usability still requires the novice observation trial below.
 - [x] The practical exercises explicitly distinguish tannin's drying/grip from acidity's mouth-watering response, bitterness and sweetness; body is not presented as quality.
 - [x] Every contrast has appropriate reviewed expression evidence, bottle-selection cues and named confounding factors; no artificial score differences are introduced.
 - [ ] Observe novice users completing the procedure and explaining the distinctions. Record difficulties and limits instead of equating a Finish click or DOM test with skill acquisition.
+- [x] Deployed desktop Chrome: entry/method/progression, independent notes, optional guidance, practice-profile return and retained notes checked; desktop layout inspected. Method-step status label corrected with a regression check.
 - [ ] Complete manual phone/tablet, enlarged-text, screen-reader and physical Safari/touch checks. Automated reference/navigation contracts pass; deployed Chrome checks are recorded separately and do not replace these trials.
 
 ## R12 — Find the Notes
