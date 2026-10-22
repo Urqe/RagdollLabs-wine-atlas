@@ -202,3 +202,5 @@ R11 extends the same journey with [Learn to Taste](docs/learn-to-taste-r11.md). 
 R12 adds [Find the Notes](docs/find-the-notes-r12.md) at `?view=learn&lesson=aromas`: independent aroma observations, optional vocabulary, six household smelling references and partner-prepared coded matching. Actual sample identities come from partner setup; this is reference practice, not blind wine identification.
 
 M3 [code maintenance](docs/maintenance-m3.md) prevents stale Compare search results and keeps slow-loading learning/flight routes shareable and keyboard-oriented.
+
+R10 adds [From Atlas to Bottle](docs/from-atlas-to-bottle-r10.md): optional sourced label cues on twelve selected profiles, represented alternatives and a phylloxera/own-rooted vocabulary with two documented vineyard examples.

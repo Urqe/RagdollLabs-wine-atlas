@@ -1,6 +1,6 @@
 # Wine Atlas release plan
 
-Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9 implemented 2026-10-21: Your First Glass. M1 maintenance implemented after the R1–R9 audit; verification limits are recorded below. M2 implemented 2026-10-22: scoped landing-heading focus styling for the reported macOS Safari highlight; browser verification limits remain below. R11 implemented 2026-10-22: tasting method and practical contrasts; novice and device trials remain open. R12 implemented 2026-10-22: aroma memory, vocabulary and coded household-reference practice; novice/device trials remain open. M3 implemented 2026-10-22: Compare search race and optional-route loading focus/URL fixes. R10/R13/R14 remain planned, with label guidance next.
+Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9 implemented 2026-10-21: Your First Glass. M1 maintenance implemented after the R1–R9 audit; verification limits are recorded below. M2 implemented 2026-10-22: scoped landing-heading focus styling for the reported macOS Safari highlight; browser verification limits remain below. R11 implemented 2026-10-22: tasting method and practical contrasts; novice and device trials remain open. R12 implemented 2026-10-22: aroma memory, vocabulary and coded household-reference practice; novice/device trials remain open. M3 implemented 2026-10-22: Compare search race and optional-route loading focus/URL fixes. R10 implemented 2026-10-22 as a focused label-reading and vineyard-terminology pilot; R13/R14 remain planned.
 Created: 2026-10-19.  
 Review baseline: main at `d819d99505b188f2319c37f0f4aa01153278438b` (120 profiles, 92 region entries, 47 grape/blend baselines).  
 Release IDs below are planning identifiers, not published semantic versions.
@@ -25,11 +25,11 @@ Fix misleading behavior and content before increasing the catalog. Preserve the 
 | R11 | Learn to Taste | P2 — medium | Repeatable tasting procedure and sensory calibration for complete beginners | R8/R9; implemented; practical verification open |
 | R12 | Find the Notes | P2 — medium | Aroma references, vocabulary and repeated non-leading practice | R11; implemented; practical verification open |
 | M3 | R12 code maintenance | P2 — medium | Fix asynchronous Compare search ordering and optional-route loading orientation | R12; implemented maintenance release |
-| R10 | From Atlas to Bottle | P2 — medium | Recognize modeled expressions on labels and wine lists | R8/R9; complete before R13 regional practice |
+| R10 | From Atlas to Bottle | P2 — medium | Recognize modeled expressions on labels and wine lists | R8/R9; implemented; device checks open |
 | R14 | Wine Before the Modern Cellar | P3 — low | Three short historical production stories linked to modern techniques | R10; small optional learning release |
 | R13 | Taste Before the Reveal | P2 — medium | Optional blind practice progressing from broad style to regional hypotheses | R11/R12; R10 for regional/bottle-selection work |
 
-R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8/R9 introduce the reference and beginner vocabulary. The maintenance audit found additional work is needed to train sensory recognition. M1–M3 are implemented. The feature sequence remains R11 → R12 → R10 → R14 → R13; IDs are stable planning identifiers, not an obligation to implement in numeric order. R10 is the next feature release. R14 is a compact optional guide after R10, not a catalog expansion. This learning sequence takes priority over remaining catalog expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned.
+R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8/R9 introduce the reference and beginner vocabulary. The maintenance audit found additional work is needed to train sensory recognition. M1–M3 are implemented. The feature sequence remains R11 → R12 → R10 → R14 → R13; IDs are stable planning identifiers, not an obligation to implement in numeric order. R10 is implemented. R14 is the next compact optional guide, not a catalog expansion. This learning sequence takes priority over remaining catalog expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned.
 
 ## Working rules for every release
 
@@ -399,6 +399,8 @@ This is a newly reported macOS Safari visual issue. It does not close or replace
 
 ## R10 — From Atlas to Bottle
 
+**Status:** Implemented 2026-10-22 as a 12-profile pilot. See [scope, sources and verification](docs/from-atlas-to-bottle-r10.md). Live device checks remain open.
+
 **Goal:** Help users recognize the modeled expression on a bottle label or restaurant list and understand where that bottle may differ.
 
 **Priority:** P2 — medium; execute after R11/R12 and before R13 regional practice. Begin with a focused batch rather than mandatory boilerplate across all 150 profiles.
@@ -409,31 +411,33 @@ This is a newly reported macOS Safari visual issue. It does not close or replace
 
 ### Scope
 
-- [ ] Add an optional “Recognize it on the label” section with common names, useful appellation/grape/style cues, important qualifiers and specific reasons a bottle may differ.
-- [ ] Pilot guidance for six learning cases: Chablis Chardonnay; selected Bordeaux Cabernet-led versus Merlot-led references; Valpolicella versus Amarone; Prosecco sweetness wording; selected Sherry styles; and Niagara icewine. Choose exact profile coverage during implementation.
-- [ ] Distinguish regulated identity/category terms from sensory clues, marketing language and producer choices. Verify current jurisdiction-specific meanings using authoritative sources.
-- [ ] Explain when grape names may be absent, when a regional name covers several styles, and which additional label information is needed to select the represented expression.
-- [ ] Cover producer, vintage, cuvée, oak treatment, sweetness and age only where they materially affect the selected example. Do not infer precise blend, ABV, sugar, oak or drinking windows from an appellation alone.
-- [ ] Link relevant glossary definitions and explicitly represented alternatives; connect buying cues in R8 flights to this shared guidance.
-- [ ] Keep guidance useful for shops and restaurant lists without requiring live inventory, prices, commercial recommendations, label scanning or a backend.
-- [ ] Preserve source traceability and reviewed/limited evidence distinctions; leave unsupported fields absent rather than generating generic advice.
+- [x] Add an optional “Recognize it on the label” section with common names, useful appellation/grape/style cues, important qualifiers and specific reasons a bottle may differ.
+- [x] Pilot guidance for six learning cases: Chablis Chardonnay; selected Bordeaux Cabernet-led versus Merlot-led references; Valpolicella versus Amarone; Prosecco sweetness wording; selected Sherry styles; and Niagara icewine. Choose exact profile coverage during implementation.
+- [x] Distinguish regulated identity/category terms from sensory clues, marketing language and producer choices. Verify current jurisdiction-specific meanings using authoritative sources.
+- [x] Explain when grape names may be absent, when a regional name covers several styles, and which additional label information is needed to select the represented expression.
+- [x] Cover producer, vintage, cuvée, oak treatment, sweetness and age only where they materially affect the selected example. Do not infer precise blend, ABV, sugar, oak or drinking windows from an appellation alone.
+- [x] Link relevant glossary definitions and explicitly represented alternatives; connect buying cues in R8 flights to this shared guidance.
+- [x] Keep guidance useful for shops and restaurant lists without requiring live inventory, prices, commercial recommendations, label scanning or a backend.
+- [x] Preserve source traceability and reviewed/limited evidence distinctions; leave unsupported fields absent rather than generating generic advice.
 
 ### Phylloxera and vineyard terminology
 
-- [ ] Add connected glossary entries for phylloxera, grafted/ungrafted/own-rooted vines, and pre-/post-phylloxera terminology. Explain susceptible roots and resistant/tolerant rootstocks using authoritative viticulture sources; grafting does not mean the wine is a blend of rootstock and fruiting varieties.
-- [ ] Distinguish wine actually made before a local outbreak, vines demonstrably surviving from that period, and modern wine from ungrafted vines. Ungrafted does not establish vine age; there is no single worldwide pre-/post-phylloxera cutoff. Check what a producer means rather than treating the phrase as a universal classification.
-- [ ] Add one or two concise “Why this vineyard matters” examples attached to documented parcels/bottlings, such as Quinta do Noval Nacional or Bollinger Vieilles Vignes Françaises after current claim review. Do not label a whole region phylloxera-free from one surviving parcel.
-- [ ] Keep the atlas’s style model unchanged: no pre-phylloxera wine family, automatic quality bonus, purity claim or promised universal flavour fingerprint. Teach why the distinction matters to history and vineyard practice, and what it cannot establish about taste.
+- [x] Add connected glossary entries for phylloxera, grafted/ungrafted/own-rooted vines, and pre-/post-phylloxera terminology. Explain susceptible roots and resistant/tolerant rootstocks using authoritative viticulture sources; grafting does not mean the wine is a blend of rootstock and fruiting varieties.
+- [x] Distinguish wine actually made before a local outbreak, vines demonstrably surviving from that period, and modern wine from ungrafted vines. Ungrafted does not establish vine age; there is no single worldwide pre-/post-phylloxera cutoff. Check what a producer means rather than treating the phrase as a universal classification.
+- [x] Add one or two concise “Why this vineyard matters” examples attached to documented parcels/bottlings, such as Quinta do Noval Nacional or Bollinger Vieilles Vignes Françaises after current claim review. Do not label a whole region phylloxera-free from one surviving parcel.
+- [x] Keep the atlas’s style model unchanged: no pre-phylloxera wine family, automatic quality bonus, purity claim or promised universal flavour fingerprint. Teach why the distinction matters to history and vineyard practice, and what it cannot establish about taste.
 
 ### Acceptance criteria
 
-- [ ] Each pilot case explains what to look for, what the cue establishes, what it does not establish and when more information is needed.
-- [ ] A user can connect example label wording to the correct represented expression or an explicit coverage limitation.
-- [ ] No guide implies that a familiar appellation guarantees one sweetness, blend, oak treatment or exact sensory score.
-- [ ] Legal/category claims have direct, dated authoritative references with their jurisdiction and review scope recorded.
-- [ ] Shared guidance stays consistent across profiles, flights, glossary and search; existing URLs and search identities remain stable.
-- [ ] Optional sections are omitted cleanly when guidance is missing; verify readable mobile layout, accessible disclosure and return focus.
-- [ ] Run existing validation and focused checks for guidance references, links, optional rendering and representative ambiguous label cases.
+- [x] Each pilot case explains what to look for, what the cue establishes, what it does not establish and when more information is needed.
+- [x] A user can connect example label wording to the correct represented expression or an explicit coverage limitation.
+- [x] No guide implies that a familiar appellation guarantees one sweetness, blend, oak treatment or exact sensory score.
+- [x] Legal/category claims have direct, dated authoritative references with their jurisdiction and review scope recorded.
+- [x] Shared guidance stays consistent across profiles, flights, glossary and search; existing URLs and search identities remain stable.
+- [x] Optional sections are omitted cleanly when guidance is missing; native disclosure and glossary return focus are covered in DOM checks.
+- [ ] Verify readable mobile layout, touch and real screen-reader behavior on devices.
+- [x] Run existing validation and focused checks for guidance references, links, optional rendering and representative ambiguous label cases.
+- [ ] Confirm the published desktop flow and record browser results after deployment.
 
 ## R11 — Learn to Taste
 

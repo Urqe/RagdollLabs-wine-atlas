@@ -85,3 +85,10 @@ rejected(lambda d: d['aroma-practice.json']['samples'][1].update(id=d['aroma-pra
 rejected(lambda d: d['aroma-practice.json']['samples'][0].update(prepare=''), 'Empty reference preparation accepted')
 rejected(lambda d: d['aroma-practice.json']['sources'][0].update(url='javascript:alert(1)'), 'Unsafe aroma source accepted')
 print('OK: aroma families, reference identities, preparation and sources')
+
+rejected(lambda d: d['label-guidance.json']['bordeaux/cabernet-sauvignon'].update(match=''), 'Empty label meaning accepted')
+rejected(lambda d: d['label-guidance.json']['prosecco-doc/glera'].update(sources=['prosecco-doc']), 'Background-only label source accepted')
+rejected(lambda d: d['label-guidance.json']['chablis/chardonnay']['alternatives'].append({'grape':'missing','region':'bordeaux','label':'Unknown'}), 'Unknown label alternative accepted')
+rejected(lambda d: d['label-guidance.json']['amarone/corvina'].update(terms=['unknown']), 'Unknown glossary term accepted')
+rejected(lambda d: d['glossary.json']['pre-post-phylloxera']['examples'][0].update(source='missing'), 'Unsourced vineyard example accepted')
+print('OK: scoped label guidance and documented vineyard examples')

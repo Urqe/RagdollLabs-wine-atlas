@@ -328,12 +328,34 @@ def main() -> None:
         assert isinstance(source_ids, list) and source_ids, f"{prefix}: sources must be non-empty"
         for source_id in source_ids:
             assert source_id in sources, f"{prefix}: unknown source {source_id}"
+        if "examples" in entry:
+            assert isinstance(entry["examples"], list) and entry["examples"], f"{prefix}: invalid examples"
+            for example in entry["examples"]:
+                assert isinstance(example, dict) and all(isinstance(example.get(field), str) and example[field].strip() for field in ("title", "text", "source")), f"{prefix}: invalid example"
+                assert example["source"] in sources and sources[example["source"]]["reviewStatus"] == "reviewed", f"{prefix}: example needs reviewed source"
         for alias in [entry["term"], *aliases]:
             assert isinstance(alias, str) and alias.strip(), f"{prefix}: invalid alias"
             normalized = alias.casefold().strip()
             previous = aliases_seen.get(normalized)
             assert previous in {None, glossary_id}, f"{prefix}: alias {alias!r} already belongs to {previous}"
             aliases_seen[normalized] = glossary_id
+
+    labels = load(DATA / "label-guidance.json")
+    assert isinstance(labels, dict) and labels, "label guidance: expected pilot entries"
+    for key, entry in labels.items():
+        prefix = f"label guidance/{key}"
+        assert isinstance(key, str) and key.count("/") == 1, f"{prefix}: invalid profile key"
+        region_id, grape_id = key.split("/")
+        assert grape_id in regions.get(region_id, {}).get("grapes", {}), f"{prefix}: unknown profile"
+        assert isinstance(entry, dict) and all(isinstance(entry.get(field), str) and entry[field].strip() for field in ("example", "match", "limit", "check")), f"{prefix}: missing cue or limit"
+        refs = entry.get("sources")
+        assert isinstance(refs, list) and refs and all(isinstance(ref, str) and ref in sources and sources[ref]["reviewStatus"] == "reviewed" for ref in refs), f"{prefix}: unreviewed or missing label source"
+        assert isinstance(entry.get("terms", []), list) and all(term in glossary for term in entry.get("terms", [])), f"{prefix}: unknown glossary term"
+        alternatives = entry.get("alternatives")
+        assert isinstance(alternatives, list), f"{prefix}: alternatives must be explicit"
+        for alt in alternatives:
+            assert isinstance(alt, dict) and all(isinstance(alt.get(field), str) and alt[field].strip() for field in ("grape", "region", "label")), f"{prefix}: invalid alternative"
+            assert alt["grape"] in regions.get(alt["region"], {}).get("grapes", {}), f"{prefix}: unknown alternative"
 
     taste = load(DATA / "taste-basics.json")
     assert taste.get("title") and taste.get("intro") and taste.get("sections"), "taste basics: missing title, intro or sections"

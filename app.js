@@ -631,6 +631,7 @@ window.WineAtlas = {
   clearActiveProfile: () => { currentProfile = null; },
   hasActiveProfile: () => Boolean(currentProfile),
   getSearchRules: () => SEARCH_RULES,
+  getSource: id => SOURCES[id] || null,
   getData: () => ({ grapes: GRAPES, regions: REGIONS }),
   escapeHtml,
   escapeAttr

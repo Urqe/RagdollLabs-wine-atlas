@@ -149,6 +149,7 @@ window.WineFlights = (() => {
     for (const [title, text] of [['Choosing bottles', flight.selection], ['Setting up', flight.serving]]) {
       const section = el('section', null, 'flight-section');
       section.append(el('h3', title), paragraph(text));
+      if (title === 'Choosing bottles') section.append(paragraph('Open each linked wine profile for any available “Recognize it on the label” cues. Check the actual producer and cuvée before substituting a bottle.', 'small'));
       target.append(section);
     }
     const observations = el('section', null, 'flight-section');
