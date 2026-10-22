@@ -1193,5 +1193,68 @@
     "accessedOn": "2026-10-21",
     "reviewedOn": "2026-10-21",
     "reviewNote": "100% Cabernet Franc from Niagara Peninsula vineyards; pressing supplies red colour with no skin contact during fermentation; cool fermentation and steel holding; 263.8 g/L residual sugar and 9.5% ABV. Third-party review text appears duplicated from Riesling and is not used."
+  },
+  "r10-bordeaux-appellation": {
+    "name": "Bordeaux AOC: varieties and diversity",
+    "url": "https://www.bordeaux.com/en/designations/bordeaux-bordeaux-superieur-and-cremant/bordeaux/",
+    "publisher": "Conseil Interprofessionnel du Vin de Bordeaux",
+    "locator": "Bordeaux AOC reds and whites; available varieties and diverse blends",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-22",
+    "reviewedOn": "2026-10-22"
+  },
+  "r10-prosecco-types": {
+    "name": "Prosecco DOC types and sweetness",
+    "url": "https://www.prosecco.wine/en/prosecco/discover/types/",
+    "publisher": "Consorzio Tutela Prosecco DOC",
+    "locator": "Spumante sweetness designations including Brut and Extra Dry",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-22",
+    "reviewedOn": "2026-10-22"
+  },
+  "r10-prosecco-label": {
+    "name": "Recognizing Prosecco DOC",
+    "url": "https://www.prosecco.wine/en/prosecco/protect/recognizing-prosecco-doc/",
+    "publisher": "Consorzio Tutela Prosecco DOC",
+    "locator": "Prosecco DOC label and certification cues",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-22",
+    "reviewedOn": "2026-10-22"
+  },
+  "r10-sherry-styles": {
+    "name": "Sherry wine classification",
+    "url": "https://www.sherry.wine/sherry-wine",
+    "publisher": "Consejo Regulador de Jerez",
+    "locator": "Dry generoso, naturally sweet and blended styles",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-22",
+    "reviewedOn": "2026-10-22"
+  },
+  "r10-phylloxera": {
+    "name": "Grapevine phylloxera",
+    "url": "https://www.awri.com.au/industry_support/viticulture/pests-and-diseases/phylloxera/",
+    "publisher": "Australian Wine Research Institute",
+    "locator": "Root damage, susceptible vinifera and resistant/tolerant rootstock response",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-22",
+    "reviewedOn": "2026-10-22"
+  },
+  "r10-noval-nacional": {
+    "name": "Quinta do Noval Nacional Vintage Port 2024",
+    "url": "https://www.quintadonoval.com/en/vin/12/nacional-vintage-port",
+    "publisher": "Quinta do Noval",
+    "locator": "Small ungrafted Nacional parcel and named bottling; not a claim about all Douro vines",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-22",
+    "reviewedOn": "2026-10-22"
+  },
+  "r10-bollinger-vvf": {
+    "name": "Bollinger Vieilles Vignes Françaises",
+    "url": "https://www.champagne-bollinger.com/en/the-collection/vieilles-vignes-francaises",
+    "publisher": "Champagne Bollinger",
+    "locator": "Two ungrafted Aÿ parcels and named cuvée; not a claim about all Champagne vines",
+    "reviewStatus": "reviewed",
+    "accessedOn": "2026-10-22",
+    "reviewedOn": "2026-10-22"
   }
 }

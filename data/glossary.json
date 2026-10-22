@@ -484,5 +484,78 @@
       "ontario-icewine-process"
     ],
     "inline": true
+  },
+  "phylloxera": {
+    "term": "Phylloxera",
+    "aliases": [
+      "phylloxera",
+      "grape phylloxera"
+    ],
+    "definition": "A tiny vine pest that damages the roots of susceptible European grapevines. Infested vines can decline and die over time.",
+    "why": "Many vineyards use European fruiting varieties grafted onto resistant or tolerant rootstocks. Phylloxera affects vineyard survival and history, not a universal flavour note in wine.",
+    "sources": [
+      "r10-phylloxera"
+    ],
+    "inline": true
+  },
+  "grafted-vines": {
+    "term": "Grafted vines",
+    "aliases": [
+      "grafted vines",
+      "grafted vine",
+      "grafting",
+      "rootstock"
+    ],
+    "definition": "A fruiting vine variety joined to a separate root system (rootstock), often chosen for resistance or tolerance to phylloxera.",
+    "why": "The fruiting variety supplies the grapes; the rootstock is not a second grape variety blended into the wine. Rootstock and site can influence growth, but a label alone cannot identify a particular taste.",
+    "sources": [
+      "r10-phylloxera"
+    ],
+    "inline": true
+  },
+  "own-rooted-vines": {
+    "term": "Own-rooted / ungrafted vines",
+    "aliases": [
+      "own-rooted",
+      "ungrafted",
+      "own rooted vines",
+      "francs de pied"
+    ],
+    "definition": "Vines growing on their own roots rather than on a different rootstock. Ungrafted describes the vine structure, not its age.",
+    "why": "Some vineyards remain own-rooted where phylloxera has not taken hold or particular parcels have survived. A modern ungrafted planting is not automatically a pre-phylloxera survivor or a superior-tasting wine.",
+    "sources": [
+      "r10-phylloxera",
+      "r10-noval-nacional"
+    ],
+    "inline": true
+  },
+  "pre-post-phylloxera": {
+    "term": "Pre- and post-phylloxera",
+    "aliases": [
+      "pre-phylloxera",
+      "post-phylloxera",
+      "pre phylloxera",
+      "post phylloxera"
+    ],
+    "definition": "Historical shorthand relative to a local phylloxera outbreak and the replanting that followed. It may describe an old wine, surviving vines, or a vineyard practice; ask which is meant.",
+    "why": "There is no single worldwide dividing year. Wine made before a local outbreak, demonstrably surviving older vines, and modern ungrafted vines are different things. None promises a shared flavour or automatic quality advantage.",
+    "sources": [
+      "r10-phylloxera",
+      "r10-noval-nacional",
+      "r10-bollinger-vvf"
+    ],
+    "inline": true,
+    "examples": [
+      {
+        "title": "Quinta do Noval Nacional Vintage Port",
+        "text": "The producer identifies a small ungrafted Nacional parcel in the Douro. This named bottling is a vineyard example, not the atlas’s generic Ruby/LBV Port profile.",
+        "source": "r10-noval-nacional"
+      },
+      {
+        "title": "Bollinger Vieilles Vignes Françaises",
+        "text": "The producer identifies two surviving ungrafted Aÿ parcels for this cuvée. This does not make all Champagne ungrafted or predict a universal historical taste.",
+        "source": "r10-bollinger-vvf"
+      }
+    ]
   }
 }

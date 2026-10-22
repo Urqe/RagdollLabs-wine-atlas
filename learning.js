@@ -25,6 +25,8 @@ const learningRecord = value => value && typeof value === "object" && !Array.isA
 function validGlossaryEntry(entry) {
   return learningRecord(entry) && ["term", "definition", "why"].every(field => learningText(entry[field])) &&
     Array.isArray(entry.aliases) && entry.aliases.every(learningText) &&
+    (entry.examples === undefined || Array.isArray(entry.examples) && entry.examples.every(example =>
+      learningRecord(example) && ["title", "text", "source"].every(field => learningText(example[field])))) &&
     (entry.inline === undefined || typeof entry.inline === "boolean");
 }
 
@@ -200,6 +202,30 @@ function glossaryEntryCard(entry, compact = false) {
   strong.textContent = "Why it matters: ";
   why.append(strong, document.createTextNode(entry.why));
   article.append(heading, definition, why);
+  if (entry.examples?.length) {
+    const examples = WineDOM.element("div", null, "glossary-examples");
+    examples.append(WineDOM.element("h4", "Why these vineyards matter"));
+    for (const example of entry.examples) {
+      const item = WineDOM.element("div");
+      item.append(WineDOM.element("strong", example.title), WineDOM.element("p", example.text));
+      examples.append(item);
+    }
+    article.append(examples);
+  }
+  const sourceIds = [...new Set([...(entry.sources || []), ...(entry.examples || []).map(example => example.source)])];
+  const sources = sourceIds.map(id => WineAtlas.getSource(id)).filter(Boolean);
+  if (sources.length) {
+    const details = WineDOM.element("details");
+    details.append(WineDOM.element("summary", "Sources"));
+    const list = WineDOM.element("ul", null, "source-list");
+    for (const source of sources) {
+      const item = WineDOM.element("li");
+      item.append(WineDOM.referenceLink(source));
+      list.append(item);
+    }
+    details.append(list);
+    article.append(details);
+  }
   return article;
 }
 

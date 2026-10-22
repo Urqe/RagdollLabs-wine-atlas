@@ -1,0 +1,258 @@
+{
+  "chablis/chardonnay": {
+    "example": "Chablis AOC · producer · vintage",
+    "match": "Chablis AOC identifies the Chardonnay appellation represented here; the grape may not be printed prominently.",
+    "limit": "Petit Chablis, Premier Cru and Grand Cru are separate appellation levels. Chablis alone does not promise steel-only ageing, a particular oak note or the atlas's exact scores.",
+    "check": "Confirm Chablis AOC, then check the producer's cuvée and oak/fermentation notes if you want the young, steel-led reference.",
+    "alternatives": [],
+    "sources": [
+      "chablis-appellation",
+      "chablis-producer"
+    ]
+  },
+  "bordeaux/cabernet-sauvignon": {
+    "example": "Bordeaux AOC · producer confirms Cabernet Sauvignon-led red blend",
+    "match": "The producer's blend information, rather than 'Bordeaux' on its own, connects a bottle to this Cabernet-led dry-red reference.",
+    "limit": "Bordeaux includes white and red wines and many red blends. The appellation does not certify Cabernet dominance, a fixed blend, oak recipe or flavour score.",
+    "check": "Ask the shop or restaurant for the producer and cuvée, then check the technical sheet or back label for grape composition and vintage.",
+    "alternatives": [
+      {
+        "grape": "merlot",
+        "region": "bordeaux",
+        "label": "Merlot-led Bordeaux reference"
+      }
+    ],
+    "sources": [
+      "bordeaux-blending",
+      "r10-bordeaux-appellation"
+    ],
+    "terms": [
+      "blend"
+    ]
+  },
+  "bordeaux/merlot": {
+    "example": "Bordeaux AOC · producer confirms Merlot-led red blend",
+    "match": "The producer's blend information connects this bottle to the Merlot-led reference. A place name by itself does not identify the leading grape.",
+    "limit": "Merlot-led does not mean 100% Merlot. Bordeaux AOC alone does not establish a blend percentage, oak regime or a softer wine in every vintage.",
+    "check": "Confirm the cuvée's actual grape composition with the producer or seller; check vintage and oak details separately.",
+    "alternatives": [
+      {
+        "grape": "cabernet-sauvignon",
+        "region": "bordeaux",
+        "label": "Cabernet-led Bordeaux reference"
+      }
+    ],
+    "sources": [
+      "bordeaux-blending",
+      "r10-bordeaux-appellation"
+    ],
+    "terms": [
+      "blend"
+    ]
+  },
+  "valpolicella/corvina": {
+    "example": "Valpolicella Classico DOC · dry red",
+    "match": "This names the Valpolicella Classico expression modeled as a fresh-grape, Corvina-led regional blend.",
+    "limit": "Corvina-led is an atlas reference, not a promise that the bottle is a single-variety wine. Ripasso, Amarone and sweet Recioto are different named expressions.",
+    "check": "Read the full designation; choose Valpolicella Classico DOC without Ripasso for this lighter comparison. Confirm producer, vintage and oak choices.",
+    "alternatives": [
+      {
+        "grape": "corvina",
+        "region": "amarone",
+        "label": "Amarone dried-grape reference"
+      }
+    ],
+    "sources": [
+      "valpolicella-varieties",
+      "valpolicella-fresh"
+    ],
+    "terms": [
+      "blend"
+    ]
+  },
+  "amarone/corvina": {
+    "example": "Amarone della Valpolicella Classico DOCG",
+    "match": "Amarone names the dry, grape-drying (appassimento) red expression represented here; the label need not say Corvina.",
+    "limit": "Dried-grape aromas are not a sugar reading. Amarone is distinct from sweet Recioto; the label does not fix blend, oak, alcohol warmth or vintage character.",
+    "check": "Confirm the full Amarone designation, not Valpolicella or Ripasso. Check producer information for sweetness and maturation if comparing a specific bottle.",
+    "alternatives": [
+      {
+        "grape": "corvina",
+        "region": "valpolicella",
+        "label": "Fresh-grape Valpolicella reference"
+      }
+    ],
+    "sources": [
+      "amarone-style",
+      "valpolicella-varieties"
+    ],
+    "terms": [
+      "appassimento"
+    ]
+  },
+  "prosecco-doc/glera": {
+    "example": "Prosecco DOC Spumante · Extra Dry",
+    "match": "Prosecco DOC identifies the designation; Spumante identifies sparkling wine. Extra Dry is a regulated sweetness term, with more residual sugar than Brut.",
+    "limit": "'Extra Dry' does not mean bone-dry. Prosecco DOC also spans other sweetness levels and Frizzante; the atlas's dry-to-off-dry tank-method reference is not every bottle.",
+    "check": "Look for DOC, Spumante and the sweetness wording. Choose Extra Dry for an off-dry leaning comparison or check Brut for a drier bottle; consult the producer for method and exact sugar.",
+    "alternatives": [],
+    "sources": [
+      "r10-prosecco-types",
+      "r10-prosecco-label"
+    ],
+    "terms": [
+      "sweetness"
+    ]
+  },
+  "jerez-fino/palomino": {
+    "example": "Fino · Jerez-Xérès-Sherry DO",
+    "match": "Fino is the dry, pale Sherry style aged under a film of flor yeast represented here; Palomino may not be the large front-label word.",
+    "limit": "Sherry is not one sweetness or one ageing style. Fino does not stand in for Oloroso, Cream or sweet Pedro Ximénez.",
+    "check": "Confirm Fino and the Sherry designation; do not substitute a sweet or oxidative style for a Fino tasting contrast.",
+    "alternatives": [
+      {
+        "grape": "palomino",
+        "region": "jerez-oloroso",
+        "label": "Dry Oloroso reference"
+      },
+      {
+        "grape": "pedro-ximenez",
+        "region": "jerez-px",
+        "label": "Sweet Pedro Ximénez reference"
+      }
+    ],
+    "sources": [
+      "sherry-fino",
+      "sherry-region"
+    ],
+    "terms": [
+      "flor",
+      "fortified"
+    ]
+  },
+  "jerez-oloroso/palomino": {
+    "example": "Oloroso · dry/seco · Jerez-Xérès-Sherry DO",
+    "match": "A dry Oloroso identifies the oxidative-aged Palomino Sherry reference here.",
+    "limit": "Oloroso-derived sweet blends and Cream are not this dry reference. Dark colour and nutty aromas alone do not prove sugar content.",
+    "check": "Ask whether the listed Oloroso is dry/seco, especially on a short restaurant list; check the producer's style information.",
+    "alternatives": [
+      {
+        "grape": "palomino",
+        "region": "jerez-fino",
+        "label": "Dry Fino reference"
+      },
+      {
+        "grape": "pedro-ximenez",
+        "region": "jerez-px",
+        "label": "Sweet Pedro Ximénez reference"
+      }
+    ],
+    "sources": [
+      "sherry-oloroso",
+      "r10-sherry-styles"
+    ],
+    "terms": [
+      "fortified"
+    ]
+  },
+  "jerez-px/pedro-ximenez": {
+    "example": "Pedro Ximénez (PX) · Jerez-Xérès-Sherry DO",
+    "match": "This names the sweet, raisined-grape Pedro Ximénez Sherry expression represented here.",
+    "limit": "PX is not a synonym for all Sherry, nor does it describe the dry Palomino Fino or Oloroso profiles.",
+    "check": "Confirm the full style and designation; if the menu only says 'Sherry', ask which style and whether it is sweet.",
+    "alternatives": [
+      {
+        "grape": "palomino",
+        "region": "jerez-fino",
+        "label": "Dry Fino reference"
+      },
+      {
+        "grape": "palomino",
+        "region": "jerez-oloroso",
+        "label": "Dry Oloroso reference"
+      }
+    ],
+    "sources": [
+      "sherry-px",
+      "r10-sherry-styles"
+    ],
+    "terms": [
+      "fortified"
+    ]
+  },
+  "niagara-icewine/vidal-blanc": {
+    "example": "VQA Niagara Peninsula Icewine · Vidal Blanc",
+    "match": "VQA Niagara Peninsula identifies the Ontario origin and Icewine category; Vidal Blanc identifies the grape for this sweet reference.",
+    "limit": "Niagara alone does not mean Icewine. Late Harvest is a different category; Icewine alone does not choose a grape or promise the atlas's notes.",
+    "check": "Confirm VQA, Niagara Peninsula and Icewine. Check grape/producer information for Vidal; if the grape is absent, do not assume it.",
+    "alternatives": [
+      {
+        "grape": "riesling",
+        "region": "niagara-icewine",
+        "label": "Niagara Riesling Icewine"
+      },
+      {
+        "grape": "cabernet-franc",
+        "region": "niagara-icewine",
+        "label": "Niagara Cabernet Franc Icewine"
+      }
+    ],
+    "sources": [
+      "ontario-icewine-categories",
+      "niagara-appellation"
+    ],
+    "terms": [
+      "icewine"
+    ]
+  },
+  "niagara-icewine/riesling": {
+    "example": "VQA Niagara Peninsula Icewine · Riesling",
+    "match": "VQA Niagara Peninsula and Icewine establish the origin and naturally frozen-grape category; Riesling selects this represented expression.",
+    "limit": "The appellation and Icewine term do not identify the grape without further information or fix acidity, sweetness or aroma scores for a particular bottle.",
+    "check": "Confirm the Icewine wording and region, then the grape on the label or producer sheet. Late Harvest and other grapes are different selections.",
+    "alternatives": [
+      {
+        "grape": "vidal-blanc",
+        "region": "niagara-icewine",
+        "label": "Niagara Vidal Icewine"
+      },
+      {
+        "grape": "cabernet-franc",
+        "region": "niagara-icewine",
+        "label": "Niagara Cabernet Franc Icewine"
+      }
+    ],
+    "sources": [
+      "ontario-icewine-categories",
+      "niagara-appellation"
+    ],
+    "terms": [
+      "icewine"
+    ]
+  },
+  "niagara-icewine/cabernet-franc": {
+    "example": "VQA Niagara Peninsula Icewine · Cabernet Franc",
+    "match": "The VQA origin and Icewine term identify the Ontario category; Cabernet Franc selects the represented red-grape Icewine.",
+    "limit": "Icewine does not imply white grapes; a red-grape example can differ in colour and notes. The category does not set the atlas's exact scores.",
+    "check": "Confirm the Icewine wording, Niagara Peninsula origin and Cabernet Franc on the label or producer information.",
+    "alternatives": [
+      {
+        "grape": "vidal-blanc",
+        "region": "niagara-icewine",
+        "label": "Niagara Vidal Icewine"
+      },
+      {
+        "grape": "riesling",
+        "region": "niagara-icewine",
+        "label": "Niagara Riesling Icewine"
+      }
+    ],
+    "sources": [
+      "ontario-icewine-categories",
+      "niagara-appellation"
+    ],
+    "terms": [
+      "icewine"
+    ]
+  }
+}
