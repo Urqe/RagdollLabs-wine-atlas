@@ -36,3 +36,5 @@ This release reframes existing introductory concepts and uses shared glossary de
 - iPhone/iPad Safari, physical touch, real screen-reader use and enlarged-text/mobile layout checks remain unverified. Automated DOM tests do not claim to verify these. No learner usability/retention study has been performed.
 
 R10's broader bottle-label guidance remains a separate planned release. R9 uses the existing R8 flight-selection cues only.
+
+R11 extends this historical R9 baseline with a tasting-method step, practical wine pairs, optional ephemeral scratch notes and guidance after observation. See [Learn to Taste](learn-to-taste-r11.md); the original five-minute vocabulary-only description no longer describes the whole journey.

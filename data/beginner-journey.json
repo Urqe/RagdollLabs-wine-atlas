@@ -1,6 +1,6 @@
 {
   "title": "Your First Glass",
-  "intro": "Four useful ideas for describing wine, then one guided comparison. Take about five minutes, skip around, or explore at your own pace. No bottle, purchase or tasting experience is needed.",
+  "intro": "Learn a simple tasting method, then practise four useful distinctions. Read without wine or use small pours at your own pace. No purchase, tasting experience or test is required.",
   "firstFlight": "sauvignon-two-places",
   "lessons": [
     {
@@ -10,7 +10,10 @@
       "cue": "Notice the fresh, tart sensation that makes your mouth water. That is different from tannin, which feels drying or grippy.",
       "exercise": "If you have a wine, take a small sip and notice whether your mouth waters afterwards. Without wine, imagine biting a lemon: concentrate on the mouth-watering response rather than the flavour.",
       "takeaway": "Ask: how mouth-watering does it feel? More acidity is not automatically better; notice how it fits the rest of the wine.",
-      "profile": { "grape": "assyrtiko", "region": "santorini" },
+      "profile": {
+        "grape": "assyrtiko",
+        "region": "santorini"
+      },
       "flight": "sauvignon-two-places",
       "guideSection": "climate"
     },
@@ -21,7 +24,10 @@
       "cue": "Tannin can make your gums and cheeks feel dry or grippy. Separate that texture from the mouth-watering effect of acidity: a wine can have both.",
       "exercise": "After a sip, gently move your tongue across your gums and notice any grip. Without wine, recall the drying sensation of strong black tea. This is a texture analogy, not a claim that wine should taste of tea.",
       "takeaway": "Ask: how drying or grippy does it feel? Drying tannin does not mean the same thing as a dry wine; dry describes a wine with very little remaining sugar.",
-      "profile": { "grape": "tannat", "region": "madiran" },
+      "profile": {
+        "grape": "tannat",
+        "region": "madiran"
+      },
       "flight": "cabernet-across-regions",
       "guideSection": "skins"
     },
@@ -32,7 +38,10 @@
       "cue": "Body describes perceived weight: light and delicate through to rich and full. It is a description of texture, not a quality score.",
       "exercise": "Ask how weighty a sip feels before naming its flavours. Without wine, imagine the difference in weight between skimmed milk and cream. The comparison is about texture, not dairy flavour or an instruction to drink either.",
       "takeaway": "Ask: does it feel light, medium or full? A light wine can be excellent, and a fuller wine is not automatically more complex or better.",
-      "profile": { "grape": "pinot-noir", "region": "burgundy" },
+      "profile": {
+        "grape": "pinot-noir",
+        "region": "burgundy"
+      },
       "flight": "cabernet-across-regions",
       "guideSection": "scores"
     },
@@ -43,9 +52,189 @@
       "cue": "A dry wine can smell intensely fruity while tasting dry. Sweetness concerns sugar remaining in the wine; fruit aroma and drying tannin are separate observations.",
       "exercise": "If tasting, describe the aroma first, then ask separately whether the sip tastes sweet. Without wine, imagine smelling ripe fruit and tasting unsweetened fruit tea: an association with fruit does not establish sugar content.",
       "takeaway": "Ask: how sweet does it taste, separately from how fruity it smells? Acidity can balance sweetness without removing the sugar. The atlas's scores are broad sensory guides, not sugar measurements.",
-      "profile": { "grape": "sauvignon-blanc", "region": "marlborough" },
+      "profile": {
+        "grape": "sauvignon-blanc",
+        "region": "marlborough"
+      },
       "flight": "routes-to-sweetness",
       "guideSection": "fermentation"
     }
-  ]
+  ],
+  "practice": {
+    "method": [
+      {
+        "title": "Prepare",
+        "body": "Choose a quiet spot without strong smells. Set out clean, similar glasses, water and somewhere to spit. If comparing wines, label glasses A and B and note the bottles and vintages. Small pours are enough; you can stop or skip at any point."
+      },
+      {
+        "title": "Look",
+        "body": "Against a pale background, notice colour and how deep or pale it looks. Record what you see without guessing quality, sweetness or tannin from colour alone."
+      },
+      {
+        "title": "Smell, then swirl",
+        "body": "Smell gently before moving the glass. With its base on the table, give it a gentle swirl and smell again. Start with a familiar association, or simply write fruity, floral, spicy or unfamiliar. You do not need an impressive word."
+      },
+      {
+        "title": "Take a small sip",
+        "body": "Let a little wine move around your mouth. Notice sweetness or sourness as tastes, drying grip as texture, and any warmth separately. Spit or swallow as you prefer. Fruit flavours also involve smell; they are not located in a special zone of your tongue."
+      },
+      {
+        "title": "Notice the finish",
+        "body": "After the wine leaves your mouth, breathe out gently through your nose. What aroma or sensation stays? Notice how long it seems to linger without timing it as a quality test. Bitterness is a taste; astringency feels drying or rough, even when they occur together."
+      },
+      {
+        "title": "Record, then compare",
+        "body": "Write one aroma association and how mouth-watering, drying, weighty and sweet it felt. “Uncertain” is useful too. For a pair, rinse with water, try the second glass and revisit the first in reverse order. Describe before deciding which you prefer."
+      }
+    ],
+    "references": {
+      "method": {
+        "label": "WSET · How to taste wine",
+        "url": "https://www.wsetglobal.com/knowledge-centre/blog/2023/december/19/how-to-taste-wine",
+        "scope": "Look, smell, swirl, sip and finish; original beginner sequence, not a reproduced tasting grid.",
+        "reviewedOn": "2026-10-22"
+      },
+      "acidity": {
+        "label": "WSET · Understanding acidity",
+        "url": "https://www.wsetglobal.com/knowledge-centre/blog/2026/understanding-acidity-in-wine/",
+        "scope": "Mouth-watering response; Riesling versus Viognier tendencies, sugar and warmth as confounders.",
+        "reviewedOn": "2026-10-22"
+      },
+      "viognier": {
+        "label": "WSET · Viognier",
+        "url": "https://www.wsetglobal.com/knowledge-centre/blog/2021/april/26/understanding-grapes-spotlight-on-viognier",
+        "scope": "Typically dry, lower acidity and fuller body; Condrieu and oak choices vary.",
+        "reviewedOn": "2026-10-22"
+      },
+      "pinot": {
+        "label": "Joseph Drouhin · Bourgogne Pinot Noir 2023",
+        "url": "https://www.drouhin.com/en_US/wine/bourgogne-pinot-noir/2023",
+        "scope": "A producer example with light tannins, not every Burgundy bottle.",
+        "reviewedOn": "2026-10-22"
+      },
+      "tannat": {
+        "label": "Madiran growers · Tannat",
+        "url": "https://madiran-pacherenc.com/les-appellations/presentation-des-cepages/",
+        "scope": "Tannat tannin richness; does not establish an exact intensity for a bottle.",
+        "reviewedOn": "2026-10-22"
+      },
+      "texture": {
+        "label": "WSET · Mouthfeel",
+        "url": "https://www.wsetglobal.com/knowledge-centre/blog/2026/the-secret-language-of-wine-what-is-mouthfeel",
+        "scope": "Astringency, tea analogy and texture; no score target.",
+        "reviewedOn": "2026-10-22"
+      },
+      "riesling": {
+        "label": "Jim Barry · Lodge Hill Riesling 2026",
+        "url": "https://www.jimbarry.com/wine/2026-lodge-hill-riesling",
+        "scope": "Clare Valley Riesling expression example; bottle selection must confirm dry, lighter style.",
+        "reviewedOn": "2026-10-22"
+      },
+      "taste": {
+        "label": "NIDCD · How taste works",
+        "url": "https://www.nidcd.nih.gov/health/taste-disorders",
+        "scope": "Basic taste, aroma, texture and distributed taste receptors; no exclusive tongue map.",
+        "reviewedOn": "2026-10-22"
+      },
+      "icewine": {
+        "label": "Wine Country Ontario · Icewine",
+        "url": "https://winecountryontario.ca/icewine/",
+        "scope": "Naturally frozen grapes and sweet Ontario Icewine expression; not dry Riesling.",
+        "reviewedOn": "2026-10-22"
+      },
+      "australian-riesling": {
+        "label": "Wine Australia · Riesling",
+        "url": "https://www.wineaustralia.com/market-insights/regions-and-varieties/riesling",
+        "scope": "Australian Riesling is typically light to medium-bodied with high acidity; includes Clare context, not a bottle guarantee.",
+        "reviewedOn": "2026-10-22"
+      }
+    },
+    "contrasts": {
+      "acidity": {
+        "title": "Compare mouth-watering freshness",
+        "wines": [
+          {
+            "grape": "riesling",
+            "region": "clare-valley"
+          },
+          {
+            "grape": "viognier",
+            "region": "condrieu"
+          }
+        ],
+        "selection": "Choose a young dry Clare Valley Riesling and a dry Condrieu Viognier. For a simpler substitute, use a dry Riesling and dry Viognier whose producer describes a crisp and a softer style. Avoid sweet, skin-contact or heavily oaked versions. Use similar glasses and begin both around 10–12°C; this is a practical starting point.",
+        "prompt": "Taste A, then B. Which makes your mouth water more, and for longer? Record more, less, similar or uncertain. Keep any warming sensation separate.",
+        "guidance": "Riesling often gives a stronger mouth-watering response than Viognier. Your bottles may overlap: sugar, temperature, vintage and winemaking affect the impression. A disagreement with the expected tendency is a reason to check the bottles and try again, not a wrong answer.",
+        "references": [
+          "acidity",
+          "viognier",
+          "riesling"
+        ]
+      },
+      "tannin": {
+        "title": "Compare drying grip in two reds",
+        "wines": [
+          {
+            "grape": "pinot-noir",
+            "region": "burgundy"
+          },
+          {
+            "grape": "tannat",
+            "region": "madiran"
+          }
+        ],
+        "selection": "Choose a young regional Bourgogne Pinot Noir described as lightly tannic and a young Tannat-led Madiran described as firm or structured. If unavailable, choose a lightly tannic Pinot Noir and a structured dry Tannat; check the producer description. Avoid mature bottles, heavily extracted special cuvées or very different ages. Start both around 16–18°C in similar glasses.",
+        "prompt": "Optional reference: let plain brewed black tea cool, then try a small sip if you already drink it. Notice drying grip separately from its bitter taste. With the two reds, gently move your tongue along your gums after each sip: which leaves more grip? Record more, less, similar or uncertain.",
+        "guidance": "The selected Pinot style is intended to feel less drying than the Tannat-led style. Tannat can also feel smooth; oak, extraction, blend, age, food and temperature change the result. Drying texture does not mean the wine tastes bitter or has no sugar. Both reds can also make your mouth water.",
+        "references": [
+          "pinot",
+          "tannat",
+          "texture"
+        ]
+      },
+      "body": {
+        "title": "Compare weight, not strength of aroma",
+        "wines": [
+          {
+            "grape": "riesling",
+            "region": "clare-valley"
+          },
+          {
+            "grape": "viognier",
+            "region": "condrieu"
+          }
+        ],
+        "selection": "Reuse the two dry whites from the acidity exercise: pick a lighter-bodied Riesling and a fuller-bodied Viognier, confirmed in producer descriptions. A dry Viognier can substitute for Condrieu. Keep glasses, temperature and pour size similar. Avoid sweet or heavily oaked examples for this first attempt.",
+        "prompt": "Ignore the aroma for a moment. Which sip feels lighter or more mouth-filling? Compare A and B, then reverse the order. Write lighter, fuller, similar or uncertain; do not judge by colour or how loudly the wine smells.",
+        "guidance": "Viognier often feels fuller than a lighter dry Riesling. Fullness is a combined impression; alcohol, sugar, acidity and winemaking can influence it. It is not the same as drying tannin, a rich aroma or quality. You can call one lighter and the other fuller without assigning either a numerical score.",
+        "references": [
+          "viognier",
+          "riesling",
+          "texture",
+          "australian-riesling"
+        ]
+      },
+      "sweetness": {
+        "title": "Separate sugar from fruit aroma",
+        "wines": [
+          {
+            "grape": "riesling",
+            "region": "clare-valley"
+          },
+          {
+            "grape": "riesling",
+            "region": "niagara-icewine"
+          }
+        ],
+        "selection": "Choose a confirmed dry Riesling and Ontario Riesling Icewine bearing the VQA designation. Do not substitute dry Niagara Riesling or an unspecified late-harvest wine. Small pours or shared small bottles are enough; no purchase is required. Begin both around 10°C in similar glasses.",
+        "prompt": "Smell both first without deciding how sweet they are. Take a small sip of each and record how sweet it tastes, then how mouth-watering it feels. Which tastes sweeter? Fruit aroma alone is not your answer.",
+        "guidance": "Ontario Riesling Icewine is a sweet expression; the dry Riesling is the contrast. Both may smell fruity and both may have lively acidity. Sweetness can soften the impression of acidity without removing it. Bottle information establishes this intended contrast, not the atlas’s rounded scores.",
+        "references": [
+          "icewine",
+          "acidity",
+          "taste"
+        ]
+      }
+    }
+  }
 }

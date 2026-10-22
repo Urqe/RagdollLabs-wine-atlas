@@ -6,7 +6,8 @@ window.WineJourney = (() => {
   let data = null;
   let glossary = {};
   let loaded = false;
-  const reserved = ['start', 'first-comparison', 'complete'];
+  const reserved = ['start', 'taste', 'first-comparison', 'complete'];
+  const scratch = new Map();
   const label = lesson => lesson.id[0].toUpperCase() + lesson.id.slice(1);
   const promise = Promise.all([
     WineData.json('./data/beginner-journey.json', { optional: true, fallback: null }),
@@ -39,6 +40,7 @@ window.WineJourney = (() => {
     const flight = lesson.id === 'first-comparison' ? data.firstFlight : lesson.flight;
     if (route.view === 'profile') {
       if (lesson.profile?.grape === route.grapeId && lesson.profile.region === route.regionId) return lesson.id;
+      if (practice(lesson.id)?.wines.some(wine => wine.grape === route.grapeId && wine.region === route.regionId)) return lesson.id;
       const linked = route.flightId === flight && WineFlights.resolve(flight);
       return linked && linked.wines.some(wine => wine.grape === route.grapeId && wine.region === route.regionId) ? lesson.id : null;
     }
@@ -106,7 +108,7 @@ window.WineJourney = (() => {
   function progress(current) {
     const nav = el('nav', null, 'journey-progress');
     nav.setAttribute('aria-label', 'Journey steps');
-    const steps = [['start', 'Start'], ...lessons().map(lesson => [lesson.id, label(lesson)]), ['first-comparison', 'Try a comparison'], ['complete', 'Finish']];
+    const steps = [['start', 'Start'], ['taste', 'Tasting method'], ...lessons().map(lesson => [lesson.id, label(lesson)]), ['first-comparison', 'Try a comparison'], ['complete', 'Finish']];
     for (const [id, label] of steps) {
       const node = link(label, { view: 'learn', lessonId: id }, `journey-step-${id}`);
       if (id === current) node.setAttribute('aria-current', 'step');
@@ -137,6 +139,75 @@ window.WineJourney = (() => {
     details.append(controls);
     target.append(details);
   }
+  function practice(id) {
+    const entry = data?.practice?.contrasts?.[id];
+    if (!entry || !['title', 'selection', 'prompt', 'guidance'].every(key => typeof entry[key] === 'string' && entry[key].trim()) ||
+        !Array.isArray(entry.wines) || entry.wines.length !== 2 || !entry.wines.every(wine => WineAtlas.combinedProfile(wine?.grape, wine?.region)) ||
+        !Array.isArray(entry.references) || !entry.references.length || !entry.references.every(key => reference(key))) return null;
+    return entry;
+  }
+  function reference(id) {
+    const ref = data?.practice?.references?.[id];
+    if (!ref || !['label', 'url', 'scope', 'reviewedOn'].every(key => typeof ref[key] === 'string' && ref[key].trim())) return null;
+    try { return new URL(ref.url).protocol === 'https:' ? ref : null; } catch { return null; }
+  }
+  function sources(target, ids) {
+    const details = el('details', null, 'journey-more');
+    details.append(el('summary', 'Further reading'));
+    for (const id of ids) {
+      const ref = reference(id);
+      if (!ref) continue;
+      const a = el('a', ref.label, 'journey-link');
+      a.href = ref.url;
+      details.append(a);
+    }
+    target.append(details);
+  }
+  function observation(target, id) {
+    const label = el('label', 'Your observations · before opening the guidance');
+    const field = el('textarea');
+    field.id = 'journey-observation';
+    field.rows = 4;
+    field.maxLength = 2000;
+    label.htmlFor = field.id;
+    field.value = scratch.get(id) || '';
+    field.setAttribute('aria-describedby', 'journey-note-help');
+    field.addEventListener('input', () => scratch.set(id, field.value));
+    target.append(label, field, el('p', 'Optional scratch notes stay in this tab while you explore. Reloading clears them. They are not saved or scored. You can also write on paper.', 'small'));
+    field.nextElementSibling.id = 'journey-note-help';
+  }
+  function showMethod(target) {
+    target.append(heading('A simple method for your first tasting'), el('p', 'Use one wine or a pair. Reading explains the method; trying real examples helps you learn the sensations. There is no target drinking amount or pace.', 'journey-lead'));
+    const steps = data?.practice?.method;
+    if (Array.isArray(steps) && steps.length === 6 && steps.every(step => step && typeof step.title === 'string' && step.title.trim() && typeof step.body === 'string' && step.body.trim())) {
+      const list = el('ol', null, 'journey-method');
+      for (const step of steps) { const li = el('li'); li.append(el('h3', step.title), el('p', step.body)); list.append(li); }
+      target.append(list);
+      observation(target, 'taste');
+      sources(target, ['method', 'taste']);
+    } else target.append(el('p', 'The tasting method is temporarily unavailable. You can still continue with the four ideas or reload to try again.'));
+    target.append(actions(link('Next: Acidity', { view: 'learn', lessonId: 'acidity' }, 'journey-next', true), link('Back', { view: 'learn', lessonId: 'start' })));
+  }
+  function showPractice(target, id) {
+    const entry = practice(id);
+    const details = el('details', null, 'journey-more');
+    details.id = 'journeyPractice';
+    details.append(el('summary', 'Practise with real examples'));
+    if (!entry) { details.append(el('p', 'Practice details are temporarily unavailable. Continue with the idea above or reload to try again.')); target.append(details); return; }
+    details.append(el('h3', entry.title), el('p', entry.selection), el('p', 'Label the selected wines A and B. These are named learning examples, not a blind test. If you have no wine, read the instructions; imagined sensations do not establish practical recognition.', 'small'), el('p', entry.prompt), el('p', 'Use the pair as a reference: lower, middle or higher describes your impression relative to these glasses. You can also write similar or uncertain. These are not laboratory levels or targets on the atlas’s 0–5 scales.', 'small'));
+    observation(details, id);
+    const guidance = el('details', null, 'journey-more');
+    guidance.id = 'journeyPracticeGuidance';
+    guidance.append(el('summary', 'After noting impressions: compare guidance'), el('p', entry.guidance));
+    const links = entry.wines.map(wine => {
+      const item = WineAtlas.combinedProfile(wine.grape, wine.region);
+      return link(`${WineModel.profileName(item)} · ${item.region.name}`, { view: 'profile', grapeId: wine.grape, regionId: wine.region, lessonId: id });
+    });
+    guidance.append(actions(...links));
+    sources(guidance, entry.references);
+    details.append(guidance);
+    target.append(details);
+  }
   function show(route) {
     const target = prepare();
     const id = route.lessonId || 'start';
@@ -148,16 +219,19 @@ window.WineJourney = (() => {
       return;
     }
     target.append(el('p', data.title, 'kicker'));
-    if (id === 'start') {
-      target.append(heading('A few words for what you notice'), el('p', data.intro, 'journey-lead'),
+    if (id === 'taste') {
+      showMethod(target);
+    } else if (id === 'start') {
+      target.append(heading('From your first sip to useful words'), el('p', data.intro, 'journey-lead'),
         el('p', 'Learn to separate mouth-watering acidity, drying tannin, the weight of body and the taste of sweetness. There is no right preference and no test to pass.'),
-        actions(link('Begin with acidity', { view: 'learn', lessonId: lessons()[0].id }, 'journey-next', true)),
+        actions(link('Learn the tasting method', { view: 'learn', lessonId: 'taste' }, 'journey-next', true)),
+        actions(link('Begin with acidity', { view: 'learn', lessonId: lessons()[0].id }, 'journey-vocabulary')),
         el('p', 'Already comfortable with those ideas? Skip straight to the comparison or use Explore and Compare as usual.', 'small'),
         actions(link('Skip to the comparison', { view: 'learn', lessonId: 'first-comparison' }, 'journey-skip'), link('Explore wines', { view: 'explore' })));
       referenceButtons(target, 'scores');
     } else if (id === 'complete') {
       target.append(heading('You have four useful questions'), el('p', 'How mouth-watering? How grippy? How weighty? How sweet? Use those questions to describe a wine before deciding whether you like it.', 'journey-lead'),
-        el('p', 'Fruit aroma is separate from sugar; drying tannin is separate from acidity. Body describes weight, not quality. Your preference can change with the bottle, food and occasion.'),
+        el('p', 'Fruit aroma is separate from sugar; drying tannin is separate from acidity. Body describes weight, not quality. Reading or finishing this journey does not demonstrate tasting skill. Return to real examples when useful; your preference can change with the bottle, food and occasion.'),
         actions(link('Explore tasting flights', { view: 'flights' }, 'journey-next', true), link('Explore wines', { view: 'explore' })),
         actions(link('Restart the journey', { view: 'learn', lessonId: 'start' }, 'journey-restart'), link('Back to the comparison', { view: 'learn', lessonId: 'first-comparison' })));
       referenceButtons(target, 'scores');
@@ -176,9 +250,10 @@ window.WineJourney = (() => {
       const exercise = el('section', null, 'journey-exercise');
       exercise.append(el('h3', 'Try noticing this'), el('p', step.exercise));
       target.append(exercise, el('p', step.takeaway));
+      showPractice(target, id);
       const next = lessons()[index + 1];
       target.append(actions(link(next ? `Next: ${label(next)}` : 'Next: try a comparison', { view: 'learn', lessonId: next?.id || 'first-comparison' }, 'journey-next', true),
-        link('Back', { view: 'learn', lessonId: lessons()[index - 1]?.id || 'start' }, 'journey-back')));
+        link('Back', { view: 'learn', lessonId: lessons()[index - 1]?.id || 'taste' }, 'journey-back')));
       const examples = el('details', null, 'journey-more');
       examples.id = 'journeyExamples';
       examples.append(el('summary', 'Explore an example'));
