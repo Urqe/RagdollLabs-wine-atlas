@@ -1,6 +1,6 @@
 # Wine Atlas release plan
 
-Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9 implemented 2026-10-21: Your First Glass. M1 maintenance implemented after the R1–R9 audit; verification limits are recorded below. R10–R13 remain planned, with practical tasting and aroma training prioritized before advanced blind practice.
+Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9 implemented 2026-10-21: Your First Glass. M1 maintenance implemented after the R1–R9 audit; verification limits are recorded below. M2 is the next maintenance release, including the reported macOS Safari landing-heading focus ring. R10–R13 remain planned, with practical tasting and aroma training prioritized before advanced blind practice.
 Created: 2026-10-19.  
 Review baseline: main at `d819d99505b188f2319c37f0f4aa01153278438b` (120 profiles, 92 region entries, 47 grape/blend baselines).  
 Release IDs below are planning identifiers, not published semantic versions.
@@ -20,13 +20,14 @@ Fix misleading behavior and content before increasing the catalog. Preserve the 
 | R7 | Canada: Frozen on the Vine | P3 — low | Canadian icewine with accurate production and comparison context | R1–R4; normally follows R6's first batch |
 | R8 | Taste the Difference | P2 — medium | Six guided tasting flights connected to Compare | R1–R4; uses existing R5–R7 profiles |
 | R9 | Your First Glass | P2 — medium | Short practical beginner journey with clear next steps | R8 for guided-flight integration |
-| M1 | R1–R9 Maintenance | P2 — medium | Repair reproduced search/comparison/enrichment defects and comparison layout | R1–R9; current maintenance release |
+| M1 | R1–R9 Maintenance | P2 — medium | Repair reproduced search/comparison/enrichment defects and comparison layout | R1–R9; implemented maintenance release |
+| M2 | Focus and browser polish | P2 — medium | Fix the reported macOS Safari landing-heading highlight while preserving accessible navigation | M1; next maintenance release |
 | R11 | Learn to Taste | P2 — medium | Repeatable tasting procedure and sensory calibration for complete beginners | R8/R9; next feature release after M1 |
 | R12 | Find the Notes | P2 — medium | Aroma references, vocabulary and repeated non-leading practice | R11 |
 | R10 | From Atlas to Bottle | P2 — medium | Recognize modeled expressions on labels and wine lists | R8/R9; complete before R13 regional practice |
 | R13 | Taste Before the Reveal | P2 — medium | Optional blind practice progressing from broad style to regional hypotheses | R11/R12; R10 for regional/bottle-selection work |
 
-R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8/R9 introduce the reference and beginner vocabulary. The maintenance audit found additional work is needed to train sensory recognition. Execute M1 now, then R11 → R12 → R10 → R13; IDs are stable planning identifiers, not an obligation to implement in numeric order. R11 is the next feature release. This learning sequence takes priority over remaining catalog expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned.
+R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8/R9 introduce the reference and beginner vocabulary. The maintenance audit found additional work is needed to train sensory recognition. M1 is implemented. Schedule M2 as the next maintenance release; the feature sequence remains R11 → R12 → R10 → R13; IDs are stable planning identifiers, not an obligation to implement in numeric order. R11 is the next feature release. This learning sequence takes priority over remaining catalog expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned.
 
 ## Working rules for every release
 
@@ -360,6 +361,28 @@ These comparisons are editorial questions to investigate, not predetermined nume
 ### Review outcome
 
 R8's named comparisons and R9's four vocabulary lessons remain useful. They do not yet teach a complete tasting procedure, practical intensity calibration, aroma-reference recognition or blind regional inference. Existing worksheets print identities and must not be advertised as blind practice. R11–R13 below address those gaps. Region recognition is an advanced, uncertain inference; the app must never promise mastery after reading a short guide.
+
+## M2 — Focus and browser polish
+
+**Status:** Planned; next maintenance release. Reported 2026-10-22.
+
+**Goal:** Remove the distracting landing-title highlight reported on macOS Safari while preserving useful keyboard focus and accessible route orientation.
+
+### Safari landing-title highlight
+
+- [ ] Reproduce the user-reported blue outline around the full two-line “RagDollLabs Wine Atlas” landing heading on fresh load in macOS Safari. The supplied screenshot establishes the visible symptom; the exact Safari version/settings and cause still need confirmation.
+- [ ] Investigate `WineNavigation.destination()` / `orient()` / startup restoration, which target `#welcomeTitle`, set `tabIndex=-1` and call `focus()`. The existing pointer-return handling in `home-brand.js` may not cover initial route orientation. This is a likely focus-ring interaction, not yet a confirmed Safari reproduction.
+- [ ] Apply the smallest appropriate startup-focus or heading-style correction so the landing page opens without a large decorative-looking blue frame. Scope any outline styling to non-interactive route headings as justified; never disable outlines globally, blur every control or remove navigation focus indiscriminately.
+- [ ] Preserve visible focus for links, buttons, inputs and selects, logical keyboard order, heading orientation for assistive technology, and history/focus restoration.
+
+### Acceptance and verification
+
+- [ ] Check fresh load, refresh, direct home URL, pointer return via branding, keyboard return and Back/Forward on macOS Safari; record browser/OS settings and results.
+- [ ] Confirm that Tab/Shift+Tab still visibly identifies actionable controls, including branding links, and that screen-reader route orientation remains useful. Check other route headings for the same oversized-ring symptom.
+- [ ] Recheck desktop Chrome and the existing navigation/focus regression suite. Extend behavioral tests only if the focus contract changes; DOM tests do not establish Safari’s painted appearance.
+- [ ] Verify iPhone/iPad Safari separately if shared focus styling changes. Keep the inherited physical-touch, real-screen-reader and enlarged-text obligations open until actually checked.
+
+This is a newly reported macOS Safari visual issue. It does not close or replace M1’s older unverified device checks. No application fix has shipped under M2 yet.
 
 ## R10 — From Atlas to Bottle
 
