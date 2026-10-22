@@ -437,7 +437,7 @@ This is a newly reported macOS Safari visual issue. It does not close or replace
 - [x] Optional sections are omitted cleanly when guidance is missing; native disclosure and glossary return focus are covered in DOM checks.
 - [ ] Verify readable mobile layout, touch and real screen-reader behavior on devices.
 - [x] Run existing validation and focused checks for guidance references, links, optional rendering and representative ambiguous label cases.
-- [ ] Confirm the published desktop flow and record browser results after deployment.
+- [x] Published desktop Chrome: Chablis disclosure and readable layout, Bordeaux alternative route/focus, pre-/post-phylloxera examples in glossary, and clean omission on Napa checked after Pages deployment. Final lead-in wording also clarified to distinguish printed wording from confirmed producer information.
 
 ## R11 — Learn to Taste
 

@@ -42,7 +42,7 @@ window.WineLabels = (() => {
     const summary = el('summary');
     summary.append(el('span', 'Recognize it on the label'), el('small', 'What to look for · what to check'));
     const content = el('div', null, 'profile-learning-content label-guide-content');
-    content.append(el('p', 'If the label or wine list says:', 'small'), el('p', item.example, 'label-example'));
+    content.append(el('p', 'Start with this wording or confirmed detail:', 'small'), el('p', item.example, 'label-example'));
     for (const [heading, copy] of [['What it points to', item.match], ['What it does not settle', item.limit], ['Before choosing a bottle', item.check]]) {
       const section = el('section', null, 'learning-section');
       section.append(el('h3', heading), el('p', copy)); content.append(section);

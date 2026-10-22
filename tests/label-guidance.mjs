@@ -10,6 +10,7 @@ const guide = d.getElementById('labelGuidance');
 assert.ok(!guide.classList.contains('hidden'));
 assert.equal(guide.open, false);
 assert.match(guide.textContent, /Chablis AOC/);
+assert.match(guide.textContent, /wording or confirmed detail/);
 assert.match(guide.textContent, /does not promise steel-only/);
 assert.ok(guide.querySelector('a[href^="https://www.chablis-wines.com"]'));
 // The two Bordeaux references are not inferred from a generic Bordeaux label.

@@ -1,6 +1,6 @@
 {
   "chablis/chardonnay": {
-    "example": "Chablis AOC · producer · vintage",
+    "example": "Chablis AOC",
     "match": "Chablis AOC identifies the Chardonnay appellation represented here; the grape may not be printed prominently.",
     "limit": "Petit Chablis, Premier Cru and Grand Cru are separate appellation levels. Chablis alone does not promise steel-only ageing, a particular oak note or the atlas's exact scores.",
     "check": "Confirm Chablis AOC, then check the producer's cuvée and oak/fermentation notes if you want the young, steel-led reference.",
