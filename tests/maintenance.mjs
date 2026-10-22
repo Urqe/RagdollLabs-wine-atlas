@@ -72,4 +72,54 @@ assert.equal(partialGuide.document.querySelectorAll('.taste-section').length, 1)
 assert.equal(partialGuide.document.querySelectorAll('.taste-example').length, 1);
 partialGuide.document.getElementById('glossaryClose').click();
 await partialGuide.close();
-console.log('OK: search request races, empty comparison intent and malformed optional learning enrichment');
+
+// Compare searches can overlap while food vocabulary loads. The latest input
+// event wins even when a previous request has the same query text.
+const compare = await createApp();
+await compare.settle();
+compare.window.WineAtlas.setMode('compare');
+const compareInput = compare.document.getElementById('compareDiscoveryInput');
+const originalRank = compare.window.WineSearch.rank;
+const oldRows = await originalRank('pinot', 12);
+const newRows = await originalRank('riesling', 12);
+const pendingRanks = [];
+compare.window.WineSearch.rank = () => new Promise(resolve => pendingRanks.push(resolve));
+compareInput.value = 'pinot'; const first = compare.window.compareRunDiscovery();
+compareInput.value = 'riesling'; const second = compare.window.compareRunDiscovery();
+compareInput.value = 'pinot'; const third = compare.window.compareRunDiscovery();
+pendingRanks[2](newRows); await third;
+pendingRanks[0](oldRows); pendingRanks[1](newRows); await Promise.all([first, second]);
+assert.match(compare.document.getElementById('compareDiscoveryResults').textContent, /Riesling/);
+assert.doesNotMatch(compare.document.getElementById('compareDiscoveryResults').textContent, /Pinot/);
+compareInput.value = 'pinot'; const leaving = compare.window.compareRunDiscovery();
+compare.window.WineAtlas.setMode('explore');
+pendingRanks[3](oldRows); await leaving;
+assert.equal(compare.document.getElementById('compareDiscoveryResults').textContent, '');
+compare.window.WineSearch.rank = originalRank;
+await compare.close();
+
+// A slow optional lesson must have a shareable route and a visible focus target
+// while loading; navigating away must prevent its late response from rerouting.
+let finishJourney;
+const slow = await createApp({ fetch: (resource, options, localFetch) =>
+  String(resource).endsWith('beginner-journey.json') ? new Promise(resolve => { finishJourney = () => resolve(localFetch(resource)); }) : undefined });
+slow.window.WineNavigation.go({ view: 'learn', lessonId: 'tannin' });
+assert.equal(new URL(slow.window.location.href).searchParams.get('lesson'), 'tannin');
+assert.equal(slow.document.activeElement.id, 'journeyHeading');
+assert.match(slow.document.getElementById('journeyHeading').textContent, /Loading/);
+slow.window.WineNavigation.go({ view: 'explore' });
+finishJourney(); await slow.settle();
+assert.equal(new URL(slow.window.location.href).searchParams.get('view'), 'explore');
+assert.ok(!slow.document.getElementById('emptyView').classList.contains('hidden'));
+await slow.close();
+let finishFlights;
+const slowFlight = await createApp({ fetch: (resource, options, localFetch) =>
+  String(resource).endsWith('tasting-flights.json') ? new Promise(resolve => { finishFlights = () => resolve(localFetch(resource)); }) : undefined });
+slowFlight.window.WineNavigation.go({ view: 'worksheet', flightId: 'sauvignon-two-places' });
+assert.equal(new URL(slowFlight.window.location.href).searchParams.get('view'), 'worksheet');
+assert.equal(slowFlight.document.activeElement.id, 'flightsHeading');
+finishFlights(); await slowFlight.settle();
+assert.equal(slowFlight.document.activeElement.id, 'worksheetHeading');
+assert.match(slowFlight.document.getElementById('worksheetView').textContent, /Print worksheet/);
+await slowFlight.close();
+console.log('OK: search races, optional route loading, empty comparison intent and malformed learning enrichment');

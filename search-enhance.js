@@ -8,8 +8,6 @@
 
 function atlasNormalize(value) { return FoodDiscovery.normalize(value); }
 function atlasLoadFoodAliases() { return FoodDiscovery.load(); }
-function atlasPairingScore(pairings, query) { return FoodDiscovery.score(pairings, query); }
-
 let atlasSearchRequest = 0;
 
 async function renderEnhancedAtlasSearch() {

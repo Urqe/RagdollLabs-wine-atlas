@@ -10,6 +10,7 @@
  */
 
 let compareDiscoveryMatches = [];
+let compareDiscoveryRequest = 0;
 
 function compareNormalize(value) { return FoodDiscovery.normalize(value); }
 
@@ -27,10 +28,6 @@ function compareSetProfiles(profiles) { WineComparison.replace(profiles); }
 function compareProfileLabel(item) {
   const style = item.regional.style?.label;
   return `${WineModel.profileName(item)} · ${item.region.name}${style ? ` · ${style}` : ""}`;
-}
-
-async function rankCompareMatches(rawQuery) {
-  return WineSearch.rank(rawQuery, 12);
 }
 
 function compareCanAdd(item) {
@@ -92,6 +89,7 @@ function compareRenderResults() {
 }
 
 async function compareRunDiscovery() {
+  const request = ++compareDiscoveryRequest;
   const input = document.getElementById("compareDiscoveryInput");
   const container = document.getElementById("compareDiscoveryResults");
   if (!input || !container) return;
@@ -102,8 +100,8 @@ async function compareRunDiscovery() {
     document.getElementById("compareTopMatches")?.classList.add("hidden");
     return;
   }
-  const matches = await rankCompareMatches(query);
-  if (input.value.trim() !== query) return;
+  const matches = await WineSearch.rank(query, 12);
+  if (request !== compareDiscoveryRequest || input.value.trim() !== query) return;
   compareDiscoveryMatches = matches;
   compareRenderResults();
   if (!compareDiscoveryMatches.length) {
@@ -165,6 +163,7 @@ function setCompareWorkspaceMode(mode) {
   const comparing = mode === "compare";
   document.getElementById("searchSection")?.classList.toggle("hidden", comparing);
   if (!comparing) {
+    ++compareDiscoveryRequest;
     const input = document.getElementById("compareDiscoveryInput");
     if (input) input.value = "";
     compareDiscoveryMatches = [];

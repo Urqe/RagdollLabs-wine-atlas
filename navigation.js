@@ -117,6 +117,8 @@ window.WineNavigation = (() => {
       const feature = route.view === 'learn' || route.lessonId ? WineJourney : WineFlights.needsData(route) ? WineFlights : null;
       if (feature && !feature.loaded) {
         feature.showLoading();
+        write(route, options.history || 'push');
+        orient(byId(feature === WineJourney ? 'journeyHeading' : 'flightsHeading'), !options.restore);
         feature.load().then(() => {
           if (transition === transitionToken) go(route, { ...options, skipSave: true });
         });
