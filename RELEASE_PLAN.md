@@ -400,6 +400,9 @@ R8's named comparisons and R9's four vocabulary lessons remain useful. They do n
 
 ### Scope
 
+- [ ] Lead learning copy with what to expect, what to notice and how to connect familiar sensations to words. Keep review backlogs and internal evidence status in methodology/developer documentation; retain useful bottle variation and uncertainty in plain language. Audit the guide, profiles and flights for process-heavy copy.
+- [ ] Explain smell versus basic taste versus mouthfeel. Use gums/inner cheeks for noticing tannic grip and the mouth-watering response for acidity; do not teach exclusive tongue zones or assign fruit aromas to locations on the tongue.
+
 - [ ] Add a short practical procedure: prepare similar glasses/conditions, look, smell before and after gentle swirling, take a small sip, notice mouth-watering/drying/weight/sweetness and finish, then record an observation before reading suggested notes.
 - [ ] Explain the difference between aroma/flavour, sweetness, bitterness, astringency and alcohol warmth in plain language. Keep quality preference separate from sensory description.
 - [ ] Make tannin recognition a real exercise: use familiar tea texture as an optional reference, then a sourced low-/higher-tannin red-wine contrast. Add separate acidity and body contrasts; do not use two whites as evidence of learning red-wine tannin.
