@@ -152,14 +152,15 @@ window.WineFlights = (() => {
       target.append(section);
     }
     const observations = el('section', null, 'flight-section');
-    observations.append(el('h3', 'What to notice'));
+    observations.append(el('h3', 'What to notice'),
+      paragraph('Smell first, then take a small sip if tasting. Notice texture as well as flavour. Fruit and spice notes are aroma associations: after spitting or swallowing, breathe out gently through your nose and see what lingers. Sweetness and sourness are not confined to separate zones of your tongue.', 'small'));
     const prompts = el('ol');
     flight.observations.forEach(text => prompts.append(el('li', text)));
     observations.append(prompts);
     const limitations = el('details', null, 'flight-section');
     limitations.id = 'flightLimitations';
     limitations.append(el('summary', 'What this comparison can tell you'), paragraph(flight.limitation),
-      paragraph('Flights reuse the atlas’s editorial expressions and rounded scores. Open each profile’s Learn more → Sources & methodology for its supporting references and evidence still to review. No bottle is required to match those scores.', 'small'));
+      paragraph('The profiles describe typical styles; your bottle and your impressions may differ. Use the scores to compare broad tendencies, not to mark your tasting right or wrong. For background reading, open a profile’s Learn more → Sources & methodology.', 'small'));
     target.append(observations, limitations);
     byId('liveStatus').textContent = `${flight.title}. ${flight.wines.length} wines in this guided flight.`;
   }

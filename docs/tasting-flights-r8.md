@@ -42,3 +42,14 @@ Flights explain confounding variables instead of presenting producer/vintage/gra
 - iPhone/iPad Safari, physical touch behavior, real screen-reader interaction and browser-native print dialogs remain unverified. Existing release-plan device obligations are not marked complete by DOM tests.
 
 R9's short beginner journey and R10's expanded bottle-label guidance remain separate planned releases. This release supplies flight-specific buying cues only.
+
+
+## Tasting-copy maintenance — 2026-10-22
+
+All six flight limitations now describe useful tasting observations and bottle variation in plain language. They no longer show claim-review workflow in the lesson. The shared observation introduction distinguishes aroma associations, mouthfeel and basic taste; the Cabernet prompt anchors drying grip to gums/inner cheeks and separates it from the mouth-watering response. Scores remain comparative suggestions, never a test of the learner’s perception.
+
+This is a copy correction, not completion of R11/R12 or a new review of the wine profiles. The evidence boundaries above and the profile Sources & methodology disclosures remain in force. No regional, production or quality claim is newly certified by this wording change. The next learning release also includes a wider reader-facing copy audit.
+
+Teaching reference: [NIDCD, Taste Disorders, How does your sense of taste work?](https://www.nidcd.nih.gov/health/taste-disorders), reviewed 2026-10-22 for the distinction between taste, aroma and texture; it explains that different taste-cell types are distributed across the tongue and that aromas also reach the nose from the mouth. The copy is original and does not provide a tongue map. Existing R9 tannin/acidity teaching supplies the practical mouthfeel distinction.
+
+Verification: full `npm run validate`; no routing, scoring, selection, accessibility controls or worksheet answers change. Device and native-print checks listed above remain open.

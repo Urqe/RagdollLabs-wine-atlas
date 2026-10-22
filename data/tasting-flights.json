@@ -11,7 +11,7 @@
       "Compare how mouth-watering each feels, separately from how intense its aroma is.",
       "Do you prefer the more restrained or the more aromatic glass, and does food change that?"
     ],
-    "limitation": "These are selected regional models, not a controlled climate experiment. Site, harvest timing, producer and vintage can change the result. Both profiles still have claim-level evidence gaps; the lesson uses their editorial descriptions, not newly verified regional rules.",
+    "limitation": "Use this pair to notice differences in fruit aroma and freshness. A bottle may be more herbal, more fruity or less intense than you expected: vineyard, harvest timing, producer and vintage all play a part. Let the glass lead your description.",
     "wines": [
       { "grape": "sauvignon-blanc", "region": "sancerre" },
       { "grape": "sauvignon-blanc", "region": "marlborough" }
@@ -26,10 +26,10 @@
     "serving": "Try Bordeaux first, then Napa, and revisit both. Start around 16–18°C and use the same glass shape. Taste before deciding whether a young bottle needs air; avoid prolonged aeration of fragile older bottles.",
     "observations": [
       "Describe the fruit as you perceive it: tart, fresh, ripe or dried, rather than simply better or worse.",
-      "Separate mouth-drying tannin, mouth-watering acidity and the impression of weight.",
+      "After a small sip, notice any drying grip along your gums and inner cheeks, then the mouth-watering response. Compare those sensations separately from how light or full the wine feels.",
       "Can you distinguish oak-like cedar or toast from the fruit? Check the producer's information before attributing a cause."
     ],
-    "limitation": "Blending, vineyard, oak regime, vintage and bottle age all matter. This comparison cannot isolate climate or establish a regional quality ranking. Bordeaux's blend context has reviewed evidence; Napa's detailed regional and production claims remain in the existing evidence backlog.",
+    "limitation": "Look for the balance of fruit, drying grip and freshness in each glass. Which feels fuller? Which leaves your mouth watering? Blend, oak, vintage and bottle age can change those impressions, so use the region as a starting point rather than a verdict on what you should taste or prefer.",
     "wines": [
       { "grape": "cabernet-sauvignon", "region": "bordeaux" },
       { "grape": "cabernet-sauvignon", "region": "napa" }
@@ -47,7 +47,7 @@
       "Notice differences in weight, concentration and warming alcohol sensation.",
       "Does the lighter wine feel different after the fuller glass? Revisit it and describe the change."
     ],
-    "limitation": "Grape drying is a meaningful production contrast, but producer, blend, oak, age and vintage also vary. Do not attribute every difference to appassimento or assume every Amarone matches the atlas's scores. Reviewed production examples are linked in the profiles.",
+    "limitation": "Notice whether the fruit reminds you of fresh cherries or dried fruit, then compare weight and warmth. Dried-fruit aromas do not necessarily mean the wine tastes sweet. Blend, oak, vintage and bottle age also shape the glass, so grape drying will not explain every difference.",
     "wines": [
       { "grape": "corvina", "region": "valpolicella" },
       { "grape": "corvina", "region": "amarone" }
@@ -65,7 +65,7 @@
       "Compare weight, tannin and freshness. Similar rounded scores can still leave distinct aromas.",
       "Does knowing the name or country change your expectations? Try describing each glass before rereading its profile."
     ],
-    "limitation": "Genetic identity is supported by the reviewed UC Davis reference linked in the Primitivo profile. Producer choices, growing conditions and vintage still differ. Lodi's detailed claims remain background context pending review; no numerical contrast is invented for this flight.",
+    "limitation": "A shared grape does not mean identical wines. Describe the fruit and spice you notice, then compare freshness and drying grip. Producer choices, growing conditions and vintage can make two bottles with the same grape feel quite different; neither name tells you which you will prefer.",
     "wines": [
       { "grape": "zinfandel", "region": "primitivo-manduria" },
       { "grape": "zinfandel", "region": "lodi" }
@@ -83,7 +83,7 @@
       "Notice texture and the way bubbles feel; the atlas's bubble labels are qualitative, not pressure measurements.",
       "Compare sweetness and acidity together. Differences in sugar can influence perceived balance as well as the production method."
     ],
-    "limitation": "This is not a controlled test of bottle versus tank fermentation: grape, dosage, lees time, producer and age can differ. Detailed claim review for these profiles remains open. Read production explanations as the selected models and consult their evidence limitations.",
+    "limitation": "Focus on fruit and floral aromas, any bread-like notes, and how the bubbles feel in your mouth. Sweetness can make the balance feel softer even when acidity is present. Grapes, sugar level and time spent ageing vary too, so fermentation method alone will not explain everything you notice.",
     "wines": [
       { "grape": "glera", "region": "prosecco-doc" },
       { "grape": "champagne-blend", "region": "champagne-brut-nv" }
@@ -101,7 +101,7 @@
       "Which glass feels most mouth-watering relative to its sweetness? Acidity balances sugar without removing it.",
       "Compare texture and finish without assuming the darkest, thickest or sweetest glass is the oldest or best."
     ],
-    "limitation": "Grapes, blends, fermentation, maturation, vintage and producer all differ; this cannot isolate concentration method. Ontario identity and the selected Niagara example have reviewed evidence. Detailed Sauternes and Aszú claims still need claim-level review, and no universal ageing promise follows from sweetness.",
+    "limitation": "Compare sweetness with the mouth-watering response after each sip. Which feels fresher, richer or more lingering to you? Grapes, producer and bottle age also shape the aromas and texture; sweetness alone tells you neither how old a wine is nor how well it will age.",
     "wines": [
       { "grape": "riesling", "region": "niagara-icewine" },
       { "grape": "semillon", "region": "sauternes" },
