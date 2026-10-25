@@ -491,7 +491,7 @@ Pilot notes: cached ERA5 2000+ seasons for Sancerre, Marlborough and Central Ota
 
 **Status:** First checked-link batch implemented 2026-10-25 for five profiles; wider grape, style and region mapping remains open. See [R17 link checks](docs/alko-links-r17.md). Replaces the earlier bottle-discovery pilot (old R17–R19, in git history). The Atlas stores **no Alko product, price or stock data**: it only links to Alko's own filtered search pages. Does not depend on the R16 data gate.
 
-**Observed URL scheme** (examples supplied by Arttu from alko.fi on 2026-10-25; observed, not documented or guaranteed by Alko):
+**Observed URL scheme** (examples supplied by the project owner from alko.fi on 2026-10-25; observed, not documented or guaranteed by Alko):
 - Category in the path: `/fi/tuotteet/punaviinit`, `valkoviinit`, `roseeviinit`, `kuohuviinit-ja-samppanjat`, `jalkiruokaviinit-ja-muut`.
 - Filters as query parameters: `grapeId=grape_<name>` (e.g. `grape_cabernet_sauvignon`), `countryId=<ISO 3-letter>` (e.g. `CHL`), `regionId=<ISO3>_<finnish-slug>` (e.g. `FRA_bourgogne`, `ARG_mendoza`, `FRA_lounais-ranska`).
 - Filters combine, e.g. `punaviinit?countryId=CHL&grapeId=grape_carmenere` and `punaviinit?regionId=FRA_bourgogne&grapeId=grape_pinot_noir`.
