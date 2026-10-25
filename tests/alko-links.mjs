@@ -18,7 +18,15 @@ const cases = [
   ['tempranillo', 'rioja', 'punaviinit?regionId=ESP_rioja&grapeId=grape_tempranillo', false],
   ['cabernet-sauvignon', 'napa', 'punaviinit?countryId=USA&grapeId=grape_cabernet_sauvignon', true],
   ['merlot', 'napa', 'punaviinit?countryId=USA&grapeId=grape_merlot', true],
-  ['syrah', 'barossa', 'punaviinit?countryId=AUS&grapeId=grape_shiraz', true]
+  ['syrah', 'barossa', 'punaviinit?countryId=AUS&grapeId=grape_shiraz', true],
+  ['provence-rose-blend', 'cotes-de-provence-rose', 'roseeviinit?regionId=FRA_provence', false],
+  ['grenache', 'tavel-rose', 'roseeviinit?countryId=FRA&grapeId=grape_grenache', true],
+  ['champagne-blend', 'champagne-brut-nv', 'kuohuviinit-ja-samppanjat?regionId=FRA_champagne', false],
+  ['chardonnay', 'cremant-bourgogne', 'kuohuviinit-ja-samppanjat?regionId=FRA_bourgogne&grapeId=grape_chardonnay', false],
+  ['pinot-noir', 'cremant-bourgogne', 'kuohuviinit-ja-samppanjat?regionId=FRA_bourgogne&grapeId=grape_pinot_noir', false],
+  ['riesling', 'mosel', 'valkoviinit?regionId=DEU_mosel&grapeId=grape_riesling', false],
+  ['albarino', 'rias-baixas', 'valkoviinit?countryId=ESP&grapeId=grape_albarino', true],
+  ['glera', 'prosecco-doc', 'kuohuviinit-ja-samppanjat?countryId=ITA&grapeId=grape_glera', true]
 ];
 for (const [grape, region, url, fallback] of cases) {
   w.WineAtlas.selectProfile(grape, region); await app.settle();
@@ -35,6 +43,9 @@ assert.equal(w.WineAlkoLinks.linkFor(profile, { ...config, regions: { ...config.
 assert.equal(w.WineAlkoLinks.linkFor(profile, { ...config, profiles: { ...config.profiles, 'burgundy/pinot-noir': { ...config.profiles['burgundy/pinot-noir'], checkedOn: '' } } }), null);
 assert.equal(w.WineAlkoLinks.linkFor(w.WineAtlas.combinedProfile('malbec', 'mendoza'), { ...config, regions: { ...config.regions, mendoza: { ...config.regions.mendoza, id: 'FRA_mendoza' } } }), null);
 assert.match(w.WineAlkoLinks.linkFor(w.WineAtlas.combinedProfile('syrah', 'barossa')).label, /Australia Shiraz/);
+const champagne = w.WineAtlas.combinedProfile('champagne-blend', 'champagne-brut-nv');
+assert.equal(w.WineAlkoLinks.linkFor(champagne, { ...config, profiles: { ...config.profiles, 'champagne-brut-nv/champagne-blend': { ...config.profiles['champagne-brut-nv/champagne-blend'], grapeFilter: true } } }), null);
+assert.equal(w.WineAlkoLinks.linkFor(w.WineAtlas.combinedProfile('pinot-noir', 'cremant-bourgogne'), { ...config, profiles: { ...config.profiles, 'cremant-bourgogne/pinot-noir': { ...config.profiles['cremant-bourgogne/pinot-noir'], family: 'still' } } }), null);
 w.WineAtlas.selectProfile('pinot-noir', 'willamette'); await app.settle();
 assert.equal(section.classList.contains('hidden'), true);
 await app.close();
