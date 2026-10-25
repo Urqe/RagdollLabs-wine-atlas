@@ -29,10 +29,10 @@ Fix misleading behavior and content before increasing the catalog. Preserve the 
 | R14 | Wine Before the Modern Cellar | P3 — low | Three short historical production stories linked to modern techniques | R10; small optional learning release |
 | R13 | Taste Before the Reveal | P2 — medium | Optional blind practice progressing from broad style to regional hypotheses | R11/R12; R10 for regional/bottle-selection work |
 | R15 | Vintage Weather Intelligence | P2 — medium | Regional vintage-weather interpretation for represented styles, independent of retailers | Existing profile geography; historical weather source; **no Alko dependency** |
-| R16 | Alko Data Feasibility Gate | P1 — blocking research | Verify permitted, sustainable product, price and inventory access before promising a live integration | External Alko access/license, product and availability fields; **Alko-dependent** |
-| R17 | Alko Bottle Discovery Pilot | P2 — conditional | 20-profile pilot, verified availability, price/history, weekly reviewable sync PR and developer coverage report | **Alko-dependent: R16 gate must pass**; R15 optional enhancement |
-| R18 | Alko Catalog Coverage & Store Selector | P2 — conditional | Expand verified matches; Anywhere/Choose the Alko with in-stock stores only | **Alko-dependent: R16–R17** |
-| R19 | Guarded Alko Auto-Publishing | P3 — conditional | Automatically publish validated routine updates, with exceptions requiring review | **Alko-dependent: R16–R18**, demonstrated reliability and deployment checks |
+| R16 | Alko Data Feasibility Gate | P1 — research | Decide whether Alko product, price and stock **data** may be pulled; provisional no-go 2026-10-25 | External Alko permission; **gates only a data feed, not R17 links** |
+| R17 | Search at Alko Links | P2 — medium | Plain links from profiles to Alko's own grape/country/region search; no Alko data stored, no price or stock claims | Existing profile data; link patterns observed 2026-10-25; **no R16 dependency** |
+| R18 | ~~Alko Catalog Coverage & Store Selector~~ | — | **Superseded by R17 (2026-10-25).** Reopen only if Alko grants a data route per R16 | — |
+| R19 | ~~Guarded Alko Auto-Publishing~~ | — | **Superseded by R17 (2026-10-25).** Reopen only after a permitted data feed exists | — |
 
 R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8/R9 introduce the reference and beginner vocabulary. The maintenance audit found additional work is needed to train sensory recognition. M1–M3 are implemented. The feature sequence remains R11 → R12 → R10 → R14 → R13; IDs are stable planning identifiers, not an obligation to implement in numeric order. R10 and R14 are implemented. R13 is the next learning release. This learning sequence takes priority over remaining catalog expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned. R15 vintage intelligence is independent and can proceed even if R16's Alko data gate fails; R17–R19 are conditional and remain blocked until that gate passes. New R15–R19 plans do not alter completed releases.
 
@@ -546,7 +546,7 @@ Implementation: the `historyGuide` template in `index.html` contains three sourc
 
 ## R15 — Vintage Weather Intelligence (independent)
 
-**Status:** Planned, with no Alko dependency. Can be implemented before or alongside R16–R18.
+**Status:** Planned, with no Alko dependency. Can be implemented before or alongside R16–R17. The bottle-level vintage badge and older-bottle items below are dormant: R17 links carry no bottle or vintage data, so they apply only if a permitted bottle feed exists later.
 
 **Goal:** Explain how observed growing-season weather around a represented wine region and vintage may influence grapes and plausible wine style, without presenting a deterministic tasting prediction.
 
@@ -573,70 +573,59 @@ Implementation: the `historyGuide` template in `index.html` contains three sourc
 
 ## R16 — Alko Data Feasibility Gate (Alko-dependent)
 
-**Status:** Research gate; do not begin production catalog/availability promises until this passes.
+**Status:** Research gate assessed 2026-10-25: **provisional NO-GO** for pulling Alko data. This no longer blocks R17, which only links to Alko's own search pages, see [R16 feasibility](docs/alko-feasibility-r16.md). No permitted source or terms were found, alko.fi could not be reached for first-hand verification, and no prototype was run. R17–R19 are blocked until Alko confirms access in writing. Do not begin production catalog/availability promises until this passes.
 
 - [ ] Verify an authorized and maintainable source for product identifiers, direct product URLs, bottle name, vintage, grape/blend, country, region/appellation, EUR price and **store-level plus online-orderable availability**. Check terms, licensing, access requirements, rate limits, permitted display/retention and update cadence.
-- [ ] Establish what “available” means and whether online orderability and store-stock data can be obtained with reliable timestamps. Product listing alone does **not** establish availability.
+- [x] (definition proposed; data access unverified) Establish what “available” means and whether online orderability and store-stock data can be obtained with reliable timestamps. Product listing alone does **not** establish availability.
 - [ ] Prototype a small read-only extraction; inspect field quality, incomplete blends, inconsistent region names, source schema changes and stock accuracy. Document a source adapter contract so the frontend never depends on Alko's raw format.
-- [ ] If permitted data cannot be obtained or required fields cannot be verified, mark R17–R19 **blocked**, do not scrape around restrictions, and proceed with R15 independently.
+- [ ] If permitted data cannot be obtained or required fields cannot be verified, mark any Alko data feed **blocked** (the old bottle-discovery plan, now superseded), do not scrape around restrictions, and proceed with R15 independently.
 - [ ] Set minimum required freshness and validate whether scheduled refresh rates are adequate. Weekly price/catalog review and more frequent stock verification may be separate tasks.
 
-**Exit criterion:** Documented go/no-go with permissions, representative test data, acceptable data quality and a supportable availability definition.
+**Exit criterion:** Documented go/no-go (documented as provisional NO-GO on 2026-10-25; reopen when Alko confirms a permitted route) with permissions, representative test data, acceptable data quality and a supportable availability definition.
 
-## R17 — Alko Bottle Discovery Pilot (conditional on R16)
+## R17 — Search at Alko Links
 
-**Status:** Planned, blocked until R16 passes. **Phase A = reviewed weekly pull requests, not unattended publication.**
+**Status:** Planned (2026-10-25). Replaces the earlier bottle-discovery pilot (old R17–R19, in git history). The Atlas stores **no Alko data**: it only links to Alko's own filtered search pages, so availability, prices and products are always whatever Alko shows at that moment. Does not depend on the R16 data gate. A link to a page that the user opens in a browser is not a data pull, but check Alko's terms on linking before release.
+
+**Observed URL scheme** (examples supplied by Arttu from alko.fi on 2026-10-25; observed, not documented or guaranteed by Alko):
+- Category in the path: `/fi/tuotteet/punaviinit`, `valkoviinit`, `roseeviinit`, `kuohuviinit-ja-samppanjat`, `jalkiruokaviinit-ja-muut`.
+- Filters as query parameters: `grapeId=grape_<name>` (e.g. `grape_cabernet_sauvignon`), `countryId=<ISO 3-letter>` (e.g. `CHL`), `regionId=<ISO3>_<finnish-slug>` (e.g. `FRA_bourgogne`, `ARG_mendoza`, `FRA_lounais-ranska`).
+- Filters combine, e.g. `punaviinit?countryId=CHL&grapeId=grape_carmenere` and `punaviinit?regionId=FRA_bourgogne&grapeId=grape_pinot_noir`.
+- Product pages (`/fi/tuotteet/<id>/<slug>`) show the normalized grape ID and are useful for checking IDs, but are **never linked**: products get delisted.
 
 ### Scope
-- [ ] Start with ~20 representative profiles. Rank products using structured grape, appellation/region, colour, sweetness, production and style fields; avoid free-text/prose keyword matching as an identity guarantee.
-- [ ] Enforce profile-specific blend policy: allow typical Rioja/Bordeaux or Cabernet-led examples when representative, allow declared blend-style profiles, but reject incompatible blends and ambiguous grape shares for stricter single-variety expressions. Prefer no example to a misleading match.
-- [ ] Show up to five accurate representative examples (ideally at varied prices) only when **at least one store has verified stock OR online ordering is verified**. Otherwise show no bottles; never show products merely because listed in Alko's catalog.
-- [ ] Record source product ID and vintage separately: vintage changes can alter a bottle's regional weather context without changing the profile. Display price in EUR, clickable Alko product URL, verification timestamps, and highlighted vintage with optional R15 interpretation where supported.
-- [ ] Separate append-only/retained historical product observations (including old prices, vintages, availability, first/last seen and mapping decisions) from public verified-visible snapshot. Honor source retention and redistribution permissions.
-- [ ] Validate complete snapshots/schema/required fields, anomaly thresholds, duplicate products, improbable price changes and mass disappearances **before atomic publishing**. A failed source refresh does not corrupt history or mass-remove items; preserve last valid price as **historical/stale**, never silently pass it off as current.
-- [ ] A confirmed unavailable or removed product becomes hidden after the next **successful authoritative check**; unverified availability also hides. Freshness TTL is separately configurable for prices and stock; expired stock status suppresses offers even if a historical price persists.
-- [ ] Generate a weekly Github Actions synchronization PR with meaningful diffs: added/removed/changed bottles, vintage, availability and prices, anomalies, ambiguous matches and coverage statistics. No auto-merge in R17.
-- [ ] Add a dedicated **unlinked developer report route** for wine/profile coverage: profiles without available matching products, unmatched Alko products grouped into meaningful profile candidates, uncertain blend/region matches, data health and last validated sync. Do not link it in landing page, navigation, sitemaps or regular subpages; document its URL in README only. It is publicly accessible by URL, **not private**. Do not add profiles automatically because one product is unmatched.
-- [ ] Keep preexisting static site functional without Alko feed or if Alko integration is disabled.
+- [ ] Add `data/alko-links.json` mapping Atlas grape IDs to Alko `grapeId`, colour/style to category path, countries to ISO codes, and regions to Alko `regionId`. One link-builder function builds every URL; no URLs are written into profile data.
+- [ ] Grapes first: derive the likely `grape_<name>` mapping, then confirm the uncertain ones (e.g. Grüner Veltliner, Albariño, Torrontés, Melon de Bourgogne) from Alko product pages. Blend and style profiles without a grape (port, champagne, provence rosé) link by category only.
+- [ ] Grapes used in several styles (e.g. Pinot Noir: red, rosé, sparkling) offer the relevant category links; each is checked.
+- [ ] Regions in later batches. **We do not know how Alko organizes regions, especially small niche areas.** Each region entry records one of: `verified` (checked, with date), `country-fallback` (Alko has no matching region; link by country and say so), or `none`. Only `verified` and `country-fallback` links display. Never guess a region slug. Label links by what they search ("Burgundy wines at Alko"), not as an exact appellation.
+- [ ] Link text: **Search at Alko**. No prices, stock, availability, bottle names, discounts or ranking claims, and no wording that implies Alko stocks the wine. State that results are on Alko's site. Open normally; use `rel="noopener"` if opened in a new tab.
+- [ ] Place the section unobtrusively on profile pages; show nothing for profiles without a verified mapping. Site works with the section absent.
+- [ ] Review the Finnish alcohol-marketing question flagged in [R16 feasibility](docs/alko-feasibility-r16.md) before release; no promotional framing.
+
+### Validation (done later, manually)
+- [ ] Manual check protocol: open each link, confirm the filter applied and the results are plausible; record result and date in `data/alko-links.json`. An empty results page is allowed but noted.
+- [ ] Repeat the spot-check each release and whenever a link is reported broken. No automated requests to alko.fi from tests or GitHub Actions.
+- [ ] If Alko changes the URL scheme, a one-file change in the link builder and config fixes all links.
+
+### Tests
+- [ ] URL shape: builder output matches the documented scheme; category is consistent with grape colour.
+- [ ] Every profile either has a mapping or no link; no region link without a `verified`/`country-fallback` status.
+- [ ] Forbidden wording (price, stock, available, in stock) does not appear in the Alko section.
+- [ ] Section absent leaves profiles unchanged; `npm run validate` passes.
 
 ### Acceptance criteria
-- [ ] No catalog-only, confirmed out-of-stock, expired-availability or unsupported-match product appears publicly.
-- [ ] Existing profiles lacking available Alko matches simply omit the Alko subsection; unmatched products are recorded for developer review.
-- [ ] Broken schema, partial downloads and bulk removal anomalies leave last good durable snapshot intact while public stock visibility follows freshness rules.
-- [ ] Weekly action produces reviewable PR; no public updates require acceptance until manual merge and deployment.
-- [ ] Public developer report remains unlinked inside the app and clearly labels timestamps, uncertainties and categories; automated checks guard against inadvertent navigation links.
+- [ ] Atlas stores and displays no Alko-sourced data beyond the generated links.
+- [ ] Every displayed link has a recorded check date and does not claim more than the search it performs.
+- [ ] Unknown or niche regions fall back to country or show no link, never a guessed region.
+- [ ] Broken or changed Alko URLs cannot break the Atlas itself.
 
-## R18 — Alko Catalog Coverage & Store Selector (conditional)
+## R18 — Superseded
 
-**Status:** Planned, blocked until R16 and R17 prove viable.
+Alko catalog coverage and store selector were part of the earlier bottle-discovery plan. They need Alko stock data, which R16 could not confirm as permitted. Reopen only if Alko grants a data route. Original text is in git history before 2026-10-25.
 
-- [ ] Expand matching across existing Atlas profiles in checked batches, maintaining exclusions and editorial compatibility.
-- [ ] On bottle listings default to **Anywhere**, meaning any verified Alko store in Finland or verified online orderability.
-- [ ] Offer **Choose the Alko**: dropdown/list contains **only stores with verified stock for that particular product**. If exactly one store has it, show only that store. No GPS, geolocation prompt, city filter or stores without stock.
-- [ ] Keep online ordering distinct from an individual store; don't imply an online-orderable product is physically stocked in a store.
-- [ ] When displaying multiple bottles, make the store filter context explicit per bottle; don't conflate one bottle's inventory with another's.
-- [ ] Store-level inventory freshness must be sufficiently frequent to support the promised availability claim; otherwise show last-checked caveat or suppress obsolete store choices.
-- [ ] Keep reporting unmatched products as **candidate coverage**, not mandatory new profiles; integrate only editorially useful profile extensions into separate planned content releases.
+## R19 — Superseded
 
-### Acceptance criteria
-- [ ] No unavailable store option can be selected for a bottle; one-store availability produces exactly one selectable store.
-- [ ] Nationwide online-only offers remain distinct and accessible under Anywhere; a store-specific filter never suggests local stock without evidence.
-- [ ] Changing filters never alters profile identity or historical prices.
-
-## R19 — Guarded Alko Auto-Publishing (conditional, last)
-
-**Status:** Planned; only after Phase A's correctness and operational reliability are demonstrated.
-
-- [ ] Define and review promotion criteria (several successful weekly runs, manual audits, schema stability, mapping accuracy, low false availability, and robust deployment/rollback).
-- [ ] Permit unattended publication **only** for routine validated prices/availability and previously approved matching rules; keep new profile definitions, semantic policy changes, ambiguous blends, large stock removals and anomalous schema/data changes in reviewable PRs.
-- [ ] Ensure explicit GitHub Pages build/deploy is triggered by the automation; do not assume commits made with default GITHUB_TOKEN automatically trigger all downstream workflows.
-- [ ] Use least-privilege write permissions for publishing, safe credentials, atomic versioned snapshots, rollback and failure notifications. Never leak credentials into public JSON or the unlinked report.
-- [ ] Keep periodic audit reports and kill switch; stale stock should stop displaying even if unattended jobs stop or fail.
-
-### Acceptance criteria
-- [ ] Good updates arrive on the public site without manual approval; anomalous updates never publish unattended.
-- [ ] Failing pipelines retain trustworthy history and do not advertise outdated stock.
-- [ ] Disabling Alko integration leaves all independent Vintage Intelligence and core Atlas routes intact.
+Guarded auto-publishing of Alko data depended on a data feed. Not pursued; reopen only after a permitted feed exists. Original text is in git history before 2026-10-25.
 
 ## Review finding traceability
 
