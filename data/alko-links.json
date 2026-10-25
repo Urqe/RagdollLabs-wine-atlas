@@ -5,20 +5,38 @@
   "grapes": {
     "pinot-noir": "grape_pinot_noir",
     "chardonnay": "grape_chardonnay",
-    "sauvignon-blanc": "grape_sauvignon_blanc"
+    "sauvignon-blanc": "grape_sauvignon_blanc",
+    "cabernet-sauvignon": "grape_cabernet_sauvignon",
+    "merlot": "grape_merlot",
+    "malbec": "grape_malbec",
+    "tempranillo": "grape_tempranillo",
+    "syrah": "grape_shiraz"
   },
-  "countries": { "France": "FRA", "New Zealand": "NZL" },
+  "grapeLabels": { "syrah": "Shiraz" },
+  "countries": { "France": "FRA", "New Zealand": "NZL", "Argentina": "ARG", "Spain": "ESP", "USA": "USA", "Australia": "AUS" },
   "regions": {
     "burgundy": { "status": "verified", "id": "FRA_bourgogne", "label": "Burgundy", "checkedOn": "2026-10-25" },
     "sancerre": { "status": "country-fallback", "checkedOn": "2026-10-25" },
     "marlborough": { "status": "country-fallback", "checkedOn": "2026-10-25" },
-    "central-otago": { "status": "country-fallback", "checkedOn": "2026-10-25" }
+    "central-otago": { "status": "country-fallback", "checkedOn": "2026-10-25" },
+    "bordeaux": { "status": "verified", "id": "FRA_bordeaux", "label": "Bordeaux", "checkedOn": "2026-10-25" },
+    "mendoza": { "status": "verified", "id": "ARG_mendoza", "label": "Mendoza", "checkedOn": "2026-10-25" },
+    "rioja": { "status": "verified", "id": "ESP_rioja", "label": "Rioja", "checkedOn": "2026-10-25" },
+    "napa": { "status": "country-fallback", "checkedOn": "2026-10-25" },
+    "barossa": { "status": "country-fallback", "checkedOn": "2026-10-25" }
   },
   "profiles": {
     "burgundy/pinot-noir": { "scope": "region", "color": "red", "checkedOn": "2026-10-25" },
     "burgundy/chardonnay": { "scope": "region", "color": "white", "checkedOn": "2026-10-25" },
     "sancerre/sauvignon-blanc": { "scope": "country", "color": "white", "checkedOn": "2026-10-25" },
     "marlborough/sauvignon-blanc": { "scope": "country", "color": "white", "checkedOn": "2026-10-25" },
-    "central-otago/pinot-noir": { "scope": "country", "color": "red", "checkedOn": "2026-10-25" }
+    "central-otago/pinot-noir": { "scope": "country", "color": "red", "checkedOn": "2026-10-25" },
+    "bordeaux/cabernet-sauvignon": { "scope": "region", "color": "red", "checkedOn": "2026-10-25" },
+    "bordeaux/merlot": { "scope": "region", "color": "red", "checkedOn": "2026-10-25" },
+    "mendoza/malbec": { "scope": "region", "color": "red", "checkedOn": "2026-10-25" },
+    "rioja/tempranillo": { "scope": "region", "color": "red", "checkedOn": "2026-10-25" },
+    "napa/cabernet-sauvignon": { "scope": "country", "color": "red", "checkedOn": "2026-10-25" },
+    "napa/merlot": { "scope": "country", "color": "red", "checkedOn": "2026-10-25" },
+    "barossa/syrah": { "scope": "country", "color": "red", "checkedOn": "2026-10-25" }
   }
 }
