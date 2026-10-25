@@ -550,14 +550,20 @@ This is a newly reported macOS Safari visual issue. It does not close or replace
 ### Scope
 - [ ] Audit existing profile geographic granularity; attach reviewed representative coordinates/region areas only where warranted. Never imply estate-level weather from a broad regional proxy; disclose location and resolution.
 - [ ] Select and document a historical weather source (Open-Meteo/ERA5-Land candidate), license, reproducibility, coverage limits and historic baseline. Cache data per region/subregion and vintage, rather than per bottle.
+- [ ] Precompute supported regional vintages from **2000 onward** by default. Let the automation append new vintages after a region-appropriate growing/harvest season and a documented source-data maturity check; use provisional/final labels when justified. Never tie updates to a fixed global year-end date.
+- [ ] Treat vintages **before 2000** as opt-in exceptions: if a verified Alko bottle (or a future explicit user request) refers to one, retrieve and cache that region/year only where historical data quality permits. Avoid bulk pre-2000 backfills; do not make Alko a dependency for normal coverage.
+- [ ] Keep vintage insights progressive-disclosure-first: compact collapsed `Vintage weather` control on eligible profiles; no expanded chronology by default. Present a concise year-specific summary only when requested, with optional further detail (weather measures, evidence and limitations). Limit default year choices to a small useful recent range; older cached years are discoverable through deliberate selection, not a long list.
 - [ ] Calculate defensible growing-season indicators (temperature anomalies, heat extremes, precipitation, growing-degree measures if justified); account for hemispheric harvest seasons and vintage-year conventions.
 - [ ] Produce concise reader-facing narrative: **observed conditions → possible vine/ripening effects → cautious sensory implications**. Avoid universal hot-year = better/riper wine conclusions; identify unknowns such as altitude, water access, grape, harvest timing and winemaking.
 - [ ] Add a nonintrusive optional vintage selector/context on existing represented wine styles; show no claim where vintage/geography is unsupported or confidence is insufficient.
 - [ ] Design a reusable optional bottle-level vintage badge for eventual Alko integration: visible **2022 · Vintage context** (example) links to the same regional/year analysis, with clear statement that it is **not a bottle tasting review**.
+- [ ] If an older Alko bottle invokes pre-2000 data, keep the explanation collapsed and clearly mark sparse/unavailable historical weather rather than inventing a vintage story. Use the same shared regional cache, avoiding one API request per bottle.
 - [ ] Keep calculations and precomputed content reusable across profiles and retailers; keep site functional when weather refreshes fail.
 
 ### Acceptance criteria
 - [ ] Historical weather interpretation operates with **zero Alko products or API credentials**.
+- [ ] 2000+ is the default precomputed historical coverage; an older bottle never triggers a global backfill. New vintage releases are calendar/data-driven and are not tied to annual feature releases.
+- [ ] Profile view remains uncluttered: vintage details are collapsed until requested and do not show hundreds of years or empty placeholders.
 - [ ] Different hemispheres and vintages use correct growing seasons; nearby regions are not represented as identical microclimates.
 - [ ] Source, geography, baseline, data date and limitations are traceable; tests prevent unsupported numeric/taste assertions.
 - [ ] Screen-reader and mobile interactions work; missing weather leaves normal profile content unaffected.
