@@ -1,0 +1,32 @@
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import { createApp, ROOT } from './harness.mjs';
+for (const [region, last] of [['sancerre',2025],['marlborough',2026],['central-otago',2026]]) {
+  const data = JSON.parse(await readFile(`${ROOT}/data/vintage/${region}.json`, 'utf8'));
+  assert.equal(data.source.model,'ERA5'); assert.equal(data.source.baseline,'2000–2020');
+  assert.equal(Object.keys(data.years).length,last-1999);
+  assert.ok(data.region.grid && Number.isFinite(data.region.grid.lat));
+  assert.ok(data.years['2000'] && data.years[String(last)]);
+}
+const app=await createApp(); await app.settle();
+const {window:w,document:d}=app;
+w.WineAtlas.selectProfile('sauvignon-blanc','sancerre'); await app.settle();
+assert.equal(d.getElementById('vintageWeather').classList.contains('hidden'),false);
+assert.equal(d.getElementById('vintageWeather').open,false);
+assert.match(d.getElementById('vintageWeatherText').textContent,/2025 · Sancerre/);
+assert.match(d.getElementById('vintageWeatherText').textContent,/not a tasting prediction/);
+assert.equal(d.getElementById('vintageYear').options.length,6);
+d.getElementById('vintageOlderYear').value='2000'; d.getElementById('vintageOlderOpen').click(); await app.settle();
+assert.match(d.getElementById('vintageWeatherText').textContent,/2000 · Sancerre/);
+w.WineAtlas.selectProfile('sauvignon-blanc','marlborough'); await app.settle();
+assert.match(d.getElementById('vintageWeatherText').textContent,/2026 · Marlborough/);
+assert.match(d.getElementById('vintageSource').textContent,/October–December of the previous calendar year/);
+w.WineAtlas.selectProfile('pinot-noir','burgundy'); await app.settle();
+assert.equal(d.getElementById('vintageWeather').classList.contains('hidden'),true);
+await app.close();
+const missing=await createApp({fetch:url=>String(url).includes('/data/vintage/')?{ok:false,status:404}:undefined}); await missing.settle();
+missing.window.WineAtlas.selectProfile('sauvignon-blanc','sancerre'); await missing.settle();
+assert.equal(missing.document.getElementById('vintageWeather').classList.contains('hidden'),true);
+assert.ok(missing.document.getElementById('profileHeading').textContent);
+await missing.close();
+console.log('OK: vintage cache coverage, hemisphere labels, optional disclosure, older year, race-safe profile switching and missing data');
