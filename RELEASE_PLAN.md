@@ -570,19 +570,19 @@ This is a newly reported macOS Safari visual issue. It does not close or replace
 
 ## R16 — Alko Data Feasibility Gate (Alko-dependent)
 
-**Status:** Research gate; do not begin production catalog/availability promises until this passes.
+**Status:** Research gate assessed 2026-10-25: **provisional NO-GO**, see [R16 feasibility](docs/alko-feasibility-r16.md). No permitted source or terms were found, alko.fi could not be reached for first-hand verification, and no prototype was run. R17–R19 are blocked until Alko confirms access in writing. Do not begin production catalog/availability promises until this passes.
 
 - [ ] Verify an authorized and maintainable source for product identifiers, direct product URLs, bottle name, vintage, grape/blend, country, region/appellation, EUR price and **store-level plus online-orderable availability**. Check terms, licensing, access requirements, rate limits, permitted display/retention and update cadence.
-- [ ] Establish what “available” means and whether online orderability and store-stock data can be obtained with reliable timestamps. Product listing alone does **not** establish availability.
+- [x] (definition proposed; data access unverified) Establish what “available” means and whether online orderability and store-stock data can be obtained with reliable timestamps. Product listing alone does **not** establish availability.
 - [ ] Prototype a small read-only extraction; inspect field quality, incomplete blends, inconsistent region names, source schema changes and stock accuracy. Document a source adapter contract so the frontend never depends on Alko's raw format.
 - [ ] If permitted data cannot be obtained or required fields cannot be verified, mark R17–R19 **blocked**, do not scrape around restrictions, and proceed with R15 independently.
 - [ ] Set minimum required freshness and validate whether scheduled refresh rates are adequate. Weekly price/catalog review and more frequent stock verification may be separate tasks.
 
-**Exit criterion:** Documented go/no-go with permissions, representative test data, acceptable data quality and a supportable availability definition.
+**Exit criterion:** Documented go/no-go (documented as provisional NO-GO on 2026-10-25; reopen when Alko confirms a permitted route) with permissions, representative test data, acceptable data quality and a supportable availability definition.
 
 ## R17 — Alko Bottle Discovery Pilot (conditional on R16)
 
-**Status:** Planned, blocked until R16 passes. **Phase A = reviewed weekly pull requests, not unattended publication.**
+**Status:** Planned, blocked until R16 passes (R16 provisional NO-GO). Weekly sync cannot support an “available” claim; settle “last seen in stock” wording or daily stock refresh first. **Phase A = reviewed weekly pull requests, not unattended publication.**
 
 ### Scope
 - [ ] Start with ~20 representative profiles. Rank products using structured grape, appellation/region, colour, sweetness, production and style fields; avoid free-text/prose keyword matching as an identity guarantee.
