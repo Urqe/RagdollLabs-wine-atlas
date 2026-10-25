@@ -18,20 +18,23 @@ window.WineAlkoLinks = (() => {
         !['red', 'white'].includes(entry.color)) return null;
     const category = data.categories?.[entry.color];
     const grape = data.grapes?.[profile.grapeId];
+    const country = data.countries?.[profile.region.country];
     if (!['punaviinit', 'valkoviinit'].includes(category) || !/^grape_[a-z_]+$/.test(grape || '')) return null;
+    if (!/^[A-Z]{3}$/.test(country || '')) return null;
     const url = new URL(category, data.base);
     let label;
-    if (entry.scope === 'region' && region.status === 'verified' && /^FRA_[a-z-]+$/.test(region.id || '') && profile.region.country === 'France') {
+    const grapeLabel = data.grapeLabels?.[profile.grapeId] || profile.grape.name;
+    if (entry.scope === 'region' && region.status === 'verified' &&
+        /^[A-Z]{3}_[a-z0-9-]+$/.test(region.id || '') && region.id.startsWith(`${country}_`) &&
+        typeof region.label === 'string' && region.label.trim()) {
       url.searchParams.set('regionId', region.id);
-      label = `${region.label} ${profile.grape.name} at Alko`;
+      label = `${region.label} ${grapeLabel} at Alko`;
     } else if (entry.scope === 'country' && region.status === 'country-fallback') {
-      const country = data.countries?.[profile.region.country];
-      if (!/^[A-Z]{3}$/.test(country || '')) return null;
       url.searchParams.set('countryId', country);
-      label = `${profile.region.country} ${profile.grape.name} at Alko`;
+      label = `${profile.region.country} ${grapeLabel} at Alko`;
     } else return null;
     url.searchParams.set('grapeId', grape);
-    return { url: url.href, label, countryFallback: entry.scope === 'country' };
+    return { url: url.href, label, countryFallback: entry.scope === 'country', blendNote: style.composition?.kind === 'representative-blend' };
   }
   function render(profile) {
     active = profile;
@@ -46,7 +49,7 @@ window.WineAlkoLinks = (() => {
     link.textContent = 'Search at Alko';
     link.setAttribute('aria-label', `Search ${item.label}`);
     const description = document.createElement('span');
-    description.textContent = item.countryFallback ? `Search ${item.label}. This covers the whole country, not just ${profile.region.name}. Results open on Alko's site.` : `Search ${item.label}. Results open on Alko's site.`;
+    description.textContent = `${item.countryFallback ? `Search ${item.label}. This covers the whole country, not just ${profile.region.name}.` : `Search ${item.label}.`}${item.blendNote ? " Alko's grape filter does not show blend proportions." : ''} Results open on Alko's site.`;
     section.append(link, description);
     section.classList.remove('hidden');
   }
