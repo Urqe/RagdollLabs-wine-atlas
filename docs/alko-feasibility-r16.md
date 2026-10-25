@@ -15,6 +15,10 @@ The planned mechanism (a scheduled GitHub Actions job pulling product, price and
 
 R15 (vintage weather) is unaffected and can proceed.
 
+## Follow-up decision (2026-10-25)
+
+Instead of pulling Alko data, R17 is now **Search at Alko Links**: plain links from profiles to Alko's own filtered search pages, using URL patterns supplied by Arttu from alko.fi (category path plus `grapeId`, `countryId`, `regionId`). No Alko data is stored, so the gate below does not block it. Old R17–R19 (bottle discovery, store selector, auto-publishing) are superseded. Link validity, especially for niche regions, is validated manually later. See R17 in `RELEASE_PLAN.md`.
+
 ## What was and was not verified
 
 alko.fi could not be fetched from this environment (every request returned a client error). So **nothing below about Alko's own pages is first-hand**, and no prototype extraction was run. Everything about field names, stock display and bot protection comes from third-party projects, which can be out of date or wrong.
