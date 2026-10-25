@@ -1,6 +1,6 @@
 # Wine Atlas release plan
 
-Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9 implemented 2026-10-21: Your First Glass. M1 maintenance implemented after the R1–R9 audit; verification limits are recorded below. M2 implemented 2026-10-22: scoped landing-heading focus styling for the reported macOS Safari highlight; browser verification limits remain below. R11 implemented 2026-10-22: tasting method and practical contrasts; novice and device trials remain open. R12 implemented 2026-10-22: aroma memory, vocabulary and coded household-reference practice; novice/device trials remain open. M3 implemented 2026-10-22: Compare search race and optional-route loading focus/URL fixes. R10 implemented 2026-10-22 as a focused label-reading and vineyard-terminology pilot; R14 implemented 2026-10-25 as an optional historical production guide; R13 remains planned.
+Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9 implemented 2026-10-21: Your First Glass. M1 maintenance implemented after the R1–R9 audit; verification limits are recorded below. M2 implemented 2026-10-22: scoped landing-heading focus styling for the reported macOS Safari highlight; browser verification limits remain below. R11 implemented 2026-10-22: tasting method and practical contrasts; novice and device trials remain open. R12 implemented 2026-10-22: aroma memory, vocabulary and coded household-reference practice; novice/device trials remain open. M3 implemented 2026-10-22: Compare search race and optional-route loading focus/URL fixes. R10 implemented 2026-10-22 as a focused label-reading and vineyard-terminology pilot; R14 implemented 2026-10-25 as an optional historical production guide; R13 implemented 2026-10-25 as optional real-bottle blind practice; novice/device verification remains open.
 Created: 2026-10-19.  
 Review baseline: main at `d819d99505b188f2319c37f0f4aa01153278438b` (120 profiles, 92 region entries, 47 grape/blend baselines).  
 Release IDs below are planning identifiers, not published semantic versions.
@@ -34,7 +34,7 @@ Fix misleading behavior and content before increasing the catalog. Preserve the 
 | R18 | ~~Alko Catalog Coverage & Store Selector~~ | — | **Superseded by R17 (2026-10-25).** Reopen only if Alko grants a data route per R16 | — |
 | R19 | ~~Guarded Alko Auto-Publishing~~ | — | **Superseded by R17 (2026-10-25).** Reopen only after a permitted data feed exists | — |
 
-R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8/R9 introduce the reference and beginner vocabulary. The maintenance audit found additional work is needed to train sensory recognition. M1–M3 are implemented. The feature sequence remains R11 → R12 → R10 → R14 → R13; IDs are stable planning identifiers, not an obligation to implement in numeric order. R10 and R14 are implemented. R13 is the next learning release. This learning sequence takes priority over remaining catalog expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned. R15 vintage intelligence is independent and can proceed even if R16's Alko data gate fails; R17–R19 are conditional and remain blocked until that gate passes. New R15–R19 plans do not alter completed releases.
+R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8/R9 introduce the reference and beginner vocabulary. The maintenance audit found additional work is needed to train sensory recognition. M1–M3 are implemented. The feature sequence remains R11 → R12 → R10 → R14 → R13; IDs are stable planning identifiers, not an obligation to implement in numeric order. R10 and R14 are implemented. R13 is implemented with practical verification still open. R15 and R17 remain separate future releases. This learning sequence takes priority over remaining catalog expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned. R15 vintage intelligence is independent and can proceed even if R16's Alko data gate fails; R17 links do not depend on the R16 data gate; superseded R18–R19 remain blocked until a permitted data feed exists. New R15–R19 plans do not alter completed releases.
 
 ## Working rules for every release
 
@@ -523,26 +523,31 @@ Implementation: the `historyGuide` template in `index.html` contains three sourc
 
 ## R13 — Taste Before the Reveal
 
+**Status:** Implemented 2026-10-25 as optional blind practice; novice, physical-device and screen-reader verification remain open.
+
 **Goal:** Provide optional blind practice that rewards observation and reasoned hypotheses, with regional recognition as an advanced stretch goal.
 
 **Depends on:** R11/R12. Complete R10 and review selected teaching profiles before using regional/bottle-selection challenges as answer material.
 
 ### Scope
 
-- [ ] Separate Learn (identities visible), Practice (cues optional) and Blind (sample identities withheld) with clear labels. Reuse the existing catalog/model; do not relabel the current named flights as blind.
-- [ ] Give a host/self-setup workflow for real bottles: neutral A/B/C codes, concealed labels, recorded actual bottle/vintage and an explicit reveal. Explain that an app cannot taste or verify the bottle in front of the learner.
-- [ ] Offer a neutral observation sheet and screen. Withhold grape/place/expected notes from normal pre-reveal titles, links, URLs, accessibility labels and printed output. Use a neutral challenge route; hiding identities is a teaching aid, not anti-cheat security for public static data.
-- [ ] Progress from broad structural/style contrasts and known references to a small announced candidate set; then consider grape/style hypotheses and finally region. Open-ended exact-region guesses are optional advanced practice.
-- [ ] Ask for several observed clues, at least one plausible alternative and confidence. Permit insufficient evidence; never map one fruit note, a soil descriptor or an editorial score directly to a region.
-- [ ] Reveal the actual selected bottle information and explain compatible/conflicting clues, overlap, confounders and uncertainty. Distinguish a correct closed-set guess from evidence of general regional mastery.
-- [ ] Keep participation optional and notes ephemeral/printable by default. Do not add accounts, hidden telemetry, mandatory rankings or a persistent personal notebook under this scope.
+- [x] Separate Learn (identities visible), Practice (cues optional) and Blind (sample identities withheld) with clear labels. Reuse the existing catalog/model; do not relabel the current named flights as blind.
+- [x] Give a host/self-setup workflow for real bottles: neutral A/B/C codes, concealed labels, recorded actual bottle/vintage and an explicit reveal. Explain that an app cannot taste or verify the bottle in front of the learner.
+- [x] Offer a neutral observation sheet and screen. Withhold grape/place/expected notes from normal pre-reveal titles, links, URLs, accessibility labels and printed output. Use a neutral challenge route; hiding identities is a teaching aid, not anti-cheat security for public static data.
+- [x] Progress from broad structural/style contrasts and known references to a small announced candidate set; then consider grape/style hypotheses and finally region. Open-ended exact-region guesses are optional advanced practice.
+- [x] Ask for several observed clues, at least one plausible alternative and confidence. Permit insufficient evidence; never map one fruit note, a soil descriptor or an editorial score directly to a region.
+- [x] Reveal the actual selected bottle information and explain compatible/conflicting clues, overlap, confounders and uncertainty. Distinguish a correct closed-set guess from evidence of general regional mastery.
+- [x] Keep participation optional and notes ephemeral/printable by default. Do not add accounts, hidden telemetry, mandatory rankings or a persistent personal notebook under this scope.
 
 ### Acceptance criteria
 
-- [ ] A partner can set up a genuine blind sample; a learner can record observations before identity/expected notes are exposed, then reveal and review the actual sample information.
-- [ ] Regression/accessibility/print checks catch accidental pre-reveal identity leakage, premature reveal on navigation, and incorrect sample-to-answer mapping after refresh or reorder.
-- [ ] Regional practice uses a defined reviewed candidate set, multiple clues, alternatives and uncertainty. No region-identification accuracy or completion guarantee is claimed without evidence.
+- [x] A partner can set up a genuine blind sample; a learner can record observations before identity/expected notes are exposed, then reveal and review the actual sample information.
+- [ ] Automated DOM/navigation checks cover identity leakage and A/B mapping; native browser print and assistive-technology checks remain open. Reload intentionally discards the mapping and restarts host setup.
+- [x] Regional practice uses a defined reviewed candidate set, multiple clues, alternatives and uncertainty. No region-identification accuracy or completion guarantee is claimed without evidence.
 - [ ] A novice usability trial checks setup, observation, reveal and feedback separately from knowledge questions. Physical iPhone/iPad Safari, keyboard, screen readers and enlarged text are checked and unresolved issues remain explicit.
+
+
+Implementation: `blind-practice.js` is a tab-memory-only host/learner exercise inside the existing journey. It provides a broad style set and a reviewed Pinot Noir candidate set; host mapping and actual bottle/vintage are removed from the learner DOM until explicit reveal. The neutral route and print styling keep identities out of normal pre-reveal content. Automated regression covers setup, navigation, observation gate, A/B mapping, reveal and reset. Browser print, novice learning and physical Safari/touch/screen-reader checks remain unverified.
 
 ## R15 — Vintage Weather Intelligence (independent)
 
