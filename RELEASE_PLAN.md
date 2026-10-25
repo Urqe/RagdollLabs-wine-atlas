@@ -499,7 +499,7 @@ This is a newly reported macOS Safari visual issue. It does not close or replace
 
 ## R14 — Wine Before the Modern Cellar
 
-**Status:** Implemented 2026-10-25 as a standalone optional guide linked from Explore → Discover. R13 blind practice follows; physical-device verification remains open.
+**Status:** Implemented 2026-10-25 as an optional guide in the shared learning dialog, opened from Explore → Discover. R13 blind practice follows; physical-device verification remains open.
 
 **Goal:** Explain historical production through techniques that help wine lovers understand today’s bottles, without adding a historical-wine database.
 
@@ -519,7 +519,7 @@ This is a newly reported macOS Safari visual issue. It does not close or replace
 - [x] Readers can open and leave the guide with accessible controls and useful return context; check links, phone/tablet readability, keyboard, screen readers and physical Safari/touch, recording unverified environments honestly.
 
 
-Implementation: `wine-history.html` contains three sourced stories and links to existing profiles and glossary entry point. Automated validation and link checks run locally; actual iPhone/iPad Safari, physical touch, screen reader and browser layout checks remain unverified.
+Implementation: the `historyGuide` template in `index.html` contains three sourced stories and links to existing profiles; `learning.js` opens it in the shared glossary/taste dialog and handles profile links. A follow-up replaced the separate page with this modal for consistent layout and controls. Automated validation passes; actual iPhone/iPad Safari, physical touch, screen reader and browser layout checks remain unverified.
 
 ## R13 — Taste Before the Reveal
 
