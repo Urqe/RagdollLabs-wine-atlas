@@ -114,6 +114,8 @@
 .vintage-weather-content summary { min-height: 42px; padding: 8px 0; color: var(--gold); cursor: pointer; }
 .vintage-weather-content a { color: #e2c886; text-underline-offset: 2px; }
 .vintage-weather-content a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.vintage-weather-content .vintage-taste { color: var(--text); font-size: 16px; line-height: 1.6; }
+.vintage-weather-content .vintage-measures { margin-top: 14px; }
 .blind-field { display: grid; gap: 7px; margin: 14px 0; max-width: 68ch; }
 .blind-field select { width: 100%; min-height: 44px; padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: #120d10; color: var(--text); font: inherit; }
 .blind-field select:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
