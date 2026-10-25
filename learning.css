@@ -32,6 +32,10 @@
 .glossary-examples p { margin-top: 3px; }
 .glossary-entry > details { margin-top: 12px; }
 .label-guide-content { color: #dacdd1; }
+.alko-links { margin: 18px 0; padding: 12px 16px; border: 1px solid #493640; border-radius: 12px; background: #1b151a; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; }
+.alko-links.hidden { display: none; }
+.alko-links a { color: #d9bc79; font-weight: 700; text-underline-offset: 3px; }
+.alko-links span { color: #cbbec4; font-size: .9rem; line-height: 1.45; }
 .label-guide-content h3 { margin: 4px 0; }
 .label-guide-content p { margin: 0; line-height: 1.55; }
 .label-example { font-weight: 700; color: var(--gold); overflow-wrap: anywhere; }
