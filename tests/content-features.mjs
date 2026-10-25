@@ -86,6 +86,19 @@ for (const term of ["Acidity", "Body", "Dry, off-dry and sweet", "Oak", "Carboni
 }
 document.getElementById("glossaryClose").click();
 
+// Historical guide uses the same modal, typography and profile navigation.
+const historyControl = document.getElementById("historyOpen");
+assert.equal(historyControl.tagName, "BUTTON");
+historyControl.click();
+assert.equal(document.getElementById("glossaryDialogTitle").textContent, "Wine before the modern cellar");
+assert.equal(document.querySelectorAll("#glossaryContent .history-section").length, 3);
+const historyProfile = document.querySelector('#glossaryContent a[href*="region=kakheti-qvevri-amber"]');
+assert.ok(historyProfile);
+historyProfile.click();
+await settle();
+assert.equal(document.getElementById("glossaryDialog").open, false);
+assert.ok(document.getElementById("title").textContent.includes("Kakheti"));
+
 // Constrained search covers the new Champagne and Moscato profiles.
 assert.equal((await window.WineSearch.rank("champagne")).length, 2);
 assert.ok((await window.WineSearch.rank("moscato")).length >= 1);

@@ -356,7 +356,31 @@ async function showTasteBasics(event) {
   }
 }
 
+function showHistoryGuide(trigger) {
+  beginLearningRequest(trigger);
+  const source = document.getElementById("historyGuide");
+  const content = document.getElementById("glossaryContent");
+  if (!source || !content) return;
+  document.getElementById("glossaryDialogTitle").textContent = "Wine before the modern cellar";
+  document.getElementById("glossaryIntro").textContent = "Three historical practices and what they help explain in a modern glass.";
+  content.replaceChildren(source.content.cloneNode(true));
+  openDialog();
+  content.scrollTop = 0;
+}
+
 function wireLearningLayer() {
+  document.getElementById("historyOpen")?.addEventListener("click", showHistoryGuide);
+  document.getElementById("glossaryContent")?.addEventListener("click", event => {
+    const link = event.target.closest?.(".history-section a[href], .history-intro a[href]");
+    if (!link || event.button || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    const url = new URL(link.href, location.href);
+    if (url.origin !== location.origin || url.pathname !== location.pathname) return;
+    const grape = url.searchParams.get("grape"), region = url.searchParams.get("region");
+    if (!grape || !region || !WineAtlas.combinedProfile(grape, region)) return;
+    event.preventDefault();
+    closeDialog();
+    WineAtlas.selectProfile(grape, region, true);
+  });
   document.getElementById("glossaryOpen")?.addEventListener("click", showFullGlossary);
   document.querySelectorAll("[data-taste-basics]").forEach(button => button.addEventListener("click", showTasteBasics));
   document.getElementById("glossaryClose")?.addEventListener("click", closeDialog);
@@ -375,6 +399,7 @@ document.addEventListener("wineatlas:ready", () => {
   wireLearningLayer();
   void loadGlossary();
   void annotateContext();
+  if (new URL(location.href).searchParams.get("guide") === "history") showHistoryGuide(null);
 });
 
 document.addEventListener("wineatlas:profile-selected", () => {
