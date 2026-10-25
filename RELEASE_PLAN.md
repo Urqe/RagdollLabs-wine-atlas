@@ -1,6 +1,6 @@
 # Wine Atlas release plan
 
-Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9 implemented 2026-10-21: Your First Glass. M1 maintenance implemented after the R1–R9 audit; verification limits are recorded below. M2 implemented 2026-10-22: scoped landing-heading focus styling for the reported macOS Safari highlight; browser verification limits remain below. R11 implemented 2026-10-22: tasting method and practical contrasts; novice and device trials remain open. R12 implemented 2026-10-22: aroma memory, vocabulary and coded household-reference practice; novice/device trials remain open. M3 implemented 2026-10-22: Compare search race and optional-route loading focus/URL fixes. R10 implemented 2026-10-22 as a focused label-reading and vineyard-terminology pilot; R13/R14 remain planned.
+Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9 implemented 2026-10-21: Your First Glass. M1 maintenance implemented after the R1–R9 audit; verification limits are recorded below. M2 implemented 2026-10-22: scoped landing-heading focus styling for the reported macOS Safari highlight; browser verification limits remain below. R11 implemented 2026-10-22: tasting method and practical contrasts; novice and device trials remain open. R12 implemented 2026-10-22: aroma memory, vocabulary and coded household-reference practice; novice/device trials remain open. M3 implemented 2026-10-22: Compare search race and optional-route loading focus/URL fixes. R10 implemented 2026-10-22 as a focused label-reading and vineyard-terminology pilot; R14 implemented 2026-10-25 as an optional historical production guide; R13 remains planned.
 Created: 2026-10-19.  
 Review baseline: main at `d819d99505b188f2319c37f0f4aa01153278438b` (120 profiles, 92 region entries, 47 grape/blend baselines).  
 Release IDs below are planning identifiers, not published semantic versions.
@@ -34,7 +34,7 @@ Fix misleading behavior and content before increasing the catalog. Preserve the 
 | R18 | ~~Alko Catalog Coverage & Store Selector~~ | — | **Superseded by R17 (2026-10-25).** Reopen only if Alko grants a data route per R16 | — |
 | R19 | ~~Guarded Alko Auto-Publishing~~ | — | **Superseded by R17 (2026-10-25).** Reopen only after a permitted data feed exists | — |
 
-R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8/R9 introduce the reference and beginner vocabulary. The maintenance audit found additional work is needed to train sensory recognition. M1–M3 are implemented. The feature sequence remains R11 → R12 → R10 → R14 → R13; IDs are stable planning identifiers, not an obligation to implement in numeric order. R10 is implemented. R14 is the next compact optional guide, not a catalog expansion. This learning sequence takes priority over remaining catalog expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned. R15 vintage intelligence is independent and can proceed even if R16's Alko data gate fails; R17 is a link-only feature with no Alko data and does not wait for R16; the former bottle-discovery, store-selector and auto-publishing plans (old R17–R19) are superseded and stay blocked until R16 passes. New R15–R19 plans do not alter completed releases.
+R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8/R9 introduce the reference and beginner vocabulary. The maintenance audit found additional work is needed to train sensory recognition. M1–M3 are implemented. The feature sequence remains R11 → R12 → R10 → R14 → R13; IDs are stable planning identifiers, not an obligation to implement in numeric order. R10 and R14 are implemented. R13 is the next learning release. This learning sequence takes priority over remaining catalog expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned. R15 vintage intelligence is independent and can proceed even if R16's Alko data gate fails; R17–R19 are conditional and remain blocked until that gate passes. New R15–R19 plans do not alter completed releases.
 
 ## Working rules for every release
 
@@ -499,24 +499,27 @@ This is a newly reported macOS Safari visual issue. It does not close or replace
 
 ## R14 — Wine Before the Modern Cellar
 
-**Status:** Planned. Small optional learning release after R10; retain stable numbering. Follow with R13 blind practice. No dates assigned.
+**Status:** Implemented 2026-10-25 as an optional guide in the shared learning dialog, opened from Explore → Discover. R13 blind practice follows; physical-device verification remains open.
 
 **Goal:** Explain historical production through techniques that help wine lovers understand today’s bottles, without adding a historical-wine database.
 
 ### Scope
 
-- [ ] Create one optional guide of approximately 600–900 words, with three compact stories: Georgia, ancient Greece and Rome. For each use “what they did → why → what differs today → what survives”. Keep dates/regions specific; none is a single uniform ancient method.
-- [ ] Georgian story: distinguish archaeological evidence for early grape wine from documented later/living qvevri traditions. Explain clay vessels and skin contact with regional variation; do not claim an unchanged recipe over millennia or equate every qvevri wine with amber wine.
-- [ ] Greek story: review evidence for making, storage, transport, preservation and serving practices in a defined period. Discuss resin/amphorae where supported; distinguish drinking customs from fermentation and avoid presenting every Greek wine as resinated or sweet.
-- [ ] Roman story: pressing, large fermentation/storage vessels such as dolia, and production/distribution. Separate archaeological/textual findings from experimental reconstructions or inferred sensory possibilities. Do not claim that a modern clay wine reproduces one definitive Roman taste.
-- [ ] Link relevant existing glossary terms (qvevri, amphora, skin contact, oxidation and grafting/phylloxera as appropriate) and Georgian profiles. Place the guide in optional learning/reference material, outside the primary tasting sequence. Add glossary terms only when needed for the guide.
-- [ ] Use archaeology publications, museum/university research, documented primary texts and living-tradition sources with dated review scope. Preserve the distinction between evidence and interpretation in ordinary language. Do not copy proprietary maps, artwork or book passages.
+- [x] Create one optional guide of approximately 600–900 words, with three compact stories: Georgia, ancient Greece and Rome. For each use “what they did → why → what differs today → what survives”. Keep dates/regions specific; none is a single uniform ancient method.
+- [x] Georgian story: distinguish archaeological evidence for early grape wine from documented later/living qvevri traditions. Explain clay vessels and skin contact with regional variation; do not claim an unchanged recipe over millennia or equate every qvevri wine with amber wine.
+- [x] Greek story: review evidence for making, storage, transport, preservation and serving practices in a defined period. Discuss resin/amphorae where supported; distinguish drinking customs from fermentation and avoid presenting every Greek wine as resinated or sweet.
+- [x] Roman story: pressing, large fermentation/storage vessels such as dolia, and production/distribution. Separate archaeological/textual findings from experimental reconstructions or inferred sensory possibilities. Do not claim that a modern clay wine reproduces one definitive Roman taste.
+- [x] Link relevant existing glossary terms (qvevri, amphora, skin contact, oxidation and grafting/phylloxera as appropriate) and Georgian profiles. Place the guide in optional learning/reference material, outside the primary tasting sequence. Add glossary terms only when needed for the guide.
+- [x] Use archaeology publications, museum/university research, documented primary texts and living-tradition sources with dated review scope. Preserve the distinction between evidence and interpretation in ordinary language. Do not copy proprietary maps, artwork or book passages.
 
 ### Acceptance and boundaries
 
-- [ ] Each story connects a historical practice to a useful modern production concept without a simplistic ancient-bad/modern-good or ancient-pure/modern-artificial progression.
-- [ ] The guide stays within the compact scope: no new historical profiles, fabricated tasting scores, comprehensive timeline, producer catalog or promised ancient flavour recreation.
-- [ ] Readers can open and leave the guide with accessible controls and useful return context; check links, phone/tablet readability, keyboard, screen readers and physical Safari/touch, recording unverified environments honestly.
+- [x] Each story connects a historical practice to a useful modern production concept without a simplistic ancient-bad/modern-good or ancient-pure/modern-artificial progression.
+- [x] The guide stays within the compact scope: no new historical profiles, fabricated tasting scores, comprehensive timeline, producer catalog or promised ancient flavour recreation.
+- [x] Readers can open and leave the guide with accessible controls and useful return context; check links, phone/tablet readability, keyboard, screen readers and physical Safari/touch, recording unverified environments honestly.
+
+
+Implementation: the `historyGuide` template in `index.html` contains three sourced stories and links to existing profiles; `learning.js` opens it in the shared glossary/taste dialog and handles profile links. Follow-ups replaced the separate page with this modal for consistent layout and controls, then moved the three reference lists into one collapsed sources section and styled links for readable contrast. Automated validation passes; actual iPhone/iPad Safari, physical touch, screen reader and browser layout checks remain unverified.
 
 ## R13 — Taste Before the Reveal
 
