@@ -519,7 +519,7 @@ This is a newly reported macOS Safari visual issue. It does not close or replace
 - [x] Readers can open and leave the guide with accessible controls and useful return context; check links, phone/tablet readability, keyboard, screen readers and physical Safari/touch, recording unverified environments honestly.
 
 
-Implementation: the `historyGuide` template in `index.html` contains three sourced stories and links to existing profiles; `learning.js` opens it in the shared glossary/taste dialog and handles profile links. A follow-up replaced the separate page with this modal for consistent layout and controls. Automated validation passes; actual iPhone/iPad Safari, physical touch, screen reader and browser layout checks remain unverified.
+Implementation: the `historyGuide` template in `index.html` contains three sourced stories and links to existing profiles; `learning.js` opens it in the shared glossary/taste dialog and handles profile links. Follow-ups replaced the separate page with this modal for consistent layout and controls, then moved the three reference lists into one collapsed sources section and styled links for readable contrast. Automated validation passes; actual iPhone/iPad Safari, physical touch, screen reader and browser layout checks remain unverified.
 
 ## R13 — Taste Before the Reveal
 

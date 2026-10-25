@@ -56,7 +56,13 @@
 .history-section p + p { margin-top: 9px; }
 .history-section h2 { margin: 0 0 8px; font: 18px Georgia, serif; color: var(--gold); }
 .history-section .history-cue { margin-top: 12px; padding: 10px 12px; border-left: 3px solid var(--gold); background: #211a1d; }
-.history-section .history-sources { margin-top: 12px; color: var(--muted); }
+.history-intro a, .history-section a, .history-evidence a { color: #e2c886; text-decoration-color: #a98550; text-underline-offset: 2px; }
+.history-intro a:hover, .history-section a:hover, .history-evidence a:hover { color: #fff0c2; }
+.history-intro a:focus-visible, .history-section a:focus-visible, .history-evidence a:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+.history-evidence { margin: 4px 0 8px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; color: var(--muted); font-size: 13px; line-height: 1.5; }
+.history-evidence summary { color: var(--gold); font-weight: 700; cursor: pointer; }
+.history-evidence ol { margin: 12px 0 0; padding-left: 22px; }
+.history-evidence li + li { margin-top: 9px; }
 .score-help { margin-top: 10px; padding: 0; border: 0; background: none; color: var(--gold); font: inherit; font-size: 12px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .score-help:hover, .score-help:focus-visible { color: var(--text); }
 
