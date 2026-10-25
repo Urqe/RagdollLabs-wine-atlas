@@ -3,7 +3,7 @@ Total output lines: 697
 
 # Wine Atlas release plan
 
-Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9 implemented 2026-10-21: Your First Glass. M1 maintenance implemented after the R1–R9 audit; verification limits are recorded below. M2 implemented 2026-10-22: scoped landing-heading focus styling for the reported macOS Safari highlight; browser verification limits remain below. R11 implemented 2026-10-22: tasting method and practical contrasts; novice and device trials remain open. R12 implemented 2026-10-22: aroma memory, vocabulary and coded household-reference practice; novice/device trials remain open. M3 implemented 2026-10-22: Compare search race and optional-route loading focus/URL fixes. R10 implemented 2026-10-22 as a focused label-reading and vineyard-terminology pilot; R14 implemented 2026-10-25 as an optional historical production guide; R13 implemented 2026-10-25 as optional real-bottle blind practice; novice/device verification remains open. R15 three-region weather pilot implemented 2026-10-25; wider coverage and device review remain open. R16 data feed remains a no-go; R17 has three checked-link batches covering 20 profiles as of 2026-10-25, with broader mapping open.
+Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9 implemented 2026-10-21: Your First Glass. M1 maintenance implemented after the R1–R9 audit; verification limits are recorded below. M2 implemented 2026-10-22: scoped landing-heading focus styling for the reported macOS Safari highlight; browser verification limits remain below. R11 implemented 2026-10-22: tasting method and practical contrasts; novice and device trials remain open. R12 implemented 2026-10-22: aroma memory, vocabulary and coded household-reference practice; novice/device trials remain open. M3 implemented 2026-10-22: Compare search race and optional-route loading focus/URL fixes. R10 implemented 2026-10-22 as a focused label-reading and vineyard-terminology pilot; R14 implemented 2026-10-25 as an optional historical production guide; R13 implemented 2026-10-25 as optional real-bottle blind practice; novice/device verification remains open. R15 three-region weather pilot implemented 2026-10-25; wider coverage and device review remain open. R16 data feed remains a no-go; R17 has four checked-link batches covering 27 profiles as of 2026-10-25, with broader mapping open.
 Created: 2026-10-19.  
 Review baseline: main at `d819d99505b188f2319c37f0f4aa01153278438b` (120 profiles, 92 region entries, 47 grape/blend baselines).  
 Release IDs below are planning identifiers, not published semantic versions.
@@ -489,7 +489,7 @@ Pilot notes: cached ERA5 2000+ seasons for Sancerre, Marlborough and Central Ota
 
 ## R17 — Search at Alko Links
 
-**Status:** Three checked-link batches implemented 2026-10-25 for 20 profiles, including rosé, sparkling and white examples; wider grape, style and region mapping remains open. See [R17 link checks](docs/alko-links-r17.md). Replaces the earlier bottle-discovery pilot (old R17–R19, in git history). The Atlas stores **no Alko product, price or stock data**: it only links to Alko's own filtered search pages. Does not depend on the R16 data gate.
+**Status:** Four checked-link batches implemented 2026-10-25 for 27 profiles, including rosé, sparkling and white examples; wider grape, style and region mapping remains open. See [R17 link checks](docs/alko-links-r17.md). Replaces the earlier bottle-discovery pilot (old R17–R19, in git history). The Atlas stores **no Alko product, price or stock data**: it only links to Alko's own filtered search pages. Does not depend on the R16 data gate.
 
 **Observed URL scheme** (examples supplied by the project owner from alko.fi on 2026-10-25; observed, not documented or guaranteed by Alko):
 - Category in the path: `/fi/tuotteet/punaviinit`, `valkoviinit`, `roseeviinit`, `kuohuviinit-ja-samppanjat`, `jalkiruokaviinit-ja-muut`.
@@ -507,7 +507,7 @@ Pilot notes: cached ERA5 2000+ seasons for Sancerre, Marlborough and Central Ota
 - [x] Review the Finnish alcohol-marketing question flagged in [R16 feasibility](docs/alko-feasibility-r16.md) for this narrow, neutral search-link batch; no promotional framing. Legal interpretation remains unresolved for any future product/price displays.
 
 ### Validation (done later, manually)
-- [x] First three batches: open all 20 generated links, confirm category, applicable grape, and region/country chips and plausible results; record date in `data/alko-links.json`. Repeat for every new mapping.
+- [x] First four batches: open all 25 distinct searches for 27 mapped profiles, confirm category, applicable grape, and region/country chips and plausible results; record date in `data/alko-links.json`. Repeat for every new mapping.
 - [ ] Repeat the spot-check each release and whenever a link is reported broken. No automated requests to alko.fi from tests or GitHub Actions.
 - [ ] If Alko changes the URL scheme, a one-file change in the link builder and config fixes all links.
 
