@@ -1,6 +1,9 @@
+Warning: truncated output (original token count: 18762)
+Total output lines: 697
+
 # Wine Atlas release plan
 
-Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9 implemented 2026-10-21: Your First Glass. M1 maintenance implemented after the R1–R9 audit; verification limits are recorded below. M2 implemented 2026-10-22: scoped landing-heading focus styling for the reported macOS Safari highlight; browser verification limits remain below. R11 implemented 2026-10-22: tasting method and practical contrasts; novice and device trials remain open. R12 implemented 2026-10-22: aroma memory, vocabulary and coded household-reference practice; novice/device trials remain open. M3 implemented 2026-10-22: Compare search race and optional-route loading focus/URL fixes. R10 implemented 2026-10-22 as a focused label-reading and vineyard-terminology pilot; R14 implemented 2026-10-25 as an optional historical production guide; R13 implemented 2026-10-25 as optional real-bottle blind practice; novice/device verification remains open. R15 three-region weather pilot implemented 2026-10-25; wider coverage and device review remain open.
+Status: R1–R5 complete. R6 and R7 first batches implemented 2026-10-21; later US regions, Okanagan and Eiswein remain open candidates. R8 implemented 2026-10-21: guided tasting flights and worksheet. R9 implemented 2026-10-21: Your First Glass. M1 maintenance implemented after the R1–R9 audit; verification limits are recorded below. M2 implemented 2026-10-22: scoped landing-heading focus styling for the reported macOS Safari highlight; browser verification limits remain below. R11 implemented 2026-10-22: tasting method and practical contrasts; novice and device trials remain open. R12 implemented 2026-10-22: aroma memory, vocabulary and coded household-reference practice; novice/device trials remain open. M3 implemented 2026-10-22: Compare search race and optional-route loading focus/URL fixes. R10 implemented 2026-10-22 as a focused label-reading and vineyard-terminology pilot; R14 implemented 2026-10-25 as an optional historical production guide; R13 implemented 2026-10-25 as optional real-bottle blind practice; novice/device verification remains open. R15 three-region weather pilot implemented 2026-10-25; wider coverage and device review remain open. R16 data feed remains a no-go; R17 first checked-link batch implemented 2026-10-25, with broader mapping open.
 Created: 2026-10-19.  
 Review baseline: main at `d819d99505b188f2319c37f0f4aa01153278438b` (120 profiles, 92 region entries, 47 grape/blend baselines).  
 Release IDs below are planning identifiers, not published semantic versions.
@@ -313,114 +316,7 @@ These comparisons are editorial questions to investigate, not predetermined nume
 - [x] Every flight references valid, distinct profiles that satisfy existing Compare compatibility; unavailable references fail gracefully.
 - [x] One action opens exactly the intended two or three wines, with correct labels and production context, without duplicate or stale slots.
 - [x] Teaching copy identifies meaningful similarities and contrasts without inventing score differences or claiming a controlled experiment.
-- [x] Flight context and selections survive refresh and sharing; Back/Forward restores a useful location and focus.
-- [x] The worksheet prints legibly without clipping or depending on dark backgrounds.
-- [x] Keyboard navigation, accessible names and focus are covered by regression tests and deployed desktop Chrome checks. Catalog and comparison layouts were visually inspected on desktop.
-- [ ] Complete real screen-reader, iPhone/iPad Safari and physical touch checks, including phone/tablet layouts. These environments remain explicitly unverified.
-- [x] Run existing validation plus focused dataset, comparison-state and navigation regression checks.
-
-## R9 — Your First Glass
-
-**Goal:** Give beginners a short, practical learning journey before the detailed production guide.
-
-**Priority:** P2 — medium. Implementation complete; see [release notes and verification limits](docs/beginner-journey-r9.md). Real-device and assistive-technology checks remain open as recorded below.
-
-**Why:** The current beginner entry opens a substantial reference guide beginning with score methodology. New learners first need words for sensations and a manageable next action.
-
-**Likely files:** `learning.js`, `learning.css`, `ux.js`, `data/taste-basics.json`, glossary data, a small journey dataset if useful, navigation and focused tests.
-
-### Scope
-
-- [x] Reshape “New to wine?” into a short sequence covering acidity, tannin, body and sweetness, followed by a first guided comparison. Define a clear beginning and end.
-- [x] Explain each concept through observable sensations: mouth-watering acidity, drying tannin, perceived weight/body and residual sweetness. Distinguish fruit aroma from sugar and tannin from acidity.
-- [x] Include brief observation exercises and optional familiar food/drink analogies; allow learning without buying or drinking wine.
-- [x] Use progressive disclosure for score methodology, production detail and technical terms. Preserve access to the full existing taste guide and glossary.
-- [x] Connect each lesson to a relevant existing profile and, where suitable, an R8 flight. Keep one clear next action and allow skipping, returning and restarting.
-- [x] Keep the journey optional: experienced users retain direct access to Explore, Compare and the detailed reference.
-- [x] Reuse existing editorial definitions and profile data; avoid a second scoring system, mandatory quizzes, accounts or persistent learning tracking.
-
-### Acceptance criteria
-
-- [x] A first-time visitor can identify where to start and finish the core journey without navigating the entire long-form guide.
-- [x] Learners can distinguish dry from fruity, tannin from acidity, and body from quality after reading the relevant explanations.
-- [x] Each lesson supplies a concrete observation and a working next-step link; detailed reference material remains reachable.
-- [x] Closing a glossary/guide or returning from a profile/flight preserves useful lesson context and focus; define refresh and Back/Forward behavior.
-- [x] Deployed desktop Chrome checks cover all four lessons, optional reference dialogs, keyboard focus, profile Back, the flight/Compare handoff, refresh, finish and restart. Intro and lesson layouts were visually inspected on desktop.
-- [ ] Complete phone/tablet, enlarged-text, Safari, physical touch and real screen-reader checks. These environments remain explicitly unverified.
-- [x] Run existing validation and focused checks for lesson references, progression, skipping and return navigation.
-
-## M1 — R1–R9 Maintenance
-
-**Goal:** Preserve the existing learning/reference experience while fixing reproducible maintenance defects and planning the remaining beginner-training work.
-
-**Scope boundary:** This release is maintenance and planning. It does not implement R10–R13, new wine profiles, blind exercises or personal tasting records. See the [code, content and UX audit](docs/maintenance-m1.md).
-
-### Repairs and checks
-
-- [x] Reproduce and fix overlapping same-query Explore requests appending duplicate result buttons.
-- [x] Respect explicit empty comparison transactions, including unavailable-flight fallback after browsing a profile; do not silently auto-seed the previous wine.
-- [x] Keep malformed optional glossary/guide records from rejecting the beginner loading path or crashing reference dialogs. Retain usable entries and fail softly when no guide remains.
-- [x] Replace guessed comparison-header height with progressive CSS row alignment where supported, retaining natural flow as fallback.
-- [x] Add regression coverage for the reproduced state/loading/rendering failures and run the complete validation suite.
-- [x] Confirm deployed desktop comparison alignment, search and beginner navigation after deployment (Chrome: aligned sweet-flight metric rows, ten Riesling results, acidity → glossary → return → tannin).
-- [ ] Complete the inherited Safari/touch, real-screen-reader and mobile/enlarged-text checks; record untested environments honestly.
-
-### Review outcome
-
-R8's named comparisons and R9's four vocabulary lessons remain useful. They do not yet teach a complete tasting procedure, practical intensity calibration, aroma-reference recognition or blind regional inference. Existing worksheets print identities and must not be advertised as blind practice. R11–R13 below address those gaps. Region recognition is an advanced, uncertain inference; the app must never promise mastery after reading a short guide.
-
-## M2 — Focus and browser polish
-
-**Status:** Implemented 2026-10-22. Reported macOS Safari appearance still needs confirmation on that browser. See [implementation and verification](docs/maintenance-m2.md).
-
-**Goal:** Remove the distracting landing-title highlight reported on macOS Safari while preserving useful keyboard focus and accessible route orientation.
-
-### Safari landing-title highlight
-
-- [ ] Reproduce the user-reported blue outline around the full two-line “RagDollLabs Wine Atlas” landing heading on fresh load in macOS Safari. The supplied screenshot establishes the visible symptom; the exact Safari version/settings and cause still need confirmation.
-- [x] Investigate `WineNavigation.destination()` / `orient()` / startup restoration, which target `#welcomeTitle`, set `tabIndex=-1` and call `focus()`. The existing pointer-return handling in `home-brand.js` may not cover initial route orientation. Startup route orientation does focus this non-interactive heading. Native Safari painting remains unverified here.
-- [x] Apply the smallest appropriate startup-focus or heading-style correction so the landing page opens without a large decorative-looking blue frame. Scope any outline styling to non-interactive route headings as justified; never disable outlines globally, blur every control or remove navigation focus indiscriminately.
-- [x] Preserve existing control focus styling, route-heading focus targets and history/focus restoration in code. The only new selector is `#welcomeTitle:focus`; interactive controls and navigation behavior are untouched. Assistive-technology testing remains open below.
-
-### Acceptance and verification
-
-- [ ] Check fresh load, refresh, direct home URL, pointer return via branding, keyboard return and Back/Forward on macOS Safari; record browser/OS settings and results.
-- [ ] Confirm that Tab/Shift+Tab still visibly identifies actionable controls, including branding links, and that screen-reader route orientation remains useful. Check other route headings for the same oversized-ring symptom.
-- [ ] Recheck desktop Chrome and the existing navigation/focus regression suite. Extend behavioral tests only if the focus contract changes; DOM tests do not establish Safari’s painted appearance.
-- [ ] Verify iPhone/iPad Safari separately if shared focus styling changes. Keep the inherited physical-touch, real-screen-reader and enlarged-text obligations open until actually checked.
-
-This is a newly reported macOS Safari visual issue. It does not close or replace M1’s older unverified device checks. M2 scopes `outline: none` to the focused, non-interactive landing heading; it does not change route focus or other heading styles.
-
-## M3 — R12 code maintenance
-
-**Status:** Implemented 2026-10-22. See [code review and verification](docs/maintenance-m3.md).
-
-- [x] Discard stale Compare results by request generation, including an earlier identical query after an A → B → A edit and a result arriving after leaving Compare.
-- [x] Write an optional lesson/flight route and focus its visible loading heading while data is pending; late data must not pull the user back after another navigation.
-- [x] Remove the unused pairing-score alias and have tests call the shared search/food APIs directly. Retain the deliberately tested fallback Explore renderer.
-- [x] Run full syntax, data, content and DOM regression validation.
-- [x] Check deployed desktop Chrome route focus and Compare results after Pages deployment.
-- [ ] Check slow-network loading and overlapping response timing in a real browser, plus cross-device keyboard/screen-reader/Safari behavior; automated DOM tests cover those races but do not establish physical-device results.
-
-## R10 — From Atlas to Bottle
-
-**Status:** Implemented 2026-10-22 as a 12-profile pilot. See [scope, sources and verification](docs/from-atlas-to-bottle-r10.md). Live device checks remain open.
-
-**Goal:** Help users recognize the modeled expression on a bottle label or restaurant list and understand where that bottle may differ.
-
-**Priority:** P2 — medium; execute after R11/R12 and before R13 regional practice. Begin with a focused batch rather than mandatory boilerplate across all 150 profiles.
-
-**Why:** A clear editorial profile is useful only if users can connect it to an actual wine. Labels may foreground appellation, grape, production method or sweetness, and those cues do not all guarantee the atlas's typical style.
-
-**Likely files:** Profile rendering, a structured label-guidance dataset or optional profile fields, `data/sources.json`, `learning.js`, validators and focused tests.
-
-### Scope
-
-- [x] Add an optional “Recognize it on the label” section with common names, useful appellation/grape/style cues, important qualifiers and specific reasons a bottle may differ.
-- [x] Pilot guidance for six learning cases: Chablis Chardonnay; selected Bordeaux Cabernet-led versus Merlot-led references; Valpolicella versus Amarone; Prosecco sweetness wording; selected Sherry styles; and Niagara icewine. Choose exact profile coverage during implementation.
-- [x] Distinguish regulated identity/category terms from sensory clues, marketing language and producer choices. Verify current jurisdiction-specific meanings using authoritative sources.
-- [x] Explain when grape names may be absent, when a regional name covers several styles, and which additional label information is needed to select the represented expression.
-- [x] Cover producer, vintage, cuvée, oak treatment, sweetness and age only where they materially affect the selected example. Do not infer precise blend, ABV, sugar, oak or drinking windows from an appellation alone.
+- [x] Flight con…2762 tokens truncated… example. Do not infer precise blend, ABV, sugar, oak or drinking windows from an appellation alone.
 - [x] Link relevant glossary definitions and explicitly represented alternatives; connect buying cues in R8 flights to this shared guidance.
 - [x] Keep guidance useful for shops and restaurant lists without requiring live inventory, prices, commercial recommendations, label scanning or a backend.
 - [x] Preserve source traceability and reviewed/limited evidence distinctions; leave unsupported fields absent rather than generating generic advice.
@@ -593,7 +489,7 @@ Pilot notes: cached ERA5 2000+ seasons for Sancerre, Marlborough and Central Ota
 
 ## R17 — Search at Alko Links
 
-**Status:** Planned (2026-10-25). Replaces the earlier bottle-discovery pilot (old R17–R19, in git history). The Atlas stores **no Alko data**: it only links to Alko's own filtered search pages, so availability, prices and products are always whatever Alko shows at that moment. Does not depend on the R16 data gate. A link to a page that the user opens in a browser is not a data pull, but check Alko's terms on linking before release.
+**Status:** First checked-link batch implemented 2026-10-25 for five profiles; wider grape, style and region mapping remains open. See [R17 link checks](docs/alko-links-r17.md). Replaces the earlier bottle-discovery pilot (old R17–R19, in git history). The Atlas stores **no Alko product, price or stock data**: it only links to Alko's own filtered search pages. Does not depend on the R16 data gate.
 
 **Observed URL scheme** (examples supplied by Arttu from alko.fi on 2026-10-25; observed, not documented or guaranteed by Alko):
 - Category in the path: `/fi/tuotteet/punaviinit`, `valkoviinit`, `roseeviinit`, `kuohuviinit-ja-samppanjat`, `jalkiruokaviinit-ja-muut`.
@@ -602,16 +498,16 @@ Pilot notes: cached ERA5 2000+ seasons for Sancerre, Marlborough and Central Ota
 - Product pages (`/fi/tuotteet/<id>/<slug>`) show the normalized grape ID and are useful for checking IDs, but are **never linked**: products get delisted.
 
 ### Scope
-- [ ] Add `data/alko-links.json` mapping Atlas grape IDs to Alko `grapeId`, colour/style to category path, countries to ISO codes, and regions to Alko `regionId`. One link-builder function builds every URL; no URLs are written into profile data.
+- [x] Add `data/alko-links.json` for checked first-batch grape/category/country/region IDs; one guarded link-builder function builds every URL, with no URLs in profile data. Extend mappings in reviewed batches.
 - [ ] Grapes first: derive the likely `grape_<name>` mapping, then confirm the uncertain ones (e.g. Grüner Veltliner, Albariño, Torrontés, Melon de Bourgogne) from Alko product pages. Blend and style profiles without a grape (port, champagne, provence rosé) link by category only.
 - [ ] Grapes used in several styles (e.g. Pinot Noir: red, rosé, sparkling) offer the relevant category links; each is checked.
 - [ ] Regions in later batches. **We do not know how Alko organizes regions, especially small niche areas.** Each region entry records one of: `verified` (checked, with date), `country-fallback` (Alko has no matching region; link by country and say so), or `none`. Only `verified` and `country-fallback` links display. Never guess a region slug. Label links by what they search ("Burgundy wines at Alko"), not as an exact appellation.
 - [ ] Link text: **Search at Alko**. No prices, stock, availability, bottle names, discounts or ranking claims, and no wording that implies Alko stocks the wine. State that results are on Alko's site. Open normally; use `rel="noopener"` if opened in a new tab.
-- [ ] Place the section unobtrusively on profile pages; show nothing for profiles without a verified mapping. Site works with the section absent.
-- [ ] Review the Finnish alcohol-marketing question flagged in [R16 feasibility](docs/alko-feasibility-r16.md) before release; no promotional framing.
+- [x] Place the section unobtrusively on mapped profile pages; show nothing without a checked mapping. Optional JSON failure leaves the profile intact.
+- [x] Review the Finnish alcohol-marketing question flagged in [R16 feasibility](docs/alko-feasibility-r16.md) for this narrow, neutral search-link batch; no promotional framing. Legal interpretation remains unresolved for any future product/price displays.
 
 ### Validation (done later, manually)
-- [ ] Manual check protocol: open each link, confirm the filter applied and the results are plausible; record result and date in `data/alko-links.json`. An empty results page is allowed but noted.
+- [x] First batch: open each of five generated links, confirm category, grape, and region/country chips and plausible results; record date in `data/alko-links.json`. Repeat for every new mapping.
 - [ ] Repeat the spot-check each release and whenever a link is reported broken. No automated requests to alko.fi from tests or GitHub Actions.
 - [ ] If Alko changes the URL scheme, a one-file change in the link builder and config fixes all links.
 
