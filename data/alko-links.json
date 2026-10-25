@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "base": "https://www.alko.fi/fi/tuotteet/",
-  "categories": { "red": "punaviinit", "white": "valkoviinit" },
+  "categories": { "red": "punaviinit", "white": "valkoviinit", "rose": "roseeviinit", "sparkling": "kuohuviinit-ja-samppanjat" },
   "grapes": {
     "pinot-noir": "grape_pinot_noir",
     "chardonnay": "grape_chardonnay",
@@ -10,10 +10,14 @@
     "merlot": "grape_merlot",
     "malbec": "grape_malbec",
     "tempranillo": "grape_tempranillo",
-    "syrah": "grape_shiraz"
+    "syrah": "grape_shiraz",
+    "grenache": "grape_grenache",
+    "riesling": "grape_riesling",
+    "albarino": "grape_albarino",
+    "glera": "grape_glera"
   },
   "grapeLabels": { "syrah": "Shiraz" },
-  "countries": { "France": "FRA", "New Zealand": "NZL", "Argentina": "ARG", "Spain": "ESP", "USA": "USA", "Australia": "AUS" },
+  "countries": { "France": "FRA", "New Zealand": "NZL", "Argentina": "ARG", "Spain": "ESP", "USA": "USA", "Australia": "AUS", "Germany": "DEU", "Italy": "ITA" },
   "regions": {
     "burgundy": { "status": "verified", "id": "FRA_bourgogne", "label": "Burgundy", "checkedOn": "2026-10-25" },
     "sancerre": { "status": "country-fallback", "checkedOn": "2026-10-25" },
@@ -23,7 +27,14 @@
     "mendoza": { "status": "verified", "id": "ARG_mendoza", "label": "Mendoza", "checkedOn": "2026-10-25" },
     "rioja": { "status": "verified", "id": "ESP_rioja", "label": "Rioja", "checkedOn": "2026-10-25" },
     "napa": { "status": "country-fallback", "checkedOn": "2026-10-25" },
-    "barossa": { "status": "country-fallback", "checkedOn": "2026-10-25" }
+    "barossa": { "status": "country-fallback", "checkedOn": "2026-10-25" },
+    "cotes-de-provence-rose": { "status": "verified", "id": "FRA_provence", "label": "Provence", "checkedOn": "2026-10-25" },
+    "tavel-rose": { "status": "country-fallback", "checkedOn": "2026-10-25" },
+    "champagne-brut-nv": { "status": "verified", "id": "FRA_champagne", "label": "Champagne", "checkedOn": "2026-10-25" },
+    "cremant-bourgogne": { "status": "verified", "id": "FRA_bourgogne", "label": "Burgundy", "checkedOn": "2026-10-25" },
+    "mosel": { "status": "verified", "id": "DEU_mosel", "label": "Mosel", "checkedOn": "2026-10-25" },
+    "rias-baixas": { "status": "country-fallback", "checkedOn": "2026-10-25" },
+    "prosecco-doc": { "status": "country-fallback", "checkedOn": "2026-10-25" }
   },
   "profiles": {
     "burgundy/pinot-noir": { "scope": "region", "color": "red", "checkedOn": "2026-10-25" },
@@ -37,6 +48,14 @@
     "rioja/tempranillo": { "scope": "region", "color": "red", "checkedOn": "2026-10-25" },
     "napa/cabernet-sauvignon": { "scope": "country", "color": "red", "checkedOn": "2026-10-25" },
     "napa/merlot": { "scope": "country", "color": "red", "checkedOn": "2026-10-25" },
-    "barossa/syrah": { "scope": "country", "color": "red", "checkedOn": "2026-10-25" }
+    "barossa/syrah": { "scope": "country", "color": "red", "checkedOn": "2026-10-25" },
+    "cotes-de-provence-rose/provence-rose-blend": { "scope": "region", "family": "rose", "color": "rose", "grapeFilter": false, "checkedOn": "2026-10-25" },
+    "tavel-rose/grenache": { "scope": "country", "family": "rose", "color": "rose", "checkedOn": "2026-10-25" },
+    "champagne-brut-nv/champagne-blend": { "scope": "region", "family": "sparkling", "color": "white", "grapeFilter": false, "checkedOn": "2026-10-25" },
+    "cremant-bourgogne/chardonnay": { "scope": "region", "family": "sparkling", "color": "white", "checkedOn": "2026-10-25" },
+    "cremant-bourgogne/pinot-noir": { "scope": "region", "family": "sparkling", "color": "white", "checkedOn": "2026-10-25" },
+    "mosel/riesling": { "scope": "region", "color": "white", "checkedOn": "2026-10-25" },
+    "rias-baixas/albarino": { "scope": "country", "color": "white", "checkedOn": "2026-10-25" },
+    "prosecco-doc/glera": { "scope": "country", "family": "sparkling", "color": "white", "checkedOn": "2026-10-25" }
   }
 }

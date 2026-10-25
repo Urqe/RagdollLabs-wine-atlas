@@ -14,27 +14,33 @@ window.WineAlkoLinks = (() => {
     const style = profile.regional?.style;
     if (!entry || !region || !/^\d{4}-\d{2}-\d{2}$/.test(entry.checkedOn) ||
         !/^\d{4}-\d{2}-\d{2}$/.test(region.checkedOn) ||
-        style?.family !== 'still' || style.color !== entry.color ||
-        !['red', 'white'].includes(entry.color)) return null;
-    const category = data.categories?.[entry.color];
+        style?.family !== (entry.family || 'still') || style.color !== entry.color ||
+        !['red', 'white', 'rose'].includes(entry.color) ||
+        !['still', 'rose', 'sparkling'].includes(style.family)) return null;
+    const categoryKey = style.family === 'sparkling' ? 'sparkling' : entry.color;
+    const category = data.categories?.[categoryKey];
     const grape = data.grapes?.[profile.grapeId];
     const country = data.countries?.[profile.region.country];
-    if (!['punaviinit', 'valkoviinit'].includes(category) || !/^grape_[a-z_]+$/.test(grape || '')) return null;
+    if (!['punaviinit', 'valkoviinit', 'roseeviinit', 'kuohuviinit-ja-samppanjat'].includes(category)) return null;
+    const omitGrape = entry.grapeFilter === false && style.composition?.kind === 'representative-blend';
+    if (entry.grapeFilter === false && !omitGrape) return null;
+    if (!omitGrape && !/^grape_[a-z_]+$/.test(grape || '')) return null;
     if (!/^[A-Z]{3}$/.test(country || '')) return null;
     const url = new URL(category, data.base);
     let label;
-    const grapeLabel = data.grapeLabels?.[profile.grapeId] || profile.grape.name;
+    const grapeLabel = omitGrape ? '' : `${data.grapeLabels?.[profile.grapeId] || profile.grape.name} `;
+    const styleLabel = style.family === 'sparkling' ? 'sparkling wines ' : style.family === 'rose' ? 'rosé wines ' : '';
     if (entry.scope === 'region' && region.status === 'verified' &&
         /^[A-Z]{3}_[a-z0-9-]+$/.test(region.id || '') && region.id.startsWith(`${country}_`) &&
         typeof region.label === 'string' && region.label.trim()) {
       url.searchParams.set('regionId', region.id);
-      label = `${region.label} ${grapeLabel} at Alko`;
+      label = `${region.label} ${grapeLabel}${styleLabel}at Alko`;
     } else if (entry.scope === 'country' && region.status === 'country-fallback') {
       url.searchParams.set('countryId', country);
-      label = `${profile.region.country} ${grapeLabel} at Alko`;
+      label = `${profile.region.country} ${grapeLabel}${styleLabel}at Alko`;
     } else return null;
-    url.searchParams.set('grapeId', grape);
-    return { url: url.href, label, countryFallback: entry.scope === 'country', blendNote: style.composition?.kind === 'representative-blend' };
+    if (!omitGrape) url.searchParams.set('grapeId', grape);
+    return { url: url.href, label, countryFallback: entry.scope === 'country', blendNote: !omitGrape && style.composition?.kind === 'representative-blend' };
   }
   function render(profile) {
     active = profile;

@@ -1,6 +1,6 @@
 # R17 — Search at Alko, checked batches
 
-Checked 2026-10-25 in Alko's public Finnish search UI, using a browser. The 12 generated links showed the expected category, grape and region or country chips, with plausible results at check time:
+Checked 2026-10-25 in Alko's public Finnish search UI, using a browser. The 20 generated links showed the expected category, applicable grape and region or country chips, with plausible results at check time:
 
 | Atlas profile | Alko filters | Scope |
 | --- | --- | --- |
@@ -16,8 +16,16 @@ Checked 2026-10-25 in Alko's public Finnish search UI, using a browser. The 12 g
 | Napa Cabernet Sauvignon | red, USA, Cabernet Sauvignon | Country wide; Napa is **not** filtered |
 | Napa Merlot | red, USA, Merlot | Country wide; Napa is **not** filtered |
 | Barossa Syrah / Shiraz | red, Australia, Shiraz | Country wide; Barossa is **not** filtered; Alko's grape name is Shiraz |
+| Côtes de Provence rosé blend | rosé, Provence | Alko's broad Provence region; no grape filter |
+| Tavel Grenache rosé | rosé, France, Grenache | Country wide; Tavel is **not** filtered |
+| Brut non-vintage Champagne blend | sparkling, Champagne | Alko's Champagne region; no grape filter or dryness filter |
+| Crémant de Bourgogne Chardonnay | sparkling, Bourgogne, Chardonnay | Broad sparkling category and Bourgogne region; not an exact Crémant filter |
+| Crémant de Bourgogne Pinot Noir | sparkling, Bourgogne, Pinot Noir | Broad sparkling category and Bourgogne region; not an exact Crémant filter |
+| Mosel Riesling | white, Mosel, Riesling | Alko's broad Mosel region; no sweetness filter |
+| Rías Baixas Albariño | white, Spain, Albariño | Country wide; Rías Baixas is **not** filtered |
+| Prosecco DOC Glera | sparkling, Italy, Glera | Country wide; Prosecco DOC is **not** filtered |
 
-The country fallback is explicit next to each link. Alko's country/region search does not necessarily map to an Atlas appellation or the proportions of a blend. Results can change; this check says the filters worked on the check date, not that a specific wine will remain listed. The config records the date for each profile and region policy. Unknown profiles, changed style contracts or malformed/missing optional config show no link. There is no live Alko request from Wine Atlas or its tests, and no Alko catalog copy in the repository.
+The country fallback is explicit next to each link. Alko's country/region/category search does not necessarily match an Atlas appellation, sweetness, sparkling method, rosé colour or the proportions of a blend. The link label describes the filters, never an exact product identity. The Alko grape ID for Albariño (`grape_albarino`) was taken from its live grape selector, not inferred from the accented name. Results can change; this check says the filters worked on the check date, not that a specific wine will remain listed. The config records the date for each profile and region policy. Unknown profiles, changed style contracts or malformed/missing optional config show no link. There is no live Alko request from Wine Atlas or its tests, and no Alko catalog copy in the repository.
 
 Alko's [digital-service terms](https://www.alko.fi/fi/kayttoehdot), dated 2026-02-04, were read on 2026-10-25. They restrict reuse of Alko's text and images for commercial purposes and do not expressly address ordinary outbound links. We reuse neither text nor images. Finland's [Alcohol Act, section 50](https://www.finlex.fi/fi/lainsaadanto/2017/1102), restricts alcohol marketing. The UI stays neutral: no bottle recommendations, prices, discounts or stock claims. This is an editorial product decision, not a legal opinion or a blanket clearance for future retailer features.
 
