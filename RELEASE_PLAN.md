@@ -36,6 +36,7 @@ Fix misleading behavior and content before increasing the catalog. Preserve the 
 | R17 | Search at Alko Links | P2 — medium | Plain links from profiles to Alko's own grape/country/region search; no Alko data stored, no price or stock claims | Existing profile data; link patterns observed 2026-10-25; **no R16 dependency** |
 | R18 | ~~Alko Catalog Coverage & Store Selector~~ | — | **Superseded by R17 (2026-10-25).** Reopen only if Alko grants a data route per R16 | — |
 | R19 | ~~Guarded Alko Auto-Publishing~~ | — | **Superseded by R17 (2026-10-25).** Reopen only after a permitted data feed exists | — |
+| M4 | R17 link maintenance | P2 — medium | Make Alko link config extensible and validated, fix link accessibility and scope wording, document and verify | R17 first batch; planned maintenance release |
 
 R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8/R9 introduce the reference and beginner vocabulary. The maintenance audit found additional work is needed to train sensory recognition. M1–M3 are implemented. The feature sequence remains R11 → R12 → R10 → R14 → R13; IDs are stable planning identifiers, not an obligation to implement in numeric order. R10 and R14 are implemented. R13 is implemented with practical verification still open. R15 began with a three-region pilot; broader R15 coverage and R17 remain separate work. This learning sequence takes priority over remaining catalog expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned. R15 vintage intelligence is independent and can proceed even if R16's Alko data gate fails; R17 links do not depend on the R16 data gate; superseded R18–R19 remain blocked until a permitted data feed exists. New R15–R19 plans do not alter completed releases.
 
@@ -531,6 +532,27 @@ Alko catalog coverage and store selector were part of the earlier bottle-discove
 
 Guarded auto-publishing of Alko data depended on a data feed. Not pursued; reopen only after a permitted feed exists. Original text is in git history before 2026-10-25.
 
+## M4 — R17 link maintenance
+
+**Status:** Planned (2026-10-25), from a read-only review of the deployed R17 batch. No defect breaks the Atlas; these items keep the next R17 batches safe. Do not widen coverage in this release.
+
+**Likely files:** `alko-links.js`, `data/alko-links.json`, `scripts/validate.py`, `tests/alko-links.mjs`, `tests/validation-contracts.py`, `learning.css`, `README.md`, `docs/alko-links-r17.md`.
+
+### Scope
+- [ ] **Config-driven builder.** Remove the hard-coded `FRA_` pattern and `country === 'France'` check from `linkFor`. The country code and region ID come from config and are checked structurally (region ID starts with the country code recorded for that region). Cover a non-France case in tests with a synthetic fixture, not an unverified live link. Adding a verified region elsewhere is then a config-only change, as R17 promises.
+- [ ] **Validate the link config in `npm run validate`.** Check schema version, allowed categories, grape/region/country ID patterns, `verified` / `country-fallback` / `none` statuses, date format, and that every profile key points to an existing grape, region and profile whose colour and still-wine style match. Add an **advisory** (non-blocking) warning for `checkedOn` dates older than a set age. No automated requests to alko.fi.
+- [ ] **Link accessibility.** The accessible name must contain the visible text "Search at Alko" (e.g. visible text plus `aria-describedby`, or an `aria-label` that begins with it). Stop the description repeating the same words twice. Decide whether the section should be a labelled region landmark at all. Add a test for the name/visible-text match.
+- [ ] **Scope wording.** When Alko's region is broader than the Atlas region (e.g. Alko's Bourgogne for the Atlas's Burgundy), say so next to the link using an optional `scopeNote` in config. Write only what has been manually checked; unknown scope gets no claim.
+- [ ] **External-link behaviour.** Decide and document: same tab or new tab (`rel="noopener"` if new), and a short note that Alko's pages are in Finnish. Keep wording neutral: no price, stock or promotional language.
+- [ ] **Bookkeeping.** Mention R17 files and the config in `README.md`. Tick R17 checklist items already implemented (link text, tests) and leave the rest open. Update `docs/alko-links-r17.md` with the changes.
+- [ ] **Manual checks, recorded honestly.** Re-open the five existing links in Alko's public UI and update `checkedOn`. Check iPhone and iPad Safari, desktop Chrome, keyboard and a screen reader on the link section. Record untested environments.
+
+### Acceptance criteria
+- [ ] A new verified region outside France needs only a config change, and the validator rejects malformed or inconsistent entries.
+- [ ] The link's accessible name contains its visible text and is not announced twice.
+- [ ] Every region-scope link states when Alko's region is broader than the Atlas region, or makes no scope claim.
+- [ ] `npm run validate` passes. Coverage stays at the five checked profiles.
+
 ## Review finding traceability
 
 | Finding | Review issue | Planned release |
@@ -556,6 +578,7 @@ Guarded auto-publishing of Alko data depended on a data feed. Not pursued; reope
 | Product direction | Short practical beginner learning journey | R9 |
 | Product direction | Connect modeled profiles to bottle labels and wine lists | R10 |
 | Maintenance | Search race, empty comparison intent, malformed learning enrichment and metric-row alignment | M1 |
+| Maintenance (R17 review) | Hard-coded France, unvalidated link config, link accessible name, region scope wording, README/plan bookkeeping | M4 |
 | Learning audit | Practical tasting technique and sensory calibration | R11 |
 | Learning audit | Aroma references, vocabulary and non-leading practice | R12 |
 | Learning audit | Blind sample setup, reveal and cautious regional hypotheses | R13 |
