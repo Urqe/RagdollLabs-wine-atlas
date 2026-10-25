@@ -51,6 +51,12 @@
 .taste-example { border: 1px solid var(--line, rgba(0,0,0,.15)); background: transparent; color: inherit; border-radius: 999px; padding: 6px 12px; font: inherit; font-size: .88rem; cursor: pointer; text-align: left; }
 .taste-example:hover, .taste-example:focus-visible { border-color: currentColor; }
 .taste-section p + p { margin-top: 8px; }
+.history-intro { padding: 4px 2px 8px; color: #dacdd1; font-size: 13px; line-height: 1.5; }
+.history-intro p { margin: 0 0 9px; }
+.history-section p + p { margin-top: 9px; }
+.history-section h2 { margin: 0 0 8px; font: 18px Georgia, serif; color: var(--gold); }
+.history-section .history-cue { margin-top: 12px; padding: 10px 12px; border-left: 3px solid var(--gold); background: #211a1d; }
+.history-section .history-sources { margin-top: 12px; color: var(--muted); }
 .score-help { margin-top: 10px; padding: 0; border: 0; background: none; color: var(--gold); font: inherit; font-size: 12px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .score-help:hover, .score-help:focus-visible { color: var(--text); }
 
