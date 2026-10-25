@@ -26,7 +26,14 @@ const cases = [
   ['pinot-noir', 'cremant-bourgogne', 'kuohuviinit-ja-samppanjat?regionId=FRA_bourgogne&grapeId=grape_pinot_noir', false],
   ['riesling', 'mosel', 'valkoviinit?regionId=DEU_mosel&grapeId=grape_riesling', false],
   ['albarino', 'rias-baixas', 'valkoviinit?countryId=ESP&grapeId=grape_albarino', true],
-  ['glera', 'prosecco-doc', 'kuohuviinit-ja-samppanjat?countryId=ITA&grapeId=grape_glera', true]
+  ['glera', 'prosecco-doc', 'kuohuviinit-ja-samppanjat?countryId=ITA&grapeId=grape_glera', true],
+  ['nebbiolo', 'barolo', 'punaviinit?regionId=ITA_piemonte&grapeId=grape_nebbiolo', false],
+  ['nebbiolo', 'barbaresco', 'punaviinit?regionId=ITA_piemonte&grapeId=grape_nebbiolo', false],
+  ['barbera', 'barbera-dasti', 'punaviinit?regionId=ITA_piemonte&grapeId=grape_barbera', false],
+  ['sangiovese', 'tuscany', 'punaviinit?regionId=ITA_toscana&grapeId=grape_sangiovese', false],
+  ['sangiovese', 'brunello', 'punaviinit?regionId=ITA_toscana&grapeId=grape_sangiovese', false],
+  ['chardonnay', 'chablis', 'valkoviinit?regionId=FRA_bourgogne&grapeId=grape_chardonnay', false],
+  ['gamay', 'beaujolais', 'punaviinit?countryId=FRA&grapeId=grape_gamay', true]
 ];
 for (const [grape, region, url, fallback] of cases) {
   w.WineAtlas.selectProfile(grape, region); await app.settle();

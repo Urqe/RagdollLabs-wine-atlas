@@ -14,7 +14,11 @@
     "grenache": "grape_grenache",
     "riesling": "grape_riesling",
     "albarino": "grape_albarino",
-    "glera": "grape_glera"
+    "glera": "grape_glera",
+    "nebbiolo": "grape_nebbiolo",
+    "sangiovese": "grape_sangiovese",
+    "barbera": "grape_barbera",
+    "gamay": "grape_gamay"
   },
   "grapeLabels": { "syrah": "Shiraz" },
   "countries": { "France": "FRA", "New Zealand": "NZL", "Argentina": "ARG", "Spain": "ESP", "USA": "USA", "Australia": "AUS", "Germany": "DEU", "Italy": "ITA" },
@@ -34,7 +38,14 @@
     "cremant-bourgogne": { "status": "verified", "id": "FRA_bourgogne", "label": "Burgundy", "checkedOn": "2026-10-25" },
     "mosel": { "status": "verified", "id": "DEU_mosel", "label": "Mosel", "checkedOn": "2026-10-25" },
     "rias-baixas": { "status": "country-fallback", "checkedOn": "2026-10-25" },
-    "prosecco-doc": { "status": "country-fallback", "checkedOn": "2026-10-25" }
+    "prosecco-doc": { "status": "country-fallback", "checkedOn": "2026-10-25" },
+    "barolo": { "status": "verified", "id": "ITA_piemonte", "label": "Piemonte", "checkedOn": "2026-10-25" },
+    "barbaresco": { "status": "verified", "id": "ITA_piemonte", "label": "Piemonte", "checkedOn": "2026-10-25" },
+    "barbera-dasti": { "status": "verified", "id": "ITA_piemonte", "label": "Piemonte", "checkedOn": "2026-10-25" },
+    "tuscany": { "status": "verified", "id": "ITA_toscana", "label": "Tuscany", "checkedOn": "2026-10-25" },
+    "brunello": { "status": "verified", "id": "ITA_toscana", "label": "Tuscany", "checkedOn": "2026-10-25" },
+    "chablis": { "status": "verified", "id": "FRA_bourgogne", "label": "Burgundy", "checkedOn": "2026-10-25" },
+    "beaujolais": { "status": "country-fallback", "checkedOn": "2026-10-25" }
   },
   "profiles": {
     "burgundy/pinot-noir": { "scope": "region", "color": "red", "checkedOn": "2026-10-25" },
@@ -56,6 +67,13 @@
     "cremant-bourgogne/pinot-noir": { "scope": "region", "family": "sparkling", "color": "white", "checkedOn": "2026-10-25" },
     "mosel/riesling": { "scope": "region", "color": "white", "checkedOn": "2026-10-25" },
     "rias-baixas/albarino": { "scope": "country", "color": "white", "checkedOn": "2026-10-25" },
-    "prosecco-doc/glera": { "scope": "country", "family": "sparkling", "color": "white", "checkedOn": "2026-10-25" }
+    "prosecco-doc/glera": { "scope": "country", "family": "sparkling", "color": "white", "checkedOn": "2026-10-25" },
+    "barolo/nebbiolo": { "scope": "region", "color": "red", "checkedOn": "2026-10-25" },
+    "barbaresco/nebbiolo": { "scope": "region", "color": "red", "checkedOn": "2026-10-25" },
+    "barbera-dasti/barbera": { "scope": "region", "color": "red", "checkedOn": "2026-10-25" },
+    "tuscany/sangiovese": { "scope": "region", "color": "red", "checkedOn": "2026-10-25" },
+    "brunello/sangiovese": { "scope": "region", "color": "red", "checkedOn": "2026-10-25" },
+    "chablis/chardonnay": { "scope": "region", "color": "white", "checkedOn": "2026-10-25" },
+    "beaujolais/gamay": { "scope": "country", "color": "red", "checkedOn": "2026-10-25" }
   }
 }
