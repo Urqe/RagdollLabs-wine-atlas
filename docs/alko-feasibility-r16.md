@@ -1,7 +1,7 @@
 # R16 — Alko data feasibility gate
 
 Date: 2026-10-25
-Status: **Provisional NO-GO. R17–R19 stay blocked.** The gate can flip to GO only after Alko confirms access in writing (see "What would change the decision").
+Status: **Provisional NO-GO for pulling Alko data.** Any Alko data feed stays blocked; R17 (search links) is not affected. The gate can flip to GO only after Alko confirms access in writing (see "What would change the decision").
 
 This is research, not legal advice.
 
