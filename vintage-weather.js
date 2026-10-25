@@ -21,17 +21,17 @@ window.WineVintage = (() => {
   function tasteHypothesis(profile, warmth, hotSpells) {
     const pinot = profile.grapeId === 'pinot-noir';
     if (warmth === 'above') return pinot ?
-      'A riper cherry or plum impression and a broader feel are plausible. Check whether the wine still has the acidity and savoury detail you expect from this region.' :
-      'Riper citrus or stone-fruit notes and a rounder feel are plausible. Check whether the wine still has the brisk acidity or herbal edge you expect.';
+      'This wine might taste of ripe cherry or plum and feel fuller. Taste it to see how fresh it feels.' :
+      'This wine might taste of ripe citrus or peach and feel rounder. Taste it to see if it still has a fresh, herbal edge.';
     if (warmth === 'below') return pinot ?
-      'Tarter red fruit, a lighter feel and more noticeable acidity are plausible. Check whether the fruit is actually restrained rather than assuming it from the year.' :
-      'Sharper citrus, a greener herbal edge and more noticeable acidity are plausible. Check whether the fruit is actually less ripe in this bottle.';
+      'This wine might taste of tart red fruit and feel lighter and fresher. Taste the bottle to see if it does.' :
+      'This wine might taste of sharp citrus and green herbs, with a fresher feel. Taste the bottle to see if it does.';
     if (hotSpells) return pinot ?
-      'The season average was ordinary, but more hot days leave room for riper red-fruit notes in some bottles. Check that against the wine’s acidity and body; harvest decisions can reverse the impression.' :
-      'The season average was ordinary, but more hot days leave room for riper citrus or a rounder feel in some bottles. Check that against the wine’s acidity and herbal edge.';
+      'Some bottles might taste of riper red fruit and feel fuller. Taste yours to see how fresh it feels.' :
+      'Some bottles might taste of riper citrus and feel rounder. Taste yours to see if it has a fresh, herbal edge.';
     return pinot ?
-      'There is no strong temperature signal for a departure from the regional red-fruit and savoury reference. Begin there, then check the fruit ripeness, body and acidity in your glass.' :
-      'There is no strong temperature signal for a departure from the regional citrus, herbal and fresh-acid reference. Begin there, then check fruit ripeness, texture and acidity in your glass.';
+      'The weather gives no clear hint of a different style this year. You might find the usual red fruit, savoury notes and fresh feel. See what you taste in your glass.' :
+      'The weather gives no clear hint of a different style this year. You might find the usual citrus, herbs and fresh feel. See what you taste in your glass.';
   }
   function render(data, year, profile) {
     const result = byId('vintageWeatherText');
@@ -44,8 +44,8 @@ window.WineVintage = (() => {
     result.replaceChildren();
     const h = document.createElement('h3'); h.textContent = `${year} · ${data.region.label}`;
     const taste = document.createElement('p'); taste.className = 'vintage-taste'; taste.textContent = tasteHypothesis(profile, warmth, hotSpells);
-    const context = document.createElement('p'); context.textContent = warmth === 'above' ? 'Why this might happen: a warmer growing season can advance ripening, but heat or water stress can also interrupt it.' : warmth === 'below' ? 'Why this might happen: a cooler growing season can slow ripening, depending on harvest timing.' : hotSpells ? 'Why this might happen: the season average was close to baseline, but unusually frequent hot days could affect ripening on exposed sites.' : 'Why the suggestion is restrained: season-average temperature was close to this proxy’s recent baseline.';
-    const note = document.createElement('p'); note.className = 'small'; note.textContent = `This is a hypothesis to test against a real ${year} bottle, not a review or a guarantee. Producer, vineyard, harvest date and winemaking can outweigh the regional signal.`;
+    const context = document.createElement('p'); context.textContent = warmth === 'above' ? 'Why? The growing season was warmer than usual. Grapes may have ripened more, although heat and lack of water can also slow them down.' : warmth === 'below' ? 'Why? The growing season was cooler than usual. Grapes may have ripened more slowly.' : hotSpells ? 'Why? The season was close to average overall, but it had more very hot days than usual.' : 'Why? The growing season was close to its usual temperature. The weather gives us little reason to expect a change in taste.';
+    const note = document.createElement('p'); note.className = 'small'; note.textContent = `This is a guide to what you might taste, not a review of a ${year} bottle. The vineyard, harvest and winemaker also affect the taste.`;
     const details = document.createElement('details'); details.className = 'vintage-measures';
     const summary = document.createElement('summary'); summary.textContent = 'Weather behind this reading';
     const measures = document.createElement('p'); measures.textContent = `The ${data.region.season} grid-cell proxy averaged ${values.meanC.toFixed(1)}°C, ${temperature}. Rainfall totaled ${Math.round(values.rainMm)} mm, ${rainfall}; ${values.hotDays30} days reached 30°C. Rainfall totals do not show when it fell or how a vineyard managed water.`;
