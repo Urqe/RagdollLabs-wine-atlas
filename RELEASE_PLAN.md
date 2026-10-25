@@ -577,7 +577,7 @@ Implementation: `blind-practice.js` is a tab-memory-only host/learner exercise i
 - [ ] Screen-reader and mobile interactions work; missing weather leaves normal profile content unaffected.
 
 
-Pilot notes: cached ERA5 2000+ seasons for Sancerre, Marlborough and Central Otago only. The 60-day region-specific maturity rule yields 2025 as latest Northern and 2026 as latest Southern year on 2026-10-25. Broader proxy review, a future bottle badge, native browser/device checks and a reviewable recurring refresh PR remain open. No Alko data or live browser API requests.
+Pilot notes: cached ERA5 2000+ seasons for Sancerre, Marlborough and Central Otago only. A follow-up leads with cautious grape-specific sensory hypotheses and puts numeric weather behind a disclosure. The 60-day region-specific maturity rule yields 2025 as latest Northern and 2026 as latest Southern year on 2026-10-25. Broader proxy review, a future bottle badge, native browser/device checks and a reviewable recurring refresh PR remain open. No Alko data or live browser API requests.
 
 ## R16 — Alko Data Feasibility Gate (Alko-dependent)
 
