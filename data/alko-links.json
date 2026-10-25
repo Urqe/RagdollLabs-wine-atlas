@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "base": "https://www.alko.fi/fi/tuotteet/",
+  "categories": { "red": "punaviinit", "white": "valkoviinit" },
+  "grapes": {
+    "pinot-noir": "grape_pinot_noir",
+    "chardonnay": "grape_chardonnay",
+    "sauvignon-blanc": "grape_sauvignon_blanc"
+  },
+  "countries": { "France": "FRA", "New Zealand": "NZL" },
+  "regions": {
+    "burgundy": { "status": "verified", "id": "FRA_bourgogne", "label": "Burgundy", "checkedOn": "2026-10-25" },
+    "sancerre": { "status": "country-fallback", "checkedOn": "2026-10-25" },
+    "marlborough": { "status": "country-fallback", "checkedOn": "2026-10-25" },
+    "central-otago": { "status": "country-fallback", "checkedOn": "2026-10-25" }
+  },
+  "profiles": {
+    "burgundy/pinot-noir": { "scope": "region", "color": "red", "checkedOn": "2026-10-25" },
+    "burgundy/chardonnay": { "scope": "region", "color": "white", "checkedOn": "2026-10-25" },
+    "sancerre/sauvignon-blanc": { "scope": "country", "color": "white", "checkedOn": "2026-10-25" },
+    "marlborough/sauvignon-blanc": { "scope": "country", "color": "white", "checkedOn": "2026-10-25" },
+    "central-otago/pinot-noir": { "scope": "country", "color": "red", "checkedOn": "2026-10-25" }
+  }
+}

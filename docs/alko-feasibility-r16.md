@@ -1,7 +1,7 @@
 # R16 — Alko data feasibility gate
 
 Date: 2026-10-25
-Status: **Provisional NO-GO. R17–R19 stay blocked.** The gate can flip to GO only after Alko confirms access in writing (see "What would change the decision").
+Status: **Provisional NO-GO for a product/price/stock data feed.** R17's plain outbound search links are independent and its first batch is implemented. The data gate can flip to GO only after Alko confirms access in writing (see "What would change the decision").
 
 This is research, not legal advice.
 
@@ -109,7 +109,7 @@ All of these, in writing:
 
 - Arttu: send Alko the questions in item 1. This cannot be done from the repository. Check from a normal browser whether the Excel price list is still linked on alko.fi, and what the site's terms of use say.
 - Re-run the prototype once a permitted route exists, from a machine that can reach alko.fi.
-- Continue with R15 meanwhile.
+- Keep the data feed blocked while R15 and checked R17 search links proceed independently.
 
 ## Sources
 
