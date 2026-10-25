@@ -28,8 +28,13 @@ Fix misleading behavior and content before increasing the catalog. Preserve the 
 | R10 | From Atlas to Bottle | P2 — medium | Recognize modeled expressions on labels and wine lists | R8/R9; implemented; device checks open |
 | R14 | Wine Before the Modern Cellar | P3 — low | Three short historical production stories linked to modern techniques | R10; small optional learning release |
 | R13 | Taste Before the Reveal | P2 — medium | Optional blind practice progressing from broad style to regional hypotheses | R11/R12; R10 for regional/bottle-selection work |
+| R15 | Vintage Weather Intelligence | P2 — medium | Regional vintage-weather interpretation for represented styles, independent of retailers | Existing profile geography; historical weather source; **no Alko dependency** |
+| R16 | Alko Data Feasibility Gate | P1 — blocking research | Verify permitted, sustainable product, price and inventory access before promising a live integration | External Alko access/license, product and availability fields; **Alko-dependent** |
+| R17 | Alko Bottle Discovery Pilot | P2 — conditional | 20-profile pilot, verified availability, price/history, weekly reviewable sync PR and developer coverage report | **Alko-dependent: R16 gate must pass**; R15 optional enhancement |
+| R18 | Alko Catalog Coverage & Store Selector | P2 — conditional | Expand verified matches; Anywhere/Choose the Alko with in-stock stores only | **Alko-dependent: R16–R17** |
+| R19 | Guarded Alko Auto-Publishing | P3 — conditional | Automatically publish validated routine updates, with exceptions requiring review | **Alko-dependent: R16–R18**, demonstrated reliability and deployment checks |
 
-R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8/R9 introduce the reference and beginner vocabulary. The maintenance audit found additional work is needed to train sensory recognition. M1–M3 are implemented. The feature sequence remains R11 → R12 → R10 → R14 → R13; IDs are stable planning identifiers, not an obligation to implement in numeric order. R10 is implemented. R14 is the next compact optional guide, not a catalog expansion. This learning sequence takes priority over remaining catalog expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned.
+R5–R7 are independent content programs once the quality foundation is complete. Their first batches follow the order above; remaining candidates can be reprioritized without delaying bug fixes. R8/R9 introduce the reference and beginner vocabulary. The maintenance audit found additional work is needed to train sensory recognition. M1–M3 are implemented. The feature sequence remains R11 → R12 → R10 → R14 → R13; IDs are stable planning identifiers, not an obligation to implement in numeric order. R10 is implemented. R14 is the next compact optional guide, not a catalog expansion. This learning sequence takes priority over remaining catalog expansion candidates. Prefer helping users apply existing coverage before increasing profile counts. Continue the R3 evidence-review backlog and outstanding Safari/touch verification alongside this work; these are existing quality obligations, not newly discovered regressions. No target dates are assigned. R15 vintage intelligence is independent and can proceed even if R16's Alko data gate fails; R17–R19 are conditional and remain blocked until that gate passes. New R15–R19 plans do not alter completed releases.
 
 ## Working rules for every release
 
@@ -535,6 +540,94 @@ This is a newly reported macOS Safari visual issue. It does not close or replace
 - [ ] Regression/accessibility/print checks catch accidental pre-reveal identity leakage, premature reveal on navigation, and incorrect sample-to-answer mapping after refresh or reorder.
 - [ ] Regional practice uses a defined reviewed candidate set, multiple clues, alternatives and uncertainty. No region-identification accuracy or completion guarantee is claimed without evidence.
 - [ ] A novice usability trial checks setup, observation, reveal and feedback separately from knowledge questions. Physical iPhone/iPad Safari, keyboard, screen readers and enlarged text are checked and unresolved issues remain explicit.
+
+## R15 — Vintage Weather Intelligence (independent)
+
+**Status:** Planned, with no Alko dependency. Can be implemented before or alongside R16–R18.
+
+**Goal:** Explain how observed growing-season weather around a represented wine region and vintage may influence grapes and plausible wine style, without presenting a deterministic tasting prediction.
+
+### Scope
+- [ ] Audit existing profile geographic granularity; attach reviewed representative coordinates/region areas only where warranted. Never imply estate-level weather from a broad regional proxy; disclose location and resolution.
+- [ ] Select and document a historical weather source (Open-Meteo/ERA5-Land candidate), license, reproducibility, coverage limits and historic baseline. Cache data per region/subregion and vintage, rather than per bottle.
+- [ ] Calculate defensible growing-season indicators (temperature anomalies, heat extremes, precipitation, growing-degree measures if justified); account for hemispheric harvest seasons and vintage-year conventions.
+- [ ] Produce concise reader-facing narrative: **observed conditions → possible vine/ripening effects → cautious sensory implications**. Avoid universal hot-year = better/riper wine conclusions; identify unknowns such as altitude, water access, grape, harvest timing and winemaking.
+- [ ] Add a nonintrusive optional vintage selector/context on existing represented wine styles; show no claim where vintage/geography is unsupported or confidence is insufficient.
+- [ ] Design a reusable optional bottle-level vintage badge for eventual Alko integration: visible **2022 · Vintage context** (example) links to the same regional/year analysis, with clear statement that it is **not a bottle tasting review**.
+- [ ] Keep calculations and precomputed content reusable across profiles and retailers; keep site functional when weather refreshes fail.
+
+### Acceptance criteria
+- [ ] Historical weather interpretation operates with **zero Alko products or API credentials**.
+- [ ] Different hemispheres and vintages use correct growing seasons; nearby regions are not represented as identical microclimates.
+- [ ] Source, geography, baseline, data date and limitations are traceable; tests prevent unsupported numeric/taste assertions.
+- [ ] Screen-reader and mobile interactions work; missing weather leaves normal profile content unaffected.
+
+## R16 — Alko Data Feasibility Gate (Alko-dependent)
+
+**Status:** Research gate; do not begin production catalog/availability promises until this passes.
+
+- [ ] Verify an authorized and maintainable source for product identifiers, direct product URLs, bottle name, vintage, grape/blend, country, region/appellation, EUR price and **store-level plus online-orderable availability**. Check terms, licensing, access requirements, rate limits, permitted display/retention and update cadence.
+- [ ] Establish what “available” means and whether online orderability and store-stock data can be obtained with reliable timestamps. Product listing alone does **not** establish availability.
+- [ ] Prototype a small read-only extraction; inspect field quality, incomplete blends, inconsistent region names, source schema changes and stock accuracy. Document a source adapter contract so the frontend never depends on Alko's raw format.
+- [ ] If permitted data cannot be obtained or required fields cannot be verified, mark R17–R19 **blocked**, do not scrape around restrictions, and proceed with R15 independently.
+- [ ] Set minimum required freshness and validate whether scheduled refresh rates are adequate. Weekly price/catalog review and more frequent stock verification may be separate tasks.
+
+**Exit criterion:** Documented go/no-go with permissions, representative test data, acceptable data quality and a supportable availability definition.
+
+## R17 — Alko Bottle Discovery Pilot (conditional on R16)
+
+**Status:** Planned, blocked until R16 passes. **Phase A = reviewed weekly pull requests, not unattended publication.**
+
+### Scope
+- [ ] Start with ~20 representative profiles. Rank products using structured grape, appellation/region, colour, sweetness, production and style fields; avoid free-text/prose keyword matching as an identity guarantee.
+- [ ] Enforce profile-specific blend policy: allow typical Rioja/Bordeaux or Cabernet-led examples when representative, allow declared blend-style profiles, but reject incompatible blends and ambiguous grape shares for stricter single-variety expressions. Prefer no example to a misleading match.
+- [ ] Show up to five accurate representative examples (ideally at varied prices) only when **at least one store has verified stock OR online ordering is verified**. Otherwise show no bottles; never show products merely because listed in Alko's catalog.
+- [ ] Record source product ID and vintage separately: vintage changes can alter a bottle's regional weather context without changing the profile. Display price in EUR, clickable Alko product URL, verification timestamps, and highlighted vintage with optional R15 interpretation where supported.
+- [ ] Separate append-only/retained historical product observations (including old prices, vintages, availability, first/last seen and mapping decisions) from public verified-visible snapshot. Honor source retention and redistribution permissions.
+- [ ] Validate complete snapshots/schema/required fields, anomaly thresholds, duplicate products, improbable price changes and mass disappearances **before atomic publishing**. A failed source refresh does not corrupt history or mass-remove items; preserve last valid price as **historical/stale**, never silently pass it off as current.
+- [ ] A confirmed unavailable or removed product becomes hidden after the next **successful authoritative check**; unverified availability also hides. Freshness TTL is separately configurable for prices and stock; expired stock status suppresses offers even if a historical price persists.
+- [ ] Generate a weekly Github Actions synchronization PR with meaningful diffs: added/removed/changed bottles, vintage, availability and prices, anomalies, ambiguous matches and coverage statistics. No auto-merge in R17.
+- [ ] Add a dedicated **unlinked developer report route** for wine/profile coverage: profiles without available matching products, unmatched Alko products grouped into meaningful profile candidates, uncertain blend/region matches, data health and last validated sync. Do not link it in landing page, navigation, sitemaps or regular subpages; document its URL in README only. It is publicly accessible by URL, **not private**. Do not add profiles automatically because one product is unmatched.
+- [ ] Keep preexisting static site functional without Alko feed or if Alko integration is disabled.
+
+### Acceptance criteria
+- [ ] No catalog-only, confirmed out-of-stock, expired-availability or unsupported-match product appears publicly.
+- [ ] Existing profiles lacking available Alko matches simply omit the Alko subsection; unmatched products are recorded for developer review.
+- [ ] Broken schema, partial downloads and bulk removal anomalies leave last good durable snapshot intact while public stock visibility follows freshness rules.
+- [ ] Weekly action produces reviewable PR; no public updates require acceptance until manual merge and deployment.
+- [ ] Public developer report remains unlinked inside the app and clearly labels timestamps, uncertainties and categories; automated checks guard against inadvertent navigation links.
+
+## R18 — Alko Catalog Coverage & Store Selector (conditional)
+
+**Status:** Planned, blocked until R16 and R17 prove viable.
+
+- [ ] Expand matching across existing Atlas profiles in checked batches, maintaining exclusions and editorial compatibility.
+- [ ] On bottle listings default to **Anywhere**, meaning any verified Alko store in Finland or verified online orderability.
+- [ ] Offer **Choose the Alko**: dropdown/list contains **only stores with verified stock for that particular product**. If exactly one store has it, show only that store. No GPS, geolocation prompt, city filter or stores without stock.
+- [ ] Keep online ordering distinct from an individual store; don't imply an online-orderable product is physically stocked in a store.
+- [ ] When displaying multiple bottles, make the store filter context explicit per bottle; don't conflate one bottle's inventory with another's.
+- [ ] Store-level inventory freshness must be sufficiently frequent to support the promised availability claim; otherwise show last-checked caveat or suppress obsolete store choices.
+- [ ] Keep reporting unmatched products as **candidate coverage**, not mandatory new profiles; integrate only editorially useful profile extensions into separate planned content releases.
+
+### Acceptance criteria
+- [ ] No unavailable store option can be selected for a bottle; one-store availability produces exactly one selectable store.
+- [ ] Nationwide online-only offers remain distinct and accessible under Anywhere; a store-specific filter never suggests local stock without evidence.
+- [ ] Changing filters never alters profile identity or historical prices.
+
+## R19 — Guarded Alko Auto-Publishing (conditional, last)
+
+**Status:** Planned; only after Phase A's correctness and operational reliability are demonstrated.
+
+- [ ] Define and review promotion criteria (several successful weekly runs, manual audits, schema stability, mapping accuracy, low false availability, and robust deployment/rollback).
+- [ ] Permit unattended publication **only** for routine validated prices/availability and previously approved matching rules; keep new profile definitions, semantic policy changes, ambiguous blends, large stock removals and anomalous schema/data changes in reviewable PRs.
+- [ ] Ensure explicit GitHub Pages build/deploy is triggered by the automation; do not assume commits made with default GITHUB_TOKEN automatically trigger all downstream workflows.
+- [ ] Use least-privilege write permissions for publishing, safe credentials, atomic versioned snapshots, rollback and failure notifications. Never leak credentials into public JSON or the unlinked report.
+- [ ] Keep periodic audit reports and kill switch; stale stock should stop displaying even if unattended jobs stop or fail.
+
+### Acceptance criteria
+- [ ] Good updates arrive on the public site without manual approval; anomalous updates never publish unattended.
+- [ ] Failing pipelines retain trustworthy history and do not advertise outdated stock.
+- [ ] Disabling Alko integration leaves all independent Vintage Intelligence and core Atlas routes intact.
 
 ## Review finding traceability
 
