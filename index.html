@@ -17,13 +17,13 @@
   <meta property="og:image:alt" content="RagDollLabs Wine Atlas: a ragdoll cat beside a glass of red wine in a vineyard at dusk">
   <meta name="twitter:card" content="summary_large_image">
   <!-- One release token keeps visible assets in sync after a GitHub Pages deploy. -->
-  <link rel="stylesheet" href="./styles.css?v=20261025-blind-r13">
-  <link rel="stylesheet" href="./ux.css?v=20261025-blind-r13">
-  <link rel="stylesheet" href="./maturity.css?v=20261025-blind-r13">
-  <link rel="stylesheet" href="./learning.css?v=20261025-blind-r13">
-  <link rel="stylesheet" href="./advanced-compare.css?v=20261025-blind-r13">
-  <link rel="stylesheet" href="./home-brand.css?v=20261025-blind-r13">
-  <link rel="stylesheet" href="./tasting-flights.css?v=20261025-blind-r13">
+  <link rel="stylesheet" href="./styles.css?v=20261025-vintage-r15a">
+  <link rel="stylesheet" href="./ux.css?v=20261025-vintage-r15a">
+  <link rel="stylesheet" href="./maturity.css?v=20261025-vintage-r15a">
+  <link rel="stylesheet" href="./learning.css?v=20261025-vintage-r15a">
+  <link rel="stylesheet" href="./advanced-compare.css?v=20261025-vintage-r15a">
+  <link rel="stylesheet" href="./home-brand.css?v=20261025-vintage-r15a">
+  <link rel="stylesheet" href="./tasting-flights.css?v=20261025-vintage-r15a">
 </head>
 <body>
   <div class="wrap">
@@ -63,7 +63,7 @@
           <p>Search, browse by grape or place, compare regional expressions, and discover styles from classic and emerging wine regions.</p>
         </div>
         <a class="app-home-cat" href="./" data-home-return aria-label="Return to Wine Atlas home">
-          <img src="./assets/ragdoll-cat.svg?v=20261025-blind-r13" alt="">
+          <img src="./assets/ragdoll-cat.svg?v=20261025-vintage-r15a" alt="">
         </a>
       </header>
 
@@ -120,6 +120,15 @@
               <div class="content2 profile-core"><section aria-labelledby="styleHeading"><h3 id="styleHeading">Style profile</h3><div class="bars" id="bars"></div><button id="scoreHelp" class="score-help" type="button" data-taste-basics data-taste-section="scores">What do the scores mean?</button></section><section aria-labelledby="notesHeading"><h3 id="notesHeading">Typical notes</h3><div id="notes"></div></section></div>
 
               <details id="labelGuidance" class="profile-learning hidden"></details>
+              <details id="vintageWeather" class="profile-learning hidden">
+                <summary><span>Vintage weather</span><small>Regional context, not a bottle review</small></summary>
+                <div class="profile-learning-content vintage-weather-content">
+                  <label for="vintageYear">Recent vintage</label><select id="vintageYear"></select>
+                  <div id="vintageWeatherText" aria-live="polite"></div>
+                  <details class="vintage-older"><summary>Earlier vintages</summary><label for="vintageOlderYear">Year from 2000</label><input id="vintageOlderYear" type="number" min="2000" step="1"><button id="vintageOlderOpen" type="button">Show year</button><p id="vintageOlderError" role="alert"></p></details>
+                  <details class="vintage-source"><summary>Weather data and limits</summary><div id="vintageSource"></div></details>
+                </div>
+              </details>
 
               <details id="learnMore" class="profile-learning">
                 <summary><span>Learn more</span><small>Place, winemaking, ageing &amp; sources</small></summary>
@@ -202,28 +211,29 @@
 
     <footer class="footer">RagDollLabs Wine Atlas · Typical-style reference, not a guarantee about a specific bottle.</footer>
   </div>
-  <script src="./wine-model.js?v=20261025-blind-r13" defer></script>
-  <script src="./dom-utils.js?v=20261025-blind-r13" defer></script>
-  <script src="./data-loader.js?v=20261025-blind-r13" defer></script>
-  <script src="./app.js?v=20261025-blind-r13" defer></script>
-  <script src="./ux.js?v=20261025-blind-r13" defer></script>
-  <script src="./food-discovery.js?v=20261025-blind-r13" defer></script>
-  <script src="./wine-search.js?v=20261025-blind-r13" defer></script>
-  <script src="./functional.js?v=20261025-blind-r13" defer></script>
-  <script src="./search-enhance.js?v=20261025-blind-r13" defer></script>
-  <script src="./compare-state.js?v=20261025-blind-r13" defer></script>
-  <script src="./advanced-compare.js?v=20261025-blind-r13" defer></script>
-  <script src="./compare-discovery.js?v=20261025-blind-r13" defer></script>
-  <script src="./maturity.js?v=20261025-blind-r13" defer></script>
-  <script src="./learning.js?v=20261025-blind-r13" defer></script>
-  <script src="./label-guidance.js?v=20261025-blind-r13" defer></script>
-  <script src="./smart-discovery.js?v=20261025-blind-r13" defer></script>
-  <script src="./home-brand.js?v=20261025-blind-r13" defer></script>
-  <script src="./gallery.js?v=20261025-blind-r13" defer></script>
-  <script src="./tasting-flights.js?v=20261025-blind-r13" defer></script>
-  <script src="./aroma-practice.js?v=20261025-blind-r13" defer></script>
-  <script src="./blind-practice.js?v=20261025-blind-r13" defer></script>
-  <script src="./beginner-journey.js?v=20261025-blind-r13" defer></script>
-  <script src="./navigation.js?v=20261025-blind-r13" defer></script>
+  <script src="./wine-model.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./dom-utils.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./data-loader.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./app.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./ux.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./food-discovery.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./wine-search.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./functional.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./search-enhance.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./compare-state.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./advanced-compare.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./compare-discovery.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./maturity.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./vintage-weather.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./learning.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./label-guidance.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./smart-discovery.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./home-brand.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./gallery.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./tasting-flights.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./aroma-practice.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./blind-practice.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./beginner-journey.js?v=20261025-vintage-r15a" defer></script>
+  <script src="./navigation.js?v=20261025-vintage-r15a" defer></script>
 </body>
 </html>

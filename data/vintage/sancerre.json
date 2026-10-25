@@ -1,0 +1,196 @@
+{
+  "schema": 1,
+  "region": {
+    "label": "Sancerre area (town proxy)",
+    "lat": 47.331,
+    "lon": 2.84,
+    "hemisphere": "north",
+    "season": "Apr–Sep",
+    "locationNote": "One grid cell near Sancerre; vineyards vary by slope and site.",
+    "grid": {
+      "lat": 47.25,
+      "lon": 2.75,
+      "elevationM": 302.0
+    }
+  },
+  "source": {
+    "provider": "Open-Meteo",
+    "model": "ERA5",
+    "variables": [
+      "temperature_2m_mean",
+      "temperature_2m_max",
+      "precipitation_sum"
+    ],
+    "url": "https://open-meteo.com/en/docs/historical-weather-api",
+    "license": "CC BY 4.0",
+    "baseline": "2000–2020",
+    "retrievedOn": "2026-10-25",
+    "resolution": "0.25° grid (~25 km)",
+    "timezone": "UTC",
+    "maturityRule": "60 days after proxy growing-season end; manual review before publication"
+  },
+  "baseline": {
+    "meanC": 16.22,
+    "rainMm": 355.44,
+    "hotDays30": 11.57,
+    "gdd10": 1175.33
+  },
+  "years": {
+    "2000": {
+      "meanC": 16.0,
+      "rainMm": 436.9,
+      "hotDays30": 6,
+      "gdd10": 1134
+    },
+    "2001": {
+      "meanC": 15.19,
+      "rainMm": 451.2,
+      "hotDays30": 9,
+      "gdd10": 1026
+    },
+    "2002": {
+      "meanC": 15.28,
+      "rainMm": 351.2,
+      "hotDays30": 7,
+      "gdd10": 1004
+    },
+    "2003": {
+      "meanC": 17.61,
+      "rainMm": 328.3,
+      "hotDays30": 22,
+      "gdd10": 1445
+    },
+    "2004": {
+      "meanC": 15.59,
+      "rainMm": 325.7,
+      "hotDays30": 4,
+      "gdd10": 1077
+    },
+    "2005": {
+      "meanC": 16.37,
+      "rainMm": 276.0,
+      "hotDays30": 19,
+      "gdd10": 1200
+    },
+    "2006": {
+      "meanC": 16.87,
+      "rainMm": 292.3,
+      "hotDays30": 21,
+      "gdd10": 1303
+    },
+    "2007": {
+      "meanC": 15.78,
+      "rainMm": 434.6,
+      "hotDays30": 4,
+      "gdd10": 1066
+    },
+    "2008": {
+      "meanC": 15.28,
+      "rainMm": 432.6,
+      "hotDays30": 4,
+      "gdd10": 1022
+    },
+    "2009": {
+      "meanC": 16.41,
+      "rainMm": 371.8,
+      "hotDays30": 6,
+      "gdd10": 1179
+    },
+    "2010": {
+      "meanC": 15.47,
+      "rainMm": 335.4,
+      "hotDays30": 7,
+      "gdd10": 1054
+    },
+    "2011": {
+      "meanC": 16.54,
+      "rainMm": 289.1,
+      "hotDays30": 7,
+      "gdd10": 1201
+    },
+    "2012": {
+      "meanC": 15.57,
+      "rainMm": 448.2,
+      "hotDays30": 9,
+      "gdd10": 1074
+    },
+    "2013": {
+      "meanC": 15.58,
+      "rainMm": 377.0,
+      "hotDays30": 8,
+      "gdd10": 1087
+    },
+    "2014": {
+      "meanC": 15.86,
+      "rainMm": 378.5,
+      "hotDays30": 4,
+      "gdd10": 1082
+    },
+    "2015": {
+      "meanC": 16.67,
+      "rainMm": 356.7,
+      "hotDays30": 20,
+      "gdd10": 1242
+    },
+    "2016": {
+      "meanC": 16.15,
+      "rainMm": 453.3,
+      "hotDays30": 14,
+      "gdd10": 1182
+    },
+    "2017": {
+      "meanC": 16.3,
+      "rainMm": 410.6,
+      "hotDays30": 13,
+      "gdd10": 1195
+    },
+    "2018": {
+      "meanC": 17.7,
+      "rainMm": 252.7,
+      "hotDays30": 16,
+      "gdd10": 1420
+    },
+    "2019": {
+      "meanC": 16.86,
+      "rainMm": 237.6,
+      "hotDays30": 22,
+      "gdd10": 1302
+    },
+    "2020": {
+      "meanC": 17.49,
+      "rainMm": 224.5,
+      "hotDays30": 21,
+      "gdd10": 1387
+    },
+    "2021": {
+      "meanC": 15.56,
+      "rainMm": 523.6,
+      "hotDays30": 6,
+      "gdd10": 1090
+    },
+    "2022": {
+      "meanC": 17.48,
+      "rainMm": 416.3,
+      "hotDays30": 23,
+      "gdd10": 1410
+    },
+    "2023": {
+      "meanC": 17.34,
+      "rainMm": 362.0,
+      "hotDays30": 18,
+      "gdd10": 1381
+    },
+    "2024": {
+      "meanC": 15.87,
+      "rainMm": 509.5,
+      "hotDays30": 10,
+      "gdd10": 1121
+    },
+    "2025": {
+      "meanC": 16.9,
+      "rainMm": 328.2,
+      "hotDays30": 25,
+      "gdd10": 1273
+    }
+  }
+}

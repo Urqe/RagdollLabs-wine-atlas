@@ -106,6 +106,14 @@
 .aroma-choice { display: grid; gap: 8px; margin: 18px 0; max-width: 68ch; }
 .aroma-choice select { width: 100%; min-width: 0; min-height: 44px; padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: #120d10; color: var(--text); font: inherit; }
 .aroma-choice select:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.vintage-weather-content select, .vintage-weather-content input { max-width: 100%; min-height: 42px; margin: 6px 8px 12px 0; padding: 8px; border: 1px solid var(--line); border-radius: 8px; background: #120d10; color: var(--text); font: inherit; }
+.vintage-weather-content input { width: 110px; }
+.vintage-weather-content button { min-height: 42px; padding: 8px 12px; border: 1px solid var(--gold); border-radius: 8px; background: #120d10; color: var(--gold); font: inherit; cursor: pointer; }
+.vintage-weather-content :is(select, input, button, summary):focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.vintage-weather-content :is(.vintage-older, .vintage-source) { margin-top: 14px; }
+.vintage-weather-content summary { min-height: 42px; padding: 8px 0; color: var(--gold); cursor: pointer; }
+.vintage-weather-content a { color: #e2c886; text-underline-offset: 2px; }
+.vintage-weather-content a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 .blind-field { display: grid; gap: 7px; margin: 14px 0; max-width: 68ch; }
 .blind-field select { width: 100%; min-height: 44px; padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: #120d10; color: var(--text); font: inherit; }
 .blind-field select:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }

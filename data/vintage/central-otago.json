@@ -1,0 +1,202 @@
+{
+  "schema": 1,
+  "region": {
+    "label": "Central Otago (Cromwell proxy)",
+    "lat": -45.038,
+    "lon": 169.196,
+    "hemisphere": "south",
+    "season": "Oct–Mar",
+    "locationNote": "One grid cell near Cromwell; altitude and valley differences can be large.",
+    "grid": {
+      "lat": -45.0,
+      "lon": 169.25,
+      "elevationM": 213.0
+    }
+  },
+  "source": {
+    "provider": "Open-Meteo",
+    "model": "ERA5",
+    "variables": [
+      "temperature_2m_mean",
+      "temperature_2m_max",
+      "precipitation_sum"
+    ],
+    "url": "https://open-meteo.com/en/docs/historical-weather-api",
+    "license": "CC BY 4.0",
+    "baseline": "2000–2020",
+    "retrievedOn": "2026-10-25",
+    "resolution": "0.25° grid (~25 km)",
+    "timezone": "UTC",
+    "maturityRule": "60 days after proxy growing-season end; manual review before publication"
+  },
+  "baseline": {
+    "meanC": 14.34,
+    "rainMm": 539.37,
+    "hotDays30": 0.33,
+    "gdd10": 840.19
+  },
+  "years": {
+    "2000": {
+      "meanC": 14.21,
+      "rainMm": 685.8,
+      "hotDays30": 0,
+      "gdd10": 798
+    },
+    "2001": {
+      "meanC": 13.64,
+      "rainMm": 542.6,
+      "hotDays30": 0,
+      "gdd10": 732
+    },
+    "2002": {
+      "meanC": 14.34,
+      "rainMm": 536.2,
+      "hotDays30": 0,
+      "gdd10": 805
+    },
+    "2003": {
+      "meanC": 13.85,
+      "rainMm": 463.0,
+      "hotDays30": 0,
+      "gdd10": 769
+    },
+    "2004": {
+      "meanC": 13.43,
+      "rainMm": 538.5,
+      "hotDays30": 0,
+      "gdd10": 706
+    },
+    "2005": {
+      "meanC": 13.93,
+      "rainMm": 570.9,
+      "hotDays30": 0,
+      "gdd10": 778
+    },
+    "2006": {
+      "meanC": 14.33,
+      "rainMm": 454.5,
+      "hotDays30": 0,
+      "gdd10": 814
+    },
+    "2007": {
+      "meanC": 13.71,
+      "rainMm": 554.2,
+      "hotDays30": 0,
+      "gdd10": 740
+    },
+    "2008": {
+      "meanC": 14.43,
+      "rainMm": 507.6,
+      "hotDays30": 0,
+      "gdd10": 892
+    },
+    "2009": {
+      "meanC": 13.74,
+      "rainMm": 540.1,
+      "hotDays30": 0,
+      "gdd10": 753
+    },
+    "2010": {
+      "meanC": 13.95,
+      "rainMm": 432.3,
+      "hotDays30": 0,
+      "gdd10": 776
+    },
+    "2011": {
+      "meanC": 14.69,
+      "rainMm": 662.2,
+      "hotDays30": 0,
+      "gdd10": 900
+    },
+    "2012": {
+      "meanC": 14.03,
+      "rainMm": 537.4,
+      "hotDays30": 0,
+      "gdd10": 778
+    },
+    "2013": {
+      "meanC": 14.5,
+      "rainMm": 547.5,
+      "hotDays30": 0,
+      "gdd10": 886
+    },
+    "2014": {
+      "meanC": 14.47,
+      "rainMm": 521.3,
+      "hotDays30": 0,
+      "gdd10": 854
+    },
+    "2015": {
+      "meanC": 14.41,
+      "rainMm": 452.7,
+      "hotDays30": 0,
+      "gdd10": 864
+    },
+    "2016": {
+      "meanC": 14.81,
+      "rainMm": 412.3,
+      "hotDays30": 0,
+      "gdd10": 910
+    },
+    "2017": {
+      "meanC": 13.85,
+      "rainMm": 587.7,
+      "hotDays30": 0,
+      "gdd10": 734
+    },
+    "2018": {
+      "meanC": 16.45,
+      "rainMm": 480.5,
+      "hotDays30": 6,
+      "gdd10": 1194
+    },
+    "2019": {
+      "meanC": 15.45,
+      "rainMm": 643.6,
+      "hotDays30": 1,
+      "gdd10": 1034
+    },
+    "2020": {
+      "meanC": 14.88,
+      "rainMm": 655.9,
+      "hotDays30": 0,
+      "gdd10": 927
+    },
+    "2021": {
+      "meanC": 15.19,
+      "rainMm": 506.1,
+      "hotDays30": 0,
+      "gdd10": 960
+    },
+    "2022": {
+      "meanC": 16.06,
+      "rainMm": 475.1,
+      "hotDays30": 0,
+      "gdd10": 1123
+    },
+    "2023": {
+      "meanC": 15.69,
+      "rainMm": 526.0,
+      "hotDays30": 0,
+      "gdd10": 1076
+    },
+    "2024": {
+      "meanC": 14.99,
+      "rainMm": 472.6,
+      "hotDays30": 0,
+      "gdd10": 952
+    },
+    "2025": {
+      "meanC": 15.74,
+      "rainMm": 494.9,
+      "hotDays30": 0,
+      "gdd10": 1085
+    },
+    "2026": {
+      "meanC": 14.58,
+      "rainMm": 636.1,
+      "hotDays30": 0,
+      "gdd10": 876
+    }
+  }
+}
