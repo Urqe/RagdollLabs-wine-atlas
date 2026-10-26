@@ -1,6 +1,6 @@
 # R17 — Search at Alko, checked batches
 
-Checked 2026-10-25 in Alko's public Finnish search UI, using a browser. The 27 mapped profiles generate 25 distinct searches. The filters showed the expected category, applicable grape and region or country chips, with plausible results at check time:
+Checked 2026-10-25–26 in Alko's public Finnish search UI, using a browser. The 35 mapped profiles generate 31 distinct searches. The filters showed the expected category, applicable grape and region or country chips, with plausible results at check time:
 
 | Atlas profile | Alko filters | Scope |
 | --- | --- | --- |
@@ -31,8 +31,18 @@ Checked 2026-10-25 in Alko's public Finnish search UI, using a browser. The 27 m
 | Brunello di Montalcino Sangiovese | red, Toscana, Sangiovese | Same checked Toscana search; Brunello is **not** filtered |
 | Chablis Chardonnay | white, Bourgogne, Chardonnay | Broad Bourgogne region; Chablis is **not** filtered |
 | Beaujolais Gamay | red, France, Gamay | Country wide; Beaujolais is **not** filtered |
+| Champagne Blanc de Blancs Chardonnay | sparkling, Champagne, Chardonnay | Broad Champagne and grape search; Blanc de Blancs is **not** filtered |
+| Cava Macabeo | sparkling, Spain, Macabeo | Country wide; Cava is **not** filtered; grape filter does not prove blend proportions |
+| Crémant d'Alsace Pinot Blanc | sparkling, Alsace, Pinot Blanc | Broad Alsace sparkling search; Crémant is **not** filtered |
+| Crémant d'Alsace Pinot Noir rosé | sparkling, Alsace, Pinot Noir | Broad Alsace sparkling search; rosé and Crémant are **not** filtered |
+| Crémant de Loire Chenin Blanc | sparkling, Loire, Chenin Blanc | Broad Loire sparkling search; Crémant is **not** filtered |
+| Sauternes Sémillon | dessert and other wines, Bordeaux, Sémillon | Broad Bordeaux dessert category; Sauternes and botrytis are **not** filtered |
+| Douro Ruby / LBV Port blend | Port wines, Douro | Broad Douro Port search; Ruby/LBV style is **not** filtered; no grape filter |
+| Douro Tawny Port blend | Port wines, Douro | Same checked Douro Port search; Tawny style is **not** filtered; no grape filter |
 
-The country fallback is explicit next to each link. Alko's country/region/category search does not necessarily match an Atlas appellation, sweetness, sparkling method, rosé colour or the proportions of a blend. The link label describes the filters, never an exact product identity. The Alko grape IDs for Albariño, Nebbiolo, Barbera, Sangiovese and Gamay were taken from the live grape selector. Barolo and Barbaresco share the Piemonte search; Tuscany and Brunello share the Toscana search. Beaujolais was not offered as a region in the selector and uses France. Results can change; this check says the filters worked on the check date, not that a specific wine will remain listed. The config records the date for each profile and region policy. Unknown profiles, changed style contracts or malformed/missing optional config show no link. There is no live Alko request from Wine Atlas or its tests, and no Alko catalog copy in the repository.
+The country fallback is explicit next to each link. Alko's country/region/category search does not necessarily match an Atlas appellation, sweetness, sparkling method, rosé colour or the proportions of a blend. The link label describes the filters, never an exact product identity. The Alko grape IDs for Albariño, Nebbiolo, Barbera, Sangiovese, Gamay, Macabeo, Pinot Blanc, Chenin Blanc and Sémillon were taken from the live grape selector. Barolo and Barbaresco share the Piemonte search; Tuscany and Brunello share the Toscana search; Ruby/LBV and Tawny Port share Douro Port. Beaujolais and Cava were not offered as matching regions in the selector and use country searches. Results can change; this check says the filters worked on the check date, not that a specific wine will remain listed. The config records the date for each profile and region policy. Unknown profiles, changed style contracts or malformed/missing optional config show no link. There is no live Alko request from Wine Atlas or its tests, and no Alko catalog copy in the repository.
+
+Navarra rosé with Grenache and Piemonte Moscato d'Asti with Muscat Blanc à Petits Grains were checked but returned no results with those filters. Spain-wide Grenache rosé returned one unrelated result; the broader Muscat filter also returned no Piemonte sparkling results. They remain unmapped rather than publishing searches that are empty or misleading.
 
 Alko's [digital-service terms](https://www.alko.fi/fi/kayttoehdot), dated 2026-02-04, were read on 2026-10-25. They restrict reuse of Alko's text and images for commercial purposes and do not expressly address ordinary outbound links. We reuse neither text nor images. Finland's [Alcohol Act, section 50](https://www.finlex.fi/fi/lainsaadanto/2017/1102), restricts alcohol marketing. The UI stays neutral: no bottle recommendations, prices, discounts or stock claims. This is an editorial product decision, not a legal opinion or a blanket clearance for future retailer features.
 
