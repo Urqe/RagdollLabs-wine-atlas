@@ -33,7 +33,15 @@ const cases = [
   ['sangiovese', 'tuscany', 'punaviinit?regionId=ITA_toscana&grapeId=grape_sangiovese', false],
   ['sangiovese', 'brunello', 'punaviinit?regionId=ITA_toscana&grapeId=grape_sangiovese', false],
   ['chardonnay', 'chablis', 'valkoviinit?regionId=FRA_bourgogne&grapeId=grape_chardonnay', false],
-  ['gamay', 'beaujolais', 'punaviinit?countryId=FRA&grapeId=grape_gamay', true]
+  ['gamay', 'beaujolais', 'punaviinit?countryId=FRA&grapeId=grape_gamay', true],
+  ['chardonnay', 'champagne-blanc-de-blancs', 'kuohuviinit-ja-samppanjat?regionId=FRA_champagne&grapeId=grape_chardonnay', false],
+  ['macabeo', 'cava', 'kuohuviinit-ja-samppanjat?countryId=ESP&grapeId=grape_macabeo', true],
+  ['pinot-blanc', 'cremant-alsace', 'kuohuviinit-ja-samppanjat?regionId=FRA_alsace&grapeId=grape_pinot_blanc', false],
+  ['pinot-noir', 'cremant-alsace', 'kuohuviinit-ja-samppanjat?regionId=FRA_alsace&grapeId=grape_pinot_noir', false],
+  ['chenin-blanc', 'cremant-loire', 'kuohuviinit-ja-samppanjat?regionId=FRA_loire&grapeId=grape_chenin_blanc', false],
+  ['semillon', 'sauternes', 'jalkiruokaviinit-ja-muut?regionId=FRA_bordeaux&grapeId=grape_semillon', false],
+  ['port-blend', 'douro-port-ruby', 'portviinit?regionId=PRT_douro', false],
+  ['port-blend', 'douro-port-tawny', 'portviinit?regionId=PRT_douro', false]
 ];
 for (const [grape, region, url, fallback] of cases) {
   w.WineAtlas.selectProfile(grape, region); await app.settle();
@@ -41,8 +49,10 @@ for (const [grape, region, url, fallback] of cases) {
   assert.equal(section.querySelector('a').href, `https://www.alko.fi/fi/tuotteet/${url}`);
   assert.match(section.textContent, /Search at Alko/);
   assert.equal(section.textContent.includes('whole country'), fallback);
-  assert.equal(section.textContent.includes('blend proportions'), region === 'bordeaux');
+  assert.equal(section.textContent.includes('blend proportions'), ['bordeaux', 'cava'].includes(region));
   assert.doesNotMatch(section.textContent, /price|stock|available|in stock/i);
+  if (region === 'cremant-alsace' && grape === 'pinot-noir') assert.match(section.textContent, /does not filter for rosé/);
+  if (region.startsWith('douro-port')) assert.match(section.textContent, /does not separate Ruby\/LBV and Tawny/);
   assert.match(config.profiles[`${region}/${grape}`].checkedOn, /^\d{4}-\d{2}-\d{2}$/);
 }
 const profile = w.WineAtlas.combinedProfile('pinot-noir', 'burgundy');
@@ -53,7 +63,12 @@ assert.match(w.WineAlkoLinks.linkFor(w.WineAtlas.combinedProfile('syrah', 'baros
 const champagne = w.WineAtlas.combinedProfile('champagne-blend', 'champagne-brut-nv');
 assert.equal(w.WineAlkoLinks.linkFor(champagne, { ...config, profiles: { ...config.profiles, 'champagne-brut-nv/champagne-blend': { ...config.profiles['champagne-brut-nv/champagne-blend'], grapeFilter: true } } }), null);
 assert.equal(w.WineAlkoLinks.linkFor(w.WineAtlas.combinedProfile('pinot-noir', 'cremant-bourgogne'), { ...config, profiles: { ...config.profiles, 'cremant-bourgogne/pinot-noir': { ...config.profiles['cremant-bourgogne/pinot-noir'], family: 'still' } } }), null);
+assert.equal(w.WineAlkoLinks.linkFor(w.WineAtlas.combinedProfile('semillon', 'sauternes'), { ...config, categories: { ...config.categories, dessert: 'valkoviinit' } }), null);
+assert.equal(w.WineAlkoLinks.linkFor(w.WineAtlas.combinedProfile('port-blend', 'douro-port-ruby'), { ...config, profiles: { ...config.profiles, 'douro-port-ruby/port-blend': { ...config.profiles['douro-port-ruby/port-blend'], grapeFilter: true } } }), null);
+assert.equal(w.WineAlkoLinks.linkFor(w.WineAtlas.combinedProfile('port-blend', 'douro-port-ruby'), { ...config, categories: { ...config.categories, port: 'punaviinit' } }), null);
 w.WineAtlas.selectProfile('pinot-noir', 'willamette'); await app.settle();
+assert.equal(section.classList.contains('hidden'), true);
+w.WineAtlas.selectProfile('grenache', 'navarra-rosado'); await app.settle();
 assert.equal(section.classList.contains('hidden'), true);
 await app.close();
 

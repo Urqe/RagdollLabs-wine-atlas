@@ -15,13 +15,22 @@ window.WineAlkoLinks = (() => {
     if (!entry || !region || !/^\d{4}-\d{2}-\d{2}$/.test(entry.checkedOn) ||
         !/^\d{4}-\d{2}-\d{2}$/.test(region.checkedOn) ||
         style?.family !== (entry.family || 'still') || style.color !== entry.color ||
-        !['red', 'white', 'rose'].includes(entry.color) ||
-        !['still', 'rose', 'sparkling'].includes(style.family)) return null;
-    const categoryKey = style.family === 'sparkling' ? 'sparkling' : entry.color;
+        !['still', 'rose', 'sparkling', 'sweet', 'fortified'].includes(style.family)) return null;
+    if ((style.family === 'still' && !['red', 'white'].includes(entry.color)) ||
+        (style.family === 'rose' && entry.color !== 'rose') ||
+        (style.family === 'sparkling' && !['white', 'rose'].includes(entry.color)) ||
+        (style.family === 'sweet' && entry.color !== 'white-gold') ||
+        (style.family === 'fortified' && !(profile.grapeId === 'port-blend' &&
+          ['douro-port-ruby', 'douro-port-tawny'].includes(profile.regionId) &&
+          ['red', 'tawny'].includes(entry.color)))) return null;
+    const categoryKey = style.family === 'sparkling' ? 'sparkling' :
+      style.family === 'sweet' ? 'dessert' : style.family === 'fortified' ? 'port' : entry.color;
     const category = data.categories?.[categoryKey];
     const grape = data.grapes?.[profile.grapeId];
     const country = data.countries?.[profile.region.country];
-    if (!['punaviinit', 'valkoviinit', 'roseeviinit', 'kuohuviinit-ja-samppanjat'].includes(category)) return null;
+    const expectedCategories = { red: 'punaviinit', white: 'valkoviinit', rose: 'roseeviinit',
+      sparkling: 'kuohuviinit-ja-samppanjat', dessert: 'jalkiruokaviinit-ja-muut', port: 'portviinit' };
+    if (category !== expectedCategories[categoryKey]) return null;
     const omitGrape = entry.grapeFilter === false && style.composition?.kind === 'representative-blend';
     if (entry.grapeFilter === false && !omitGrape) return null;
     if (!omitGrape && !/^grape_[a-z_]+$/.test(grape || '')) return null;
@@ -29,7 +38,9 @@ window.WineAlkoLinks = (() => {
     const url = new URL(category, data.base);
     let label;
     const grapeLabel = omitGrape ? '' : `${data.grapeLabels?.[profile.grapeId] || profile.grape.name} `;
-    const styleLabel = style.family === 'sparkling' ? 'sparkling wines ' : style.family === 'rose' ? 'rosé wines ' : '';
+    const styleLabel = style.family === 'sparkling' ? 'sparkling wines ' :
+      style.family === 'rose' ? 'rosé wines ' : style.family === 'sweet' ? 'dessert wines ' :
+      style.family === 'fortified' ? 'Port wines ' : '';
     if (entry.scope === 'region' && region.status === 'verified' &&
         /^[A-Z]{3}_[a-z0-9-]+$/.test(region.id || '') && region.id.startsWith(`${country}_`) &&
         typeof region.label === 'string' && region.label.trim()) {
@@ -40,7 +51,10 @@ window.WineAlkoLinks = (() => {
       label = `${profile.region.country} ${grapeLabel}${styleLabel}at Alko`;
     } else return null;
     if (!omitGrape) url.searchParams.set('grapeId', grape);
-    return { url: url.href, label, countryFallback: entry.scope === 'country', blendNote: !omitGrape && style.composition?.kind === 'representative-blend' };
+    return { url: url.href, label, countryFallback: entry.scope === 'country',
+      blendNote: !omitGrape && style.composition?.kind === 'representative-blend',
+      styleNote: style.family === 'fortified' ? ' The search does not separate Ruby/LBV and Tawny styles.' :
+        style.family === 'sparkling' && entry.color === 'rose' ? ' The search does not filter for rosé.' : '' };
   }
   function render(profile) {
     active = profile;
@@ -55,7 +69,7 @@ window.WineAlkoLinks = (() => {
     link.textContent = 'Search at Alko';
     link.setAttribute('aria-label', `Search ${item.label}`);
     const description = document.createElement('span');
-    description.textContent = `${item.countryFallback ? `Search ${item.label}. This covers the whole country, not just ${profile.region.name}.` : `Search ${item.label}.`}${item.blendNote ? " Alko's grape filter does not show blend proportions." : ''} Results open on Alko's site.`;
+    description.textContent = `${item.countryFallback ? `Search ${item.label}. This covers the whole country, not just ${profile.region.name}.` : `Search ${item.label}.`}${item.blendNote ? " Alko's grape filter does not show blend proportions." : ''}${item.styleNote} Results open on Alko's site.`;
     section.append(link, description);
     section.classList.remove('hidden');
   }

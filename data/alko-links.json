@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "base": "https://www.alko.fi/fi/tuotteet/",
-  "categories": { "red": "punaviinit", "white": "valkoviinit", "rose": "roseeviinit", "sparkling": "kuohuviinit-ja-samppanjat" },
+  "categories": { "red": "punaviinit", "white": "valkoviinit", "rose": "roseeviinit", "sparkling": "kuohuviinit-ja-samppanjat", "dessert": "jalkiruokaviinit-ja-muut", "port": "portviinit" },
   "grapes": {
     "pinot-noir": "grape_pinot_noir",
     "chardonnay": "grape_chardonnay",
@@ -18,10 +18,14 @@
     "nebbiolo": "grape_nebbiolo",
     "sangiovese": "grape_sangiovese",
     "barbera": "grape_barbera",
-    "gamay": "grape_gamay"
+    "gamay": "grape_gamay",
+    "macabeo": "grape_macabeo",
+    "pinot-blanc": "grape_pinot_blanc",
+    "chenin-blanc": "grape_chenin_blanc",
+    "semillon": "grape_semillon"
   },
   "grapeLabels": { "syrah": "Shiraz" },
-  "countries": { "France": "FRA", "New Zealand": "NZL", "Argentina": "ARG", "Spain": "ESP", "USA": "USA", "Australia": "AUS", "Germany": "DEU", "Italy": "ITA" },
+  "countries": { "France": "FRA", "New Zealand": "NZL", "Argentina": "ARG", "Spain": "ESP", "USA": "USA", "Australia": "AUS", "Germany": "DEU", "Italy": "ITA", "Portugal": "PRT" },
   "regions": {
     "burgundy": { "status": "verified", "id": "FRA_bourgogne", "label": "Burgundy", "checkedOn": "2026-10-25" },
     "sancerre": { "status": "country-fallback", "checkedOn": "2026-10-25" },
@@ -45,7 +49,14 @@
     "tuscany": { "status": "verified", "id": "ITA_toscana", "label": "Tuscany", "checkedOn": "2026-10-25" },
     "brunello": { "status": "verified", "id": "ITA_toscana", "label": "Tuscany", "checkedOn": "2026-10-25" },
     "chablis": { "status": "verified", "id": "FRA_bourgogne", "label": "Burgundy", "checkedOn": "2026-10-25" },
-    "beaujolais": { "status": "country-fallback", "checkedOn": "2026-10-25" }
+    "beaujolais": { "status": "country-fallback", "checkedOn": "2026-10-25" },
+    "champagne-blanc-de-blancs": { "status": "verified", "id": "FRA_champagne", "label": "Champagne", "checkedOn": "2026-10-25" },
+    "cava": { "status": "country-fallback", "checkedOn": "2026-10-25" },
+    "cremant-alsace": { "status": "verified", "id": "FRA_alsace", "label": "Alsace", "checkedOn": "2026-10-25" },
+    "cremant-loire": { "status": "verified", "id": "FRA_loire", "label": "Loire", "checkedOn": "2026-10-25" },
+    "sauternes": { "status": "verified", "id": "FRA_bordeaux", "label": "Bordeaux", "checkedOn": "2026-10-25" },
+    "douro-port-ruby": { "status": "verified", "id": "PRT_douro", "label": "Douro", "checkedOn": "2026-10-26" },
+    "douro-port-tawny": { "status": "verified", "id": "PRT_douro", "label": "Douro", "checkedOn": "2026-10-26" }
   },
   "profiles": {
     "burgundy/pinot-noir": { "scope": "region", "color": "red", "checkedOn": "2026-10-25" },
@@ -74,6 +85,14 @@
     "tuscany/sangiovese": { "scope": "region", "color": "red", "checkedOn": "2026-10-25" },
     "brunello/sangiovese": { "scope": "region", "color": "red", "checkedOn": "2026-10-25" },
     "chablis/chardonnay": { "scope": "region", "color": "white", "checkedOn": "2026-10-25" },
-    "beaujolais/gamay": { "scope": "country", "color": "red", "checkedOn": "2026-10-25" }
+    "beaujolais/gamay": { "scope": "country", "color": "red", "checkedOn": "2026-10-25" },
+    "champagne-blanc-de-blancs/chardonnay": { "scope": "region", "family": "sparkling", "color": "white", "checkedOn": "2026-10-25" },
+    "cava/macabeo": { "scope": "country", "family": "sparkling", "color": "white", "checkedOn": "2026-10-25" },
+    "cremant-alsace/pinot-blanc": { "scope": "region", "family": "sparkling", "color": "white", "checkedOn": "2026-10-25" },
+    "cremant-alsace/pinot-noir": { "scope": "region", "family": "sparkling", "color": "rose", "checkedOn": "2026-10-25" },
+    "cremant-loire/chenin-blanc": { "scope": "region", "family": "sparkling", "color": "white", "checkedOn": "2026-10-25" },
+    "sauternes/semillon": { "scope": "region", "family": "sweet", "color": "white-gold", "checkedOn": "2026-10-25" },
+    "douro-port-ruby/port-blend": { "scope": "region", "family": "fortified", "color": "red", "grapeFilter": false, "checkedOn": "2026-10-26" },
+    "douro-port-tawny/port-blend": { "scope": "region", "family": "fortified", "color": "tawny", "grapeFilter": false, "checkedOn": "2026-10-26" }
   }
 }
